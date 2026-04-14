@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Ma+Shan+Zheng&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-calligraphy: "Ma Shan Zheng", cursive;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --color-jade-400: #4ade80;
+  --color-jade-500: #22c55e;
+  --color-jade-600: #16a34a;
+  
+  --color-gold-400: #fbbf24;
+  --color-gold-500: #f59e0b;
+  --color-gold-600: #d97706;
+
+  --color-paper: #f5f2ed;
+  --color-ink: #0a0a0a;
+  --color-cinnabar: #e34234;
+  --color-parchment-ink: #2c1810;
+  --color-parchment-paper: #f2e8d5;
+}
+
+:root {
+  --parchment-bg: #f2e8d5;
+  --parchment-ink: #2c1810;
+  --parchment-border: #c4b494;
+  --roller-bg: linear-gradient(to right, #3d2b1f, #8b4513, #3d2b1f);
+}
+
+.dark {
+  --parchment-bg: #1a1612;
+  --parchment-ink: #d4c4a8;
+  --parchment-border: #4a3b2c;
+  --roller-bg: linear-gradient(to right, #0a0a0a, #2c1b18, #0a0a0a);
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: #0a0a0a;
+  color: #f5f2ed;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' %3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
+  transition: background-color 0.5s ease;
+}
+
+.paper-card {
+  background-color: rgba(245, 242, 237, 0.03);
+  border: 1px solid rgba(245, 242, 237, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  position: relative;
+  overflow: hidden;
+  color: inherit;
+}
+
+.paper-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 0c55.228 0 100 44.772 100 100s-44.772 100-100 100S0 155.228 0 100 44.772 0 100 0zm0 20c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80z' fill='%23f5f2ed' fill-opacity='0.02'/%3E%3C/svg%3E");
+  background-size: 300px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.jade-text {
+  color: #4ade80;
+  text-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+}
+
+.gold-text {
+  color: #fbbf24;
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Qi Flow Animation */
+@keyframes qi-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.qi-gradient {
+  background: linear-gradient(-45deg, rgba(74, 222, 128, 0.1), rgba(251, 191, 36, 0.1), rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1));
+  background-size: 400% 400%;
+  animation: qi-flow 15s ease infinite;
+}
+
+/* Floating Clouds Motif */
+.cloud-motif {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='60' viewBox='0 0 100 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 40c0-5.523 4.477-10 10-10 1.14 0 2.21.19 3.206.538C35.53 26.54 39.46 24 44 24c5.84 0 10.66 4.31 11.75 10.003C56.86 33.36 58.37 33 60 33c5.523 0 10 4.477 10 10s-4.477 10-10 10H30c-5.523 0-10-4.477-10-10z' fill='%23f5f2ed' fill-opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Floating Particles */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 10s linear infinite;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 0.5);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.4);
+}
+
+/* Ink Splash Effect */
+.ink-splash {
+  position: absolute;
+  background: var(--color-ink);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  animation: ink-spread-advanced 4s ease-out infinite;
+}
+
+@keyframes ink-spread-advanced {
+  0% { transform: scale(0); opacity: 0; }
+  50% { opacity: 0.3; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Tribulation Lightning */
+.lightning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.animate-lightning {
+  animation: flash 0.5s ease-out;
+}
+
+@keyframes flash {
+  0% { opacity: 0; }
+  10% { opacity: 0.8; }
+  20% { opacity: 0.2; }
+  30% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+/* Floating Petals */
+.petal {
+  position: absolute;
+  background: #fecaca; /* light pink */
+  width: 8px;
+  height: 12px;
+  border-radius: 50% 0 50% 0;
+  opacity: 0.6;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* Text Glow */
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.text-glow-jade {
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.5), 0 0 20px rgba(52, 211, 153, 0.3);
+}
+
+/* Breakthrough Aura */
+.aura-breakthrough {
+  position: absolute;
+  inset: -20px;
+  border: 2px solid var(--color-gold-500);
+  border-radius: 50%;
+  opacity: 0;
+  animation: aura-expand 2s ease-out infinite;
+}
+
+@keyframes aura-expand {
+  0% { transform: scale(0.8); opacity: 1; border-width: 4px; }
+  100% { transform: scale(1.5); opacity: 0; border-width: 1px; }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 242, 237, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 242, 237, 0.2);
+}
+
+@keyframes ink-spread {
+  from { opacity: 0; transform: scale(0.95); filter: blur(10px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+.animate-ink {
+  animation: ink-spread 1s ease-out forwards;
+}
+
+/* Bagua Pattern */
+.bagua-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23f5f2ed' stroke-opacity='0.03' stroke-width='1'%3E%3Ccircle cx='200' cy='200' r='180'/%3E%3Ccircle cx='200' cy='200' r='140'/%3E%3Ccircle cx='200' cy='200' r='100'/%3E%3Cpath d='M200 20v360M20 200h360M72.7 72.7l254.6 254.6M72.7 327.3L327.3 72.7'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Xianxia Icon Style */
+.xianxia-icon {
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
+  stroke-width: 1.5px;
+  stroke: currentColor;
+}
+
+.dark .xianxia-icon {
+  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
+}
+
+/* Realistic Painting Filter for Avatars - Ink Wash Style */
+.painting-effect {
+  filter: sepia(0.2) contrast(1.1) brightness(1.05) saturate(0.8);
+}
+
+.avatar-container {
+  background: #f2e8d5; /* Parchment color */
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' %3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, transparent 100%);
+  border: 1px solid #c4b494;
+  border-radius: 4px;
+  padding: 0;
+  box-shadow: 
+    0 4px 10px rgba(0,0,0,0.2),
+    inset 0 0 20px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+/* Add a subtle silhouette effect behind the avatar if possible, 
+   but since we use img tags, we'll just use a pseudo-element on the container */
+.avatar-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(10px) opacity(0.3);
+  transform: scale(1.2) translate(5px, 5px);
+  z-index: 0;
+}
