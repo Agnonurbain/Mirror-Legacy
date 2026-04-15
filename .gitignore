@@ -1,8 +1,82 @@
-node_modules/
-build/
-dist/
-coverage/
+# =============================================================================
+# Unity generated
+# =============================================================================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!/[Aa]ssets/**/*.meta
+
+# Uncomment to ignore specific folders inside Assets if needed
+# /[Aa]ssets/AssetStoreTools*
+# /[Aa]ssets/Plugins/Editor/JetBrains*
+
+# =============================================================================
+# Visual Studio / Rider / IDE
+# =============================================================================
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.DotSettings.user
+
+# =============================================================================
+# OS
+# =============================================================================
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# =============================================================================
+# Unity builds / output
+# =============================================================================
+ExportedObj/
+.consulo/
+*.apk
+*.aab
+*.unitypackage
+*.app
+crashlytics-build.properties
+
+# =============================================================================
+# Logs / crash dumps
+# =============================================================================
+sysinfo.txt
 *.log
+*.stackdump
+
+# =============================================================================
+# Node artifacts (legacy web port in .archive/web-port/)
+# =============================================================================
+node_modules/
+.archive/web-port/node_modules/
+.archive/web-port/dist/
 .env*
 !.env.example
+
+# =============================================================================
+# Claude Code local state
+# =============================================================================
+.claude/
