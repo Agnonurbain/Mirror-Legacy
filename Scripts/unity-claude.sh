@@ -36,6 +36,20 @@ detect_unity() {
 UNITY_BIN=$(detect_unity)
 PROJECT_DIR="$(pwd)"
 COMMAND="${1:-Compile}"
+
+# Resolve fully-qualified method path.
+# - Input with a dot is treated as a full path (e.g. ClaudeBridge.ClaudeSceneBootstrapper.BootstrapClanDomain).
+# - Bare names map to methods on ClaudeBridge.ClaudeCodeBridge.
+# - Known aliases route to their owning class so callers don't need to remember layout.
+case "$COMMAND" in
+    BootstrapClanDomain) METHOD_PATH="ClaudeBridge.ClaudeSceneBootstrapper.BootstrapClanDomain" ;;
+    BuildLinux64|BuildWindows64) METHOD_PATH="ClaudeBridge.ClaudeBuildManager.${COMMAND}" ;;
+    RunEditModeTests|RunPlayModeTests) METHOD_PATH="ClaudeBridge.ClaudeTestRunner.${COMMAND}" ;;
+    ScanLegacyPackages|AutoMigrate) METHOD_PATH="ClaudeBridge.UpmMigrator.${COMMAND}" ;;
+    *.*) METHOD_PATH="$COMMAND" ;;
+    *) METHOD_PATH="ClaudeBridge.ClaudeCodeBridge.${COMMAND}" ;;
+esac
+
 LOG_FILE=$(mktemp /tmp/unity_claude_XXXX.log)
 OUTPUT_FILE="$PROJECT_DIR/claude-output/result.json"
 TIMEOUT="${TIMEOUT:-600}" # 10 min max par défaut
@@ -70,7 +84,7 @@ if flock -n 200 2>/dev/null; then
         -batchmode \
         -nographics \
         -projectPath "$PROJECT_DIR" \
-        -executeMethod "ClaudeBridge.ClaudeCodeBridge.${COMMAND}" \
+        -executeMethod "$METHOD_PATH" \
         -logFile "$LOG_FILE" \
         -quit 2>/dev/null || true
 else

@@ -1,6 +1,8 @@
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Economy;
@@ -10,13 +12,21 @@ namespace MirrorChronicles.Core
 {
     /// <summary>
     /// Handles saving and loading the game state to a JSON file.
-    /// Uses Unity's built-in JsonUtility (or Newtonsoft.Json if preferred later).
+    /// Uses Newtonsoft.Json so auto-properties on CharacterData serialize round-trip
+    /// (JsonUtility only handles public fields, which would drop every { get; set; }).
     /// </summary>
     public class SaveSystem : MonoBehaviour
     {
         public static SaveSystem Instance { get; private set; }
 
         private string SaveFilePath => Path.Combine(Application.persistentDataPath, "ironman_save.json");
+
+        private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
+        {
+            Formatting = Formatting.Indented,
+            NullValueHandling = NullValueHandling.Include,
+            Converters = { new StringEnumConverter() }
+        };
 
         private void Awake()
         {
@@ -63,7 +73,7 @@ namespace MirrorChronicles.Core
 
             try
             {
-                string json = JsonUtility.ToJson(data, true); // true for pretty print
+                string json = JsonConvert.SerializeObject(data, SerializerSettings);
                 File.WriteAllText(SaveFilePath, json);
                 Debug.Log($"[SaveSystem] Game saved successfully to: {SaveFilePath}");
             }
@@ -84,7 +94,13 @@ namespace MirrorChronicles.Core
             try
             {
                 string json = File.ReadAllText(SaveFilePath);
-                GameData data = JsonUtility.FromJson<GameData>(json);
+                GameData data = JsonConvert.DeserializeObject<GameData>(json, SerializerSettings);
+
+                if (data == null)
+                {
+                    Debug.LogError("[SaveSystem] Save file is empty or corrupt.");
+                    return false;
+                }
 
                 RestoreGameState(data);
                 Debug.Log("[SaveSystem] Game loaded successfully.");
