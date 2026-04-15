@@ -72,7 +72,7 @@ namespace MirrorChronicles.Tests
                 Debug.Log("<color=orange>[Phase 2] Random Events & Encounters</color>");
                 if (EventManager.Instance != null)
                 {
-                    EventManager.Instance.GenerateYearlyEvent();
+                    EventManager.Instance.TriggerYearlyEvent();
                 }
                 else
                 {

@@ -62,7 +62,7 @@ namespace MirrorChronicles.Mirror
             }
 
             int mirrorPowerCost = inputs.Count * 10;
-            if (!MirrorSystem.Instance.ConsumeMirrorPower(mirrorPowerCost))
+            if (!MirrorSystem.Instance.ConsumePower(mirrorPowerCost))
             {
                 Debug.LogWarning("[DeductionEngine] Not enough Mirror Power for deduction.");
                 return null;
@@ -159,7 +159,8 @@ namespace MirrorChronicles.Mirror
                 Element.Metal => "Piercing",
                 Element.Earth => "Unshakable",
                 Element.Lightning => "Heavenly",
-                Element.Ice => "Frostbite",
+                Element.Darkness => "Shadow",
+                Element.Light => "Radiant",
                 _ => "Mystic"
             };
 

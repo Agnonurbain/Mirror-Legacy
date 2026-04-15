@@ -47,7 +47,7 @@ namespace MirrorChronicles.Clan
             // 2. If they were a high realm cultivator, they leave behind a Dao Fragment
             if (deceased.Realm >= CultivationRealm.GoldenCore)
             {
-                Debug.Log($"<color=magenta>[Profound Legacy]</color> {deceased.FirstName} left behind a profound Dao Fragment of {deceased.RootElement}!");
+                Debug.Log($"<color=magenta>[Profound Legacy]</color> {deceased.FirstName} left behind a profound Dao Fragment of {deceased.Affinity}!");
                 // Here we would add it to the DeductionEngine's inventory
             }
         }

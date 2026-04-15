@@ -99,8 +99,9 @@ namespace MirrorChronicles.Diplomacy
 
         /// <summary>
         /// Autonomous AI for rival factions. They make decisions based on their personality and relations.
+        /// Normally triggered by OnPhaseChanged; exposed publicly so tests can drive it manually.
         /// </summary>
-        private void ProcessYearlyFactionAI()
+        public void ProcessYearlyFactionAI()
         {
             Debug.Log("[FactionManager] --- Processing World Faction AI ---");
 

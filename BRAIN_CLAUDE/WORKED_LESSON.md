@@ -35,6 +35,7 @@ Chaque entrée suit ce format :
 | **Cause racine** | Incohérence entre la génération initiale par l'IA : un premier prompt a peut-être utilisé `RootElement`, un second prompt l'a renommé `Affinity` dans `CharacterData` mais pas dans `LegacySystem`. |
 | **Solution** | Remplacer `deceased.RootElement` par `deceased.Affinity`. |
 | **Impact** | 🔴 Bloquant — le projet entier ne compile pas. |
+| **Statut** | ✅ Résolu 2026-04-15. |
 | **Prévention** | Systématiquement faire `Refactor → Rename` de Rider/VS au lieu de renommer à la main. Activer les warnings "CS0103 Name does not exist" en Error dans `.editorconfig`. |
 
 ---
@@ -50,6 +51,7 @@ Chaque entrée suit ce format :
 | **Cause racine** | Même que WL-001 — incohérence de nommage entre fichiers. |
 | **Solution** | Remplacer par `MirrorSystem.Instance.ConsumePower(mirrorPowerCost)`. |
 | **Impact** | 🔴 Bloquant. |
+| **Statut** | ✅ Résolu 2026-04-15. |
 | **Prévention** | Idem WL-001. De plus, ne jamais redoubler le préfixe dans le nom de méthode si le type porte déjà le préfixe (`MirrorSystem.ConsumeMirrorPower` → redondant, `MirrorSystem.ConsumePower` suffit). |
 
 ---
@@ -65,6 +67,7 @@ Chaque entrée suit ce format :
 | **Cause racine** | Le master prompt liste 8 éléments (Feu, Eau, Bois, Métal, Terre, Foudre, Ténèbres, Lumière). L'IA a inventé "Ice" en rédigeant le switch de noms procéduraux. |
 | **Solution** | Deux options : (a) retirer le case `Element.Ice` du switch dans `DeductionEngine`, (b) ajouter `Ice` à l'enum Element si l'on veut ce 9e élément — dans ce cas, l'ajouter aussi à `GeneticSystem.GenerateRandomAffinity` pour cohérence. Recommandation : option (a). |
 | **Impact** | 🔴 Bloquant. |
+| **Statut** | ✅ Résolu 2026-04-15. |
 | **Prévention** | Ne pas écrire de switch sur un enum dans des fichiers différents. Si on a besoin de mapping enum → string, utiliser une méthode d'extension centralisée qui couvre toutes les valeurs via un `Dictionary<Element, string>` initialisé depuis l'enum — les valeurs manquantes deviennent visibles immédiatement. |
 
 ---
@@ -80,6 +83,7 @@ Chaque entrée suit ce format :
 | **Cause racine** | Test écrit avant / après la signature finale d'`EventManager`, sans recompilation. Faute d'un Unity qui tourne, aucune erreur visible. |
 | **Solution** | Soit (a) passer `TriggerYearlyEvent` en `public` si on veut permettre aux tests de la déclencher manuellement, soit (b) laisser le trigger automatique via `OnPhaseChanged` et supprimer l'appel dans le test. Recommandation : (a) avec un commentaire XML "Exposed for tests only — normally triggered by OnPhaseChanged". |
 | **Impact** | 🔴 Bloquant. |
+| **Statut** | ✅ Résolu 2026-04-15. |
 | **Prévention** | Écrire un vrai test NUnit qui peut se lancer dès qu'on sauvegarde. Le Test Runner d'Unity signale ces erreurs immédiatement. |
 
 ---
@@ -95,6 +99,7 @@ Chaque entrée suit ce format :
 | **Cause racine** | Idem WL-004. |
 | **Solution** | Passer la méthode en `public` avec commentaire XML "Exposed for testing" ou utiliser `[assembly: InternalsVisibleTo("MirrorChronicles.Tests")]` pour exposer l'internal aux tests uniquement. |
 | **Impact** | 🔴 Bloquant. |
+| **Statut** | ✅ Résolu 2026-04-15. |
 | **Prévention** | Idem WL-004. En plus, définir dès le départ la stratégie : tests dans assembly séparée + `InternalsVisibleTo`. |
 
 ---

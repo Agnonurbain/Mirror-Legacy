@@ -41,8 +41,9 @@ namespace MirrorChronicles.Events
 
         /// <summary>
         /// Rolls for a random event based on weighted probabilities.
+        /// Normally triggered by OnPhaseChanged; exposed publicly so tests can drive it manually.
         /// </summary>
-        private void TriggerYearlyEvent()
+        public void TriggerYearlyEvent()
         {
             Debug.Log("[EventManager] --- Rolling Yearly Event ---");
 
