@@ -43,6 +43,8 @@ COMMAND="${1:-Compile}"
 # - Known aliases route to their owning class so callers don't need to remember layout.
 case "$COMMAND" in
     BootstrapClanDomain) METHOD_PATH="ClaudeBridge.ClaudeSceneBootstrapper.BootstrapClanDomain" ;;
+    BuildUIPlaceholder) METHOD_PATH="ClaudeBridge.ClaudeUIBuilder.BuildUIPlaceholder" ;;
+    ImportTMPEssentials) METHOD_PATH="ClaudeBridge.ClaudeUIBuilder.ImportTMPEssentials" ;;
     BuildLinux64|BuildWindows64) METHOD_PATH="ClaudeBridge.ClaudeBuildManager.${COMMAND}" ;;
     RunEditModeTests|RunPlayModeTests) METHOD_PATH="ClaudeBridge.ClaudeTestRunner.${COMMAND}" ;;
     ScanLegacyPackages|AutoMigrate) METHOD_PATH="ClaudeBridge.UpmMigrator.${COMMAND}" ;;
@@ -80,13 +82,16 @@ mkdir -p "$PROJECT_DIR/claude-output"
 # Lancement batch sécurisé avec lock
 echo -e "${YELLOW}▶️ Démarrage Unity en batch mode...${NC}"
 if flock -n 200 2>/dev/null; then
+    # -quit omitted on purpose: async work (ImportPackage callbacks, etc.) must
+    # complete before termination. WriteJson inside the bridge always calls
+    # EditorApplication.Exit, so Unity terminates deterministically on success.
+    # The `timeout` wrapper guards against hangs.
     timeout "$TIMEOUT" "$UNITY_BIN" \
         -batchmode \
         -nographics \
         -projectPath "$PROJECT_DIR" \
         -executeMethod "$METHOD_PATH" \
-        -logFile "$LOG_FILE" \
-        -quit 2>/dev/null || true
+        -logFile "$LOG_FILE" 2>/dev/null || true
 else
     echo -e "${RED}⚠️  Une instance Unity est déjà en cours${NC}"
     exit 1
