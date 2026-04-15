@@ -27,6 +27,7 @@
 *.csproj
 *.unityproj
 *.sln
+*.slnx
 *.suo
 *.tmp
 *.user
@@ -80,3 +81,5 @@ node_modules/
 # Claude Code local state
 # =============================================================================
 .claude/
+claude-output/
+.unity.lock

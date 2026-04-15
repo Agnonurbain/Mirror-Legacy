@@ -1,0 +1,98 @@
+name: 🎮 Unity CI/CD (Ubuntu - Unity 6)
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  UNITY_VERSION: 6000.4.2f1
+  PROJECT_PATH: .
+  ARTIFACTS_PATH: Builds
+
+jobs:
+  test:
+    name: 🧪 Run Tests (EditMode + PlayMode)
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      
+      - uses: actions/cache@v4
+        with:
+          path: |
+            Library
+            ~/.cache/unity3d
+            ~/.local/share/Unity
+          key: ${{ runner.os }}-unity-${{ env.UNITY_VERSION }}-${{ hashFiles('Packages/manifest.json') }}
+          restore-keys: |
+            ${{ runner.os }}-unity-${{ env.UNITY_VERSION }}-
+
+      - name: 🔐 Activate Unity License
+        if: secrets.UNITY_LICENSE != ''
+        run: |
+          mkdir -p ~/.local/share/Unity/Unity/
+          echo "${{ secrets.UNITY_LICENSE }}" | base64 -d > ~/.local/share/Unity/Unity/Unity_lic.ulf
+
+      - name: 🧪 Run EditMode Tests
+        uses: game-ci/unity-actions@v2
+        with:
+          unityVersion: ${{ env.UNITY_VERSION }}
+          projectPath: ${{ env.PROJECT_PATH }}
+          testMode: editmode
+          customParameters: -batchmode -nographics -quit
+
+      - name: 🎬 Run PlayMode Tests (Headless)
+        uses: game-ci/unity-actions@v2
+        with:
+          unityVersion: ${{ env.UNITY_VERSION }}
+          projectPath: ${{ env.PROJECT_PATH }}
+          testMode: playmode
+          customParameters: -batchmode -nographics -quit -runTests -testPlatform playmode
+
+      - name: 📤 Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unity-test-results
+          path: |
+            TestResults.xml
+            claude-output/result.json
+            claude-output/*.json
+
+  build:
+    name: 📦 Build Linux Standalone
+    needs: test
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      
+      - uses: actions/cache@v4
+        with:
+          path: Library
+          key: ${{ runner.os }}-unity-${{ env.UNITY_VERSION }}-${{ hashFiles('Packages/manifest.json') }}
+
+      - name: 🔐 Activate Unity License
+        if: secrets.UNITY_LICENSE != ''
+        run: |
+          mkdir -p ~/.local/share/Unity/Unity/
+          echo "${{ secrets.UNITY_LICENSE }}" | base64 -d > ~/.local/share/Unity/Unity/Unity_lic.ulf
+
+      - name: 🛠️ Build Linux64
+        uses: game-ci/unity-actions@v2
+        with:
+          unityVersion: ${{ env.UNITY_VERSION }}
+          projectPath: ${{ env.PROJECT_PATH }}
+          customParameters: -batchmode -nographics -quit -executeMethod "ClaudeBridge.ClaudeBuildManager.BuildLinux64"
+
+      - name: 📤 Upload Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Unity-Linux64-Build-${{ github.sha }}
+          path: ${{ env.ARTIFACTS_PATH }}/
