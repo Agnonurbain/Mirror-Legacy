@@ -1,7 +1,8 @@
 # 📦 PACKAGE.md — Registre des packages Unity
 
-> **Dernière mise à jour :** 2026-04-14 (projet Unity pas encore bootstrapped — liste = packages cibles).
+> **Dernière mise à jour :** 2026-04-15 (Unity Hub installé, Editor Unity 6.4 (6000.4.2f1) présent, projet pas encore bootstrapped).
 > **Ce fichier DOIT être mis à jour à chaque ajout/suppression de package.**
+> **Unity cible : 6.4 LTS (6000.4.x)** — ligne LTS qui a succédé à Unity 2022 LTS en 2024.
 
 ---
 
@@ -18,20 +19,45 @@
 
 ## Bootstrap du projet Unity
 
-Une seule fois, pour créer le projet :
+Stratégie : créer un projet **temporaire** dans `/tmp/` avec Unity Hub, puis fusionner `ProjectSettings/` + `Packages/manifest.json` dans le repo existant (qui contient déjà `Assets/_Project/Scripts/`).
 
-1. Unity Hub → **New Project**
-2. Editor Version : **Unity 2022.3 LTS** (ou plus récent LTS)
-3. Template : **2D Core** (inclut 2D Sprite + 2D Tilemap + Universal Render Pipeline 2D)
-4. Project Name : `MirrorChronicles`
-5. Location : `/home/aymeric/Mirror-Legacy/`
-6. ⚠️ Cocher **Connect to Version Control** = Off (on gère git à la main)
+### Étape 1 — Créer un projet temporaire
 
-Après création :
-- Fermer Unity
-- Déplacer les scripts existants de `Assets/_Project/Scripts/` dans le nouveau projet (s'ils ne sont pas déjà au bon endroit)
-- Rouvrir Unity et laisser générer les `.meta` files
-- Add/commit tout sauf `Library/`, `Temp/`, `Obj/`, `Build/`, `Logs/`, `UserSettings/`, `*.csproj`, `*.sln`
+1. Unity Hub → onglet **Projects** → **New project**
+2. Editor Version : **6000.4.2f1** (Unity 6.4 LTS)
+3. Template : **Universal 2D** (inclut 2D Sprite + 2D Tilemap + Universal Render Pipeline 2D)
+4. Project name : `MirrorChronicles-bootstrap`
+5. Location : `/tmp/`
+6. ⚠️ Décocher **Connect to Version Control** (on gère git à la main dans `Mirror-Legacy/`)
+7. **Create project** → attendre 1-3 min (import initial)
+8. Fermer Unity
+
+### Étape 2 — Fusionner dans le repo
+
+```bash
+# Depuis /home/aymeric/Mirror-Legacy/
+cp -r /tmp/MirrorChronicles-bootstrap/ProjectSettings ./
+cp -r /tmp/MirrorChronicles-bootstrap/Packages ./
+# Récupérer éventuellement la scène vide par défaut
+mkdir -p Assets/Scenes
+cp /tmp/MirrorChronicles-bootstrap/Assets/Scenes/*.unity* Assets/Scenes/ 2>/dev/null || true
+# Supprimer le projet temporaire
+rm -rf /tmp/MirrorChronicles-bootstrap
+```
+
+### Étape 3 — Ouvrir le repo dans Unity
+
+1. Unity Hub → **Projects** → **Open** → choisir `/home/aymeric/Mirror-Legacy/`
+2. Unity scanne `Assets/`, génère les `.meta` pour les scripts existants, compile
+3. Vérifier l'absence d'erreurs (Console en bas ne doit pas être rouge)
+4. Ajouter les packages requis (section suivante) via Package Manager
+
+### Étape 4 — Commit
+
+Le `.gitignore` Unity-standard déjà en place ignore `Library/`, `Temp/`, `Obj/`, `Build/`, `Logs/`, `UserSettings/`, `*.csproj`, `*.sln`. Committer uniquement :
+- `ProjectSettings/`
+- `Packages/manifest.json` + `Packages/packages-lock.json`
+- `Assets/` (avec tous les `.meta`)
 
 ---
 
@@ -39,38 +65,40 @@ Après création :
 
 Ces packages sont **obligatoires** pour que le code existant fonctionne.
 
-| Package | Version cible | Identifiant | Usage |
+| Package | Version cible (Unity 6.4) | Identifiant | Usage |
 |---|---|---|---|
-| **TextMeshPro** | Built-in | `com.unity.textmeshpro` | Tout affichage texte (UI) |
+| **UGUI (inclut TextMeshPro)** | 2.0.0+ | `com.unity.ugui` | UI + tout affichage texte (TMP est intégré à UGUI depuis Unity 6) |
 | **Newtonsoft JSON** | 3.2.1+ | `com.unity.nuget.newtonsoft-json` | Sérialisation JSON robuste (remplace JsonUtility — voir WL-006) |
-| **Input System** | 1.7+ | `com.unity.inputsystem` | Entrées clavier/souris/tactile unifiées (PC + mobile) |
-| **Test Framework** | 1.1+ | `com.unity.test-framework` | Tests NUnit Edit Mode + Play Mode |
+| **Input System** | 1.11+ | `com.unity.inputsystem` | Entrées clavier/souris/tactile unifiées (PC + mobile) |
+| **Test Framework** | 1.4+ | `com.unity.test-framework` | Tests NUnit Edit Mode + Play Mode |
 
 ### Installation
 
 ```
 Window → Package Manager → Unity Registry
-  - TextMeshPro (Essentials importés automatiquement)
-  - Newtonsoft JSON
-  - Input System (redémarrer Unity après install, choisir "New Input System (Preview)")
-  - Test Framework
+  - Newtonsoft JSON  (à installer — pas livré par défaut)
+  - Input System     (redémarrer Unity après install, choisir "New Input System")
+  - Test Framework   (normalement déjà présent avec le template Universal 2D)
+  - UGUI             (déjà présent avec le template)
 ```
 
-Ou directement dans `Packages/manifest.json` :
+Ou directement dans `Packages/manifest.json` (fusionner avec celui généré par le template Universal 2D) :
 
 ```json
 {
   "dependencies": {
-    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.ugui": "2.0.0",
     "com.unity.nuget.newtonsoft-json": "3.2.1",
-    "com.unity.inputsystem": "1.7.0",
-    "com.unity.test-framework": "1.3.9",
+    "com.unity.inputsystem": "1.11.2",
+    "com.unity.test-framework": "1.4.5",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
-    "com.unity.render-pipelines.universal": "14.0.11"
+    "com.unity.render-pipelines.universal": "17.0.3"
   }
 }
 ```
+
+> Les numéros de version exacts dépendent de ce que Unity 6.4 livre par défaut. Après le bootstrap, le `Packages/manifest.json` réel est autoritaire — ajuster ce tableau pour qu'il reflète le manifest réel.
 
 ---
 
@@ -128,7 +156,7 @@ Ou directement dans `Packages/manifest.json` :
 - Product Name : `Mirror Chronicles` (ou nom final du jeu)
 - Default Icon : à définir (Phase 4)
 - Scripting Backend : **IL2CPP** pour release (performance + anti-reverse)
-- Api Compatibility Level : **.NET Standard 2.1**
+- Api Compatibility Level : **.NET Standard 2.1** (défaut Unity 6)
 
 ### Build Settings — Scenes in Build
 

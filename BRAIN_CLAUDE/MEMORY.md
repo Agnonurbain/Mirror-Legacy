@@ -11,7 +11,7 @@
 - **Inspiration** : *The Mirror Legacy (Xuanjian Xianzu)*
 - **Auteur** : Aymeric
 - **Type** : RPG de Gestion de Clan & Tactique 2D
-- **Moteur** : Unity 2022 LTS+ (C#)
+- **Moteur** : Unity 6.4 LTS (6000.4.x) + C#
 - **Plateformes** : PC (Steam) + Mobile (iOS/Android)
 - **Perspective** : 2D top-down / isométrique pour le domaine, grille 2D pour le combat
 - **Langue code** : Anglais strict (classes, variables, commentaires XML)

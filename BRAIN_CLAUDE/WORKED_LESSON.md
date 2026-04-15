@@ -143,8 +143,9 @@ Chaque entrée suit ce format :
 | **Fichier** | Racine du repo |
 | **Problème** | Pas de `ProjectSettings/`, pas de `Packages/manifest.json`, pas de scènes `.unity`, pas de `.meta` files. Unity ne peut pas ouvrir le repo actuel comme projet. |
 | **Cause racine** | Le code a été généré à plat (scripts C# uniquement) par l'IA, sans bootstrap Unity Hub. |
-| **Solution** | Créer un nouveau projet Unity 2022 LTS avec le template "2D Core", puis déplacer les scripts existants dans `Assets/_Project/Scripts/`. Laisser Unity générer les `.meta`. |
+| **Solution** | Créer un projet Unity 6.4 LTS (6000.4.x) avec le template "Universal 2D" dans `/tmp/`, puis fusionner `ProjectSettings/` + `Packages/manifest.json` dans le repo. Laisser Unity générer les `.meta` pour les scripts existants. Voir procédure détaillée dans `PACKAGE.md`. |
 | **Impact** | 🔴 Bloquant — rien ne tourne. |
+| **Statut** | ✅ Résolu 2026-04-15. Bootstrap effectué avec Unity 6.4.2f1 + template Universal 2D. 39 scripts C# compilent sans erreur. |
 | **Prévention** | Toujours bootstrapper via Unity Hub avant d'écrire du code, même pour du prototypage. |
 
 ---

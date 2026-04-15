@@ -42,7 +42,7 @@ BRAINSTORMING.md → CLAUDE.md → MEMORY.md → NOT_DONE.md → WORKED_LESSON.m
 ## 🎯 État ultra-court du projet
 
 - **Type** : RPG de gestion de clan + tactique 2D, thème Xianxia (cultivation chinoise)
-- **Moteur cible** : Unity 2022 LTS + C#
+- **Moteur cible** : Unity 6.4 LTS (6000.4.x) + C#
 - **Phase actuelle** : **Phase 1 en cours** — le code Phase 1-3 existe déjà sous forme de scripts, mais **le projet n'est PAS encore un vrai projet Unity** (pas de `ProjectSettings/`, pas de `Packages/manifest.json`, pas de scène `.unity`). Plusieurs **erreurs de compilation** à corriger avant que quoi que ce soit tourne.
 - **Source de vérité** : le master prompt (également dans chat / CLAUDE.md racine)
 - **Langue** : FR pour docs + logs Debug en FR possible, **EN strict** pour code (classes, variables, commentaires XML)
