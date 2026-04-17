@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -25,6 +27,10 @@ namespace MirrorChronicles.UI
         private GameObject memberRowTemplate;
 
         private readonly List<GameObject> spawnedRows = new List<GameObject>();
+
+        // Task options filtered per realm level.
+        private static readonly TaskType[] EmbryonicTasks = { TaskType.None, TaskType.Cultivation, TaskType.Rest };
+        private static readonly TaskType[] FullTasks = (TaskType[])Enum.GetValues(typeof(TaskType));
 
         private void Awake()
         {
@@ -106,12 +112,40 @@ namespace MirrorChronicles.UI
                 var row = Instantiate(memberRowTemplate, membersContent);
                 row.SetActive(true);
 
-                var label = row.GetComponentInChildren<TMP_Text>();
+                // Label (left)
+                var label = row.transform.Find("Label")?.GetComponent<TMP_Text>();
                 if (label != null)
-                    label.text = $"{member.FullName}  ·  Age {member.Age}  ·  {member.Realm}  ·  {member.CurrentTask}  ·  MS {member.MentalStability}";
+                    label.text = $"{member.FullName}  ·  {member.Age}y  ·  {member.Realm}  ·  MS {member.MentalStability}";
+
+                // Task dropdown (right)
+                var dropdown = row.GetComponentInChildren<TMP_Dropdown>();
+                if (dropdown != null)
+                    SetupTaskDropdown(dropdown, member);
 
                 spawnedRows.Add(row);
             }
+        }
+
+        private void SetupTaskDropdown(TMP_Dropdown dropdown, CharacterData member)
+        {
+            TaskType[] available = member.Realm == CultivationRealm.Embryonic ? EmbryonicTasks : FullTasks;
+            var options = available.Select(t => new TMP_Dropdown.OptionData(t.ToString())).ToList();
+
+            dropdown.ClearOptions();
+            dropdown.AddOptions(options);
+
+            // Set current selection
+            int idx = Array.IndexOf(available, member.CurrentTask);
+            dropdown.SetValueWithoutNotify(idx >= 0 ? idx : 0);
+
+            // Wire callback (capture member + available by value)
+            var capturedMember = member;
+            var capturedTasks = available;
+            dropdown.onValueChanged.AddListener(index =>
+            {
+                if (TaskAssignmentSystem.Instance != null && index >= 0 && index < capturedTasks.Length)
+                    TaskAssignmentSystem.Instance.AssignTask(capturedMember, capturedTasks[index]);
+            });
         }
     }
 }

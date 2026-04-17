@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
@@ -131,7 +132,7 @@ namespace ClaudeBridge
             if (Object.FindFirstObjectByType<EventSystem>() == null)
             {
                 new GameObject("EventSystem",
-                    typeof(EventSystem), typeof(StandaloneInputModule));
+                    typeof(EventSystem), typeof(InputSystemUIInputModule));
             }
 
             EditorSceneManager.MarkSceneDirty(scene);
@@ -263,17 +264,137 @@ namespace ClaudeBridge
             scrollRect.content = crt;
 
             var rowTemplate = new GameObject("MemberRowTemplate",
-                typeof(RectTransform), typeof(Image), typeof(LayoutElement));
+                typeof(RectTransform), typeof(Image), typeof(LayoutElement),
+                typeof(HorizontalLayoutGroup));
             rowTemplate.transform.SetParent(content.transform, false);
             rowTemplate.GetComponent<Image>().color = new Color(0.2f, 0.2f, 0.25f, 0.8f);
-            rowTemplate.GetComponent<LayoutElement>().minHeight = 44;
+            rowTemplate.GetComponent<LayoutElement>().minHeight = 48;
 
-            CreateTmpLabel(rowTemplate.transform, "Label",
-                Vector2.zero, Vector2.zero, "Member placeholder",
-                fontSize: 22, alignment: TextAlignmentOptions.MidlineLeft,
-                anchorMin: Vector2.zero, anchorMax: Vector2.one,
-                pivot: new Vector2(0.5f, 0.5f),
-                stretchToParent: true, paddingLeft: 20);
+            var rowLayout = rowTemplate.GetComponent<HorizontalLayoutGroup>();
+            rowLayout.padding = new RectOffset(20, 10, 4, 4);
+            rowLayout.spacing = 10;
+            rowLayout.childControlWidth = true;
+            rowLayout.childControlHeight = true;
+            rowLayout.childForceExpandWidth = false;
+            rowLayout.childForceExpandHeight = true;
+
+            // Label (takes remaining space)
+            var labelGO = new GameObject("Label",
+                typeof(RectTransform), typeof(LayoutElement));
+            labelGO.transform.SetParent(rowTemplate.transform, false);
+            labelGO.GetComponent<LayoutElement>().flexibleWidth = 1;
+            var labelTmp = labelGO.AddComponent<TextMeshProUGUI>();
+            labelTmp.text = "Member placeholder";
+            labelTmp.fontSize = 22;
+            labelTmp.alignment = TextAlignmentOptions.MidlineLeft;
+            labelTmp.color = Color.white;
+
+            // Task dropdown (fixed width)
+            BuildTaskDropdown(rowTemplate.transform);
+        }
+
+        private static void BuildTaskDropdown(Transform parent)
+        {
+            // Container
+            var ddGO = new GameObject("TaskDropdown",
+                typeof(RectTransform), typeof(Image), typeof(TMP_Dropdown), typeof(LayoutElement));
+            ddGO.transform.SetParent(parent, false);
+            ddGO.GetComponent<LayoutElement>().minWidth = 200;
+            ddGO.GetComponent<LayoutElement>().preferredWidth = 200;
+            ddGO.GetComponent<Image>().color = new Color(0.15f, 0.15f, 0.2f, 1f);
+
+            // Label inside the dropdown (shows selected value)
+            var labelGO = new GameObject("Label", typeof(RectTransform));
+            labelGO.transform.SetParent(ddGO.transform, false);
+            var lrt = (RectTransform)labelGO.transform;
+            lrt.anchorMin = Vector2.zero;
+            lrt.anchorMax = Vector2.one;
+            lrt.offsetMin = new Vector2(10, 0);
+            lrt.offsetMax = new Vector2(-25, 0);
+            var lbl = labelGO.AddComponent<TextMeshProUGUI>();
+            lbl.text = "None";
+            lbl.fontSize = 20;
+            lbl.alignment = TextAlignmentOptions.MidlineLeft;
+            lbl.color = Color.white;
+
+            // Arrow indicator
+            var arrowGO = new GameObject("Arrow", typeof(RectTransform), typeof(Image));
+            arrowGO.transform.SetParent(ddGO.transform, false);
+            var art = (RectTransform)arrowGO.transform;
+            art.anchorMin = new Vector2(1, 0.5f);
+            art.anchorMax = new Vector2(1, 0.5f);
+            art.pivot = new Vector2(1, 0.5f);
+            art.sizeDelta = new Vector2(16, 16);
+            art.anchoredPosition = new Vector2(-6, 0);
+            arrowGO.GetComponent<Image>().color = new Color(0.7f, 0.7f, 0.7f, 1f);
+
+            // Scrollable dropdown template
+            var templateGO = new GameObject("Template",
+                typeof(RectTransform), typeof(Image), typeof(ScrollRect));
+            templateGO.transform.SetParent(ddGO.transform, false);
+            var trt = (RectTransform)templateGO.transform;
+            trt.anchorMin = new Vector2(0, 0);
+            trt.anchorMax = new Vector2(1, 0);
+            trt.pivot = new Vector2(0.5f, 1);
+            trt.sizeDelta = new Vector2(0, 200);
+            trt.anchoredPosition = Vector2.zero;
+            templateGO.GetComponent<Image>().color = new Color(0.12f, 0.12f, 0.16f, 1f);
+            templateGO.SetActive(false);
+
+            var viewportGO = new GameObject("Viewport",
+                typeof(RectTransform), typeof(Image), typeof(Mask));
+            viewportGO.transform.SetParent(templateGO.transform, false);
+            var vprt = (RectTransform)viewportGO.transform;
+            vprt.anchorMin = Vector2.zero;
+            vprt.anchorMax = Vector2.one;
+            vprt.offsetMin = Vector2.zero;
+            vprt.offsetMax = Vector2.zero;
+            viewportGO.GetComponent<Image>().color = Color.white;
+            viewportGO.GetComponent<Mask>().showMaskGraphic = false;
+
+            var contentGO = new GameObject("Content", typeof(RectTransform));
+            contentGO.transform.SetParent(viewportGO.transform, false);
+            var crt = (RectTransform)contentGO.transform;
+            crt.anchorMin = new Vector2(0, 1);
+            crt.anchorMax = new Vector2(1, 1);
+            crt.pivot = new Vector2(0.5f, 1);
+            crt.sizeDelta = new Vector2(0, 0);
+
+            var scrollRect = templateGO.GetComponent<ScrollRect>();
+            scrollRect.viewport = vprt;
+            scrollRect.content = crt;
+            scrollRect.horizontal = false;
+
+            // Item template inside the dropdown
+            var itemGO = new GameObject("Item",
+                typeof(RectTransform), typeof(Image), typeof(Toggle));
+            itemGO.transform.SetParent(contentGO.transform, false);
+            var irt = (RectTransform)itemGO.transform;
+            irt.sizeDelta = new Vector2(0, 36);
+            itemGO.GetComponent<Image>().color = new Color(0.18f, 0.18f, 0.22f, 1f);
+
+            var itemLabelGO = new GameObject("Item Label", typeof(RectTransform));
+            itemLabelGO.transform.SetParent(itemGO.transform, false);
+            var ilrt = (RectTransform)itemLabelGO.transform;
+            ilrt.anchorMin = Vector2.zero;
+            ilrt.anchorMax = Vector2.one;
+            ilrt.offsetMin = new Vector2(10, 0);
+            ilrt.offsetMax = Vector2.zero;
+            var itemLabel = itemLabelGO.AddComponent<TextMeshProUGUI>();
+            itemLabel.text = "Option";
+            itemLabel.fontSize = 20;
+            itemLabel.alignment = TextAlignmentOptions.MidlineLeft;
+            itemLabel.color = Color.white;
+
+            // Wire dropdown references
+            var dropdown = ddGO.GetComponent<TMP_Dropdown>();
+            dropdown.captionText = lbl;
+            dropdown.template = trt;
+            dropdown.itemText = itemLabel;
+
+            // Toggle needs a target graphic for proper UI behavior
+            var toggle = itemGO.GetComponent<Toggle>();
+            toggle.targetGraphic = itemGO.GetComponent<Image>();
         }
 
         private static void CreateTmpLabel(

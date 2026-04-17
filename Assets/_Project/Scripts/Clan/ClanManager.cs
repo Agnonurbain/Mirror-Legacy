@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using MirrorChronicles.Data;
 using MirrorChronicles.Events;
@@ -33,11 +34,19 @@ namespace MirrorChronicles.Clan
         private void OnEnable()
         {
             GameEvents.OnCharacterDied += HandleCharacterDeath;
+            GameEvents.OnPhaseChanged += HandlePhaseChanged;
         }
 
         private void OnDisable()
         {
             GameEvents.OnCharacterDied -= HandleCharacterDeath;
+            GameEvents.OnPhaseChanged -= HandlePhaseChanged;
+        }
+
+        private void HandlePhaseChanged(GamePhase phase)
+        {
+            if (phase == GamePhase.Inheritance)
+                ProcessAnnualBirths();
         }
 
         /// <summary>
@@ -132,6 +141,63 @@ namespace MirrorChronicles.Clan
             LivingMembers.Add(newMember);
             GameEvents.TriggerCharacterBorn(newMember); // Used to notify UI and BloodRegistry
             Debug.Log($"[ClanManager] Added member: {newMember.FullName} (Age: {newMember.Age}, Realm: {newMember.Realm})");
+        }
+
+        private static readonly string[] MaleNames =
+            { "Wei", "Jian", "Long", "Feng", "Hao", "Chen", "Ming", "Shan", "Zhi", "Bo", "Tao", "Jun", "Kai" };
+        private static readonly string[] FemaleNames =
+            { "Xue", "Mei", "Lan", "Ying", "Lin", "Yue", "Hua", "Qing", "Zhen", "Rui", "Shu", "Dan" };
+
+        /// <summary>
+        /// Creates a new child from two parents using GeneticSystem for
+        /// spiritual root and elemental affinity. The child starts at age 0 in
+        /// Embryonic realm and is immediately added to the clan.
+        /// </summary>
+        public CharacterData GenerateChild(CharacterData father, CharacterData mother)
+        {
+            bool isMale = Random.value > 0.5f;
+            string[] pool = isMale ? MaleNames : FemaleNames;
+            string firstName = pool[Random.Range(0, pool.Length)];
+
+            var child = new CharacterData
+            {
+                FirstName = firstName,
+                LastName = ClanName,
+                IsMale = isMale,
+                Age = 0,
+                MaxLifespan = Random.Range(60, 120),
+                SpiritualRoot = GeneticSystem.GenerateSpiritualRoot(father, mother),
+                Affinity = GeneticSystem.GenerateAffinity(father, mother),
+                Realm = CultivationRealm.Embryonic,
+                MentalStability = 70,
+                FatherID = father?.ID,
+                MotherID = mother?.ID
+            };
+
+            AddMember(child);
+            Debug.Log($"[ClanManager] A child is born: {child.FullName} (Root: {child.SpiritualRoot}, Affinity: {child.Affinity})");
+            return child;
+        }
+
+        /// <summary>
+        /// Called during the Inheritance phase. For each married couple where both
+        /// are alive and the mother is between 16-45, roll a chance for a new child.
+        /// </summary>
+        public void ProcessAnnualBirths()
+        {
+            var couples = LivingMembers
+                .Where(m => !string.IsNullOrEmpty(m.SpouseID) && m.IsMale)
+                .ToList();
+
+            foreach (var father in couples)
+            {
+                var mother = LivingMembers.Find(m => m.ID == father.SpouseID);
+                if (mother == null || !mother.IsAlive) continue;
+                if (mother.Age < 16 || mother.Age > 45) continue;
+
+                if (Random.value < 0.25f) // 25% chance per year
+                    GenerateChild(father, mother);
+            }
         }
 
         private void HandleCharacterDeath(CharacterData character, DeathCause cause)

@@ -83,3 +83,4 @@ node_modules/
 .claude/
 claude-output/
 .unity.lock
+mono_crash.mem.*.blob

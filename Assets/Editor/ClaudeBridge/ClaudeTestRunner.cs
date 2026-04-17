@@ -25,8 +25,8 @@ namespace ClaudeBridge
             var filter = new Filter { testMode = mode };
             
             Debug.Log($"[CLAUDE-TEST] Lancement des tests {mode}...");
-            api.Execute(new ExecutionSettings(filter));
             api.RegisterCallbacks(new TestListener(cmd, startTime));
+            api.Execute(new ExecutionSettings(filter));
         }
 
         private class TestListener : ICallbacks
