@@ -145,11 +145,6 @@ namespace MirrorChronicles.Clan
             Debug.Log($"[ClanManager] Added member: {newMember.FullName} (Age: {newMember.Age}, Realm: {newMember.Realm})");
         }
 
-        private static readonly string[] MaleNames =
-            { "Wei", "Jian", "Long", "Feng", "Hao", "Chen", "Ming", "Shan", "Zhi", "Bo", "Tao", "Jun", "Kai" };
-        private static readonly string[] FemaleNames =
-            { "Xue", "Mei", "Lan", "Ying", "Lin", "Yue", "Hua", "Qing", "Zhen", "Rui", "Shu", "Dan" };
-
         /// <summary>
         /// Creates a new child from two parents using GeneticSystem for
         /// spiritual root and elemental affinity. The child starts at age 0 in
@@ -158,8 +153,8 @@ namespace MirrorChronicles.Clan
         public CharacterData GenerateChild(CharacterData father, CharacterData mother)
         {
             bool isMale = Random.value > 0.5f;
-            string[] pool = isMale ? MaleNames : FemaleNames;
-            string firstName = pool[Random.Range(0, pool.Length)];
+            var pool = isMale ? CharacterNames.Male : CharacterNames.Female;
+            string firstName = pool[Random.Range(0, pool.Count)];
 
             var child = new CharacterData
             {

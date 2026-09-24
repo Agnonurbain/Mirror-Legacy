@@ -44,7 +44,9 @@ namespace MirrorChronicles.Clan
 
         private void HandleBirth(CharacterData character)
         {
-            TotalBirths++;
+            // OnCharacterBorn also fires for founders and for spouses marrying in; only newborns count.
+            if (character.Age == 0)
+                TotalBirths++;
         }
 
         private void HandleDeath(CharacterData character, DeathCause cause)
