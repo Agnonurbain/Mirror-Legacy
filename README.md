@@ -4,7 +4,7 @@ RPG 2D de gestion de clan multigénérationnel inspiré de *The Mirror Legacy (X
 
 ## Stack
 
-- **Unity 2022.3 LTS** (2D Core template)
+- **Unity 6.4 LTS** (6000.4.2f1, 2D Core template)
 - **C#** — logique métier, systèmes de jeu, IA de combat
 - **Newtonsoft.Json** — sérialisation des sauvegardes (Ironman, auto-save annuelle)
 - **New Input System** — entrées PC + mobile

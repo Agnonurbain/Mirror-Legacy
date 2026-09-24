@@ -34,16 +34,16 @@
 
 | # | Tâche | Priorité | Détails |
 |---|---|---|---|
-| 20 | **TechniqueAction** | 🟡 | Nouvelle `ICombatAction` : consomme Qi (`GetQiCost` > 0), range variable, effets selon `TechniqueData`. Liée aux techniques mémorisées de `CharacterData` (à ajouter comme `List<string> KnownTechniqueIDs`). |
-| 21 | **ItemAction + FleeAction** | 🟡 | `ItemAction` : utilise une pilule (soin, Qi restore). `FleeAction` : jet Agility vs AgilityEnnemie, tour perdu si échec. |
-| 22 | **3 stratégies IA manquantes** | 🟡 | `StrategicStrategy` (cible les supports d'abord, utilise terrain), `BerserkerStrategy` (plus proche, ignore défense, tout le Qi), `CautiousStrategy` (fuit si Vit < 40%, économise Qi). |
-| 23 | **Terrain procédural** | 🟡 | `GridSystem.InitializeGrid` : génération avec mix de 5 terrains. Params : % forêt, % montagne, % eau, spots de ConcentratedQi (1-3). |
-| 24 | **Pathfinding A*** | 🟡 | `MoveAction` ne tient pas compte des coûts de mouvement ni des obstacles. Implémenter A* dans `GridSystem.FindPath`. |
-| 25 | **Table d'événements complète** | 🟡 | Passer `EventManager` d'un switch hardcodé à un `List<RandomEventData>` ScriptableObject avec poids. 10+ events : Monster Attack, Diplomatic Visit, Ruins Discovery, Genius Birth, Internal Betrayal, Natural Disaster, Wandering Merchant, Rival Challenge, Epidemic, Marriage Opportunity. |
-| 26 | **Événements scénarisés** | 🟡 | `StoryEventData` SO déclenchés par conditions : First Foundation, First Golden Core, Patriarch Betrayal, 10 Generations Retrospective. |
-| 27 | **Résolution UI des events** | 🟡 | Quand un event se déclenche, afficher une fenêtre de choix et bloquer `TimeManager.AdvancePhase` jusqu'à décision joueur. |
-| 28 | **Intervention Divine en combat** | 🟡 | Bouton "Qi Pulse" (10 MirrorPower) pendant `PlayerTurn` — buff temporaire à un allié. |
-| 29 | **Intervention Divine en percée** | 🟡 | Séquence animée de percée avec timer 5s et bouton "Ancestral Shield" (25 MirrorPower) qui ajoute +30% chance succès. |
+| 20 | ~~TechniqueAction~~ | ✅ | Fait 2026-04-18. ICombatAction avec Qi cost, range variable, dégâts/heal selon TechniqueType. +25% affinity bonus, +20% terrain Water. KnownTechniqueIDs ajouté sur CharacterData. Range ajouté sur TechniqueData. |
+| 21 | ~~ItemAction + FleeAction~~ | ✅ | Fait 2026-04-18. ItemAction (HealingPill/QiRestorationPill), FleeAction (Agility roll vs nearest enemy). ItemData POCO créé. Heal() + RestoreQi() ajoutés sur CombatUnit. |
+| 22 | ~~3 stratégies IA~~ | ✅ | Fait 2026-04-18. StrategicStrategy (cible supports, terrain), BerserkerStrategy (nearest + all Qi in techniques), CautiousStrategy (flee <40%, defend, retreat). |
+| 23 | ~~Terrain procédural~~ | ✅ | Fait 2026-04-18. InitializeGrid avec clusters (Forest, Mountain, Water) par croissance voisinage + ConcentratedQi spots (1-3). |
+| 24 | ~~Pathfinding A*~~ | ✅ | Fait 2026-04-18. `GridSystem.FindPath(start, goal)` avec A*, coûts terrain, skip occupied cells. Retourne chemin sans start, avec goal. |
+| 25 | ~~Table d'événements~~ | ✅ | Fait 2026-04-18. RandomEventData ScriptableObject avec Weight, MinYear, MinPatriarchRealm. EventManager refactorisé avec weighted random + 11 event types. Fallback BuildDefaultEventTable() si pas de SO assignés. |
+| 26 | ~~Événements scénarisés~~ | ✅ | Fait 2026-04-18. StoryEventData SO + StoryEventManager. 6 triggers : FirstFoundation, FirstGoldenCore, PatriarchBetrayal, FirstAscension, ClanExtinctionThreat. Choix avec StoryOutcome (MS, stones, relation). Defaults hardcodés si pas de SO. |
+| 27 | ~~Résolution UI des events~~ | ✅ | Fait 2026-04-18. EventResolutionUI modal panel + ChoiceButtonTemplate. Bloque EndTurn tant que PendingEvent actif. UIBuilder génère le panel dans la scène. |
+| 28 | ~~Intervention Divine combat~~ | ✅ | Fait 2026-04-18. `MirrorSystem.UseQiPulse(CombatUnit)` : +30% MaxQi + 15% MaxVit sur la cible. Coût 10 MirrorPower. UI button à créer. |
+| 29 | ~~Intervention Divine percée~~ | ✅ | Fait 2026-04-18. `BreakthroughSystem.ActivateAncestralShield()` consume 25 MirrorPower, flag +30% succès sur prochain AttemptBreakthrough. UI séquence à créer. |
 
 ---
 
@@ -51,13 +51,13 @@
 
 | # | Tâche | Priorité | Détails |
 |---|---|---|---|
-| 40 | **FactionData en ScriptableObjects** | 🟡 | Sortir les 3 factions hardcodées de `FactionManager.InitializeWorldFactions` vers des `.asset`. Créer 5-8 factions initiales (master prompt). |
-| 41 | **EspionageSystem** | 🟡 | Nouvelle classe. Permet de tenter un vol de FragmentData depuis une faction. Chance succès = SpiritualRoot × 0.5 − FactionPowerLevel/100. Échec = relation -20, possible combat. |
-| 42 | **WorldMap scene** | 🟡 | Scène `WorldMap.unity` avec carte peinte à l'encre. Factions positionnées sur territoires. Click sur une faction → panneau relation + actions diplomatiques. |
-| 43 | **BuildingSystem** | 🟡 | 8 bâtiments × 5 niveaux (master prompt) : Training Hall, Forge, Library, Herb Garden, Mine, Council Room, Meditation Pagoda (Purple Mansion min), Protective Formation. Coût croissant en ressources. |
-| 44 | **4 ressources additionnelles** | 🟡 | Compléter `ResourceManager` : Herbes Médicinales, Minerais Spirituels, Prestige (non-matériel), Fragments de Techniques. |
-| 45 | **Succession Patriarche** | 🟡 | Quand le Patriarche meurt, `LegacySystem` doit choisir successeur automatiquement (membre le plus qualifié : Realm puis Age puis SpiritualRoot). Si plusieurs candidats équivalents → événement de vote/schisme. |
-| 46 | **Karma du Clan** | 🟡 | Compteur de générations. Bonus passifs cumulatifs (+2% vitesse culture à 5 gen, +5% à 10 gen + techniques ancestrales). |
+| 40 | ~~FactionData en ScriptableObjects~~ | ✅ | Fait 2026-04-18. FactionTemplate SO + FactionManager accepte SO ou fallback 8 factions hardcodées. IA par personnalité (Aggressive, Merchant, Manipulative, Expansionist, Isolationist). |
+| 41 | ~~EspionageSystem~~ | ✅ | Fait 2026-04-18. `AttemptEspionage(spy, target)` : succès = SpiritualRoot×0.5%−Power/100 clampé [5%,60%]. Succès = fragment volé. Échec = -20 relation, -10 MS, 10% chance combat. Retourne `EspionageResult` struct. |
+| 42 | ~~WorldMap scene~~ | ✅ | Fait 2026-04-18. WorldMapUI controller + ClaudeWorldMapBuilder. 8 factions en cercle, panneau diplomatie (tribute, pact, spy, war). Navigation ClanDomain↔WorldMap. |
+| 43 | ~~BuildingSystem~~ | ✅ | Fait 2026-04-18. 8 bâtiments × 5 niveaux. Coûts croissants (200→8000). Bonus passifs annuels (XP, herbs, stones, MS). MeditationPagoda nécessite PurpleMansion, ProtectiveFormation nécessite Foundation. |
+| 44 | ~~4 ressources additionnelles~~ | ✅ | Fait 2026-04-18. ResourceManager étendu : MedicinalHerbs (50 init), SpiritualOres (30), Prestige (10), TechniqueFragments (0). Add/Consume pour chaque. |
+| 45 | ~~Succession Patriarche~~ | ✅ | Fait 2026-04-18. `PatriarchID` sur ClanManager, `ElectNewPatriarch()` auto à la mort (tri Realm→Age→SpiritualRoot). `GetPatriarch()` helper. |
+| 46 | ~~Karma du Clan~~ | ✅ | Fait 2026-04-18. ClanKarmaSystem : compteur générationnel (incrémenté au changement de patriarche), +2% cultivation/gen, bonus XP (+5 à 5 gen, +10 à 10 gen), unlock technique ancestrale à 10 gen. |
 
 ---
 
@@ -71,7 +71,7 @@
 | 63 | **VFX combat** | 🟢 | Traînées de Qi colorées par élément, shockwave à l'impact, Déviation de Qi = particules noires/rouges chaotiques. |
 | 64 | **Audio complet** | 🟢 | Musique Guqin (domaine), Taiko+Dizi (combat), montée orchestrale (percée). SFX parchemin, bronze, goutte d'encre. |
 | 65 | **Responsive UI mobile** | 🟢 | Canvas avec Reference Resolution + Scale With Screen Size. Testé 16:9 (PC) + 9:16 (mobile portrait) + 18:9. |
-| 66 | **Condition de victoire** | 🟢 | Écran narratif quand le clan atteint 10 générations + 1 Ascension. Cinématique finale. |
+| 66 | ~~Condition de victoire~~ | ✅ | Fait 2026-04-18. VictoryConditionSystem : victoire si 10 gen + 1 ascension, défaite si clan éteint. Transition GameOver. |
 | 67 | **Équilibrage complet** | 🟢 | Passes d'équilibrage après premiers playtest : courbes XP, taux de percée, drop rate fragments, prix bâtiments. |
 | 68 | **Optimisation mobile** | 🟢 | Unity Profiler avec 100+ membres dans BloodRegistry et 10+ unités en combat. Object Pool pour VFX. |
 | 69 | **Build Steam** | 🟢 | Config Steamworks SDK, achievements, cloud saves. |
@@ -94,8 +94,8 @@
 
 | # | Tâche | Priorité | Détails |
 |---|---|---|---|
-| 100 | **Object Pool** | 🟡 | Pour VFX combat, projectiles, éléments UI dynamiques. Évite les allocations en Update(). |
-| 101 | **Memento (save snapshot)** | 🟡 | Extension du SaveSystem pour snapshot d'état complet — permet mode Casual avec 3 slots + save manuelle. |
+| 100 | ~~Object Pool~~ | ✅ | Fait 2026-04-18. Generic ObjectPool avec RegisterPrefab, Get, Return (immédiat ou delayed). Singleton. |
+| 101 | ~~Memento (save snapshot)~~ | ✅ | Fait 2026-04-18. SaveSystem étendu avec SaveToSlot(1-3), LoadFromSlot, SlotExists. BuildGameData extrait en méthode partagée. |
 | 102 | **MVC strict pour UI** | 🟡 | Séparation Controller UI / ViewBinder / Model (ScriptableObject ou POCO). Pour l'instant tout est dans les MonoBehaviours. |
 
 ---

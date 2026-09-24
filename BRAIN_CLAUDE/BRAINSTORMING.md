@@ -43,19 +43,52 @@ BRAINSTORMING.md → CLAUDE.md → MEMORY.md → NOT_DONE.md → WORKED_LESSON.m
 
 - **Type** : RPG de gestion de clan + tactique 2D, thème Xianxia (cultivation chinoise)
 - **Moteur cible** : Unity 6.4 LTS (6000.4.x) + C#
-- **Phase actuelle** : **Phase 1 en cours** — le code Phase 1-3 existe déjà sous forme de scripts, mais **le projet n'est PAS encore un vrai projet Unity** (pas de `ProjectSettings/`, pas de `Packages/manifest.json`, pas de scène `.unity`). Plusieurs **erreurs de compilation** à corriger avant que quoi que ce soit tourne.
+- **Phase actuelle** : **Phases 1-3 terminées, Phase 4 en cours** — 60+ scripts, 6 actions combat, 5 stratégies IA, A*, terrain procédural, 11 events + 6 story events, 8 factions, 8 bâtiments, 5 ressources, espionnage, WorldMap, victoire/défaite, save slots, object pool. 17 tests EditMode passent.
 - **Source de vérité** : le master prompt (également dans chat / CLAUDE.md racine)
 - **Langue** : FR pour docs + logs Debug en FR possible, **EN strict** pour code (classes, variables, commentaires XML)
 
 ---
 
-## ⚠️ 5 priorités absolues (avant toute nouvelle feature)
+## ⚠️ 5 priorités absolues (Phase 2)
 
-1. **Bootstrapper le projet Unity** — créer `ProjectSettings/`, `Packages/manifest.json`, une scène `ClanDomain.unity` avec tous les `MonoBehaviour` Singletons attachés à un GameObject `[Systems]`.
-2. **Corriger les erreurs de compilation** (voir WORKED_LESSON.md) — le code ne compile pas en l'état.
-3. **Créer l'asmdef** `MirrorChronicles.Runtime.asmdef` pour isoler les scripts et activer la compilation incrémentale.
-4. **Vérifier la sérialisation JSON** — `JsonUtility` ne sérialise pas les auto-properties `{ get; set; }` → `CharacterData` ne se sauvegardera pas correctement en l'état.
-5. **Supprimer ou archiver le code web** (`src/`, `package.json`, `vite.config.ts`, etc.) — le pivot C# rend ce code obsolète.
+1. ✅ ~~Bootstrapper le projet Unity~~ — fait (2026-04-15)
+2. ✅ ~~Corriger les erreurs de compilation~~ — fait (WL-001..005)
+3. ✅ ~~Créer les asmdef~~ — Runtime + Editor + Tests
+4. ✅ ~~Sérialisation JSON → Newtonsoft~~ — SaveSystem migré
+5. ✅ ~~Archiver le code web~~ — dans `.archive/web-port/`
+
+**Nouvelles priorités Phase 2 :**
+1. ✅ ~~TechniqueAction~~ (#20) — fait (2026-04-18)
+2. ✅ ~~ItemAction + FleeAction~~ (#21) — fait (2026-04-18)
+3. ✅ ~~3 stratégies IA~~ (#22) — fait (2026-04-18)
+4. ✅ ~~Terrain procédural~~ (#23) — fait (2026-04-18)
+5. ✅ ~~Table d'événements~~ (#25) — fait (2026-04-18)
+
+6. ✅ ~~Pathfinding A*~~ (#24) — fait (2026-04-18)
+7. ✅ ~~Événements scénarisés~~ (#26) — fait (2026-04-18)
+8. ✅ ~~Intervention Divine combat~~ (#28) — fait (2026-04-18)
+9. ✅ ~~Intervention Divine percée~~ (#29) — fait (2026-04-18)
+
+10. ✅ ~~Résolution UI events~~ (#27) — fait (2026-04-18)
+11. ✅ ~~FactionData SO~~ (#40) — fait (2026-04-18), 8 factions par défaut
+12. ✅ ~~BuildingSystem~~ (#43) — fait (2026-04-18), 8 bâtiments × 5 niveaux
+13. ✅ ~~4 ressources~~ (#44) — fait (2026-04-18)
+14. ✅ ~~Succession Patriarche~~ (#45) — fait (2026-04-18)
+15. ✅ ~~Karma du Clan~~ (#46) — fait (2026-04-18)
+
+16. ✅ ~~EspionageSystem~~ (#41) — fait (2026-04-18)
+
+17. ✅ ~~WorldMap scene~~ (#42) — fait (2026-04-18)
+18. ✅ ~~Condition de victoire~~ (#66) — fait (2026-04-18)
+19. ✅ ~~Object Pool~~ (#100) — fait (2026-04-18)
+20. ✅ ~~Memento save slots~~ (#101) — fait (2026-04-18)
+
+**Prochaines priorités (Phase 4 — Art & Polish) :**
+1. **Direction artistique Shuimo** (#60) — nécessite assets visuels
+2. **UI thématique** (#61) — remplacement UI placeholder
+3. **VFX percée/combat** (#62-63) — Particle Systems
+4. **Audio** (#64) — musique + SFX
+5. **MVC strict pour UI** (#102)
 
 ---
 
