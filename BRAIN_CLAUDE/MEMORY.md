@@ -157,6 +157,8 @@ Tests (Edit/Play Mode)     : █░░░░░░░░░░░░░░░░
 
 ---
 
+> **Lore complet (royaumes, techniques, voies, Fruitions, carte, chronologie) : voir `LORE.md`, source de vérité depuis le 2026-09-24.** Le tableau ci-dessous décrit l'état **actuel** du code ; la cible est dans `LORE.md`.
+
 ## 📐 Règles métier clés (rappel)
 
 | Règle | Valeur |

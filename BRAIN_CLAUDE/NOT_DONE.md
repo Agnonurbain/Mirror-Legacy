@@ -103,6 +103,22 @@
 
 ---
 
+## 📜 Restructuration selon le lore (`LORE.md`, décidée le 2026-09-24)
+
+> Règles : structure fidèle + noms renommés (D1), **rien de simplifié** (D2), orifice héréditaire (D3), **infinité de possibilités** (D4). Chaque phase : graphify → TDD (RED/GREEN) → revue ECC → commit.
+
+| # | Phase | Priorité | Détails |
+|---|---|---|---|
+| L0 | **Bible du monde + lexique** | 🔴 | `LORE.md` rédigé (2026-09-24). **Reste : validation du lexique de renommage (§13) par l'utilisateur**, décisions ouvertes (nature du miroir, conditions de victoire, 7 vs 8 portes). |
+| L1 | **Royaumes et sous-niveaux** | 🔴 | `GoldenImmortal` en fin d'enum, `RealmStage` (6 chakras / 9 niveaux / 4 stades), trois épreuves, durées de vie du lore, dissolution spirituelle (Fondation, conseillée avant 60 ans). Réécrire les tests de percée existants. |
+| L2 | **Orifice spirituel héréditaire** | 🔴 | `HasSpiritualOrifice` / `OrificeKnown`, mortels vs cultivateurs, Graines de Sceau, taux dans `BalanceConfig`. |
+| L3 | **Techniques graduées** | 🟠 | Grade 1-7+, catégorie commune/ancestrale/secrète, type, Qi requis, secret du Manoir Pourpre ; 26 méthodes de Qi en données ; déduction du miroir → grade. |
+| L4 | **Voies, lignées, fondations, capacités, Fruitions** | 🟠 | 5 voies / 9 sous-voies ; ≈60 Fruitions en ScriptableObjects (emplacements non nommés inclus) ; Partenaires Dao ; 5 capacités divines typées ; percée du Manoir Pourpre en 4 épreuves ; positions Réalisation / Surplus / Intercalaire ; Démon d'Essence Métallique. |
+| L5 | **Carte et factions renommées** | 🟠 | `RegionDefinition`, 3 sectes + portes + familles en `FactionTemplate`, nouvelle carte Shuimo, `WorldMapUI` par régions. **Nécessite l'éditeur Unity (#6).** |
+| L6 | **Chronologie, monde vivant, rejouabilité** | 🟡 | Introduction an 0, faits historiques, statuts initiaux des Fruitions, phénomènes régionaux, graine de monde, conditions de victoire. |
+
+---
+
 ## 📝 Liste de vérification pour passer à Phase 2
 
 - [ ] Tâches 1-5 terminées (infra Unity + compile clean)

@@ -17,4 +17,5 @@ ECC's C# rules target generic .NET (xUnit, async/CancellationToken, `dotnet buil
 ## Project
 
 - Pilot docs live in `BRAIN_CLAUDE/` — start with `BRAINSTORMING.md`, remaining work in `NOT_DONE.md`.
+- World lore (realms, techniques, paths, Fruitions, map, chronology) and the renaming lexicon: `BRAIN_CLAUDE/LORE.md` — source of truth. Never hardcode proper nouns from the source novel; display names live in data.
 - Compile and test headless with `./Scripts/unity-claude.sh Compile | RunEditModeTests | RunPlayModeTests` (result in `claude-output/result.json`). Requires the Unity 6000.4.2f1 editor (`UNITY_PATH`).
