@@ -2,7 +2,8 @@
 
 > **Source de vérité du lore.** Créé le 2026-09-24 (phase 0 de la restructuration).
 > **Sources :** `/home/aymeric/Miror.txt` (528 lignes) et la carte `/home/aymeric/Downloads/The_Mirror_Legacy_Map.webp` (798×541).
-> **Statut :** ✏️ **PROPOSITION — lexique de renommage à valider** (§13). Tant qu'il n'est pas validé, aucun nom ne doit entrer dans le code.
+> **Source complémentaire :** wiki du roman, https://the-mirror-legacy.fandom.com/wiki/The_Mirror_Legacy_Wiki (📚).
+> **Statut :** ✅ **Lexique de renommage validé par l'utilisateur le 2026-09-24** (§13). Les recommandations 💡 de §4 et §11 attendent encore sa validation.
 
 ---
 
@@ -13,6 +14,8 @@
 | D1 | **Structure fidèle, noms propres renommés.** Les systèmes, les règles et la géographie relative suivent la source ; les noms propres et les termes inventés par le roman sont remplacés (§13). La carte source est une œuvre de fan (signée @百里彤雲) : **référence uniquement, jamais intégrée au jeu** — la carte du jeu sera redessinée. | Une sortie commerciale est prévue (NOT_DONE #69). Les noms et la carte du roman sont un risque de propriété intellectuelle. |
 | D2 | **Rien n'est simplifié.** Les 7 royaumes avec tous leurs sous-niveaux, le système de Fruition, les 5 voies et toutes les lignées nommées sont intégrés. Là où la source est implicite ou abîmée, on **ajoute une explication** et on signale l'interprétation (🔎). | Demande explicite de l'utilisateur. |
 | D3 | **Orifice spirituel héréditaire** : ~3/1000 sans parent doté, ~30-50 % si un parent en a un (réglable dans `BalanceConfig`), Graines de Sceau en rattrapage. | Le taux strict de 3/1000 viderait le clan de cultivateurs. |
+| D5 | **Trois sectes et huit portes.** Le lore est aligné sur la carte (8 portes) ; le wiki liste lui aussi huit portes. | Décision de l'utilisateur (2026-09-24). |
+| D6 | **Noms descriptifs conservés** (ex. *Rupture des Liens*, *Âmes Descendantes*, noms des Qi de talisman) : ils décrivent littéralement leur effet. | Décision de l'utilisateur (2026-09-24). |
 | D4 | **Un jeu pour les amoureux du xianxia : une infinité de possibilités.** La profondeur vient de la **combinaison** des systèmes du lore, de **règles symétriques** pour tous les personnages du monde et de **choix coûteux** fondés sur le lore (§11). | Demande explicite de l'utilisateur. |
 
 ### Règle de renommage (appliquée dans tout ce document)
@@ -22,6 +25,7 @@
 - ⚖️ Ce découpage est une précaution raisonnable, pas un avis juridique : à faire vérifier avant la sortie commerciale.
 
 ### Légende
+- 📚 **Complément du wiki** : information absente de `Miror.txt`, tirée du wiki du roman.
 - 🔎 **Interprétation** : la source est ambiguë, abîmée ou muette ; le choix fait ici est expliqué.
 - 🎮 **En jeu** : comment la règle se traduit en mécanique et en code (phase de la restructuration indiquée).
 - 💡 **Proposition de design** : mécanique inventée pour servir le lore, **à valider** par l'utilisateur.
@@ -70,7 +74,7 @@ Toute technique (méthode de cultivation, sort, déplacement, technique d'arme, 
 |---|---|---|---|---|
 | **1-2** | Arts immortels impurs ou techniques anciennes aux graves inconvénients | Culture du Qi | Cultivateurs marginaux, familles pauvres | *Méthode du Souffle Commun* (grade 2) : permet à **n'importe qui** de devenir cultivateur de Qi, au prix d'une essence et d'une aura **impures** et d'un **potentiel inférieur** |
 | **3** | Technique principale, « pierre angulaire » de la plupart des familles | Établissement des Fondations | La plupart des familles | *Sutra de la Source Claire* (technique du clan Mo) |
-| **4** | Expérience **bien plus complète** de la Fondation dès la Culture du Qi ; sorts, arts immortels et techniques d'arme montent jusqu'à la Fondation | Établissement des Fondations | Réservé aux **trois sectes et sept portes** et aux familles les plus éminentes | *Méthode de l'Averse Mesurée* |
+| **4** | Expérience **bien plus complète** de la Fondation dès la Culture du Qi ; sorts, arts immortels et techniques d'arme montent jusqu'à la Fondation | Établissement des Fondations | Réservé aux **trois sectes et huit portes** et aux familles les plus éminentes | *Méthode de l'Averse Mesurée* |
 | **5** | Mène au Manoir Pourpre | Manoir Pourpre | Extrêmement bien gardée par clans, sectes et portes immortelles | *Canon du Givre Nocturne* |
 | **6** | Manuel **complet** du Manoir Pourpre : sorts, préparatifs des fondements du Dao, **et** la technique de raffinement de l'essence. Aussi appelé **« Lignée Dao »**. | Permet de **viser** le Noyau d'Or | Très rares | *Canon des Sept Terrasses* (famille Gu), le plus célèbre |
 | **7+** | Véritable manuel d'immortel, mène **directement** au Noyau d'Or et au-delà, quel que soit le domaine | Noyau d'Or et au-delà | Une seule connue | *Dialogue de Gongye Shu avec le Pêcheur du Saule*, censément transmise par un immortel |
@@ -171,7 +175,8 @@ Trois méthodes : **Transformation, Dissimulation, Sacrifice**. Ce Dao vient de 
 
 - La plupart des gens ne sont **pas** destinés à cultiver : seuls **3 sur 1000** ont un **orifice spirituel**, un canal inné **détectable uniquement par un cultivateur confirmé**.
 - Les rares **Graines de Sceau** contournent cette condition en greffant des voies spirituelles artificielles sur un mortel.
-- 🔎 La source ne donne pas l'espérance de vie d'un mortel. Hypothèse de jeu : 60-80 ans (à valider en phase 2).
+- 📚 Dans le roman, ces graines viennent **du miroir** (« Perles Profondes ») : c'est ainsi que la famille du miroir, sans orifice, a commencé à cultiver. Détail en §11.5.
+- 🔎 Ni la source ni le wiki ne donnent l'espérance de vie d'un mortel. 💡 **Recommandation** : 60-80 ans (moyenne ~65), avec une variation individuelle ; un Qi de talisman peut l'allonger (*Prolonger la vie et accroître la longévité* : +40 ans, §11.5). À valider en phase 2.
 
 🎮 Phase 2 : `CharacterData.HasSpiritualOrifice` tiré à la naissance selon D3 ; `OrificeKnown` passe à vrai quand un cultivateur confirmé l'examine (tâche ou événement). Un mortel ne peut pas choisir la tâche Cultivation mais travaille (mine, patrouille, commerce). Les Graines de Sceau sont un objet rare (miroir, commerce, événements).
 ⚠️ Aujourd'hui tout membre peut cultiver.
@@ -519,7 +524,7 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 
 | Position | Nom (jeu) | Nature |
 |---|---|---|
-| Centre, vert (la plus grande) | **Royaume de Linxi** | État du joueur ; « trois sectes et sept portes » |
+| Centre, vert (la plus grande) | **Royaume de Linxi** | État du joueur ; « trois sectes et huit portes » |
 | Nord-ouest | **Empire de Kun** | Grand État du Nord (successeur des dynasties anciennes, §12) |
 | Nord-ouest, jaune | **Principauté de Tai** (Mont Jianfeng) | |
 | Ouest | **Royaume de Hanshan** | |
@@ -546,7 +551,7 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 | Sud (rouge) | **Porte du Tambour Sacré** | Porte | Préfecture de Nanling |
 | Îles de l'est | **Atoll des Perles Noires** | Île immortelle | Art du Brasier Englouti |
 
-🔎 La carte montre **8 portes**, le lore parle de **sept**. Proposition : la **Porte du Tambour Sacré**, au sud, à la frontière des Terres chamaniques, n'appartient pas à l'alliance des sept (à valider).
+✅ D5 : **huit portes**, comme sur la carte. `Miror.txt` disait « sept portes » ; le lore du jeu est aligné sur la carte (le wiki liste aussi huit portes).
 
 ### 7.3 Autour du clan
 
@@ -640,7 +645,7 @@ Les personnages cités en exemple par la source deviennent des **figures du mond
 | **Gué de Lingjin** | Grande bataille du cataclysme |
 | **Préfecture de Hongcheng** | Mort de Duan Qishan |
 | **Douze Portes** | Coalition de Linxi (~500 ans) |
-| **Trois sectes et sept portes** | Ce qui reste des Douze Portes (~400 ans) |
+| **Trois sectes et huit portes** | Ce qui reste des Douze Portes (~400 ans) |
 
 ---
 
@@ -670,7 +675,8 @@ Le jeu s'adresse aux **amoureux du xianxia**. Sa profondeur ne vient pas de règ
 | Raccourci | Gain | Prix |
 |---|---|---|
 | Technique de grade 1-2 (*Souffle Commun*) | N'importe qui cultive | Essence et aura impures, potentiel inférieur, plafond à la Culture du Qi |
-| Graine de Sceau | Cultiver sans orifice | Très rare ; 💡 coût à définir (ex. potentiel réduit, dette envers le fournisseur) |
+| Graine de Sceau | Cultiver sans orifice | Don **du miroir** : consomme du Clair de Lune du Yin Suprême et une place limitée par le niveau de restauration du miroir (§11.5) |
+| Qi de talisman | Trait unique + bond de cultivation | Rituel : **sacrifier** un être d'au moins la Culture du Qi (encens, âme, essence de sang, force spirituelle) + **dix mille prières** (§11.5) |
 | Technique secrète | Accès à une méthode dont le Qi a disparu | Souvent imparfaite |
 | Consommer un Partenaire Dao | Stade suivant instantané | Progression **définitivement bloquée** ; Dao exploitable par les plus forts |
 | Ressources pour une capacité | Perfection rapide | Fondements superficiels, sorts plus faibles |
@@ -705,12 +711,54 @@ Le jeu s'adresse aux **amoureux du xianxia**. Sa profondeur ne vient pas de règ
 - Les **héritages perdus** deviennent des quêtes : une technique ancestrale dont le Qi a disparu peut redevenir utilisable si l'on retrouve ou recrée son milieu ; une technique secrète peut cacher un défaut.
 - Les **Grottes Célestes** et les **trésors du Manoir Pourpre** sont des lieux et des objets convoités.
 
-### 11.5 Le miroir, clé de lecture du monde
-Aujourd'hui le miroir sert déjà à déduire des techniques, protéger une percée et intervenir en combat. Avec le lore, il peut aussi :
-- **détecter les orifices spirituels** avant qu'un cultivateur confirmé ne le fasse ;
-- **déduire des techniques** d'un grade donné à partir de fragments (§2) ;
-- **révéler le savoir caché** : Partenaires Dao, statut des Fruitions, défauts d'une technique, faits historiques (§12).
-🔎 La source dit seulement « miroir immortel » trouvé à l'an 0 : sa **nature** (lien avec une Fruition ? origine ?) reste à définir avec l'utilisateur. Rien n'est inventé ici.
+### 11.5 Le miroir — le rôle du joueur
+📚 Dans le roman, le miroir **est un personnage** : l'esprit d'un homme mort dans notre monde, piégé dans un miroir de bronze fêlé, qui guide en secret la famille qui l'a trouvé. C'est exactement le rôle du joueur (pitch de `MEMORY.md`). Le wiki décrit ses capacités ; on les reprend fidèlement (noms descriptifs conservés, D6).
+
+**Ce qu'est le miroir**
+- Un miroir de bronze **bleu-gris, fêlé en plusieurs éclats** tenus par un cadre de fer ; au dos, des symboles indéchiffrables ; douze runes autour du cadre.
+- Son rang inné est **au moins celui de l'Embryon du Dao** : endormi, il est **indétectable** par toute perception inférieure à l'Embryon du Dao ; toute divination, malédiction ou lien de destin dirigé vers lui est **bloqué ou renvoyé**, avec un violent contrecoup (les puissants en concluent qu'un immortel antique protège ses porteurs).
+- Il **absorbe passivement l'essence de la lune** et la condense en **Clair de Lune du Yin Suprême**, un Qi spirituel du Ciel et de la Terre extrêmement précieux, que le clan peut sceller et stocker.
+- L'esprit du miroir **reste silencieux** : s'il se montrait, le clan poserait trop de questions et découvrirait combien il peut peu. Il agit par des graines, des talismans, des visions.
+
+**Ses pouvoirs**
+| Pouvoir | Ce qu'il fait (📚) |
+|---|---|
+| **Graines de Sceau** (« Perles Profondes ») | Une « pilule de lumière blanche » déposée dans le dantian. Elle porte un savoir (ex. le *Sutra de la respiration du Yin Suprême*) et permet **même à un mortel** de commencer à cultiver. C'est aussi un **conduit indétectable** : le miroir peut transmettre à travers elle de la puissance, des messages ou une intention (et plus tard frapper au loin). |
+| **Rituel de sacrifice → Qi de talisman** | Sacrifier un être d'**au moins la Culture du Qi** (encens, âme, essence de sang, force spirituelle offerts au miroir) et réunir **dix mille prières** : le miroir raffine un Qi de talisman du rang du sacrifice (**gris** = Culture du Qi, **blanc** = Fondation). Le miroir propose **1 à 3 choix** adaptés au **talent et à la personnalité** du bénéficiaire. Des éclats du miroir ou des objets liés peuvent aussi servir. |
+| **Lumière Profonde du Yin Suprême** | La frappe du miroir, pure éradication. Sa puissance suit la restauration : d'abord l'équivalent d'un coup au sommet du chakra de l'Œil du Sommet ; après un éclat, elle tue la Culture du Qi et blesse un royaume au-dessus ; plus tard, elle tue un Manoir Pourpre ou une Fondation à l'apogée (sauf fondation exceptionnelle). |
+| **Perception** | Sens visuel large et sens divin précis ; portée croissante : ~66 m au début, puis le village, puis tout le lac (plus de 1000 *li*), et à terme la moitié du royaume. |
+| **Âme et illusions** | Implanter des verrous cachés dans l'âme d'autrui (surveillance, vol de souvenirs), indétectables même au Manoir Pourpre ; projeter des illusions grandioses (une salle de jade blanc d'immortel) pour interroger ou dissuader. |
+| **Réécriture de techniques** | Grâce à sa profondeur du Dao, « nettoyer » une technique de secte de ses marques personnelles pour que le clan l'utilise sans trahir son origine. |
+| **Traverser le Grand Vide** | Après un éclat majeur, le miroir réside dans le Vide, relié à l'autel du clan, et se déplace librement. |
+| **Essence métallique** | En récupérant l'essence d'une Fruition, il peut infléchir le destin, améliorer les chances d'une percée de Fondation, et **percer les secrets** de cette Fruition pour rédiger des manuels de sa lignée. |
+
+**Qi de talisman connus** (📚, noms descriptifs conservés, D6) — chacun donne un trait **et** un bond de cultivation :
+| Rang | Talisman | Effet |
+|---|---|---|
+| Gris | *Échapper à la mort, prolonger la vie* | Prémonition des dangers à venir |
+| Gris | *Force à déplacer les montagnes* | Force sans égale, même sans mana |
+| Gris | *Prolonger la vie et accroître la longévité* | +40 ans de vie |
+| Gris | *Poursuivre nuages et lune* | Vitesse de vol multipliée |
+| Gris | *Moineau féroce du vaste ciel* | Agilité, bravoure décuplée à la vue du sang, maîtrise du vent |
+| Gris | *Garder profit et prospérité* | Améliore les cent arts (alchimie, talismans…), apaise les tourmentes de fortune |
+| Blanc | *Longue baleine de l'océan profond* | Qihai ×5-6, régénération du mana ×10 |
+| Blanc | *Épuiser la vie pour réussir* | 🔎 non détaillé (prix en vie ?) |
+| Blanc | *Qi fluide avalant l'esprit* | Absorption rapide du Qi, commander nuages et brumes |
+| Blanc | *Os de glace, chair de givre* | Absorption accrue, maîtrise de la glace et de la neige |
+| Blanc | *Crête de pins sous la neige radieuse* | Cœur calme comme l'eau, dissipe les illusions, cultivation deux fois plus efficace |
+| Blanc | *Vent de vallée guidant le feu* | Le feu attire le Qi et raffine l'essence |
+| Blanc | *Arc-en-ciel perçant la voie céleste* | Esprit fortifié, lecture des sorts adverses, légère prolongation de la vie |
+| Blanc | *Arc-en-ciel vermillon fluide* | Descendance plus douée, fondation renforcée, vol plus rapide |
+
+**Sa restauration.** Le miroir est incomplet : chaque **éclat** retrouvé (le premier est repêché dans le lac) lui rend de la puissance et des **souvenirs** (le premier contenait le *Sutra de la respiration du Yin Suprême*, technique de la Respiration Embryonnaire du Manoir de l'Aube d'Argent). Pendant l'intégration d'un éclat, l'esprit **s'endort** par intermittence ; son âme se renforce au fil des éclats.
+
+💡 **Recommandation (avis, à valider)** : faire du miroir **le second axe de progression**, à côté du clan.
+- **Niveau de restauration** (nombre d'éclats) = « royaume » du joueur : il fixe la portée de la perception, la puissance de la Lumière, le nombre de Graines de Sceau actives, l'accès au Grand Vide.
+- **Clair de Lune du Yin Suprême** remplace la jauge `MirrorPower` : produit chaque nuit, dépensé pour les graines et les interventions, ou **donné au clan** comme Qi spirituel rare.
+- **Éclats** = objectifs de long terme (lac, ruines, trésors d'ennemis, événements) ; chacun révèle un souvenir : technique, fait historique, **indice sur l'origine du miroir** — le grand mystère du jeu, révélé peu à peu.
+- **Sommeil d'intégration** : quelques années où le clan agit sans le joueur (l'IA gère) — tension dramatique.
+- **Secret** : le miroir doit rester caché ; s'il est découvert par plus fort que lui, il peut être saisi (voir §11.9).
+- Les pouvoirs actuels du code trouvent leur place : *Pulsation de Qi* → graine-conduit en combat ; *Bouclier ancestral* → essence métallique qui infléchit une percée ; *Jugement du Miroir* → Lumière Profonde ; *DeductionEngine* → souvenirs d'éclats et réécriture de techniques.
 
 ### 11.6 Générations et héritage
 - **Lignée transformée** : un ancêtre à la Réalisation garantit le Manoir Pourpre à ses descendants (§5.5.2).
@@ -733,13 +781,16 @@ Les faits datés du lore (§12) restent **identiques** d'une partie à l'autre :
 - Décrire la progression interne de l'Embryon du Dao et de l'Immortel Doré tant que l'utilisateur n'en décide pas (la source les dit « inconnus »).
 - Imposer une seule stratégie optimale : si un chemin domine, il faut renforcer son prix (P2).
 
-### 11.9 Conditions de victoire (à décider)
-Aujourd'hui : 10 générations + 1 ascension (DaoEmbryo). 💡 Pistes compatibles avec le lore, qui peuvent coexister :
-- **Réalisation** d'une Fruition par un membre du clan (lignée transformée) ;
-- atteinte de l'**Embryon du Dao** ;
-- **durée** : faire survivre la lignée N générations ;
-- **domination** : faire du clan une puissance reconnue de Linxi (au rang des sectes et portes) ;
-- **voie alternative** : un clan converti au bouddhisme, au chamanisme ou au Diable a ses propres fins.
+### 11.9 Conditions de victoire et de défaite
+Aujourd'hui : 10 générations + 1 ascension (DaoEmbryo).
+
+💡 **Recommandation (avis, à valider)** : un **bac à sable dynastique sans fin imposée**, comme les grands jeux de gestion de lignée, avec :
+- des **Annales du clan** : jalons enregistrés et datés (première Fondation, premier Manoir Pourpre, premier Vrai Monarque, première Réalisation, éclats du miroir retrouvés, secte fondée, Fruition conquise…) qui racontent la partie ;
+- une **grande fin optionnelle**, fidèle au lore : le **miroir entièrement restauré** (son origine révélée) **et** un membre du clan à la **Réalisation d'une Fruition** ou à l'**Embryon du Dao** ; le joueur peut continuer après ;
+- deux **défaites** :
+  1. la **lignée s'éteint** (plus aucun membre vivant) ;
+  2. le **miroir est découvert et saisi** par plus puissant — la peur qui justifie tout le secret du roman ;
+- les autres pistes (durée, domination de Linxi, voie alternative) deviennent des **jalons des Annales** plutôt que des fins.
 **Décision à prendre par l'utilisateur.**
 
 ---
@@ -757,7 +808,7 @@ Aujourd'hui : 10 générations + 1 ascension (DaoEmbryo). 💡 Pistes compatible
 | **~700 ans** | **Duan Qishan** règne sur Kun et fait coexister en équilibre les Dao taoïste, démoniaque et bouddhiste. · Catastrophe : le ciel s'assombrit et se teinte de rouge sang. · Duan Qishan périt dans la **préfecture de Hongcheng**. · Le prince **Duan Lihua** monte sur le trône et accueille **sept statues sacrées** : les **Sept Aspects du Dharma**. |
 | **~600 ans** | La Réalisation de l'**Eau Nourricière** devient **vacante** ; le **Marais Jingshui devient le Lac Jingshui**. · **Trois Vrais Monarques** périssent. · Le **Manoir de l'Aube d'Argent** est détruit. · Le **Mont Xiaoyun** commence à convoiter la Réalisation du **Yang Lumineux**. |
 | **~500 ans** | Formation des **Douze Portes** dans le Royaume de Linxi. |
-| **~400 ans** | **Mo Qianshui** est pris en embuscade et tué par les Douze Portes. · On demande à la **Renarde des Monts Qingyan** de protéger les **Mo** au Lac Jingshui. · Il reste **trois sectes et sept portes**. |
+| **~400 ans** | **Mo Qianshui** est pris en embuscade et tué par les Douze Portes. · On demande à la **Renarde des Monts Qingyan** de protéger les **Mo** au Lac Jingshui. · Il reste **trois sectes et huit portes**. |
 | **~200 ans** | **Bai Chengyu** devient cultivateur du Manoir Pourpre. · **Ruan Xianzhou** est piégé et tué par Bai Chengyu avec les sectes et les portes. |
 | **~50 ans** | **Mo Wei** s'engage dans l'armée. |
 | **An 0** | **Mo Jian trouve le miroir immortel.** → début du jeu. |
@@ -877,7 +928,7 @@ Aujourd'hui : 10 générations + 1 ascension (DaoEmbryo). 💡 Pistes compatible
 | Chi Wei | Bai Chengyu |
 | Xiao Xianyou | Ruan Xianzhou |
 | Duanmu Kui | Gongye Shu |
-| Lu Jiangxian · Chi Buzi | Weng Liuxian · Bai Ruozhi |
+| Lu Jiangxian · Chi Buzi | Weng Liuxian · Bai Ruozhi (📚 dans le roman, Lu Jiangxian est l'esprit du miroir, donc le **rôle du joueur** : l'exemple d'Intercalaire est attribué à une figure légendaire pour ne pas dicter les actes du joueur) |
 | Wang Xun | Ze Wuyan |
 | Li Tongya | Qiu Mingshan |
 | Li Chengliao · Li Qinghong · Li Xuanfeng | Hou Lie · Nian Suo · Ban Jinhe |
@@ -894,7 +945,10 @@ Aujourd'hui : 10 générations + 1 ascension (DaoEmbryo). 💡 Pistes compatible
 | Source | Jeu |
 |---|---|
 | Chakras : Paysage Profond · Attrait Radieux · Tourbillon Céleste · Essence Azur · Capitale de Jade · Esprit Naissant | Lac Intérieur · Marée Respirante · Roue des Méridiens · Sève d'Émeraude · Œil du Sommet · Premier Souffle |
-| Graines de Talisman | Graines de Sceau |
+| Graines de Talisman · Perle Profonde (graine du miroir) | Graines de Sceau · Perle Profonde (conservé) |
+| Lu Jiangxian (esprit du miroir, « Immortal Mirror ») | **l'Esprit du Miroir** (le joueur ; pas de nom imposé) |
+| Supreme Yin Moonlight · Supreme Yin Profound Light | Clair de Lune du Yin Suprême · Lumière Profonde du Yin Suprême (descriptifs, conservés) |
+| Talisman Qi (Evade Death Prolong Life, Strength to Move Mountains…) | Qi de talisman, noms traduits et conservés (§11.5, D6) |
 | Méthode Profonde de Continuation | Méthode de la Greffe du Dao |
 | Lutte pour les Cinq Formes | Reprise de la Fruition (« Lutte des Cinq Visages ») |
 | Jade Tissé / Port Sacré (forces pseudo-Noyau d'Or) | Sceau de Jade |
@@ -983,7 +1037,7 @@ Fondations et capacités divines (§6.5-6.7) :
 | Essence de sang des Trois Neuf du Chaman Suprême · Fantôme de l'ombre du criquet · Présence indétectable · Bénédiction du chaman de la Terre · Mandat de l'Empereur · Buveur de sang | Essence de Sang des Trois Neuf · Ombre de la Sauterelle · Présence Indécelable · Bénédiction du Chaman de la Terre · Mandat de l'Empereur · Buveur de Sang |
 | Brume de l'Aube Universelle · Ouragan Ghost Yin · Retournement du Yin de la Brume · Épine de la Porte des Tombes | Brume de l'Aube Universelle · Ouragan du Yin Spectral · Brume du Yin Retourné · Épine de la Porte des Tombes (descriptifs, conservés) |
 
-🔎 Certains noms descriptifs sont **conservés** (marqués « conservés ») parce qu'ils décrivent littéralement leur effet et relèvent du vocabulaire courant. Si tu préfères **tout** renommer, dis-le : ils seront réécrits.
+✅ D6 : les noms descriptifs (marqués « conservés ») restent tels quels : ils décrivent littéralement leur effet et relèvent du vocabulaire courant.
 
 ---
 
