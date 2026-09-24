@@ -109,7 +109,7 @@
 
 | # | Phase | Priorité | Détails |
 |---|---|---|---|
-| L0 | **Bible du monde + lexique** | 🔴 | `LORE.md` rédigé et **lexique validé** (2026-09-24) ; huit portes (D5), noms descriptifs conservés (D6). **Reste à valider** : recommandations sur le miroir (§11.5), la victoire (§11.9), l'espérance de vie des mortels (§4). |
+| L0 | **Bible du monde + lexique** | 🔴 | `LORE.md` rédigé et **lexique validé** (2026-09-24) ; huit portes (D5), noms descriptifs conservés (D6). Passe complète du wiki intégrée (Dao Divin, rangs des autres voies, Qi et substitution, Atmosphères, Grand Vide, Tonnerres, profils des lignées, histoire). **Reste à valider** : ajouts du lexique (§13.7-13.8), recommandations sur le miroir (§11.5), la victoire (§11.9), l'espérance de vie des mortels (§4). |
 | L1 | **Royaumes et sous-niveaux** | 🔴 | `GoldenImmortal` en fin d'enum, `RealmStage` (6 chakras / 9 niveaux / 4 stades), trois épreuves, durées de vie du lore, dissolution spirituelle (Fondation, conseillée avant 60 ans). Réécrire les tests de percée existants. |
 | L2 | **Orifice spirituel héréditaire** | 🔴 | `HasSpiritualOrifice` / `OrificeKnown`, mortels vs cultivateurs, Graines de Sceau, taux dans `BalanceConfig`. |
 | L3 | **Techniques graduées** | 🟠 | Grade 1-7+, catégorie commune/ancestrale/secrète, type, Qi requis, secret du Manoir Pourpre ; 26 méthodes de Qi en données ; déduction du miroir → grade. |
