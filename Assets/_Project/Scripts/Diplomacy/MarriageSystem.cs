@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Characters;
 
@@ -22,7 +24,8 @@ namespace MirrorChronicles.Diplomacy
         }
 
         /// <summary>
-        /// Validates if two characters can marry (Age > 18, not already married, not direct siblings).
+        /// Validates if two characters can marry (Age >= 18, not already married,
+        /// no common ancestor within <see cref="KinshipRules.MarriageForbiddenGenerations"/> generations).
         /// </summary>
         public bool CanMarry(CharacterData personA, CharacterData personB)
         {
@@ -31,13 +34,11 @@ namespace MirrorChronicles.Diplomacy
             if (personA.Age < 18 || personB.Age < 18) return false;
             if (!string.IsNullOrEmpty(personA.SpouseID) || !string.IsNullOrEmpty(personB.SpouseID)) return false;
 
-            // Basic incest check (siblings)
-            bool shareFather = !string.IsNullOrEmpty(personA.FatherID) && personA.FatherID == personB.FatherID;
-            bool shareMother = !string.IsNullOrEmpty(personA.MotherID) && personA.MotherID == personB.MotherID;
-            
-            if (shareFather || shareMother)
+            var registry = BloodRegistry.Instance;
+            Func<string, CharacterData> findById = registry != null ? registry.GetCharacterByID : null;
+            if (KinshipRules.AreCloseKin(personA, personB, KinshipRules.MarriageForbiddenGenerations, findById))
             {
-                Debug.LogWarning("[MarriageSystem] Cannot marry direct siblings.");
+                Debug.LogWarning($"[MarriageSystem] Cannot marry relatives within {KinshipRules.MarriageForbiddenGenerations} generations.");
                 return false;
             }
 
