@@ -1,4 +1,5 @@
 using UnityEngine;
+using MirrorChronicles.Combat;
 using MirrorChronicles.Data;
 using MirrorChronicles.Events;
 
@@ -73,14 +74,23 @@ namespace MirrorChronicles.Mirror
         /// <summary>
         /// Cost: 10. Gives a temporary buff in combat.
         /// </summary>
-        public bool UseQiPulse()
+        public bool UseQiPulse(CombatUnit target = null)
         {
-            if (ConsumePower(10))
+            if (!ConsumePower(10)) return false;
+
+            if (target != null)
+            {
+                int qiBoost = Mathf.RoundToInt(target.MaxQi * 0.3f);
+                target.RestoreQi(qiBoost);
+                int vitalityBoost = Mathf.RoundToInt(target.MaxVitality * 0.15f);
+                target.Heal(vitalityBoost);
+                Debug.Log($"[MirrorSystem] Qi Pulse on {target.BaseData.FullName}: +{qiBoost} Qi, +{vitalityBoost} HP!");
+            }
+            else
             {
                 Debug.Log("[MirrorSystem] DIVINE INTERVENTION: Qi Pulse activated! (Combat buff)");
-                return true;
             }
-            return false;
+            return true;
         }
 
         /// <summary>

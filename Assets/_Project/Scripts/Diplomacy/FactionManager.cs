@@ -12,6 +12,9 @@ namespace MirrorChronicles.Diplomacy
     {
         public static FactionManager Instance { get; private set; }
 
+        [Header("Faction Templates (optional — uses defaults if empty)")]
+        public List<FactionTemplate> Templates = new List<FactionTemplate>();
+
         public List<FactionData> Factions { get; private set; } = new List<FactionData>();
 
         private void Awake()
@@ -39,39 +42,43 @@ namespace MirrorChronicles.Diplomacy
             GameEvents.OnPhaseChanged -= HandlePhaseChanged;
         }
 
-        /// <summary>
-        /// Creates the initial rival families for Phase 3 testing.
-        /// </summary>
         private void InitializeWorldFactions()
         {
             Debug.Log("[FactionManager] Initializing world factions...");
 
-            Factions.Add(new FactionData
+            if (Templates.Count > 0)
             {
-                Name = "Wang Family",
-                Personality = FactionPersonality.Aggressive,
-                PowerLevel = 500,
-                Wealth = 1000,
-                RelationWithPlayer = -20 // Slightly hostile
-            });
+                foreach (var t in Templates)
+                {
+                    if (t == null) continue;
+                    Factions.Add(new FactionData
+                    {
+                        Name = t.FactionName,
+                        Personality = t.Personality,
+                        PowerLevel = t.PowerLevel,
+                        Wealth = t.Wealth,
+                        RelationWithPlayer = t.StartingRelation
+                    });
+                }
+            }
+            else
+            {
+                BuildDefaultFactions();
+            }
 
-            Factions.Add(new FactionData
-            {
-                Name = "Zhao Merchant Guild",
-                Personality = FactionPersonality.Merchant,
-                PowerLevel = 200,
-                Wealth = 5000,
-                RelationWithPlayer = 10 // Slightly friendly
-            });
+            Debug.Log($"[FactionManager] {Factions.Count} factions initialized.");
+        }
 
-            Factions.Add(new FactionData
-            {
-                Name = "Azure Cloud Sect",
-                Personality = FactionPersonality.Isolationist,
-                PowerLevel = 5000, // Very powerful
-                Wealth = 2000,
-                RelationWithPlayer = 0
-            });
+        private void BuildDefaultFactions()
+        {
+            Factions.Add(new FactionData { Name = "Wang Family", Personality = FactionPersonality.Aggressive, PowerLevel = 500, Wealth = 1000, RelationWithPlayer = -20 });
+            Factions.Add(new FactionData { Name = "Zhao Merchant Guild", Personality = FactionPersonality.Merchant, PowerLevel = 200, Wealth = 5000, RelationWithPlayer = 10 });
+            Factions.Add(new FactionData { Name = "Azure Cloud Sect", Personality = FactionPersonality.Isolationist, PowerLevel = 5000, Wealth = 2000, RelationWithPlayer = 0 });
+            Factions.Add(new FactionData { Name = "Iron Fist Hall", Personality = FactionPersonality.Aggressive, PowerLevel = 800, Wealth = 600, RelationWithPlayer = -10 });
+            Factions.Add(new FactionData { Name = "Jade Phoenix Pavilion", Personality = FactionPersonality.Merchant, PowerLevel = 300, Wealth = 8000, RelationWithPlayer = 15 });
+            Factions.Add(new FactionData { Name = "Shadow Veil Sect", Personality = FactionPersonality.Manipulative, PowerLevel = 1200, Wealth = 1500, RelationWithPlayer = -5 });
+            Factions.Add(new FactionData { Name = "Verdant Bamboo Hermitage", Personality = FactionPersonality.Isolationist, PowerLevel = 700, Wealth = 400, RelationWithPlayer = 5 });
+            Factions.Add(new FactionData { Name = "Golden Sun Empire", Personality = FactionPersonality.Expansionist, PowerLevel = 10000, Wealth = 20000, RelationWithPlayer = 0 });
         }
 
         public FactionData GetFactionByID(string id)
@@ -97,32 +104,49 @@ namespace MirrorChronicles.Diplomacy
             }
         }
 
-        /// <summary>
-        /// Autonomous AI for rival factions. They make decisions based on their personality and relations.
-        /// Normally triggered by OnPhaseChanged; exposed publicly so tests can drive it manually.
-        /// </summary>
         public void ProcessYearlyFactionAI()
         {
             Debug.Log("[FactionManager] --- Processing World Faction AI ---");
 
             foreach (var faction in Factions)
             {
-                // Simple AI logic for prototype
-                if (faction.RelationWithPlayer <= -80 && faction.Personality == FactionPersonality.Aggressive)
+                switch (faction.Personality)
                 {
-                    // In a full game, compare PowerLevel with player's clan before attacking
-                    Debug.LogWarning($"[FactionManager] {faction.Name} has declared WAR on your clan!");
-                    // Trigger combat event
-                }
-                else if (faction.RelationWithPlayer >= 50 && faction.Personality == FactionPersonality.Merchant)
-                {
-                    Debug.Log($"[FactionManager] {faction.Name} offers a lucrative trade deal.");
-                    // Trigger trade event
-                }
-                else if (faction.RelationWithPlayer < 0 && faction.Personality == FactionPersonality.Manipulative)
-                {
-                    Debug.LogWarning($"[FactionManager] {faction.Name} is spreading rumors about your clan. (Prestige loss)");
-                    // Apply penalty
+                    case FactionPersonality.Aggressive:
+                        if (faction.RelationWithPlayer <= -80)
+                            Debug.LogWarning($"[FactionManager] {faction.Name} has declared WAR!");
+                        else if (faction.RelationWithPlayer < -30)
+                            ChangeRelation(faction.ID, -5);
+                        break;
+
+                    case FactionPersonality.Merchant:
+                        if (faction.RelationWithPlayer >= 50)
+                            Debug.Log($"[FactionManager] {faction.Name} offers a trade deal.");
+                        else
+                            ChangeRelation(faction.ID, +2);
+                        break;
+
+                    case FactionPersonality.Manipulative:
+                        if (faction.RelationWithPlayer < 0)
+                        {
+                            Debug.LogWarning($"[FactionManager] {faction.Name} spreads rumors. (Prestige loss)");
+                            ChangeRelation(faction.ID, -3);
+                        }
+                        break;
+
+                    case FactionPersonality.Expansionist:
+                        faction.PowerLevel += 100;
+                        if (faction.RelationWithPlayer < -50)
+                            Debug.LogWarning($"[FactionManager] {faction.Name} eyes your territory.");
+                        break;
+
+                    case FactionPersonality.Isolationist:
+                        // Slowly drift toward neutral
+                        if (faction.RelationWithPlayer > 0)
+                            ChangeRelation(faction.ID, -1);
+                        else if (faction.RelationWithPlayer < 0)
+                            ChangeRelation(faction.ID, +1);
+                        break;
                 }
             }
         }

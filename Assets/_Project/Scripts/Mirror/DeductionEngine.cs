@@ -118,6 +118,14 @@ namespace MirrorChronicles.Mirror
             // Generate procedural name
             string techName = GenerateProceduralName(dominant, type, totalQuality);
 
+            // Range: MartialArt = melee (1), SupportArt = short (2), CultivationMethod = self (0)
+            int range = type switch
+            {
+                TechniqueType.MartialArt => Mathf.Clamp(1 + totalQuality / 8, 1, 3),
+                TechniqueType.SupportArt => 2,
+                _ => 0
+            };
+
             return new TechniqueData
             {
                 Name = techName,
@@ -126,6 +134,7 @@ namespace MirrorChronicles.Mirror
                 RequiredRealm = (CultivationRealm)Mathf.Clamp(totalQuality / 3, 0, 9), // Higher quality = higher realm requirement
                 PowerModifier = totalQuality * 5,
                 QiCost = totalQuality * 2,
+                Range = range,
                 RiskFactor = risk
             };
         }

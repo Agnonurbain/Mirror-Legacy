@@ -19,7 +19,14 @@ namespace MirrorChronicles.Core
     {
         public static SaveSystem Instance { get; private set; }
 
-        private string SaveFilePath => Path.Combine(Application.persistentDataPath, "ironman_save.json");
+        private const int MaxSlots = 3;
+        private string SaveFilePath => GetSlotPath(0);
+
+        private string GetSlotPath(int slot)
+        {
+            if (slot <= 0) return Path.Combine(Application.persistentDataPath, "ironman_save.json");
+            return Path.Combine(Application.persistentDataPath, $"save_slot_{slot}.json");
+        }
 
         private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
@@ -62,14 +69,7 @@ namespace MirrorChronicles.Core
         {
             Debug.Log("[SaveSystem] Initiating Auto-Save...");
 
-            GameData data = new GameData
-            {
-                ClanName = ClanManager.Instance.ClanName,
-                CurrentYear = TimeManager.Instance.CurrentYear,
-                CurrentPhase = TimeManager.Instance.CurrentPhase,
-                SpiritStones = ResourceManager.Instance.SpiritStones,
-                HistoricalRecords = BloodRegistry.Instance.HistoricalRecords
-            };
+            GameData data = BuildGameData();
 
             try
             {
@@ -111,6 +111,74 @@ namespace MirrorChronicles.Core
                 Debug.LogError($"[SaveSystem] Failed to load game: {e.Message}");
                 return false;
             }
+        }
+
+        public void SaveToSlot(int slot)
+        {
+            if (slot < 1 || slot > MaxSlots)
+            {
+                Debug.LogWarning($"[SaveSystem] Invalid slot {slot}. Use 1-{MaxSlots}.");
+                return;
+            }
+
+            string path = GetSlotPath(slot);
+            GameData data = BuildGameData();
+
+            try
+            {
+                string json = JsonConvert.SerializeObject(data, SerializerSettings);
+                File.WriteAllText(path, json);
+                Debug.Log($"[SaveSystem] Saved to slot {slot}: {path}");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"[SaveSystem] Save to slot {slot} failed: {e.Message}");
+            }
+        }
+
+        public bool LoadFromSlot(int slot)
+        {
+            if (slot < 1 || slot > MaxSlots) return false;
+            string path = GetSlotPath(slot);
+
+            if (!File.Exists(path))
+            {
+                Debug.LogWarning($"[SaveSystem] Slot {slot} is empty.");
+                return false;
+            }
+
+            try
+            {
+                string json = File.ReadAllText(path);
+                GameData data = JsonConvert.DeserializeObject<GameData>(json, SerializerSettings);
+                if (data == null) return false;
+                RestoreGameState(data);
+                Debug.Log($"[SaveSystem] Loaded from slot {slot}.");
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"[SaveSystem] Load from slot {slot} failed: {e.Message}");
+                return false;
+            }
+        }
+
+        public bool SlotExists(int slot)
+        {
+            if (slot < 1 || slot > MaxSlots) return false;
+            return File.Exists(GetSlotPath(slot));
+        }
+
+        private GameData BuildGameData()
+        {
+            return new GameData
+            {
+                ClanName = ClanManager.Instance.ClanName,
+                CurrentYear = TimeManager.Instance.CurrentYear,
+                CurrentPhase = TimeManager.Instance.CurrentPhase,
+                SpiritStones = ResourceManager.Instance.SpiritStones,
+                HistoricalRecords = BloodRegistry.Instance.HistoricalRecords
+            };
         }
 
         private void RestoreGameState(GameData data)

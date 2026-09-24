@@ -76,6 +76,12 @@ namespace MirrorChronicles.Combat
             }
         }
 
+        public void Heal(int amount)
+        {
+            CurrentVitality = Mathf.Min(MaxVitality, CurrentVitality + amount);
+            Debug.Log($"[CombatUnit] {BaseData.FullName} healed {amount} HP. HP: {CurrentVitality}/{MaxVitality}");
+        }
+
         public void TakeDamage(int amount)
         {
             if (IsDefending)
@@ -101,6 +107,12 @@ namespace MirrorChronicles.Combat
                 return true;
             }
             return false;
+        }
+
+        public void RestoreQi(int amount)
+        {
+            CurrentQi = Mathf.Min(MaxQi, CurrentQi + amount);
+            Debug.Log($"[CombatUnit] {BaseData.FullName} restored {amount} Qi. Qi: {CurrentQi}/{MaxQi}");
         }
 
         private void Die()

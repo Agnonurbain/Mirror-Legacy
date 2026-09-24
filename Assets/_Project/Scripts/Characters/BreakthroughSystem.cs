@@ -1,6 +1,7 @@
 using UnityEngine;
 using MirrorChronicles.Data;
 using MirrorChronicles.Events;
+using MirrorChronicles.Mirror;
 
 namespace MirrorChronicles.Characters
 {
@@ -52,10 +53,27 @@ namespace MirrorChronicles.Characters
             return Mathf.Clamp(successRate, 1, 99); // Always a 1% chance of failure or success
         }
 
+        public bool AncestralShieldActive { get; set; }
+
+        public void ActivateAncestralShield()
+        {
+            if (MirrorSystem.Instance != null && MirrorSystem.Instance.UseAncestralShield())
+                AncestralShieldActive = true;
+        }
+
         public void AttemptBreakthrough(CharacterData character)
         {
             int successRate = CalculateSuccessRate(character);
-            int roll = Random.Range(1, 101); // 1 to 100
+
+            if (AncestralShieldActive)
+            {
+                successRate += 30;
+                successRate = Mathf.Clamp(successRate, 1, 99);
+                AncestralShieldActive = false;
+                Debug.Log($"[BreakthroughSystem] Ancestral Shield grants +30% success!");
+            }
+
+            int roll = Random.Range(1, 101);
 
             Debug.Log($"[BreakthroughSystem] {character.FullName} attempting breakthrough. Success Rate: {successRate}%. Roll: {roll}");
 

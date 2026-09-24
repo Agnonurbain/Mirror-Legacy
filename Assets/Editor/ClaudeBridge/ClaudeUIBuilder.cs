@@ -116,7 +116,8 @@ namespace ClaudeBridge
             }
 
             var canvasGO = new GameObject("[UI]",
-                typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster), typeof(ClanDomainUI));
+                typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster), typeof(ClanDomainUI),
+                typeof(EventResolutionUI));
             var canvas = canvasGO.GetComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
@@ -128,6 +129,7 @@ namespace ClaudeBridge
             BuildHeader(canvasGO.transform);
             BuildFooter(canvasGO.transform);
             BuildMembersScrollView(canvasGO.transform);
+            BuildEventResolutionPanel(canvasGO.transform);
 
             if (Object.FindFirstObjectByType<EventSystem>() == null)
             {
@@ -208,6 +210,25 @@ namespace ClaudeBridge
             CreateTmpLabel(buttonGO.transform, "Label",
                 Vector2.zero, Vector2.zero, "End Turn",
                 fontSize: 32, alignment: TextAlignmentOptions.Center,
+                anchorMin: Vector2.zero, anchorMax: Vector2.one,
+                pivot: new Vector2(0.5f, 0.5f),
+                stretchToParent: true);
+
+            // World Map button
+            var mapBtnGO = new GameObject("WorldMapButton",
+                typeof(RectTransform), typeof(Image), typeof(Button));
+            mapBtnGO.transform.SetParent(footer.transform, false);
+            var mbrt = (RectTransform)mapBtnGO.transform;
+            mbrt.anchorMin = new Vector2(0, 0.5f);
+            mbrt.anchorMax = new Vector2(0, 0.5f);
+            mbrt.pivot = new Vector2(0, 0.5f);
+            mbrt.sizeDelta = new Vector2(220, 70);
+            mbrt.anchoredPosition = new Vector2(30, 0);
+            mapBtnGO.GetComponent<Image>().color = new Color(0.3f, 0.5f, 0.6f, 1f);
+
+            CreateTmpLabel(mapBtnGO.transform, "Label",
+                Vector2.zero, Vector2.zero, "World Map",
+                fontSize: 28, alignment: TextAlignmentOptions.Center,
                 anchorMin: Vector2.zero, anchorMax: Vector2.one,
                 pivot: new Vector2(0.5f, 0.5f),
                 stretchToParent: true);
@@ -395,6 +416,75 @@ namespace ClaudeBridge
             // Toggle needs a target graphic for proper UI behavior
             var toggle = itemGO.GetComponent<Toggle>();
             toggle.targetGraphic = itemGO.GetComponent<Image>();
+        }
+
+        private static void BuildEventResolutionPanel(Transform parent)
+        {
+            // Semi-transparent overlay panel, starts hidden
+            var eventPanel = new GameObject("EventPanel", typeof(RectTransform), typeof(Image));
+            eventPanel.transform.SetParent(parent, false);
+            var eprt = (RectTransform)eventPanel.transform;
+            eprt.anchorMin = new Vector2(0.15f, 0.15f);
+            eprt.anchorMax = new Vector2(0.85f, 0.85f);
+            eprt.offsetMin = Vector2.zero;
+            eprt.offsetMax = Vector2.zero;
+            eventPanel.GetComponent<Image>().color = new Color(0.05f, 0.05f, 0.08f, 0.95f);
+
+            // Title
+            CreateTmpLabel(eventPanel.transform, "TitleText",
+                new Vector2(30, -20), new Vector2(-60, 60), "Event Title",
+                fontSize: 36, alignment: TextAlignmentOptions.Center,
+                anchorMin: new Vector2(0, 1), anchorMax: new Vector2(1, 1),
+                pivot: new Vector2(0.5f, 1), stretchToParent: false);
+            var titleRt = (RectTransform)eventPanel.transform.Find("TitleText");
+            titleRt.anchorMin = new Vector2(0, 1);
+            titleRt.anchorMax = new Vector2(1, 1);
+            titleRt.pivot = new Vector2(0.5f, 1);
+            titleRt.offsetMin = new Vector2(30, -80);
+            titleRt.offsetMax = new Vector2(-30, -20);
+
+            // Narrative body
+            CreateTmpLabel(eventPanel.transform, "NarrativeText",
+                new Vector2(30, -100), new Vector2(-60, 200), "Event description...",
+                fontSize: 24, alignment: TextAlignmentOptions.TopLeft,
+                anchorMin: new Vector2(0, 0.4f), anchorMax: new Vector2(1, 0.75f),
+                pivot: new Vector2(0.5f, 0.5f), stretchToParent: true, paddingLeft: 30);
+
+            // Choices container with vertical layout
+            var choicesContainer = new GameObject("ChoicesContainer",
+                typeof(RectTransform), typeof(VerticalLayoutGroup), typeof(ContentSizeFitter));
+            choicesContainer.transform.SetParent(eventPanel.transform, false);
+            var ccrt = (RectTransform)choicesContainer.transform;
+            ccrt.anchorMin = new Vector2(0.15f, 0.05f);
+            ccrt.anchorMax = new Vector2(0.85f, 0.35f);
+            ccrt.offsetMin = Vector2.zero;
+            ccrt.offsetMax = Vector2.zero;
+
+            var choicesLayout = choicesContainer.GetComponent<VerticalLayoutGroup>();
+            choicesLayout.spacing = 10;
+            choicesLayout.childControlWidth = true;
+            choicesLayout.childControlHeight = false;
+            choicesLayout.childForceExpandWidth = true;
+            choicesLayout.childForceExpandHeight = false;
+
+            var choicesFitter = choicesContainer.GetComponent<ContentSizeFitter>();
+            choicesFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+            // Choice button template
+            var choiceBtnGO = new GameObject("ChoiceButtonTemplate",
+                typeof(RectTransform), typeof(Image), typeof(Button), typeof(LayoutElement));
+            choiceBtnGO.transform.SetParent(choicesContainer.transform, false);
+            choiceBtnGO.GetComponent<Image>().color = new Color(0.6f, 0.35f, 0.1f, 1f);
+            choiceBtnGO.GetComponent<LayoutElement>().minHeight = 50;
+
+            CreateTmpLabel(choiceBtnGO.transform, "Label",
+                Vector2.zero, Vector2.zero, "Choice",
+                fontSize: 24, alignment: TextAlignmentOptions.Center,
+                anchorMin: Vector2.zero, anchorMax: Vector2.one,
+                pivot: new Vector2(0.5f, 0.5f), stretchToParent: true);
+
+            choiceBtnGO.SetActive(false);
+            eventPanel.SetActive(false);
         }
 
         private static void CreateTmpLabel(

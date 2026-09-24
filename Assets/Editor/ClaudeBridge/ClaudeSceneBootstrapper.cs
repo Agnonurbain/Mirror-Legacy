@@ -36,6 +36,8 @@ namespace ClaudeBridge
             systems.AddComponent<GameManager>();
             systems.AddComponent<TimeManager>();
             systems.AddComponent<SaveSystem>();
+            systems.AddComponent<VictoryConditionSystem>();
+            systems.AddComponent<ObjectPool>();
 
             // Clan
             systems.AddComponent<ClanManager>();
@@ -59,12 +61,22 @@ namespace ClaudeBridge
             systems.AddComponent<MarriageSystem>();
             systems.AddComponent<AllianceSystem>();
 
+            // Espionage
+            systems.AddComponent<EspionageSystem>();
+
             // Economy
             systems.AddComponent<ResourceManager>();
             systems.AddComponent<TaskAssignmentSystem>();
 
+            // Economy (buildings)
+            systems.AddComponent<BuildingSystem>();
+
             // Events
             systems.AddComponent<EventManager>();
+            systems.AddComponent<StoryEventManager>();
+
+            // Clan Karma
+            systems.AddComponent<ClanKarmaSystem>();
 
             bool saved = EditorSceneManager.SaveScene(scene, ScenePath);
 

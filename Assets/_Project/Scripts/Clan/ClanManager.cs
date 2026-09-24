@@ -15,6 +15,7 @@ namespace MirrorChronicles.Clan
 
         public string ClanName { get; private set; } = "Li";
         public List<CharacterData> LivingMembers { get; private set; } = new List<CharacterData>();
+        public string PatriarchID { get; private set; }
 
         private void Awake()
         {
@@ -70,6 +71,7 @@ namespace MirrorChronicles.Clan
                 MentalStability = 80
             };
             AddMember(patriarch);
+            PatriarchID = patriarch.ID;
 
             // 2. The Matriarch
             var matriarch = new CharacterData
@@ -208,7 +210,38 @@ namespace MirrorChronicles.Clan
                 character.CauseOfDeath = cause;
                 LivingMembers.Remove(character);
                 Debug.Log($"[ClanManager] {character.FullName} has died from {cause}.");
+
+                if (character.ID == PatriarchID)
+                    ElectNewPatriarch();
             }
+        }
+
+        /// <summary>
+        /// Selects the most qualified living member as the new patriarch.
+        /// Priority: highest Realm, then oldest Age, then highest SpiritualRoot.
+        /// </summary>
+        private void ElectNewPatriarch()
+        {
+            if (LivingMembers.Count == 0)
+            {
+                PatriarchID = null;
+                Debug.LogWarning("[ClanManager] The clan has no living members. The lineage is broken.");
+                return;
+            }
+
+            var successor = LivingMembers
+                .OrderByDescending(m => (int)m.Realm)
+                .ThenByDescending(m => m.Age)
+                .ThenByDescending(m => m.SpiritualRoot)
+                .First();
+
+            PatriarchID = successor.ID;
+            Debug.Log($"[ClanManager] {successor.FullName} has been appointed as the new Patriarch!");
+        }
+
+        public CharacterData GetPatriarch()
+        {
+            return LivingMembers.Find(m => m.ID == PatriarchID);
         }
     }
 }

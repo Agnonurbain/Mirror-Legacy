@@ -42,6 +42,7 @@ namespace MirrorChronicles.Data
         // Stats
         public int PowerModifier { get; set; } // Damage or XP boost
         public int QiCost { get; set; }
+        public int Range { get; set; } // Manhattan distance; 1 = melee, 2+ = ranged
         public int RiskFactor { get; set; } // 0-100% chance of Qi Deviation when practicing
 
         public TechniqueData()

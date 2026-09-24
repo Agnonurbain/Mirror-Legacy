@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace MirrorChronicles.Data
 {
@@ -28,6 +29,9 @@ namespace MirrorChronicles.Data
         public int MentalStability { get; set; }
         public TaskType CurrentTask { get; set; }
 
+        // Known Techniques (IDs referencing TechniqueData)
+        public List<string> KnownTechniqueIDs { get; set; }
+
         // Family Links (Stored as IDs for easy serialization without circular references)
         public string FatherID { get; set; }
         public string MotherID { get; set; }
@@ -41,6 +45,7 @@ namespace MirrorChronicles.Data
             Realm = CultivationRealm.Embryonic;
             CurrentTask = TaskType.None;
             CauseOfDeath = DeathCause.None;
+            KnownTechniqueIDs = new List<string>();
         }
 
         public string FullName => $"{LastName} {FirstName}";

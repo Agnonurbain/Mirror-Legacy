@@ -23,6 +23,7 @@ namespace MirrorChronicles.UI
         private TMP_Text phaseText;
         private TMP_Text spiritStonesText;
         private Button endTurnButton;
+        private Button worldMapButton;
         private Transform membersContent;
         private GameObject memberRowTemplate;
 
@@ -38,6 +39,7 @@ namespace MirrorChronicles.UI
             phaseText = transform.Find("Header/PhaseText").GetComponent<TMP_Text>();
             spiritStonesText = transform.Find("Header/SpiritStonesText").GetComponent<TMP_Text>();
             endTurnButton = transform.Find("Footer/EndTurnButton").GetComponent<Button>();
+            worldMapButton = transform.Find("Footer/WorldMapButton")?.GetComponent<Button>();
 
             membersContent = transform.Find("MembersScrollView/Viewport/Content");
             memberRowTemplate = membersContent.GetChild(0).gameObject;
@@ -52,6 +54,7 @@ namespace MirrorChronicles.UI
             GameEvents.OnCharacterBorn += HandleRosterChanged;
             GameEvents.OnCharacterDied += HandleCharacterDied;
             endTurnButton.onClick.AddListener(OnEndTurnClicked);
+            worldMapButton?.onClick.AddListener(OnWorldMapClicked);
         }
 
         private void OnDisable()
@@ -62,6 +65,7 @@ namespace MirrorChronicles.UI
             GameEvents.OnCharacterBorn -= HandleRosterChanged;
             GameEvents.OnCharacterDied -= HandleCharacterDied;
             endTurnButton.onClick.RemoveListener(OnEndTurnClicked);
+            worldMapButton?.onClick.RemoveListener(OnWorldMapClicked);
         }
 
         private void Start()
@@ -71,8 +75,19 @@ namespace MirrorChronicles.UI
 
         private void OnEndTurnClicked()
         {
+            if (EventResolutionUI.Instance != null && EventResolutionUI.Instance.IsShowing)
+            {
+                Debug.Log("[ClanDomainUI] Cannot advance — resolve the pending event first.");
+                return;
+            }
+
             if (TimeManager.Instance != null)
                 TimeManager.Instance.AdvancePhase();
+        }
+
+        private void OnWorldMapClicked()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
         }
 
         private void HandleYearStarted(int year) => RefreshAll();

@@ -47,6 +47,7 @@ case "$COMMAND" in
     ImportTMPEssentials) METHOD_PATH="ClaudeBridge.ClaudeUIBuilder.ImportTMPEssentials" ;;
     BuildLinux64|BuildWindows64) METHOD_PATH="ClaudeBridge.ClaudeBuildManager.${COMMAND}" ;;
     RunEditModeTests|RunPlayModeTests) METHOD_PATH="ClaudeBridge.ClaudeTestRunner.${COMMAND}" ;;
+    BuildWorldMap) METHOD_PATH="ClaudeBridge.ClaudeWorldMapBuilder.BuildWorldMap" ;;
     ScanLegacyPackages|AutoMigrate) METHOD_PATH="ClaudeBridge.UpmMigrator.${COMMAND}" ;;
     *.*) METHOD_PATH="$COMMAND" ;;
     *) METHOD_PATH="ClaudeBridge.ClaudeCodeBridge.${COMMAND}" ;;
