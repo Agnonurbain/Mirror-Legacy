@@ -315,4 +315,5 @@ Le master prompt mentionne : **"Après 10 générations + ascension d'un membre 
 | Date | Modification |
 |---|---|
 | 2026-04-14 | Création de `BRAIN_CLAUDE/`. Pivot web → Unity/C# acté. État initial documenté : 34 fichiers C# (3432 lignes), 5 bugs compile, projet Unity pas bootstrapped. |
+| 2026-09-24 | Règle de consanguinité ≤ 3 générations appliquée (`KinshipRules`). Mariages annuels (`MarriageMatchmaker`) pour que la lignée survive au couple fondateur ; les conjoints extérieurs (errants ou mariages arrangés) rejoignent le clan. Graphify + ECC branchés via `CLAUDE.md`. |
 | — | *Prochain changelog ici* |

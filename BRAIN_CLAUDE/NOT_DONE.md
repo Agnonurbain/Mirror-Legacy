@@ -1,6 +1,6 @@
 # 🚧 NOT_DONE.md — Ce qui reste à faire
 
-> **Mis à jour à chaque étape du projet.** Dernière mise à jour : 2026-04-14 (audit initial après pivot web → Unity/C#).
+> **Mis à jour à chaque étape du projet.** Dernière mise à jour : 2026-09-24 (mariages annuels + règle de consanguinité, tâches Phase 1 cochées).
 > Priorités : 🔴 Bloquant · 🟠 Haute · 🟡 Moyenne · 🟢 Basse
 
 ---
@@ -11,9 +11,10 @@
 |---|---|---|---|
 | 1 | ~~Bootstrapper le projet Unity~~ | ✅ | Fait 2026-04-15. Projet temporaire créé dans `/tmp/` (Universal 2D, Unity 6.4.2f1), fusion `ProjectSettings/` + `Packages/manifest.json` dans `Mirror-Legacy/`, Newtonsoft.Json ajouté au manifest. Unity a scanné et généré 39 `.meta` pour les scripts. Compile sans erreur côté code projet (seulement 2 erreurs ShaderGraph dans le package cache, bug connu Unity 6.4, non bloquant). |
 | 2 | ~~Corriger erreurs de compilation~~ | ✅ | Fait 2026-04-15. WL-001 à WL-005 résolus : `RootElement→Affinity`, `ConsumeMirrorPower→ConsumePower`, `Element.Ice` remplacé par `Darkness/Light`, `TriggerYearlyEvent/ProcessYearlyFactionAI` passées en public + appel test corrigé. Sera re-vérifiable via Unity Test Runner après bootstrap (tâche 1). |
-| 3 | **Créer l'asmdef** | 🔴 | `Assets/_Project/Scripts/MirrorChronicles.Runtime.asmdef`. Séparer un `MirrorChronicles.Editor.asmdef` pour les custom editors à venir et un `MirrorChronicles.Tests.asmdef` pour les tests NUnit (avec references `nunit.framework.dll` + `UnityEngine.TestRunner` + `UnityEditor.TestRunner`). |
-| 4 | **Créer la scène `ClanDomain.unity`** | 🔴 | Scène principale avec GameObject `[Systems]` portant tous les Singletons (GameManager, TimeManager, SaveSystem, ClanManager, BloodRegistry, tous les Characters systems, MirrorSystem, DeductionEngine, FactionManager, MarriageSystem, AllianceSystem, ResourceManager, TaskAssignmentSystem, EventManager). |
-| 5 | **Passer à Newtonsoft.Json** | 🔴 | `JsonUtility` ne sérialise pas les auto-properties `{ get; set; }` → `CharacterData` ne se sauvegarde pas. Installer `com.unity.nuget.newtonsoft-json` et remplacer `JsonUtility.ToJson/FromJson` dans `SaveSystem.cs`. |
+| 3 | ~~Créer l'asmdef~~ | ✅ | Fait 2026-04-15 (commit `89d9e32`). — `Assets/_Project/Scripts/MirrorChronicles.Runtime.asmdef`. Séparer un `MirrorChronicles.Editor.asmdef` pour les custom editors à venir et un `MirrorChronicles.Tests.asmdef` pour les tests NUnit (avec references `nunit.framework.dll` + `UnityEngine.TestRunner` + `UnityEditor.TestRunner`). |
+| 4 | ~~Créer la scène `ClanDomain.unity`~~ | ✅ | Fait 2026-04-15 (commit `89d9e32`). — Scène principale avec GameObject `[Systems]` portant tous les Singletons (GameManager, TimeManager, SaveSystem, ClanManager, BloodRegistry, tous les Characters systems, MirrorSystem, DeductionEngine, FactionManager, MarriageSystem, AllianceSystem, ResourceManager, TaskAssignmentSystem, EventManager). |
+| 5 | ~~Passer à Newtonsoft.Json~~ | ✅ | Fait 2026-04-15 (commit `89d9e32`, WL-006). — `JsonUtility` ne sérialise pas les auto-properties `{ get; set; }` → `CharacterData` ne se sauvegarde pas. Installer `com.unity.nuget.newtonsoft-json` et remplacer `JsonUtility.ToJson/FromJson` dans `SaveSystem.cs`. |
+| 6 | **Réinstaller l'éditeur Unity 6000.4.2f1** | 🔴 | Absent de la machine depuis le déplacement du repo vers `~/Games/Mirror-Legacy` : `unity-claude.sh` ne compile plus et ne lance plus aucun test. Ensuite : `RunEditModeTests` (valider les 2 tests `CanMarry`) et `RunPlayModeTests`. |
 
 ---
 
@@ -21,12 +22,14 @@
 
 | # | Tâche | Priorité | Détails |
 |---|---|---|---|
-| 10 | **Tests Edit Mode basiques** | 🟠 | NUnit tests pour : `GeneticSystem.GenerateSpiritualRoot` (bornes, moyenne, mutations), `BreakthroughSystem.CalculateSuccessRate` (modificateurs), `MentalStabilitySystem.ApplyModifier` (clamp 0-100). Créer `Assets/_Project/Tests/EditMode/`. |
-| 11 | **Test Play Mode de la simulation 10 ans** | 🟠 | Convertir `GameSimulationTest` en vrai test Play Mode : spawn Systems, advance 10 years via TimeManager, assert que le clan a survécu, que des morts ont eu lieu, que Spirit Stones ont été générés. |
-| 12 | **UI placeholder Phase 1** | 🟠 | Minimal Canvas avec : (a) bouton "End Turn" qui call `TimeManager.Instance.AdvancePhase()`, (b) affichage texte CurrentYear + CurrentPhase, (c) liste des LivingMembers avec Nom / Age / Realm / Task / Stability. Utiliser TextMeshPro. |
-| 13 | **TaskAssignment UI** | 🟠 | Pour chaque membre, un dropdown avec les TaskType valides (filtrés selon Realm). Appeler `TaskAssignmentSystem.AssignTask`. |
-| 14 | **Child birth** | 🟠 | Pas de logique de procréation. Ajouter dans `ClanManager` une méthode `GenerateChild(father, mother)` qui appelle `GeneticSystem.GenerateSpiritualRoot/Affinity` et créé un nouveau `CharacterData`. Déclenchement : event scénarisé ou annuel aléatoire si couple marié. |
-| 15 | **Compléter tâches manquantes** | 🟠 | 4 tâches dans `TaskAssignmentSystem` : Study (+chance Deduction), Teaching (mentor buff pour élève), Diplomacy (relation +5/an sur faction ciblée), Espionage (chance vol fragment mais risque capture). |
+| 10 | ~~Tests Edit Mode basiques~~ | ✅ | Fait 2026-04-17 (commit `93e18cf`). — NUnit tests pour : `GeneticSystem.GenerateSpiritualRoot` (bornes, moyenne, mutations), `BreakthroughSystem.CalculateSuccessRate` (modificateurs), `MentalStabilitySystem.ApplyModifier` (clamp 0-100). Créer `Assets/_Project/Tests/EditMode/`. |
+| 11 | ~~Test Play Mode de la simulation 10 ans~~ | ✅ | Fait 2026-04-17 (commit `93e18cf`). — Convertir `GameSimulationTest` en vrai test Play Mode : spawn Systems, advance 10 years via TimeManager, assert que le clan a survécu, que des morts ont eu lieu, que Spirit Stones ont été générés. |
+| 12 | ~~UI placeholder Phase 1~~ | ✅ | Fait 2026-04-15 (commit `23503d2`). — Minimal Canvas avec : (a) bouton "End Turn" qui call `TimeManager.Instance.AdvancePhase()`, (b) affichage texte CurrentYear + CurrentPhase, (c) liste des LivingMembers avec Nom / Age / Realm / Task / Stability. Utiliser TextMeshPro. |
+| 13 | ~~TaskAssignment UI~~ | ✅ | Fait 2026-04-17 (commit `93e18cf`). — Pour chaque membre, un dropdown avec les TaskType valides (filtrés selon Realm). Appeler `TaskAssignmentSystem.AssignTask`. |
+| 14 | ~~Child birth~~ | ✅ | Fait 2026-04-17 (commit `93e18cf`). — Pas de logique de procréation. Ajouter dans `ClanManager` une méthode `GenerateChild(father, mother)` qui appelle `GeneticSystem.GenerateSpiritualRoot/Affinity` et créé un nouveau `CharacterData`. Déclenchement : event scénarisé ou annuel aléatoire si couple marié. |
+| 15 | ~~Compléter tâches manquantes~~ | ✅ | Fait 2026-04-17 (commit `93e18cf`). — 4 tâches dans `TaskAssignmentSystem` : Study (+chance Deduction), Teaching (mentor buff pour élève), Diplomacy (relation +5/an sur faction ciblée), Espionage (chance vol fragment mais risque capture). |
+| 16 | ~~Mariages annuels~~ | ✅ | Fait 2026-09-24. `MarriageMatchmaker` + `MarriageSystem.ProcessAnnualMarriages` (phase Events, avant les naissances) ; conjoints extérieurs ajoutés au clan. Sans cela la lignée s'éteignait après le couple fondateur (WL-012). Intégration à valider en PlayMode (#6). |
+| 17 | ~~Règle de consanguinité ≤ 3 générations~~ | ✅ | Fait 2026-09-24. `KinshipRules` utilisé par `CanMarry` (WL-011). |
 
 ---
 

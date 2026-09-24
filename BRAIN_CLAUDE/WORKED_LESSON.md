@@ -115,6 +115,7 @@ Chaque entrée suit ce format :
 | **Cause racine** | Le sérialiseur d'Unity est conçu pour les champs style `public int age;` (style Unity MonoBehaviour), pas pour des POCOs modernes. |
 | **Solution** | Deux options : (a) convertir toutes les auto-properties en champs publics (`public int Age;` au lieu de `public int Age { get; set; }`) — simple mais casse l'encapsulation ; (b) utiliser Newtonsoft.Json via le package `com.unity.nuget.newtonsoft-json` — respecte properties, inheritance, converters custom. **Recommandation : (b).** |
 | **Impact** | 🔴 Bloquant pour le mode Ironman (la save ne persiste rien). Silencieux au compile, cassé au runtime. |
+| **Statut** | ✅ Résolu 2026-04-15 (commit `89d9e32`, option b : Newtonsoft.Json). |
 | **Prévention** | Par défaut, utiliser Newtonsoft.Json dans tout projet Unity ayant une logique de sauvegarde non-triviale. `JsonUtility` seulement pour des petits DTO Unity-native (Vector3, etc.). |
 
 ---
@@ -177,6 +178,38 @@ Chaque entrée suit ce format :
 | **Solution** | Ajouter dans `TimeManager` : `public void LoadState(int year, GamePhase phase) { CurrentYear = year; CurrentPhase = phase; /* no events */ }` + appeler depuis `SaveSystem.RestoreGameState`. |
 | **Impact** | 🟠 Fort — un load remet l'année à 1. |
 | **Prévention** | Pour chaque champ `{ get; private set; }` public, se demander : "Comment ça se charge depuis une sauvegarde ?" et fournir un setter alternatif ou une méthode de load si nécessaire. |
+
+---
+
+### WL-011 — Règle de consanguinité non appliquée
+| Champ | Valeur |
+|---|---|
+| **ID** | WL-011 |
+| **Date** | 2026-09-24 |
+| **Catégorie** | Règle métier |
+| **Fichier** | `Assets/_Project/Scripts/Diplomacy/MarriageSystem.cs` (`CanMarry`) |
+| **Problème** | `CanMarry` ne bloquait que les frères/sœurs, alors que MEMORY.md interdit le mariage ≤ 3 générations : parent/enfant, oncle/nièce et cousins pouvaient se marier. Détecté par graphify (arête AMBIGUOUS entre MarriageSystem et les règles métier). |
+| **Cause racine** | Règle métier documentée mais jamais traduite en test. |
+| **Solution** | `KinshipRules.AreCloseKin` (logique pure, ancêtres sur N générations) + 14 tests EditMode. |
+| **Impact** | 🟡 Moyen — sans effet tant qu'aucun mariage n'était déclenché (voir WL-012). |
+| **Statut** | ✅ Résolu 2026-09-24. |
+| **Prévention** | Chaque ligne du tableau "Règles métier clés" de MEMORY.md doit avoir au moins un test qui la nomme. |
+
+---
+
+### WL-012 — Aucun mariage en jeu : la lignée s'éteint
+| Champ | Valeur |
+|---|---|
+| **ID** | WL-012 |
+| **Date** | 2026-09-24 |
+| **Catégorie** | Gameplay / Boucle annuelle |
+| **Fichier** | `Assets/_Project/Scripts/Diplomacy/MarriageSystem.cs`, `Assets/_Project/Scripts/Clan/ClanManager.cs` (`ProcessAnnualBirths`) |
+| **Problème** | Rien n'appelait `MarriageSystem` : seul le couple fondateur était marié, donc plus aucune naissance après la ménopause de la matriarche → victoire à 10 générations impossible. Le conjoint d'un mariage arrangé n'était pas ajouté au clan (et restait `IsMale = false`), donc jamais compté par `ProcessAnnualBirths`. |
+| **Cause racine** | Systèmes livrés isolément (#14 naissances, #32 mariages) sans test de bout en bout sur plusieurs générations. |
+| **Solution** | `MarriageMatchmaker` (pur, testé) + `MarriageSystem.ProcessAnnualMarriages` en phase Events (ordre garanti avant les naissances de la phase Inheritance) ; les conjoints extérieurs rejoignent le clan via `ClanManager.AddMember`. |
+| **Impact** | 🔴 Bloquant pour la condition de victoire. |
+| **Statut** | ✅ Résolu 2026-09-24 (logique testée hors Unity ; intégration à valider en PlayMode quand l'éditeur sera réinstallé). |
+| **Prévention** | Le test PlayMode de simulation doit couvrir au moins 2 générations et vérifier des naissances à la 2e génération. |
 
 ---
 

@@ -84,7 +84,9 @@
 | # | Tâche | Détails |
 |---|---|---|
 | 31 | **FactionManager** | Initialise 3 factions hardcodées : Wang Family (Aggressive, 500 power, relation -20), Zhao Merchant (Merchant, 200 power, +10), Azure Cloud Sect (Isolationist, 5000 power, 0). IA annuelle simple déclenchée sur `OnPhaseChanged → Events`. |
-| 32 | **MarriageSystem** | `CanMarry` valide Age ≥ 18, pas déjà marié, pas frères/sœurs directs. `HandleLoveMarriage` +10 stability. `HandleArrangedMarriage` avec boost relation +25 ; forcé = -15 stability, volontaire = +5. |
+| 32 | **MarriageSystem** | `CanMarry` valide Age ≥ 18, pas déjà marié, aucun ancêtre commun sur 3 générations (`KinshipRules`). `HandleLoveMarriage` +10 stability, le conjoint extérieur rejoint le clan. `HandleArrangedMarriage` crée un vrai conjoint (sexe opposé, adulte, QiRefinement) qui rejoint le clan, boost relation +25 ; forcé = -15 stability, volontaire = +5. |
+| 32b | **KinshipRules** (2026-09-24) | Règle "mariage interdit ≤ 3 générations" : remonte FatherID/MotherID sur N générations via BloodRegistry, refuse tout ancêtre commun (frères/sœurs, parent/enfant, oncle/nièce, cousins germains et issus de germains). Voir WL-011. |
+| 32c | **Mariages annuels** (2026-09-24) | `MarriageMatchmaker` (logique pure) + `MarriageSystem.ProcessAnnualMarriages` en phase Events (toujours avant les naissances de la phase Inheritance) : chaque membre éligible (vivant, célibataire, 18-40 ans) a 30 %/an de se marier avec le membre non apparenté du sexe opposé le plus proche en âge, sinon avec un cultivateur errant qui rejoint le clan. Débloque les naissances au-delà du couple fondateur. Voir WL-012. |
 | 33 | **AllianceSystem** | `OfferTribute` (5 + stones/100, ×1.5 si Merchant). `ProposeNonAggression` accepté si relation ≥ 0 (+10). `DeclareWar` met la relation à -100. |
 
 ---
@@ -127,6 +129,8 @@
 | # | Tâche | Détails |
 |---|---|---|
 | 43 | **GameSimulationTest** | Coroutine qui simule 10 ans en ~10 secondes. Triggers : Deduction en année 3, Mariage politique en année 5, Ascension en année 7, Mort en année 9. ⚠️ 2 bugs compile (méthodes privées appelées). Pas un vrai test Edit/Play Mode NUnit. |
+| 43b | **KinshipRulesTests** (2026-09-24) | 14 tests EditMode. Les 12 tests de logique pure passent dans un harnais `dotnet test` NUnit ; les 2 tests `CanMarry` attendent l'éditeur Unity (non installé). |
+| 43c | **MarriageMatchmakerTests** (2026-09-24) | 16 tests EditMode purs (éligibilité, partenaire non apparenté, conjoint extérieur, planification annuelle). RED 8 échecs → GREEN 28/28 avec les tests de parenté. |
 
 ---
 
