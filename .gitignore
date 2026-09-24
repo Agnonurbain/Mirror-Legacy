@@ -84,3 +84,10 @@ node_modules/
 claude-output/
 .unity.lock
 mono_crash.mem.*.blob
+
+# graphify (knowledge graph) — keep report/graph, ignore cache and temp files
+graphify-out/cache/
+graphify-out/.graphify_*
+graphify-out/[0-9]*/
+graphify-out/manifest.json
+graphify-out/cost.json

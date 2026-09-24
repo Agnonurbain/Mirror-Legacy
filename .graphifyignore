@@ -1,0 +1,33 @@
+# graphify reads this file INSTEAD of .gitignore, so Unity/IDE outputs are repeated here.
+# Keep the knowledge graph focused on the Unity C# game and its design docs.
+
+# Unity generated / build output
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# IDE / local tooling state
+.vs/
+.vscode/
+.idea/
+.claude/
+claude-output/
+graphify-out/
+*.csproj
+*.sln
+*.slnx
+*.log
+mono_crash.mem.*.blob
+node_modules/
+
+# Noise for the graph: archived web prototype, package lockfiles, third-party assets
+.archive/
+Packages/
+ProjectSettings/*.json
+Assets/TextMesh Pro/
