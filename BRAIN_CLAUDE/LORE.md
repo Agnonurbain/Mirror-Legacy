@@ -3,7 +3,7 @@
 > **Source de vérité du lore.** Créé le 2026-09-24 (phase 0 de la restructuration).
 > **Sources :** `/home/aymeric/Miror.txt` (528 lignes) et la carte `/home/aymeric/Downloads/The_Mirror_Legacy_Map.webp` (798×541).
 > **Source complémentaire :** wiki du roman, https://the-mirror-legacy.fandom.com/wiki/The_Mirror_Legacy_Wiki (📚).
-> **Statut :** ✅ **Lexique de renommage validé par l'utilisateur le 2026-09-24** (§13). Les recommandations 💡 de §4 et §11 attendent encore sa validation.
+> **Statut :** ✅ **Validé par l'utilisateur le 2026-09-24** : lexique complet (§13, y compris 13.7-13.8), recommandations sur les mortels (§4), le miroir (§11.5) et la victoire (§11.9). Les Trois Profondeurs gardent les noms **Qingxuan, Douxuan, Tongxuan**.
 
 ---
 
@@ -189,7 +189,7 @@ Dao des **dieux, des fantômes et des esprits**, fondé sur l'acte de **saisir u
 | **Posséder une Profondeur** (« harnacher la Profondeur intérieure ») | Garder le plein contrôle de son mandat et intégrer la Profondeur par raffinage rituel | La plus rare et la plus exigeante ; mène vers une vraie divinité |
 - **Royaumes connus** : **Serviteur Divin** (dieu mineur, esprit ou fonctionnaire fantôme ; puissance allant de la Culture du Qi au Manoir Pourpre) → **Noyau Divin** (autorité divine stable, analogue au Noyau d'Or) → royaumes supérieurs inconnus.
 - Les pratiquants **abandonnent ou transforment leur corps** (formes de vie spirituelles) ; ils excellent à **hanter** : imprimer leur existence si profondément que l'imitation ou la commémoration peut déclencher corruption, folie ou calamité longtemps après leur mort.
-- Né d'Au-delà des Profondeurs, adopté par la **Profondeur Englobante**, il a engendré la **Voie Impériale** (gouverner pour cultiver), perfectionnée par un détenteur du Yang Lumineux.
+- Né d'Au-delà des Profondeurs, adopté par **Douxuan**, il a engendré la **Voie Impériale** (gouverner pour cultiver), perfectionnée par un détenteur du Yang Lumineux.
 - Fruitions prédisposées : **Sentinelle de la Cité, Régent Céleste, Magnétisme Primordial, Élixir Parfait, Tonnerre Profond, Corps de Kui**.
 
 ### 3.7 Rangs des autres Dao (📚) — des équivalences asymétriques
@@ -216,7 +216,7 @@ Dao des **dieux, des fantômes et des esprits**, fondé sur l'acte de **saisir u
 - La plupart des gens ne sont **pas** destinés à cultiver : seuls **3 sur 1000** ont un **orifice spirituel**, un canal inné **détectable uniquement par un cultivateur confirmé**.
 - Les rares **Graines de Sceau** contournent cette condition en greffant des voies spirituelles artificielles sur un mortel.
 - 📚 Dans le roman, ces graines viennent **du miroir** (« Perles Profondes ») : c'est ainsi que la famille du miroir, sans orifice, a commencé à cultiver. Détail en §11.5.
-- 🔎 Ni la source ni le wiki ne donnent de règle générale ; 📚 le wiki cite un mortel mort « à près de soixante-dix ans ». 💡 **Recommandation** : 60-80 ans (moyenne ~65-70), avec une variation individuelle ; un Qi de talisman peut l'allonger (*Prolonger la vie et accroître la longévité* : +40 ans, §11.5). À valider en phase 2.
+- 🔎 Ni la source ni le wiki ne donnent de règle générale ; 📚 le wiki cite un mortel mort « à près de soixante-dix ans ». ✅ **Validé** : 60-80 ans (moyenne ~65-70), avec une variation individuelle ; un Qi de talisman peut l'allonger (*Prolonger la vie et accroître la longévité* : +40 ans, §11.5).
 
 🎮 Phase 2 : `CharacterData.HasSpiritualOrifice` tiré à la naissance selon D3 ; `OrificeKnown` passe à vrai quand un cultivateur confirmé l'examine (tâche ou événement). Un mortel ne peut pas choisir la tâche Cultivation mais travaille (mine, patrouille, commerce). Les Graines de Sceau sont un objet rare (miroir, commerce, événements).
 ⚠️ Aujourd'hui tout membre peut cultiver.
@@ -448,10 +448,10 @@ Chaque Fruition porte (§6.7) :
 📚 **Les Trois Profondeurs d'origine.** Le wiki rattache chaque Fruition à l'une des trois traditions fondées par les Seigneurs Immortels des Trois Profondeurs — un axe qui traverse les groupes :
 | Profondeur (jeu) | Fruitions rattachées (connues) |
 |---|---|
-| **Profondeur Céladon** | les cinq Eaux (Vertu de l'Eau), Jade Premier, Culture de Linxi, Voie de l'Épée |
-| **Profondeur Englobante** | Yang Lumineux, Sentinelle de la Cité, Régent Céleste, Qi Exilé, Feu Nourricier, Métal Caché |
-| **Profondeur Pénétrante** | Qi Sec ; tradition du Trésor Numineux |
-🔎 Le miroir porte, dans le roman, le titre de **« Maître de la Profondeur Céladon »** : indice majeur pour le mystère de son origine (§11.5).
+| **Qingxuan** (青玄) | les cinq Eaux (Vertu de l'Eau), Jade Premier, Culture de Linxi, Voie de l'Épée |
+| **Douxuan** (兜玄) | Yang Lumineux, Sentinelle de la Cité, Régent Céleste, Qi Exilé, Feu Nourricier, Métal Caché |
+| **Tongxuan** (通玄) | Qi Sec ; tradition du Trésor Numineux |
+🔎 Le miroir porte, dans le roman, le titre de **« Maître de Qingxuan »** : indice majeur pour le mystère de son origine (§11.5).
 
 ### 6.3 Les Cinq Manifestations (Cinq Vertus)
 Chacun des Cinq Éléments a **cinq manifestations** : **orthodoxe** (正), **rassemblée** (收), **nourricière** (蕴), **muable** (变), **cachée** (藏). Chaque croisement élément × manifestation est une Fruition : **25 Fruitions**.
@@ -528,7 +528,7 @@ Fondations nommées sans Fruition certaine : *Brume de l'Aube Universelle* ; *Ou
 
 ### 6.7 Cinq Vertus, Douze Qi, Tonnerres, Fusion Ancienne, Chamans — détail
 
-**Eau** (📚 Profondeur Céladon ; la Vertu de l'Eau est dite **corrompue**)
+**Eau** (📚 Qingxuan ; la Vertu de l'Eau est dite **corrompue**)
 
 | Fruition | Essence métallique | Capacités orthodoxes (type) | Substitution | Statut et histoire |
 |---|---|---|---|---|
@@ -545,7 +545,7 @@ Fondations nommées sans Fruition certaine : *Brume de l'Aube Universelle* ; *Ou
 | **Feu Orthodoxe** (Feu Li) | répartition : 2 Vie, 1 Corps, 2 Magie | 🔎 non donné |
 | **Feu Rassemblé** (Feu Fusionnant) | *Soupir du Cœur Ardent* ; répartition : 1 Vie, 1 Corps, 3 Magie | 🔎 non donné · 📚 profil : insidieux, épuisant, nocif ; brûle la vitalité, douleur atroce surtout pour les démons ; flammes gris-noir |
 | **Feu en Fusion** 📚 (lignée distincte) | *Flamme Démone* (fondation et capacité) | 🔎 non donné · 📚 profil : funeste, éclatant ; incline l'équilibre vers le Yang ; **fait fondre artefacts et formations** (contre des fondations du Métal) ; cœur brillant, flammes pâles |
-| **Feu Nourricier** (Feu Véritable, 📚 Profondeur Englobante) | essence 📚 *Essence du Feu Véritable Nourricier d'avant le Ciel* ; *Faisan de Braise* (📚 manipulation extrême, destructrice et transformatrice), *Incendie Céleste* (📚 annule les attaques), *Dieu du Foyer* (Vie) | 📚 **Brisée** : aucun détenteur ; ancien : le **Maître de la Profondeur Englobante** · Surplus : **Danmei**, le **Vrai Monarque du Cycle Inné de la Vertu du Feu** |
+| **Feu Nourricier** (Feu Véritable, 📚 Douxuan) | essence 📚 *Essence du Feu Véritable Nourricier d'avant le Ciel* ; *Faisan de Braise* (📚 manipulation extrême, destructrice et transformatrice), *Incendie Céleste* (📚 annule les attaques), *Dieu du Foyer* (Vie) | 📚 **Brisée** : aucun détenteur ; ancien : le **Maître de Douxuan** · Surplus : **Danmei**, le **Vrai Monarque du Cycle Inné de la Vertu du Feu** |
 | Feu (lignées non nommées) | emplacements : Vie ; Magie, Magie, Vie, Corps, Vie ; Magie ; Magie | — |
 | Feu Muable (Feu Sec), Feu Caché (Feu Viril) | non donnés | — |
 
@@ -554,7 +554,7 @@ Fondations nommées sans Fruition certaine : *Brume de l'Aube Universelle* ; *Ou
 | Fruition | Capacités / détails | Statut |
 |---|---|---|
 | **Métal Muable** (Geng) | *Stèle Gravée*, *Heaume de l'Aurore* (§6.5) | 🔎 non donné |
-| **Métal Caché** (📚 Profondeur Englobante) | essence 📚 *Essence du Trésor Dao Sans Forme*, *Colonne d'Argent*, *Forge Souterraine*, 📚 *Fils d'Argent du Trésor* (perçoit les trésors cachés). 📚 Exige un Qi spécifique, le **Qi Métallique du Verrou Profond** ; manuel de rang 6 connu ; maîtrise des formations (le symbole du « verrou » fonde la plupart des demeures-grottes et royaumes secrets), perception des trésors, dissimulation. 📚 Un complot millénaire de deux Vrais Monarques, le **Verrou du Trésor Unifié**, limite cette voie ; le **Trésor Profond**, trésorerie de la Profondeur Englobante, existe entre le Métal Rassemblé et le Métal Caché. | 📚 **Brisée** (ancien : le Vrai Monarque du Métal Caché) |
+| **Métal Caché** (📚 Douxuan) | essence 📚 *Essence du Trésor Dao Sans Forme*, *Colonne d'Argent*, *Forge Souterraine*, 📚 *Fils d'Argent du Trésor* (perçoit les trésors cachés). 📚 Exige un Qi spécifique, le **Qi Métallique du Verrou Profond** ; manuel de rang 6 connu ; maîtrise des formations (le symbole du « verrou » fonde la plupart des demeures-grottes et royaumes secrets), perception des trésors, dissimulation. 📚 Un complot millénaire de deux Vrais Monarques, le **Verrou du Trésor Unifié**, limite cette voie ; le **Trésor Profond**, trésorerie de Douxuan, existe entre le Métal Rassemblé et le Métal Caché. | 📚 **Brisée** (ancien : le Vrai Monarque du Métal Caché) |
 | **Métal Errant** 📚 | — | contrôlé par la **famille Lian** |
 | **Métal Harmonieux** 📚 | métal de préservation et de collecte ; extrêmement rare | — |
 | **Or Vert d'Origine** (essence, source) | *Cœur d'Or Éclos* | **Occupée** |
@@ -580,13 +580,13 @@ Fondations nommées sans Fruition certaine : *Brume de l'Aube Universelle* ; *Ou
 | 2 | **Qi Véritable** | essence *Essence du Démon Divin des Cinq Cieux* ; fondation *Sommeil de la Pierre Étreinte* | — |
 | 3 | **Qi Brillant** 📚 | — (📚 les maîtres du Dharma bouddhistes modernes lui empruntent une autorité limitée) | — |
 | 4 | **Qi Violet** | essence 📚 *Essence d'Origine Immortelle du Qi Violet de la Culture Céleste* ; 📚 *Présage de l'Origine du Dao*, *Détour par le Mont d'Orient*, *Maître Nourricier de Vie*, *Culture de l'Étoile Terrestre*, *Ordonnance des Rouleaux Pourpres* ; aussi (source) *Vase Tiède et Précieux* | 📚 **Cachée** |
-| 5 | **Qi Sec** (📚 alias Essence Radieuse, Profondeur Pénétrante) | *Splendeur sans Fin* (Magie), *Veillée de Relève* (Magie), *Chaleur Amère et Étouffante*, *Pavillon des Grâces*, *Débat des Huit Exemptions* (📚 laisse passer sans dommage les techniques mortelles — mais ne défend pas contre la lumière du Yang Lumineux en opposition) | 📚 **Libre** · le **Mont Qushan** (en déclin) et le **clan Hui** (fragmenté) l'ont porté · plus grand maître connu : **Maître Diyun** (Manoir Pourpre, apogée) · 📚 caractère : chaleur persistante qui épuise au lieu de nourrir ; pression contre les forces du Yang ; domine les combats prolongés · symboles : soleil déclinant, désert, terre craquelée, sécheresse |
+| 5 | **Qi Sec** (📚 alias Essence Radieuse, Tongxuan) | *Splendeur sans Fin* (Magie), *Veillée de Relève* (Magie), *Chaleur Amère et Étouffante*, *Pavillon des Grâces*, *Débat des Huit Exemptions* (📚 laisse passer sans dommage les techniques mortelles — mais ne défend pas contre la lumière du Yang Lumineux en opposition) | 📚 **Libre** · le **Mont Qushan** (en déclin) et le **clan Hui** (fragmenté) l'ont porté · plus grand maître connu : **Maître Diyun** (Manoir Pourpre, apogée) · 📚 caractère : chaleur persistante qui épuise au lieu de nourrir ; pression contre les forces du Yang ; domine les combats prolongés · symboles : soleil déclinant, désert, terre craquelée, sécheresse |
 | 6-7 | **Rite Supérieur**, **Rite Inférieur** | — | — |
 | 8 | **Qi Froid** | *Givre sur les Cèdres*, *Ouïe Claire*, *Eau Froide du Nord* | — |
 | 9 | **Qi Faste** | *Nuées Fastes*, *Rouleau des Heureux Accomplissements* | — |
 | 10 | **Qi Funeste** 📚 | — | — |
 | 11 | **Qi Profond** 📚 | — | — |
-| 12 | **Qi Exilé** (📚 Profondeur Englobante) | *Approche du Gouffre du Couchant*, *Barque du Ravin* (📚 tombées dans l'oubli), 📚 *Chant du Fleuve d'Oubli* (achevé, il peut refléter le monde souterrain) ; (source) *Vaisseau Abyssal Caché* | 📚 détenteur soupçonné : le **Marquis de la Nuit** · 📚 dévore les signatures d'énergie, **brouille la divination**, efface le souvenir d'un lieu ; « une Grotte Céleste est nourrie par le Qi Pur dans sa jeunesse ; quand elle meurt, le Qi Exilé la réclame » |
+| 12 | **Qi Exilé** (📚 Douxuan) | *Approche du Gouffre du Couchant*, *Barque du Ravin* (📚 tombées dans l'oubli), 📚 *Chant du Fleuve d'Oubli* (achevé, il peut refléter le monde souterrain) ; (source) *Vaisseau Abyssal Caché* | 📚 détenteur soupçonné : le **Marquis de la Nuit** · 📚 dévore les signatures d'énergie, **brouille la divination**, efface le souvenir d'un lieu ; « une Grotte Céleste est nourrie par le Qi Pur dans sa jeunesse ; quand elle meurt, le Qi Exilé la réclame » |
 | — | lignées non nommées (source) | (Corps, Magie), (Vie), (Vie, Magie), (Vie, Magie, Corps), (Magie) | — |
 
 **Trois Tonnerres**
@@ -601,14 +601,14 @@ Fondations nommées sans Fruition certaine : *Brume de l'Aube Universelle* ; *Ou
 
 | Fruition | Capacités / fondations (type) | Statut et histoire |
 |---|---|---|
-| **Régent Céleste** (📚 Profondeur Englobante) | *Séquence Divine* (📚 art du calcul des ordres profonds, fondé sur les astres — **affaibli à notre époque car les étoiles sont en désordre** ; commande le Tonnerre Profond ; prévient son porteur si son mandat de vie est défié ; protège de la divination), *Équilibre Profond de la Grande Ourse*, *Dérivations sans Fin* (📚), *Surveillance de la Loi Divine*, *Écoute des Étoiles qui s'Éveillent* (Vie) ; aussi (source) *Arrangement Divin*, *Expansion Continue* | 📚 **Libre** · manuels : *Rouleau Divin de la Séquence du Régent Céleste* (rang 6), *Art de la Révolution du Grand Vide*, *Art de la Tablette d'Or*, *Art de l'Étoile Vigilante*, *Rouleau Sacré de la Cour des Étoiles* · artefact : un manoir illusoire de tonnerre raffiné depuis la Séquence Divine dès la Fondation |
+| **Régent Céleste** (📚 Douxuan) | *Séquence Divine* (📚 art du calcul des ordres profonds, fondé sur les astres — **affaibli à notre époque car les étoiles sont en désordre** ; commande le Tonnerre Profond ; prévient son porteur si son mandat de vie est défié ; protège de la divination), *Équilibre Profond de la Grande Ourse*, *Dérivations sans Fin* (📚), *Surveillance de la Loi Divine*, *Écoute des Étoiles qui s'Éveillent* (Vie) ; aussi (source) *Arrangement Divin*, *Expansion Continue* | 📚 **Libre** · manuels : *Rouleau Divin de la Séquence du Régent Céleste* (rang 6), *Art de la Révolution du Grand Vide*, *Art de la Tablette d'Or*, *Art de l'Étoile Vigilante*, *Rouleau Sacré de la Cour des Étoiles* · artefact : un manoir illusoire de tonnerre raffiné depuis la Séquence Divine dès la Fondation |
 | **Culture de Linxi** (📚 alias Zhibei ; la Secte de la Lune Pâle en tire son nom dans la source) | *Forme en Transition* (📚 corps illusoire au niveau de cultivation fixe), *Usurpation Chaotique* (📚 « Assistance à l'Usurpation » : radiance qui ébranle le monde, presque impossible à cacher), *Rupture des Liens* (📚 gouverne la séparation du Yin et du Yang et le péril mortel d'un souverain), 📚 *Comète Funeste* (sent l'intention de tuer) | **Occupée** : Vrai Monarque Qinghe · 📚 ancien : **Zhiyuan** · étoile : l'étoile Xingbo |
-| **Sentinelle de la Cité** (📚 Profondeur Englobante) | *Plume d'Orient* (Magie ; 📚 **ancre le champ de bataille** : fantôme de montagne pâle, alourdit le vide, bloque la traversée du vide et les fuites), *Âmes Descendantes* (Vie), *Eaux Douloureuses du Sud* (Corps+Magie ; 📚 courant noir d'encre chargé de yin et de chagrin), *Plateau du Ciel d'Occident* (Magie), *Cour du Désert du Nord* (Magie) | 📚 **Libre** · la **lignée Hei** (fragmentaire) · anciennes **Cours des Esprits** régionales (disparues) · 📚 symboles : fengshui, divinités, désignations sacrées, fantômes, lignes telluriques, terres ancestrales, domaines hantés · 📚 les maîtres du Dharma bouddhistes modernes en empruntent des fragments |
+| **Sentinelle de la Cité** (📚 Douxuan) | *Plume d'Orient* (Magie ; 📚 **ancre le champ de bataille** : fantôme de montagne pâle, alourdit le vide, bloque la traversée du vide et les fuites), *Âmes Descendantes* (Vie), *Eaux Douloureuses du Sud* (Corps+Magie ; 📚 courant noir d'encre chargé de yin et de chagrin), *Plateau du Ciel d'Occident* (Magie), *Cour du Désert du Nord* (Magie) | 📚 **Libre** · la **lignée Hei** (fragmentaire) · anciennes **Cours des Esprits** régionales (disparues) · 📚 symboles : fengshui, divinités, désignations sacrées, fantômes, lignes telluriques, terres ancestrales, domaines hantés · 📚 les maîtres du Dharma bouddhistes modernes en empruntent des fragments |
 | **Élixir Parfait** (📚 aussi rattaché à la Vertu Primordiale) | *Attente du Divin Suprême* (📚 longévité, éviter la mort, commander oiseaux et bêtes ; transformer apparence, artefacts et **tradition Dao** ; aide aux conversions entre Eau, Feu et Métal), *Harmonie Parfaite* (📚 Magie : **reproduit un artefact tenu en main** à 60-70 % de sa puissance), *Humectation du Plomb Radieux* (Vie), *Séquence du Livre d'Or* ; substitution *Perle Grise secrète* | **Libre** · 📚 ancien détenteur : **Suhe** (tué par Ao Ming et Ao Xi) · ressource : le *Mercure Pur de la Grande Unité* |
 | **Corps de Kui** 📚 | — | — |
 | **Grand Chaman** (Sceau chamanique) | essence *Essence de Sang des Trois Neuf* ; *Ombre de la Sauterelle* (📚 Vie), *Présence Indécelable* (📚 Magie ; bloque les arts de calcul), *Bénédiction du Chaman de la Terre* (📚 Magie), *Mandat de l'Empereur* (📚 Vie), *Buveur de Sang* (📚 Vie) ; substitution *Course du Fou vers la Cime* | **Libre** · 📚 classé Fruition **fondatrice** par le wiki |
 | **Chouette des Seuils** | (Vie), (Magie), (Magie), (Vie), (Vie) | 🔎 non donné |
-| **Jade Premier** (📚 Profondeur Céladon) | essence 📚 *Essence du Vide Unifié Six-Neuf du Jade Premier* ; *Unification du Vrai Dao* (📚 un point de brillance blanche dans la mer de Qi), *Brocart Figuré* (Corps ; 📚 l'aspect préféré de la Vertu Primordiale), *Né du Jade* (Corps+Vie), *Falaise de Jade Vert* (Magie ; 📚 fait surgir une montagne de jade blanc), *Disque de Jade Blanc* ; substitution *Cour du Jade Général* | **Occupée** : 📚 **Vénérable Lingxu** · Surplus : 📚 **Fu Qing** (« Vrai Monarque du Jade Premier du Yang Clair ») · 🔎 la source dit que « la figure du Jade Premier » a renoncé à sa Réalisation : il s'agit d'un détenteur antérieur |
+| **Jade Premier** (📚 Qingxuan) | essence 📚 *Essence du Vide Unifié Six-Neuf du Jade Premier* ; *Unification du Vrai Dao* (📚 un point de brillance blanche dans la mer de Qi), *Brocart Figuré* (Corps ; 📚 l'aspect préféré de la Vertu Primordiale), *Né du Jade* (Corps+Vie), *Falaise de Jade Vert* (Magie ; 📚 fait surgir une montagne de jade blanc), *Disque de Jade Blanc* ; substitution *Cour du Jade Général* | **Occupée** : 📚 **Vénérable Lingxu** · Surplus : 📚 **Fu Qing** (« Vrai Monarque du Jade Premier du Yang Clair ») · 🔎 la source dit que « la figure du Jade Premier » a renoncé à sa Réalisation : il s'agit d'un détenteur antérieur |
 | **Rite Équilibré** 📚 | — | — |
 | **Proclamation Céladon** / **Manifestation Céladon** | essence *Essence des Monts Enchaînés* ; *Bélier des Profondeurs*, *Emblème Céladon*, *Chaîne des Monts*, *Roc Souverain*, *Guetteur de l'Abîme* ; substitution *Essence du Yang Mineur* | Libre |
 
@@ -616,7 +616,7 @@ Fondations nommées sans Fruition certaine : *Brume de l'Aube Universelle* ; *Ou
 
 | Fruition | Capacités | Statut et histoire |
 |---|---|---|
-| **Voie de l'Épée** (📚 alias Étoile du Soir, Manifestation de l'Épée ; Profondeur Céladon) | 📚 *Ciel Céladon Nourri*, 📚 *Corps Porteur d'Intention* | 📚 **Libre** · ancien : l'**Ancêtre de l'Épée**, Seigneur Immortel, qui l'a attestée du néant · Surplus : **Xuanfeng** |
+| **Voie de l'Épée** (📚 alias Étoile du Soir, Manifestation de l'Épée ; Qingxuan) | 📚 *Ciel Céladon Nourri*, 📚 *Corps Porteur d'Intention* | 📚 **Libre** · ancien : l'**Ancêtre de l'Épée**, Seigneur Immortel, qui l'a attestée du néant · Surplus : **Xuanfeng** |
 | **Lueur de l'Aube** | 📚 il existe **72 types** de Lueur de l'Aube, dont **48** créés par le Vrai Monarque du Mont Xiaoyun, qui forge son Dao avec elle : toute Lueur de l'Aube doit se soumettre à lui ; « le premier rayon de l'aube ou du crépuscule vient du Mont Xiaoyun » | Immortelle Xiaoyun |
 
 ### 6.8 Statuts de Fruition (état du monde au début du jeu)
@@ -906,7 +906,7 @@ Le jeu s'adresse aux **amoureux du xianxia**. Sa profondeur ne vient pas de règ
 
 **Sa restauration.** Le miroir est incomplet : chaque **éclat** retrouvé (le premier est repêché dans le lac) lui rend de la puissance et des **souvenirs** (le premier contenait le *Sutra de la respiration du Yin Suprême*, technique de la Respiration Embryonnaire du Manoir de l'Aube d'Argent). Pendant l'intégration d'un éclat, l'esprit **s'endort** par intermittence ; son âme se renforce au fil des éclats.
 
-💡 **Recommandation (avis, à valider)** : faire du miroir **le second axe de progression**, à côté du clan.
+✅ **Validé (2026-09-24)** : faire du miroir **le second axe de progression**, à côté du clan.
 - **Niveau de restauration** (nombre d'éclats) = « royaume » du joueur : il fixe la portée de la perception, la puissance de la Lumière, le nombre de Graines de Sceau actives, l'accès au Grand Vide.
 - **Clair de Lune du Yin Suprême** remplace la jauge `MirrorPower` : produit chaque nuit, dépensé pour les graines et les interventions, ou **donné au clan** comme Qi spirituel rare.
 - **Éclats** = objectifs de long terme (lac, ruines, trésors d'ennemis, événements) ; chacun révèle un souvenir : technique, fait historique, **indice sur l'origine du miroir** — le grand mystère du jeu, révélé peu à peu.
@@ -938,14 +938,13 @@ Les faits datés du lore (§12) restent **identiques** d'une partie à l'autre :
 ### 11.9 Conditions de victoire et de défaite
 Aujourd'hui : 10 générations + 1 ascension (DaoEmbryo).
 
-💡 **Recommandation (avis, à valider)** : un **bac à sable dynastique sans fin imposée**, comme les grands jeux de gestion de lignée, avec :
+✅ **Validé (2026-09-24)** : un **bac à sable dynastique sans fin imposée**, comme les grands jeux de gestion de lignée, avec :
 - des **Annales du clan** : jalons enregistrés et datés (première Fondation, premier Manoir Pourpre, premier Vrai Monarque, première Réalisation, éclats du miroir retrouvés, secte fondée, Fruition conquise…) qui racontent la partie ;
 - une **grande fin optionnelle**, fidèle au lore : le **miroir entièrement restauré** (son origine révélée) **et** un membre du clan à la **Réalisation d'une Fruition** ou à l'**Embryon du Dao** ; le joueur peut continuer après ;
 - deux **défaites** :
   1. la **lignée s'éteint** (plus aucun membre vivant) ;
   2. le **miroir est découvert et saisi** par plus puissant — la peur qui justifie tout le secret du roman ;
 - les autres pistes (durée, domination de Linxi, voie alternative) deviennent des **jalons des Annales** plutôt que des fins.
-**Décision à prendre par l'utilisateur.**
 
 ---
 
@@ -972,14 +971,14 @@ Aujourd'hui : 10 générations + 1 ascension (DaoEmbryo).
 
 ### 12.1 Compléments historiques (📚)
 - **Chaînes dynastiques** — Nord : Xia → Zhou → **Zhen** → **Xuan du Nord** → **Rui** → **Kun** / Yan. Sud : Xia → Zhou → Chu → Chu / Ning → **Hanshan / Linxi / Tai** → Song / Shu. (Xia, Zhou, Chu, Ning, Song, Shu, Yan : noms dynastiques historiques génériques, conservés.)
-- **L'Empire Zhen et le Yang Lumineux** : l'empire était une extension de la **Profondeur Englobante** ; son fondateur, l'Empereur Zhen Guangling (Noyau d'Or à l'apogée, Réalisation du Yang Lumineux), a fondé le Manoir immortel de Chenguang. Après sa mort soudaine, lui et sa Fruition ont été **scellés dans les Neuf Enfers** par l'Embryon du Dao du Mont Xiaoyun. Ses parents occupaient des **Surplus** du Yang Lumineux (dont le Vrai Monarque Gaoyao, de la famille Qu) ; des empereurs tardifs n'étaient que de **Faux Noyaux d'Or** ; six rois fondateurs au Manoir Pourpre sont tombés l'un après l'autre. Le rebelle Zhen Xunshi, tué par l'empereur des Xuan, a eu l'âme emprisonnée dans l'**Abîme des Tombes**. Un prince a perfectionné un sutra permettant de cultiver *Clarté sur le Monde* **sans position correspondante** (Voie Impériale). Après la chute des Zhen, un de leurs Manoirs Pourpres a fondé la **Secte Songhe** à Linxi.
+- **L'Empire Zhen et le Yang Lumineux** : l'empire était une extension de **Douxuan** ; son fondateur, l'Empereur Zhen Guangling (Noyau d'Or à l'apogée, Réalisation du Yang Lumineux), a fondé le Manoir immortel de Chenguang. Après sa mort soudaine, lui et sa Fruition ont été **scellés dans les Neuf Enfers** par l'Embryon du Dao du Mont Xiaoyun. Ses parents occupaient des **Surplus** du Yang Lumineux (dont le Vrai Monarque Gaoyao, de la famille Qu) ; des empereurs tardifs n'étaient que de **Faux Noyaux d'Or** ; six rois fondateurs au Manoir Pourpre sont tombés l'un après l'autre. Le rebelle Zhen Xunshi, tué par l'empereur des Xuan, a eu l'âme emprisonnée dans l'**Abîme des Tombes**. Un prince a perfectionné un sutra permettant de cultiver *Clarté sur le Monde* **sans position correspondante** (Voie Impériale). Après la chute des Zhen, un de leurs Manoirs Pourpres a fondé la **Secte Songhe** à Linxi.
 - **Le clan des dragons** : à son apogée, **plus de dix Rois-Dragons** ; les Neuf Fils assiégeaient des Vrais Monarques et harcelaient des héritiers impériaux. Luttes internes et manque d'Embryons du Dao, puis la répression des immortels et des démons, les ont réduits : seuls deux fils restent, dont un disparu ; le **Roi-Dragon Beixun** s'est réfugié à l'est pour cultiver le tonnerre ; lui et Changyong ne survivent que parce qu'on ne peut pas les tuer.
 - **Le Monarque Diable Kuaishan** : Noyau d'Or qui détenait la Réalisation du **Yang Mineur**, donc **immortel et indestructible**. L'Immortel Shuangji l'a forcé à se réincarner et l'a scindé en trois avec une **épingle de jade blanc** ; l'Impératrice Hanlu et le Seigneur Démon Gu'e sont des Noyaux d'Or ; le troisième fragment, tombé au fond de la Mer Orientale, a été repris par les dragons (Roi-Dragon Changyong). **Premier cas connu d'une Fruition scindée en plusieurs Noyaux d'Or.**
 - **Les Trois Profondeurs** viennent toutes du **Temple du Commencement Droit** :
-  - **Profondeur Céladon** : le **Dao humain** ; autorité sur le soleil, la lune, le Yin et le Yang ; renommée pour **éviter les calamités** et défier le Dao Céleste ; théorie des positions cardinales Yin-Yang (la quête de l'or révère soit le Yin Suprême par la profondeur divine, soit le Yang Suprême par des actes grandioses). Traditions : Splendeur d'Orient, Splendeur du Palais, Splendeur de la Flamme. **Déclin** : ses disciples se sont entre-déchirés sur la question « les Immortels ont-ils le droit de tuer ou d'asservir les humains ? ». Son Maître avait prédit la stagnation du Ciel et de la Terre.
-  - **Profondeur Englobante** : **gouverner le Ciel**, commander les dieux, juger les démons ; Grande Divination, Tonnerre du Dao Céleste, Encens du Dao Divin, Autorité Impériale ; a fondé le **Palais du Tonnerre** ; « trois Monarques et cinq Immortels » à son zénith. Déclin : « le Sheji a trahi le Dao ».
-  - **Profondeur Pénétrante** : révère le soi. Sa **Tradition du Trésor Numineux** (fondée par Wen Xiang, lignées de la Terre et Feu Ardent) garde, scellée, la Grotte Céleste du Ciel des Mille Prospérités ; l'un de ses membres a **renversé le Palais du Tonnerre**.
-- **Le Monde Souterrain** (*Tradition de l'Attente de la Clarté*, Profondeur Englobante) : fondé par le **Marquis de la Nuit**, « Gouverneur des Âmes » ; il réside dans le **Qi Exilé**, tient les **registres des vivants**, gère la réincarnation et **réclame tous les Démons d'Essence Métallique** et les morts. Lignées : Qi Exilé, Grand Chaman, Qi Véritable, Rite Inférieur, Chouette des Seuils (soupçonnée), Régent Céleste (« en garde »). Il contrôle en sous-main la dynastie mortelle du **Grand Song**, et contrôlait autrefois Linxi. On ignore si son Embryon du Dao existe encore.
+  - **Qingxuan** (青玄) : le **Dao humain** ; autorité sur le soleil, la lune, le Yin et le Yang ; renommée pour **éviter les calamités** et défier le Dao Céleste ; théorie des positions cardinales Yin-Yang (la quête de l'or révère soit le Yin Suprême par la profondeur divine, soit le Yang Suprême par des actes grandioses). Traditions : Splendeur d'Orient, Splendeur du Palais, Splendeur de la Flamme. **Déclin** : ses disciples se sont entre-déchirés sur la question « les Immortels ont-ils le droit de tuer ou d'asservir les humains ? ». Son Maître avait prédit la stagnation du Ciel et de la Terre.
+  - **Douxuan** (兜玄) : **gouverner le Ciel**, commander les dieux, juger les démons ; Grande Divination, Tonnerre du Dao Céleste, Encens du Dao Divin, Autorité Impériale ; a fondé le **Palais du Tonnerre** ; « trois Monarques et cinq Immortels » à son zénith. Déclin : « le Sheji a trahi le Dao ».
+  - **Tongxuan** (通玄) : révère le soi. Sa **Tradition du Trésor Numineux** (fondée par Wen Xiang, lignées de la Terre et Feu Ardent) garde, scellée, la Grotte Céleste du Ciel des Mille Prospérités ; l'un de ses membres a **renversé le Palais du Tonnerre**.
+- **Le Monde Souterrain** (*Tradition de l'Attente de la Clarté*, Douxuan) : fondé par le **Marquis de la Nuit**, « Gouverneur des Âmes » ; il réside dans le **Qi Exilé**, tient les **registres des vivants**, gère la réincarnation et **réclame tous les Démons d'Essence Métallique** et les morts. Lignées : Qi Exilé, Grand Chaman, Qi Véritable, Rite Inférieur, Chouette des Seuils (soupçonnée), Régent Céleste (« en garde »). Il contrôle en sous-main la dynastie mortelle du **Grand Song**, et contrôlait autrefois Linxi. On ignore si son Embryon du Dao existe encore.
 - 📚 L'histoire du roman en était à **l'an 136** du miroir en novembre 2025.
 🎮 Phase 6 : introduction (an 0), faits historiques exposés par le miroir et les événements scénarisés, état initial des Fruitions (§6.8), phénomènes régionaux hérités (le Lac Jingshui est né quand la Réalisation de l'Eau Nourricière est devenue vacante → 💡 bonus de cultivation d'Eau au lac ?).
 ⚠️ `ClanManager` : patriarche de 45 ans ; s'il s'est engagé dans l'armée il y a ~50 ans, il doit avoir ~65-70 ans (à ajuster en phase 6).
@@ -1204,11 +1203,11 @@ Fondations et capacités divines (§6.5-6.7) :
 | Essence de sang des Trois Neuf du Chaman Suprême · Fantôme de l'ombre du criquet · Présence indétectable · Bénédiction du chaman de la Terre · Mandat de l'Empereur · Buveur de sang | Essence de Sang des Trois Neuf · Ombre de la Sauterelle · Présence Indécelable · Bénédiction du Chaman de la Terre · Mandat de l'Empereur · Buveur de Sang |
 | Brume de l'Aube Universelle · Ouragan Ghost Yin · Retournement du Yin de la Brume · Épine de la Porte des Tombes | Brume de l'Aube Universelle · Ouragan du Yin Spectral · Brume du Yin Retourné · Épine de la Porte des Tombes (descriptifs, conservés) |
 
-### 13.7 Ajouts du 2026-09-24 tirés du wiki (✏️ à valider)
+### 13.7 Ajouts du 2026-09-24 tirés du wiki (✅ validé)
 | Source | Jeu |
 |---|---|
-| Azure Profundity · Encompassing Profundity · Comprehending Profundity | Profondeur Céladon · Profondeur Englobante · Profondeur Pénétrante |
-| Azure Profundity Master (titre du miroir) | Maître de la Profondeur Céladon |
+| Azure Profundity · Encompassing Profundity · Comprehending Profundity | **Qingxuan** (青玄) · **Douxuan** (兜玄) · **Tongxuan** (通玄) — noms conservés (décision de l'utilisateur) |
+| Azure Profundity Master (titre du miroir) | Maître de Qingxuan |
 | Cultivation Transcendence (修越) = Cultiver Yue | Culture de Linxi (même Fruition) |
 | Changgeng (Fruition) · Changgeng (Sword Ancestor) | Voie de l'Épée, alias Étoile du Soir · l'Ancêtre de l'Épée |
 | Body of Kui · Balanced Ritual · Azure Proclamation | Corps de Kui (Kui : bête mythique traditionnelle) · Rite Équilibré · Proclamation Céladon |
@@ -1244,7 +1243,7 @@ Fondations et capacités divines (§6.5-6.7) :
 | Revered One Suxikong | Vénérable Kongji |
 | Numinous Treasure Dao Tradition | Tradition du Trésor Numineux |
 
-### 13.8 Ajouts de la passe complète du wiki (✏️ à valider)
+### 13.8 Ajouts de la passe complète du wiki (✅ validé)
 | Source | Jeu |
 |---|---|
 | Divine Dao · Divine Attendant · Divine Core · Imperial Path | Dao Divin · Serviteur Divin · Noyau Divin · Voie Impériale (descriptifs) |
@@ -1253,7 +1252,7 @@ Fondations et capacités divines (§6.5-6.7) :
 | Diverse Mansion · Unified Furnace | Manoir Divers · Fournaise Unifiée |
 | Upright Commencement Temple · Donghua · Gonghua · Yanhua | Temple du Commencement Droit · Splendeur d'Orient · Splendeur du Palais · Splendeur de la Flamme |
 | Awaiting Clarity · Governor of Souls · Nether Land · Great Song | Tradition de l'Attente de la Clarté · Gouverneur des Âmes · Terre des Ombres · Grand Song |
-| Tongxuan Palace | Palais de la Pénétration |
+| Tongxuan Palace | Palais de Tongxuan |
 | Kuaili (Devil Monarch) · Beijia (Dragon Monarch) | Monarque Diable Kuaishan · Roi-Dragon Beixun |
 | Tomb Abyss · Refining Mountain · Nine Netherworlds | Abîme des Tombes · Mont du Raffinage · Neuf Enfers |
 | Fated Ones · Green Pine Temple | Élus du Destin · Temple des Pins Verts (descriptifs) |
