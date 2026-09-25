@@ -26,6 +26,11 @@ namespace MirrorChronicles.Events
         // Economy
         public event Action<int> OnSpiritStonesChanged;
 
+        // Events & outcome
+        public event Action<RandomEventData> OnRandomEventOccurred;
+        public event Action<StoryEventData> OnStoryEventRaised;
+        public event Action<bool> OnGameOver;                              // true: victory, false: defeat
+
         public void TriggerYearStarted(int year) => OnYearStarted?.Invoke(year);
         public void TriggerPhaseChanged(GamePhase phase) => OnPhaseChanged?.Invoke(phase);
         public void TriggerCharacterBorn(CharacterData character) => OnCharacterBorn?.Invoke(character);
@@ -34,5 +39,8 @@ namespace MirrorChronicles.Events
         public void TriggerBreakthroughSuccess(CharacterData character, CultivationRealm newRealm) => OnBreakthroughSuccess?.Invoke(character, newRealm);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
+        public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);
+        public void TriggerStoryEventRaised(StoryEventData evt) => OnStoryEventRaised?.Invoke(evt);
+        public void TriggerGameOver(bool victory) => OnGameOver?.Invoke(victory);
     }
 }
