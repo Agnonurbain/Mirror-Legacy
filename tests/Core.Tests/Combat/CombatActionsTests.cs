@@ -48,6 +48,33 @@ namespace MirrorChronicles.Tests.Combat
         }
 
         [Test]
+        public void Move_IsInvalid_WhenTheTerrainCostsMoreThanItsRange()
+        {
+            var field = CombatFixtures.Field(width: 3, height: 1);
+            field.Grid.SetTerrain(1, 0, TerrainType.Mountain);
+            var u = CombatFixtures.Place(field, 0, 0, CultivationRealm.Foundation); // two movement points
+            Assert.IsFalse(new MoveAction().IsValid(u, field.Grid.GetCellAt(2, 0), field)); // mountain 2 + plain 1
+        }
+
+        [Test]
+        public void Move_IsInvalid_ThroughAnotherUnit()
+        {
+            var field = CombatFixtures.Field(width: 3, height: 1);
+            var u = CombatFixtures.Place(field, 0, 0, CultivationRealm.Foundation);
+            CombatFixtures.Place(field, 1, 0, isAlly: false);
+            Assert.IsFalse(new MoveAction().IsValid(u, field.Grid.GetCellAt(2, 0), field));
+        }
+
+        [Test]
+        public void Move_AlwaysAllowsASingleStep_EvenUphill()
+        {
+            var field = CombatFixtures.Field();
+            field.Grid.SetTerrain(1, 0, TerrainType.Mountain);
+            var u = CombatFixtures.Place(field, 0, 0); // one movement point, the mountain costs two
+            Assert.IsTrue(new MoveAction().IsValid(u, field.Grid.GetCellAt(1, 0), field));
+        }
+
+        [Test]
         public void Move_HappensOncePerTurn()
         {
             var field = CombatFixtures.Field();

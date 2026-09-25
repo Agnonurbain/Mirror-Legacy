@@ -86,6 +86,13 @@ namespace MirrorChronicles.Tests.Data
         }
 
         [Test]
+        public void Load_Refuses_AStoryChoiceNamingAnUnknownFaction()
+        {
+            AssertRefused(GameContentLoader.StoryFile,
+                "[ { \"triggerType\": \"FirstFoundation\", \"name\": \"Visite\", \"choices\": [ { \"label\": \"Recevoir\", \"outcome\": { \"factionName\": \"Personne\", \"relationChange\": 5 } } ] } ]");
+        }
+
+        [Test]
         public void Load_Refuses_AStoryEventWithoutChoices()
         {
             AssertRefused(GameContentLoader.StoryFile, "[ { \"triggerType\": \"FirstFoundation\", \"name\": \"Sans choix\", \"choices\": [] } ]");

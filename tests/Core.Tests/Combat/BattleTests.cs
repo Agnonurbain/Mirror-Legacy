@@ -64,6 +64,24 @@ namespace MirrorChronicles.Tests.Combat
         }
 
         [Test]
+        public void Start_Refuses_MoreFightersThanTheFieldHolds()
+        {
+            Assert.Throws<InvalidOperationException>(() => Battle.Start(
+                new[] { Fighter(CultivationRealm.Embryonic) }, new[] { Fighter(CultivationRealm.Embryonic) },
+                new Random(1), new RecordingGameLog(), new CombatGrid(1, 1)));
+        }
+
+        [Test]
+        public void AutoPlay_EndsInWithdrawal_WhenNeitherSideCanWin()
+        {
+            // The novice cannot pierce a guarding master, and the master only guards
+            var b = Battle.Start(new[] { Fighter(CultivationRealm.Embryonic) }, new[] { Fighter(CultivationRealm.Foundation) },
+                new Random(1), new RecordingGameLog(), new CombatGrid(10, 10), AIStrategyType.Defensive);
+            b.AutoPlay();
+            Assert.AreEqual(CombatState.Resolution, b.State);
+        }
+
+        [Test]
         public void ResolveAftermath_BuriesTheFallenAndTendsTheWounded()
         {
             var w = new TestWorld();

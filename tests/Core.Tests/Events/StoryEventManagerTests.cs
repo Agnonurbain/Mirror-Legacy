@@ -1,3 +1,4 @@
+using System.Linq;
 using NUnit.Framework;
 using MirrorChronicles.Data;
 using MirrorChronicles.Events;
@@ -63,6 +64,27 @@ namespace MirrorChronicles.Tests.Events
             w.Ctx.Events.TriggerPhaseChanged(GamePhase.Events); // betrayal looms
             story.ResolveChoice(0);                             // Confront: −100 stones
             Assert.AreEqual(900, w.Resources.SpiritStones);
+        }
+
+        [Test]
+        public void ResolveChoice_ChangesTheRelationOfTheFactionItNames()
+        {
+            var w = new TestWorld();
+            w.Factions.InitializeFactions();
+            var wang = w.Factions.Factions.First(f => f.Name == "Famille Wang");
+            int before = wang.RelationWithPlayer;
+            var visit = new StoryEventData
+            {
+                Name = "Une visite",
+                TriggerType = StoryTriggerType.FirstFoundation,
+                Choices = { new StoryChoice { Label = "Recevoir", Outcome = new StoryOutcome { FactionName = "Famille Wang", RelationChange = 10 } } }
+            };
+            var story = new StoryEventManager(w.Ctx, w.Clan, w.Resources, w.Stability, w.Factions, new[] { visit });
+
+            w.Ctx.Events.TriggerBreakthroughSuccess(w.Join(Fixtures.Cultivator()), CultivationRealm.Foundation);
+            story.ResolveChoice(0);
+
+            Assert.AreEqual(before + 10, wang.RelationWithPlayer);
         }
 
         [Test]

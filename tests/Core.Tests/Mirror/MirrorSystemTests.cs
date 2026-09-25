@@ -90,7 +90,7 @@ namespace MirrorChronicles.Tests.Mirror
         }
 
         [Test]
-        public void UseQiPulse_RestoresAThirdOfTheQiAndSomeVitality()
+        public void UseQiPulse_RestoresThirtyPercentOfTheQiAndSomeVitality()
         {
             var w = new TestWorld();
             var unit = new MirrorChronicles.Combat.CombatUnit(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement), isAlly: true);

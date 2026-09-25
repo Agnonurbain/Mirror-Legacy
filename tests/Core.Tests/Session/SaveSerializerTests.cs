@@ -90,6 +90,15 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void FromSaveData_RestoresTheFamilyName_OfFactionsSavedWithoutIt()
+        {
+            var data = GameSession.NewGame(Fixtures.Setup(1)).ToSaveData();
+            foreach (var faction in data.Factions) faction.FamilyName = null; // a save from before FamilyName
+            var s = GameSession.FromSaveData(data, Fixtures.Setup());
+            Assert.AreEqual("Wang", s.Factions.Factions.First(f => f.Name == "Famille Wang").FamilyName);
+        }
+
+        [Test]
         public void FromSaveData_KeepsTheStoryEventsStillWaitingForAChoice()
         {
             var s = GameSession.NewGame(Fixtures.Setup(1));
