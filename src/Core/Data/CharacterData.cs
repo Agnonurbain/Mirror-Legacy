@@ -65,6 +65,9 @@ namespace MirrorChronicles.Data
         // The Purple Mansion (LORE.md §5.4): divine abilities (« fruition-id:ability-id », the foundation first),
         // and the retreat of its breakthrough, which may hold a cultivator in the Great Void for life
         public List<string> DivineAbilities { get; set; }
+        public string PursuedAbility { get; set; }           // the next ability they are condensing
+        public List<string> ShallowAbilities { get; set; }   // condensed with resources: shallow foundations (§5.4.3)
+        public List<string> GraftedAbilities { get; set; }   // condensed from a consumed foundation (Dao Graft)
         public Retreat Retreat { get; set; }
         public int RetreatYearsLeft { get; set; }
         public bool ImprisonedInVoid { get; set; }
@@ -88,6 +91,8 @@ namespace MirrorChronicles.Data
             CauseOfDeath = DeathCause.None;
             KnownTechniqueIDs = new List<string>();
             DivineAbilities = new List<string>();
+            ShallowAbilities = new List<string>();
+            GraftedAbilities = new List<string>();
         }
 
         public string FullName => $"{LastName} {FirstName}";
@@ -98,6 +103,8 @@ namespace MirrorChronicles.Data
             var copy = (CharacterData)MemberwiseClone();
             copy.KnownTechniqueIDs = new List<string>(KnownTechniqueIDs ?? new List<string>());
             copy.DivineAbilities = new List<string>(DivineAbilities ?? new List<string>());
+            copy.ShallowAbilities = new List<string>(ShallowAbilities ?? new List<string>());
+            copy.GraftedAbilities = new List<string>(GraftedAbilities ?? new List<string>());
             return copy;
         }
     }

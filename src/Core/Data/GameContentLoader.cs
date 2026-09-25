@@ -151,6 +151,9 @@ namespace MirrorChronicles.Data
                 && mansion.VoidBands.All(b => IsProbability(b.Chance) && b.MinYears >= 0 && b.MinYears <= b.MaxYears)
                 && mansion.VoidBands.Sum(b => b.Chance) <= 1.0 + 1e-9,
                 BalanceFile, "purpleMansion needs positive manifestation years and void bands whose chances sum to at most 1 (the rest: for life).");
+            var abilities = balance.DivineAbilities;
+            Require(abilities != null && abilities.ResourceStones >= 0 && abilities.ResourceHerbs >= 0 && abilities.ResourceOres >= 0 && abilities.GraftOres >= 0,
+                BalanceFile, "divineAbilities needs its costs (never negative).");
         }
 
         private static void CheckFactions(List<FactionData> factions)

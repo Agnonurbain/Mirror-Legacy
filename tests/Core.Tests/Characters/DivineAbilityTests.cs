@@ -56,6 +56,7 @@ namespace MirrorChronicles.Tests.Characters
             // P3: knowledge is a resource — the Nourishing Water keeps two of its abilities unknown
             var w = new TestWorld();
             var c = Master(w, "nourishing-water:winter-drizzle");
+            c.FoundationId = "nourishing-water:winter-drizzle";
             Assert.IsTrue(w.Abilities.Pursue(c, "nourishing-water:dawn-abyss"));
             Assert.IsFalse(w.Abilities.Pursue(c, "nourishing-water:unrevealed-4"));
         }

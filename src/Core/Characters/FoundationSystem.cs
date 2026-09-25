@@ -38,7 +38,7 @@ namespace MirrorChronicles.Characters
 
             consumer.RealmStage++;
             consumer.ProgressionSealed = true;
-            LoseFoundation(donor);
+            FoundationRules.LoseFoundation(donor, techniques.MethodOf(donor));
             ctx.Log.Info($"[Foundation] {consumer.FullName} consumes {donor.FullName}'s foundation, a Dao Partner: one stage higher, and no further for ever.");
             return true;
         }
@@ -52,17 +52,6 @@ namespace MirrorChronicles.Characters
             var (consumerLineage, consumerFoundation) = FoundationRef.Parse(consumer.FoundationId);
             var (donorLineage, donorFoundation) = FoundationRef.Parse(donor.FoundationId);
             return consumerLineage != null && consumerLineage == donorLineage && consumerFoundation != donorFoundation;
-        }
-
-        /// <summary>The donor's foundation is gone: back to the ninth Qi level, with that realm's reach.</summary>
-        private void LoseFoundation(CharacterData donor)
-        {
-            donor.Realm = CultivationRealm.QiRefinement;
-            donor.RealmStage = PowerLadder.StageCount(CultivationRealm.QiRefinement);
-            donor.FoundationId = null;
-            donor.CultivationXP = 0;
-            int reach = PowerLadder.WoundedLifespan(PowerLadder.MaxLifespan(donor.Realm, donor.RealmStage), donor.DaoWounds);
-            donor.MaxLifespan = TechniqueRules.LifespanWithMethod(reach, techniques.MethodOf(donor));
         }
 
         /// <summary>Each year, a foundation's holder may take on the temper its lineage favours.</summary>

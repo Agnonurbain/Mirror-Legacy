@@ -129,6 +129,24 @@ namespace MirrorChronicles.Data
 
         /// <summary>The four trials of the breakthrough to the Purple Mansion (LORE.md §5.4.1).</summary>
         public PurpleMansionSettings PurpleMansion { get; init; }
+
+        /// <summary>Condensing the divine abilities of the Purple Mansion (LORE.md §5.4.3).</summary>
+        public DivineAbilitySettings DivineAbilities { get; init; }
+    }
+
+    /// <summary>What condensing a divine ability costs (balance.json, tuned by simulation).</summary>
+    public sealed class DivineAbilitySettings
+    {
+        /// <summary>Base chance (%) of passing the Threshold of Immortality, the fourth ability.</summary>
+        public int ThresholdBaseChance { get; init; }
+
+        /// <summary>Rare spiritual objects and pills that condense an ability at half the time, shallowly.</summary>
+        public int ResourceStones { get; init; }
+        public int ResourceHerbs { get; init; }
+        public int ResourceOres { get; init; }
+
+        /// <summary>Spiritual objects of the Purple Mansion completing a grafted foundation.</summary>
+        public int GraftOres { get; init; }
     }
 
     /// <summary>Odds and durations of the Purple Mansion's breakthrough (balance.json, tuned by simulation).</summary>

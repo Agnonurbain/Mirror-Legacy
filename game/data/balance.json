@@ -20,5 +20,12 @@
       { "chance": 0.3,  "minYears": 1,  "maxYears": 10 },
       { "chance": 0.15, "minYears": 11, "maxYears": 40 }
     ]
+  },
+  "divineAbilities": {
+    "thresholdBaseChance": 35,
+    "resourceStones": 3000,
+    "resourceHerbs": 150,
+    "resourceOres": 60,
+    "graftOres": 20
   }
 }

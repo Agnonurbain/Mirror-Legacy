@@ -39,6 +39,7 @@ namespace MirrorChronicles.Session
         public BreakthroughSystem Breakthroughs { get; }
         public FoundationSystem Foundations { get; }
         public PurpleMansionSystem PurpleMansion { get; }
+        public DivineAbilitySystem Abilities { get; }
         public AgingSystem Aging { get; }
         public WoundSystem Wounds { get; }
         public FactionManager Factions { get; }
@@ -72,6 +73,7 @@ namespace MirrorChronicles.Session
             Breakthroughs = new BreakthroughSystem(Context, Clan, Cultivation);
             Foundations = new FoundationSystem(Context, Clan, Techniques);
             PurpleMansion = new PurpleMansionSystem(Context, Clan, Cultivation, Techniques);
+            Abilities = new DivineAbilitySystem(Context, Clan, Techniques, Resources);
             Aging = new AgingSystem(Context, Clan);
             Wounds = new WoundSystem(Context, Stability);
             Factions = new FactionManager(Context);
@@ -231,6 +233,7 @@ namespace MirrorChronicles.Session
                 case GamePhase.Breakthrough:
                     Breakthroughs.ProcessBreakthroughPhase();
                     PurpleMansion.ProcessBreakthroughPhase(); // the ascent's four trials and the retreats under way
+                    Abilities.ProcessBreakthroughPhase();     // divine abilities condensed from the Dao Partners
                     break;
                 case GamePhase.Inheritance:
                     Clan.ProcessAnnualBirths();
