@@ -49,7 +49,7 @@ Le dossier [BRAIN_CLAUDE/](BRAIN_CLAUDE/) contient toute la documentation de pil
 
 ## Statut
 
-**Phase G — migration vers Godot** (en cours, voir [NOT_DONE.md](BRAIN_CLAUDE/NOT_DONE.md)). La simulation complète tourne sans moteur et est couverte par les tests ; la couche Godot (interface, carte, combat affiché) vient ensuite. L'ancien arbre Unity (`Assets/`, `Packages/`, `ProjectSettings/`) disparaît à la fin de la phase.
+**Migration vers Godot terminée** (2026-09-25). Toute la simulation tourne sans moteur et est couverte par plus de 500 tests, dont des parties de 100 ans ; l'écran du domaine du clan se joue sous Godot. Suite : les écrans à venir (miroir, bâtiments, diplomatie, bataille) et les phases du lore — voir [NOT_DONE.md](BRAIN_CLAUDE/NOT_DONE.md).
 
 ---
 

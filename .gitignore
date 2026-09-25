@@ -1,58 +1,22 @@
 # =============================================================================
-# Godot 4 .NET / dotnet (engine since 2026-09-25)
+# Godot 4 .NET / dotnet
 # =============================================================================
 game/.godot/
 [Bb]in/
-*.translation
-
-# =============================================================================
-# Unity generated (legacy tree, removed at the end of phase G)
-# =============================================================================
-[Ll]ibrary/
-[Tt]emp/
 [Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-[Uu]ser[Ss]ettings/
-[Mm]emoryCaptures/
-[Rr]ecordings/
-
-# Asset meta data should only be ignored when the corresponding asset is also ignored
-!/[Aa]ssets/**/*.meta
-
-# Uncomment to ignore specific folders inside Assets if needed
-# /[Aa]ssets/AssetStoreTools*
-# /[Aa]ssets/Plugins/Editor/JetBrains*
+*.translation
+export/
 
 # =============================================================================
-# Visual Studio / Rider / IDE
+# IDE
 # =============================================================================
 .vs/
 .vscode/
 .idea/
-*.csproj
-*.unityproj
-*.sln
-*.slnx
 *.suo
-*.tmp
 *.user
 *.userprefs
-*.pidb
-*.booproj
-*.svd
-*.pdb
-*.mdb
-*.opendb
-*.VC.db
 *.DotSettings.user
-
-# Our own projects and solution (the Unity rules above ignore every .csproj/.sln)
-!/MirrorLegacy.sln
-!/src/**/*.csproj
-!/tests/**/*.csproj
-!/game/*.csproj
 
 # =============================================================================
 # OS
@@ -64,20 +28,8 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # =============================================================================
-# Unity builds / output
-# =============================================================================
-ExportedObj/
-.consulo/
-*.apk
-*.aab
-*.unitypackage
-*.app
-crashlytics-build.properties
-
-# =============================================================================
 # Logs / crash dumps
 # =============================================================================
-sysinfo.txt
 *.log
 *.stackdump
 
@@ -85,7 +37,6 @@ sysinfo.txt
 # Node artifacts (legacy web port in .archive/web-port/)
 # =============================================================================
 node_modules/
-.archive/web-port/node_modules/
 .archive/web-port/dist/
 .env*
 !.env.example
@@ -94,9 +45,6 @@ node_modules/
 # Claude Code local state
 # =============================================================================
 .claude/
-claude-output/
-.unity.lock
-mono_crash.mem.*.blob
 
 # graphify (knowledge graph) — keep report/graph, ignore cache and temp files
 graphify-out/cache/
