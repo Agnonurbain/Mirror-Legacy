@@ -21,6 +21,8 @@ namespace MirrorChronicles.Data
         public Element Element { get; set; }
         public int Quality { get; set; } // 1 (Common) to 5 (Divine)
 
+        public FragmentData Clone() => (FragmentData)MemberwiseClone();
+
         public FragmentData()
         {
             ID = Guid.NewGuid().ToString();
@@ -44,6 +46,8 @@ namespace MirrorChronicles.Data
         public int QiCost { get; set; }
         public int Range { get; set; } // Manhattan distance; 1 = melee, 2+ = ranged
         public int RiskFactor { get; set; } // 0-100% chance of Qi Deviation when practicing
+
+        public TechniqueData Clone() => (TechniqueData)MemberwiseClone();
 
         public TechniqueData()
         {

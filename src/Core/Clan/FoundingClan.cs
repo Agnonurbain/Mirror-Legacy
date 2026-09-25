@@ -1,5 +1,7 @@
+using System;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
+using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Clan
 {
@@ -10,33 +12,35 @@ namespace MirrorChronicles.Clan
     /// </summary>
     public static class FoundingClan
     {
-        public static void Found(ClanManager clan)
+        /// <param name="rng">The session's random source, for reproducible IDs.</param>
+        public static void Found(ClanManager clan, Random rng)
         {
-            var patriarch = Founder(clan, "Wei", isMale: true, age: 45, root: 65, Element.Fire, CultivationRealm.QiRefinement, 3, stability: 80);
-            var matriarch = Founder(clan, "Xue", isMale: false, age: 42, root: 55, Element.Water, CultivationRealm.QiRefinement, 2, stability: 85);
+            var patriarch = Founder(clan, rng, "Wei", isMale: true, age: 45, root: 65, Element.Fire, CultivationRealm.QiRefinement, 3, stability: 80);
+            var matriarch = Founder(clan, rng, "Xue", isMale: false, age: 42, root: 55, Element.Water, CultivationRealm.QiRefinement, 2, stability: 85);
             patriarch.SpouseID = matriarch.ID;
             matriarch.SpouseID = patriarch.ID;
 
-            var son = Founder(clan, "Jian", isMale: true, age: 20, root: 75, Element.Lightning, CultivationRealm.Embryonic, 2);
-            var daughter = Founder(clan, "Mei", isMale: false, age: 16, root: 45, Element.Wood, CultivationRealm.Embryonic, 1);
+            var son = Founder(clan, rng, "Jian", isMale: true, age: 20, root: 75, Element.Lightning, CultivationRealm.Embryonic, 2);
+            var daughter = Founder(clan, rng, "Mei", isMale: false, age: 16, root: 45, Element.Wood, CultivationRealm.Embryonic, 1);
             foreach (var child in new[] { son, daughter })
             {
                 child.FatherID = patriarch.ID;
                 child.MotherID = matriarch.ID;
             }
 
-            var uncle = Founder(clan, "Shan", isMale: true, age: 40, root: 25, Element.Earth, CultivationRealm.Embryonic, 1, stability: 60);
+            var uncle = Founder(clan, rng, "Shan", isMale: true, age: 40, root: 25, Element.Earth, CultivationRealm.Embryonic, 1, stability: 60);
 
             foreach (var member in new[] { patriarch, matriarch, son, daughter, uncle })
                 clan.AddMember(member);
             clan.AppointPatriarch(patriarch);
         }
 
-        private static CharacterData Founder(ClanManager clan, string firstName, bool isMale, int age, int root,
+        private static CharacterData Founder(ClanManager clan, Random rng, string firstName, bool isMale, int age, int root,
             Element affinity, CultivationRealm realm, int stage, int stability = 70)
         {
             return new CharacterData
             {
+                ID = rng.NextId(),
                 FirstName = firstName,
                 LastName = clan.ClanName,
                 IsMale = isMale,

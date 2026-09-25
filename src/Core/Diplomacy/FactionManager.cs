@@ -34,6 +34,9 @@ namespace MirrorChronicles.Diplomacy
             AddFaction(new FactionData { Name = "Shadow Veil Sect", Personality = FactionPersonality.Manipulative, PowerLevel = 1200, Wealth = 1500, RelationWithPlayer = -5 });
             AddFaction(new FactionData { Name = "Verdant Bamboo Hermitage", Personality = FactionPersonality.Isolationist, PowerLevel = 700, Wealth = 400, RelationWithPlayer = 5 });
             AddFaction(new FactionData { Name = "Golden Sun Empire", Personality = FactionPersonality.Expansionist, PowerLevel = 10000, Wealth = 20000, RelationWithPlayer = 0 });
+
+            foreach (var faction in factions)
+                faction.ID = ctx.Rng.NextId(); // seeded, for reproducible games
         }
 
         public FactionData GetFactionByID(string id) => factions.Find(f => f.ID == id);

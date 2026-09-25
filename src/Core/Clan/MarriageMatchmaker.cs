@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
+using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Clan
 {
@@ -80,7 +81,8 @@ namespace MirrorChronicles.Clan
                 MaxLifespan = SpiritualOrificeRules.MortalLifespan(rng.NextDouble()), // has never cultivated
                 SpiritualRoot = rng.Next(OutsiderMinSpiritualRoot, OutsiderMaxSpiritualRoot + 1),
                 Affinity = (Element)rng.Next(1, elementCount), // skip Element.None
-                HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(0, rng.NextDouble()) // commoner odds
+                HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(0, rng.NextDouble()), // commoner odds
+                ID = rng.NextId() // seeded, for reproducible games
             };
         }
 

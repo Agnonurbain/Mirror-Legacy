@@ -113,8 +113,8 @@ namespace MirrorChronicles.Events
                     foreach (var m in clan.LivingMembers.Where(m => m.Realm <= CultivationRealm.QiRefinement).ToList())
                         stability.ApplyModifier(m, -EpidemicStabilityLoss);
                     break;
-                // Monster attacks, rival challenges, merchants, prodigies and marriage offers are
-                // narrated for now; their encounters arrive with combat (G3) and the living world (L6).
+                    // Monster attacks, rival challenges, merchants, prodigies and marriage offers are
+                    // narrated for now; their encounters arrive with combat (G3) and the living world (L6).
             }
         }
 

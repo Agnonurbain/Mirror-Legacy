@@ -103,6 +103,7 @@ namespace MirrorChronicles.Clan
             };
             child.HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(
                 SpiritualOrificeRules.CountParentsWithOrifice(father, mother), rng.NextDouble());
+            child.ID = rng.NextId(); // seeded: the same game always names the same child
 
             AddMember(child);
             return child;

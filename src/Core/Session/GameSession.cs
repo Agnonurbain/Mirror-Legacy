@@ -89,7 +89,7 @@ namespace MirrorChronicles.Session
         {
             var session = new GameSession(setup.Seed, new Random(setup.Seed), setup.ClanName ?? DefaultClanName, setup);
 
-            FoundingClan.Found(session.Clan);
+            FoundingClan.Found(session.Clan, session.Context.Rng);
             session.Karma.Restore(1, 0, 0, session.Clan.PatriarchID);
             session.Factions.InitializeDefaultFactions();
             session.Deduction.AddFragment(Element.Fire, 1, "Scorched Scroll");
@@ -110,7 +110,8 @@ namespace MirrorChronicles.Session
             var rng = new Random(unchecked(data.Seed * 31 + data.CurrentYear * 4 + (int)data.CurrentPhase));
             var session = new GameSession(data.Seed, rng, data.ClanName ?? DefaultClanName, setup);
 
-            var records = data.HistoricalRecords ?? new List<CharacterData>();
+            // Work on copies: the caller keeps its GameData, and two loads never share objects
+            var records = (data.HistoricalRecords ?? new List<CharacterData>()).Select(r => r.Clone()).ToList();
             foreach (var record in records)
             {
                 PowerLadder.Normalize(record);            // saves made before realm stages
@@ -125,9 +126,11 @@ namespace MirrorChronicles.Session
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
             session.Ascension.Restore(data.AscendedAncestors);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
-            if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions);
+            if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
             else session.Factions.InitializeDefaultFactions();
-            session.Deduction.Restore(data.Fragments ?? new List<FragmentData>(), data.Techniques ?? new List<TechniqueData>());
+            session.Deduction.Restore(
+                (data.Fragments ?? new List<FragmentData>()).Select(f => f.Clone()),
+                (data.Techniques ?? new List<TechniqueData>()).Select(t => t.Clone()));
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);
 
@@ -135,6 +138,7 @@ namespace MirrorChronicles.Session
             return session;
         }
 
+        /// <summary>A detached snapshot: later play never changes it, so it can be kept or written later.</summary>
         public GameData ToSaveData()
         {
             return new GameData
@@ -144,7 +148,7 @@ namespace MirrorChronicles.Session
                 CurrentYear = Clock.Year,
                 CurrentPhase = Clock.Phase,
                 PatriarchID = Clan.PatriarchID,
-                HistoricalRecords = Clan.Registry.Records.ToList(),
+                HistoricalRecords = Clan.Registry.Records.Select(r => r.Clone()).ToList(),
                 SpiritStones = Resources.SpiritStones,
                 MedicinalHerbs = Resources.MedicinalHerbs,
                 SpiritualOres = Resources.SpiritualOres,
@@ -152,15 +156,15 @@ namespace MirrorChronicles.Session
                 TechniqueFragments = Resources.TechniqueFragments,
                 MirrorPower = Mirror.MirrorPower,
                 RestoredFragments = Mirror.RestoredFragments,
-                Fragments = Deduction.Fragments.ToList(),
-                Techniques = Deduction.ClanTechniques.ToList(),
+                Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
+                Techniques = Deduction.ClanTechniques.Select(t => t.Clone()).ToList(),
                 GenerationCount = Karma.GenerationCount,
                 TotalBirths = Karma.TotalBirths,
                 TotalDeaths = Karma.TotalDeaths,
                 LastPatriarchId = Karma.LastPatriarchId,
                 AscendedAncestors = Ascension.AscendedAncestorsCount,
                 Buildings = Buildings.Buildings.Select(b => new BuildingData(b.Type) { Level = b.Level }).ToList(),
-                Factions = Factions.Factions.ToList(),
+                Factions = Factions.Factions.Select(f => f.Clone()).ToList(),
                 TriggeredStoryEvents = Story.TriggeredEvents.ToList(),
                 PendingStoryEvents = Story.PendingTriggers.ToList(),
                 GameWon = Victory.GameWon,

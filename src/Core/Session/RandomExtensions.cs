@@ -15,6 +15,14 @@ namespace MirrorChronicles.Session
         /// <summary>Any element but <see cref="Element.None"/>.</summary>
         public static Element NextElement(this Random rng) => (Element)rng.Next(1, ElementCount);
 
+        /// <summary>A GUID-shaped identifier drawn from the seed, so replays produce the same IDs.</summary>
+        public static string NextId(this Random rng)
+        {
+            var bytes = new byte[16];
+            rng.NextBytes(bytes);
+            return new Guid(bytes).ToString();
+        }
+
         /// <summary>A random item, or the default value when the list is empty.</summary>
         public static T Pick<T>(this Random rng, IReadOnlyList<T> items) =>
             items.Count == 0 ? default : items[rng.Next(items.Count)];

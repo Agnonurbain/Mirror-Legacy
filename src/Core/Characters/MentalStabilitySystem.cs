@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
@@ -40,7 +41,7 @@ namespace MirrorChronicles.Characters
         /// <summary>Parents, children and the spouse of the deceased grieve.</summary>
         private void Grieve(CharacterData deceased, DeathCause cause)
         {
-            foreach (var member in clan.LivingMembers)
+            foreach (var member in clan.LivingMembers.ToList()) // a modifier may one day kill: never iterate the live roster
             {
                 bool closeKin = member.FatherID == deceased.ID
                     || member.MotherID == deceased.ID

@@ -72,5 +72,13 @@ namespace MirrorChronicles.Data
         }
 
         public string FullName => $"{LastName} {FirstName}";
+
+        /// <summary>An independent copy (saves and loads never share characters with a live game).</summary>
+        public CharacterData Clone()
+        {
+            var copy = (CharacterData)MemberwiseClone();
+            copy.KnownTechniqueIDs = new List<string>(KnownTechniqueIDs ?? new List<string>());
+            return copy;
+        }
     }
 }

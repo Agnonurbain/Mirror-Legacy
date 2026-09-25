@@ -95,7 +95,7 @@ namespace MirrorChronicles.Economy
                     case TaskType.Study: Study(member); break;
                     case TaskType.Diplomacy: Diplomacy(); break;
                     case TaskType.Espionage: espionage.AttemptEspionage(member, factions.RandomFaction()); break;
-                    // Teaching needs this year's students: resolved below
+                        // Teaching needs this year's students: resolved below
                 }
             }
 

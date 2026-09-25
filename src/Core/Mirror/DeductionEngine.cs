@@ -37,7 +37,7 @@ namespace MirrorChronicles.Mirror
 
         public void AddFragment(Element element, int quality, string name = "Unknown Fragment")
         {
-            fragments.Add(new FragmentData { Element = element, Quality = quality, Name = name });
+            fragments.Add(new FragmentData { ID = ctx.Rng.NextId(), Element = element, Quality = quality, Name = name });
         }
 
         /// <summary>Returns the new technique, or null when the fragments or the power are lacking.</summary>
@@ -76,6 +76,7 @@ namespace MirrorChronicles.Mirror
 
             return new TechniqueData
             {
+                ID = ctx.Rng.NextId(),
                 Name = ProceduralName(dominant, type, totalQuality),
                 Type = type,
                 DominantElement = dominant,
