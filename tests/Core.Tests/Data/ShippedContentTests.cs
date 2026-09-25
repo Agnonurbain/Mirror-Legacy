@@ -67,6 +67,66 @@ namespace MirrorChronicles.Tests.Data
             CollectionAssert.IsSubsetOf(raised, Fixtures.Content.StoryEvents.Select(e => e.TriggerType));
         }
 
+        /// <summary>The Qi cultivation methods of LORE.md §2.4, by their game names.</summary>
+        private static readonly string[] LoreQiMethods =
+        {
+            "Pas du Phénix de Braise", "Sutra de la Source Claire", "Canon du Givre Nocturne", "Sutra de la Marée Silencieuse",
+            "Méthode du Ruisseau Remonté", "Sutra du Verbe Premier", "Art secret de la Perle Grise", "Méthode de l'Averse Mesurée",
+            "Méthode du Rempart d'Airain", "Méthode du Tranchant Clair", "Sutra du Cœur Tissé", "Méthode de la Source Souterraine",
+            "Manuel du Soleil Intérieur", "Art du Brasier Englouti", "Méthode du Souffle Commun", "Canon des Sept Terrasses",
+            "Art secret de l'Éclair Cendré", "Méthode de la Perle de Rosée", "Art du Grondement Lointain", "Méthode de l'Écorce Scellée",
+            "Méthode des Vapeurs du Littoral", "Art du Murmure des Cèdres", "Méthode de la Bise Hivernale", "Veilleur du Sentier",
+            "Méthode des Six Harmonies", "Méthode du Qi Limpide"
+        };
+
+        [Test]
+        public void ShippedTechniques_HoldTheTwentySixQiMethodsOfTheLore()
+        {
+            var methods = Fixtures.Content.Techniques.Where(t => t.Kind == TechniqueKind.Cultivation).Select(t => t.Name).ToList();
+            CollectionAssert.IsSubsetOf(LoreQiMethods, methods);
+            Assert.AreEqual(26, LoreQiMethods.Length);
+        }
+
+        [Test]
+        public void ShippedTechniques_KnowOnlyOneTrueImmortalManual()
+        {
+            // LORE.md §2.2: a single grade 7+ technique is known
+            var grade7 = Fixtures.Content.Techniques.Where(t => t.Grade == 7).Select(t => t.Name).ToList();
+            CollectionAssert.AreEqual(new[] { "Dialogue de Gongye Shu avec le Pêcheur du Saule" }, grade7);
+        }
+
+        [Test]
+        public void ShippedTechniques_KeepTheGradesOfTheLore()
+        {
+            var byName = Fixtures.Content.Techniques.ToDictionary(t => t.Name);
+            Assert.AreEqual(3, byName["Sutra de la Source Claire"].Grade);
+            Assert.AreEqual(2, byName["Méthode du Souffle Commun"].Grade);
+            Assert.AreEqual(6, byName["Canon des Sept Terrasses"].Grade);
+            Assert.AreEqual(5, byName["Intuition du Lotus Blanc"].Grade);
+            Assert.AreEqual(TechniqueCategory.Secret, byName["Veilleur du Sentier"].Category);
+            Assert.AreEqual(TechniqueCategory.Ancestral, byName["Sutra de l'Aîné qui Frappe à la Cour"].Category);
+        }
+
+        [Test]
+        public void ShippedQi_KeepTheHarvestOfTheSevenTerraces()
+        {
+            // LORE.md §2.4: ten years of wisps, then ten years of refining
+            var canon = Fixtures.Content.Techniques.Single(t => t.Name == "Canon des Sept Terrasses");
+            var qi = Fixtures.Content.Qi.Single(q => q.Id == canon.RequiredQiId);
+            Assert.AreEqual("Qi Profond du Bélier Variant", qi.Name);
+            Assert.AreEqual(20, qi.YearsPerPortion);
+        }
+
+        [Test]
+        public void ShippedClan_StartsWithTheClearSpringSutra()
+        {
+            // LORE.md §2.2: the Sutra de la Source Claire is the Mo clan's technique
+            var clearSpring = Fixtures.Content.Techniques.Single(t => t.Name == "Sutra de la Source Claire");
+            CollectionAssert.Contains(Fixtures.Content.Clan.StartingTechniques, clearSpring.ID);
+            Assert.IsTrue(Fixtures.Content.Clan.Founders.Where(f => f.Realm >= CultivationRealm.QiRefinement)
+                .All(f => f.CultivationMethod == clearSpring.ID));
+        }
+
         [Test]
         public void ShippedEvents_CoverEveryKindOfRandomEvent()
         {
