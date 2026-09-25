@@ -13,7 +13,7 @@ namespace MirrorChronicles.Tests.Session
     {
         /// <summary>No random events, so a test sees only what it provokes.</summary>
         private static GameSession Quiet(int seed = 1) =>
-            GameSession.NewGame(new GameSetup { Seed = seed, RandomEvents = new RandomEventData[0] });
+            GameSession.NewGame(new GameSetup { Seed = seed, Content = Fixtures.QuietContent });
 
         [Test]
         public void NewGame_FoundsTheClanWithFiveExaminedCultivators()
@@ -48,7 +48,7 @@ namespace MirrorChronicles.Tests.Session
         public void NewGame_KnowsTheWorldAndHoldsTwoFragments()
         {
             var s = Quiet();
-            Assert.IsTrue(s.Factions.Factions.Count == 8 && s.Deduction.Fragments.Count == 2);
+            Assert.IsTrue(s.Factions.Factions.Count == Fixtures.Content.Factions.Count && s.Deduction.Fragments.Count == 2);
         }
 
         [Test]

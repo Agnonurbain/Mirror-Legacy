@@ -1,0 +1,13 @@
+[
+  { "name": "Attaque de bêtes",        "eventType": "MonsterAttack",       "weight": 20, "description": "Des bêtes sauvages assaillent le domaine." },
+  { "name": "Visite diplomatique",     "eventType": "DiplomaticVisit",     "weight": 12, "description": "Une faction envoie des émissaires." },
+  { "name": "Ruines anciennes",        "eventType": "RuinsDiscovery",      "weight": 10, "description": "Des ruines anciennes affleurent près du domaine." },
+  { "name": "Naissance d'un prodige",  "eventType": "GeniusBirth",         "weight": 5,  "minYear": 5, "description": "Un enfant prodige apparaît dans la région." },
+  { "name": "Trahison intérieure",     "eventType": "InternalBetrayal",    "weight": 8,  "description": "Un membre troublé complote." },
+  { "name": "Catastrophe naturelle",   "eventType": "NaturalDisaster",     "weight": 10, "description": "Crue, séisme ou tempête." },
+  { "name": "Marchand itinérant",      "eventType": "WanderingMerchant",   "weight": 15, "description": "Un marchand propose des marchandises rares." },
+  { "name": "Défi d'un rival",         "eventType": "RivalChallenge",      "weight": 8,  "minPatriarchRealm": "Foundation", "description": "Un rival lance un défi dans les règles." },
+  { "name": "Épidémie",                "eventType": "Epidemic",            "weight": 7,  "description": "Une maladie balaie le domaine." },
+  { "name": "Proposition d'alliance",  "eventType": "MarriageOpportunity", "weight": 10, "description": "Un clan voisin propose une alliance par le mariage." },
+  { "name": "Année paisible",          "eventType": "PeacefulYear",        "weight": 30, "description": "Rien de notable ne se produit." }
+]

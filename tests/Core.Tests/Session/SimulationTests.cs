@@ -47,7 +47,7 @@ namespace MirrorChronicles.Tests.Session
         [TestCase(5)]
         public void Century_KeepsEveryInvariant(int seed)
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = seed });
+            var s = GameSession.NewGame(Fixtures.Setup(seed));
             var violations = new List<string>();
             PlayYears(s, Century, played => violations.AddRange(Invariants(played)));
             CollectionAssert.IsEmpty(violations);
@@ -58,7 +58,7 @@ namespace MirrorChronicles.Tests.Session
         [TestCase(3)]
         public void Century_BringsMarriagesBirthsAndBreakthroughs(int seed)
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = seed });
+            var s = GameSession.NewGame(Fixtures.Setup(seed));
             int breakthroughs = 0;
             s.Events.OnBreakthroughSuccess += (c, realm) => breakthroughs++;
 
@@ -76,7 +76,7 @@ namespace MirrorChronicles.Tests.Session
         [TestCase(5)]
         public void Decade_KeepsTheClanAlive(int seed)
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = seed });
+            var s = GameSession.NewGame(Fixtures.Setup(seed));
             PlayYears(s, 10);
             Assert.IsTrue(s.Clock.Year == 11 && s.Clan.LivingMembers.Count > 0);
         }
@@ -86,7 +86,7 @@ namespace MirrorChronicles.Tests.Session
         {
             string History(int seed)
             {
-                var s = GameSession.NewGame(new GameSetup { Seed = seed });
+                var s = GameSession.NewGame(Fixtures.Setup(seed));
                 PlayYears(s, 30);
                 return string.Join(",", s.Clan.Registry.Records.Select(r => $"{r.ID}{r.FirstName}{r.Age}{r.Realm}{r.RealmStage}{r.IsAlive}"))
                     + "|" + string.Join(",", s.Factions.Factions.Select(f => f.ID))

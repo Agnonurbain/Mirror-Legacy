@@ -12,6 +12,9 @@ namespace MirrorChronicles.Tests.Characters
     [TestFixture]
     public class SpiritualOrificeRulesTests
     {
+        /// <summary>The odds of decision D3 (LORE.md §4).</summary>
+        private static readonly OrificeOdds D3 = new OrificeOdds { Commoner = 0.003, OneParent = 0.35, TwoParents = 0.5 };
+
         private static CharacterData Cultivator(CultivationRealm realm = CultivationRealm.QiRefinement, int stage = 1)
         {
             return new CharacterData { Realm = realm, RealmStage = stage, HasSpiritualOrifice = true, OrificeKnown = true };
@@ -22,7 +25,7 @@ namespace MirrorChronicles.Tests.Characters
         [TestCase(2, 0.5)]
         public void OrificeChance_RisesWithParentsWhoHaveOne(int parents, double expected)
         {
-            Assert.AreEqual(expected, SpiritualOrificeRules.OrificeChance(parents), 1e-9);
+            Assert.AreEqual(expected, SpiritualOrificeRules.OrificeChance(parents, D3), 1e-9);
         }
 
         [TestCase(0, 0.002, true)]
@@ -33,7 +36,7 @@ namespace MirrorChronicles.Tests.Characters
         [TestCase(2, 0.51, false)]
         public void HasOrificeAtBirth_ComparesRollToChance(int parents, double roll, bool expected)
         {
-            Assert.AreEqual(expected, SpiritualOrificeRules.HasOrificeAtBirth(parents, roll));
+            Assert.AreEqual(expected, SpiritualOrificeRules.HasOrificeAtBirth(parents, roll, D3));
         }
 
         [Test]

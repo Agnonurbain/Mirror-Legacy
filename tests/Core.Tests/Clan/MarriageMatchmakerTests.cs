@@ -16,6 +16,8 @@ namespace MirrorChronicles.Tests.Clan
     {
         private Dictionary<string, CharacterData> registry;
         private Random rng;
+        private static NamePools Names => Fixtures.Content.Names;
+        private static OrificeOdds Odds => Fixtures.Content.Balance.OrificeOdds;
 
         [SetUp]
         public void SetUp()
@@ -109,20 +111,20 @@ namespace MirrorChronicles.Tests.Clan
         public void CreateOutsiderSpouse_HasOppositeSex()
         {
             var member = Person(false, 20);
-            Assert.IsTrue(MarriageMatchmaker.CreateOutsiderSpouse(member, "Wang", rng).IsMale);
+            Assert.IsTrue(MarriageMatchmaker.CreateOutsiderSpouse(member, "Wang", Names, Odds, rng).IsMale);
         }
 
         [Test]
         public void CreateOutsiderSpouse_IsLivingAdultWithLifespan()
         {
-            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 18), "Wang", rng);
+            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 18), "Wang", Names, Odds, rng);
             Assert.IsTrue(spouse.IsAlive && spouse.Age >= MarriageMatchmaker.MinMarriageAge && spouse.MaxLifespan > 0);
         }
 
         [Test]
         public void CreateOutsiderSpouse_UsesGivenFamilyNameAndHasNoClanParents()
         {
-            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 30), "Zhao", rng);
+            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 30), "Zhao", Names, Odds, rng);
             Assert.IsTrue(spouse.LastName == "Zhao" && spouse.FatherID == null && spouse.MotherID == null);
         }
 
@@ -137,14 +139,14 @@ namespace MirrorChronicles.Tests.Clan
         [Test]
         public void CreateOutsiderSpouse_HasOrifice_WhenRollBeatsCommonerOdds()
         {
-            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 25), "Zhao", new FixedRandom(0.0));
+            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 25), "Zhao", Names, Odds, new FixedRandom(0.0));
             Assert.IsTrue(spouse.HasSpiritualOrifice);
         }
 
         [Test]
         public void CreateOutsiderSpouse_IsMortalWithMortalLifespan_WhenRollFails()
         {
-            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 25), "Zhao", new FixedRandom(0.99));
+            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 25), "Zhao", Names, Odds, new FixedRandom(0.99));
             Assert.IsTrue(!spouse.HasSpiritualOrifice && spouse.MaxLifespan >= 60 && spouse.MaxLifespan <= 80);
         }
 
@@ -155,7 +157,7 @@ namespace MirrorChronicles.Tests.Clan
             var brother = Person(true, 22, father);
             var sister = Person(false, 20, father);
 
-            var plans = MarriageMatchmaker.PlanAnnualMarriages(new[] { brother, sister }, FindById, 1f, rng);
+            var plans = MarriageMatchmaker.PlanAnnualMarriages(new[] { brother, sister }, FindById, 1f, Names, Odds, rng);
 
             Assert.IsTrue(plans.Count == 2 && plans.All(p => p.SpouseIsOutsider && p.Spouse.IsMale != p.Member.IsMale));
         }
@@ -166,7 +168,7 @@ namespace MirrorChronicles.Tests.Clan
             var man = Person(true, 24);
             var woman = Person(false, 23);
 
-            var plans = MarriageMatchmaker.PlanAnnualMarriages(new[] { man, woman }, FindById, 1f, rng);
+            var plans = MarriageMatchmaker.PlanAnnualMarriages(new[] { man, woman }, FindById, 1f, Names, Odds, rng);
 
             Assert.IsTrue(plans.Count == 1 && !plans[0].SpouseIsOutsider);
         }
@@ -174,7 +176,7 @@ namespace MirrorChronicles.Tests.Clan
         [Test]
         public void PlanAnnualMarriages_ReturnsEmpty_WhenChanceIsZero()
         {
-            var plans = MarriageMatchmaker.PlanAnnualMarriages(new[] { Person(true, 24), Person(false, 23) }, FindById, 0f, rng);
+            var plans = MarriageMatchmaker.PlanAnnualMarriages(new[] { Person(true, 24), Person(false, 23) }, FindById, 0f, Names, Odds, rng);
             Assert.IsEmpty(plans);
         }
 
@@ -184,7 +186,7 @@ namespace MirrorChronicles.Tests.Clan
             var married = Person(true, 30);
             married.SpouseID = Guid.NewGuid().ToString();
 
-            var plans = MarriageMatchmaker.PlanAnnualMarriages(new[] { Person(false, 15), married }, FindById, 1f, rng);
+            var plans = MarriageMatchmaker.PlanAnnualMarriages(new[] { Person(false, 15), married }, FindById, 1f, Names, Odds, rng);
 
             Assert.IsEmpty(plans);
         }

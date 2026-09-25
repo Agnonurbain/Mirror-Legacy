@@ -23,11 +23,11 @@ namespace MirrorChronicles.Tests.Events
         }
 
         [Test]
-        public void DefaultTable_HoldsElevenEvents()
+        public void WithoutATable_DrawsFromTheContent()
         {
             var w = new TestWorld();
             var events = new EventManager(w.Ctx, w.Clan, w.Factions, w.Deduction, w.Resources, w.Stability, w.Buildings);
-            Assert.AreEqual(11, events.EventTable.Count);
+            Assert.AreEqual(Fixtures.Content.RandomEvents.Count, events.EventTable.Count);
         }
 
         [Test]

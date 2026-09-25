@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using NUnit.Framework;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
@@ -81,10 +83,35 @@ namespace MirrorChronicles.Tests
     /// <summary>Shared builders for the simulation tests.</summary>
     internal static class Fixtures
     {
+        private static readonly Lazy<string> DataDirectoryPath = new Lazy<string>(FindDataDirectory);
+        private static readonly Lazy<GameContent> ShippedContent = new Lazy<GameContent>(() => GameContentLoader.Load(ReadDataFile));
+
+        /// <summary>The content the game ships (game/data/*.json).</summary>
+        public static GameContent Content => ShippedContent.Value;
+
+        /// <summary>The shipped content without random events, so a test sees only what it provokes.</summary>
+        public static GameContent QuietContent => Content with { RandomEvents = Array.Empty<RandomEventData>() };
+
+        public static string DataDirectory => DataDirectoryPath.Value;
+
+        public static string ReadDataFile(string fileName) => File.ReadAllText(Path.Combine(DataDirectory, fileName));
+
+        public static GameSetup Setup(int seed = 1) => new GameSetup { Seed = seed, Content = Content };
+
         public static GameContext Context(int seed = 1) => Context(new Random(seed));
 
         public static GameContext Context(Random rng) =>
-            new GameContext(new GameEventBus(), new RecordingGameLog(), rng, new GameClock());
+            new GameContext(new GameEventBus(), new RecordingGameLog(), rng, new GameClock(), Content);
+
+        /// <summary>game/data, found from the test assembly by walking up to the solution.</summary>
+        private static string FindDataDirectory()
+        {
+            var dir = new DirectoryInfo(TestContext.CurrentContext.TestDirectory);
+            while (dir != null && !File.Exists(Path.Combine(dir.FullName, "MirrorLegacy.sln")))
+                dir = dir.Parent;
+            if (dir == null) throw new DirectoryNotFoundException("MirrorLegacy.sln not found above the test directory.");
+            return Path.Combine(dir.FullName, "game", "data");
+        }
 
         /// <summary>A living cultivator with a known orifice and a lifespan matching the realm.</summary>
         public static CharacterData Cultivator(bool isMale = true, int age = 30,

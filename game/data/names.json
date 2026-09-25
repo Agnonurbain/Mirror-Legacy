@@ -1,0 +1,5 @@
+{
+  "male": [ "Wei", "Jian", "Long", "Feng", "Hao", "Chen", "Ming", "Shan", "Zhi", "Bo", "Tao", "Jun", "Kai" ],
+  "female": [ "Xue", "Mei", "Lan", "Ying", "Lin", "Yue", "Hua", "Qing", "Zhen", "Rui", "Shu", "Dan" ],
+  "outsiderFamilies": [ "Wang", "Zhao", "Chen", "Liu", "Sun", "Zhou", "Wu", "Zheng" ]
+}

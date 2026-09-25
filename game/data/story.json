@@ -1,0 +1,45 @@
+[
+  {
+    "triggerType": "FirstFoundation",
+    "name": "Une nouvelle Fondation",
+    "narrativeText": "Pour la première fois de l'histoire du clan, un membre établit sa Fondation. La voie de la cultivation s'élargit.",
+    "choices": [
+      { "label": "Célébrer (+5 de stabilité pour tous)", "outcome": { "stabilityChange": 5 } },
+      { "label": "Redoubler d'efforts (aucun bonus)", "outcome": {} }
+    ]
+  },
+  {
+    "triggerType": "FirstGoldenCore",
+    "name": "Un Noyau d'Or est formé",
+    "narrativeText": "Un cultivateur du Noyau d'Or marche parmi les siens. Les autres sectes le remarquent.",
+    "choices": [
+      { "label": "Montrer sa force (+200 pierres)", "outcome": { "spiritStoneChange": 200 } },
+      { "label": "Rester humble (+10 de stabilité pour tous)", "outcome": { "stabilityChange": 10 } }
+    ]
+  },
+  {
+    "triggerType": "PatriarchBetrayal",
+    "name": "Graines de trahison",
+    "narrativeText": "L'esprit d'un membre vacille au bord de la folie. Il murmure de partir, ou pire.",
+    "choices": [
+      { "label": "Le confronter (−100 pierres, +15 de stabilité pour tous)", "outcome": { "spiritStoneChange": -100, "stabilityChange": 15 } },
+      { "label": "Laisser faire pour l'instant (−10 de stabilité pour tous)", "outcome": { "stabilityChange": -10 } }
+    ]
+  },
+  {
+    "triggerType": "FirstAscension",
+    "name": "Ascension !",
+    "narrativeText": "L'un des siens a touché le seuil du Dao. Les cieux tremblent.",
+    "choices": [
+      { "label": "Savourer la gloire (+500 pierres, +20 de stabilité pour tous)", "outcome": { "spiritStoneChange": 500, "stabilityChange": 20 } }
+    ]
+  },
+  {
+    "triggerType": "ClanExtinctionThreat",
+    "name": "Au bord du gouffre",
+    "narrativeText": "Le clan est presque éteint. Il ne reste qu'un seul membre. C'est peut-être la fin…",
+    "choices": [
+      { "label": "Lutter encore (+30 de stabilité)", "outcome": { "stabilityChange": 30 } }
+    ]
+  }
+]

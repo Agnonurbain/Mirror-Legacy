@@ -1,0 +1,10 @@
+[
+  { "name": "Famille Wang",                  "familyName": "Wang", "personality": "Aggressive",   "powerLevel": 500,   "wealth": 1000,  "relationWithPlayer": -20 },
+  { "name": "Guilde marchande Zhao",         "familyName": "Zhao", "personality": "Merchant",     "powerLevel": 200,   "wealth": 5000,  "relationWithPlayer": 10 },
+  { "name": "Secte des Nuées Célestes",      "familyName": null,   "personality": "Isolationist", "powerLevel": 5000,  "wealth": 2000,  "relationWithPlayer": 0 },
+  { "name": "Salle du Poing de Fer",         "familyName": null,   "personality": "Aggressive",   "powerLevel": 800,   "wealth": 600,   "relationWithPlayer": -10 },
+  { "name": "Pavillon du Phénix de Jade",    "familyName": null,   "personality": "Merchant",     "powerLevel": 300,   "wealth": 8000,  "relationWithPlayer": 15 },
+  { "name": "Secte du Voile d'Ombre",        "familyName": null,   "personality": "Manipulative", "powerLevel": 1200,  "wealth": 1500,  "relationWithPlayer": -5 },
+  { "name": "Ermitage du Bambou Verdoyant",  "familyName": null,   "personality": "Isolationist", "powerLevel": 700,   "wealth": 400,   "relationWithPlayer": 5 },
+  { "name": "Empire du Soleil d'Or",         "familyName": null,   "personality": "Expansionist", "powerLevel": 10000, "wealth": 20000, "relationWithPlayer": 0 }
+]

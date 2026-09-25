@@ -18,12 +18,12 @@ namespace MirrorChronicles.Tests.Session
             s.Deduction.Fragments.Count, s.Deduction.ClanTechniques.Count);
 
         private static GameSession Reload(GameSession s) =>
-            GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), new GameSetup());
+            GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
 
         [Test]
         public void RoundTrip_RestoresTheWholeGame()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 3 });
+            var s = GameSession.NewGame(Fixtures.Setup(3));
             s.Buildings.Upgrade(BuildingType.Mine);
             s.Tasks.AssignTask(s.Clan.GetPatriarch(), TaskType.Mine);
             for (int y = 0; y < 3; y++) s.AdvanceYear();
@@ -35,7 +35,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ToSaveData_IsASnapshot_ThatLaterPlayLeavesUntouched()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 2 });
+            var s = GameSession.NewGame(Fixtures.Setup(2));
             var saved = s.ToSaveData();
             int savedAge = saved.HistoricalRecords[0].Age;
             int savedRelation = saved.Factions[0].RelationWithPlayer;
@@ -49,9 +49,9 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void FromSaveData_CopiesTheSave_SoTwoLoadsStayIndependent()
         {
-            var data = GameSession.NewGame(new GameSetup { Seed = 2 }).ToSaveData();
-            var first = GameSession.FromSaveData(data, new GameSetup());
-            var second = GameSession.FromSaveData(data, new GameSetup());
+            var data = GameSession.NewGame(Fixtures.Setup(2)).ToSaveData();
+            var first = GameSession.FromSaveData(data, Fixtures.Setup());
+            var second = GameSession.FromSaveData(data, Fixtures.Setup());
 
             first.Clan.LivingMembers[0].Age += 10;
 
@@ -61,7 +61,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void Serialize_WritesEnumsByName()
         {
-            var json = SaveSerializer.Serialize(GameSession.NewGame(new GameSetup { Seed = 1 }).ToSaveData());
+            var json = SaveSerializer.Serialize(GameSession.NewGame(Fixtures.Setup(1)).ToSaveData());
             StringAssert.Contains("\"CurrentPhase\": \"Management\"", json);
         }
 
@@ -82,7 +82,7 @@ namespace MirrorChronicles.Tests.Session
                     ""Age"": 50, ""MaxLifespan"": 0, ""IsAlive"": true, ""Realm"": ""QiRefinement"", ""RealmStage"": 0, ""MentalStability"": 70 } ]
             }";
 
-            var s = GameSession.FromSaveData(SaveSerializer.Deserialize(versionOne), new GameSetup());
+            var s = GameSession.FromSaveData(SaveSerializer.Deserialize(versionOne), Fixtures.Setup());
 
             var elder = s.Clan.GetPatriarch();
             Assert.IsTrue(elder.ID == "elder" && elder.RealmStage == 1 && elder.HasSpiritualOrifice && elder.OrificeKnown
@@ -92,7 +92,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void FromSaveData_KeepsTheStoryEventsStillWaitingForAChoice()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1 });
+            var s = GameSession.NewGame(Fixtures.Setup(1));
             s.Events.TriggerBreakthroughSuccess(s.Clan.GetPatriarch(), CultivationRealm.Foundation);
             Assert.AreEqual(StoryTriggerType.FirstFoundation, Reload(s).Story.PendingEvent.TriggerType);
         }

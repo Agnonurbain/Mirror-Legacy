@@ -55,6 +55,28 @@ namespace MirrorChronicles.Tests.Diplomacy
         }
 
         [Test]
+        public void HandleArrangedMarriage_TakesTheFactionsFamilyName()
+        {
+            var w = new TestWorld();
+            var faction = new FactionData { Name = "Guilde marchande Zhao", FamilyName = "Zhao" };
+            w.Factions.AddFaction(faction);
+            var member = w.Join(Fixtures.Cultivator(age: 25));
+            w.Marriages.HandleArrangedMarriage(member, faction.ID, isForced: false);
+            Assert.AreEqual("Zhao", w.Clan.FindById(member.SpouseID).LastName);
+        }
+
+        [Test]
+        public void HandleArrangedMarriage_FindsASurname_ForASectWithoutFamily()
+        {
+            var w = new TestWorld();
+            var sect = new FactionData { Name = "Secte des Nuées Célestes" };
+            w.Factions.AddFaction(sect);
+            var member = w.Join(Fixtures.Cultivator(age: 25));
+            w.Marriages.HandleArrangedMarriage(member, sect.ID, isForced: false);
+            CollectionAssert.Contains(Fixtures.Content.Names.OutsiderFamilies, w.Clan.FindById(member.SpouseID).LastName);
+        }
+
+        [Test]
         public void HandleArrangedMarriage_HurtsAForcedMember()
         {
             var w = new TestWorld();

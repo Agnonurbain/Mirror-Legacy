@@ -1,3 +1,4 @@
+using System.Linq;
 using NUnit.Framework;
 using MirrorChronicles.Data;
 
@@ -16,11 +17,21 @@ namespace MirrorChronicles.Tests.Diplomacy
         }
 
         [Test]
-        public void InitializeDefaultFactions_CreatesEightFactions()
+        public void InitializeFactions_CopiesEveryFactionOfTheContent()
         {
             var w = new TestWorld();
-            w.Factions.InitializeDefaultFactions();
-            Assert.AreEqual(8, w.Factions.Factions.Count);
+            w.Factions.InitializeFactions();
+            CollectionAssert.AreEqual(Fixtures.Content.Factions.Select(f => f.Name), w.Factions.Factions.Select(f => f.Name));
+        }
+
+        [Test]
+        public void InitializeFactions_GivesEachFactionItsOwnIdentity()
+        {
+            var w = new TestWorld();
+            w.Factions.InitializeFactions();
+            var templates = Fixtures.Content.Factions.ToList();
+            Assert.IsTrue(w.Factions.Factions.Select(f => f.ID).Distinct().Count() == templates.Count
+                && w.Factions.Factions.All(f => templates.All(t => !ReferenceEquals(t, f))));
         }
 
         [Test]
