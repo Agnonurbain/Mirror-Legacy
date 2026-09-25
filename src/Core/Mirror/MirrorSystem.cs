@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
+using MirrorChronicles.Combat;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
@@ -9,7 +10,7 @@ namespace MirrorChronicles.Mirror
 {
     /// <summary>
     /// The ancestral bronze mirror, the player. Its power (0-100) recharges each year and with every
-    /// breakthrough, and pays for divine interventions. (The combat Qi Pulse arrives with phase G3.)
+    /// breakthrough, and pays for divine interventions.
     /// </summary>
     public sealed class MirrorSystem
     {
@@ -20,6 +21,9 @@ namespace MirrorChronicles.Mirror
         public const int AncestralShieldCost = 25;
         public const int MirrorJudgmentCost = 50;
         public const int TalismanSeedCost = 40;
+        public const int QiPulseCost = 10;
+        private const double QiPulseQiShare = 0.3;
+        private const double QiPulseVitalityShare = 0.15;
 
         private readonly GameContext ctx;
         private readonly ClanManager clan;
@@ -56,6 +60,16 @@ namespace MirrorChronicles.Mirror
             }
 
             MirrorPower -= amount;
+            return true;
+        }
+
+        /// <summary>Cost 10, in battle: a third of the unit's Qi and 15% of its vitality flow back.</summary>
+        public bool UseQiPulse(CombatUnit target)
+        {
+            if (target == null || !target.IsActive || !ConsumePower(QiPulseCost)) return false;
+            target.RestoreQi((int)Math.Round(target.MaxQi * QiPulseQiShare));
+            target.Heal((int)Math.Round(target.MaxVitality * QiPulseVitalityShare));
+            ctx.Log.Info($"[Mirror] A pulse of Qi steadies {target.BaseData.FullName}.");
             return true;
         }
 
