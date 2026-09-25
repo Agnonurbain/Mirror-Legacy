@@ -93,6 +93,61 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.IsTrue(row.Method == "—" && row.Methods.Count == 0);
         }
 
+        // ---- Foundations, abilities, retreats, temper (L4) ----
+
+        private static MemberRow RowOf(GameSession s, CharacterData member) => ClanDomainView.Roster(s).Single(r => r.Id == member.ID);
+
+        [Test]
+        public void Roster_ShowsEachMembersTemper()
+        {
+            Assert.IsTrue(ClanDomainView.Roster(NewGame()).All(r => !string.IsNullOrWhiteSpace(r.Temperament)));
+        }
+
+        [Test]
+        public void TemperamentLabel_NamesEveryTemperDifferently()
+        {
+            var labels = Enum.GetValues(typeof(Temperament)).Cast<Temperament>().Where(t => t != Temperament.None)
+                .Select(ClanDomainView.TemperamentLabel).ToList();
+            Assert.IsTrue(labels.All(l => !string.IsNullOrWhiteSpace(l)) && labels.Distinct().Count() == labels.Count);
+        }
+
+        [Test]
+        public void Roster_ShowsTheFoundationAndItsLineage()
+        {
+            var s = NewGame();
+            var patriarch = s.Clan.GetPatriarch();
+            patriarch.Realm = CultivationRealm.Foundation;
+            patriarch.FoundationId = "orthodox-water:boundless-sea";
+
+            Assert.AreEqual("Mer sans Rivage (Eau Orthodoxe)", RowOf(s, patriarch).Foundation);
+        }
+
+        [Test]
+        public void Roster_ShowsTheRetreatUnderWay()
+        {
+            var s = NewGame();
+            var patriarch = s.Clan.GetPatriarch();
+            patriarch.Retreat = Retreat.Manifestation;
+            patriarch.RetreatYearsLeft = 4;
+            Assert.AreEqual("en retraite : Manifestation (4 ans)", RowOf(s, patriarch).Retreat);
+
+            patriarch.Retreat = Retreat.GreatVoid;
+            patriarch.ImprisonedInVoid = true;
+            Assert.AreEqual("prisonnier du Grand Vide", RowOf(s, patriarch).Retreat);
+        }
+
+        [Test]
+        public void Roster_CountsTheDivineAbilitiesOfThePurpleMansion()
+        {
+            var s = NewGame();
+            var patriarch = s.Clan.GetPatriarch();
+            patriarch.Realm = CultivationRealm.PurpleMansion;
+            patriarch.DivineAbilities = new System.Collections.Generic.List<string> { "orthodox-water:boundless-sea", "orthodox-water:river-farewell" };
+
+            Assert.AreEqual("2/5 capacités divines", RowOf(s, patriarch).Abilities);
+            Assert.IsNull(ClanDomainView.Roster(s).First(r => r.Id != patriarch.ID).Abilities);
+        }
+
         [Test]
         public void MethodLabel_WritesTheHighestGradeAsSevenPlus()
         {
