@@ -15,10 +15,13 @@ namespace MirrorChronicles.Game
         private const int ChronicleLines = 40;
         private const int SmokeYears = 5;
         private const int PhasesPerYear = 4;
+        private const float MemberLabelWidth = 220;
+        private const float TaskSelectorWidth = 140;
+        private const float MethodSelectorWidth = 330;
 
         private GameRoot root;
         private Chronicle boundChronicle;
-        private Label clanName, year, phase, stones, mirror, generation, storyTitle, storyText, chronicle, status;
+        private Label clanName, year, phase, stones, mirror, generation, qi, storyTitle, storyText, chronicle, status;
         private Button nextPhase;
         private VBoxContainer roster, storyChoices;
 
@@ -31,6 +34,7 @@ namespace MirrorChronicles.Game
             stones = GetNode<Label>("%Stones");
             mirror = GetNode<Label>("%Mirror");
             generation = GetNode<Label>("%Generation");
+            qi = GetNode<Label>("%Qi");
             storyTitle = GetNode<Label>("%StoryTitle");
             storyText = GetNode<Label>("%StoryText");
             chronicle = GetNode<Label>("%Chronicle");
@@ -97,6 +101,9 @@ namespace MirrorChronicles.Game
             stones.Text = $"{header.SpiritStones} pierres spirituelles";
             mirror.Text = $"Miroir {header.MirrorPower}/100";
             generation.Text = $"Génération {header.Generation}";
+            var stock = ClanDomainView.QiStock(session);
+            qi.Text = stock.Count == 0 ? "Aucun Qi en réserve"
+                : string.Join(" · ", stock.Select(line => $"{line.Name} ×{line.Portions}"));
 
             ShowRoster(ClanDomainView.Roster(session));
             ShowStory(session.Story.PendingEvent);
@@ -121,10 +128,12 @@ namespace MirrorChronicles.Game
             line.AddChild(new Label
             {
                 Text = $"{(row.IsPatriarch ? "★ " : "")}{row.Name}, {row.Age} ans — {row.Rank} — stabilité {row.Stability}",
-                SizeFlagsHorizontal = SizeFlags.ExpandFill
+                SizeFlagsHorizontal = SizeFlags.ExpandFill,
+                AutowrapMode = TextServer.AutowrapMode.WordSmart,
+                CustomMinimumSize = new Vector2(MemberLabelWidth, 0)
             });
 
-            var tasks = new OptionButton();
+            var tasks = Selector(TaskSelectorWidth);
             foreach (var task in row.AllowedTasks)
                 tasks.AddItem(ClanDomainView.TaskLabel(task));
             int current = IndexOf(row.AllowedTasks, row.Task);
@@ -134,7 +143,50 @@ namespace MirrorChronicles.Game
             var allowed = row.AllowedTasks;
             tasks.ItemSelected += index => AssignTask(memberId, allowed[(int)index]);
             line.AddChild(tasks);
+            line.AddChild(BuildMethodChoice(row));
             return line;
+        }
+
+        /// <summary>The method a member practises: a choice among those they may take up, or just its name.</summary>
+        private Control BuildMethodChoice(MemberRow row)
+        {
+            if (row.Methods.Count == 0)
+                return new Label { Text = row.Method, CustomMinimumSize = new Vector2(MethodSelectorWidth, 0), ClipText = true };
+
+            var methods = Selector(MethodSelectorWidth);
+            methods.TooltipText = row.Method;
+            foreach (var choice in row.Methods)
+                methods.AddItem(choice.Label);
+            int current = row.Methods.ToList().FindIndex(m => m.Id == row.MethodId);
+            if (current >= 0) methods.Select(current);
+            else
+            {
+                methods.AddItem(row.Method); // the common breathing: nothing chosen yet
+                methods.Select(methods.ItemCount - 1);
+            }
+
+            string memberId = row.Id;
+            var choices = row.Methods;
+            methods.ItemSelected += index =>
+            {
+                if (index < choices.Count) AssignMethod(memberId, choices[(int)index].Id);
+            };
+            return methods;
+        }
+
+        /// <summary>A drop-down of fixed width whose long entries end in an ellipsis instead of widening the row.</summary>
+        private static OptionButton Selector(float width) => new OptionButton
+        {
+            CustomMinimumSize = new Vector2(width, 0),
+            FitToLongestItem = false,
+            ClipText = true,
+            TextOverrunBehavior = TextServer.OverrunBehavior.TrimEllipsis
+        };
+
+        private void AssignMethod(string memberId, string methodId)
+        {
+            var member = root.Session.Clan.FindById(memberId);
+            if (member != null && root.Session.Techniques.AssignMethod(member, methodId)) Refresh();
         }
 
         private void ShowStory(StoryEventData evt)

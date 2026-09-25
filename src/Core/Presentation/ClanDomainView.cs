@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Characters;
@@ -9,9 +10,19 @@ namespace MirrorChronicles.Presentation
     /// <summary>The top of the clan domain screen.</summary>
     public sealed record DomainHeader(int Year, string Phase, int SpiritStones, int MirrorPower, int Generation);
 
-    /// <summary>One member of the roster, with the tasks they may take this year.</summary>
+    /// <summary>A cultivation method a member may take up.</summary>
+    public sealed record MethodChoice(string Id, string Label);
+
+    /// <summary>
+    /// One member of the roster, with the tasks they may take this year, the method they practise and the
+    /// methods they may take up.
+    /// </summary>
     public sealed record MemberRow(string Id, string Name, int Age, string Rank, int Stability,
-        TaskType Task, IReadOnlyList<TaskType> AllowedTasks, bool IsPatriarch);
+        TaskType Task, IReadOnlyList<TaskType> AllowedTasks, bool IsPatriarch,
+        string MethodId, string Method, IReadOnlyList<MethodChoice> Methods);
+
+    /// <summary>Portions of one spiritual Qi in the clan's store.</summary>
+    public sealed record QiLine(string Name, int Portions);
 
     /// <summary>
     /// What the clan domain screen shows, computed from a session without any engine (the Godot scene
@@ -36,8 +47,31 @@ namespace MirrorChronicles.Presentation
                 .ThenByDescending(m => m.RealmStage)
                 .ThenByDescending(m => m.Age)
                 .Select(m => new MemberRow(m.ID, m.FullName, m.Age, RankCatalog.DisplayName(m), m.MentalStability,
-                    m.CurrentTask, TaskRules.AllowedTasks(m), m.ID == patriarchId))
+                    m.CurrentTask, TaskRules.AllowedTasks(m), m.ID == patriarchId,
+                    m.CultivationMethodId, PractisedMethod(session, m),
+                    session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList()))
                 .ToList();
+        }
+
+        /// <summary>The Qi in store, by name.</summary>
+        public static IReadOnlyList<QiLine> QiStock(GameSession session) =>
+            session.Resources.SpiritualQi
+                .Where(kv => kv.Value > 0)
+                .Select(kv => new QiLine(session.Techniques.FindQi(kv.Key)?.Name ?? kv.Key, kv.Value))
+                .OrderBy(line => line.Name, StringComparer.Ordinal)
+                .ToList();
+
+        /// <summary>« Sutra de la Source Claire (grade 3) »; the highest grade reads « 7+ » (LORE.md §2.2).</summary>
+        public static string MethodLabel(TechniqueData technique) =>
+            $"{technique.Name} (grade {(technique.Grade >= TechniqueRules.MaxGrade ? "7+" : technique.Grade.ToString())})";
+
+        /// <summary>The member's method, the common breathing of a breathing member without one, none, or « — » for a mortal.</summary>
+        private static string PractisedMethod(GameSession session, CharacterData member)
+        {
+            if (!SpiritualOrificeRules.CanCultivate(member)) return "—";
+            var method = session.Techniques.MethodOf(member);
+            if (method != null) return MethodLabel(method);
+            return member.Realm == CultivationRealm.Embryonic ? "Respiration commune" : "Aucune méthode";
         }
 
         public static string PhaseLabel(GamePhase phase) => phase switch
@@ -60,6 +94,7 @@ namespace MirrorChronicles.Presentation
             TaskType.Diplomacy => "Diplomatie",
             TaskType.Espionage => "Espionnage",
             TaskType.Rest => "Repos",
+            TaskType.GatherQi => "Récolte de Qi",
             _ => task.ToString()
         };
 

@@ -105,6 +105,7 @@ namespace MirrorChronicles.Characters
         public static bool CanPractise(CharacterData member, TechniqueData method)
         {
             if (method == null || method.Kind != TechniqueKind.Cultivation) return false;
+            if (!SpiritualOrificeRules.CanCultivate(member)) return false; // a mortal cultivates nothing (§4)
             if (member.Realm == CultivationRealm.Embryonic)
                 return Covers(method, CultivationRealm.Embryonic) || Covers(method, CultivationRealm.QiRefinement);
             return Covers(method, member.Realm) && (member.QiId == null || method.RequiredQiId == member.QiId);
