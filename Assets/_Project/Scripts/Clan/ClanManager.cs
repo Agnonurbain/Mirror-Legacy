@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Events;
 
@@ -68,6 +69,7 @@ namespace MirrorChronicles.Clan
                 SpiritualRoot = 65, // Excellent
                 Affinity = Element.Fire,
                 Realm = CultivationRealm.QiRefinement,
+                RealmStage = 3,
                 MentalStability = 80
             };
             AddMember(patriarch);
@@ -84,6 +86,7 @@ namespace MirrorChronicles.Clan
                 SpiritualRoot = 55, // Average
                 Affinity = Element.Water,
                 Realm = CultivationRealm.QiRefinement,
+                RealmStage = 2,
                 MentalStability = 85,
                 SpouseID = patriarch.ID
             };
@@ -101,6 +104,7 @@ namespace MirrorChronicles.Clan
                 SpiritualRoot = 75, // Genius potential
                 Affinity = Element.Lightning,
                 Realm = CultivationRealm.Embryonic,
+                RealmStage = 2,
                 FatherID = patriarch.ID,
                 MotherID = matriarch.ID
             };
@@ -117,6 +121,7 @@ namespace MirrorChronicles.Clan
                 SpiritualRoot = 45,
                 Affinity = Element.Wood,
                 Realm = CultivationRealm.Embryonic,
+                RealmStage = 1,
                 FatherID = patriarch.ID,
                 MotherID = matriarch.ID
             };
@@ -133,6 +138,7 @@ namespace MirrorChronicles.Clan
                 SpiritualRoot = 25, // Poor
                 Affinity = Element.Earth,
                 Realm = CultivationRealm.Embryonic,
+                RealmStage = 1,
                 MentalStability = 60
             };
             AddMember(uncle);
@@ -162,7 +168,7 @@ namespace MirrorChronicles.Clan
                 LastName = ClanName,
                 IsMale = isMale,
                 Age = 0,
-                MaxLifespan = Random.Range(60, 120),
+                MaxLifespan = PowerLadder.MortalMaxLifespan, // no chakra yet
                 SpiritualRoot = GeneticSystem.GenerateSpiritualRoot(father, mother),
                 Affinity = GeneticSystem.GenerateAffinity(father, mother),
                 Realm = CultivationRealm.Embryonic,

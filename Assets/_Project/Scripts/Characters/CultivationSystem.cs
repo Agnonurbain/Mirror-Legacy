@@ -5,7 +5,8 @@ using MirrorChronicles.Events;
 namespace MirrorChronicles.Characters
 {
     /// <summary>
-    /// Handles the yearly cultivation progress of characters.
+    /// Handles the yearly cultivation progress of characters on the power ladder (LORE.md §5).
+    /// Sub-levels without a trial advance automatically; trials wait for the Breakthrough phase.
     /// </summary>
     public class CultivationSystem : MonoBehaviour
     {
@@ -47,36 +48,57 @@ namespace MirrorChronicles.Characters
 
             Debug.Log($"[CultivationSystem] {character.FullName} gained {finalGain} XP. Total: {character.CultivationXP}");
 
-            CheckBreakthroughEligibility(character);
+            AdvanceSubLevels(character);
         }
 
         /// <summary>
-        /// Checks if the character has enough XP to attempt a breakthrough to the next realm.
+        /// Spends XP on every sub-level that needs no trial; stops before a trial or an unavailable step.
         /// </summary>
-        private void CheckBreakthroughEligibility(CharacterData character)
+        public void AdvanceSubLevels(CharacterData character)
         {
-            int requiredXP = GetRequiredXPForNextRealm(character.Realm);
-            
-            if (requiredXP > 0 && character.CultivationXP >= requiredXP)
+            while (true)
             {
-                // Character is ready for a breakthrough. 
-                // In a full game, this would notify the UI to allow the player to trigger it during Phase 3.
-                Debug.Log($"[CultivationSystem] {character.FullName} is ready to breakthrough from {character.Realm}!");
+                int required = PowerLadder.XpForNextStage(character.Realm);
+                var step = PowerLadder.Next(character.Realm, character.RealmStage);
+                if (required <= 0 || character.CultivationXP < required || !step.IsAvailable) return;
+
+                if (step.Trial != TrialKind.None)
+                {
+                    Debug.Log($"[CultivationSystem] {character.FullName} is ready for the {step.Trial} trial.");
+                    return;
+                }
+
+                character.CultivationXP -= required;
+                ApplyStep(character, step);
             }
         }
 
-        private int GetRequiredXPForNextRealm(CultivationRealm currentRealm)
+        /// <summary>
+        /// True when the character has the XP for a step gated by a trial that can be attempted now.
+        /// </summary>
+        public static bool IsReadyForTrial(CharacterData character)
         {
-            switch (currentRealm)
-            {
-                case CultivationRealm.Embryonic: return 100;
-                case CultivationRealm.QiRefinement: return 500;
-                case CultivationRealm.Foundation: return 2000;
-                case CultivationRealm.PurpleMansion: return 10000;
-                case CultivationRealm.GoldenCore: return 50000;
-                case CultivationRealm.DaoEmbryo: return -1; // Max realm
-                default: return -1;
-            }
+            var step = PowerLadder.Next(character.Realm, character.RealmStage);
+            return character.IsAlive
+                && step.IsAvailable
+                && step.Trial != TrialKind.None
+                && character.CultivationXP >= PowerLadder.XpForNextStage(character.Realm);
+        }
+
+        /// <summary>
+        /// Moves the character to the step's realm and stage; a new realm updates the lifespan and
+        /// raises the breakthrough event.
+        /// </summary>
+        public static void ApplyStep(CharacterData character, AdvancementStep step)
+        {
+            bool newRealm = step.TargetRealm != character.Realm;
+            character.Realm = step.TargetRealm;
+            character.RealmStage = step.TargetStage;
+            character.MaxLifespan = PowerLadder.MaxLifespan(character.Realm, character.RealmStage);
+
+            Debug.Log($"[CultivationSystem] {character.FullName} reached {RankCatalog.DisplayName(character)}.");
+            if (newRealm)
+                GameEvents.TriggerBreakthroughSuccess(character, character.Realm);
         }
     }
 }

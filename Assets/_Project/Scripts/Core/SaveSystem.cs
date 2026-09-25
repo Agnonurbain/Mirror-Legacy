@@ -192,6 +192,7 @@ namespace MirrorChronicles.Core
 
             foreach (var character in data.HistoricalRecords)
             {
+                MirrorChronicles.Characters.PowerLadder.Normalize(character); // saves made before realm stages
                 BloodRegistry.Instance.HistoricalRecords.Add(character);
                 
                 if (character.IsAlive)

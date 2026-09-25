@@ -44,7 +44,7 @@ namespace MirrorChronicles.Characters
             foreach (var member in ClanManager.Instance.LivingMembers)
             {
                 member.Age++;
-                int maxLifespan = CalculateMaxLifespan(member.Realm);
+                int maxLifespan = PowerLadder.MaxLifespan(member.Realm, member.RealmStage);
 
                 if (member.Age >= maxLifespan)
                 {
@@ -58,18 +58,10 @@ namespace MirrorChronicles.Characters
             }
         }
 
+        /// <summary>Lifespan of a realm for a character past its first sub-level (LORE.md §5).</summary>
         public int CalculateMaxLifespan(CultivationRealm realm)
         {
-            switch (realm)
-            {
-                case CultivationRealm.Embryonic: return 80;
-                case CultivationRealm.QiRefinement: return 120;
-                case CultivationRealm.Foundation: return 250;
-                case CultivationRealm.PurpleMansion: return 500;
-                case CultivationRealm.GoldenCore: return 1000;
-                case CultivationRealm.DaoEmbryo: return 3000;
-                default: return 80;
-            }
+            return PowerLadder.MaxLifespan(realm, 1);
         }
 
         public void Die(CharacterData character, DeathCause cause)

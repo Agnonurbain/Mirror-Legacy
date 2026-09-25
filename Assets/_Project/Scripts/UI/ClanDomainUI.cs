@@ -130,7 +130,7 @@ namespace MirrorChronicles.UI
                 // Label (left)
                 var label = row.transform.Find("Label")?.GetComponent<TMP_Text>();
                 if (label != null)
-                    label.text = $"{member.FullName}  ·  {member.Age}y  ·  {member.Realm}  ·  MS {member.MentalStability}";
+                    label.text = $"{member.FullName}  ·  {member.Age}y  ·  {MirrorChronicles.Characters.RankCatalog.DisplayName(member)}  ·  MS {member.MentalStability}";
 
                 // Task dropdown (right)
                 var dropdown = row.GetComponentInChildren<TMP_Dropdown>();
