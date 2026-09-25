@@ -34,7 +34,7 @@ namespace MirrorChronicles.Characters
             int attempts = 0;
             foreach (var member in clan.LivingMembers.ToList())
             {
-                if (!CultivationSystem.IsReadyForTrial(member)) continue;
+                if (!cultivation.IsReadyForTrial(member)) continue;
                 AttemptBreakthrough(member);
                 attempts++;
             }
@@ -50,6 +50,11 @@ namespace MirrorChronicles.Characters
             if (!step.IsAvailable || step.Trial == TrialKind.None)
             {
                 ctx.Log.Warning($"[Breakthrough] {character.FullName} has no trial to attempt ({RankCatalog.DisplayName(character)}).");
+                return null;
+            }
+            if (!cultivation.AllowsNextStep(character, step))
+            {
+                ctx.Log.Warning($"[Breakthrough] {character.FullName}'s method leads no further than {RankCatalog.DisplayName(character)}.");
                 return null;
             }
 

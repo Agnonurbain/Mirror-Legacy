@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Economy
 {
     /// <summary>
-    /// The clan's treasury: spirit stones, medicinal herbs, spiritual ores, prestige and technique fragments.
+    /// The clan's treasury: spirit stones, medicinal herbs, spiritual ores, prestige, technique fragments
+    /// and portions of spiritual Qi.
     /// </summary>
     public sealed class ResourceManager
     {
@@ -68,6 +70,58 @@ namespace MirrorChronicles.Economy
             Prestige = prestige;
             TechniqueFragments = Math.Max(0, techniqueFragments);
             ctx.Events.TriggerSpiritStonesChanged(SpiritStones);
+        }
+
+        // ---- Spiritual Qi (LORE.md §2.5): portions by Qi, and the harvest condensing towards the next one ----
+
+        private readonly Dictionary<string, int> spiritualQi = new Dictionary<string, int>();
+        private readonly Dictionary<string, int> qiHarvestProgress = new Dictionary<string, int>();
+
+        /// <summary>Portions in store, by Qi.</summary>
+        public IReadOnlyDictionary<string, int> SpiritualQi => spiritualQi;
+
+        /// <summary>Years of harvest work gathered towards the next portion, by Qi.</summary>
+        public IReadOnlyDictionary<string, int> QiHarvestProgress => qiHarvestProgress;
+
+        public int QiPortions(string qiId) => qiId != null && spiritualQi.TryGetValue(qiId, out int portions) ? portions : 0;
+
+        public void AddQi(string qiId, int portions)
+        {
+            if (qiId == null || portions <= 0) return;
+            spiritualQi[qiId] = QiPortions(qiId) + portions;
+        }
+
+        public bool ConsumeQi(string qiId, int portions)
+        {
+            if (portions <= 0) return true;
+            if (QiPortions(qiId) < portions) return false;
+            spiritualQi[qiId] -= portions;
+            return true;
+        }
+
+        /// <summary>
+        /// One year of harvest work on a Qi: wisps accumulate and condense into a portion every
+        /// <paramref name="yearsPerPortion"/> years. Returns the portions condensed this year.
+        /// </summary>
+        public int AddHarvestWork(string qiId, int yearsPerPortion)
+        {
+            int years = Math.Max(1, yearsPerPortion);
+            int progress = (qiHarvestProgress.TryGetValue(qiId, out int p) ? p : 0) + 1;
+            qiHarvestProgress[qiId] = progress % years;
+            int portions = progress / years;
+            AddQi(qiId, portions);
+            return portions;
+        }
+
+        /// <summary>Restores the Qi in store and the harvests under way from a save.</summary>
+        public void RestoreQi(IReadOnlyDictionary<string, int> portions, IReadOnlyDictionary<string, int> harvestProgress)
+        {
+            spiritualQi.Clear();
+            foreach (var kv in portions ?? new Dictionary<string, int>())
+                if (kv.Value >= 0) spiritualQi[kv.Key] = kv.Value;
+            qiHarvestProgress.Clear();
+            foreach (var kv in harvestProgress ?? new Dictionary<string, int>())
+                if (kv.Value >= 0) qiHarvestProgress[kv.Key] = kv.Value;
         }
 
         private static bool TryConsume(int amount, int stock, Action<int> setStock)

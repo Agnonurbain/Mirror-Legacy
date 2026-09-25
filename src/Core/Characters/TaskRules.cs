@@ -29,6 +29,13 @@ namespace MirrorChronicles.Characters
         private static readonly TaskType[] EmbryonicTasks =
             { TaskType.None, TaskType.Cultivation, TaskType.Rest };
 
+        /// <summary>From the Summit Eye (fifth chakra) a breathing cultivator perceives spiritual Qi and can gather it.</summary>
+        private static readonly TaskType[] SummitEyeTasks =
+            { TaskType.None, TaskType.Cultivation, TaskType.GatherQi, TaskType.Rest };
+
+        /// <summary>The chakra that perceives spiritual Qi (LORE.md §5.1).</summary>
+        public const int QiPerceptionChakra = 5;
+
         private static readonly TaskType[] AllTasks =
             Enum.GetValues(typeof(TaskType)).Cast<TaskType>().ToArray();
 
@@ -36,7 +43,8 @@ namespace MirrorChronicles.Characters
         {
             if (character.Age < CultivationAge) return InfantTasks;
             if (!SpiritualOrificeRules.CanCultivate(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
-            if (character.Realm == CultivationRealm.Embryonic) return EmbryonicTasks;
+            if (character.Realm == CultivationRealm.Embryonic)
+                return character.RealmStage >= QiPerceptionChakra ? SummitEyeTasks : EmbryonicTasks;
             return AllTasks;
         }
 

@@ -33,6 +33,7 @@ namespace MirrorChronicles.Session
         public ResourceManager Resources { get; }
         public MentalStabilitySystem Stability { get; }
         public ClanKarmaSystem Karma { get; }
+        public TechniqueLibrary Techniques { get; }
         public CultivationSystem Cultivation { get; }
         public BreakthroughSystem Breakthroughs { get; }
         public AgingSystem Aging { get; }
@@ -62,17 +63,18 @@ namespace MirrorChronicles.Session
             Resources = new ResourceManager(Context);
             Stability = new MentalStabilitySystem(Context, Clan);
             Karma = new ClanKarmaSystem(Context, Clan);
-            Cultivation = new CultivationSystem(Context, Karma);
+            Techniques = new TechniqueLibrary(Context);
+            Cultivation = new CultivationSystem(Context, Karma, Techniques, Resources);
             Breakthroughs = new BreakthroughSystem(Context, Clan, Cultivation);
             Aging = new AgingSystem(Context, Clan);
             Wounds = new WoundSystem(Context, Stability);
             Factions = new FactionManager(Context);
             Mirror = new MirrorSystem(Context, Clan, Breakthroughs);
-            Deduction = new DeductionEngine(Context, Mirror);
+            Deduction = new DeductionEngine(Context, Mirror, Techniques);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability);
-            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings);
+            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
@@ -81,13 +83,15 @@ namespace MirrorChronicles.Session
             Victory = new VictoryConditionSystem(Context, Clan, Karma, Ascension);
         }
 
-        /// <summary>A new game: the founders, the known world and the mirror's first two fragments.</summary>
+        /// <summary>A new game: the clan's knowledge and Qi, the founders, the known world and the mirror's first two fragments.</summary>
         public static GameSession NewGame(GameSetup setup)
         {
             var content = RequireContent(setup);
             var session = new GameSession(setup.Seed, new Random(setup.Seed), content.Clan.ClanName, setup);
 
-            FoundingClan.Found(session.Clan, content.Clan, session.Context.Rng);
+            foreach (var id in content.Clan.StartingTechniques) session.Techniques.Learn(id);
+            foreach (var (qi, portions) in content.Clan.StartingQi) session.Resources.AddQi(qi, portions);
+            FoundingClan.Found(session.Clan, content.Clan, session.Techniques, session.Context.Rng);
             session.Karma.Restore(1, 0, 0, session.Clan.PatriarchID);
             session.Factions.InitializeFactions();
             session.Deduction.AddFragment(Element.Fire, 1, "Scorched Scroll");
@@ -127,9 +131,13 @@ namespace MirrorChronicles.Session
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
             else session.Factions.InitializeFactions();
-            session.Deduction.Restore(
-                (data.Fragments ?? new List<FragmentData>()).Select(f => f.Clone()),
+            session.Deduction.Restore((data.Fragments ?? new List<FragmentData>()).Select(f => f.Clone()));
+            session.Techniques.Restore(
+                data.KnownTechniqueIds ?? content.Clan.StartingTechniques,   // saves made before techniques
                 (data.Techniques ?? new List<TechniqueData>()).Select(t => t.Clone()));
+            session.Resources.RestoreQi(data.SpiritualQi ?? content.Clan.StartingQi, data.QiHarvestProgress);
+            foreach (var record in records)
+                session.Techniques.NormalizeMember(record);                  // a Qi cultivator practises a method
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);
 
@@ -156,7 +164,10 @@ namespace MirrorChronicles.Session
                 MirrorPower = Mirror.MirrorPower,
                 RestoredFragments = Mirror.RestoredFragments,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
-                Techniques = Deduction.ClanTechniques.Select(t => t.Clone()).ToList(),
+                Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
+                KnownTechniqueIds = Techniques.KnownIds.OrderBy(id => id, StringComparer.Ordinal).ToList(),
+                SpiritualQi = new Dictionary<string, int>(Resources.SpiritualQi),
+                QiHarvestProgress = new Dictionary<string, int>(Resources.QiHarvestProgress),
                 GenerationCount = Karma.GenerationCount,
                 TotalBirths = Karma.TotalBirths,
                 TotalDeaths = Karma.TotalDeaths,

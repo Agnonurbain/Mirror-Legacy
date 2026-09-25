@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
@@ -31,16 +32,17 @@ namespace MirrorChronicles.Mirror
 
         private readonly GameContext ctx;
         private readonly MirrorSystem mirror;
+        private readonly TechniqueLibrary library;
         private readonly List<FragmentData> fragments = new List<FragmentData>();
-        private readonly List<TechniqueData> techniques = new List<TechniqueData>();
 
         public IReadOnlyList<FragmentData> Fragments => fragments;
-        public IReadOnlyList<TechniqueData> ClanTechniques => techniques;
 
-        public DeductionEngine(GameContext ctx, MirrorSystem mirror)
+        /// <param name="library">Where deduced techniques join the clan's knowledge.</param>
+        public DeductionEngine(GameContext ctx, MirrorSystem mirror, TechniqueLibrary library)
         {
             this.ctx = ctx;
             this.mirror = mirror;
+            this.library = library;
         }
 
         public void AddFragment(Element element, int quality, string name = "Unknown Fragment")
@@ -62,17 +64,15 @@ namespace MirrorChronicles.Mirror
                 fragments.Remove(fragment);
 
             var technique = GenerateTechnique(inputs);
-            techniques.Add(technique);
+            library.AddDeduced(technique);
             ctx.Log.Info($"[Deduction] The mirror deduces [{technique.Name}] ({technique.DominantElement}, risk {technique.RiskFactor}%).");
             return technique;
         }
 
-        public void Restore(IEnumerable<FragmentData> savedFragments, IEnumerable<TechniqueData> savedTechniques)
+        public void Restore(IEnumerable<FragmentData> savedFragments)
         {
             fragments.Clear();
             fragments.AddRange(savedFragments);
-            techniques.Clear();
-            techniques.AddRange(savedTechniques);
         }
 
         private TechniqueData GenerateTechnique(IReadOnlyList<FragmentData> inputs)

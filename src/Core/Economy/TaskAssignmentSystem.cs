@@ -15,6 +15,7 @@ namespace MirrorChronicles.Economy
     {
         public int StonesMined { get; init; }
         public int Patrols { get; init; }
+        public int QiPortionsGathered { get; init; }
     }
 
     /// <summary>
@@ -42,11 +43,13 @@ namespace MirrorChronicles.Economy
         private readonly DeductionEngine deduction;
         private readonly EspionageSystem espionage;
         private readonly BuildingSystem buildings;
+        private readonly TechniqueLibrary techniques;
 
         public TaskAssignmentSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation,
             ResourceManager resources, MentalStabilitySystem stability, FactionManager factions,
-            DeductionEngine deduction, EspionageSystem espionage, BuildingSystem buildings)
+            DeductionEngine deduction, EspionageSystem espionage, BuildingSystem buildings, TechniqueLibrary techniques)
         {
+            this.techniques = techniques;
             this.ctx = ctx;
             this.clan = clan;
             this.cultivation = cultivation;
@@ -76,6 +79,7 @@ namespace MirrorChronicles.Economy
             var members = clan.LivingMembers.ToList(); // tasks may kill or add members
             int stonesMined = 0;
             int patrols = 0;
+            int qiGathered = 0;
 
             foreach (var member in members.Where(m => m.IsAlive))
             {
@@ -95,13 +99,44 @@ namespace MirrorChronicles.Economy
                     case TaskType.Study: Study(member); break;
                     case TaskType.Diplomacy: Diplomacy(); break;
                     case TaskType.Espionage: espionage.AttemptEspionage(member, factions.RandomFaction()); break;
+                    case TaskType.GatherQi: qiGathered += GatherQi(member); break;
                         // Teaching needs this year's students: resolved below
                 }
             }
 
             resources.AddSpiritStones(stonesMined);
             Teach(members);
-            return new YearlyTaskReport { StonesMined = stonesMined, Patrols = patrols };
+            return new YearlyTaskReport { StonesMined = stonesMined, Patrols = patrols, QiPortionsGathered = qiGathered };
+        }
+
+        /// <summary>
+        /// A year of harvesting spiritual Qi in wisps (LORE.md §2.5) with a method adapted to it: the Qi of
+        /// the harvester's own method, otherwise the best Qi among the clan's known methods. A vanished Qi
+        /// cannot be harvested, a ubiquitous one needs no harvest. Returns the portions condensed.
+        /// </summary>
+        private int GatherQi(CharacterData harvester)
+        {
+            var qi = Harvestable(techniques.MethodOf(harvester))
+                ?? techniques.Known.Where(t => t.Kind == TechniqueKind.Cultivation)
+                    .OrderByDescending(t => t.Grade)
+                    .ThenBy(t => t.Name, StringComparer.Ordinal)
+                    .Select(Harvestable)
+                    .FirstOrDefault(q => q != null);
+            if (qi == null)
+            {
+                ctx.Log.Warning($"[Tasks] {harvester.FullName} knows no Qi the clan can harvest.");
+                return 0;
+            }
+
+            int portions = resources.AddHarvestWork(qi.Id, qi.YearsPerPortion);
+            if (portions > 0) ctx.Log.Info($"[Tasks] {harvester.FullName} condenses {portions} portion(s) of {qi.Name}.");
+            return portions;
+        }
+
+        private QiDefinition Harvestable(TechniqueData method)
+        {
+            var qi = techniques.FindQi(method?.RequiredQiId);
+            return qi != null && !qi.Vanished && !qi.Ubiquitous ? qi : null;
         }
 
         /// <summary>50 + 25 per realm, +5% per Forge level.</summary>

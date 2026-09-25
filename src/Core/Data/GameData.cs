@@ -6,12 +6,13 @@ namespace MirrorChronicles.Data
     /// <summary>
     /// A saved game (JSON, enums by name). Version 2 holds the whole state; version 1 saves only had
     /// the clan, the year, the phase and the stones, and load with defaults for everything else.
-    /// Field names never change: older saves must keep loading.
+    /// Version 2.1 adds the techniques of LORE.md §2 (knowledge, Qi); older saves receive the clan's
+    /// starting knowledge on load. Field names never change: older saves must keep loading.
     /// </summary>
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.0";
+        public const string CurrentVersion = "2.1";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -34,7 +35,12 @@ namespace MirrorChronicles.Data
         public int MirrorPower { get; set; } = 50;
         public int RestoredFragments { get; set; }
         public List<FragmentData> Fragments { get; set; }
-        public List<TechniqueData> Techniques { get; set; }
+        public List<TechniqueData> Techniques { get; set; } // deduced by the mirror
+
+        // Techniques and Qi (2.1; null in older saves)
+        public List<string> KnownTechniqueIds { get; set; }                 // catalog techniques the clan knows
+        public Dictionary<string, int> SpiritualQi { get; set; }            // portions in store, by Qi
+        public Dictionary<string, int> QiHarvestProgress { get; set; }      // years of work towards the next portion
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

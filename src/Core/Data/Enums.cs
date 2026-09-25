@@ -40,8 +40,9 @@ namespace MirrorChronicles.Data
         Study, 
         Teaching, 
         Diplomacy, 
-        Espionage, 
-        Rest 
+        Espionage,
+        Rest,
+        GatherQi // harvest spiritual Qi in wisps (LORE.md §2.5); appended last, like every new member
     }
 
     public enum Element 
