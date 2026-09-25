@@ -2,7 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using MirrorChronicles.Characters;
+using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
+using MirrorChronicles.Economy;
+using MirrorChronicles.Events;
+using MirrorChronicles.Mirror;
+using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Tests.Mirror
 {
@@ -139,6 +145,25 @@ namespace MirrorChronicles.Tests.Mirror
 
             Assert.IsTrue(technique.Kind == TechniqueKind.Weapon && technique.Effect == TechniqueEffect.Strike && technique.RequiredQiId == null);
             Assert.AreEqual(CultivationRealm.Foundation, technique.RequiredRealm); // grade 6
+        }
+
+        [Test]
+        public void AttemptDeduction_YieldsNoMethod_WhenNoQiCanBeHarvested()
+        {
+            // A method without a harvestable Qi could never lead anyone into Qi Cultivation
+            var content = Fixtures.Content with { Qi = Fixtures.Content.Qi.Where(q => q.Vanished || q.Ubiquitous).ToList() };
+            var ctx = new GameContext(new GameEventBus(), new RecordingGameLog(), new FixedRandom(0.0), new GameClock(), content);
+            var clan = new ClanManager(ctx, "Mo");
+            var library = new TechniqueLibrary(ctx);
+            var cultivation = new CultivationSystem(ctx, new ClanKarmaSystem(ctx, clan), library, new ResourceManager(ctx));
+            var mirror = new MirrorSystem(ctx, clan, new BreakthroughSystem(ctx, clan, cultivation));
+            var deduction = new DeductionEngine(ctx, mirror, library);
+            deduction.AddFragment(Element.Water, 3);
+            deduction.AddFragment(Element.Water, 3);
+
+            var technique = deduction.AttemptDeduction(deduction.Fragments.ToList()); // the first draw would pick a method
+
+            Assert.AreNotEqual(TechniqueKind.Cultivation, technique.Kind);
         }
 
         [Test]
