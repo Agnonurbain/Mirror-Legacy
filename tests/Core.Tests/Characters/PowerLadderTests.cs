@@ -79,13 +79,6 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
-        public void Next_IsUnavailable_WhenPurpleMansionAscensionNeedsDivineAbilities()
-        {
-            var step = PowerLadder.Next(CultivationRealm.Foundation, 4);
-            Assert.IsTrue(!step.IsAvailable && step.Trial == TrialKind.PurpleMansionAscension);
-        }
-
-        [Test]
         public void Next_IsUnavailable_WhenGoldenCoreNeedsARoute()
         {
             var step = PowerLadder.Next(CultivationRealm.GoldenCore, 1);

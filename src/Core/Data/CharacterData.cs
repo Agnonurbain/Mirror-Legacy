@@ -62,6 +62,13 @@ namespace MirrorChronicles.Data
         public bool ProgressionSealed { get; set; }
         public Temperament Temperament { get; set; }
 
+        // The Purple Mansion (LORE.md §5.4): divine abilities (« fruition-id:ability-id », the foundation first),
+        // and the retreat of its breakthrough, which may hold a cultivator in the Great Void for life
+        public List<string> DivineAbilities { get; set; }
+        public Retreat Retreat { get; set; }
+        public int RetreatYearsLeft { get; set; }
+        public bool ImprisonedInVoid { get; set; }
+
         // Family Links (Stored as IDs for easy serialization without circular references)
         public string FatherID { get; set; }
         public string MotherID { get; set; }
@@ -80,6 +87,7 @@ namespace MirrorChronicles.Data
             CurrentTask = TaskType.None;
             CauseOfDeath = DeathCause.None;
             KnownTechniqueIDs = new List<string>();
+            DivineAbilities = new List<string>();
         }
 
         public string FullName => $"{LastName} {FirstName}";
@@ -89,6 +97,7 @@ namespace MirrorChronicles.Data
         {
             var copy = (CharacterData)MemberwiseClone();
             copy.KnownTechniqueIDs = new List<string>(KnownTechniqueIDs ?? new List<string>());
+            copy.DivineAbilities = new List<string>(DivineAbilities ?? new List<string>());
             return copy;
         }
     }

@@ -38,6 +38,7 @@ namespace MirrorChronicles.Session
         public CultivationSystem Cultivation { get; }
         public BreakthroughSystem Breakthroughs { get; }
         public FoundationSystem Foundations { get; }
+        public PurpleMansionSystem PurpleMansion { get; }
         public AgingSystem Aging { get; }
         public WoundSystem Wounds { get; }
         public FactionManager Factions { get; }
@@ -70,6 +71,7 @@ namespace MirrorChronicles.Session
             Cultivation = new CultivationSystem(Context, Karma, Techniques, Resources);
             Breakthroughs = new BreakthroughSystem(Context, Clan, Cultivation);
             Foundations = new FoundationSystem(Context, Clan, Techniques);
+            PurpleMansion = new PurpleMansionSystem(Context, Clan, Cultivation, Techniques);
             Aging = new AgingSystem(Context, Clan);
             Wounds = new WoundSystem(Context, Stability);
             Factions = new FactionManager(Context);
@@ -228,6 +230,7 @@ namespace MirrorChronicles.Session
                     break;
                 case GamePhase.Breakthrough:
                     Breakthroughs.ProcessBreakthroughPhase();
+                    PurpleMansion.ProcessBreakthroughPhase(); // the ascent's four trials and the retreats under way
                     break;
                 case GamePhase.Inheritance:
                     Clan.ProcessAnnualBirths();

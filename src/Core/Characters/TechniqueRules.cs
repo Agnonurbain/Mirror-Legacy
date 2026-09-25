@@ -77,6 +77,8 @@ namespace MirrorChronicles.Characters
         {
             if (target == current)
                 return current == CultivationRealm.Embryonic || Covers(method, current);
+            if (target == CultivationRealm.PurpleMansion && !HasPurpleMansionSecret(method))
+                return false; // §5.3.4: without the secret technique of ascent, one stops at the Foundation's apogee
             return Covers(method, current) && Ceiling(method) >= target;
         }
 

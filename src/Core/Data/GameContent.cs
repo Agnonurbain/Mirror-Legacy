@@ -126,6 +126,36 @@ namespace MirrorChronicles.Data
 
         /// <summary>Chance a newborn takes a parent's temper (otherwise a temper of its own).</summary>
         public double TemperamentInheritanceChance { get; init; }
+
+        /// <summary>The four trials of the breakthrough to the Purple Mansion (LORE.md §5.4.1).</summary>
+        public PurpleMansionSettings PurpleMansion { get; init; }
+    }
+
+    /// <summary>Odds and durations of the Purple Mansion's breakthrough (balance.json, tuned by simulation).</summary>
+    public sealed class PurpleMansionSettings
+    {
+        /// <summary>Base chance (%) of the Ascent; failing it kills.</summary>
+        public int AscentBaseChance { get; init; }
+
+        /// <summary>Years of the Manifestation retreat (« about six years »).</summary>
+        public int ManifestationYears { get; init; }
+
+        /// <summary>Base chance (%) of the Manifestation; a higher grade and more techniques ease it.</summary>
+        public int ManifestationBaseChance { get; init; }
+
+        /// <summary>Base chance (%) of the Illusions; failing them costs one's whole cultivation.</summary>
+        public int IllusionsBaseChance { get; init; }
+
+        /// <summary>How long the Great Void holds a cultivator, band by band; past the last band, for life.</summary>
+        public IReadOnlyList<VoidBand> VoidBands { get; init; } = Array.Empty<VoidBand>();
+    }
+
+    /// <summary>A share of cultivators the Great Void holds between two durations.</summary>
+    public sealed class VoidBand
+    {
+        public double Chance { get; init; }
+        public int MinYears { get; init; }
+        public int MaxYears { get; init; }
     }
 
     /// <summary>Chance of a spiritual orifice at birth, by the number of parents who have one.</summary>

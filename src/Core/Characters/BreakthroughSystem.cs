@@ -35,6 +35,7 @@ namespace MirrorChronicles.Characters
             foreach (var member in clan.LivingMembers.ToList())
             {
                 if (!cultivation.IsReadyForTrial(member)) continue;
+                if (PowerLadder.Next(member.Realm, member.RealmStage).Trial == TrialKind.PurpleMansionAscension) continue; // PurpleMansionSystem
                 AttemptBreakthrough(member);
                 attempts++;
             }
@@ -55,6 +56,11 @@ namespace MirrorChronicles.Characters
             if (!cultivation.AllowsNextStep(character, step))
             {
                 ctx.Log.Warning($"[Breakthrough] {character.FullName}'s method leads no further than {RankCatalog.DisplayName(character)}.");
+                return null;
+            }
+            if (step.Trial == TrialKind.PurpleMansionAscension)
+            {
+                ctx.Log.Warning($"[Breakthrough] {character.FullName}'s ascent to the Purple Mansion is a retreat of four trials (PurpleMansionSystem).");
                 return null;
             }
             if (character.ProgressionSealed)

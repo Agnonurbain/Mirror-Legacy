@@ -146,6 +146,11 @@ namespace MirrorChronicles.Data
             Require(balance.HeartAlignedSpeed > 0 && balance.HeartMisalignedSpeed > 0, BalanceFile, "the Dao Heart speeds must be positive.");
             Require(IsProbability(balance.HeartAlignmentYearlyChance) && IsProbability(balance.TemperamentInheritanceChance),
                 BalanceFile, "the Dao Heart's alignment and inheritance chances must lie between 0 and 1.");
+            var mansion = balance.PurpleMansion;
+            Require(mansion != null && mansion.ManifestationYears > 0 && mansion.VoidBands != null
+                && mansion.VoidBands.All(b => IsProbability(b.Chance) && b.MinYears >= 0 && b.MinYears <= b.MaxYears)
+                && mansion.VoidBands.Sum(b => b.Chance) <= 1.0 + 1e-9,
+                BalanceFile, "purpleMansion needs positive manifestation years and void bands whose chances sum to at most 1 (the rest: for life).");
         }
 
         private static void CheckFactions(List<FactionData> factions)

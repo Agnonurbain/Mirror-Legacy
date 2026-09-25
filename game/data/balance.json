@@ -9,5 +9,16 @@
   "heartAlignedSpeed": 1.2,
   "heartMisalignedSpeed": 0.9,
   "heartAlignmentYearlyChance": 0.02,
-  "temperamentInheritanceChance": 0.8
+  "temperamentInheritanceChance": 0.8,
+  "purpleMansion": {
+    "ascentBaseChance": 60,
+    "manifestationYears": 6,
+    "manifestationBaseChance": 45,
+    "illusionsBaseChance": 70,
+    "voidBands": [
+      { "chance": 0.5,  "minYears": 0,  "maxYears": 0 },
+      { "chance": 0.3,  "minYears": 1,  "maxYears": 10 },
+      { "chance": 0.15, "minYears": 11, "maxYears": 40 }
+    ]
+  }
 }

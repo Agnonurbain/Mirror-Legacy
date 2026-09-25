@@ -58,7 +58,7 @@ namespace MirrorChronicles.Data
         Light 
     }
 
-    public enum DeathCause 
+    public enum DeathCause
     { 
         None, 
         OldAge, 
@@ -66,7 +66,8 @@ namespace MirrorChronicles.Data
         QiDeviation, 
         Assassination,
         Illness,
-        SpiritualDissolution // failed Foundation breakthrough (LORE.md §5.3.1)
+        SpiritualDissolution, // failed Foundation breakthrough (LORE.md §5.3.1)
+        AscentCollapse // exhausted before the Shenyang Mansion on the way to the Purple Mansion (appended)
     }
 
     /// <summary>
@@ -82,5 +83,13 @@ namespace MirrorChronicles.Data
         Fiery,
         Cunning,
         Serene
+    }
+
+    /// <summary>A cultivator withdrawn from the world by the breakthrough to the Purple Mansion (LORE.md §5.4.1).</summary>
+    public enum Retreat
+    {
+        None,
+        Manifestation, // manifesting one's divine power at the Shenyang point, about six years
+        GreatVoid      // crossing the darkness: days to decades, sometimes for life
     }
 }

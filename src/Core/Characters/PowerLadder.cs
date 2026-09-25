@@ -87,7 +87,7 @@ namespace MirrorChronicles.Characters
                     if (stage >= 9) return new AdvancementStep(CultivationRealm.Foundation, 1, TrialKind.FoundationWall, true);
                     return new AdvancementStep(realm, stage + 1, TrialKind.None, true);
                 case CultivationRealm.Foundation:
-                    if (stage >= 4) return new AdvancementStep(CultivationRealm.PurpleMansion, 1, TrialKind.PurpleMansionAscension, false);
+                    if (stage >= 4) return new AdvancementStep(CultivationRealm.PurpleMansion, 1, TrialKind.PurpleMansionAscension, true);
                     return new AdvancementStep(realm, stage + 1, TrialKind.None, true);
                 case CultivationRealm.PurpleMansion:
                     // Stages follow divine abilities; the Golden Core needs a route (LORE.md §5.9).

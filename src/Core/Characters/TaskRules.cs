@@ -41,7 +41,7 @@ namespace MirrorChronicles.Characters
 
         public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character)
         {
-            if (character.Age < CultivationAge) return InfantTasks;
+            if (character.Age < CultivationAge || character.Retreat != Retreat.None) return InfantTasks; // a retreat leaves no task
             if (!SpiritualOrificeRules.CanCultivate(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
             if (character.Realm == CultivationRealm.Embryonic)
                 return character.RealmStage >= QiPerceptionChakra ? SummitEyeTasks : EmbryonicTasks;

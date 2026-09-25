@@ -107,6 +107,7 @@ namespace MirrorChronicles.Presentation
             DeathCause.Assassination => "assassiné(e)",
             DeathCause.Illness => "de maladie",
             DeathCause.SpiritualDissolution => "d'une dissolution spirituelle",
+            DeathCause.AscentCollapse => "épuisé(e) avant le Manoir Shenyang",
             _ => ""
         };
     }

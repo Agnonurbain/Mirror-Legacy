@@ -44,6 +44,7 @@ namespace MirrorChronicles.Tests
         public CultivationSystem Cultivation { get; }
         public BreakthroughSystem Breakthroughs { get; }
         public FoundationSystem Foundations { get; }
+        public PurpleMansionSystem PurpleMansion { get; }
         public FactionManager Factions { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
@@ -64,6 +65,7 @@ namespace MirrorChronicles.Tests
             Cultivation = new CultivationSystem(Ctx, Karma, Techniques, Resources);
             Breakthroughs = new BreakthroughSystem(Ctx, Clan, Cultivation);
             Foundations = new FoundationSystem(Ctx, Clan, Techniques);
+            PurpleMansion = new PurpleMansionSystem(Ctx, Clan, Cultivation, Techniques);
             Factions = new FactionManager(Ctx);
             Mirror = new MirrorSystem(Ctx, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Ctx, Mirror, Techniques);
