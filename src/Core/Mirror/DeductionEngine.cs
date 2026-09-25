@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
@@ -8,8 +9,8 @@ using MirrorChronicles.Session;
 namespace MirrorChronicles.Mirror
 {
     /// <summary>
-    /// The mirror's deduction: 2 to 5 fragments become a technique, for 10 power per fragment.
-    /// Clashing elements make it riskier, feeding ones safer. (Technique grades arrive with phase L3.)
+    /// The mirror's deduction: 2 to 5 fragments become a graded technique, for 10 power per fragment.
+    /// Clashing elements make it riskier, feeding ones safer.
     /// </summary>
     public sealed class DeductionEngine
     {
@@ -20,15 +21,9 @@ namespace MirrorChronicles.Mirror
         private const int ConflictRisk = 30;
         private const int SynergyRelief = 10;
 
-        private static readonly int HighestRealm = Enum.GetValues(typeof(CultivationRealm)).Length - 1;
-
-        /// <summary>What a deduction can yield until it follows the fragments (phase L3d).</summary>
-        private static readonly (TechniqueKind, TechniqueEffect)[] DeducibleForms =
-        {
-            (TechniqueKind.Cultivation, TechniqueEffect.None),
-            (TechniqueKind.Weapon, TechniqueEffect.Strike),
-            (TechniqueKind.Spell, TechniqueEffect.Heal)
-        };
+        /// <summary>What a deduction can yield; immortal arts wait for alchemy and artifacts.</summary>
+        private static readonly TechniqueKind[] DeducibleKinds =
+            { TechniqueKind.Cultivation, TechniqueKind.Spell, TechniqueKind.Movement, TechniqueKind.Weapon };
 
         private readonly GameContext ctx;
         private readonly MirrorSystem mirror;
@@ -75,31 +70,66 @@ namespace MirrorChronicles.Mirror
             fragments.AddRange(savedFragments);
         }
 
+        /// <summary>
+        /// A secret technique (LORE.md §2.3: rebuilt from pieces) graded by its fragments (§2.2). A method is
+        /// built on a harvestable Qi of its dominant element; an art opens at the realm of its grade.
+        /// </summary>
         private TechniqueData GenerateTechnique(IReadOnlyList<FragmentData> inputs)
         {
             int totalQuality = inputs.Sum(f => f.Quality);
+            int grade = TechniqueRules.DeductionGrade(inputs.Select(f => f.Quality).ToList());
             var counts = inputs.GroupBy(f => f.Element).ToDictionary(g => g.Key, g => g.Count());
             var dominant = counts.OrderByDescending(kv => kv.Value).First().Key;
-            var (kind, effect) = DeducibleForms[ctx.Rng.Next(0, DeducibleForms.Length)];
+            var kind = DeducibleKinds[ctx.Rng.Next(0, DeducibleKinds.Length)];
+            var effect = kind switch
+            {
+                TechniqueKind.Weapon => TechniqueEffect.Strike,
+                TechniqueKind.Spell => ctx.Rng.Chance(0.5) ? TechniqueEffect.Strike : TechniqueEffect.Heal,
+                _ => TechniqueEffect.None
+            };
+            bool isMethod = kind == TechniqueKind.Cultivation;
 
             return new TechniqueData
             {
                 ID = ctx.Rng.NextId(),
-                Name = ProceduralName(dominant, kind, totalQuality),
+                Name = Name(kind, grade, dominant),
                 Kind = kind,
                 Effect = effect,
+                Grade = grade,
+                Category = TechniqueCategory.Secret,
                 DominantElement = dominant,
-                RequiredRealm = (CultivationRealm)Math.Clamp(totalQuality / 3, 0, HighestRealm),
+                RequiredRealm = isMethod ? CultivationRealm.QiRefinement : TechniqueRules.ArtRequiredRealm(grade),
+                RequiredQiId = isMethod ? QiFor(dominant)?.Id : null,
                 PowerModifier = totalQuality * 5,
                 QiCost = totalQuality * 2,
                 Range = effect switch
                 {
                     TechniqueEffect.Strike => Math.Clamp(1 + totalQuality / 8, 1, 3), // melee to short range
                     TechniqueEffect.Heal => 2,
-                    _ => 0                                                             // cultivation method: self
+                    _ => 0                                                             // methods and movement: self
                 },
                 RiskFactor = ElementalRisk(counts)
             };
+        }
+
+        /// <summary>A Qi the clan can harvest for a deduced method: of its element when one exists, any otherwise.</summary>
+        private QiDefinition QiFor(Element element)
+        {
+            var harvestable = ctx.Content.Qi.Where(q => !q.Vanished && !q.Ubiquitous).ToList();
+            var ofElement = harvestable.Where(q => q.Element == element).ToList();
+            var candidates = ofElement.Count > 0 ? ofElement : harvestable;
+            return candidates.Count == 0 ? null : candidates[ctx.Rng.Next(0, candidates.Count)];
+        }
+
+        /// <summary>The name the data gives: the kind's noun, the grade's word and the element's phrase.</summary>
+        private string Name(TechniqueKind kind, int grade, Element element)
+        {
+            var words = ctx.Content.DeductionNames;
+            return words.Template
+                .Replace("{kind}", words.Kinds.TryGetValue(kind, out var noun) ? noun : kind.ToString())
+                .Replace("{grade}", words.GradeWords[Math.Clamp(grade, TechniqueRules.MinGrade, TechniqueRules.MaxGrade) - 1])
+                .Replace("{element}", words.Elements.TryGetValue(element, out var phrase) ? phrase : "")
+                .Trim();
         }
 
         private static int ElementalRisk(Dictionary<Element, int> counts)
@@ -109,31 +139,6 @@ namespace MirrorChronicles.Mirror
             if (counts.ContainsKey(Element.Metal) && counts.ContainsKey(Element.Wood)) risk += ConflictRisk;
             if (counts.ContainsKey(Element.Wood) && counts.ContainsKey(Element.Fire)) risk = Math.Max(0, risk - SynergyRelief);
             return risk;
-        }
-
-        /// <summary>Placeholder names until technique grades and their names move to data (phase L3).</summary>
-        private static string ProceduralName(Element element, TechniqueKind kind, int quality)
-        {
-            string prefix = element switch
-            {
-                Element.Fire => "Blazing",
-                Element.Water => "Flowing",
-                Element.Wood => "Verdant",
-                Element.Metal => "Piercing",
-                Element.Earth => "Unshakable",
-                Element.Lightning => "Heavenly",
-                Element.Darkness => "Shadow",
-                Element.Light => "Radiant",
-                _ => "Mystic"
-            };
-            string suffix = kind switch
-            {
-                TechniqueKind.Cultivation => "Mantra",
-                TechniqueKind.Weapon => "Fist",
-                _ => "Aura"
-            };
-            string adjective = quality > 10 ? "Divine " : quality > 5 ? "Profound " : "";
-            return $"{adjective}{prefix} {suffix}";
         }
     }
 }

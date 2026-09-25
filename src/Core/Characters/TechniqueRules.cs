@@ -122,6 +122,24 @@ namespace MirrorChronicles.Characters
         public static bool IsPowerlessAgainst(TechniqueData technique, string opponentMethodId) =>
             technique?.Flaws?.CounteredById != null && technique.Flaws.CounteredById == opponentMethodId;
 
+        /// <summary>
+        /// The realm from which an art of this grade can be wielded, following the grade table (§2.2): the arts
+        /// of a grade 3-4 manual belong to Qi cultivators, those of a grade 5-6 one to the Foundation.
+        /// </summary>
+        public static CultivationRealm ArtRequiredRealm(int grade)
+        {
+            if (grade <= 2) return CultivationRealm.Embryonic;
+            if (grade <= 4) return CultivationRealm.QiRefinement;
+            if (grade <= 6) return CultivationRealm.Foundation;
+            return CultivationRealm.PurpleMansion;
+        }
+
+        /// <summary>Grade from which a movement art lends two steps instead of one.</summary>
+        public const int GreatMovementArtGrade = 5;
+
+        /// <summary>Extra steps a movement art lends in battle: one, two from grade 5.</summary>
+        public static int MovementArtSteps(int grade) => grade >= GreatMovementArtGrade ? 2 : 1;
+
         /// <summary>Fragments from which a deduction completes a technique beyond their average quality.</summary>
         public const int CompleteDeductionFragments = 4;
 

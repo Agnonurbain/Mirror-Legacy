@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
@@ -32,11 +33,15 @@ namespace MirrorChronicles.Combat
 
         /// <summary>At least one point of damage always lands.</summary>
         public static int AfterDefence(int raw, CombatUnit target) => Math.Max(1, raw - target.Defense);
+
+        /// <summary>The damage that lands: none when the user is powerless against the target (a countered technique).</summary>
+        public static int Landing(int raw, CombatUnit user, CombatUnit target, BattleField field) =>
+            field.IsPowerless(user, target) ? 0 : AfterDefence(raw, target);
     }
 
     /// <summary>
-    /// Walks to a free cell along a free path (A*) whose terrain cost fits the unit's movement range;
-    /// a single step is always allowed, even onto a mountain or into water.
+    /// Walks to a free cell along a free path (A*) whose terrain cost fits the unit's reach (its movement
+    /// range and movement arts); a single step is always allowed, even onto a mountain or into water.
     /// </summary>
     public sealed class MoveAction : ICombatAction
     {
@@ -47,10 +52,11 @@ namespace MirrorChronicles.Combat
         {
             if (!user.IsActive || user.HasMovedThisTurn || user.CurrentCell == null || target == null || target.IsOccupied)
                 return false;
-            if (CombatGrid.Distance(user.CurrentCell, target) > user.MovementRange) return false; // every step costs at least one
+            int reach = field.MovementRangeOf(user);
+            if (CombatGrid.Distance(user.CurrentCell, target) > reach) return false; // every step costs at least one
 
             var path = field.Grid.FindPath(user.CurrentCell, target);
-            return path.Count == 1 || (path.Count > 1 && path.Sum(c => c.GetMovementCost()) <= user.MovementRange);
+            return path.Count == 1 || (path.Count > 1 && path.Sum(c => c.GetMovementCost()) <= reach);
         }
 
         public void Execute(CombatUnit user, GridCell target, BattleField field)
@@ -75,7 +81,7 @@ namespace MirrorChronicles.Combat
         {
             if (!IsValid(user, target, field)) return;
             var foe = target.Occupant;
-            int damage = CombatMath.AfterDefence((int)Math.Round(user.Strength * CombatMath.RealmFactor(user, 0.2)), foe);
+            int damage = CombatMath.Landing((int)Math.Round(user.Strength * CombatMath.RealmFactor(user, 0.2)), user, foe, field);
             foe.TakeDamage(damage);
             user.HasActedThisTurn = true;
             field.Log.Info($"[Combat] {user.BaseData.FullName} strikes {foe.BaseData.FullName} ({damage}).");
@@ -199,7 +205,7 @@ namespace MirrorChronicles.Combat
                 if (attuned) raw = Math.Round(raw * CombatMath.AffinityBonus);
                 if (technique.DominantElement == Element.Water && target.Terrain == TerrainType.Water)
                     raw = Math.Round(raw * CombatMath.WaterTerrainBonus);
-                int damage = CombatMath.AfterDefence((int)Math.Round(raw), other);
+                int damage = CombatMath.Landing((int)Math.Round(raw), user, other, field);
                 other.TakeDamage(damage);
                 field.Log.Info($"[Combat] {user.BaseData.FullName} unleashes {technique.Name} on {other.BaseData.FullName} ({damage}).");
             }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
@@ -39,7 +40,26 @@ namespace MirrorChronicles.Combat
             unit.SetCell(cell);
         }
 
-        public TechniqueData FindTechnique(string id) => findTechnique(id);
+        /// <summary>The technique with this ID, or null (also for no ID: a fighter without a method).</summary>
+        public TechniqueData FindTechnique(string id) => id == null ? null : findTechnique(id);
+
+        /// <summary>A fighter's reach: their agility, lengthened by the best movement art they know.</summary>
+        public int MovementRangeOf(CombatUnit unit)
+        {
+            var best = unit.BaseData.KnownTechniqueIDs
+                .Select(FindTechnique)
+                .Where(t => t != null && t.Kind == TechniqueKind.Movement)
+                .OrderByDescending(t => t.Grade)
+                .FirstOrDefault();
+            return unit.MovementRange + (best == null ? 0 : TechniqueRules.MovementArtSteps(best.Grade));
+        }
+
+        /// <summary>
+        /// True when the attacker's method leaves them powerless against the defender's (LORE.md §2.4: the
+        /// Veilleur du Sentier against the original sutra, whatever the realms).
+        /// </summary>
+        public bool IsPowerless(CombatUnit attacker, CombatUnit defender) =>
+            TechniqueRules.IsPowerlessAgainst(FindTechnique(attacker.BaseData.CultivationMethodId), defender.BaseData.CultivationMethodId);
 
         public IEnumerable<CombatUnit> ActiveOpponentsOf(CombatUnit unit) => units.Where(u => u.IsActive && u.IsAlly != unit.IsAlly);
 
