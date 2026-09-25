@@ -173,5 +173,55 @@ namespace MirrorChronicles.Tests.EditMode
             PowerLadder.NormalizeLifespan(c);
             Assert.AreEqual(expected, c.MaxLifespan);
         }
+
+        [Test]
+        public void NormalizeLifespan_ClampsToTheWoundedReach_WhenDaoWounded()
+        {
+            var c = new CharacterData { Realm = CultivationRealm.QiRefinement, RealmStage = 4, MaxLifespan = 500, DaoWounds = 1 };
+            PowerLadder.NormalizeLifespan(c);
+            Assert.AreEqual(160, c.MaxLifespan);
+        }
+
+        [TestCase(200, 0, 200)]
+        [TestCase(200, 1, 160)]
+        [TestCase(200, 2, 128)]
+        public void WoundedLifespan_TakesAFifthPerDaoWound(int lifespan, int wounds, int expected)
+        {
+            Assert.AreEqual(expected, PowerLadder.WoundedLifespan(lifespan, wounds));
+        }
+
+        [Test]
+        public void WoundedLifespan_LeavesAnUnboundedLifespan()
+        {
+            Assert.AreEqual(PowerLadder.Unbounded, PowerLadder.WoundedLifespan(PowerLadder.Unbounded, 3));
+        }
+
+        [Test]
+        public void LifespanAfterAdvance_RaisesToTheNewRealmReach()
+        {
+            var c = new CharacterData { Realm = CultivationRealm.Foundation, RealmStage = 1, MaxLifespan = 200 };
+            Assert.AreEqual(300, PowerLadder.LifespanAfterAdvance(c));
+        }
+
+        [Test]
+        public void LifespanAfterAdvance_KeepsDaoWoundsAcrossBreakthroughs()
+        {
+            var c = new CharacterData { Realm = CultivationRealm.Foundation, RealmStage = 1, MaxLifespan = 160, DaoWounds = 1 };
+            Assert.AreEqual(240, PowerLadder.LifespanAfterAdvance(c));
+        }
+
+        [Test]
+        public void LifespanAfterAdvance_NeverShortensALife()
+        {
+            var c = new CharacterData { Realm = CultivationRealm.QiRefinement, RealmStage = 5, MaxLifespan = 191, DaoWounds = 1 };
+            Assert.AreEqual(191, PowerLadder.LifespanAfterAdvance(c));
+        }
+
+        [Test]
+        public void LifespanAfterAdvance_ReplacesTheMortalRoll_AtTheFirstChakra()
+        {
+            var c = new CharacterData { Realm = CultivationRealm.Embryonic, RealmStage = 1, MaxLifespan = 65 };
+            Assert.AreEqual(120, PowerLadder.LifespanAfterAdvance(c));
+        }
     }
 }

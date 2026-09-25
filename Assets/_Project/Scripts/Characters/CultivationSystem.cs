@@ -98,7 +98,7 @@ namespace MirrorChronicles.Characters
         {
             character.Realm = step.TargetRealm;
             character.RealmStage = step.TargetStage;
-            character.MaxLifespan = PowerLadder.MaxLifespan(character.Realm, character.RealmStage);
+            character.MaxLifespan = PowerLadder.LifespanAfterAdvance(character); // Dao wounds persist
 
             Debug.Log($"[CultivationSystem] {character.FullName} reached {RankCatalog.DisplayName(character)}.");
         }

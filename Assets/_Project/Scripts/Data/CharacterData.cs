@@ -31,6 +31,9 @@ namespace MirrorChronicles.Data
         public bool OrificeKnown { get; set; }      // only a confirmed cultivator (or the mirror) can detect it
         public bool HasTalismanSeed { get; set; }   // Graine de Sceau granted by the mirror
 
+        // Permanent Dao wounds: each takes a fifth of the lifespan, even across breakthroughs
+        public int DaoWounds { get; set; }
+
         // Cultivation path and Golden Core standing (LORE.md §3, §5.9)
         public CultivationPath Path { get; set; }
         public CultivationSubPath SubPath { get; set; }

@@ -103,13 +103,11 @@ namespace MirrorChronicles.Characters
         {
             Debug.LogError($"[WoundSystem] TRAGEDY! {character.FullName} has suffered a permanent DAO WOUND.");
             
-            // Reduce max lifespan by 20% (an unbounded lifespan stays unbounded)
-            if (character.MaxLifespan >= PowerLadder.Unbounded) return;
-            int lifespanPenalty = Mathf.RoundToInt(character.MaxLifespan * 0.2f);
-            character.MaxLifespan = Mathf.Max(character.Age + 1, character.MaxLifespan - lifespanPenalty);
-            
-            // In a full implementation, we add a "DaoWound" flag to CharacterData that permanently debuffs them.
-            
+            // Recorded on the character so breakthroughs keep the loss; a fifth of the lifespan goes,
+            // with a year of grace (an unbounded lifespan stays unbounded)
+            character.DaoWounds++;
+            character.MaxLifespan = Mathf.Max(character.Age + 1, PowerLadder.WoundedLifespan(character.MaxLifespan, 1));
+
             // Huge mental stability hit
             MentalStabilitySystem.Instance.ApplyModifier(character, -20);
         }

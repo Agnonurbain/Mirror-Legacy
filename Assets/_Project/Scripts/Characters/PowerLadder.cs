@@ -185,7 +185,28 @@ namespace MirrorChronicles.Characters
         {
             int reach = MaxLifespan(character.Realm, character.RealmStage);
             if (character.MaxLifespan <= 0 || character.MaxLifespan > reach)
-                character.MaxLifespan = reach;
+                character.MaxLifespan = WoundedLifespan(reach, character.DaoWounds);
+        }
+
+        public const double DaoWoundLifespanLoss = 0.2;
+
+        /// <summary>Each permanent Dao wound takes a fifth of what remains; an unbounded lifespan stays unbounded.</summary>
+        public static int WoundedLifespan(int lifespan, int daoWounds)
+        {
+            if (lifespan >= Unbounded) return lifespan;
+            for (int i = 0; i < daoWounds; i++)
+                lifespan -= (int)Math.Round(lifespan * DaoWoundLifespanLoss);
+            return lifespan;
+        }
+
+        /// <summary>
+        /// Lifespan once the character stands on a new step: the new realm's reach, still carrying
+        /// every Dao wound. An advance never shortens a life (a wound's one-year grace is kept).
+        /// </summary>
+        public static int LifespanAfterAdvance(CharacterData character)
+        {
+            int woundedReach = WoundedLifespan(MaxLifespan(character.Realm, character.RealmStage), character.DaoWounds);
+            return Math.Max(character.MaxLifespan, woundedReach);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace MirrorChronicles.Characters
             return parentsWithOrifice == 1 ? OneParentOrificeChance : TwoParentsOrificeChance;
         }
 
-        /// <param name="roll">Uniform draw in [0, 1).</param>
+        /// <param name="roll">Uniform draw in [0, 1]; 1 (possible with Unity's Random.value) never succeeds.</param>
         public static bool HasOrificeAtBirth(int parentsWithOrifice, double roll)
         {
             return roll < OrificeChance(parentsWithOrifice);
@@ -57,7 +57,7 @@ namespace MirrorChronicles.Characters
             return examiner.Realm > CultivationRealm.Embryonic || examiner.RealmStage >= DetectionChakraStage;
         }
 
-        /// <param name="roll">Uniform draw in [0, 1).</param>
+        /// <param name="roll">Uniform draw in [0, 1]; 1 (possible with Unity's Random.value) is clamped to the maximum.</param>
         public static int MortalLifespan(double roll)
         {
             int span = MortalMaxLifespan - MortalMinLifespan + 1;

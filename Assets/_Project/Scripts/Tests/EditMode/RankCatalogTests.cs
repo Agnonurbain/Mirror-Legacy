@@ -31,6 +31,13 @@ namespace MirrorChronicles.Tests.EditMode
         }
 
         [Test]
+        public void DisplayName_NeverAsksForAnOrifice_WhenSpiritBeast()
+        {
+            var c = new CharacterData { Species = Species.SpiritBeast };
+            Assert.AreEqual("Respiration Embryonnaire — sans chakra", RankCatalog.DisplayName(c));
+        }
+
+        [Test]
         public void DisplayName_ShowsNoChakraYet_WhenKnownOrificeBeforeFirstChakra()
         {
             var c = new CharacterData { HasSpiritualOrifice = true, OrificeKnown = true };
