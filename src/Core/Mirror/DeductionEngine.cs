@@ -80,7 +80,8 @@ namespace MirrorChronicles.Mirror
             int grade = TechniqueRules.DeductionGrade(inputs.Select(f => f.Quality).ToList());
             var counts = inputs.GroupBy(f => f.Element).ToDictionary(g => g.Key, g => g.Count());
             var dominant = counts.OrderByDescending(kv => kv.Value).First().Key;
-            var kind = DeducibleKinds[ctx.Rng.Next(0, DeducibleKinds.Length)];
+            var kinds = HarvestableQi().Any() ? DeducibleKinds : DeducibleKinds.Where(k => k != TechniqueKind.Cultivation).ToArray();
+            var kind = kinds[ctx.Rng.Next(0, kinds.Length)];
             var effect = kind switch
             {
                 TechniqueKind.Weapon => TechniqueEffect.Strike,
@@ -112,10 +113,13 @@ namespace MirrorChronicles.Mirror
             };
         }
 
+        /// <summary>Qi the clan could harvest; without any, the mirror deduces no method (it could lead nowhere).</summary>
+        private IEnumerable<QiDefinition> HarvestableQi() => ctx.Content.Qi.Where(q => !q.Vanished && !q.Ubiquitous);
+
         /// <summary>A Qi the clan can harvest for a deduced method: of its element when one exists, any otherwise.</summary>
         private QiDefinition QiFor(Element element)
         {
-            var harvestable = ctx.Content.Qi.Where(q => !q.Vanished && !q.Ubiquitous).ToList();
+            var harvestable = HarvestableQi().ToList();
             var ofElement = harvestable.Where(q => q.Element == element).ToList();
             var candidates = ofElement.Count > 0 ? ofElement : harvestable;
             return candidates.Count == 0 ? null : candidates[ctx.Rng.Next(0, candidates.Count)];

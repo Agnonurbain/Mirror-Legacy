@@ -157,7 +157,9 @@ namespace MirrorChronicles.Game
             methods.TooltipText = row.Method;
             foreach (var choice in row.Methods)
                 methods.AddItem(choice.Label);
-            int current = row.Methods.ToList().FindIndex(m => m.Id == row.MethodId);
+            int current = -1;
+            for (int i = 0; i < row.Methods.Count && current < 0; i++)
+                if (row.Methods[i].Id == row.MethodId) current = i;
             if (current >= 0) methods.Select(current);
             else
             {
