@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 
 namespace MirrorChronicles.Clan
@@ -34,8 +35,6 @@ namespace MirrorChronicles.Clan
         private const int OutsiderAgeSpread = 5;
         private const int OutsiderMinSpiritualRoot = 10;
         private const int OutsiderMaxSpiritualRoot = 50;
-        private const int OutsiderMinLifespan = 60;
-        private const int OutsiderMaxLifespan = 120;
 
         /// <summary>
         /// A living, unmarried member between <see cref="MinMarriageAge"/> and <see cref="MaxSeekingAge"/>.
@@ -78,9 +77,10 @@ namespace MirrorChronicles.Clan
                 LastName = lastName,
                 IsMale = isMale,
                 Age = Math.Max(MinMarriageAge, member.Age + rng.Next(-OutsiderAgeSpread, OutsiderAgeSpread + 1)),
-                MaxLifespan = rng.Next(OutsiderMinLifespan, OutsiderMaxLifespan + 1),
+                MaxLifespan = SpiritualOrificeRules.MortalLifespan(rng.NextDouble()), // has never cultivated
                 SpiritualRoot = rng.Next(OutsiderMinSpiritualRoot, OutsiderMaxSpiritualRoot + 1),
-                Affinity = (Element)rng.Next(1, elementCount) // skip Element.None
+                Affinity = (Element)rng.Next(1, elementCount), // skip Element.None
+                HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(0, rng.NextDouble()) // commoner odds
             };
         }
 
