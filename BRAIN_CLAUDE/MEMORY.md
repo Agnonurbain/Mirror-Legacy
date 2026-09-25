@@ -1,5 +1,6 @@
 # 🧠 MEMORY.md — Mémoire projet Reflets de Lignée
 
+> ⚠️ **2026-09-25 — Moteur : Godot 4.7.2 .NET (C#) remplace Unity.** Les conventions Unity décrites plus bas (singletons MonoBehaviour, ScriptableObjects, Unity Test Framework) sont **caduques** : simulation sans moteur dans `src/Core` (tests `dotnet test`), couche Godot mince dans `game/`. Migration suivie en phase G (`NOT_DONE.md`) ; ce fichier sera réécrit à la fin de G5.
 > **Dernière session :** 2026-04-14 — Pivot décidé : retour complet à Unity/C# (abandon du portage web).
 > **Prochain rappel :** Lire `NOT_DONE.md` et `WORKED_LESSON.md` avant chaque session.
 

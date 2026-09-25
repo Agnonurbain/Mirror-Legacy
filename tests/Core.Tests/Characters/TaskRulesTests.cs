@@ -3,7 +3,7 @@ using NUnit.Framework;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 
-namespace MirrorChronicles.Tests.EditMode
+namespace MirrorChronicles.Tests.Characters
 {
     /// <summary>
     /// Which tasks a member may take: mortals work, cultivators cultivate (LORE.md §4).

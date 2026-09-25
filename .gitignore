@@ -1,5 +1,12 @@
 # =============================================================================
-# Unity generated
+# Godot 4 .NET / dotnet (engine since 2026-09-25)
+# =============================================================================
+game/.godot/
+[Bb]in/
+*.translation
+
+# =============================================================================
+# Unity generated (legacy tree, removed at the end of phase G)
 # =============================================================================
 [Ll]ibrary/
 [Tt]emp/
@@ -40,6 +47,12 @@
 *.opendb
 *.VC.db
 *.DotSettings.user
+
+# Our own projects and solution (the Unity rules above ignore every .csproj/.sln)
+!/MirrorLegacy.sln
+!/src/**/*.csproj
+!/tests/**/*.csproj
+!/game/*.csproj
 
 # =============================================================================
 # OS

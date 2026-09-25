@@ -2,7 +2,7 @@ using NUnit.Framework;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 
-namespace MirrorChronicles.Tests.EditMode
+namespace MirrorChronicles.Tests.Characters
 {
     /// <summary>
     /// Rank names per cultivation path and their asymmetric power equivalences (LORE.md §3.7, §5).

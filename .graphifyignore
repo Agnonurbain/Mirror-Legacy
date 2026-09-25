@@ -1,7 +1,11 @@
 # graphify reads this file INSTEAD of .gitignore, so Unity/IDE outputs are repeated here.
 # Keep the knowledge graph focused on the Unity C# game and its design docs.
 
-# Unity generated / build output
+# Godot 4 .NET / dotnet build output
+game/.godot/
+[Bb]in/
+
+# Unity generated / build output (legacy tree, removed at the end of phase G)
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/

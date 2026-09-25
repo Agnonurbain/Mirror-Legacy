@@ -5,7 +5,7 @@ using NUnit.Framework;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 
-namespace MirrorChronicles.Tests.EditMode
+namespace MirrorChronicles.Tests.Clan
 {
     /// <summary>
     /// Annual marriages keep the lineage alive: without them only the founding

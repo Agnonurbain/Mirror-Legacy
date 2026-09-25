@@ -12,10 +12,10 @@ Rules:
 
 Before any task, load the matching ECC skill or agent (e.g. `ecc:csharp-testing` / `ecc:tdd-workflow` for tests, `ecc:csharp-reviewer` after C# edits, `ecc:planner` for multi-step features).
 
-ECC's C# rules target generic .NET (xUnit, async/CancellationToken, `dotnet build`). This is a Unity 6.4 project: the conventions in `BRAIN_CLAUDE/MEMORY.md` win — NUnit via Unity Test Framework, MonoBehaviour singletons, OnEnable/OnDisable event subscriptions, C# 9.
+ECC's C# rules target generic .NET (xUnit, async/CancellationToken). This is a Godot 4.7.2 .NET game (C#, net8.0) — engine chosen 2026-09-25, replacing Unity: game rules and the whole simulation live engine-free in `src/Core` (NUnit 3 via `dotnet test`, no Godot types), the Godot layer in `game/` stays thin (partial `Node` classes, autoloads, text `.tscn` scenes). The legacy Unity tree (`Assets/`, `Packages/`, `ProjectSettings/`) is being migrated in phase G (`BRAIN_CLAUDE/NOT_DONE.md`): read it for reference, never add code to it, never reintroduce MonoBehaviour singletons or ScriptableObjects.
 
 ## Project
 
 - Pilot docs live in `BRAIN_CLAUDE/` — start with `BRAINSTORMING.md`, remaining work in `NOT_DONE.md`.
 - World lore (realms, techniques, paths, Fruitions, map, chronology) and the renaming lexicon: `BRAIN_CLAUDE/LORE.md` — source of truth. Never hardcode proper nouns from the source novel; display names live in data.
-- Compile and test headless with `./Scripts/unity-claude.sh Compile | RunEditModeTests | RunPlayModeTests` (result in `claude-output/result.json`). Requires the Unity 6000.4.2f1 editor (`UNITY_PATH`).
+- Build, test and smoke-run headless with `./Scripts/dev.sh build | test | smoke | all` (Godot 4.7.2 .NET in `~/Godot`, override with `GODOT_BIN`). `test` needs only the .NET 8 SDK.

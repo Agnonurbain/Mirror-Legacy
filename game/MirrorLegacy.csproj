@@ -1,0 +1,16 @@
+<Project Sdk="Godot.NET.Sdk/4.7.2">
+
+  <!-- Thin Godot layer: scenes, input and presentation. Game rules live in MirrorChronicles.Core. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>MirrorChronicles.Game</RootNamespace>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../src/Core/MirrorChronicles.Core.csproj" />
+  </ItemGroup>
+
+</Project>

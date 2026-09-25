@@ -2,7 +2,7 @@ using NUnit.Framework;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 
-namespace MirrorChronicles.Tests.EditMode
+namespace MirrorChronicles.Tests.Characters
 {
     /// <summary>
     /// Breakthrough odds and outcomes on the power ladder (LORE.md §5.1-5.3).

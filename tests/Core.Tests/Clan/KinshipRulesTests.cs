@@ -3,7 +3,7 @@ using NUnit.Framework;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 
-namespace MirrorChronicles.Tests.EditMode
+namespace MirrorChronicles.Tests.Clan
 {
     /// <summary>
     /// Business rule (MEMORY.md): marriage is forbidden between relatives

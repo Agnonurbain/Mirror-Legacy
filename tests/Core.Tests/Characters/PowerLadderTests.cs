@@ -2,7 +2,7 @@ using NUnit.Framework;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 
-namespace MirrorChronicles.Tests.EditMode
+namespace MirrorChronicles.Tests.Characters
 {
     /// <summary>
     /// Realms and sub-levels of the Purple Mansion Golden Core Dao (LORE.md §5).
