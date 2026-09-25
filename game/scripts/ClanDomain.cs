@@ -17,6 +17,7 @@ namespace MirrorChronicles.Game
         private const int PhasesPerYear = 4;
 
         private GameRoot root;
+        private Chronicle boundChronicle;
         private Label clanName, year, phase, stones, mirror, generation, storyTitle, storyText, chronicle, status;
         private Button nextPhase;
         private VBoxContainer roster, storyChoices;
@@ -48,13 +49,25 @@ namespace MirrorChronicles.Game
         public override void _ExitTree()
         {
             root.SessionChanged -= Bind;
+            Unbind(); // the chronicle lives on the autoload and outlives this screen
         }
 
+        /// <summary>Follows the current session's chronicle, leaving the previous one.</summary>
         private void Bind()
         {
-            root.Chronicle.OnEntryAdded += entry => ShowChronicle();
+            Unbind();
+            boundChronicle = root.Chronicle;
+            boundChronicle.OnEntryAdded += OnChronicleEntry;
             Refresh();
         }
+
+        private void Unbind()
+        {
+            if (boundChronicle != null) boundChronicle.OnEntryAdded -= OnChronicleEntry;
+            boundChronicle = null;
+        }
+
+        private void OnChronicleEntry(string entry) => ShowChronicle();
 
         private void AdvancePhase()
         {

@@ -63,7 +63,7 @@ namespace MirrorChronicles.Mirror
             return true;
         }
 
-        /// <summary>Cost 10, in battle: a third of the unit's Qi and 15% of its vitality flow back.</summary>
+        /// <summary>Cost 10, in battle: 30% of the unit's Qi and 15% of its vitality flow back.</summary>
         public bool UseQiPulse(CombatUnit target)
         {
             if (target == null || !target.IsActive || !ConsumePower(QiPulseCost)) return false;

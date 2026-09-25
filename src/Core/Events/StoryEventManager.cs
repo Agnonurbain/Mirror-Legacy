@@ -75,8 +75,9 @@ namespace MirrorChronicles.Events
             if (outcome.SpiritStoneChange > 0) resources.AddSpiritStones(outcome.SpiritStoneChange);
             else if (outcome.SpiritStoneChange < 0) resources.ConsumeSpiritStones(-outcome.SpiritStoneChange);
 
-            if (outcome.RelationChange != 0 && !string.IsNullOrEmpty(outcome.FactionID))
-                factions.ChangeRelation(outcome.FactionID, outcome.RelationChange);
+            var faction = factions.GetFactionByName(outcome.FactionName);
+            if (outcome.RelationChange != 0 && faction != null)
+                factions.ChangeRelation(faction.ID, outcome.RelationChange);
 
             ctx.Log.Info($"[Story] {evt.Name}: the clan chooses \"{choice.Label}\".");
             return true;

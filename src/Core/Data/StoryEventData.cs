@@ -31,13 +31,16 @@ namespace MirrorChronicles.Data
         public StoryOutcome Outcome { get; set; } = new StoryOutcome();
     }
 
-    /// <summary>What a choice changes: stability of every member, stones, relation with one faction.</summary>
+    /// <summary>
+    /// What a choice changes: stability of every member, stones, relation with one faction. The faction is
+    /// named as in factions.json (runtime IDs do not exist when the content is written); the loader checks it.
+    /// </summary>
     [Serializable]
     public class StoryOutcome
     {
         public int StabilityChange { get; set; }
         public int SpiritStoneChange { get; set; }
         public int RelationChange { get; set; }
-        public string FactionID { get; set; }
+        public string FactionName { get; set; }
     }
 }

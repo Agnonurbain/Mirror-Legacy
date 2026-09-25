@@ -46,7 +46,7 @@ namespace MirrorChronicles.Data
             CheckBalance(balance);
             CheckFactions(factions);
             CheckEvents(events);
-            CheckStory(story);
+            CheckStory(story, factions);
 
             return new GameContent
             {
@@ -126,8 +126,12 @@ namespace MirrorChronicles.Data
             Require(events.All(e => e.Weight > 0), EventsFile, "every event needs a positive weight, or it can never be drawn.");
         }
 
-        private static void CheckStory(List<StoryEventData> story)
+        private static void CheckStory(List<StoryEventData> story, List<FactionData> factions)
         {
+            var unknown = story.SelectMany(e => e.Choices ?? new List<StoryChoice>())
+                .Select(c => c.Outcome?.FactionName)
+                .FirstOrDefault(name => !string.IsNullOrEmpty(name) && factions.All(f => f.Name != name));
+            Require(unknown == null, StoryFile, $"a choice names the faction \"{unknown}\", which factions.json does not have.");
             Require(story.All(e => !string.IsNullOrWhiteSpace(e.Name)), StoryFile, "every story event needs a name.");
             Require(story.All(e => e.Choices != null && e.Choices.Count > 0 && e.Choices.All(c => !string.IsNullOrWhiteSpace(c.Label))),
                 StoryFile, "every story event needs choices with labels.");

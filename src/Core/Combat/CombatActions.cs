@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
@@ -33,16 +34,24 @@ namespace MirrorChronicles.Combat
         public static int AfterDefence(int raw, CombatUnit target) => Math.Max(1, raw - target.Defense);
     }
 
-    /// <summary>Moves up to the unit's movement range (Manhattan distance), onto a free cell.</summary>
+    /// <summary>
+    /// Walks to a free cell along a free path (A*) whose terrain cost fits the unit's movement range;
+    /// a single step is always allowed, even onto a mountain or into water.
+    /// </summary>
     public sealed class MoveAction : ICombatAction
     {
         public ActionType Type => ActionType.Move;
         public int QiCost => 0;
 
-        public bool IsValid(CombatUnit user, GridCell target, BattleField field) =>
-            user.IsActive && !user.HasMovedThisTurn && user.CurrentCell != null
-            && target != null && !target.IsOccupied
-            && CombatGrid.Distance(user.CurrentCell, target) <= user.MovementRange;
+        public bool IsValid(CombatUnit user, GridCell target, BattleField field)
+        {
+            if (!user.IsActive || user.HasMovedThisTurn || user.CurrentCell == null || target == null || target.IsOccupied)
+                return false;
+            if (CombatGrid.Distance(user.CurrentCell, target) > user.MovementRange) return false; // every step costs at least one
+
+            var path = field.Grid.FindPath(user.CurrentCell, target);
+            return path.Count == 1 || (path.Count > 1 && path.Sum(c => c.GetMovementCost()) <= user.MovementRange);
+        }
 
         public void Execute(CombatUnit user, GridCell target, BattleField field)
         {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
@@ -38,6 +39,10 @@ namespace MirrorChronicles.Diplomacy
         }
 
         public FactionData GetFactionByID(string id) => factions.Find(f => f.ID == id);
+
+        /// <summary>The faction as named in the content (the stable key content refers to).</summary>
+        public FactionData GetFactionByName(string name) =>
+            string.IsNullOrEmpty(name) ? null : factions.Find(f => f.Name == name);
 
         public FactionData RandomFaction() => ctx.Rng.Pick(factions);
 
@@ -87,10 +92,13 @@ namespace MirrorChronicles.Diplomacy
             }
         }
 
+        /// <summary>Restores saved factions; a save from before FamilyName gets it back from the content.</summary>
         public void Restore(IEnumerable<FactionData> saved)
         {
             factions.Clear();
             factions.AddRange(saved);
+            foreach (var faction in factions.Where(f => f.FamilyName == null))
+                faction.FamilyName = ctx.Content.Factions.FirstOrDefault(t => t.Name == faction.Name)?.FamilyName;
         }
     }
 }
