@@ -1,0 +1,48 @@
+name: CI (Godot 4.7 .NET)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  GODOT_VERSION: "4.7.2"
+
+jobs:
+  test:
+    name: Core tests and headless smoke run
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      # The whole simulation is engine-free: no Godot needed for these
+      - name: Core tests
+        run: ./Scripts/dev.sh test
+
+      - name: Cache Godot
+        uses: actions/cache@v4
+        with:
+          path: ~/Godot
+          key: godot-${{ env.GODOT_VERSION }}-mono-linux-x86_64
+
+      - name: Install Godot .NET (checksum verified)
+        run: |
+          GODOT_DIR="$HOME/Godot/Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64"
+          if [ ! -x "$GODOT_DIR/Godot_v${GODOT_VERSION}-stable_mono_linux.x86_64" ]; then
+            mkdir -p "$HOME/Godot" && cd "$HOME/Godot"
+            ZIP="Godot_v${GODOT_VERSION}-stable_mono_linux_x86_64.zip"
+            BASE="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable"
+            curl -sSL -o "$ZIP" "$BASE/$ZIP"
+            curl -sSL -o SHA512-SUMS.txt "$BASE/SHA512-SUMS.txt"
+            tr -d '\r' < SHA512-SUMS.txt | grep " $ZIP\$" | sha512sum -c -
+            unzip -q -o "$ZIP"
+          fi
+
+      - name: Headless smoke run
+        run: ./Scripts/dev.sh smoke
