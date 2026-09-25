@@ -127,7 +127,7 @@ namespace MirrorChronicles.Game
             var line = new HBoxContainer();
             line.AddChild(new Label
             {
-                Text = $"{(row.IsPatriarch ? "★ " : "")}{row.Name}, {row.Age} ans — {row.Rank} — stabilité {row.Stability}",
+                Text = MemberText(row),
                 SizeFlagsHorizontal = SizeFlags.ExpandFill,
                 AutowrapMode = TextServer.AutowrapMode.WordSmart,
                 CustomMinimumSize = new Vector2(MemberLabelWidth, 0)
@@ -145,6 +145,14 @@ namespace MirrorChronicles.Game
             line.AddChild(tasks);
             line.AddChild(BuildMethodChoice(row));
             return line;
+        }
+
+        /// <summary>Who the member is: rank and temper, then (when they have them) foundation, abilities and retreat.</summary>
+        private static string MemberText(MemberRow row)
+        {
+            var details = new[] { row.Foundation, row.Abilities, row.Retreat }.Where(d => d != null);
+            string text = $"{(row.IsPatriarch ? "★ " : "")}{row.Name}, {row.Age} ans — {row.Rank} — stabilité {row.Stability} — {row.Temperament}";
+            return details.Any() ? $"{text}\n{string.Join(" · ", details)}" : text;
         }
 
         /// <summary>The method a member practises: a choice among those they may take up, or just its name.</summary>

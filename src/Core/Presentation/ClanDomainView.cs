@@ -15,11 +15,13 @@ namespace MirrorChronicles.Presentation
 
     /// <summary>
     /// One member of the roster, with the tasks they may take this year, the method they practise and the
-    /// methods they may take up.
+    /// methods they may take up, their temper, their foundation (null before the Foundation), the retreat
+    /// under way (null outside one) and their divine abilities (null before the Purple Mansion).
     /// </summary>
     public sealed record MemberRow(string Id, string Name, int Age, string Rank, int Stability,
         TaskType Task, IReadOnlyList<TaskType> AllowedTasks, bool IsPatriarch,
-        string MethodId, string Method, IReadOnlyList<MethodChoice> Methods);
+        string MethodId, string Method, IReadOnlyList<MethodChoice> Methods,
+        string Temperament, string Foundation, string Retreat, string Abilities);
 
     /// <summary>Portions of one spiritual Qi in the clan's store.</summary>
     public sealed record QiLine(string Name, int Portions);
@@ -49,9 +51,45 @@ namespace MirrorChronicles.Presentation
                 .Select(m => new MemberRow(m.ID, m.FullName, m.Age, RankCatalog.DisplayName(m), m.MentalStability,
                     m.CurrentTask, TaskRules.AllowedTasks(m), m.ID == patriarchId,
                     m.CultivationMethodId, PractisedMethod(session, m),
-                    session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList()))
+                    session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
+                    TemperamentLabel(m.Temperament), FoundationLabel(session, m.FoundationId), RetreatLabel(m), AbilitiesLabel(m)))
                 .ToList();
         }
+
+        /// <summary>« Mer sans Rivage (Eau Orthodoxe) », or null without a foundation.</summary>
+        public static string FoundationLabel(GameSession session, string foundationId)
+        {
+            var lineage = FoundationRules.FruitionOf(foundationId, session.Context.Content.Fruitions);
+            if (lineage == null) return null;
+            var (_, abilityId) = FoundationRef.Parse(foundationId);
+            string name = lineage.Abilities.FirstOrDefault(a => a.Id == abilityId)?.Name ?? "Fondation non révélée";
+            return $"{name} ({lineage.Name})";
+        }
+
+        /// <summary>The retreat of the Purple Mansion's breakthrough under way, or null.</summary>
+        public static string RetreatLabel(CharacterData member)
+        {
+            if (member.Retreat == Retreat.None) return null;
+            if (member.ImprisonedInVoid) return "prisonnier du Grand Vide";
+            string stage = member.Retreat == Retreat.Manifestation ? "Manifestation" : "Grand Vide";
+            return $"en retraite : {stage} ({member.RetreatYearsLeft} an{(member.RetreatYearsLeft > 1 ? "s" : "")})";
+        }
+
+        /// <summary>« 2/5 capacités divines » at the Purple Mansion and beyond, otherwise null.</summary>
+        public static string AbilitiesLabel(CharacterData member) =>
+            member.Realm < CultivationRealm.PurpleMansion ? null
+                : $"{member.DivineAbilities?.Count ?? 0}/{DivineAbilitySystem.MaxAbilities} capacités divines";
+
+        public static string TemperamentLabel(Temperament temperament) => temperament switch
+        {
+            Temperament.Dominant => "Dominateur",
+            Temperament.Solitary => "Solitaire",
+            Temperament.Patient => "Patient",
+            Temperament.Fiery => "Fougueux",
+            Temperament.Cunning => "Rusé",
+            Temperament.Serene => "Serein",
+            _ => "Tempérament inconnu"
+        };
 
         /// <summary>The Qi in store, by name.</summary>
         public static IReadOnlyList<QiLine> QiStock(GameSession session) =>
