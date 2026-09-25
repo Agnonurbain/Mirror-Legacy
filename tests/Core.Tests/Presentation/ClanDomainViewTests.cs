@@ -51,6 +51,48 @@ namespace MirrorChronicles.Tests.Presentation
             CollectionAssert.AreEquivalent(new[] { TaskType.None, TaskType.Cultivation, TaskType.Rest }, embryonic.AllowedTasks);
         }
 
+        // ---- Techniques and Qi (LORE.md §2) ----
+
+        [Test]
+        public void QiStock_ListsTheQiInStore()
+        {
+            CollectionAssert.AreEqual(new[] { new QiLine("Qi de la Source Claire", 2) }, ClanDomainView.QiStock(NewGame()));
+        }
+
+        [Test]
+        public void Roster_ShowsTheMethodEachMemberPractises()
+        {
+            Assert.AreEqual("Sutra de la Source Claire (grade 3)", ClanDomainView.Roster(NewGame())[0].Method);
+        }
+
+        [Test]
+        public void Roster_ShowsTheCommonBreathing_OfABreathingMemberWithoutAManual()
+        {
+            var embryonic = ClanDomainView.Roster(NewGame()).First(r => r.Rank.StartsWith("Respiration Embryonnaire"));
+            Assert.AreEqual("Respiration commune", embryonic.Method);
+        }
+
+        [Test]
+        public void Roster_OffersTheMethodsAMemberMayTakeUp()
+        {
+            var roster = ClanDomainView.Roster(NewGame());
+            var embryonic = roster.First(r => r.Rank.StartsWith("Respiration Embryonnaire"));
+            CollectionAssert.AreEqual(new[] { "clear-spring-sutra", "common-breath-method" }, embryonic.Methods.Select(m => m.Id));
+            CollectionAssert.AreEqual(new[] { "clear-spring-sutra" }, roster[0].Methods.Select(m => m.Id)); // bound to the Clear Spring Qi
+        }
+
+        [Test]
+        public void MethodLabel_WritesTheHighestGradeAsSevenPlus()
+        {
+            Assert.AreEqual("Dialogue (grade 7+)", ClanDomainView.MethodLabel(new TechniqueData { Name = "Dialogue", Grade = 7 }));
+        }
+
+        [Test]
+        public void TaskLabel_NamesTheQiHarvest()
+        {
+            Assert.AreEqual("Récolte de Qi", ClanDomainView.TaskLabel(TaskType.GatherQi));
+        }
+
         [Test]
         public void PhaseLabel_NamesEveryPhaseDifferently()
         {
