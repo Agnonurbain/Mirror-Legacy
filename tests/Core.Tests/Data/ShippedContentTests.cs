@@ -21,7 +21,8 @@ namespace MirrorChronicles.Tests.Data
             "Beiming", "Pingming", "Yincheng", "Shengle", "Yanyang", "Luoxia", "Changxiao", "Hengzhu", "Xiukui",
             "Wanyu", "Zhaoyuan", "Tuoba", "Qianyuan", "Xunquan", "Yingze", "Beiyao", "Xiyan", "Xiyang", "Xuantan",
             "Dongfang", "Qiyan", "Moongaze", "Regard Lunaire", "Azure Pond", "Étang d'Azur",
-            "Taihua", "Duanmu", "Pheasant Flame", "Nuage Azur", "rivière One", "Brocart Long", "Cave Spring"
+            "Taihua", "Duanmu", "Pheasant Flame", "Nuage Azur", "rivière One", "Brocart Long", "Cave Spring",
+            "Shuyang", "Xuan'nu", "Tianyi", "Taiyue", "Shangyuan", "Weiming", "Weixi", "Fengchi", "Yuanxiu", "Sude", "Sima", "Boundless Ocean", "Pit Water"
         };
 
         [Test]
