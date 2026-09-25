@@ -12,7 +12,7 @@ namespace MirrorChronicles.Tests.Combat
             new BattleField(new CombatGrid(width, height), rng ?? new Random(1), new RecordingGameLog());
 
         public static CombatUnit Unit(CultivationRealm realm = CultivationRealm.Embryonic, bool isAlly = true,
-            int root = 40, Element affinity = Element.None)
+            int root = 40, Element affinity = Element.None, AIStrategyType strategy = AIStrategyType.Aggressive)
         {
             var data = new CharacterData
             {
@@ -23,14 +23,14 @@ namespace MirrorChronicles.Tests.Combat
                 SpiritualRoot = root,
                 Affinity = affinity
             };
-            return new CombatUnit(data, isAlly);
+            return new CombatUnit(data, isAlly, strategy);
         }
 
         /// <summary>Places a new unit on the field and returns it.</summary>
         public static CombatUnit Place(BattleField field, int x, int y, CultivationRealm realm = CultivationRealm.Embryonic,
-            bool isAlly = true, int root = 40, Element affinity = Element.None)
+            bool isAlly = true, int root = 40, Element affinity = Element.None, AIStrategyType strategy = AIStrategyType.Aggressive)
         {
-            var unit = Unit(realm, isAlly, root, affinity);
+            var unit = Unit(realm, isAlly, root, affinity, strategy);
             field.Place(unit, x, y);
             return unit;
         }

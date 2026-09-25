@@ -90,6 +90,20 @@ namespace MirrorChronicles.Tests.Mirror
         }
 
         [Test]
+        public void UseQiPulse_RestoresAThirdOfTheQiAndSomeVitality()
+        {
+            var w = new TestWorld();
+            var unit = new MirrorChronicles.Combat.CombatUnit(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement), isAlly: true);
+            unit.ConsumeQi(50);
+            unit.TakeDamage(60);
+            int qi = unit.CurrentQi, vitality = unit.CurrentVitality;
+
+            w.Mirror.UseQiPulse(unit);
+
+            Assert.IsTrue(unit.CurrentQi == qi + 30 && unit.CurrentVitality == vitality + 22 && w.Mirror.MirrorPower == 40);
+        }
+
+        [Test]
         public void Restore_SetsPowerAndFragments()
         {
             var w = new TestWorld();
