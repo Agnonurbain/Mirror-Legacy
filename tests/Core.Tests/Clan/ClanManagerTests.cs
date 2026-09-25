@@ -163,6 +163,24 @@ namespace MirrorChronicles.Tests.Clan
         }
 
         [Test]
+        public void GenerateChild_AvoidsTheFirstNameOfALivingMember()
+        {
+            // Every draw is 0.99: the child is a boy and a raw pick would land on the last name, already taken
+            var sons = new ClanManager(Fixtures.Context(new FixedRandom(0.99)), "Mo");
+            var male = Fixtures.Content.Names.Male;
+            foreach (var name in male.Skip(1))
+            {
+                var elder = Fixtures.Cultivator(age: 40);
+                elder.FirstName = name;
+                sons.AddMember(elder);
+            }
+
+            var child = sons.GenerateChild(null, null);
+
+            Assert.AreEqual(male.First(), child.FirstName);
+        }
+
+        [Test]
         public void GenerateChild_HasAMortalLifespan()
         {
             var child = clan.GenerateChild(Fixtures.Cultivator(), Fixtures.Cultivator(isMale: false));
