@@ -128,6 +128,8 @@ namespace MirrorChronicles.Tests.Characters
             capped.CultivationXP = PowerLadder.XpForNextStage(CultivationRealm.QiRefinement);
             var clan = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 9);
             clan.CultivationXP = PowerLadder.XpForNextStage(CultivationRealm.QiRefinement);
+            resources.AddQi(Fixtures.ClanQi, 1);  // the wall absorbs a portion (L4.2)
+            resources.AddQi("common-breath-qi", 1);
 
             Assert.IsFalse(cultivation.IsReadyForTrial(capped));
             Assert.IsTrue(cultivation.IsReadyForTrial(clan));

@@ -42,13 +42,16 @@ namespace MirrorChronicles.Characters
         {
             if (!character.IsAlive || character.CurrentTask != TaskType.Cultivation) return;
             if (!SpiritualOrificeRules.CanCultivate(character)) return; // a mortal gathers no Qi
+            if (character.ProgressionSealed) return;                     // a consumed Dao Partner: no further, even cultivating
 
             double speed = TechniqueRules.CultivationSpeed(techniques.MethodOf(character), character.Realm,
                 ctx.Content.Balance.TechniqueSpeedByGrade);
             if (speed <= 0) return; // no method guides this realm
 
             int gain = BaseYearlyXp + character.SpiritualRoot / 2 + karma.GetBonusXP();
-            double multiplier = (1.0 + karma.GetCultivationSpeedBonus()) * speed;
+            double heart = FoundationRules.HeartAlignmentSpeed(character.Temperament,
+                FoundationRules.FruitionOf(character.FoundationId, ctx.Content.Fruitions), ctx.Content.Balance);
+            double multiplier = (1.0 + karma.GetCultivationSpeedBonus()) * speed * heart;
             if (character.MentalStability < LowStabilityThreshold)
                 multiplier *= LowStabilityMultiplier;
 
@@ -58,7 +61,7 @@ namespace MirrorChronicles.Characters
         /// <summary>Adds XP from any source (cultivation, study, teaching, buildings) and climbs free sub-levels.</summary>
         public void GrantXp(CharacterData character, int amount)
         {
-            if (amount <= 0 || !SpiritualOrificeRules.CanCultivate(character)) return;
+            if (amount <= 0 || !SpiritualOrificeRules.CanCultivate(character) || character.ProgressionSealed) return;
             character.CultivationXP += amount;
             AdvanceSubLevels(character);
         }
@@ -69,7 +72,7 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public void AdvanceSubLevels(CharacterData character)
         {
-            if (!SpiritualOrificeRules.CanCultivate(character)) return;
+            if (!SpiritualOrificeRules.CanCultivate(character) || character.ProgressionSealed) return;
 
             while (true)
             {
@@ -100,20 +103,32 @@ namespace MirrorChronicles.Characters
                 && SpiritualOrificeRules.CanCultivate(character)
                 && step.IsAvailable
                 && step.Trial != TrialKind.None
+                && !character.ProgressionSealed
                 && AllowsNextStep(character, step)
+                && HasTrialQi(character, step.Trial)
                 && character.CultivationXP >= PowerLadder.XpForNextStage(character.Realm);
         }
+
+        /// <summary>The Foundation wall absorbs a portion of the cultivator's own Qi (LORE.md §2.5); other trials need none.</summary>
+        public bool HasTrialQi(CharacterData character, TrialKind trial) =>
+            trial != TrialKind.FoundationWall || resources.QiPortions(character.QiId) >= FoundationRules.FoundationQiPortions;
+
+        /// <summary>Spends what the trial absorbs, whatever its outcome; false when the Qi is lacking.</summary>
+        public bool PayTrialQi(CharacterData character, TrialKind trial) =>
+            trial != TrialKind.FoundationWall || resources.ConsumeQi(character.QiId, FoundationRules.FoundationQiPortions);
 
         /// <summary>True when the member's method leads to the step (LORE.md §2.2); Embryonic Breathing needs no manual.</summary>
         public bool AllowsNextStep(CharacterData character, AdvancementStep step) =>
             TechniqueRules.AllowsAdvance(techniques.MethodOf(character), character.Realm, step.TargetRealm);
 
         /// <summary>
-        /// Moves the character to the step; the new realm's reach raises the lifespan, Dao wounds persist,
-        /// and a flawed method keeps its toll.
+        /// Moves the character to the step; entering the Foundation forms the foundation of their Qi; the new
+        /// realm's reach raises the lifespan, Dao wounds persist, and a flawed method keeps its toll.
         /// </summary>
         public void ApplyStep(CharacterData character, AdvancementStep step)
         {
+            if (character.Realm == CultivationRealm.QiRefinement && step.TargetRealm == CultivationRealm.Foundation)
+                character.FoundationId = techniques.FindQi(character.QiId)?.Foundation; // the chakras fuse into the Qi's foundation (§5.3.1)
             character.Realm = step.TargetRealm;
             character.RealmStage = step.TargetStage;
             character.MaxLifespan = TechniqueRules.LifespanWithMethod(PowerLadder.LifespanAfterAdvance(character), techniques.MethodOf(character));

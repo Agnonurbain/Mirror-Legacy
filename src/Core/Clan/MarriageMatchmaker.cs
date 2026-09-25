@@ -82,6 +82,7 @@ namespace MirrorChronicles.Clan
                 SpiritualRoot = rng.Next(OutsiderMinSpiritualRoot, OutsiderMaxSpiritualRoot + 1),
                 Affinity = (Element)rng.Next(1, elementCount), // skip Element.None
                 HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(0, rng.NextDouble(), odds), // commoner odds
+                Temperament = FoundationRules.RandomTemperament(rng),
                 ID = rng.NextId() // seeded, for reproducible games
             };
         }

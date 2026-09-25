@@ -57,6 +57,16 @@ namespace MirrorChronicles.Characters
                 ctx.Log.Warning($"[Breakthrough] {character.FullName}'s method leads no further than {RankCatalog.DisplayName(character)}.");
                 return null;
             }
+            if (character.ProgressionSealed)
+            {
+                ctx.Log.Warning($"[Breakthrough] {character.FullName} consumed a Dao Partner and can progress no further.");
+                return null;
+            }
+            if (!cultivation.PayTrialQi(character, step.Trial))
+            {
+                ctx.Log.Warning($"[Breakthrough] {character.FullName} lacks the portion of Qi the {step.Trial} absorbs.");
+                return null;
+            }
 
             int successRate = CalculateSuccessRate(character);
             if (AncestralShieldActive)

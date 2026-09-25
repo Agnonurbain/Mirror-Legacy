@@ -56,6 +56,12 @@ namespace MirrorChronicles.Data
         public string CultivationMethodId { get; set; }
         public string QiId { get; set; }
 
+        // Immortal foundation (LORE.md §5.3): « fruition-id:ability-id » formed at the Foundation; consuming a
+        // Dao Partner seals all further progression; the heart's temper aligns with the lineage (§5.3.2)
+        public string FoundationId { get; set; }
+        public bool ProgressionSealed { get; set; }
+        public Temperament Temperament { get; set; }
+
         // Family Links (Stored as IDs for easy serialization without circular references)
         public string FatherID { get; set; }
         public string MotherID { get; set; }

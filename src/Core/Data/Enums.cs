@@ -68,4 +68,19 @@ namespace MirrorChronicles.Data
         Illness,
         SpiritualDissolution // failed Foundation breakthrough (LORE.md §5.3.1)
     }
+
+    /// <summary>
+    /// The temper of a cultivator's heart (decision of 2026-09-25, LORE.md §5.3.2): at the Foundation the
+    /// Dao Heart aligns with the lineage's own, faster for a heart already alike. None: not yet known.
+    /// </summary>
+    public enum Temperament
+    {
+        None,
+        Dominant, // a domineering leader: the Bright Yang
+        Solitary,
+        Patient,
+        Fiery,
+        Cunning,
+        Serene
+    }
 }

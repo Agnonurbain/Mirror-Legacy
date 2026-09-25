@@ -37,6 +37,7 @@ namespace MirrorChronicles.Session
         public TechniqueLibrary Techniques { get; }
         public CultivationSystem Cultivation { get; }
         public BreakthroughSystem Breakthroughs { get; }
+        public FoundationSystem Foundations { get; }
         public AgingSystem Aging { get; }
         public WoundSystem Wounds { get; }
         public FactionManager Factions { get; }
@@ -68,6 +69,7 @@ namespace MirrorChronicles.Session
             Techniques = new TechniqueLibrary(Context);
             Cultivation = new CultivationSystem(Context, Karma, Techniques, Resources);
             Breakthroughs = new BreakthroughSystem(Context, Clan, Cultivation);
+            Foundations = new FoundationSystem(Context, Clan, Techniques);
             Aging = new AgingSystem(Context, Clan);
             Wounds = new WoundSystem(Context, Stability);
             Factions = new FactionManager(Context);
@@ -141,7 +143,11 @@ namespace MirrorChronicles.Session
                 (data.Techniques ?? new List<TechniqueData>()).Select(t => t.Clone()));
             session.Resources.RestoreQi(data.SpiritualQi ?? content.Clan.StartingQi, data.QiHarvestProgress);
             foreach (var record in records)
+            {
                 session.Techniques.NormalizeMember(record);                  // a Qi cultivator practises a method
+                if (record.Temperament == Temperament.None)                  // saves made before the Dao Heart
+                    record.Temperament = FoundationRules.RandomTemperament(rng);
+            }
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);

@@ -62,7 +62,8 @@ namespace MirrorChronicles.Clan
                 MaxLifespan = PowerLadder.MaxLifespan(f.Realm, f.RealmStage),
                 MentalStability = f.MentalStability,
                 HasSpiritualOrifice = true,
-                OrificeKnown = true
+                OrificeKnown = true,
+                Temperament = f.Temperament != Temperament.None ? f.Temperament : FoundationRules.RandomTemperament(rng)
             };
         }
     }

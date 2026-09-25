@@ -89,6 +89,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>The method the founder practises; required from Qi Cultivation on.</summary>
         public string CultivationMethod { get; init; }
+
+        /// <summary>The founder's temper; drawn when the data leaves it out.</summary>
+        public Temperament Temperament { get; init; }
     }
 
     /// <summary>First names by sex and the family names of wandering cultivators (names.json).</summary>
@@ -113,6 +116,16 @@ namespace MirrorChronicles.Data
 
         /// <summary>How a lineage whose status the lore leaves open is drawn at the start of a game (§11.7).</summary>
         public FruitionOdds UnspecifiedFruitionOdds { get; init; }
+
+        /// <summary>Cultivation speed at the Foundation and beyond of a Dao Heart aligned with its lineage, and of another (§5.3.2).</summary>
+        public double HeartAlignedSpeed { get; init; } = 1.0;
+        public double HeartMisalignedSpeed { get; init; } = 1.0;
+
+        /// <summary>Each year, the chance a foundation's holder takes on the temper its lineage favours.</summary>
+        public double HeartAlignmentYearlyChance { get; init; }
+
+        /// <summary>Chance a newborn takes a parent's temper (otherwise a temper of its own).</summary>
+        public double TemperamentInheritanceChance { get; init; }
     }
 
     /// <summary>Chance of a spiritual orifice at birth, by the number of parents who have one.</summary>

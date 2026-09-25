@@ -76,6 +76,10 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<string> Surplus { get; init; } = Array.Empty<string>();
         public IReadOnlyList<string> Intercalary { get; init; } = Array.Empty<string>();
         public string Star { get; init; }
+
+        /// <summary>The temper the lineage favours (its profile, §6.9): an aligned Dao Heart cultivates it faster.</summary>
+        public Temperament Temperament { get; init; }
+
         public string Notes { get; init; }
     }
 

@@ -143,6 +143,9 @@ namespace MirrorChronicles.Data
             Require(world != null && IsProbability(world.Free) && IsProbability(world.Occupied) && IsProbability(world.Broken)
                 && Math.Abs(world.Free + world.Occupied + world.Broken - 1.0) < 1e-6,
                 BalanceFile, "unspecifiedFruitionOdds (free, occupied, broken) must be probabilities summing to 1.");
+            Require(balance.HeartAlignedSpeed > 0 && balance.HeartMisalignedSpeed > 0, BalanceFile, "the Dao Heart speeds must be positive.");
+            Require(IsProbability(balance.HeartAlignmentYearlyChance) && IsProbability(balance.TemperamentInheritanceChance),
+                BalanceFile, "the Dao Heart's alignment and inheritance chances must lie between 0 and 1.");
         }
 
         private static void CheckFactions(List<FactionData> factions)

@@ -49,7 +49,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Détenteur inconnu. Symbole : le soleil ; « rouge feu comme l'or, fulgurant comme la lumière ». Base des Immortels au Visage Radieux (Main Gauche vraie)."
+      "notes": "Détenteur inconnu. Symbole : le soleil ; « rouge feu comme l'or, fulgurant comme la lumière ». Base des Immortels au Visage Radieux (Main Gauche vraie).",
+      "temperament": "Dominant"
     },
     {
       "id": "bright-yang",
@@ -146,7 +147,8 @@
       ],
       "intercalary": [],
       "star": "les Étoiles Souveraines du Soleil Jaillissant",
-      "notes": "Croissance, union, lumière céleste ; contre naturel des Diables ; exige un esprit impérieux. Chérit le lien père-fils mais abhorre l'inversion. Supprime et est supprimé par le Yin Voilé. Empreinte de la bête Hongyao."
+      "notes": "Croissance, union, lumière céleste ; contre naturel des Diables ; exige un esprit impérieux. Chérit le lien père-fils mais abhorre l'inversion. Supprime et est supprimé par le Yin Voilé. Empreinte de la bête Hongyao.",
+      "temperament": "Dominant"
     },
     {
       "id": "lesser-yang",
@@ -196,7 +198,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "L'Éveil du Yang Mineur rend indestructible (le Monarque Démon, §12)."
+      "notes": "L'Éveil du Yang Mineur rend indestructible (le Monarque Démon, §12).",
+      "temperament": "Dominant"
     },
     {
       "id": "supreme-yin",
@@ -250,7 +253,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Extrêmement Yin, pur et lumineux, sans force mais inflexible, comme une pierre de glace. Symboles : lapins blancs, crapauds, lune, orchidées blanches."
+      "notes": "Extrêmement Yin, pur et lumineux, sans force mais inflexible, comme une pierre de glace. Symboles : lapins blancs, crapauds, lune, orchidées blanches.",
+      "temperament": "Serene"
     },
     {
       "id": "veiled-yin",
@@ -300,7 +304,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "S'oppose au Yang Lumineux (suppression mutuelle) ; l'État de Pei le cultive. 🔎 Brume du Yin Retourné et Ouragan du Yin Spectral, fondations isolées (§6.5), y sont rattachées par interprétation."
+      "notes": "S'oppose au Yang Lumineux (suppression mutuelle) ; l'État de Pei le cultive. 🔎 Brume du Yin Retourné et Ouragan du Yin Spectral, fondations isolées (§6.5), y sont rattachées par interprétation.",
+      "temperament": "Serene"
     },
     {
       "id": "lesser-yin",
@@ -352,7 +357,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Base des Immortels de Jade Tressé (Main Gauche vraie) ; un manuel de grade 4 a été compilé par une servante immortelle du Yin Mineur."
+      "notes": "Base des Immortels de Jade Tressé (Main Gauche vraie) ; un manuel de grade 4 a été compilé par une servante immortelle du Yin Mineur.",
+      "temperament": "Serene"
     },
     {
       "id": "orthodox-water",
@@ -431,7 +437,8 @@
         "Vrai Monarque Shencang"
       ],
       "star": "Mercure",
-      "notes": "Insaisissable, manipulateur, mobile : esquive et contre-attaque ; essence gris-vert, pluie. Le Vrai Monarque Cehe est mort en tentant l'Embryon du Dao."
+      "notes": "Insaisissable, manipulateur, mobile : esquive et contre-attaque ; essence gris-vert, pluie. Le Vrai Monarque Cehe est mort en tentant l'Embryon du Dao.",
+      "temperament": "Cunning"
     },
     {
       "id": "gathered-water",
@@ -495,7 +502,8 @@
       ],
       "intercalary": [],
       "star": null,
-      "notes": "Érosive : empoisonne et entrave le flux de mana. « Aime rassembler » : puissance sans rivale."
+      "notes": "Érosive : empoisonne et entrave le flux de mana. « Aime rassembler » : puissance sans rivale.",
+      "temperament": "Cunning"
     },
     {
       "id": "nourishing-water",
@@ -547,7 +555,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Vacante depuis environ 600 ans (naissance du Lac Jingshui). Lacs, marais, vent et serpents crochus ; perturbe le vol. Rare dans le sud de Linxi, abondante en Mer Orientale."
+      "notes": "Vacante depuis environ 600 ans (naissance du Lac Jingshui). Lacs, marais, vent et serpents crochus ; perturbe le vol. Rare dans le sud de Linxi, abondante en Mer Orientale.",
+      "temperament": "Solitary"
     },
     {
       "id": "mutable-water",
@@ -636,7 +645,8 @@
         "les 8e et 9e fils du Serpent-Dragon"
       ],
       "star": null,
-      "notes": "Volumineuse, purifiante, étouffante : immobilise, étouffe et dissout. Tan Qing a une profondeur du Dao immense mais n'est pas aimé de sa Fruition. Désignation de Rang : l'Épée de l'Éveil du Cœur. « Son règne est fugace »."
+      "notes": "Volumineuse, purifiante, étouffante : immobilise, étouffe et dissout. Tan Qing a une profondeur du Dao immense mais n'est pas aimé de sa Fruition. Désignation de Rang : l'Épée de l'Éveil du Cœur. « Son règne est fugace ».",
+      "temperament": "Patient"
     },
     {
       "id": "hidden-water",
@@ -691,7 +701,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "« Ce qui est caché, pas encore libéré »."
+      "notes": "« Ce qui est caché, pas encore libéré ».",
+      "temperament": "Cunning"
     },
     {
       "id": "orthodox-fire",
@@ -754,7 +765,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Répartition connue des capacités : 2 Vie, 1 Corps, 2 Magie."
+      "notes": "Répartition connue des capacités : 2 Vie, 1 Corps, 2 Magie.",
+      "temperament": "Fiery"
     },
     {
       "id": "gathered-fire",
@@ -816,7 +828,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Répartition : 1 Vie, 1 Corps, 3 Magie (🔎 le type du Soupir du Cœur Ardent en découle). Insidieux, épuisant : brûle la vitalité, douleur atroce surtout pour les démons ; flammes gris-noir."
+      "notes": "Répartition : 1 Vie, 1 Corps, 3 Magie (🔎 le type du Soupir du Cœur Ardent en découle). Insidieux, épuisant : brûle la vitalité, douleur atroce surtout pour les démons ; flammes gris-noir.",
+      "temperament": "Cunning"
     },
     {
       "id": "nourishing-fire",
@@ -875,7 +888,8 @@
       ],
       "intercalary": [],
       "star": null,
-      "notes": "Brisée : on ne peut y monter tant qu'elle n'est pas restaurée. Flammes rouge-or, dominantes et royales ; chaleur écrasante dès l'aura."
+      "notes": "Brisée : on ne peut y monter tant qu'elle n'est pas restaurée. Flammes rouge-or, dominantes et royales ; chaleur écrasante dès l'aura.",
+      "temperament": "Dominant"
     },
     {
       "id": "mutable-fire",
@@ -927,7 +941,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Fiery"
     },
     {
       "id": "hidden-fire",
@@ -979,7 +994,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Fiery"
     },
     {
       "id": "molten-fire",
@@ -1029,7 +1045,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Lignée distincte du Feu Rassemblé. Funeste, éclatant ; incline l'équilibre vers le Yang ; fait fondre artefacts et formations (contre les fondations du Métal) ; cœur brillant, flammes pâles."
+      "notes": "Lignée distincte du Feu Rassemblé. Funeste, éclatant ; incline l'équilibre vers le Yang ; fait fondre artefacts et formations (contre les fondations du Métal) ; cœur brillant, flammes pâles.",
+      "temperament": "Fiery"
     },
     {
       "id": "blazing-fire",
@@ -1079,7 +1096,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Réside au nord ; ses objets aident à cultiver la Marche contre le Vent du Nord (Bois Orthodoxe)."
+      "notes": "Réside au nord ; ses objets aident à cultiver la Marche contre le Vent du Nord (Bois Orthodoxe).",
+      "temperament": "Fiery"
     },
     {
       "id": "orthodox-earth",
@@ -1132,7 +1150,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Sa Course du Fou vers la Cime sert de substitution au Grand Chaman (Gongye Shu)."
+      "notes": "Sa Course du Fou vers la Cime sert de substitution au Grand Chaman (Gongye Shu).",
+      "temperament": "Serene"
     },
     {
       "id": "gathered-earth",
@@ -1184,7 +1203,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Serene"
     },
     {
       "id": "nourishing-earth",
@@ -1237,7 +1257,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Serene"
     },
     {
       "id": "mutable-earth",
@@ -1289,7 +1310,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Serene"
     },
     {
       "id": "hidden-earth",
@@ -1343,7 +1365,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Sol qui recèle. La Désignation de Rang forgée par Wen Xiang garde encore la Grotte Céleste du Ciel des Mille Prospérités."
+      "notes": "Sol qui recèle. La Désignation de Rang forgée par Wen Xiang garde encore la Grotte Céleste du Ciel des Mille Prospérités.",
+      "temperament": "Serene"
     },
     {
       "id": "orthodox-metal",
@@ -1395,7 +1418,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Solitary"
     },
     {
       "id": "gathered-metal",
@@ -1448,7 +1472,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Occupé par des héritiers partis au-delà des Cieux, statut inconnu. Le Trésor Profond, trésorerie de Douxuan, existe entre lui et le Métal Caché."
+      "notes": "Occupé par des héritiers partis au-delà des Cieux, statut inconnu. Le Trésor Profond, trésorerie de Douxuan, existe entre lui et le Métal Caché.",
+      "temperament": "Solitary"
     },
     {
       "id": "wandering-metal",
@@ -1501,7 +1526,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Contrôlé par la famille Lian. 🔎 Le « Métal Libéré » nourricier du wiki est probablement le Métal Errant."
+      "notes": "Contrôlé par la famille Lian. 🔎 Le « Métal Libéré » nourricier du wiki est probablement le Métal Errant.",
+      "temperament": "Solitary"
     },
     {
       "id": "mutable-metal",
@@ -1553,7 +1579,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Stèle Gravée : Qi qui brise les formations et fend les montagnes, se renforce à chaque ennemi vaincu, détecte l'or des veines de la terre ; Partenaire Dao du Heaume de l'Aurore."
+      "notes": "Stèle Gravée : Qi qui brise les formations et fend les montagnes, se renforce à chaque ennemi vaincu, détecte l'or des veines de la terre ; Partenaire Dao du Heaume de l'Aurore.",
+      "temperament": "Solitary"
     },
     {
       "id": "hidden-metal",
@@ -1607,7 +1634,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Exige le Qi Métallique du Verrou Profond ; manuel de rang 6 connu ; formations, perception des trésors, dissimulation. Forge Souterraine : internaliser des artefacts (culture très douloureuse). Le complot du Verrou du Trésor Unifié limite cette voie."
+      "notes": "Exige le Qi Métallique du Verrou Profond ; manuel de rang 6 connu ; formations, perception des trésors, dissimulation. Forge Souterraine : internaliser des artefacts (culture très douloureuse). Le complot du Verrou du Trésor Unifié limite cette voie.",
+      "temperament": "Solitary"
     },
     {
       "id": "harmonious-metal",
@@ -1657,7 +1685,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Métal de préservation et de collecte, extrêmement rare ; occupé par des héritiers partis au-delà des Cieux, statut inconnu."
+      "notes": "Métal de préservation et de collecte, extrêmement rare ; occupé par des héritiers partis au-delà des Cieux, statut inconnu.",
+      "temperament": "Solitary"
     },
     {
       "id": "joy-metal",
@@ -1707,7 +1736,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Hors du tableau des Cinq Manifestations (§6.4)."
+      "notes": "Hors du tableau des Cinq Manifestations (§6.4).",
+      "temperament": "Solitary"
     },
     {
       "id": "green-origin-gold",
@@ -1757,7 +1787,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "🔎 Seule son essence métallique est connue ; la source la dit occupée."
+      "notes": "🔎 Seule son essence métallique est connue ; la source la dit occupée.",
+      "temperament": "Solitary"
     },
     {
       "id": "orthodox-wood",
@@ -1829,7 +1860,8 @@
       "surplus": [],
       "intercalary": [],
       "star": "Jupiter",
-      "notes": "Lignée héréditaire de la famille Huyan. Inflexible comme le métal ou la pierre. Le Refuge de l'Unicité est la clé de la position de Surplus (le Maître taoïste Yuanshu a échoué faute de lui). Manuel : Classique des Monts qui Regardent le Sud."
+      "notes": "Lignée héréditaire de la famille Huyan. Inflexible comme le métal ou la pierre. Le Refuge de l'Unicité est la clé de la position de Surplus (le Maître taoïste Yuanshu a échoué faute de lui). Manuel : Classique des Monts qui Regardent le Sud.",
+      "temperament": "Patient"
     },
     {
       "id": "gathered-wood",
@@ -1885,7 +1917,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Vacante depuis le déclin des chamans. Longévité par le Péril : « impossible à éliminer, impossible à tuer » (mauvais présage : les sauterelles)."
+      "notes": "Vacante depuis le déclin des chamans. Longévité par le Péril : « impossible à éliminer, impossible à tuer » (mauvais présage : les sauterelles).",
+      "temperament": "Patient"
     },
     {
       "id": "nourishing-wood",
@@ -1937,7 +1970,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Patient"
     },
     {
       "id": "mutable-wood",
@@ -1989,7 +2023,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Patient"
     },
     {
       "id": "hidden-wood",
@@ -2041,7 +2076,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Encore largement cultivé. 🔎 Bois des Nuées Hautes et Droiture de l'Écorce (Partenaires Dao l'une de l'autre, §6.5) y sont rattachées par interprétation."
+      "notes": "Encore largement cultivé. 🔎 Bois des Nuées Hautes et Droiture de l'Écorce (Partenaires Dao l'une de l'autre, §6.5) y sont rattachées par interprétation.",
+      "temperament": "Patient"
     },
     {
       "id": "pure-qi",
@@ -2095,7 +2131,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Nourrit une Grotte Céleste à son apogée ; quand elle meurt, le Qi Exilé la réclame."
+      "notes": "Nourrit une Grotte Céleste à son apogée ; quand elle meurt, le Qi Exilé la réclame.",
+      "temperament": "Serene"
     },
     {
       "id": "true-qi",
@@ -2145,7 +2182,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Serene"
     },
     {
       "id": "brilliant-qi",
@@ -2195,7 +2233,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Favorise les bouddhistes ; les maîtres du Dharma modernes lui empruntent une autorité limitée."
+      "notes": "Favorise les bouddhistes ; les maîtres du Dharma modernes lui empruntent une autorité limitée.",
+      "temperament": "Serene"
     },
     {
       "id": "violet-qi",
@@ -2252,7 +2291,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Serene"
     },
     {
       "id": "dry-qi",
@@ -2308,7 +2348,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Porté par le Mont Qushan (en déclin) et le clan Hui (fragmenté) ; plus grand maître connu : Maître Diyun (Manoir Pourpre, apogée). Chaleur persistante qui épuise ; domine les combats prolongés. Symboles : soleil déclinant, désert, sécheresse."
+      "notes": "Porté par le Mont Qushan (en déclin) et le clan Hui (fragmenté) ; plus grand maître connu : Maître Diyun (Manoir Pourpre, apogée). Chaleur persistante qui épuise ; domine les combats prolongés. Symboles : soleil déclinant, désert, sécheresse.",
+      "temperament": "Patient"
     },
     {
       "id": "upper-rite",
@@ -2358,7 +2399,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Serene"
     },
     {
       "id": "lower-rite",
@@ -2408,7 +2450,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Serene"
     },
     {
       "id": "cold-qi",
@@ -2458,7 +2501,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Solitary"
     },
     {
       "id": "auspicious-qi",
@@ -2508,7 +2552,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Serene"
     },
     {
       "id": "baleful-qi",
@@ -2558,7 +2603,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "🔎 L'Épine de la Porte des Tombes, fondation isolée (§6.5), y est rattachée par interprétation."
+      "notes": "🔎 L'Épine de la Porte des Tombes, fondation isolée (§6.5), y est rattachée par interprétation.",
+      "temperament": "Cunning"
     },
     {
       "id": "profound-qi",
@@ -2608,7 +2654,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "🔎 Peut-être l'« Essence illimitée » de la source."
+      "notes": "🔎 Peut-être l'« Essence illimitée » de la source.",
+      "temperament": "Serene"
     },
     {
       "id": "exiled-qi",
@@ -2658,7 +2705,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Dévore les signatures d'énergie, brouille la divination, efface le souvenir d'un lieu. Le Chant du Fleuve d'Oubli achevé peut refléter le monde souterrain."
+      "notes": "Dévore les signatures d'énergie, brouille la divination, efface le souvenir d'un lieu. Le Chant du Fleuve d'Oubli achevé peut refléter le monde souterrain.",
+      "temperament": "Solitary"
     },
     {
       "id": "celestial-thunder",
@@ -2708,7 +2756,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Variante du Bassin d'Orage : le Coup de Tonnerre Hivernal, qui exigeait un Liquide de Tonnerre Or-Pourpre disparu avec le Temple des Nuées d'Orage."
+      "notes": "Variante du Bassin d'Orage : le Coup de Tonnerre Hivernal, qui exigeait un Liquide de Tonnerre Or-Pourpre disparu avec le Temple des Nuées d'Orage.",
+      "temperament": "Fiery"
     },
     {
       "id": "profound-thunder",
@@ -2758,7 +2807,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "🔎 Compté parmi les Trois Tonnerres par déduction. Commandé par la Séquence Divine (Régent Céleste) ; prédisposé au Dao Divin."
+      "notes": "🔎 Compté parmi les Trois Tonnerres par déduction. Commandé par la Séquence Divine (Régent Céleste) ; prédisposé au Dao Divin.",
+      "temperament": "Fiery"
     },
     {
       "id": "primordial-magnetism",
@@ -2808,7 +2858,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "🔎 Compté parmi les Trois Tonnerres par déduction ; prédisposé au Dao Divin. Sang flottant en gouttelettes électrifiées."
+      "notes": "🔎 Compté parmi les Trois Tonnerres par déduction ; prédisposé au Dao Divin. Sang flottant en gouttelettes électrifiées.",
+      "temperament": "Fiery"
     },
     {
       "id": "celestial-regent",
@@ -2870,7 +2921,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "La Séquence Divine, art du calcul fondé sur les astres, est affaiblie : les étoiles sont en désordre. Manuels : Rouleau Divin de la Séquence du Régent Céleste (rang 6), Art de la Révolution du Grand Vide, Art de la Tablette d'Or, Art de l'Étoile Vigilante, Rouleau Sacré de la Cour des Étoiles. Prédisposé au Dao Divin."
+      "notes": "La Séquence Divine, art du calcul fondé sur les astres, est affaiblie : les étoiles sont en désordre. Manuels : Rouleau Divin de la Séquence du Régent Céleste (rang 6), Art de la Révolution du Grand Vide, Art de la Tablette d'Or, Art de l'Étoile Vigilante, Rouleau Sacré de la Cour des Étoiles. Prédisposé au Dao Divin.",
+      "temperament": "Patient"
     },
     {
       "id": "linxi-cultivation",
@@ -2925,7 +2977,8 @@
       "surplus": [],
       "intercalary": [],
       "star": "l'étoile Xingbo",
-      "notes": null
+      "notes": null,
+      "temperament": "Cunning"
     },
     {
       "id": "city-sentinel",
@@ -2986,7 +3039,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "La lignée Hei (fragmentaire), les anciennes Cours des Esprits. Fengshui, divinités, fantômes, lignes telluriques, domaines hantés. Prédisposée au Dao Divin."
+      "notes": "La lignée Hei (fragmentaire), les anciennes Cours des Esprits. Fengshui, divinités, fantômes, lignes telluriques, domaines hantés. Prédisposée au Dao Divin.",
+      "temperament": "Solitary"
     },
     {
       "id": "perfect-elixir",
@@ -3048,7 +3102,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Aussi rattaché à la Vertu Primordiale. Ressource : le Mercure Pur de la Grande Unité. Harmonie Parfaite reproduit un artefact tenu en main à 60-70 % de sa puissance. Prédisposé au Dao Divin."
+      "notes": "Aussi rattaché à la Vertu Primordiale. Ressource : le Mercure Pur de la Grande Unité. Harmonie Parfaite reproduit un artefact tenu en main à 60-70 % de sa puissance. Prédisposé au Dao Divin.",
+      "temperament": "Patient"
     },
     {
       "id": "kui-body",
@@ -3098,7 +3153,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Prédisposé au Dao Divin."
+      "notes": "Prédisposé au Dao Divin.",
+      "temperament": "Fiery"
     },
     {
       "id": "grand-shaman",
@@ -3164,7 +3220,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "La plus proche du Dao chamanique : avec la technique adéquate, on y passe en gardant une partie de sa progression. Méthode chamanique : le Sacrifice."
+      "notes": "La plus proche du Dao chamanique : avec la technique adéquate, on y passe en gardant une partie de sa progression. Méthode chamanique : le Sacrifice.",
+      "temperament": "Fiery"
     },
     {
       "id": "threshold-owl",
@@ -3224,7 +3281,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Méthode chamanique : la Transformation."
+      "notes": "Méthode chamanique : la Transformation.",
+      "temperament": "Solitary"
     },
     {
       "id": "first-jade",
@@ -3289,7 +3347,8 @@
       ],
       "intercalary": [],
       "star": null,
-      "notes": "Méthode chamanique : la Dissimulation ; gouverne aussi le réel et l'illusoire, le vrai et le faux. Un détenteur antérieur a renoncé à sa Réalisation."
+      "notes": "Méthode chamanique : la Dissimulation ; gouverne aussi le réel et l'illusoire, le vrai et le faux. Un détenteur antérieur a renoncé à sa Réalisation.",
+      "temperament": "Cunning"
     },
     {
       "id": "balanced-rite",
@@ -3339,7 +3398,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": null
+      "notes": null,
+      "temperament": "Serene"
     },
     {
       "id": "celadon-proclamation",
@@ -3400,7 +3460,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "Empruntée à une lignée de la Vertu Terrestre : Fusion Ancienne et « Sixième Terre ». L'Essence du Yang Mineur peut remplacer une fois un Partenaire Dao (Canon des Sept Terrasses)."
+      "notes": "Empruntée à une lignée de la Vertu Terrestre : Fusion Ancienne et « Sixième Terre ». L'Essence du Yang Mineur peut remplacer une fois un Partenaire Dao (Canon des Sept Terrasses).",
+      "temperament": "Serene"
     },
     {
       "id": "sword-dao",
@@ -3457,7 +3518,8 @@
       ],
       "intercalary": [],
       "star": null,
-      "notes": "Attestée du néant par l'Ancêtre de l'Épée, Seigneur Immortel."
+      "notes": "Attestée du néant par l'Ancêtre de l'Épée, Seigneur Immortel.",
+      "temperament": "Dominant"
     },
     {
       "id": "dawnlight",
@@ -3511,7 +3573,8 @@
       "surplus": [],
       "intercalary": [],
       "star": null,
-      "notes": "72 types de Lueur de l'Aube, dont 48 créés par le Vrai Monarque du Mont Xiaoyun : toute Lueur de l'Aube se soumet à lui. 🔎 La Brume de l'Aube Universelle (fondation de la Méthode de la Perle de Rosée) y est rattachée."
+      "notes": "72 types de Lueur de l'Aube, dont 48 créés par le Vrai Monarque du Mont Xiaoyun : toute Lueur de l'Aube se soumet à lui. 🔎 La Brume de l'Aube Universelle (fondation de la Méthode de la Perle de Rosée) y est rattachée.",
+      "temperament": "Dominant"
     }
   ]
 }
