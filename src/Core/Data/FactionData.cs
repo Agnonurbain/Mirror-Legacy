@@ -19,6 +19,7 @@ namespace MirrorChronicles.Data
     {
         public string ID { get; set; }
         public string Name { get; set; }
+        public string FamilyName { get; set; } // the ruling family's surname, given to the spouses it sends; null for sects
         public FactionPersonality Personality { get; set; }
         
         // Power Level represents their overall military/cultivation strength (e.g., 100 = weak, 10000 = major sect)

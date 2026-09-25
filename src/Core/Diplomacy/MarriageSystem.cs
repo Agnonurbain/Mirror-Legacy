@@ -36,8 +36,9 @@ namespace MirrorChronicles.Diplomacy
         /// </summary>
         public int ProcessAnnualMarriages()
         {
-            var plans = MarriageMatchmaker.PlanAnnualMarriages(
-                clan.LivingMembers.ToList(), clan.FindById, MarriageMatchmaker.AnnualMarriageChance, ctx.Rng);
+            var content = ctx.Content;
+            var plans = MarriageMatchmaker.PlanAnnualMarriages(clan.LivingMembers.ToList(), clan.FindById,
+                content.Balance.AnnualMarriageChance, content.Names, content.Balance.OrificeOdds, ctx.Rng);
 
             int married = 0;
             foreach (var plan in plans)
@@ -81,7 +82,9 @@ namespace MirrorChronicles.Diplomacy
             var faction = factions.GetFactionByID(factionId);
             if (faction == null) return false;
 
-            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(member, faction.Name.Split(' ')[0], ctx.Rng);
+            var names = ctx.Content.Names;
+            string family = faction.FamilyName ?? MarriageMatchmaker.PickFamilyName(names, ctx.Rng); // a sect sends one of its disciples
+            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(member, family, names, ctx.Content.Balance.OrificeOdds, ctx.Rng);
             spouse.Realm = CultivationRealm.QiRefinement;
             spouse.RealmStage = 1;
             spouse.HasSpiritualOrifice = true; // a faction only trains those it has examined

@@ -31,7 +31,6 @@ namespace MirrorChronicles.Clan
     {
         public const int MinMarriageAge = 18;
         public const int MaxSeekingAge = 40;
-        public const float AnnualMarriageChance = 0.3f;
 
         private const int OutsiderAgeSpread = 5;
         private const int OutsiderMinSpiritualRoot = 10;
@@ -64,12 +63,13 @@ namespace MirrorChronicles.Clan
         }
 
         /// <summary>
-        /// A wandering cultivator of the opposite sex, adult, with no parents in the clan.
+        /// A wandering cultivator of the opposite sex, adult, with no parents in the clan; a commoner,
+        /// so the orifice comes with the commoner odds.
         /// </summary>
-        public static CharacterData CreateOutsiderSpouse(CharacterData member, string lastName, Random rng)
+        public static CharacterData CreateOutsiderSpouse(CharacterData member, string lastName, NamePools names, OrificeOdds odds, Random rng)
         {
             bool isMale = !member.IsMale;
-            var firstNames = isMale ? CharacterNames.Male : CharacterNames.Female;
+            var firstNames = isMale ? names.Male : names.Female;
             int elementCount = Enum.GetValues(typeof(Element)).Length;
 
             return new CharacterData
@@ -81,7 +81,7 @@ namespace MirrorChronicles.Clan
                 MaxLifespan = SpiritualOrificeRules.MortalLifespan(rng.NextDouble()), // has never cultivated
                 SpiritualRoot = rng.Next(OutsiderMinSpiritualRoot, OutsiderMaxSpiritualRoot + 1),
                 Affinity = (Element)rng.Next(1, elementCount), // skip Element.None
-                HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(0, rng.NextDouble()), // commoner odds
+                HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(0, rng.NextDouble(), odds), // commoner odds
                 ID = rng.NextId() // seeded, for reproducible games
             };
         }
@@ -90,7 +90,8 @@ namespace MirrorChronicles.Clan
         /// Rolls <paramref name="chance"/> for each eligible member; a match is found inside the clan
         /// when possible, otherwise an outsider is created. Nobody is planned twice.
         /// </summary>
-        public static List<MarriagePlan> PlanAnnualMarriages(IReadOnlyList<CharacterData> members, Func<string, CharacterData> findById, float chance, Random rng)
+        public static List<MarriagePlan> PlanAnnualMarriages(IReadOnlyList<CharacterData> members, Func<string, CharacterData> findById,
+            double chance, NamePools names, OrificeOdds odds, Random rng)
         {
             var plans = new List<MarriagePlan>();
             var matched = new HashSet<string>();
@@ -101,7 +102,7 @@ namespace MirrorChronicles.Clan
                 if (rng.NextDouble() >= chance) continue;
 
                 var partner = FindClanPartner(member, members.Where(c => !matched.Contains(c.ID)), findById);
-                var spouse = partner ?? CreateOutsiderSpouse(member, PickFamilyName(rng), rng);
+                var spouse = partner ?? CreateOutsiderSpouse(member, PickFamilyName(names, rng), names, odds, rng);
 
                 matched.Add(member.ID);
                 matched.Add(spouse.ID);
@@ -111,9 +112,10 @@ namespace MirrorChronicles.Clan
             return plans;
         }
 
-        private static string PickFamilyName(Random rng)
+        /// <summary>The surname of a wandering cultivator's family.</summary>
+        public static string PickFamilyName(NamePools names, Random rng)
         {
-            return CharacterNames.OutsiderFamilies[rng.Next(CharacterNames.OutsiderFamilies.Count)];
+            return names.OutsiderFamilies[rng.Next(names.OutsiderFamilies.Count)];
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
@@ -6,51 +7,53 @@ using MirrorChronicles.Session;
 namespace MirrorChronicles.Clan
 {
     /// <summary>
-    /// The five founders of a new game: the patriarch and matriarch at Qi Refinement, their son and
-    /// daughter and the patriarch's brother in Embryonic Breathing. All cultivate, so their orifices are
-    /// known. (First names move to data in phase G2.)
+    /// Founds the clan of a new game from clan.json: the patriarch and the matriarch are married, the
+    /// children are theirs, kin have no recorded parents. Every founder cultivates, so their orifices
+    /// are known.
     /// </summary>
     public static class FoundingClan
     {
         /// <param name="rng">The session's random source, for reproducible IDs.</param>
-        public static void Found(ClanManager clan, Random rng)
+        public static void Found(ClanManager clan, ClanDefinition definition, Random rng)
         {
-            var patriarch = Founder(clan, rng, "Wei", isMale: true, age: 45, root: 65, Element.Fire, CultivationRealm.QiRefinement, 3, stability: 80);
-            var matriarch = Founder(clan, rng, "Xue", isMale: false, age: 42, root: 55, Element.Water, CultivationRealm.QiRefinement, 2, stability: 85);
-            patriarch.SpouseID = matriarch.ID;
-            matriarch.SpouseID = patriarch.ID;
+            var founders = definition.Founders.Select(f => (definition: f, member: Create(clan, f, rng))).ToList();
 
-            var son = Founder(clan, rng, "Jian", isMale: true, age: 20, root: 75, Element.Lightning, CultivationRealm.Embryonic, 2);
-            var daughter = Founder(clan, rng, "Mei", isMale: false, age: 16, root: 45, Element.Wood, CultivationRealm.Embryonic, 1);
-            foreach (var child in new[] { son, daughter })
+            var patriarch = founders.Single(f => f.definition.Role == FounderRole.Patriarch).member;
+            var matriarch = founders.SingleOrDefault(f => f.definition.Role == FounderRole.Matriarch).member;
+            if (matriarch != null)
             {
-                child.FatherID = patriarch.ID;
-                child.MotherID = matriarch.ID;
+                patriarch.SpouseID = matriarch.ID;
+                matriarch.SpouseID = patriarch.ID;
             }
 
-            var uncle = Founder(clan, rng, "Shan", isMale: true, age: 40, root: 25, Element.Earth, CultivationRealm.Embryonic, 1, stability: 60);
+            var father = patriarch.IsMale ? patriarch : matriarch;
+            var mother = patriarch.IsMale ? matriarch : patriarch;
+            foreach (var (_, child) in founders.Where(f => f.definition.Role == FounderRole.Child))
+            {
+                child.FatherID = father?.ID;
+                child.MotherID = mother?.ID;
+            }
 
-            foreach (var member in new[] { patriarch, matriarch, son, daughter, uncle })
+            foreach (var (_, member) in founders)
                 clan.AddMember(member);
             clan.AppointPatriarch(patriarch);
         }
 
-        private static CharacterData Founder(ClanManager clan, Random rng, string firstName, bool isMale, int age, int root,
-            Element affinity, CultivationRealm realm, int stage, int stability = 70)
+        private static CharacterData Create(ClanManager clan, FounderDefinition f, Random rng)
         {
             return new CharacterData
             {
                 ID = rng.NextId(),
-                FirstName = firstName,
+                FirstName = f.FirstName,
                 LastName = clan.ClanName,
-                IsMale = isMale,
-                Age = age,
-                SpiritualRoot = root,
-                Affinity = affinity,
-                Realm = realm,
-                RealmStage = stage,
-                MaxLifespan = PowerLadder.MaxLifespan(realm, stage),
-                MentalStability = stability,
+                IsMale = f.IsMale,
+                Age = f.Age,
+                SpiritualRoot = f.SpiritualRoot,
+                Affinity = f.Affinity,
+                Realm = f.Realm,
+                RealmStage = f.RealmStage,
+                MaxLifespan = PowerLadder.MaxLifespan(f.Realm, f.RealmStage),
+                MentalStability = f.MentalStability,
                 HasSpiritualOrifice = true,
                 OrificeKnown = true
             };

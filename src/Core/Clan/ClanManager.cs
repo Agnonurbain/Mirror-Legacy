@@ -12,9 +12,6 @@ namespace MirrorChronicles.Clan
     /// </summary>
     public sealed class ClanManager
     {
-        public const float AnnualBirthChance = 0.25f;
-        public const int MinMotherAge = 16;
-        public const int MaxMotherAge = 45;
         private const int NewbornStability = 70;
 
         private readonly GameContext ctx;
@@ -85,7 +82,7 @@ namespace MirrorChronicles.Clan
         {
             var rng = ctx.Rng;
             bool isMale = rng.NextDouble() >= 0.5;
-            var names = isMale ? CharacterNames.Male : CharacterNames.Female;
+            var names = isMale ? ctx.Content.Names.Male : ctx.Content.Names.Female;
 
             var child = new CharacterData
             {
@@ -102,23 +99,27 @@ namespace MirrorChronicles.Clan
                 MotherID = mother?.ID
             };
             child.HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(
-                SpiritualOrificeRules.CountParentsWithOrifice(father, mother), rng.NextDouble());
+                SpiritualOrificeRules.CountParentsWithOrifice(father, mother), rng.NextDouble(), ctx.Content.Balance.OrificeOdds);
             child.ID = rng.NextId(); // seeded: the same game always names the same child
 
             AddMember(child);
             return child;
         }
 
-        /// <summary>Each living couple with a mother aged 16-45 has a 25% chance of a child. Returns the births.</summary>
+        /// <summary>
+        /// Each living couple whose mother is within the motherhood window may have a child
+        /// (balance.json: 16-45, 25% a year). Returns the births.
+        /// </summary>
         public int ProcessAnnualBirths()
         {
+            var balance = ctx.Content.Balance;
             int births = 0;
             foreach (var father in living.Where(m => m.IsMale && !string.IsNullOrEmpty(m.SpouseID)).ToList())
             {
                 var mother = living.Find(m => m.ID == father.SpouseID);
-                if (mother == null || mother.Age < MinMotherAge || mother.Age > MaxMotherAge) continue;
+                if (mother == null || mother.Age < balance.MinMotherAge || mother.Age > balance.MaxMotherAge) continue;
 
-                if (ctx.Rng.NextDouble() < AnnualBirthChance)
+                if (ctx.Rng.NextDouble() < balance.AnnualBirthChance)
                 {
                     GenerateChild(father, mother);
                     births++;

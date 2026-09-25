@@ -7,32 +7,29 @@ namespace MirrorChronicles.Characters
 {
     /// <summary>
     /// Hereditary spiritual orifice, mortals and Talisman Seeds (LORE.md §4, decision D3, §11.5).
-    /// Only 3 in 1000 commoners are born with an orifice; a parent who has one passes it on far
-    /// more often, which is why marrying into cultivator lineages matters. The mirror's Talisman
-    /// Seeds let a mortal cultivate anyway, within a capacity set by its restoration level.
+    /// About 3 in 1000 commoners are born with an orifice; a parent who has one passes it on far
+    /// more often, which is why marrying into cultivator lineages matters (the odds live in
+    /// balance.json). The mirror's Talisman Seeds let a mortal cultivate anyway, within a capacity
+    /// set by its restoration level.
     /// </summary>
     public static class SpiritualOrificeRules
     {
-        public const double CommonerOrificeChance = 0.003;
-        public const double OneParentOrificeChance = 0.35;
-        public const double TwoParentsOrificeChance = 0.5;
-
         public const int MortalMinLifespan = 60;
         public const int MortalMaxLifespan = PowerLadder.MortalMaxLifespan;
 
         public const int DetectionChakraStage = 5; // Summit Eye: first chakra that sees another's orifice
         public const int BaseTalismanSeedCapacity = 2;
 
-        public static double OrificeChance(int parentsWithOrifice)
+        public static double OrificeChance(int parentsWithOrifice, OrificeOdds odds)
         {
-            if (parentsWithOrifice <= 0) return CommonerOrificeChance;
-            return parentsWithOrifice == 1 ? OneParentOrificeChance : TwoParentsOrificeChance;
+            if (parentsWithOrifice <= 0) return odds.Commoner;
+            return parentsWithOrifice == 1 ? odds.OneParent : odds.TwoParents;
         }
 
-        /// <param name="roll">Uniform draw in [0, 1]; 1 (possible with Unity's Random.value) never succeeds.</param>
-        public static bool HasOrificeAtBirth(int parentsWithOrifice, double roll)
+        /// <param name="roll">Uniform draw in [0, 1]; 1 never succeeds.</param>
+        public static bool HasOrificeAtBirth(int parentsWithOrifice, double roll, OrificeOdds odds)
         {
-            return roll < OrificeChance(parentsWithOrifice);
+            return roll < OrificeChance(parentsWithOrifice, odds);
         }
 
         /// <summary>A Talisman Seed grafts artificial channels; it is not inherited.</summary>

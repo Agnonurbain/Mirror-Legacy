@@ -34,7 +34,7 @@ namespace MirrorChronicles.Events
 
         public IReadOnlyList<RandomEventData> EventTable => eventTable;
 
-        /// <param name="table">The event table; null uses the built-in placeholder table.</param>
+        /// <param name="table">The event table; null draws from the game's content (events.json).</param>
         public EventManager(GameContext ctx, ClanManager clan, FactionManager factions, DeductionEngine deduction,
             ResourceManager resources, MentalStabilitySystem stability, BuildingSystem buildings,
             IEnumerable<RandomEventData> table = null)
@@ -46,7 +46,7 @@ namespace MirrorChronicles.Events
             this.resources = resources;
             this.stability = stability;
             this.buildings = buildings;
-            eventTable = table?.ToList() ?? DefaultTable();
+            eventTable = (table ?? ctx.Content.RandomEvents).ToList();
         }
 
         public List<RandomEventData> GetEligibleEvents()
@@ -117,25 +117,5 @@ namespace MirrorChronicles.Events
                     // narrated for now; their encounters arrive with combat (G3) and the living world (L6).
             }
         }
-
-        /// <summary>Placeholder table until events move to data (phase G2).</summary>
-        public static List<RandomEventData> DefaultTable() => new List<RandomEventData>
-        {
-            Entry("Monster Attack", RandomEventType.MonsterAttack, 20, "Wild beasts assault the domain."),
-            Entry("Diplomatic Visit", RandomEventType.DiplomaticVisit, 12, "A faction sends envoys."),
-            Entry("Ruins Discovery", RandomEventType.RuinsDiscovery, 10, "Ancient ruins found nearby."),
-            Entry("Genius Birth", RandomEventType.GeniusBirth, 5, "A prodigy appears in the region.", minYear: 5),
-            Entry("Internal Betrayal", RandomEventType.InternalBetrayal, 8, "A troubled member plots."),
-            Entry("Natural Disaster", RandomEventType.NaturalDisaster, 10, "Flood, earthquake or storm."),
-            Entry("Wandering Merchant", RandomEventType.WanderingMerchant, 15, "A merchant with rare wares."),
-            Entry("Rival Challenge", RandomEventType.RivalChallenge, 8, "A rival issues a formal challenge.", minRealm: CultivationRealm.Foundation),
-            Entry("Epidemic", RandomEventType.Epidemic, 7, "Disease sweeps the domain."),
-            Entry("Marriage Opportunity", RandomEventType.MarriageOpportunity, 10, "A neighbouring clan proposes an alliance."),
-            Entry("Peaceful Year", RandomEventType.PeacefulYear, 30, "Nothing of note happens.")
-        };
-
-        private static RandomEventData Entry(string name, RandomEventType type, int weight, string description,
-            CultivationRealm minRealm = CultivationRealm.Embryonic, int minYear = 0) =>
-            new RandomEventData { Name = name, EventType = type, Weight = weight, Description = description, MinPatriarchRealm = minRealm, MinYear = minYear };
     }
 }

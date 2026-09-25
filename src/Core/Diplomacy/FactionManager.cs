@@ -23,20 +23,18 @@ namespace MirrorChronicles.Diplomacy
 
         public void AddFaction(FactionData faction) => factions.Add(faction);
 
-        /// <summary>Placeholder world until the renamed factions of LORE.md §7 move to data (phases G2 and L5).</summary>
-        public void InitializeDefaultFactions()
+        /// <summary>
+        /// The world of a new game: a copy of every faction of the content (factions.json), each with a
+        /// seeded ID. (The renamed factions of LORE.md §7 arrive with phase L5.)
+        /// </summary>
+        public void InitializeFactions()
         {
-            AddFaction(new FactionData { Name = "Wang Family", Personality = FactionPersonality.Aggressive, PowerLevel = 500, Wealth = 1000, RelationWithPlayer = -20 });
-            AddFaction(new FactionData { Name = "Zhao Merchant Guild", Personality = FactionPersonality.Merchant, PowerLevel = 200, Wealth = 5000, RelationWithPlayer = 10 });
-            AddFaction(new FactionData { Name = "Azure Cloud Sect", Personality = FactionPersonality.Isolationist, PowerLevel = 5000, Wealth = 2000, RelationWithPlayer = 0 });
-            AddFaction(new FactionData { Name = "Iron Fist Hall", Personality = FactionPersonality.Aggressive, PowerLevel = 800, Wealth = 600, RelationWithPlayer = -10 });
-            AddFaction(new FactionData { Name = "Jade Phoenix Pavilion", Personality = FactionPersonality.Merchant, PowerLevel = 300, Wealth = 8000, RelationWithPlayer = 15 });
-            AddFaction(new FactionData { Name = "Shadow Veil Sect", Personality = FactionPersonality.Manipulative, PowerLevel = 1200, Wealth = 1500, RelationWithPlayer = -5 });
-            AddFaction(new FactionData { Name = "Verdant Bamboo Hermitage", Personality = FactionPersonality.Isolationist, PowerLevel = 700, Wealth = 400, RelationWithPlayer = 5 });
-            AddFaction(new FactionData { Name = "Golden Sun Empire", Personality = FactionPersonality.Expansionist, PowerLevel = 10000, Wealth = 20000, RelationWithPlayer = 0 });
-
-            foreach (var faction in factions)
-                faction.ID = ctx.Rng.NextId(); // seeded, for reproducible games
+            foreach (var template in ctx.Content.Factions)
+            {
+                var faction = template.Clone(); // the content is shared: never mutate it
+                faction.ID = ctx.Rng.NextId();
+                AddFaction(faction);
+            }
         }
 
         public FactionData GetFactionByID(string id) => factions.Find(f => f.ID == id);

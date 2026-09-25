@@ -23,9 +23,6 @@ namespace MirrorChronicles.Session
     /// </summary>
     public sealed class GameSession
     {
-        /// <summary>The player's clan (LORE.md §13.1); moves to data in phase G2.</summary>
-        public const string DefaultClanName = "Mo";
-
         public int Seed { get; }
         public GameContext Context { get; }
         public GameEventBus Events => Context.Events;
@@ -57,7 +54,7 @@ namespace MirrorChronicles.Session
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
             Seed = seed;
-            Context = new GameContext(new GameEventBus(), setup.Log ?? new NullGameLog(), rng, new GameClock());
+            Context = new GameContext(new GameEventBus(), setup.Log ?? new NullGameLog(), rng, new GameClock(), setup.Content);
 
             // Construction order = reaction order: stability and karma react to a death before the
             // legacy is paid, the story notices, and victory is judged last.
@@ -77,21 +74,22 @@ namespace MirrorChronicles.Session
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability);
             Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
-            RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings, setup.RandomEvents);
+            RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
             Ascension = new AscensionSystem(Context, Clan);
-            Story = new StoryEventManager(Context, Clan, Resources, Stability, Factions, setup.StoryEvents);
+            Story = new StoryEventManager(Context, Clan, Resources, Stability, Factions);
             Victory = new VictoryConditionSystem(Context, Clan, Karma, Ascension);
         }
 
         /// <summary>A new game: the founders, the known world and the mirror's first two fragments.</summary>
         public static GameSession NewGame(GameSetup setup)
         {
-            var session = new GameSession(setup.Seed, new Random(setup.Seed), setup.ClanName ?? DefaultClanName, setup);
+            var content = RequireContent(setup);
+            var session = new GameSession(setup.Seed, new Random(setup.Seed), content.Clan.ClanName, setup);
 
-            FoundingClan.Found(session.Clan, session.Context.Rng);
+            FoundingClan.Found(session.Clan, content.Clan, session.Context.Rng);
             session.Karma.Restore(1, 0, 0, session.Clan.PatriarchID);
-            session.Factions.InitializeDefaultFactions();
+            session.Factions.InitializeFactions();
             session.Deduction.AddFragment(Element.Fire, 1, "Scorched Scroll");
             session.Deduction.AddFragment(Element.Wood, 1, "Bamboo Slip");
 
@@ -106,9 +104,10 @@ namespace MirrorChronicles.Session
         public static GameSession FromSaveData(GameData data, GameSetup setup)
         {
             if (data == null) throw new ArgumentNullException(nameof(data));
+            var content = RequireContent(setup);
 
             var rng = new Random(unchecked(data.Seed * 31 + data.CurrentYear * 4 + (int)data.CurrentPhase));
-            var session = new GameSession(data.Seed, rng, data.ClanName ?? DefaultClanName, setup);
+            var session = new GameSession(data.Seed, rng, data.ClanName ?? content.Clan.ClanName, setup);
 
             // Work on copies: the caller keeps its GameData, and two loads never share objects
             var records = (data.HistoricalRecords ?? new List<CharacterData>()).Select(r => r.Clone()).ToList();
@@ -127,7 +126,7 @@ namespace MirrorChronicles.Session
             session.Ascension.Restore(data.AscendedAncestors);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
-            else session.Factions.InitializeDefaultFactions();
+            else session.Factions.InitializeFactions();
             session.Deduction.Restore(
                 (data.Fragments ?? new List<FragmentData>()).Select(f => f.Clone()),
                 (data.Techniques ?? new List<TechniqueData>()).Select(t => t.Clone()));
@@ -171,6 +170,9 @@ namespace MirrorChronicles.Session
                 GameLost = Victory.GameLost
             };
         }
+
+        private static GameContent RequireContent(GameSetup setup) =>
+            setup?.Content ?? throw new ArgumentException("GameSetup.Content is required: load it with GameContentLoader.", nameof(setup));
 
         /// <summary>Moves to the next phase and resolves it. Does nothing once the game is over.</summary>
         public void AdvancePhase()

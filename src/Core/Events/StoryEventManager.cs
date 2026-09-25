@@ -30,7 +30,7 @@ namespace MirrorChronicles.Events
         public IReadOnlyCollection<StoryTriggerType> TriggeredEvents => triggered;
         public IEnumerable<StoryTriggerType> PendingTriggers => pending.Select(e => e.TriggerType);
 
-        /// <param name="events">The story events; null uses the built-in placeholder set.</param>
+        /// <param name="events">The story events; null uses the game's content (story.json).</param>
         public StoryEventManager(GameContext ctx, ClanManager clan, ResourceManager resources,
             MentalStabilitySystem stability, FactionManager factions, IEnumerable<StoryEventData> events = null)
         {
@@ -39,7 +39,7 @@ namespace MirrorChronicles.Events
             this.resources = resources;
             this.stability = stability;
             this.factions = factions;
-            storyEvents = events?.ToList() ?? DefaultStoryEvents();
+            storyEvents = (events ?? ctx.Content.StoryEvents).ToList();
 
             ctx.Events.OnBreakthroughSuccess += (c, realm) =>
             {
@@ -106,34 +106,5 @@ namespace MirrorChronicles.Events
             ctx.Log.Info($"[Story] {evt.Name}: {evt.NarrativeText}");
             ctx.Events.TriggerStoryEventRaised(evt);
         }
-
-        /// <summary>Placeholder story until the narrative moves to data (phase G2).</summary>
-        public static List<StoryEventData> DefaultStoryEvents() => new List<StoryEventData>
-        {
-            Story(StoryTriggerType.FirstFoundation, "A New Foundation",
-                "For the first time in the clan's history, a member has established their Foundation. The path of cultivation opens wider.",
-                Choice("Celebrate (+5 stability for all)", stability: 5),
-                Choice("Push harder (no bonus)")),
-            Story(StoryTriggerType.FirstGoldenCore, "Golden Core Formed",
-                "A Golden Core cultivator walks among the clan. Other sects take notice.",
-                Choice("Display strength (+200 stones)", stones: 200),
-                Choice("Remain humble (+10 stability for all)", stability: 10)),
-            Story(StoryTriggerType.PatriarchBetrayal, "Seeds of Betrayal",
-                "A clan member's mind teeters on the edge of madness. They whisper of leaving — or worse.",
-                Choice("Confront them (−100 stones, +15 stability for all)", stones: -100, stability: 15),
-                Choice("Ignore it for now (−10 stability for all)", stability: -10)),
-            Story(StoryTriggerType.FirstAscension, "Ascension!",
-                "One of the clan has touched the threshold of the Dao. The heavens tremble.",
-                Choice("Bask in glory (+500 stones, +20 stability for all)", stones: 500, stability: 20)),
-            Story(StoryTriggerType.ClanExtinctionThreat, "On the Brink",
-                "The clan is nearly extinct. Only one member remains. This may be the end…",
-                Choice("Fight on (+30 stability)", stability: 30))
-        };
-
-        private static StoryEventData Story(StoryTriggerType type, string name, string text, params StoryChoice[] choices) =>
-            new StoryEventData { TriggerType = type, Name = name, NarrativeText = text, Choices = choices.ToList() };
-
-        private static StoryChoice Choice(string label, int stability = 0, int stones = 0) =>
-            new StoryChoice { Label = label, Outcome = new StoryOutcome { StabilityChange = stability, SpiritStoneChange = stones } };
     }
 }
