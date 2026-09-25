@@ -28,7 +28,7 @@ namespace MirrorChronicles.Data
         PurpleMansion, 
         GoldenCore,
         DaoEmbryo,
-        GoldenImmortal // appended last: saves store the enum as an int
+        GoldenImmortal // appended last for save compatibility; never rename members (StringEnumConverter saves names)
     }
 
     public enum TaskType 

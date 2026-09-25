@@ -213,6 +213,22 @@ Chaque entrée suit ce format :
 
 ---
 
+### WL-013 — Aucune percée n'avait jamais lieu en jeu
+| Champ | Valeur |
+|---|---|
+| **ID** | WL-013 |
+| **Date** | 2026-09-25 |
+| **Catégorie** | Gameplay / Boucle annuelle |
+| **Fichier** | `Assets/_Project/Scripts/Characters/BreakthroughSystem.cs` |
+| **Problème** | `AttemptBreakthrough` n'était appelé nulle part : l'XP s'accumulait mais aucun personnage ne changeait jamais de royaume. Détecté par graphify (aucune arête entrante). |
+| **Cause racine** | Système livré sans son déclencheur ; aucun test de bout en bout. |
+| **Solution** | `BreakthroughSystem` tente les épreuves de tous les membres prêts en phase Percée ; logique pure dans `BreakthroughRules`. |
+| **Impact** | 🔴 Bloquant pour toute progression. |
+| **Statut** | ✅ Résolu 2026-09-25 (logique testée hors Unity ; intégration à valider en PlayMode). |
+| **Prévention** | `graphify explain` sur toute méthode publique « d'action » : si elle n'a aucun appelant, c'est un signal d'alarme. |
+
+---
+
 ## 📐 Leçons d'architecture & design
 
 ### WL-100 — Pivot Unity → Web → Unity : cause de la dette

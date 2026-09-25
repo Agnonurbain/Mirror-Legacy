@@ -129,6 +129,7 @@
 | # | Tâche | Détails |
 |---|---|---|
 | 43 | **GameSimulationTest** | Coroutine qui simule 10 ans en ~10 secondes. Triggers : Deduction en année 3, Mariage politique en année 5, Ascension en année 7, Mort en année 9. ⚠️ 2 bugs compile (méthodes privées appelées). Pas un vrai test Edit/Play Mode NUnit. |
+| 43a | **Échelle de puissance (L1, 2026-09-25)** | `PowerLadder` (6 chakras / 3 épreuves, 9 niveaux de Qi, 4 stades, durées de vie du lore, XP par sous-niveau, mur de la Fondation, dissolution spirituelle), `RankCatalog` (noms de rangs par voie : immortelle, bouddhiste, diable, divine ; équivalences asymétriques), `BreakthroughRules` (chances et issues). Modèle multi-voies : `CultivationPath` (6 Dao), `CultivationSubPath`, `Species`, `GoldenCoreState`. Percées tentées en phase Percée (jamais appelées avant). `Scripts/run-pure-tests.sh` : 113 tests purs verts sans Unity. |
 | 43b | **KinshipRulesTests** (2026-09-24) | 14 tests EditMode. Les 12 tests de logique pure passent dans un harnais `dotnet test` NUnit ; les 2 tests `CanMarry` attendent l'éditeur Unity (non installé). |
 | 43c | **MarriageMatchmakerTests** (2026-09-24) | 16 tests EditMode purs (éligibilité, partenaire non apparenté, conjoint extérieur, planification annuelle). RED 8 échecs → GREEN 28/28 avec les tests de parenté. |
 

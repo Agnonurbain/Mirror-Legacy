@@ -65,7 +65,7 @@ namespace MirrorChronicles.Clan
                 LastName = ClanName,
                 IsMale = true,
                 Age = 45,
-                MaxLifespan = 120,
+                MaxLifespan = PowerLadder.MaxLifespan(CultivationRealm.QiRefinement, 3),
                 SpiritualRoot = 65, // Excellent
                 Affinity = Element.Fire,
                 Realm = CultivationRealm.QiRefinement,
@@ -82,7 +82,7 @@ namespace MirrorChronicles.Clan
                 LastName = ClanName,
                 IsMale = false,
                 Age = 42,
-                MaxLifespan = 120,
+                MaxLifespan = PowerLadder.MaxLifespan(CultivationRealm.QiRefinement, 2),
                 SpiritualRoot = 55, // Average
                 Affinity = Element.Water,
                 Realm = CultivationRealm.QiRefinement,
@@ -100,7 +100,7 @@ namespace MirrorChronicles.Clan
                 LastName = ClanName,
                 IsMale = true,
                 Age = 20,
-                MaxLifespan = 80,
+                MaxLifespan = PowerLadder.MaxLifespan(CultivationRealm.Embryonic, 2),
                 SpiritualRoot = 75, // Genius potential
                 Affinity = Element.Lightning,
                 Realm = CultivationRealm.Embryonic,
@@ -117,7 +117,7 @@ namespace MirrorChronicles.Clan
                 LastName = ClanName,
                 IsMale = false,
                 Age = 16,
-                MaxLifespan = 80,
+                MaxLifespan = PowerLadder.MaxLifespan(CultivationRealm.Embryonic, 1),
                 SpiritualRoot = 45,
                 Affinity = Element.Wood,
                 Realm = CultivationRealm.Embryonic,
@@ -134,7 +134,7 @@ namespace MirrorChronicles.Clan
                 LastName = ClanName,
                 IsMale = true,
                 Age = 40,
-                MaxLifespan = 80,
+                MaxLifespan = PowerLadder.MaxLifespan(CultivationRealm.Embryonic, 1),
                 SpiritualRoot = 25, // Poor
                 Affinity = Element.Earth,
                 Realm = CultivationRealm.Embryonic,

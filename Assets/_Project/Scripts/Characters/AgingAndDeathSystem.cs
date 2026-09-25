@@ -58,12 +58,6 @@ namespace MirrorChronicles.Characters
             }
         }
 
-        /// <summary>Lifespan of a realm for a character past its first sub-level (LORE.md §5).</summary>
-        public int CalculateMaxLifespan(CultivationRealm realm)
-        {
-            return PowerLadder.MaxLifespan(realm, 1);
-        }
-
         public void Die(CharacterData character, DeathCause cause)
         {
             if (!character.IsAlive) return;

@@ -193,6 +193,7 @@ namespace MirrorChronicles.Core
             foreach (var character in data.HistoricalRecords)
             {
                 MirrorChronicles.Characters.PowerLadder.Normalize(character); // saves made before realm stages
+                character.MaxLifespan = MirrorChronicles.Characters.PowerLadder.MaxLifespan(character.Realm, character.RealmStage);
                 BloodRegistry.Instance.HistoricalRecords.Add(character);
                 
                 if (character.IsAlive)

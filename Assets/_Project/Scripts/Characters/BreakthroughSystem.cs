@@ -103,11 +103,9 @@ namespace MirrorChronicles.Characters
             switch (outcome)
             {
                 case BreakthroughOutcome.Success:
-                    bool sameRealm = step.TargetRealm == character.Realm;
                     character.CultivationXP = Math.Max(0, character.CultivationXP - required);
-                    CultivationSystem.ApplyStep(character, step); // raises the event on a new realm
-                    if (sameRealm)
-                        GameEvents.TriggerBreakthroughSuccess(character, character.Realm);
+                    CultivationSystem.ApplyStep(character, step);
+                    GameEvents.TriggerBreakthroughSuccess(character, character.Realm);
                     return;
                 case BreakthroughOutcome.MinorFailure:
                     character.CultivationXP = Math.Max(0, character.CultivationXP - required / 2);
@@ -117,10 +115,10 @@ namespace MirrorChronicles.Characters
                     break;
                 case BreakthroughOutcome.QiDeviationDeath:
                     Die(character, DeathCause.QiDeviation);
-                    break;
+                    return; // no failure event for the dead
                 case BreakthroughOutcome.SpiritualDissolution:
                     Die(character, DeathCause.SpiritualDissolution);
-                    break;
+                    return;
             }
 
             GameEvents.TriggerBreakthroughFailed(character);

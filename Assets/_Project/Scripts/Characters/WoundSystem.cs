@@ -103,7 +103,8 @@ namespace MirrorChronicles.Characters
         {
             Debug.LogError($"[WoundSystem] TRAGEDY! {character.FullName} has suffered a permanent DAO WOUND.");
             
-            // Reduce max lifespan by 20%
+            // Reduce max lifespan by 20% (an unbounded lifespan stays unbounded)
+            if (character.MaxLifespan >= PowerLadder.Unbounded) return;
             int lifespanPenalty = Mathf.RoundToInt(character.MaxLifespan * 0.2f);
             character.MaxLifespan = Mathf.Max(character.Age + 1, character.MaxLifespan - lifespanPenalty);
             

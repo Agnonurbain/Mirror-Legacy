@@ -86,19 +86,16 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>
-        /// Moves the character to the step's realm and stage; a new realm updates the lifespan and
-        /// raises the breakthrough event.
+        /// Moves the character to the step's realm and stage and updates the lifespan. Only trials passed
+        /// in the Breakthrough phase raise the breakthrough event (and its rewards).
         /// </summary>
         public static void ApplyStep(CharacterData character, AdvancementStep step)
         {
-            bool newRealm = step.TargetRealm != character.Realm;
             character.Realm = step.TargetRealm;
             character.RealmStage = step.TargetStage;
             character.MaxLifespan = PowerLadder.MaxLifespan(character.Realm, character.RealmStage);
 
             Debug.Log($"[CultivationSystem] {character.FullName} reached {RankCatalog.DisplayName(character)}.");
-            if (newRealm)
-                GameEvents.TriggerBreakthroughSuccess(character, character.Realm);
         }
     }
 }

@@ -62,7 +62,7 @@ namespace MirrorChronicles.Economy
             if (newPhase == GamePhase.Events)
             {
                 // The Management phase just ended. Resolve all assigned tasks.
-                ProcessYearlyTasks(ClanManager.Instance.LivingMembers);
+                ProcessYearlyTasks(ClanManager.Instance.LivingMembers.ToList()); // snapshot: tasks may remove members
             }
         }
 
@@ -149,6 +149,7 @@ namespace MirrorChronicles.Economy
             else
             {
                 member.CultivationXP += 10;
+                if (CultivationSystem.Instance != null) CultivationSystem.Instance.AdvanceSubLevels(member);
                 Debug.Log($"[TaskAssignmentSystem] {member.FullName} studied but found nothing special (+10 XP).");
             }
         }
@@ -173,6 +174,7 @@ namespace MirrorChronicles.Economy
                 var student = students[studentIdx++];
                 int bonus = 20 + (int)teacher.Realm * 10;
                 student.CultivationXP += bonus;
+                if (CultivationSystem.Instance != null) CultivationSystem.Instance.AdvanceSubLevels(student);
                 Debug.Log($"[TaskAssignmentSystem] {teacher.FullName} teaches {student.FullName} (+{bonus} XP).");
             }
         }
