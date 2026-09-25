@@ -14,6 +14,22 @@ namespace MirrorChronicles.Tests.Characters
         private const int Adult = 30;
 
         [Test]
+        public void GatherQi_OpensWithTheSummitEye()
+        {
+            // LORE.md §5.1: the fifth chakra perceives spiritual Qi
+            var blind = new CharacterData { Age = Adult, HasSpiritualOrifice = true, RealmStage = 4 };
+            var seeing = new CharacterData { Age = Adult, HasSpiritualOrifice = true, RealmStage = 5 };
+            Assert.IsFalse(TaskRules.IsAllowed(blind, TaskType.GatherQi));
+            Assert.IsTrue(TaskRules.IsAllowed(seeing, TaskType.GatherQi));
+        }
+
+        [Test]
+        public void GatherQi_IsBeyondAMortal()
+        {
+            Assert.IsFalse(TaskRules.IsAllowed(new CharacterData { Age = Adult }, TaskType.GatherQi));
+        }
+
+        [Test]
         public void AllowedTasks_ExcludesCultivation_WhenMortal()
         {
             var tasks = TaskRules.AllowedTasks(new CharacterData { Age = Adult });

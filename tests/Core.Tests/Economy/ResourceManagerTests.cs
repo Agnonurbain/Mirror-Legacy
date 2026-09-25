@@ -19,6 +19,29 @@ namespace MirrorChronicles.Tests.Economy
         }
 
         [Test]
+        public void SpiritualQi_IsStoredAndSpentByPortion()
+        {
+            resources.AddQi("clear-spring-qi", 2);
+            Assert.IsTrue(resources.ConsumeQi("clear-spring-qi", 1));
+            Assert.IsFalse(resources.ConsumeQi("clear-spring-qi", 5));
+            Assert.AreEqual(1, resources.QiPortions("clear-spring-qi"));
+            Assert.AreEqual(0, resources.QiPortions("night-frost-qi"));
+        }
+
+        [Test]
+        public void HarvestWork_CondensesAPortionAfterItsYears()
+        {
+            // LORE.md §2.4: the Seven Terraces' Qi takes twenty years of work for one portion
+            int gathered = 0;
+            for (int year = 0; year < 19; year++)
+                gathered += resources.AddHarvestWork("seven-terraces-qi", 20);
+            Assert.AreEqual(0, gathered);
+
+            Assert.AreEqual(1, resources.AddHarvestWork("seven-terraces-qi", 20));
+            Assert.IsTrue(resources.QiPortions("seven-terraces-qi") == 1 && resources.QiHarvestProgress["seven-terraces-qi"] == 0);
+        }
+
+        [Test]
         public void NewTreasury_StartsWithAThousandStones()
         {
             Assert.AreEqual(1000, resources.SpiritStones);

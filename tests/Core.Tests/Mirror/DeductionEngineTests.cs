@@ -45,7 +45,7 @@ namespace MirrorChronicles.Tests.Mirror
             var w = PoweredWorld();
             var technique = w.Deduction.AttemptDeduction(Fragments(w, (Element.Fire, 2), (Element.Fire, 2), (Element.Water, 1)));
             Assert.IsTrue(technique != null && w.Mirror.MirrorPower == 70 && w.Deduction.Fragments.Count == 0
-                && w.Deduction.ClanTechniques.Contains(technique));
+                && w.Techniques.Deduced.Contains(technique) && w.Techniques.Knows(technique.ID));
         }
 
         [Test]

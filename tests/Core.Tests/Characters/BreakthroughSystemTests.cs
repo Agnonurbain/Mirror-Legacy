@@ -3,6 +3,7 @@ using NUnit.Framework;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
+using MirrorChronicles.Economy;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Tests.Characters
@@ -25,8 +26,21 @@ namespace MirrorChronicles.Tests.Characters
         {
             ctx = Fixtures.Context(rng);
             clan = new ClanManager(ctx, "Mo");
-            var cultivation = new CultivationSystem(ctx, new ClanKarmaSystem(ctx, clan));
+            var cultivation = new CultivationSystem(ctx, new ClanKarmaSystem(ctx, clan), new TechniqueLibrary(ctx), new ResourceManager(ctx));
             breakthroughs = new BreakthroughSystem(ctx, clan, cultivation);
+        }
+
+        [Test]
+        public void AttemptBreakthrough_IsRefused_WhenTheMethodStopsBeforeTheNextRealm()
+        {
+            // LORE.md §2.2: grades 1-2 lead no further than Qi Cultivation
+            Build(new SequenceRandom(Success));
+            var capped = FacingTheFoundationWall();
+            capped.CultivationMethodId = "common-breath-method";
+            capped.QiId = "common-breath-qi";
+
+            Assert.IsNull(breakthroughs.AttemptBreakthrough(capped));
+            Assert.AreEqual(CultivationRealm.QiRefinement, capped.Realm);
         }
 
         /// <summary>A member with exactly the XP for the Inner Lake chakra trial.</summary>

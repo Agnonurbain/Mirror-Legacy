@@ -40,6 +40,7 @@ namespace MirrorChronicles.Tests
         public ResourceManager Resources { get; }
         public MentalStabilitySystem Stability { get; }
         public ClanKarmaSystem Karma { get; }
+        public TechniqueLibrary Techniques { get; }
         public CultivationSystem Cultivation { get; }
         public BreakthroughSystem Breakthroughs { get; }
         public FactionManager Factions { get; }
@@ -58,15 +59,16 @@ namespace MirrorChronicles.Tests
             Resources = new ResourceManager(Ctx);
             Stability = new MentalStabilitySystem(Ctx, Clan);
             Karma = new ClanKarmaSystem(Ctx, Clan);
-            Cultivation = new CultivationSystem(Ctx, Karma);
+            Techniques = new TechniqueLibrary(Ctx);
+            Cultivation = new CultivationSystem(Ctx, Karma, Techniques, Resources);
             Breakthroughs = new BreakthroughSystem(Ctx, Clan, Cultivation);
             Factions = new FactionManager(Ctx);
             Mirror = new MirrorSystem(Ctx, Clan, Breakthroughs);
-            Deduction = new DeductionEngine(Ctx, Mirror);
+            Deduction = new DeductionEngine(Ctx, Mirror, Techniques);
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Ctx, Factions, Resources);
             Espionage = new EspionageSystem(Ctx, Factions, Deduction, Stability);
-            Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings);
+            Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
         }
 
@@ -113,12 +115,22 @@ namespace MirrorChronicles.Tests
             return Path.Combine(dir.FullName, "game", "data");
         }
 
-        /// <summary>A living cultivator with a known orifice and a lifespan matching the realm.</summary>
+        /// <summary>The Mo clan's method (grade 3, speed 1) and its Qi, which Qi and Foundation cultivators practise.</summary>
+        public const string ClanMethod = "clear-spring-sutra";
+        public const string ClanQi = "clear-spring-qi";
+
+        /// <summary>
+        /// A living cultivator with a known orifice and a lifespan matching the realm; in Qi Cultivation or
+        /// the Foundation, they practise the clan's method on its Qi (LORE.md §5.2: none reaches Qi without one).
+        /// </summary>
         public static CharacterData Cultivator(bool isMale = true, int age = 30,
             CultivationRealm realm = CultivationRealm.QiRefinement, int stage = 1)
         {
+            bool practises = realm == CultivationRealm.QiRefinement || realm == CultivationRealm.Foundation;
             return new CharacterData
             {
+                CultivationMethodId = practises ? ClanMethod : null,
+                QiId = practises ? ClanQi : null,
                 FirstName = "Test",
                 LastName = "Mo",
                 IsMale = isMale,

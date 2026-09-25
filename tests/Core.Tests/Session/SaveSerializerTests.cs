@@ -15,7 +15,40 @@ namespace MirrorChronicles.Tests.Session
             s.Resources.SpiritStones, s.Resources.Prestige, s.Mirror.MirrorPower, s.Karma.GenerationCount, s.Karma.TotalBirths,
             s.Buildings.GetBuilding(BuildingType.Mine).Level,
             string.Join(",", s.Factions.Factions.Select(f => f.RelationWithPlayer)),
-            s.Deduction.Fragments.Count, s.Deduction.ClanTechniques.Count);
+            s.Deduction.Fragments.Count, s.Techniques.Deduced.Count,
+            string.Join(",", s.Techniques.KnownIds.OrderBy(id => id)),
+            string.Join(",", s.Resources.SpiritualQi.OrderBy(kv => kv.Key).Select(kv => $"{kv.Key}={kv.Value}")),
+            string.Join(",", s.Resources.QiHarvestProgress.OrderBy(kv => kv.Key).Select(kv => $"{kv.Key}={kv.Value}")),
+            string.Join(",", s.Clan.Registry.Records.Select(r => $"{r.CultivationMethodId}/{r.QiId}")));
+
+        [Test]
+        public void RoundTrip_KeepsTheTechniquesAndTheQi()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(4));
+            s.Techniques.AddDeduced(new TechniqueData { ID = "deduced-1", Name = "Sutra de l'Onde", Kind = TechniqueKind.Cultivation, Grade = 3 });
+            s.Resources.AddHarvestWork("seven-terraces-qi", 20);
+
+            var reloaded = Reload(s);
+
+            Assert.AreEqual(Snapshot(s), Snapshot(reloaded));
+            Assert.AreEqual("Sutra de l'Onde", reloaded.Techniques.Find("deduced-1").Name);
+        }
+
+        [Test]
+        public void FromSaveData_GivesAnOlderSaveTheClansKnowledge_AndItsQiCultivatorsTheirMethod()
+        {
+            var data = GameSession.NewGame(Fixtures.Setup(5)).ToSaveData();
+            data.KnownTechniqueIds = null; // saved before phase L3
+            data.SpiritualQi = null;
+            data.QiHarvestProgress = null;
+            foreach (var r in data.HistoricalRecords) { r.CultivationMethodId = null; r.QiId = null; }
+
+            var s = GameSession.FromSaveData(data, Fixtures.Setup());
+
+            Assert.IsTrue(s.Techniques.Knows("clear-spring-sutra") && s.Resources.QiPortions("clear-spring-qi") == 2);
+            Assert.IsTrue(s.Clan.LivingMembers.Where(m => m.Realm >= CultivationRealm.QiRefinement)
+                .All(m => m.CultivationMethodId == "clear-spring-sutra" && m.QiId == "clear-spring-qi"));
+        }
 
         private static GameSession Reload(GameSession s) =>
             GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());

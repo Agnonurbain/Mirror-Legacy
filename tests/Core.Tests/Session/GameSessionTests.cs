@@ -52,6 +52,17 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void NewGame_KnowsTheClansTechniquesAndHoldsItsQi()
+        {
+            var s = Quiet();
+            Assert.IsTrue(s.Techniques.Knows("clear-spring-sutra") && s.Techniques.Knows("common-breath-method"));
+            Assert.AreEqual(2, s.Resources.QiPortions("clear-spring-qi"));
+            Assert.IsTrue(s.Clan.LivingMembers.Where(m => m.Realm >= CultivationRealm.QiRefinement)
+                .All(m => m.CultivationMethodId == "clear-spring-sutra" && m.QiId == "clear-spring-qi"
+                    && m.KnownTechniqueIDs.Contains("clear-spring-sutra")));
+        }
+
+        [Test]
         public void AdvancePhase_WalksThroughTheYear()
         {
             var s = Quiet();

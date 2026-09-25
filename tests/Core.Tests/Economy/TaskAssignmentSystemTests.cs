@@ -16,6 +16,32 @@ namespace MirrorChronicles.Tests.Economy
         }
 
         [Test]
+        public void GatherQi_HarvestsTheQiOfTheHarvestersMethod()
+        {
+            var w = new TestWorld();
+            w.Techniques.Learn(Fixtures.ClanMethod);
+            Working(w, TaskType.GatherQi); // a Qi cultivator of the Clear Spring
+
+            var report = w.Tasks.ProcessYearlyTasks();
+
+            Assert.IsTrue(report.QiPortionsGathered == 1 && w.Resources.QiPortions(Fixtures.ClanQi) == 1);
+        }
+
+        [Test]
+        public void GatherQi_OfABreathingHarvester_TakesTheBestQiTheClanCanHarvest()
+        {
+            var w = new TestWorld();
+            w.Techniques.Learn("common-breath-method"); // its Qi is everywhere: nothing to harvest
+            w.Techniques.Learn("measured-rain-method");
+            w.Techniques.Learn(Fixtures.ClanMethod);
+            Working(w, TaskType.GatherQi, Fixtures.Cultivator(age: 20, realm: CultivationRealm.Embryonic, stage: 5));
+
+            w.Tasks.ProcessYearlyTasks();
+
+            Assert.AreEqual(1, w.Resources.QiPortions("measured-rain-qi"));
+        }
+
+        [Test]
         public void AssignTask_Refuses_CultivationForAMortal()
         {
             var w = new TestWorld();
