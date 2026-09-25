@@ -1,16 +1,16 @@
 # Graph Report - Mirror-Legacy  (2026-09-25)
 
 ## Corpus Check
-- 101 files · ~72,319 words
+- 105 files · ~75,146 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1410 nodes · 2041 edges · 81 communities (74 shown, 7 thin omitted)
+- 1492 nodes · 2185 edges · 92 communities (83 shown, 9 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 43 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bd5fae4b`
+- Built from commit: `253a6234`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -96,29 +96,40 @@
 - [[_COMMUNITY_Community 78|Community 78]]
 - [[_COMMUNITY_Community 79|Community 79]]
 - [[_COMMUNITY_Community 80|Community 80]]
+- [[_COMMUNITY_Community 81|Community 81]]
+- [[_COMMUNITY_Community 82|Community 82]]
+- [[_COMMUNITY_Community 83|Community 83]]
+- [[_COMMUNITY_Community 84|Community 84]]
+- [[_COMMUNITY_Community 85|Community 85]]
+- [[_COMMUNITY_Community 86|Community 86]]
+- [[_COMMUNITY_Community 87|Community 87]]
+- [[_COMMUNITY_Community 88|Community 88]]
+- [[_COMMUNITY_Community 89|Community 89]]
+- [[_COMMUNITY_Community 90|Community 90]]
+- [[_COMMUNITY_Community 91|Community 91]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `ClanDomainUI` - 23 edges
-2. `AudioManager` - 22 edges
-3. `MarriageMatchmakerTests` - 22 edges
-4. `WorldMapUI` - 22 edges
-5. `KinshipRulesTests` - 18 edges
-6. `SaveSystem` - 16 edges
-7. `Test` - 16 edges
-8. `PowerLadderTests` - 16 edges
-9. `ClaudeUIBuilder` - 15 edges
-10. `CombatUnit` - 15 edges
+1. `PowerLadderTests` - 26 edges
+2. `MarriageMatchmakerTests` - 24 edges
+3. `AudioManager` - 22 edges
+4. `ClanDomainUI` - 22 edges
+5. `WorldMapUI` - 22 edges
+6. `KinshipRulesTests` - 18 edges
+7. `Test` - 18 edges
+8. `PowerLadder` - 17 edges
+9. `RankCatalogTests` - 17 edges
+10. `SpiritualOrificeRulesTests` - 17 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Unity 2022.3 LTS (README stack, outdated)` --conceptually_related_to--> `Unity 6000.4.2f1 (Unity 6.4)`  [AMBIGUOUS]
   README.md → ProjectSettings/ProjectVersion.txt
-- `CI test job (EditMode + PlayMode tests)` --shares_data_with--> `claude-output/result.json`  [EXTRACTED]
-  .github/workflows/unity-ci.yml → BRAIN_CLAUDE/CLI.md
-- `Unity -batchmode -runTests CLI commands` --semantically_similar_to--> `unity-claude.sh command set (Compile, Build*, Run*Tests, FindAssets, ClearCache, ScanLegacyPackages, AutoMigrate)`  [INFERRED] [semantically similar]
-  BRAIN_CLAUDE/TEST.md → BRAIN_CLAUDE/CLI.md
 - `Unity CI/CD workflow (unity-ci.yml)` --references--> `Unity 6000.4.2f1 (Unity 6.4)`  [EXTRACTED]
   .github/workflows/unity-ci.yml → ProjectSettings/ProjectVersion.txt
+- `CI test job (EditMode + PlayMode tests)` --shares_data_with--> `claude-output/result.json`  [EXTRACTED]
+  .github/workflows/unity-ci.yml → BRAIN_CLAUDE/CLI.md
 - `CI test job (EditMode + PlayMode tests)` --conceptually_related_to--> `Edit Mode tests (NUnit, pure logic)`  [INFERRED]
+  .github/workflows/unity-ci.yml → BRAIN_CLAUDE/TEST.md
+- `CI test job (EditMode + PlayMode tests)` --conceptually_related_to--> `Play Mode tests (UnityTest, runtime)`  [INFERRED]
   .github/workflows/unity-ci.yml → BRAIN_CLAUDE/TEST.md
 
 ## Import Cycles
@@ -129,70 +140,70 @@
 - **Command-pattern combat actions** — brain_claude_memory_command_pattern, combat_icombataction, combat_attackaction, combat_moveaction, combat_defendaction, combat_techniqueaction, combat_itemaction, combat_fleeaction [EXTRACTED 1.00]
 - **Annual four-phase game loop** — brain_claude_plan_annual_cycle, assets_project_scripts_core_timemanager_cs_core_timemanager, economy_taskassignmentsystem, events_eventmanager, diplomacy_factionmanager [EXTRACTED 1.00]
 
-## Communities (81 total, 7 thin omitted)
+## Communities (92 total, 9 thin omitted)
 
 ### Community 0 - "Data Models & Balancing"
-Cohesion: 0.05
-Nodes (30): CharacterData, CultivationRealm, float, int, int, string, CultivationRealm, int (+22 more)
+Cohesion: 0.06
+Nodes (31): float, int, int, string, int, List, StoryTriggerType, string (+23 more)
 
 ### Community 1 - "Victory, Karma & Ascension"
-Cohesion: 0.06
-Nodes (15): AdvancementStep, CharacterData, CharacterData, DeathCause, string, CharacterData, DeathCause, Clan Karma (per-generation passive bonus) (+7 more)
+Cohesion: 0.17
+Nodes (4): CharacterData, DeathCause, string, ClanKarmaSystem
 
 ### Community 2 - "Combat Actions (Command)"
 Cohesion: 0.05
-Nodes (28): CombatUnit, GridCell, CombatUnit, GridCell, CombatUnit, GridCell, CombatUnit, GridCell (+20 more)
+Nodes (26): CombatUnit, GridCell, CombatUnit, GridCell, CombatUnit, GridCell, CombatUnit, GridCell (+18 more)
 
 ### Community 3 - "Test Infra & Asmdefs"
 Cohesion: 0.16
 Nodes (9): CharacterData, Element, CharacterData, Element, Test, GeneticSystem, MirrorChronicles.Clan, GeneticSystemTests (+1 more)
 
 ### Community 4 - "Conventions & Event Bus"
-Cohesion: 0.05
-Nodes (29): CharacterData, CultivationRealm, DeathCause, Dictionary, GridCell, List, CharacterData, CultivationRealm (+21 more)
+Cohesion: 0.09
+Nodes (17): CharacterData, CultivationRealm, DeathCause, GamePhase, Golden rules (EN code / FR docs, mandatory patterns), Code conventions (MirrorChronicles.<Module> namespaces, XML docs, OnEnable/OnDisable subscriptions), Command pattern (ICombatAction), Observer pattern (C# events bus) (+9 more)
 
 ### Community 5 - "Story Events"
-Cohesion: 0.05
-Nodes (28): int, List, StoryTriggerType, string, CharacterData, CultivationRealm, DeathCause, GamePhase (+20 more)
+Cohesion: 0.06
+Nodes (19): CharacterData, CultivationRealm, DeathCause, GamePhase, HashSet, List, StoryEventData, StoryTriggerType (+11 more)
 
 ### Community 6 - "Headless Unity CLI"
 Cohesion: 0.15
 Nodes (9): 📋 Commandes disponibles, 📋 Configuration, Développement quotidien, ❌ JAMAIS, 🛡️ Règles de sécurité impératives, ✅ TOUJOURS, 🎮 Unity 6 + Claude Code (Ubuntu/Linux), 🔄 Workflow recommandé (+1 more)
 
 ### Community 7 - "World Map & Diplomacy"
-Cohesion: 0.16
-Nodes (10): Color, MenuItem, string, Transform, Vector2, WorldMap scene (#42), Scenes: MainMenu, ClanDomain, TacticalCombat, WorldMap, ClaudeBridge (+2 more)
+Cohesion: 0.11
+Nodes (10): CharacterData, CharacterData, GridCell, Divine Interventions (Qi Pulse, Ancestral Shield, Mirror Judgment), Wound lethality model (vitality thresholds, Dao Wound), WL-007: Wounds not persisted on CharacterData, MirrorChronicles.Characters, WoundSystem (+2 more)
 
 ### Community 8 - "Annual Cycle & Random Events"
-Cohesion: 0.21
-Nodes (6): CultivationRealm, GamePhase, List, RandomEventType, EventManager, RandomEventData
+Cohesion: 0.16
+Nodes (6): CharacterData, CultivationRealm, Test, TestCase, MirrorChronicles.Tests.EditMode, SpiritualOrificeRulesTests
 
 ### Community 9 - "BRAIN_CLAUDE Workflow"
-Cohesion: 0.38
-Nodes (4): End-of-session doc update order, Session start reading order, Input System (com.unity.inputsystem), MirrorChronicles.Combat
+Cohesion: 0.50
+Nodes (3): End-of-session doc update order, Session start reading order, Input System (com.unity.inputsystem)
 
 ### Community 10 - "Mirror Powers & Combat Units"
-Cohesion: 0.05
-Nodes (20): CharacterData, DeathCause, GamePhase, int, CharacterData, GridCell, CharacterData, CombatUnit (+12 more)
+Cohesion: 0.19
+Nodes (5): CharacterData, CombatUnit, CultivationRealm, int, MirrorSystem
 
 ### Community 11 - "Tasks, Births & Espionage"
-Cohesion: 0.11
-Nodes (14): CharacterData, GamePhase, List, TaskType, MVC pattern (data POCOs vs managers vs UI), Child birth via ClanManager.GenerateChild (#14), Missing task types: Study, Teaching, Diplomacy, Espionage (#15), Strict MVC for UI (#102) (+6 more)
+Cohesion: 0.14
+Nodes (11): CharacterData, GamePhase, List, TaskType, Child birth via ClanManager.GenerateChild (#14), Missing task types: Study, Teaching, Diplomacy, Espionage (#15), Phase 1 placeholder UI + TaskAssignment UI (#12-13), UGUI + TextMeshPro (com.unity.ugui) (+3 more)
 
 ### Community 12 - "PlayMode Tests & Worked Lessons"
-Cohesion: 0.17
-Nodes (7): CharacterData, Dictionary, Random, SetUp, Test, MarriageMatchmakerTests, MirrorChronicles.Tests.EditMode
+Cohesion: 0.14
+Nodes (9): CharacterData, Dictionary, double, Random, SetUp, Test, FixedRandom, MarriageMatchmakerTests (+1 more)
 
 ### Community 13 - "Wounds & Techniques"
-Cohesion: 0.07
-Nodes (26): CharacterData, CombatUnit, GridCell, TechniqueData, GamePhase, int, List, string (+18 more)
+Cohesion: 0.06
+Nodes (25): CombatUnit, GridCell, TechniqueData, int, GamePhase, int, List, string (+17 more)
 
 ### Community 14 - "Save System (Newtonsoft)"
 Cohesion: 0.07
 Nodes (28): 5.1 Respiration Embryonnaire (6 chakras), 5.2 Culture du Qi (9 niveaux célestes), 5.3.1 Percée, 5.3.2 Progression, 5.3.3 Partenaires Dao, 5.3.4 Blocage au Manoir Pourpre, 5.3.5 Phénomènes, 5.3 Établissement des Fondations (4 stades) (+20 more)
 
 ### Community 15 - "Xianxia Rules & Aging"
-Cohesion: 0.15
+Cohesion: 0.11
 Nodes (7): CultivationRealm, QiPhase, Test, TestCase, TrialKind, MirrorChronicles.Tests.EditMode, PowerLadderTests
 
 ### Community 16 - "Combat AI Strategies"
@@ -200,12 +211,12 @@ Cohesion: 0.17
 Nodes (12): CombatUnit, Dictionary, GridCell, List, AggressiveStrategy, BerserkerStrategy, CautiousStrategy, CombatAI (+4 more)
 
 ### Community 17 - "Audio Manager"
-Cohesion: 0.10
-Nodes (14): bool, CharacterData, CultivationRealm, float, GamePhase, IEnumerator, int, List (+6 more)
+Cohesion: 0.12
+Nodes (12): bool, CharacterData, CultivationRealm, float, GamePhase, IEnumerator, int, List (+4 more)
 
 ### Community 18 - "Clan Domain UI"
-Cohesion: 0.11
-Nodes (11): Button, CharacterData, DeathCause, GameObject, GamePhase, List, TaskType, TMP_Text (+3 more)
+Cohesion: 0.12
+Nodes (10): Button, CharacterData, DeathCause, GameObject, GamePhase, List, TMP_Text, Transform (+2 more)
 
 ### Community 19 - "Claude Test Runner"
 Cohesion: 0.11
@@ -216,19 +227,19 @@ Cohesion: 0.07
 Nodes (23): bool, Color, Element, float, GameObject, Vector3, bool, IEnumerator (+15 more)
 
 ### Community 21 - "World Map UI"
-Cohesion: 0.13
-Nodes (8): Button, Color, FactionData, GameObject, List, TMP_Text, Transform, WorldMapUI
+Cohesion: 0.07
+Nodes (18): Color, MenuItem, string, Transform, Vector2, Button, Color, FactionData (+10 more)
 
 ### Community 22 - "VFX Manager"
 Cohesion: 0.20
 Nodes (11): CharacterData, float, Func, int, IReadOnlyList, List, Random, MarriageMatchmaker (+3 more)
 
 ### Community 23 - "Claude UI Builder"
-Cohesion: 0.08
-Nodes (14): CharacterData, DeathCause, CharacterData, GameObject, List, State Machine pattern (GameState, GamePhase, CombatState), Annual 4-phase cycle (Management -> Events -> Breakthrough -> Inheritance), Phase 2 - Combat & Events (+6 more)
+Cohesion: 0.06
+Nodes (21): CharacterData, GameObject, List, CultivationRealm, int, RandomEventType, string, CultivationRealm (+13 more)
 
 ### Community 24 - "Clan Manager"
-Cohesion: 0.17
+Cohesion: 0.16
 Nodes (5): CharacterData, DeathCause, GamePhase, ClanManager, MirrorChronicles.Clan
 
 ### Community 25 - "Building System"
@@ -256,7 +267,7 @@ Cohesion: 0.22
 Nodes (4): CharacterData, List, BloodRegistry, MirrorChronicles.Clan
 
 ### Community 32 - "Breakthrough System"
-Cohesion: 0.20
+Cohesion: 0.17
 Nodes (8): CharacterData, CultivationRealm, Test, TestCase, CultivationPath, CultivationSubPath, MirrorChronicles.Tests.EditMode, RankCatalogTests
 
 ### Community 33 - "Scene Bootstrapper"
@@ -296,24 +307,24 @@ Cohesion: 0.09
 Nodes (23): 1. Ai-je modifié une static class / pure function ?, 1. Edit Mode Tests (NUnit pur, rapides), 2. Ai-je modifié un MonoBehaviour ?, 2. Play Mode Tests (UnityTest, plus lents), 3. Ai-je modifié un event `GameEvents` ?, 4. Ai-je modifié un POCO (`CharacterData`, `GameData`, etc.) ?, 5. Ai-je modifié un `Singleton` Manager ?, 6. Ai-je modifié un ScriptableObject ? (+15 more)
 
 ### Community 44 - "Community 44"
-Cohesion: 0.13
-Nodes (15): Assembly Definitions, Build en ligne de commande (Linux/Mac/Windows), Build Settings — Scenes in Build, Changelog des packages, Commandes de référence, Configuration manuelle, Installation, 📦 PACKAGE.md — Registre des packages Unity (+7 more)
+Cohesion: 0.11
+Nodes (19): Bootstrap du projet Unity, Build en ligne de commande (Linux/Mac/Windows), Build Settings — Scenes in Build, Changelog des packages, Commandes de référence, Configuration manuelle, Installation, 📦 PACKAGE.md — Registre des packages Unity (+11 more)
 
 ### Community 45 - "Community 45"
-Cohesion: 0.11
-Nodes (19): 🐛 Bugs identifiés dans le code existant (audit 2026-04-14), 📖 Comment utiliser ce fichier, 📐 Leçons d'architecture & design, 📝 Template pour nouvelles entrées, WL-001 — `deceased.RootElement` n'existe pas, WL-002 — `MirrorSystem.ConsumeMirrorPower` n'existe pas, WL-003 — `Element.Ice` absent de l'enum `Element`, WL-004 — `EventManager.GenerateYearlyEvent` n'existe pas + `TriggerYearlyEvent` est privée (+11 more)
+Cohesion: 0.10
+Nodes (21): 🐛 Bugs identifiés dans le code existant (audit 2026-04-14), 📖 Comment utiliser ce fichier, 📐 Leçons d'architecture & design, 📝 Template pour nouvelles entrées, WL-001 — `deceased.RootElement` n'existe pas, WL-002 — `MirrorSystem.ConsumeMirrorPower` n'existe pas, WL-003 — `Element.Ice` absent de l'enum `Element`, WL-004 — `EventManager.GenerateYearlyEvent` n'existe pas + `TriggerYearlyEvent` est privée (+13 more)
 
 ### Community 46 - "Community 46"
-Cohesion: 0.14
-Nodes (8): AdvancementStep, CharacterData, CultivationRealm, int, QiPhase, TrialKind, MirrorChronicles.Characters, PowerLadder
+Cohesion: 0.13
+Nodes (9): AdvancementStep, CharacterData, CultivationRealm, double, int, QiPhase, TrialKind, MirrorChronicles.Characters (+1 more)
 
 ### Community 47 - "Community 47"
-Cohesion: 0.09
-Nodes (19): float, IEnumerator, int, IEnumerator, WL-001: deceased.RootElement does not exist (use Affinity), WL-002: MirrorSystem.ConsumeMirrorPower does not exist (ConsumePower), WL-003: Element.Ice missing from Element enum, WL-004: EventManager.GenerateYearlyEvent missing / TriggerYearlyEvent private (+11 more)
+Cohesion: 0.33
+Nodes (5): IEnumerator, SimulationPlayModeTest, UnitySetUp, UnityTearDown, UnityTest
 
 ### Community 48 - "Community 48"
-Cohesion: 0.20
-Nodes (4): int, SaveSystem, GameData, JsonSerializerSettings
+Cohesion: 0.18
+Nodes (6): CharacterData, double, int, IReadOnlyList, MirrorChronicles.Characters, SpiritualOrificeRules
 
 ### Community 49 - "Community 49"
 Cohesion: 0.15
@@ -352,12 +363,12 @@ Cohesion: 0.25
 Nodes (8): ⚠️ 5 priorités absolues (Phase 2), 🧠 BRAINSTORMING.md — Point d'entrée central, 📝 En fin de session — Mettre à jour, En résumé :, 📖 Ordre de lecture optimal (début de session), 📖 Ordre de lecture optionnel (selon le besoin), 🔑 Règles d'or (rappel), 🎯 État ultra-court du projet
 
 ### Community 58 - "Community 58"
-Cohesion: 0.18
-Nodes (7): CharacterData, FactionData, Phase 3 - World & Diplomacy, EspionageSystem, MirrorChronicles.Diplomacy, MirrorChronicles.Diplomacy, EspionageResult
+Cohesion: 0.22
+Nodes (6): CharacterData, FactionData, Phase 3 - World & Diplomacy, EspionageSystem, MirrorChronicles.Diplomacy, EspionageResult
 
 ### Community 59 - "Community 59"
-Cohesion: 0.24
-Nodes (5): CharacterData, Func, GamePhase, Random, MarriageSystem
+Cohesion: 0.10
+Nodes (12): CharacterData, DeathCause, CharacterData, Func, GamePhase, Random, Key Xianxia business rules, Six cultivation realms (Embryonic -> DaoEmbryo) (+4 more)
 
 ### Community 60 - "Community 60"
 Cohesion: 0.24
@@ -388,32 +399,28 @@ Cohesion: 0.50
 Nodes (3): ECC, graphify, Project
 
 ### Community 68 - "Community 68"
-Cohesion: 1.00
-Nodes (3): Thematic parchment/bronze/ink UI (#61), Phase 4 - Advanced realms, Art & Polish, Shuimo ink-painting art direction
+Cohesion: 0.25
+Nodes (6): Dictionary, GridCell, List, GridSystem, MirrorChronicles.Combat, TerrainType
 
 ### Community 69 - "Community 69"
-Cohesion: 0.28
-Nodes (9): Unity Test Framework (com.unity.test-framework), Unity -batchmode -runTests CLI commands, Edit Mode tests (NUnit, pure logic), Play Mode tests (UnityTest, runtime), Pre-commit hook running EditMode tests, Golden rule: code change = test update in same commit, CI build job (Linux64 standalone), game-ci/unity-actions@v2 (+1 more)
+Cohesion: 0.15
+Nodes (15): claude-output/result.json, Headless Unity safety rules, unity-claude.sh command set (Compile, Build*, Run*Tests, FindAssets, ClearCache, ScanLegacyPackages, AutoMigrate), Assembly Definitions, Unity Test Framework (com.unity.test-framework), Unity -batchmode -runTests CLI commands, Edit Mode tests (NUnit, pure logic), Play Mode tests (UnityTest, runtime) (+7 more)
 
 ### Community 70 - "Community 70"
-Cohesion: 0.46
-Nodes (3): MenuItem, string, ClaudeCodeBridge
+Cohesion: 0.33
+Nodes (4): MenuItem, string, ClaudeBridge, ClaudeCodeBridge
 
 ### Community 71 - "Community 71"
-Cohesion: 0.32
-Nodes (5): Dictionary, MenuItem, UpmMigrator, detected, locations
+Cohesion: 0.24
+Nodes (6): Dictionary, MenuItem, ClaudeBridge, UpmMigrator, detected, locations
 
 ### Community 72 - "Community 72"
 Cohesion: 0.25
 Nodes (8): 3.1 Dao Immortel — quête orthodoxe de l'immortalité par l'harmonie du cœur, de l'essence et la recherche de la vérité, 3.2 Dao du Diable — survie, pillage, usage des forces maléfiques, 3.3 Dao Bouddhiste — soulager la souffrance, transcender la réincarnation, maîtriser destin et karma, 3.4 Dao Démoniaque — voies des êtres démoniaques (bêtes, plantes), lignée et transformation naturelle, 3.5 Dao du Sceau Chamanique — invoquer des puissances supérieures par rituels et talismans, 3.6 Dao Divin — le sixième Dao (📚, absent de `Miror.txt`), 3.7 Rangs des autres Dao (📚) — des équivalences asymétriques, 3. Les cinq Voies de cultivation
 
 ### Community 73 - "Community 73"
-Cohesion: 0.29
-Nodes (5): claude-output/result.json, Headless Unity safety rules, unity-claude.sh command set (Compile, Build*, Run*Tests, FindAssets, ClearCache, ScanLegacyPackages, AutoMigrate), ClaudeBridge, ClaudeBridge
-
-### Community 75 - "Community 75"
-Cohesion: 0.40
-Nodes (3): MenuItem, ClaudeBridge, ClaudeBuildManager
+Cohesion: 0.21
+Nodes (5): CharacterData, DeathCause, GamePhase, int, BreakthroughSystem
 
 ### Community 76 - "Community 76"
 Cohesion: 0.33
@@ -424,8 +431,48 @@ Cohesion: 0.40
 Nodes (5): 7.1 États et grandes régions, 7.2 Les trois sectes et les portes, 7.3 Autour du clan, 7.4 Autres puissances et lieux (📚 carte traduite du wiki), 7. Carte du monde (renommée)
 
 ### Community 78 - "Community 78"
+Cohesion: 0.17
+Nodes (6): CharacterData, DeathCause, Annual 4-phase cycle (Management -> Events -> Breakthrough -> Inheritance), MirrorChronicles.Characters, LegacySystem, MirrorChronicles.Clan
+
+### Community 81 - "Community 81"
+Cohesion: 0.23
+Nodes (9): WL-001: deceased.RootElement does not exist (use Affinity), WL-002: MirrorSystem.ConsumeMirrorPower does not exist (ConsumePower), WL-003: Element.Ice missing from Element enum, WL-004: EventManager.GenerateYearlyEvent missing / TriggerYearlyEvent private, WL-005: private FactionManager.ProcessYearlyFactionAI called from test, WL-100: Unity -> Web -> Unity pivot debt, MirrorChronicles.Data, MirrorChronicles.Mirror (+1 more)
+
+### Community 82 - "Community 82"
+Cohesion: 0.31
+Nodes (4): AdvancementStep, CharacterData, CultivationSystem, MirrorChronicles.Characters
+
+### Community 83 - "Community 83"
+Cohesion: 0.31
+Nodes (3): CharacterData, CultivationRealm, AscensionSystem
+
+### Community 84 - "Community 84"
+Cohesion: 0.25
+Nodes (6): CLAUDE.md / master prompt (source of truth), WL-101: Factions hardcoded instead of ScriptableObjects, FactionData, MirrorChronicles.Data, MirrorChronicles.Data, MirrorChronicles.Diplomacy
+
+### Community 85 - "Community 85"
+Cohesion: 0.39
+Nodes (5): CharacterData, IReadOnlyList, TaskType, MirrorChronicles.Characters, TaskRules
+
+### Community 86 - "Community 86"
+Cohesion: 0.25
+Nodes (3): CharacterData, DeathCause, VictoryConditionSystem
+
+### Community 87 - "Community 87"
+Cohesion: 0.36
+Nodes (3): Test, MirrorChronicles.Tests.EditMode, TaskRulesTests
+
+### Community 88 - "Community 88"
+Cohesion: 0.25
+Nodes (6): Player as consciousness trapped in ancestral bronze mirror, Ironman save (yearly auto-save JSON), MirrorChronicles.Characters, MirrorChronicles.Mirror, Reflets de Lignee: Les Chroniques du Miroir (Mirror Chronicles), The Mirror Legacy (Xuanjian Xianzu) - inspiration
+
+### Community 89 - "Community 89"
 Cohesion: 0.40
-Nodes (5): Bootstrap du projet Unity, Étape 1 — Créer un projet temporaire, Étape 2 — Fusionner dans le repo, Étape 3 — Ouvrir le repo dans Unity, Étape 4 — Commit
+Nodes (4): float, IEnumerator, int, GameSimulationTest
+
+### Community 90 - "Community 90"
+Cohesion: 0.33
+Nodes (4): Clan Karma (per-generation passive bonus), Victory: 10 generations + Dao Embryo ascension, MirrorChronicles.Clan, MirrorChronicles.Core
 
 ## Ambiguous Edges - Review These
 - `MarriageSystem.cs` → `Key Xianxia business rules`  [AMBIGUOUS]
@@ -434,9 +481,9 @@ Nodes (5): Bootstrap du projet Unity, Étape 1 — Créer un projet temporaire, 
   README.md · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **484 isolated node(s):** `ClaudeBridge`, `ClaudeBridge`, `string`, `ClaudeBridge`, `string` (+479 more)
+- **493 isolated node(s):** `ClaudeBridge`, `ClaudeBridge`, `string`, `ClaudeBridge`, `string` (+488 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -445,13 +492,13 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: implements) - confidence is low._
 - **What is the exact relationship between `Unity 6000.4.2f1 (Unity 6.4)` and `Unity 2022.3 LTS (README stack, outdated)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `Edit Mode tests (NUnit, pure logic)` connect `Community 69` to `Combat Actions (Command)`, `Test Infra & Asmdefs`, `Mirror Powers & Combat Units`, `Community 44`, `Community 47`, `Community 58`, `Mental Stability`?**
-  _High betweenness centrality (0.077) - this node is a cross-community bridge._
-- **Why does `SaveSystem` connect `Community 48` to `UI Theme Data`, `Wounds & Techniques`?**
-  _High betweenness centrality (0.049) - this node is a cross-community bridge._
-- **Why does `StoryEventManager` connect `Story Events` to `UI Theme Data`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+- **Why does `Edit Mode tests (NUnit, pure logic)` connect `Community 69` to `Combat Actions (Command)`, `Test Infra & Asmdefs`, `Community 78`, `Community 81`, `Community 59`, `Mental Stability`?**
+  _High betweenness centrality (0.086) - this node is a cross-community bridge._
+- **Why does `unity-claude.sh command set (Compile, Build*, Run*Tests, FindAssets, ClearCache, ScanLegacyPackages, AutoMigrate)` connect `Community 69` to `Claude Test Runner`, `Headless Unity CLI`, `Community 70`, `Community 71`?**
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **Why does `WorldMapUI` connect `World Map UI` to `UI Theme Data`?**
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **What connects `ClaudeBridge`, `ClaudeBridge`, `string` to the rest of the system?**
-  _490 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _499 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Data Models & Balancing` be split into smaller, more focused modules?**
-  _Cohesion score 0.049682875264270614 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06006006006006006 - nodes in this community are weakly interconnected._
