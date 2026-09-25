@@ -51,8 +51,9 @@ Mirror-Legacy/
 | **`GameEventBus`** | Un bus par partie ; les réactions s'exécutent dans l'ordre de construction (déterministe). |
 | **`ClanManager.Kill`** | Seule porte de la mort : la liste des vivants et la succession sont à jour avant `OnCharacterDied`. |
 | **Contenu** | `game/data/*.json` (clan, noms, équilibrage, factions, événements, histoire, techniques, Qi), chargé et validé par `GameContentLoader` ; jamais modifié par une partie. |
+| **Monde** | `World/FruitionRegistry` : l'état des 63 lignées dans une partie (statuts du lore, les autres tirés d'une source de hasard propre au monde, `WorldRandom(seed)`). |
 | **Techniques** | `TechniqueLibrary` : ce que le clan sait (catalogue appris + déductions du miroir, sauvegardées entières) et la méthode de chaque membre ; `TechniqueRules` pour les règles pures du grade. |
-| **Sauvegarde** | `GameData` 2.1 (état complet, techniques et Qi compris), `SaveSerializer` (Newtonsoft, énumérations par nom) ; `ToSaveData` est un instantané détaché ; les sauvegardes v1 et 2.0 se chargent et sont mises à niveau. |
+| **Sauvegarde** | `GameData` 2.2 (état complet : techniques, Qi, lignées), `SaveSerializer` (Newtonsoft, énumérations par nom) ; `ToSaveData` est un instantané détaché ; les sauvegardes v1, 2.0 et 2.1 se chargent et sont mises à niveau. |
 | **Couche Godot** | `GameRoot` (autoload : contenu, partie, sauvegarde), `ClanDomain` (écran principal) ; les scripts ne font que lier les modèles de `Presentation`. |
 
 ---
@@ -62,7 +63,7 @@ Mirror-Legacy/
 - **Namespaces** : `MirrorChronicles.<Domaine>` pour Core ; `MirrorChronicles.Game` pour la couche Godot.
 - **Pas de singleton ni de moteur dans Core** : dépendances par constructeur, `GameContext` partagé.
 - **Hasard** : toujours `ctx.Rng` (ou `field.Rng` en combat), identifiants via `Rng.NextId()` — une graine rejoue la même partie.
-- **Règles** : constantes nommées dans des classes pures (`PowerLadder`, `BreakthroughRules`, `SpiritualOrificeRules`, `TaskRules`, `TechniqueRules`…) ; les valeurs réglables vont dans `balance.json`.
+- **Règles** : constantes nommées dans des classes pures (`PowerLadder`, `BreakthroughRules`, `SpiritualOrificeRules`, `TaskRules`, `TechniqueRules`, `FoundationRules`, `PurpleMansionRules`…) ; les valeurs réglables vont dans `balance.json`.
 - **Noms affichés** : dans les données ou en français dans `Presentation`/`RankCatalog` ; jamais de nom du roman.
 - **Journal** : préfixe `[Système]` via `IGameLog` (développement) ; la `Chronicle` raconte au joueur.
 - **Sauvegarde** : ne jamais renommer un champ ou une valeur d'énumération sauvegardés.
@@ -96,6 +97,9 @@ L'écran actuel utilise le thème Godot par défaut (placeholder).
 | **Orifice spirituel** | héréditaire (D3) : 0,3 % / 35 % / 50 % selon les parents (`balance.json`) |
 | **Mortels** | 60-80 ans ; ni cultivation ni percée ; tâches limitées |
 | **Techniques** | grade 1-7+ : vitesse ×0,6 à ×2,2 (`balance.json`) et plafond de royaume (`LORE.md` §2.2) ; entrer en Culture du Qi absorbe une portion du Qi de la méthode ; récolte du Qi dès l'Œil du Sommet |
+| **Fondation** | formée depuis le Qi de sa méthode, une portion absorbée ; Partenaires Dao = autres fondations de la lignée ; en consommer un scelle la progression |
+| **Manoir Pourpre** | 4 épreuves (Montée, Manifestation 6 ans, Grand Vide, Illusions) ; 5 capacités divines, la 4e au Seuil d'Immortalité ; stade = nombre de capacités |
+| **Cœur Dao** | tempérament héréditaire ; aligné ×1,2, sinon ×0,9 à partir de la Fondation |
 | **Âges** | aucune tâche avant 6 ans ; un enfant mortel ne fait que se reposer jusqu'à 16 ans |
 | **Clan de départ** | 5 membres (`clan.json`) |
 | **Mariage** | 18-40 ans, parenté interdite sur 3 générations, 30 %/an |
@@ -108,7 +112,7 @@ L'écran actuel utilise le thème Godot par défaut (placeholder).
 
 ## 🧭 Où en est le projet
 
-Voir `NOT_DONE.md`. En bref (2026-09-25) : L0-L3 faits (L3 : techniques graduées) ; migration Godot G0-G5 faite, écrans G6 à venir ; équilibrage B1-B4 ouvert (population, économie, générations, Qi) ; prochaine phase du lore : L4 (voies, lignées, fondations, capacités, Fruitions).
+Voir `NOT_DONE.md`. En bref (2026-09-25) : L0-L4 faits (L4 : lignées, fondations, Manoir Pourpre) ; migration Godot faite, écrans G6 à venir ; équilibrage B1-B4 ouvert ; prochaine phase du lore : L4b (routes du Noyau d'Or).
 
 ---
 

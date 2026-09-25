@@ -321,6 +321,30 @@ La plupart s'arrêtent au **stade avancé** : les techniques de grade ≤ 4 n'on
 Par leur seule présence, ils influencent subtilement l'environnement (nuages sombres et bruine autour d'un cultivateur de l'Eau qui défend un allié). Les phénomènes sont **maximaux** à la formation de la fondation, à l'apogée, et **à la mort**. Après la mort, la région subit une **météo inhabituelle** liée à la fondation, car le corps se transforme en objets associés à celle-ci.
 
 🎮 Phase 1 (stades, dissolution spirituelle), phase 4 (fondation choisie dans une Fruition, Partenaires Dao, alignement du Cœur via un trait de personnalité, corps inhumain en effet visuel), phase 6 (phénomène régional à la mort = modificateur de cultivation de la région + objets spirituels).
+✅ Fait en L4.2 (2026-09-25) : la percée de la Fondation absorbe **une portion** du Qi de la méthode (§2.5), que l'épreuve réussisse ou non, et forme **la fondation de ce Qi** (`CharacterData.FoundationId`). Les **Partenaires Dao** sont les autres fondations de la lignée. **Consommer** celle d'un membre du clan fait gagner un stade tout de suite, puis scelle toute progression (ni XP, ni épreuve), et le donneur redescend au 9e niveau de Qi (💡 validé). **Cœur Dao** (💡 validé) : un tempérament héréditaire (dominateur, solitaire, patient, fougueux, rusé, serein ; hérité d'un parent dans 80 % des cas) ; chaque lignée en favorise un (son profil §6.9, sinon son élément ou sa famille) ; aligné ×1,2, mal aligné ×0,9 à partir de la Fondation ; chaque année, 2 % de chances que le cœur s'aligne sur sa fondation.
+
+📚 **La fondation de chaque méthode** (wiki, pages *Foundation Establishment Realm* et *Pit Water/Pristine Water Techniques*, noms du jeu) :
+| Méthode | Fondation | Lignée |
+|---|---|---|
+| Sutra de la Source Claire | Mer sans Rivage | Eau Orthodoxe |
+| Méthode du Ruisseau Remonté | Adieu au Fleuve | Eau Orthodoxe |
+| Méthode de la Source Souterraine | Chant de la Source Enfouie | Eau Muable |
+| Sutra de la Marée Silencieuse | Voile de Brouillard | Eau Muable |
+| Canon du Givre Nocturne | Lune Noyée | Yin Suprême |
+| Méthode du Tranchant Clair | Stèle Gravée | Métal Muable |
+| Art secret de l'Éclair Cendré | Bassin d'Orage | Tonnerre Céleste |
+| Méthode de la Bise Hivernale · Art du Murmure des Cèdres | Givre sur les Cèdres · Ouïe Claire | Qi Froid (les « Douze Essences » sont les Douze Qi) |
+| Manuel du Soleil Intérieur | Passe de l'Aube Première (substitution) | Yang Lumineux |
+| Canon des Sept Terrasses | Bélier des Profondeurs | Proclamation Céladon |
+| Sutra du Cœur Tissé | Brocart Figuré | Jade Premier |
+| Veilleur du Sentier · Sutra de l'Aîné | Cour du Jade Général (substitution) | Jade Premier |
+| Pas du Phénix de Braise | Faisan de Braise | Feu Nourricier |
+| Art secret de la Perle Grise | Perle Grise secrète (substitution) | Élixir Parfait |
+| Méthode de la Perle de Rosée | Brume de l'Aube Universelle | 🔎 Lueur de l'Aube |
+| Méthode de l'Écorce Scellée | Droiture de l'Écorce | 🔎 Bois Caché |
+| Méthode des Vapeurs du Littoral | Brume du Yin Retourné | 🔎 Yin Voilé |
+
+🔎 Six méthodes sans lien connu, rattachées par interprétation : *Méthode du Rempart d'Airain* → Heaume de l'Aurore (même Porte, même « système de la Pierre d'Or » que le Tranchant Clair) ; *Méthode de l'Averse Mesurée* → Bruine Hivernale (Eau Nourricière) ; *Art du Brasier Englouti* → Soupir du Cœur Ardent (Feu Rassemblé, sa lignée selon le wiki) ; *Art du Grondement Lointain* → Premier Grondement du Printemps (Tonnerre Céleste) ; *Sutra du Verbe Premier* → Emblème Céladon (Proclamation) ; *Méthode des Six Harmonies* (Mer Orientale) → Retour à la Mer (Eau Rassemblée, lignée des dragons de la Mer Orientale) ; *Dialogue de Gongye Shu* → Ombre de la Sauterelle (Grand Chaman).
 
 ### 5.4 Manoir Pourpre (4 stades)
 
@@ -368,6 +392,8 @@ La répartition des types dépend de la Fruition (§6.7) : dans les Cinq Vertus,
 Quand un cultivateur du Manoir Pourpre échoue à monter au Noyau d'Or, sa mort provoque un **phénomène céleste durable** qui modifie l'atmosphère de la région et **l'efficacité de cultivation** (+ ou −). Exemple : l'échec d'un membre de la lignée dragonne en Mer Orientale a créé la *Tempête des Eaux Renversées* (nuages noirs, pluies torrentielles, éclairs noirs et violets) ; un cultivateur de la côte y a perdu **2,5 %** de vitesse de cultivation.
 
 🎮 Phase 4 : `DivineAbility` (nom, type, Fruition, niveau de perfection) ; `CharacterData.DivineAbilities` (0-5) ; stade = fonction des capacités ; percée en 4 jets (montée, manifestation 6 ans, vide à durée aléatoire jours→décennies avec risque d'emprisonnement à vie, illusions) ; retraite = membre indisponible plusieurs années ; Greffe du Dao = consommer la fondation d'un **autre membre du clan** (dilemme moral) ; phénomènes régionaux (phase 6).
+✅ Fait en L4.3-L4.4 (2026-09-25) : la percée s'ouvre au sommet de la Fondation pour une méthode qui porte le secret de montée. Les quatre épreuves se résolvent à chaque phase Percée : **Montée** (échec = mort, `AscentCollapse`) ; **Manifestation**, 6 ans de retraite (🔎 son échec, « principale cause de chute », ramène au sommet de la Fondation sans tuer) ; **Grand Vide**, tiré par tranches dans `balance.json` (50 % moins d'un an, 30 % 1-10 ans, 15 % 11-40 ans, 5 % prisonnier à vie) ; **Illusions** (échec = toute la cultivation perdue, durée de vie de mortel). La réussite ouvre le Manoir Pourpre avec la fondation pour première capacité. Un membre en retraite ne prend aucune tâche. **Capacités 2 à 5** : on vise un Partenaire **révélé** de sa lignée (P3), puis on le condense avec l'XP du royaume, une technique connue alignée sur lui et une portion de son Qi ; ou avec des ressources, à moitié de l'XP, mais capacité « superficielle » ; ou par **Greffe du Dao** (la fondation d'un membre du clan, complétée par des minerais spirituels ; le donneur redescend au 9e niveau de Qi). La 4e passe le **Seuil d'Immortalité** (échec = XP perdue). Le stade suit le nombre de capacités.
+Reste : capacités d'une autre lignée (Intercalaire, L4b), effet des capacités superficielles et greffées sur le Noyau d'Or (L4b), Imagerie et Mandat de Vie (L6), lien à un trésor et emprunt de lumière (L6), phénomènes à la mort et à l'échec (L6).
 
 ### 5.5 Noyau d'Or (Vrai Monarque, 4 stades)
 
@@ -724,6 +750,7 @@ Fondations nommées sans Fruition certaine : *Brume de l'Aube Universelle* ; *Ou
 - **Étoiles** : certaines Fruitions ont une association céleste (Mercure pour l'Eau Orthodoxe, Jupiter pour le Bois Orthodoxe, l'étoile Xingbo pour la Culture de Linxi) ; les étoiles étant « en désordre » à notre époque, les arts de calcul qui en dépendent sont affaiblis.
 
 🎮 Phase 4 : `DaoLineage` (ScriptableObject) : groupe, génération, **Profondeur d'origine**, élément/manifestation, essence métallique, capacités (nom, types), substitutions, **statut (Occupée / Libre / Brisée / Cachée)**, détenteur, Surplus et Intercalaires connus, étoile ; `RankDesignation` ; `LeftHandPath`. Les emplacements non nommés sont créés avec leurs types et un nom provisoire. `Element` actuel (Fire, Water, Wood, Metal, Earth, Lightning, Darkness, Light) est conservé pour le **combat** et relié : Lightning ↔ Trois Tonnerres, Darkness ↔ Yin, Light ↔ Yang.
+✅ Fait en L4.1 (2026-09-25) : `game/data/fruitions.json` (63 lignées, 334 capacités, noms du jeu), `FruitionRegistry` (état du monde par partie). Les capacités que le monde n'a pas révélées ont un nom nul, tapées quand le lore le dit (Feu Orthodoxe : 2 Vie, 1 Corps, 2 Magie). 🔎 Les jeux de types des « lignées non nommées » de la source ne sont **pas** rattachés à une lignée (ce serait inventer) ; les fondations isolées du §6.5 le sont, par interprétation notée dans les données (Brume du Yin Retourné et Ouragan du Yin Spectral → Yin Voilé ; Épine de la Porte des Tombes → Qi Funeste ; Bois des Nuées Hautes et Droiture de l'Écorce → Bois Caché ; Brume de l'Aube Universelle → Lueur de l'Aube). « Or Vert d'Origine » : lignée dont seule l'essence est connue, occupée par un Vrai Monarque inconnu. 💡 validé : les statuts non précisés sont tirés au début de chaque partie (60 % libre, 30 % occupée par un Vrai Monarque anonyme, 10 % brisée), à partir d'une source de hasard propre au monde : la même graine tire toujours le même monde.
 
 ---
 

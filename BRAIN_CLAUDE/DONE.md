@@ -1,6 +1,6 @@
 # ✅ DONE.md — Ce qui a été fait
 
-> **Mis à jour à chaque étape du projet.** Dernière mise à jour : 2026-09-25 (L3 : techniques graduées).
+> **Mis à jour à chaque étape du projet.** Dernière mise à jour : 2026-09-25 (L4 : lignées, fondations, Manoir Pourpre).
 
 ---
 
@@ -134,6 +134,7 @@
 | 43a3 | **Simulation sans moteur (G1, 2026-09-25)** | Tout le jeu tourne hors d'Unity et de Godot dans `src/Core` : `GameSession` (fondation du clan Mo, phases, sauvegarde v2), 30 systèmes portés, 383 tests `dotnet test` dont des parties de 100 ans sur plusieurs graines (invariants, mariages, naissances, percées, déterminisme). |
 | 43a4 | **Migration Godot terminée (G2-G5, 2026-09-25)** | Contenu en `game/data/*.json` validé au chargement ; logique du combat (grille à graine, A*, 6 actions, 5 IA, `Battle`) ; couche Godot (autoload `GameRoot`, écran `ClanDomain`, fumée headless et capture) ; arbre Unity supprimé, CI `dotnet test` + Godot headless. Revue ECC des G2-G4 : 6 constats (1 élevé, 4 moyens, 1 faible) corrigés en RED → GREEN, vérifiés et approuvés. 501 tests verts. |
 | 43a5 | **Techniques graduées (L3, 2026-09-25)** | Catalogue `techniques.json` (26 méthodes de Qi du lore + *Lotus Blanc*, *Sutra de l'Aîné*, *Dialogue de Gongye Shu*) et `qi.json`, validés au chargement. Grade 1-7+ : vitesse (`balance.json`) et plafond de royaume ; secret du Manoir Pourpre ; entrer en Culture du Qi absorbe une portion du Qi de la méthode (aucune pour le *Souffle Commun*) ; récolte du Qi dès l'Œil du Sommet ; un Qi cultivateur reste lié à son Qi ; défauts du *Veilleur du Sentier* (vitesse, durée de vie, impuissance face au sutra d'origine). Déduction du miroir → technique secrète graduée, nommée par les données. Méthode et Qi à l'écran. Sauvegarde 2.1, anciennes sauvegardes mises à niveau. 610 tests verts. |
+| 43a6 | **Lignées, fondations, Manoir Pourpre (L4, 2026-09-25)** | Registre des 63 lignées (`fruitions.json`) et état du monde tiré de la graine ; fondation formée depuis le Qi de sa méthode (liens du wiki) ; Partenaires Dao et leur consommation ; Cœur Dao (tempérament héréditaire qui s'aligne) ; percée du Manoir Pourpre en 4 épreuves (Montée, Manifestation, Grand Vide, Illusions) avec retraites ; capacités divines 2 à 5 (cultivation alignée, ressources, Greffe du Dao, Seuil d'Immortalité) ; écran. Sauvegarde 2.2. 698 tests verts. |
 | 43b | **KinshipRulesTests** (2026-09-24) | 14 tests EditMode. Les 12 tests de logique pure passent dans un harnais `dotnet test` NUnit ; les 2 tests `CanMarry` attendent l'éditeur Unity (non installé). |
 | 43c | **MarriageMatchmakerTests** (2026-09-24) | 16 tests EditMode purs (éligibilité, partenaire non apparenté, conjoint extérieur, planification annuelle). RED 8 échecs → GREEN 28/28 avec les tests de parenté. |
 
