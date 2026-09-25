@@ -110,12 +110,14 @@
 | # | Phase | Priorité | Détails |
 |---|---|---|---|
 | L0 | ~~Bible du monde + lexique~~ | ✅ | Fait et validé le 2026-09-24 : `LORE.md` (lore complet + passe du wiki), lexique validé (Trois Profondeurs : Qingxuan, Douxuan, Tongxuan), miroir comme second axe de progression, bac à sable dynastique (Annales, grande fin optionnelle, deux défaites), mortels 60-80 ans. |
-| L1 | **Royaumes et sous-niveaux** | 🔴 | `GoldenImmortal` en fin d'enum, `RealmStage` (6 chakras / 9 niveaux / 4 stades), trois épreuves, durées de vie du lore, dissolution spirituelle (Fondation, conseillée avant 60 ans). Réécrire les tests de percée existants. |
+| L1 | **Échelle de puissance multi-voies, sous-niveaux, états du Noyau d'Or** | 🔴 | Voie et rang séparés (6 voies, échelles de rangs par voie reliées à un palier commun), `RealmStage`, état du Noyau d'Or (§5.9 F), percée par **routes** (`AdvancementRoute`) ; routes immortelles jusqu'au Manoir Pourpre (6 chakras, 3 épreuves, 9 niveaux, dissolution spirituelle), durées de vie du lore, `GoldenImmortal` en fin d'enum, espèce du personnage. Réécrire les tests de percée existants. |
 | L2 | **Orifice spirituel héréditaire** | 🔴 | `HasSpiritualOrifice` / `OrificeKnown`, mortels vs cultivateurs, Graines de Sceau, taux dans `BalanceConfig`. |
 | L3 | **Techniques graduées** | 🟠 | Grade 1-7+, catégorie commune/ancestrale/secrète, type, Qi requis, secret du Manoir Pourpre ; 26 méthodes de Qi en données ; déduction du miroir → grade. |
 | L4 | **Voies, lignées, fondations, capacités, Fruitions** | 🟠 | 5 voies / 9 sous-voies ; ≈60 Fruitions en ScriptableObjects (emplacements non nommés inclus) ; Partenaires Dao ; 5 capacités divines typées ; percée du Manoir Pourpre en 4 épreuves ; positions Réalisation / Surplus / Intercalaire ; Démon d'Essence Métallique. |
+| L4b | **Routes du Noyau d'Or** (§5.9) | 🟠 | R1-R9 (Réalisation, Surplus ×2, Intercalaire ×3, Noyau d'Or sans position, changements de position, réincarnation), R18-R19 (Main Gauche vraie / fausse). |
 | L5 | **Carte et factions renommées** | 🟠 | `RegionDefinition`, 3 sectes + portes + familles en `FactionTemplate`, nouvelle carte Shuimo, `WorldMapUI` par régions. **Nécessite l'éditeur Unity (#6).** |
 | L6 | **Chronologie, monde vivant, rejouabilité** | 🟡 | Introduction an 0, faits historiques, statuts initiaux des Fruitions, phénomènes régionaux, graine de monde, conditions de victoire. |
+| L7 | **Autres voies de cultivation** (§3, §5.9 B) | 🟡 | R10-R17 et R20 : Nature Spirituelle, Démon Pourpre-Or, Démon Embryon Céleste, bouddhisme ancien et moderne, Dao Divin, Dao Démoniaque (membres non humains), chamanisme, Voie Impériale ; conversions entre voies. |
 
 ---
 

@@ -416,6 +416,61 @@ Maîtriser **5 capacités divines** et atteindre la perfection suprême dans les
 
 🎮 Phase 6 : `Atmosphere` par région (modificateurs par lignée, maintien par les factions), Élus du Destin générés à la réincarnation d'un Vrai Monarque, Grand Vide comme couche de déplacement des Manoirs Pourpres et du miroir.
 
+### 5.9 Toutes les routes vers le Noyau d'Or — couverture en gameplay (validation demandée le 2026-09-25)
+
+**Exigence** : chaque manière d'atteindre le Noyau d'Or (ou sa puissance équivalente) décrite dans ce document doit être **jouable** par un membre du clan, pas seulement par les personnages du monde. Les conditions et les prix viennent du lore ; la colonne « Mécanique » dit comment le jeu les rend possibles.
+
+#### A. Dao du Noyau d'Or du Manoir Pourpre (voie du clan)
+| # | Route | Conditions (lore) | Prix / risque | État obtenu | Mécanique | Phase |
+|---|---|---|---|---|---|---|
+| R1 | **Réalisation** | 5 capacités orthodoxes parfaites + Cinq Méthodes + technique de recherche d'or de la Fruition ; position **libre** (§5.5.1) | Échec → Démon d'Essence Métallique | Vrai Monarque en Réalisation : volonté du Ciel, lignée transformée, empreinte, Désignation de Rang, accès à l'Embryon du Dao | Choix de la position au moment de la percée ; registre des Fruitions (libre / occupée / brisée / cachée) | L4 |
+| R2 | **Surplus** (capacités mineures connues) | 5 capacités dont des capacités mineures créées par d'anciens Vrais Monarques | Permission du détenteur si occupée ; jamais d'Embryon du Dao ; 📚 « une position rassemblée ne connaît pas de Surplus » (danger) | Surplus | Capacités mineures = contenus rares à découvrir (ruines, miroir) ; diplomatie avec le détenteur | L4 |
+| R3 | **Surplus** (4 + 1 substitution) | 4 capacités de la Fruition + 1 capacité de substitution cohérente avec l'imagerie de la méthode (ex. *Gongye Shu*) | idem | Surplus | Substitutions listées par Fruition (§6.6-6.7) | L4 |
+| R4 | **Intercalaire 4A+1B=B** | 4 capacités de A + 1 de B | Succès non garanti ; 📚 « une position orthodoxe ne connaît pas d'Intercalaire » (danger) | Intercalaire dans B | Jet de percée à haut risque | L4 |
+| R5 | **Intercalaire 3A+2B=B** | 3 capacités de A + 2 de B + méthode de recherche d'or **spécialisée** | Très difficile, plus sûr | Intercalaire dans B | Méthode spécialisée = objet de quête | L4 |
+| R6 | **Intercalaire 4A+1B=C** | Une capacité « pont » entre deux Fruitions (ex. *Bruine Hivernale* entre Eau Muable et Eau Cachée) | Seulement possible si l'état du monde le permet (corruption de la Vertu de l'Eau) | Intercalaire dans C | Table des ponts dépendant de l'état du monde | L4 |
+| R7 | **Noyau d'Or sans position** | Essence métallique forgée (1re étape) sans monter à une position (2e étape) — 📚 « la plupart n'achèvent jamais la seconde » | Pas d'autorité sur une Fruition | Vrai Monarque sans position, peut retenter plus tard | État intermédiaire explicite | L4 |
+| R8 | **Changement de position** : Transfert, Transmutation, Transformation | Un Surplus devient Réalisation si elle se libère (Transfert) ; un Intercalaire vise la position souveraine (Transformation) ; changer la position orthodoxe (Transmutation) | Guerre des positions, Reprise de la Fruition | Nouvelle position | Événements quand une Fruition change de détenteur | L4 / L6 |
+| R9 | **Réincarnation d'un Vrai Monarque** | Un ancêtre du clan au Noyau d'Or se réincarne (essence intacte) | Élus du Destin apparaissent dans la région ; rivaux qui les « récoltent » | Retour rapide : Fondation en 2 ans, Manoir Pourpre en 10 ans | Un nouveau-né du clan porte l'essence de l'ancêtre | L6 |
+
+#### B. Les autres voies (le clan peut s'y convertir ou y engager des membres)
+| # | Route | Conditions (lore) | Prix / risque | État obtenu | Mécanique | Phase |
+|---|---|---|---|---|---|---|
+| R10 | **Nature Spirituelle** (Dao immortel orthodoxe) | 1 enfant sur 1000 doté d'orifice ; destin concentré sur une Fruition | La Fruition **dicte la conduite** (interdits) | **Pseudo-Noyau d'Or** dès la perfection des capacités ; montée directe au Noyau d'Or sans alignement final | Enfant « élu » détecté à la naissance ; interdits de comportement imposés | L7 |
+| R11 | **Démon Pourpre-Or** (Diable) | Rejeter le Qi au 9e niveau pour bâtir directement fondations et capacités | Aucun destin ; **pari** au sommet (aligner son destin) | Noyau d'Or démoniaque | Voie rapide avec jet final risqué | L7 |
+| R12 | **Démon Embryon Céleste** (Diable) | Manoir Divers → Fournaise Unifiée ; une seule ascension pour les capacités | Consommer de l'**essence de sang** | Rang équivalent au Noyau d'Or | Rangs propres + ressource « essence de sang » | L7 |
+| R13 | **Bouddhisme ancien** | Nourrir sa nature et son mandat de vie pas à pas ; vœux, débats | Lent ; débats perdus = conversion forcée ou dommages | **Maître du Dharma** (puis Vénérable possible) | Rangs bouddhistes, vœux, débats | L7 |
+| R14 | **Bouddhisme moderne** | Pyramide d'emprunt, Terres Pures, âme confiée | Plafond au début du Noyau d'Or, jamais Vénérable ; soumission aux rangs supérieurs | **Maître du Dharma** (moderne) | Relation de vassalité spirituelle | L7 |
+| R15 | **Dao Divin** | Emprunter, s'unir à, ou posséder une Profondeur | Dépendance / immobilité / exigence | **Noyau Divin** | Rangs divins ; Profondeurs (lieux, êtres, concepts) | L7 |
+| R16 | **Dao Démoniaque** (bêtes, esprits) | Longévité et éveil de la lignée | Réservé aux non-humains | Équivalent Noyau d'Or | 💡 Membres **non humains** du clan (bêtes spirituelles liées, esprits transformés par le miroir) | L2 / L7 |
+| R17 | **Chamanisme** | Via la Fruition du Grand Chaman, on passe au Dao chamanique **en gardant une partie de sa progression** ; positions des Trois Chamans | — | Noyau d'Or chamanique / Surplus du Grand Chaman | Conversion à progression partielle conservée | L7 |
+| R18 | **Main Gauche vraie** | Immortels au Visage Radieux (Yang Suprême), Immortels de Jade Tressé (Yin Mineur) | Pas d'autorité sur une Fruition | Puissance de Noyau d'Or, **autonome**, sans position | Route alternative sans position | L4 |
+| R19 | **Main Gauche fausse** (Faux Noyau Divin) | Dépendre d'un supérieur (Immortel, Diable ou Divin) | Ne progresse pas sans son soutien | Faux Noyau d'Or | Lien de dépendance à un patron | L4 |
+| R20 | **Voie Impériale** | Gouverner pour cultiver (mécanismes du Dao Divin) ; ex. cultiver *Clarté sur le Monde* sans position | Exige un **État** | Surplus impériaux, Faux Noyaux d'Or | 💡 Fin de partie : le clan fonde un royaume | L6 / L7 |
+
+#### C. Cas exceptionnels (fin de partie)
+| # | Route | Précédent du lore | Mécanique proposée | Phase |
+|---|---|---|---|---|
+| R21 | **Scission d'un Noyau d'Or en plusieurs** | Le Monarque Diable indestructible scindé en trois Noyaux d'Or | 💡 Un fragment scindé se réincarne dans un enfant du clan (événement) | L6 |
+| R22 | **Legs du noyau** | Le Serpent-Dragon céleste (Embryon du Dao) divise son noyau d'or en neuf Vrais Monarques | 💡 Un Embryon du Dao du clan peut diviser son noyau en héritiers (action de fin de partie) | L6 |
+
+#### D. Ce qui ne mène **pas** au Noyau d'Or (à ne pas confondre)
+- **Emprunt de lumière** d'une Fruition et **lien à un trésor** : puissance de Manoir Pourpre seulement (§5.4.2).
+- **Lignée transformée** : garantit le **Manoir Pourpre** aux descendants, pas le Noyau d'Or (mais les rapproche).
+- **Esprit du miroir** : manipule des essences métalliques avec une maîtrise de Noyau d'Or, mais c'est l'axe du **joueur**, pas un membre du clan (§11.5).
+
+#### E. Facteurs transverses (tous jouables)
+Atmosphère favorable à la percée (§5.8), technique de recherche d'or propre à la Fruition (seuls ses maîtres la connaissent → quête, ruines, déchiffrage par le miroir), permission du détenteur (diplomatie), axiome des positions (risque), Qi natif ou de substitution (§2.5), Élus du Destin (§5.8), Désignation de Rang et Trésors de Dharma (après).
+
+#### F. Conséquences pour le modèle de données (dès L1)
+Le code actuel ne connaît qu'**une échelle linéaire** (`CultivationRealm`, percée = « royaume suivant ») : R7-R22 y sont impossibles. Il faut donc, **dès L1** :
+1. **Séparer la voie et le rang** : `CultivationPath` (6 voies, avec le Dao Divin) + `CultivationSubPath` ; chaque voie a **sa propre échelle de rangs** (données), reliée à un **palier de puissance commun** (0 mortel … 5 Noyau d'Or … 7 Immortel Doré) avec un **décalage** pour les équivalences asymétriques (Maître Moine un peu au-dessus de la Fondation, Miséricordieux un peu en dessous du Manoir Pourpre, Maha entre deux paliers).
+2. **Sous-niveau** (`RealmStage`) propre à chaque rang.
+3. **État du Noyau d'Or** distinct du rang : aucun · essence forgée sans position · position (Réalisation / Surplus / Intercalaire + Fruition) · Main Gauche (vraie / fausse + patron) · pseudo-Noyau d'Or · Noyau Divin · Maître du Dharma (ancien / moderne) · équivalent démoniaque ou chamanique · Faux Noyau Divin ; plus « réincarnation de » et « fragment de ».
+4. **La percée devient une route choisie** (`AdvancementRoute`) : conditions, prix et risques propres, au lieu de « royaume + 1 ». L1 pose le moteur et les routes de la voie immortelle jusqu'au Manoir Pourpre ; L4 ajoute R1-R9 et R18-R19 ; L7 les autres voies.
+5. **Espèce** du personnage (humain, bête spirituelle, esprit, dragon…) pour ouvrir le Dao Démoniaque (R16).
+6. **Durée de vie** selon le palier **et** la voie (réincarnation bouddhiste, Profondeur du Dao Divin, « jusqu'à la fin des temps » pour l'Embryon du Dao).
+
 ---
 
 ## 6. Lignées du Dao (Fruitions)
