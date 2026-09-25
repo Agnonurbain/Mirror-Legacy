@@ -51,6 +51,11 @@ namespace MirrorChronicles.Data
         // Known Techniques (IDs referencing TechniqueData)
         public List<string> KnownTechniqueIDs { get; set; }
 
+        // Techniques (LORE.md §2, §5.2): the method practised, and the spiritual Qi absorbed on entering
+        // Qi Cultivation, which binds the cultivator to the methods of that Qi
+        public string CultivationMethodId { get; set; }
+        public string QiId { get; set; }
+
         // Family Links (Stored as IDs for easy serialization without circular references)
         public string FatherID { get; set; }
         public string MotherID { get; set; }
