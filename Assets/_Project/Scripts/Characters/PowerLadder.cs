@@ -180,7 +180,10 @@ namespace MirrorChronicles.Characters
                 : MaxLifespan(character.Realm, character.RealmStage);
         }
 
-        /// <summary>Keeps lifespan reductions from a save but never lets it exceed the realm's reach.</summary>
+        /// <summary>
+        /// Keeps lifespan reductions from a save (including a Dao wound's one-year grace, which may sit
+        /// above the wounded reach); a missing value or one above the realm's reach becomes the wounded reach.
+        /// </summary>
         public static void NormalizeLifespan(CharacterData character)
         {
             int reach = MaxLifespan(character.Realm, character.RealmStage);
