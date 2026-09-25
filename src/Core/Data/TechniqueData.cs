@@ -72,6 +72,12 @@ namespace MirrorChronicles.Data
 
         /// <summary>Found everywhere (the Souffle Commun's minor Qi): entering Qi Cultivation needs no portion.</summary>
         public bool Ubiquitous { get; init; }
+
+        /// <summary>
+        /// The immortal foundation this Qi builds at the Foundation (« fruition-id:ability-id », LORE.md §2.5:
+        /// every Qi depends on a lineage); null for a Qi whose methods stop at Qi Cultivation.
+        /// </summary>
+        public string Foundation { get; init; }
     }
 
     /// <summary>The drawbacks of an imperfect technique, usually a secret one (LORE.md §2.3-2.4).</summary>

@@ -22,9 +22,13 @@ namespace MirrorChronicles.Data
         public const string StoryFile = "story.json";
         public const string TechniquesFile = "techniques.json";
         public const string QiFile = "qi.json";
+        public const string FruitionsFile = "fruitions.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile };
+
+        /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
+        private const int OrthodoxAbilities = 5;
 
         /// <summary>The kinds a deduction can yield, which the deduction names must cover.</summary>
         private static readonly TechniqueKind[] DeducibleKinds =
@@ -48,6 +52,7 @@ namespace MirrorChronicles.Data
             var story = Read<List<StoryEventData>>(readFile, StoryFile);
             var catalog = Read<TechniqueCatalog>(readFile, TechniquesFile);
             var qi = Read<List<QiDefinition>>(readFile, QiFile);
+            var fruitions = Read<FruitionCatalog>(readFile, FruitionsFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -58,6 +63,8 @@ namespace MirrorChronicles.Data
             CheckQi(qi);
             CheckTechniques(catalog, qi);
             CheckClanKnowledge(clan, catalog.Techniques, qi);
+            CheckFruitions(fruitions);
+            CheckFoundations(qi, catalog.Techniques, fruitions.Fruitions);
 
             return new GameContent
             {
@@ -69,7 +76,9 @@ namespace MirrorChronicles.Data
                 StoryEvents = story,
                 Techniques = catalog.Techniques,
                 Qi = qi,
-                DeductionNames = catalog.DeductionNames
+                DeductionNames = catalog.DeductionNames,
+                Fruitions = fruitions.Fruitions,
+                AnonymousHolder = fruitions.AnonymousHolder
             };
         }
 
@@ -130,6 +139,10 @@ namespace MirrorChronicles.Data
             Require(balance.TechniqueSpeedByGrade != null && balance.TechniqueSpeedByGrade.Count == TechniqueRules.MaxGrade
                 && balance.TechniqueSpeedByGrade.All(s => s > 0),
                 BalanceFile, $"techniqueSpeedByGrade needs one positive speed per grade, {TechniqueRules.MinGrade} to {TechniqueRules.MaxGrade}.");
+            var world = balance.UnspecifiedFruitionOdds;
+            Require(world != null && IsProbability(world.Free) && IsProbability(world.Occupied) && IsProbability(world.Broken)
+                && Math.Abs(world.Free + world.Occupied + world.Broken - 1.0) < 1e-6,
+                BalanceFile, "unspecifiedFruitionOdds (free, occupied, broken) must be probabilities summing to 1.");
         }
 
         private static void CheckFactions(List<FactionData> factions)
@@ -229,6 +242,47 @@ namespace MirrorChronicles.Data
                     Require(TechniqueRules.Covers(method, f.Realm), ClanFile,
                         $"{f.FirstName} is a Qi cultivator or beyond and needs a method covering their realm (LORE.md §5.2).");
             }
+        }
+
+        /// <summary>The lineages (LORE.md §6): unique, with their orthodox five, and a holder exactly where a status implies one.</summary>
+        private static void CheckFruitions(FruitionCatalog catalog)
+        {
+            var fruitions = catalog.Fruitions;
+            Require(!string.IsNullOrWhiteSpace(catalog.AnonymousHolder), FruitionsFile, "anonymousHolder names the True Monarchs the lore does not name.");
+            Require(fruitions != null && fruitions.Count > 0 && fruitions.All(f => !string.IsNullOrWhiteSpace(f.Id) && !string.IsNullOrWhiteSpace(f.Name)),
+                FruitionsFile, "every lineage needs an id and a name.");
+            Require(fruitions.Select(f => f.Id).Distinct().Count() == fruitions.Count, FruitionsFile, "two lineages share an id.");
+
+            foreach (var f in fruitions)
+            {
+                var abilities = f.Abilities ?? Array.Empty<DivineAbilityDefinition>();
+                Require(abilities.All(a => !string.IsNullOrWhiteSpace(a.Id)) && abilities.Select(a => a.Id).Distinct().Count() == abilities.Count,
+                    FruitionsFile, $"{f.Id}: every ability needs its own id.");
+                Require(abilities.Count(a => !a.Substitute) >= OrthodoxAbilities, FruitionsFile,
+                    $"{f.Id}: a lineage has five orthodox abilities (name them null while the world has not revealed them).");
+
+                bool held = f.Status == FruitionStatus.Occupied || f.Status == FruitionStatus.Suspected;
+                bool empty = f.Status == FruitionStatus.Free || f.Status == FruitionStatus.Broken || f.Status == FruitionStatus.Unspecified;
+                Require(!held || !string.IsNullOrWhiteSpace(f.Holder), FruitionsFile, $"{f.Id}: an {f.Status} lineage needs its holder.");
+                Require(!empty || f.Holder == null, FruitionsFile, $"{f.Id}: a {f.Status} lineage has no holder (former holders go in formerHolders).");
+            }
+        }
+
+        /// <summary>Each Qi names a foundation that exists, and every Qi of a method reaching the Foundation names one (§5.3.1).</summary>
+        private static void CheckFoundations(List<QiDefinition> qi, IReadOnlyList<TechniqueData> techniques, IReadOnlyList<FruitionDefinition> fruitions)
+        {
+            foreach (var q in qi.Where(q => q.Foundation != null))
+            {
+                var (fruitionId, abilityId) = FoundationRef.Parse(q.Foundation);
+                var fruition = fruitions.FirstOrDefault(f => f.Id == fruitionId);
+                Require(fruition != null && fruition.Abilities.Any(a => a.Id == abilityId), QiFile,
+                    $"{q.Id}: the foundation \"{q.Foundation}\" is not an ability of {FruitionsFile}.");
+            }
+
+            var reachingFoundation = techniques.Where(t => TechniqueRules.Covers(t, CultivationRealm.Foundation) && t.RequiredQiId != null)
+                .Select(t => t.RequiredQiId).Distinct();
+            var missing = reachingFoundation.FirstOrDefault(id => qi.First(q => q.Id == id).Foundation == null);
+            Require(missing == null, QiFile, $"{missing}: its methods reach the Foundation, so it must name the foundation it builds.");
         }
 
         private static bool IsProbability(double value) => value >= 0 && value <= 1;

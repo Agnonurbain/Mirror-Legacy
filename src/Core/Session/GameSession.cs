@@ -8,6 +8,7 @@ using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Economy;
 using MirrorChronicles.Events;
 using MirrorChronicles.Mirror;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Session
 {
@@ -39,6 +40,7 @@ namespace MirrorChronicles.Session
         public AgingSystem Aging { get; }
         public WoundSystem Wounds { get; }
         public FactionManager Factions { get; }
+        public FruitionRegistry Fruitions { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
         public BuildingSystem Buildings { get; }
@@ -69,6 +71,7 @@ namespace MirrorChronicles.Session
             Aging = new AgingSystem(Context, Clan);
             Wounds = new WoundSystem(Context, Stability);
             Factions = new FactionManager(Context);
+            Fruitions = new FruitionRegistry(Context);
             Mirror = new MirrorSystem(Context, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
@@ -83,7 +86,7 @@ namespace MirrorChronicles.Session
             Victory = new VictoryConditionSystem(Context, Clan, Karma, Ascension);
         }
 
-        /// <summary>A new game: the clan's knowledge and Qi, the founders, the known world and the mirror's first two fragments.</summary>
+        /// <summary>A new game: the clan's knowledge and Qi, the founders, the known world and its lineages, the mirror's first two fragments.</summary>
         public static GameSession NewGame(GameSetup setup)
         {
             var content = RequireContent(setup);
@@ -94,6 +97,7 @@ namespace MirrorChronicles.Session
             FoundingClan.Found(session.Clan, content.Clan, session.Techniques, session.Context.Rng);
             session.Karma.Restore(1, 0, 0, session.Clan.PatriarchID);
             session.Factions.InitializeFactions();
+            session.Fruitions.DrawWorld(FruitionRegistry.WorldRandom(setup.Seed));
             session.Deduction.AddFragment(Element.Fire, 1, "Scorched Scroll");
             session.Deduction.AddFragment(Element.Wood, 1, "Bamboo Slip");
 
@@ -138,6 +142,7 @@ namespace MirrorChronicles.Session
             session.Resources.RestoreQi(data.SpiritualQi ?? content.Clan.StartingQi, data.QiHarvestProgress);
             foreach (var record in records)
                 session.Techniques.NormalizeMember(record);                  // a Qi cultivator practises a method
+            session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);
 
@@ -168,6 +173,7 @@ namespace MirrorChronicles.Session
                 KnownTechniqueIds = Techniques.KnownIds.OrderBy(id => id, StringComparer.Ordinal).ToList(),
                 SpiritualQi = new Dictionary<string, int>(Resources.SpiritualQi),
                 QiHarvestProgress = new Dictionary<string, int>(Resources.QiHarvestProgress),
+                FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),
                 GenerationCount = Karma.GenerationCount,
                 TotalBirths = Karma.TotalBirths,
                 TotalDeaths = Karma.TotalDeaths,

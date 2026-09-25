@@ -24,6 +24,12 @@ namespace MirrorChronicles.Data
 
         /// <summary>The words the mirror names its deductions with.</summary>
         public TechniqueNaming DeductionNames { get; init; }
+
+        /// <summary>The Dao lineages (LORE.md §6), shared: a game keeps its own statuses (FruitionRegistry).</summary>
+        public IReadOnlyList<FruitionDefinition> Fruitions { get; init; } = Array.Empty<FruitionDefinition>();
+
+        /// <summary>How the world calls a True Monarch the lore does not name.</summary>
+        public string AnonymousHolder { get; init; }
     }
 
     /// <summary>techniques.json: the catalog and the words of deduced names.</summary>
@@ -104,6 +110,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>Cultivation speed of a method, by grade 1 to 7 (LORE.md §2.1: a higher grade cultivates faster).</summary>
         public IReadOnlyList<double> TechniqueSpeedByGrade { get; init; } = Array.Empty<double>();
+
+        /// <summary>How a lineage whose status the lore leaves open is drawn at the start of a game (§11.7).</summary>
+        public FruitionOdds UnspecifiedFruitionOdds { get; init; }
     }
 
     /// <summary>Chance of a spiritual orifice at birth, by the number of parents who have one.</summary>

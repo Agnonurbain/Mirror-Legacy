@@ -1,0 +1,3517 @@
+{
+  "anonymousHolder": "un Vrai Monarque inconnu",
+  "fruitions": [
+    {
+      "id": "supreme-yang",
+      "name": "Yang Suprême",
+      "aliases": [],
+      "groups": [
+        "TwoDualities"
+      ],
+      "generation": "Founding",
+      "profundity": "None",
+      "element": "Light",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence du Zénith Sextuple",
+      "abilities": [
+        {
+          "id": "solar-canon-guardian",
+          "name": "Gardien du Canon Solaire",
+          "types": []
+        },
+        {
+          "id": "zenith-spear",
+          "name": "Lance du Zénith",
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Détenteur inconnu. Symbole : le soleil ; « rouge feu comme l'or, fulgurant comme la lumière ». Base des Immortels au Visage Radieux (Main Gauche vraie)."
+    },
+    {
+      "id": "bright-yang",
+      "name": "Yang Lumineux",
+      "aliases": [],
+      "groups": [
+        "TwoDualities"
+      ],
+      "generation": "Interaction",
+      "profundity": "Douxuan",
+      "element": "Light",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence du Sceptre Lumineux",
+      "abilities": [
+        {
+          "id": "heaven-salute-arch",
+          "name": "Arche du Salut au Ciel",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "vermilion-sting",
+          "name": "Dard Vermillon",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "throne-gaze",
+          "name": "Regard du Trône",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "besieged-monarch",
+          "name": "Monarque Assiégé",
+          "types": [
+            "Body"
+          ]
+        },
+        {
+          "id": "clarity-over-the-world",
+          "name": "Clarté sur le Monde",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "first-dawn-pass",
+          "name": "Passe de l'Aube Première",
+          "types": [],
+          "substitute": true
+        },
+        {
+          "id": "shadowless-heart",
+          "name": "Cœur sans Ombre",
+          "types": [],
+          "substitute": true
+        },
+        {
+          "id": "ever-clear-dais",
+          "name": "Estrade Toujours Claire",
+          "types": [],
+          "substitute": true
+        },
+        {
+          "id": "office-of-the-age",
+          "name": "Office du Siècle",
+          "types": [],
+          "substitute": true
+        },
+        {
+          "id": "oath-body",
+          "name": "Corps du Serment",
+          "types": [],
+          "substitute": true
+        }
+      ],
+      "status": "Occupied",
+      "holder": "Empereur Zhen Guangling",
+      "formerHolders": [
+        "Hongyao"
+      ],
+      "surplus": [
+        "Roi Lumineux Xiaoming",
+        "Cigale Blanche",
+        "Vrai Monarque Chenguang",
+        "Vrai Monarque Gaoyao"
+      ],
+      "intercalary": [],
+      "star": "les Étoiles Souveraines du Soleil Jaillissant",
+      "notes": "Croissance, union, lumière céleste ; contre naturel des Diables ; exige un esprit impérieux. Chérit le lien père-fils mais abhorre l'inversion. Supprime et est supprimé par le Yin Voilé. Empreinte de la bête Hongyao."
+    },
+    {
+      "id": "lesser-yang",
+      "name": "Yang Mineur",
+      "aliases": [],
+      "groups": [
+        "TwoDualities"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Light",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "L'Éveil du Yang Mineur rend indestructible (le Monarque Démon, §12)."
+    },
+    {
+      "id": "supreme-yin",
+      "name": "Yin Suprême",
+      "aliases": [],
+      "groups": [
+        "TwoDualities"
+      ],
+      "generation": "Founding",
+      "profundity": "None",
+      "element": "Darkness",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "drowned-moon",
+          "name": "Lune Noyée",
+          "types": []
+        },
+        {
+          "id": "original-accomplishment",
+          "name": "Accomplissement Originel",
+          "types": []
+        },
+        {
+          "id": "obscure-liturgy",
+          "name": "Liturgie Obscure",
+          "types": [
+            "Body"
+          ]
+        },
+        {
+          "id": "moon-silk",
+          "name": "Soie de Lune",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Extrêmement Yin, pur et lumineux, sans force mais inflexible, comme une pierre de glace. Symboles : lapins blancs, crapauds, lune, orchidées blanches."
+    },
+    {
+      "id": "veiled-yin",
+      "name": "Yin Voilé",
+      "aliases": [],
+      "groups": [
+        "TwoDualities"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Darkness",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "returning-yin-mist",
+          "name": "Brume du Yin Retourné",
+          "types": []
+        },
+        {
+          "id": "spectral-yin-gale",
+          "name": "Ouragan du Yin Spectral",
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "S'oppose au Yang Lumineux (suppression mutuelle) ; l'État de Pei le cultive. 🔎 Brume du Yin Retourné et Ouragan du Yin Spectral, fondations isolées (§6.5), y sont rattachées par interprétation."
+    },
+    {
+      "id": "lesser-yin",
+      "name": "Yin Mineur",
+      "aliases": [],
+      "groups": [
+        "TwoDualities"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Darkness",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "cold-drought-monarch-fire",
+          "name": "Feu Monarque du Froid et de la Sécheresse",
+          "types": []
+        },
+        {
+          "id": "engulfed-fragrance",
+          "name": "Parfum Englouti",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Base des Immortels de Jade Tressé (Main Gauche vraie) ; un manuel de grade 4 a été compilé par une servante immortelle du Yin Mineur."
+    },
+    {
+      "id": "orthodox-water",
+      "name": "Eau Orthodoxe",
+      "aliases": [
+        "Eau de Fosse",
+        "Eau de Fosse aux Mille Réticences",
+        "Eau de Fosse du Chemin Englouti"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "Qingxuan",
+      "element": "Water",
+      "manifestation": "Orthodox",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence des Mille Gouttes Patientes",
+      "abilities": [
+        {
+          "id": "boundless-sea",
+          "name": "Mer sans Rivage",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "ford-watcher",
+          "name": "Veilleur du Gué",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "storm-sky",
+          "name": "Ciel d'Orage",
+          "types": []
+        },
+        {
+          "id": "dike-guard",
+          "name": "Garde de la Digue",
+          "types": []
+        },
+        {
+          "id": "river-farewell",
+          "name": "Adieu au Fleuve",
+          "types": []
+        },
+        {
+          "id": "peril-refuge",
+          "name": "Refuge du Péril",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "black-water-serpent-king",
+          "name": "Roi-Serpent des Eaux Noires",
+          "types": [
+            "Magic"
+          ]
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [
+        "Yu",
+        "Vrai Monarque Cehe"
+      ],
+      "surplus": [
+        "Vrai Monarque de l'Eau du Royaume de Luoling"
+      ],
+      "intercalary": [
+        "Vrai Monarque Shencang"
+      ],
+      "star": "Mercure",
+      "notes": "Insaisissable, manipulateur, mobile : esquive et contre-attaque ; essence gris-vert, pluie. Le Vrai Monarque Cehe est mort en tentant l'Embryon du Dao."
+    },
+    {
+      "id": "gathered-water",
+      "name": "Eau Rassemblée",
+      "aliases": [
+        "Eau Convergente"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "Qingxuan",
+      "element": "Water",
+      "manifestation": "Gathered",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "ultimate-confluence",
+          "name": "Confluence Ultime",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "flood-omen",
+          "name": "Présage de la Crue",
+          "types": []
+        },
+        {
+          "id": "return-to-sea",
+          "name": "Retour à la Mer",
+          "types": []
+        },
+        {
+          "id": "equal-waves-sage",
+          "name": "Sage des Flots Égaux",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "corrupted-river",
+          "name": "Fleuve Corrompu",
+          "types": []
+        }
+      ],
+      "status": "Occupied",
+      "holder": "Ao Ming",
+      "formerHolders": [
+        "le Vrai Serpent-Dragon céleste",
+        "Ao Ri"
+      ],
+      "surplus": [
+        "Ao Yue",
+        "Ao Xi",
+        "Ao Zai",
+        "Ao Lin"
+      ],
+      "intercalary": [],
+      "star": null,
+      "notes": "Érosive : empoisonne et entrave le flux de mana. « Aime rassembler » : puissance sans rivale."
+    },
+    {
+      "id": "nourishing-water",
+      "name": "Eau Nourricière",
+      "aliases": [
+        "Eau du Manoir"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "Qingxuan",
+      "element": "Water",
+      "manifestation": "Nourishing",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "winter-drizzle",
+          "name": "Bruine Hivernale",
+          "types": []
+        },
+        {
+          "id": "dawn-abyss",
+          "name": "Abysse de l'Aurore",
+          "types": []
+        },
+        {
+          "id": "winter-retreat",
+          "name": "Retraite Hivernale",
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Vacante depuis environ 600 ans (naissance du Lac Jingshui). Lacs, marais, vent et serpents crochus ; perturbe le vol. Rare dans le sud de Linxi, abondante en Mer Orientale."
+    },
+    {
+      "id": "mutable-water",
+      "name": "Eau Muable",
+      "aliases": [
+        "Eau Pure"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "Qingxuan",
+      "element": "Water",
+      "manifestation": "Mutable",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence du Sceau Limpide",
+      "abilities": [
+        {
+          "id": "buried-spring-song",
+          "name": "Chant de la Source Enfouie",
+          "types": [
+            "Body",
+            "Life"
+          ]
+        },
+        {
+          "id": "mist-veil",
+          "name": "Voile de Brouillard",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "evening-downpour",
+          "name": "Averse du Soir",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "silhouette-under-the-wave",
+          "name": "Silhouette sous l'Onde",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "lustral-dew",
+          "name": "Rosée Lustrale",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "celadon-crest-manifestation",
+          "name": "Manifestation de la Crête Céladon",
+          "types": [],
+          "substitute": true
+        },
+        {
+          "id": "drowned-moon-substitute",
+          "name": "Lune Noyée",
+          "types": [],
+          "substitute": true
+        },
+        {
+          "id": "world-overturning",
+          "name": "Renversement du Monde",
+          "types": [
+            "Life"
+          ],
+          "substitute": true
+        }
+      ],
+      "status": "Occupied",
+      "holder": "Tan Qing",
+      "formerHolders": [
+        "le Serpent à Plumes",
+        "le Vrai Serpent-Dragon céleste"
+      ],
+      "surplus": [],
+      "intercalary": [
+        "Ao Feng",
+        "les 8e et 9e fils du Serpent-Dragon"
+      ],
+      "star": null,
+      "notes": "Volumineuse, purifiante, étouffante : immobilise, étouffe et dissout. Tan Qing a une profondeur du Dao immense mais n'est pas aimé de sa Fruition. Désignation de Rang : l'Épée de l'Éveil du Cœur. « Son règne est fugace »."
+    },
+    {
+      "id": "hidden-water",
+      "name": "Eau Cachée",
+      "aliases": [
+        "Eau Yin",
+        "Eau de la Vallée"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "Qingxuan",
+      "element": "Water",
+      "manifestation": "Hidden",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence du Grand Dépôt de la Vallée Profonde",
+      "abilities": [
+        {
+          "id": "sincere-dawn",
+          "name": "Aurore Sincère",
+          "types": []
+        },
+        {
+          "id": "reborn-spring",
+          "name": "Source Renaissante",
+          "types": []
+        },
+        {
+          "id": "meeting-of-the-dales",
+          "name": "Rencontre des Vallons",
+          "types": []
+        },
+        {
+          "id": "deep-treasure-gate",
+          "name": "Porte du Trésor Profond",
+          "types": []
+        },
+        {
+          "id": "embryo-vigil",
+          "name": "Veille sur l'Embryon",
+          "types": []
+        }
+      ],
+      "status": "Occupied",
+      "holder": "Dame Yinlan",
+      "formerHolders": [
+        "Vrai Monarque Baiyi"
+      ],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "« Ce qui est caché, pas encore libéré »."
+    },
+    {
+      "id": "orthodox-fire",
+      "name": "Feu Orthodoxe",
+      "aliases": [
+        "Feu Radieux",
+        "Feu Li"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Fire",
+      "manifestation": "Orthodox",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": [
+            "Body"
+          ]
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": [
+            "Magic"
+          ]
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Répartition connue des capacités : 2 Vie, 1 Corps, 2 Magie."
+    },
+    {
+      "id": "gathered-fire",
+      "name": "Feu Rassemblé",
+      "aliases": [
+        "Feu Fusionnant"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Fire",
+      "manifestation": "Gathered",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "ardent-heart-sigh",
+          "name": "Soupir du Cœur Ardent",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": [
+            "Body"
+          ]
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": [
+            "Magic"
+          ]
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Répartition : 1 Vie, 1 Corps, 3 Magie (🔎 le type du Soupir du Cœur Ardent en découle). Insidieux, épuisant : brûle la vitalité, douleur atroce surtout pour les démons ; flammes gris-noir."
+    },
+    {
+      "id": "nourishing-fire",
+      "name": "Feu Nourricier",
+      "aliases": [
+        "Feu Véritable"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "Douxuan",
+      "element": "Fire",
+      "manifestation": "Nourishing",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence du Feu Véritable Nourricier d'avant le Ciel",
+      "abilities": [
+        {
+          "id": "ember-pheasant",
+          "name": "Faisan de Braise",
+          "types": []
+        },
+        {
+          "id": "heavenly-blaze",
+          "name": "Incendie Céleste",
+          "types": []
+        },
+        {
+          "id": "hearth-god",
+          "name": "Dieu du Foyer",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Broken",
+      "holder": null,
+      "formerHolders": [
+        "le Maître de Douxuan"
+      ],
+      "surplus": [
+        "Danmei",
+        "le Vrai Monarque du Cycle Inné de la Vertu du Feu"
+      ],
+      "intercalary": [],
+      "star": null,
+      "notes": "Brisée : on ne peut y monter tant qu'elle n'est pas restaurée. Flammes rouge-or, dominantes et royales ; chaleur écrasante dès l'aura."
+    },
+    {
+      "id": "mutable-fire",
+      "name": "Feu Muable",
+      "aliases": [
+        "Feu Sec"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Fire",
+      "manifestation": "Mutable",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "hidden-fire",
+      "name": "Feu Caché",
+      "aliases": [
+        "Feu Viril"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Fire",
+      "manifestation": "Hidden",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "molten-fire",
+      "name": "Feu en Fusion",
+      "aliases": [],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Fire",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "fiend-flame",
+          "name": "Flamme Démone",
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Lignée distincte du Feu Rassemblé. Funeste, éclatant ; incline l'équilibre vers le Yang ; fait fondre artefacts et formations (contre les fondations du Métal) ; cœur brillant, flammes pâles."
+    },
+    {
+      "id": "blazing-fire",
+      "name": "Feu Ardent",
+      "aliases": [],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Fire",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Réside au nord ; ses objets aident à cultiver la Marche contre le Vent du Nord (Bois Orthodoxe)."
+    },
+    {
+      "id": "orthodox-earth",
+      "name": "Terre Orthodoxe",
+      "aliases": [
+        "Terre Stable",
+        "Terre de Gen"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Earth",
+      "manifestation": "Orthodox",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "fools-summit-race",
+          "name": "Course du Fou vers la Cime",
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Sa Course du Fou vers la Cime sert de substitution au Grand Chaman (Gongye Shu)."
+    },
+    {
+      "id": "gathered-earth",
+      "name": "Terre Rassemblée",
+      "aliases": [
+        "Terre du Retour"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Earth",
+      "manifestation": "Gathered",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "nourishing-earth",
+      "name": "Terre Nourricière",
+      "aliases": [
+        "Terre Majestueuse",
+        "Terre de Wu"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Earth",
+      "manifestation": "Nourishing",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "mutable-earth",
+      "name": "Terre Muable",
+      "aliases": [
+        "Terre Manifestée"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Earth",
+      "manifestation": "Mutable",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "hidden-earth",
+      "name": "Terre Cachée",
+      "aliases": [
+        "Terre au Trésor"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Earth",
+      "manifestation": "Hidden",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [
+        "Wen Xiang"
+      ],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Sol qui recèle. La Désignation de Rang forgée par Wen Xiang garde encore la Grotte Céleste du Ciel des Mille Prospérités."
+    },
+    {
+      "id": "orthodox-metal",
+      "name": "Métal Orthodoxe",
+      "aliases": [
+        "Métal Dui"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Metal",
+      "manifestation": "Orthodox",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "gathered-metal",
+      "name": "Métal Rassemblé",
+      "aliases": [
+        "Métal Unifié",
+        "Or Unifié"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Metal",
+      "manifestation": "Gathered",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Hidden",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Occupé par des héritiers partis au-delà des Cieux, statut inconnu. Le Trésor Profond, trésorerie de Douxuan, existe entre lui et le Métal Caché."
+    },
+    {
+      "id": "wandering-metal",
+      "name": "Métal Errant",
+      "aliases": [
+        "Métal Libéré",
+        "Métal Nourricier"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Metal",
+      "manifestation": "Nourishing",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Contrôlé par la famille Lian. 🔎 Le « Métal Libéré » nourricier du wiki est probablement le Métal Errant."
+    },
+    {
+      "id": "mutable-metal",
+      "name": "Métal Muable",
+      "aliases": [
+        "Métal Geng"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Metal",
+      "manifestation": "Mutable",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "engraved-stele",
+          "name": "Stèle Gravée",
+          "types": []
+        },
+        {
+          "id": "dawn-helm",
+          "name": "Heaume de l'Aurore",
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Stèle Gravée : Qi qui brise les formations et fend les montagnes, se renforce à chaque ennemi vaincu, détecte l'or des veines de la terre ; Partenaire Dao du Heaume de l'Aurore."
+    },
+    {
+      "id": "hidden-metal",
+      "name": "Métal Caché",
+      "aliases": [
+        "Métal de la Voûte"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "Douxuan",
+      "element": "Metal",
+      "manifestation": "Hidden",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence du Trésor Dao Sans Forme",
+      "abilities": [
+        {
+          "id": "silver-pillar",
+          "name": "Colonne d'Argent",
+          "types": []
+        },
+        {
+          "id": "underground-forge",
+          "name": "Forge Souterraine",
+          "types": []
+        },
+        {
+          "id": "treasure-silver-threads",
+          "name": "Fils d'Argent du Trésor",
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Broken",
+      "holder": null,
+      "formerHolders": [
+        "le Vrai Monarque du Métal Caché"
+      ],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Exige le Qi Métallique du Verrou Profond ; manuel de rang 6 connu ; formations, perception des trésors, dissimulation. Forge Souterraine : internaliser des artefacts (culture très douloureuse). Le complot du Verrou du Trésor Unifié limite cette voie."
+    },
+    {
+      "id": "harmonious-metal",
+      "name": "Métal Harmonieux",
+      "aliases": [],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Metal",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Hidden",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Métal de préservation et de collecte, extrêmement rare ; occupé par des héritiers partis au-delà des Cieux, statut inconnu."
+    },
+    {
+      "id": "joy-metal",
+      "name": "Or de Joie",
+      "aliases": [],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Metal",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Hors du tableau des Cinq Manifestations (§6.4)."
+    },
+    {
+      "id": "green-origin-gold",
+      "name": "Or Vert d'Origine",
+      "aliases": [],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Metal",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Or Vert d'Origine",
+      "abilities": [
+        {
+          "id": "blooming-gold-heart",
+          "name": "Cœur d'Or Éclos",
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Occupied",
+      "holder": "un Vrai Monarque inconnu",
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "🔎 Seule son essence métallique est connue ; la source la dit occupée."
+    },
+    {
+      "id": "orthodox-wood",
+      "name": "Bois Orthodoxe",
+      "aliases": [
+        "Bois Droit"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Wood",
+      "manifestation": "Orthodox",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "north-wind-march",
+          "name": "Marche contre le Vent du Nord",
+          "types": [
+            "Body"
+          ]
+        },
+        {
+          "id": "anchored-gaze",
+          "name": "Ancrage du Regard",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "veiled-word",
+          "name": "Parole Voilée",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "sap-law",
+          "name": "Loi de la Sève",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "unity-refuge",
+          "name": "Refuge de l'Unicité",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "back-to-noon",
+          "name": "Dos au Midi",
+          "types": []
+        },
+        {
+          "id": "wood-makes-the-square",
+          "name": "Le Bois Fait l'Équerre",
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": "Jupiter",
+      "notes": "Lignée héréditaire de la famille Huyan. Inflexible comme le métal ou la pierre. Le Refuge de l'Unicité est la clé de la position de Surplus (le Maître taoïste Yuanshu a échoué faute de lui). Manuel : Classique des Monts qui Regardent le Sud."
+    },
+    {
+      "id": "gathered-wood",
+      "name": "Bois Rassemblé",
+      "aliases": [],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Wood",
+      "manifestation": "Gathered",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "longevity-through-peril",
+          "name": "Longévité par le Péril",
+          "types": []
+        },
+        {
+          "id": "perchless-eagle",
+          "name": "Aigle sans Perchoir",
+          "types": []
+        },
+        {
+          "id": "bitter-harvest",
+          "name": "Cueillette Amère",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "delirium-forest",
+          "name": "Forêt du Délire",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [
+        "deux Monarques Diables du Bois Rassemblé"
+      ],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Vacante depuis le déclin des chamans. Longévité par le Péril : « impossible à éliminer, impossible à tuer » (mauvais présage : les sauterelles)."
+    },
+    {
+      "id": "nourishing-wood",
+      "name": "Bois Nourricier",
+      "aliases": [
+        "Bois Préservé"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Wood",
+      "manifestation": "Nourishing",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "mutable-wood",
+      "name": "Bois Muable",
+      "aliases": [
+        "Bois Transformé"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Wood",
+      "manifestation": "Mutable",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "hidden-wood",
+      "name": "Bois Caché",
+      "aliases": [
+        "Bois de Corne"
+      ],
+      "groups": [
+        "FiveVirtues"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "Wood",
+      "manifestation": "Hidden",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "high-clouds-wood",
+          "name": "Bois des Nuées Hautes",
+          "types": []
+        },
+        {
+          "id": "bark-uprightness",
+          "name": "Droiture de l'Écorce",
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Encore largement cultivé. 🔎 Bois des Nuées Hautes et Droiture de l'Écorce (Partenaires Dao l'une de l'autre, §6.5) y sont rattachées par interprétation."
+    },
+    {
+      "id": "pure-qi",
+      "name": "Qi Pur",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Founding",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 1,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "floating-cloud-body",
+          "name": "Corps de Nuée Flottante",
+          "types": [
+            "Body"
+          ]
+        },
+        {
+          "id": "pure-primordial-wind",
+          "name": "Vent Primordial Pur",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Nourrit une Grotte Céleste à son apogée ; quand elle meurt, le Qi Exilé la réclame."
+    },
+    {
+      "id": "true-qi",
+      "name": "Qi Véritable",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 2,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence du Démon Divin des Cinq Cieux",
+      "abilities": [
+        {
+          "id": "embraced-stone-slumber",
+          "name": "Sommeil de la Pierre Étreinte",
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "brilliant-qi",
+      "name": "Qi Brillant",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 3,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Favorise les bouddhistes ; les maîtres du Dharma modernes lui empruntent une autorité limitée."
+    },
+    {
+      "id": "violet-qi",
+      "name": "Qi Violet",
+      "aliases": [
+        "Qi Pourpre"
+      ],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 4,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence d'Origine Immortelle du Qi Violet de la Culture Céleste",
+      "abilities": [
+        {
+          "id": "dao-origin-omen",
+          "name": "Présage de l'Origine du Dao",
+          "types": []
+        },
+        {
+          "id": "eastern-mount-detour",
+          "name": "Détour par le Mont d'Orient",
+          "types": []
+        },
+        {
+          "id": "life-nourishing-master",
+          "name": "Maître Nourricier de Vie",
+          "types": []
+        },
+        {
+          "id": "earth-star-cultivation",
+          "name": "Culture de l'Étoile Terrestre",
+          "types": []
+        },
+        {
+          "id": "purple-scroll-ordinance",
+          "name": "Ordonnance des Rouleaux Pourpres",
+          "types": []
+        },
+        {
+          "id": "warm-precious-vase",
+          "name": "Vase Tiède et Précieux",
+          "types": []
+        }
+      ],
+      "status": "Hidden",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "dry-qi",
+      "name": "Qi Sec",
+      "aliases": [
+        "Essence Radieuse"
+      ],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Interaction",
+      "profundity": "Tongxuan",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 5,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "endless-splendour",
+          "name": "Splendeur sans Fin",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "relief-vigil",
+          "name": "Veillée de Relève",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "bitter-stifling-heat",
+          "name": "Chaleur Amère et Étouffante",
+          "types": []
+        },
+        {
+          "id": "pavilion-of-graces",
+          "name": "Pavillon des Grâces",
+          "types": []
+        },
+        {
+          "id": "eight-exemptions-debate",
+          "name": "Débat des Huit Exemptions",
+          "types": []
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Porté par le Mont Qushan (en déclin) et le clan Hui (fragmenté) ; plus grand maître connu : Maître Diyun (Manoir Pourpre, apogée). Chaleur persistante qui épuise ; domine les combats prolongés. Symboles : soleil déclinant, désert, sécheresse."
+    },
+    {
+      "id": "upper-rite",
+      "name": "Rite Supérieur",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 6,
+      "isShaman": false,
+      "isRite": true,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "lower-rite",
+      "name": "Rite Inférieur",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 7,
+      "isShaman": false,
+      "isRite": true,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "cold-qi",
+      "name": "Qi Froid",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 8,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "frost-on-cedars",
+          "name": "Givre sur les Cèdres",
+          "types": []
+        },
+        {
+          "id": "clear-hearing",
+          "name": "Ouïe Claire",
+          "types": []
+        },
+        {
+          "id": "northern-cold-water",
+          "name": "Eau Froide du Nord",
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "auspicious-qi",
+      "name": "Qi Faste",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 9,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "auspicious-clouds",
+          "name": "Nuées Fastes",
+          "types": []
+        },
+        {
+          "id": "fortunate-attainments-scroll",
+          "name": "Rouleau des Heureux Accomplissements",
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "baleful-qi",
+      "name": "Qi Funeste",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 10,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "grave-gate-thorn",
+          "name": "Épine de la Porte des Tombes",
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "🔎 L'Épine de la Porte des Tombes, fondation isolée (§6.5), y est rattachée par interprétation."
+    },
+    {
+      "id": "profound-qi",
+      "name": "Qi Profond",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Interaction",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 11,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "🔎 Peut-être l'« Essence illimitée » de la source."
+    },
+    {
+      "id": "exiled-qi",
+      "name": "Qi Exilé",
+      "aliases": [],
+      "groups": [
+        "TwelveQi"
+      ],
+      "generation": "Interaction",
+      "profundity": "Douxuan",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 12,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "sunset-chasm-approach",
+          "name": "Approche du Gouffre du Couchant",
+          "types": []
+        },
+        {
+          "id": "ravine-boat",
+          "name": "Barque du Ravin",
+          "types": []
+        },
+        {
+          "id": "river-of-oblivion-song",
+          "name": "Chant du Fleuve d'Oubli",
+          "types": []
+        },
+        {
+          "id": "hidden-abyssal-vessel",
+          "name": "Vaisseau Abyssal Caché",
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Suspected",
+      "holder": "Marquis de la Nuit",
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Dévore les signatures d'énergie, brouille la divination, efface le souvenir d'un lieu. Le Chant du Fleuve d'Oubli achevé peut refléter le monde souterrain."
+    },
+    {
+      "id": "celestial-thunder",
+      "name": "Tonnerre Céleste",
+      "aliases": [],
+      "groups": [
+        "ThreeThunders"
+      ],
+      "generation": "Unknown",
+      "profundity": "None",
+      "element": "Lightning",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "storm-pool",
+          "name": "Bassin d'Orage",
+          "types": []
+        },
+        {
+          "id": "falling-thunder",
+          "name": "Foudre Descendante",
+          "types": []
+        },
+        {
+          "id": "first-spring-rumble",
+          "name": "Premier Grondement du Printemps",
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Variante du Bassin d'Orage : le Coup de Tonnerre Hivernal, qui exigeait un Liquide de Tonnerre Or-Pourpre disparu avec le Temple des Nuées d'Orage."
+    },
+    {
+      "id": "profound-thunder",
+      "name": "Tonnerre Profond",
+      "aliases": [],
+      "groups": [
+        "ThreeThunders"
+      ],
+      "generation": "Unknown",
+      "profundity": "None",
+      "element": "Lightning",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "🔎 Compté parmi les Trois Tonnerres par déduction. Commandé par la Séquence Divine (Régent Céleste) ; prédisposé au Dao Divin."
+    },
+    {
+      "id": "primordial-magnetism",
+      "name": "Magnétisme Primordial",
+      "aliases": [],
+      "groups": [
+        "ThreeThunders"
+      ],
+      "generation": "Unknown",
+      "profundity": "None",
+      "element": "Lightning",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "primordial-magnetism-foundation",
+          "name": "Magnétisme Primordial",
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "🔎 Compté parmi les Trois Tonnerres par déduction ; prédisposé au Dao Divin. Sang flottant en gouttelettes électrifiées."
+    },
+    {
+      "id": "celestial-regent",
+      "name": "Régent Céleste",
+      "aliases": [],
+      "groups": [
+        "AncientFusion"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "Douxuan",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "divine-sequence",
+          "name": "Séquence Divine",
+          "types": []
+        },
+        {
+          "id": "great-bear-balance",
+          "name": "Équilibre Profond de la Grande Ourse",
+          "types": []
+        },
+        {
+          "id": "endless-derivations",
+          "name": "Dérivations sans Fin",
+          "types": []
+        },
+        {
+          "id": "divine-law-watch",
+          "name": "Surveillance de la Loi Divine",
+          "types": []
+        },
+        {
+          "id": "waking-stars-listening",
+          "name": "Écoute des Étoiles qui s'Éveillent",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "divine-arrangement",
+          "name": "Arrangement Divin",
+          "types": []
+        },
+        {
+          "id": "continuous-expansion",
+          "name": "Expansion Continue",
+          "types": []
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "La Séquence Divine, art du calcul fondé sur les astres, est affaiblie : les étoiles sont en désordre. Manuels : Rouleau Divin de la Séquence du Régent Céleste (rang 6), Art de la Révolution du Grand Vide, Art de la Tablette d'Or, Art de l'Étoile Vigilante, Rouleau Sacré de la Cour des Étoiles. Prédisposé au Dao Divin."
+    },
+    {
+      "id": "linxi-cultivation",
+      "name": "Culture de Linxi",
+      "aliases": [
+        "Culture de la Transcendance",
+        "Zhibei"
+      ],
+      "groups": [
+        "AncientFusion"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "Qingxuan",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "shape-in-transition",
+          "name": "Forme en Transition",
+          "types": []
+        },
+        {
+          "id": "chaotic-usurpation",
+          "name": "Usurpation Chaotique",
+          "types": []
+        },
+        {
+          "id": "severing-of-bonds",
+          "name": "Rupture des Liens",
+          "types": []
+        },
+        {
+          "id": "baleful-comet",
+          "name": "Comète Funeste",
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Occupied",
+      "holder": "Vrai Monarque Qinghe",
+      "formerHolders": [
+        "Zhiyuan"
+      ],
+      "surplus": [],
+      "intercalary": [],
+      "star": "l'étoile Xingbo",
+      "notes": null
+    },
+    {
+      "id": "city-sentinel",
+      "name": "Sentinelle de la Cité",
+      "aliases": [],
+      "groups": [
+        "AncientFusion"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "Douxuan",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "eastern-plume",
+          "name": "Plume d'Orient",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "descending-souls",
+          "name": "Âmes Descendantes",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "southern-sorrowful-waters",
+          "name": "Eaux Douloureuses du Sud",
+          "types": [
+            "Body",
+            "Magic"
+          ]
+        },
+        {
+          "id": "western-sky-plateau",
+          "name": "Plateau du Ciel d'Occident",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "northern-desert-court",
+          "name": "Cour du Désert du Nord",
+          "types": [
+            "Magic"
+          ]
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "La lignée Hei (fragmentaire), les anciennes Cours des Esprits. Fengshui, divinités, fantômes, lignes telluriques, domaines hantés. Prédisposée au Dao Divin."
+    },
+    {
+      "id": "perfect-elixir",
+      "name": "Élixir Parfait",
+      "aliases": [],
+      "groups": [
+        "AncientFusion"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "supreme-divine-awaiting",
+          "name": "Attente du Divin Suprême",
+          "types": []
+        },
+        {
+          "id": "perfect-harmony",
+          "name": "Harmonie Parfaite",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "radiant-lead-moistening",
+          "name": "Humectation du Plomb Radieux",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "golden-book-sequence",
+          "name": "Séquence du Livre d'Or",
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "secret-grey-pearl",
+          "name": "Perle Grise secrète",
+          "types": [],
+          "substitute": true
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [
+        "Suhe"
+      ],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Aussi rattaché à la Vertu Primordiale. Ressource : le Mercure Pur de la Grande Unité. Harmonie Parfaite reproduit un artefact tenu en main à 60-70 % de sa puissance. Prédisposé au Dao Divin."
+    },
+    {
+      "id": "kui-body",
+      "name": "Corps de Kui",
+      "aliases": [],
+      "groups": [
+        "AncientFusion"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Prédisposé au Dao Divin."
+    },
+    {
+      "id": "grand-shaman",
+      "name": "Grand Chaman",
+      "aliases": [],
+      "groups": [
+        "AncientFusion"
+      ],
+      "generation": "Founding",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": true,
+      "isRite": false,
+      "metalEssence": "Essence de Sang des Trois Neuf",
+      "abilities": [
+        {
+          "id": "locust-shade",
+          "name": "Ombre de la Sauterelle",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "untraceable-presence",
+          "name": "Présence Indécelable",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "earth-shaman-blessing",
+          "name": "Bénédiction du Chaman de la Terre",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "emperor-mandate",
+          "name": "Mandat de l'Empereur",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "blood-drinker",
+          "name": "Buveur de Sang",
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "fools-summit-race-substitute",
+          "name": "Course du Fou vers la Cime",
+          "types": [],
+          "substitute": true
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "La plus proche du Dao chamanique : avec la technique adéquate, on y passe en gardant une partie de sa progression. Méthode chamanique : le Sacrifice."
+    },
+    {
+      "id": "threshold-owl",
+      "name": "Chouette des Seuils",
+      "aliases": [],
+      "groups": [
+        "AncientFusion"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": true,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": [
+            "Life"
+          ]
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": [
+            "Life"
+          ]
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Méthode chamanique : la Transformation."
+    },
+    {
+      "id": "first-jade",
+      "name": "Jade Premier",
+      "aliases": [],
+      "groups": [
+        "AncientFusion"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "Qingxuan",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": true,
+      "isRite": false,
+      "metalEssence": "Essence du Vide Unifié Six-Neuf du Jade Premier",
+      "abilities": [
+        {
+          "id": "jade-born",
+          "name": "Né du Jade",
+          "types": [
+            "Body",
+            "Life"
+          ]
+        },
+        {
+          "id": "figured-brocade",
+          "name": "Brocart Figuré",
+          "types": [
+            "Body"
+          ]
+        },
+        {
+          "id": "green-jade-cliff",
+          "name": "Falaise de Jade Vert",
+          "types": [
+            "Magic"
+          ]
+        },
+        {
+          "id": "true-dao-unification",
+          "name": "Unification du Vrai Dao",
+          "types": []
+        },
+        {
+          "id": "white-jade-disk",
+          "name": "Disque de Jade Blanc",
+          "types": []
+        },
+        {
+          "id": "jade-general-court",
+          "name": "Cour du Jade Général",
+          "types": [],
+          "substitute": true
+        }
+      ],
+      "status": "Occupied",
+      "holder": "Vénérable Lingxu",
+      "formerHolders": [],
+      "surplus": [
+        "Fu Qing"
+      ],
+      "intercalary": [],
+      "star": null,
+      "notes": "Méthode chamanique : la Dissimulation ; gouverne aussi le réel et l'illusoire, le vrai et le faux. Un détenteur antérieur a renoncé à sa Réalisation."
+    },
+    {
+      "id": "balanced-rite",
+      "name": "Rite Équilibré",
+      "aliases": [],
+      "groups": [
+        "AncientFusion"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "None",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "unrevealed-1",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Unspecified",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": null
+    },
+    {
+      "id": "celadon-proclamation",
+      "name": "Proclamation Céladon",
+      "aliases": [
+        "Manifestation Céladon",
+        "Sixième Terre",
+        "Terre de la Proclamation"
+      ],
+      "groups": [
+        "AncientFusion",
+        "VoidAttestation"
+      ],
+      "generation": "AncientFusion",
+      "profundity": "None",
+      "element": "Earth",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": "Essence des Monts Enchaînés",
+      "abilities": [
+        {
+          "id": "abyss-ram",
+          "name": "Bélier des Profondeurs",
+          "types": []
+        },
+        {
+          "id": "celadon-emblem",
+          "name": "Emblème Céladon",
+          "types": []
+        },
+        {
+          "id": "mountain-chain",
+          "name": "Chaîne des Monts",
+          "types": []
+        },
+        {
+          "id": "sovereign-rock",
+          "name": "Roc Souverain",
+          "types": []
+        },
+        {
+          "id": "abyss-watcher",
+          "name": "Guetteur de l'Abîme",
+          "types": []
+        },
+        {
+          "id": "lesser-yang-essence",
+          "name": "Essence du Yang Mineur",
+          "types": [],
+          "substitute": true
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "Empruntée à une lignée de la Vertu Terrestre : Fusion Ancienne et « Sixième Terre ». L'Essence du Yang Mineur peut remplacer une fois un Partenaire Dao (Canon des Sept Terrasses)."
+    },
+    {
+      "id": "sword-dao",
+      "name": "Voie de l'Épée",
+      "aliases": [
+        "Étoile du Soir",
+        "Manifestation de l'Épée"
+      ],
+      "groups": [
+        "VoidAttestation"
+      ],
+      "generation": "Attestation",
+      "profundity": "Qingxuan",
+      "element": "None",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "nourished-celadon-sky",
+          "name": "Ciel Céladon Nourri",
+          "types": []
+        },
+        {
+          "id": "intent-bearing-body",
+          "name": "Corps Porteur d'Intention",
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Free",
+      "holder": null,
+      "formerHolders": [
+        "l'Ancêtre de l'Épée"
+      ],
+      "surplus": [
+        "Xuanfeng"
+      ],
+      "intercalary": [],
+      "star": null,
+      "notes": "Attestée du néant par l'Ancêtre de l'Épée, Seigneur Immortel."
+    },
+    {
+      "id": "dawnlight",
+      "name": "Lueur de l'Aube",
+      "aliases": [
+        "Lumière Wu",
+        "Lumière du Ciel",
+        "Lueur Arc-en-ciel"
+      ],
+      "groups": [
+        "VoidAttestation"
+      ],
+      "generation": "Attestation",
+      "profundity": "None",
+      "element": "Light",
+      "manifestation": "None",
+      "cycleIndex": 0,
+      "isShaman": false,
+      "isRite": false,
+      "metalEssence": null,
+      "abilities": [
+        {
+          "id": "universal-dawn-mist",
+          "name": "Brume de l'Aube Universelle",
+          "types": []
+        },
+        {
+          "id": "unrevealed-2",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-3",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-4",
+          "name": null,
+          "types": []
+        },
+        {
+          "id": "unrevealed-5",
+          "name": null,
+          "types": []
+        }
+      ],
+      "status": "Occupied",
+      "holder": "Immortelle Xiaoyun",
+      "formerHolders": [],
+      "surplus": [],
+      "intercalary": [],
+      "star": null,
+      "notes": "72 types de Lueur de l'Aube, dont 48 créés par le Vrai Monarque du Mont Xiaoyun : toute Lueur de l'Aube se soumet à lui. 🔎 La Brume de l'Aube Universelle (fondation de la Méthode de la Perle de Rosée) y est rattachée."
+    }
+  ]
+}
