@@ -5,8 +5,8 @@ namespace MirrorChronicles.Data
 {
     /// <summary>
     /// Everything the game reads from its data files (game/data/*.json): the founding clan, the name
-    /// pools, the balance, the factions and the events. Shared by sessions and never modified by them:
-    /// systems copy what they change (factions) and only read the rest.
+    /// pools, the balance, the factions, the events, the techniques and the spiritual Qi. Shared by
+    /// sessions and never modified by them: systems copy what they change (factions) and only read the rest.
     /// </summary>
     public sealed record GameContent
     {
@@ -16,6 +16,35 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<FactionData> Factions { get; init; } = Array.Empty<FactionData>();
         public IReadOnlyList<RandomEventData> RandomEvents { get; init; } = Array.Empty<RandomEventData>();
         public IReadOnlyList<StoryEventData> StoryEvents { get; init; } = Array.Empty<StoryEventData>();
+
+        /// <summary>The known techniques of the world (LORE.md §2.4), shared: never modify one.</summary>
+        public IReadOnlyList<TechniqueData> Techniques { get; init; } = Array.Empty<TechniqueData>();
+
+        public IReadOnlyList<QiDefinition> Qi { get; init; } = Array.Empty<QiDefinition>();
+
+        /// <summary>The words the mirror names its deductions with.</summary>
+        public TechniqueNaming DeductionNames { get; init; }
+    }
+
+    /// <summary>techniques.json: the catalog and the words of deduced names.</summary>
+    public sealed class TechniqueCatalog
+    {
+        public IReadOnlyList<TechniqueData> Techniques { get; init; } = Array.Empty<TechniqueData>();
+        public TechniqueNaming DeductionNames { get; init; }
+    }
+
+    /// <summary>
+    /// How the mirror names a deduced technique: the template joins the kind's noun, the grade's word
+    /// (possibly empty) and the element's phrase, e.g. « {kind}{grade} {element} ».
+    /// </summary>
+    public sealed class TechniqueNaming
+    {
+        public string Template { get; init; }
+        public IReadOnlyDictionary<TechniqueKind, string> Kinds { get; init; } = new Dictionary<TechniqueKind, string>();
+        public IReadOnlyDictionary<Element, string> Elements { get; init; } = new Dictionary<Element, string>();
+
+        /// <summary>One word per grade, 1 to 7.</summary>
+        public IReadOnlyList<string> GradeWords { get; init; } = Array.Empty<string>();
     }
 
     /// <summary>The player's clan at the start of a game (clan.json).</summary>
@@ -23,6 +52,12 @@ namespace MirrorChronicles.Data
     {
         public string ClanName { get; init; }
         public IReadOnlyList<FounderDefinition> Founders { get; init; } = Array.Empty<FounderDefinition>();
+
+        /// <summary>Catalog techniques the clan knows at the start.</summary>
+        public IReadOnlyList<string> StartingTechniques { get; init; } = Array.Empty<string>();
+
+        /// <summary>Portions of spiritual Qi in store at the start, by Qi.</summary>
+        public IReadOnlyDictionary<string, int> StartingQi { get; init; } = new Dictionary<string, int>();
     }
 
     /// <summary>How a founder relates to the patriarch.</summary>
@@ -45,6 +80,9 @@ namespace MirrorChronicles.Data
         public CultivationRealm Realm { get; init; }
         public int RealmStage { get; init; }
         public int MentalStability { get; init; } = 70;
+
+        /// <summary>The method the founder practises; required from Qi Cultivation on.</summary>
+        public string CultivationMethod { get; init; }
     }
 
     /// <summary>First names by sex and the family names of wandering cultivators (names.json).</summary>
@@ -63,6 +101,9 @@ namespace MirrorChronicles.Data
         public int MinMotherAge { get; init; }
         public int MaxMotherAge { get; init; }
         public double AnnualMarriageChance { get; init; }
+
+        /// <summary>Cultivation speed of a method, by grade 1 to 7 (LORE.md §2.1: a higher grade cultivates faster).</summary>
+        public IReadOnlyList<double> TechniqueSpeedByGrade { get; init; } = Array.Empty<double>();
     }
 
     /// <summary>Chance of a spiritual orifice at birth, by the number of parents who have one.</summary>

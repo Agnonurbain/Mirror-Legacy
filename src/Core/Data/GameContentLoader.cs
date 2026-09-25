@@ -9,7 +9,7 @@ using Newtonsoft.Json.Converters;
 namespace MirrorChronicles.Data
 {
     /// <summary>
-    /// Reads and checks the six data files. Refuses content the game could not play, naming the file at
+    /// Reads and checks the data files. Refuses content the game could not play, naming the file at
     /// fault, so a modder or a designer sees the mistake at startup rather than mid-game.
     /// </summary>
     public static class GameContentLoader
@@ -20,9 +20,15 @@ namespace MirrorChronicles.Data
         public const string FactionsFile = "factions.json";
         public const string EventsFile = "events.json";
         public const string StoryFile = "story.json";
+        public const string TechniquesFile = "techniques.json";
+        public const string QiFile = "qi.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile };
+
+        /// <summary>The kinds a deduction can yield, which the deduction names must cover.</summary>
+        private static readonly TechniqueKind[] DeducibleKinds =
+            { TechniqueKind.Cultivation, TechniqueKind.Spell, TechniqueKind.Movement, TechniqueKind.Weapon };
 
         private static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {
@@ -40,6 +46,8 @@ namespace MirrorChronicles.Data
             var factions = Read<List<FactionData>>(readFile, FactionsFile);
             var events = Read<List<RandomEventData>>(readFile, EventsFile);
             var story = Read<List<StoryEventData>>(readFile, StoryFile);
+            var catalog = Read<TechniqueCatalog>(readFile, TechniquesFile);
+            var qi = Read<List<QiDefinition>>(readFile, QiFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -47,6 +55,9 @@ namespace MirrorChronicles.Data
             CheckFactions(factions);
             CheckEvents(events);
             CheckStory(story, factions);
+            CheckQi(qi);
+            CheckTechniques(catalog, qi);
+            CheckClanKnowledge(clan, catalog.Techniques, qi);
 
             return new GameContent
             {
@@ -55,7 +66,10 @@ namespace MirrorChronicles.Data
                 Balance = balance,
                 Factions = factions,
                 RandomEvents = events,
-                StoryEvents = story
+                StoryEvents = story,
+                Techniques = catalog.Techniques,
+                Qi = qi,
+                DeductionNames = catalog.DeductionNames
             };
         }
 
@@ -113,6 +127,9 @@ namespace MirrorChronicles.Data
                 BalanceFile, "birth and marriage chances must lie between 0 and 1.");
             Require(balance.MinMotherAge >= 0 && balance.MinMotherAge <= balance.MaxMotherAge,
                 BalanceFile, "the motherhood window is inverted.");
+            Require(balance.TechniqueSpeedByGrade != null && balance.TechniqueSpeedByGrade.Count == TechniqueRules.MaxGrade
+                && balance.TechniqueSpeedByGrade.All(s => s > 0),
+                BalanceFile, $"techniqueSpeedByGrade needs one positive speed per grade, {TechniqueRules.MinGrade} to {TechniqueRules.MaxGrade}.");
         }
 
         private static void CheckFactions(List<FactionData> factions)
@@ -136,6 +153,82 @@ namespace MirrorChronicles.Data
             Require(story.All(e => e.Choices != null && e.Choices.Count > 0 && e.Choices.All(c => !string.IsNullOrWhiteSpace(c.Label))),
                 StoryFile, "every story event needs choices with labels.");
             Require(story.Select(e => e.TriggerType).Distinct().Count() == story.Count, StoryFile, "each milestone can have only one story event.");
+        }
+
+        private static void CheckQi(List<QiDefinition> qi)
+        {
+            Require(qi.All(q => !string.IsNullOrWhiteSpace(q.Id) && !string.IsNullOrWhiteSpace(q.Name)), QiFile, "every Qi needs an id and a name.");
+            Require(qi.Select(q => q.Id).Distinct().Count() == qi.Count, QiFile, "two Qi share an id.");
+            var never = qi.FirstOrDefault(q => q.YearsPerPortion < 1);
+            Require(never == null, QiFile, $"{never?.Id} needs at least one year per portion, or it can never be gathered.");
+        }
+
+        private static void CheckTechniques(TechniqueCatalog catalog, List<QiDefinition> qi)
+        {
+            var techniques = catalog.Techniques;
+            Require(techniques != null && techniques.All(t => !string.IsNullOrWhiteSpace(t.ID) && !string.IsNullOrWhiteSpace(t.Name)),
+                TechniquesFile, "every technique needs an id and a name.");
+            Require(techniques.Select(t => t.ID).Distinct().Count() == techniques.Count, TechniquesFile, "two techniques share an id.");
+
+            var qiById = qi.ToDictionary(q => q.Id);
+            foreach (var t in techniques)
+            {
+                Require(t.Grade >= TechniqueRules.MinGrade && t.Grade <= TechniqueRules.MaxGrade, TechniquesFile,
+                    $"{t.ID}: the grade must lie between {TechniqueRules.MinGrade} and {TechniqueRules.MaxGrade} (7 stands for 7+).");
+
+                bool needsQi = TechniqueRules.Covers(t, CultivationRealm.QiRefinement);
+                if (t.Kind == TechniqueKind.Cultivation)
+                    Require(TechniqueRules.SupremeRealm(t) >= t.RequiredRealm, TechniquesFile, $"{t.ID}: its supreme realm lies below its first realm.");
+                Require(!needsQi || t.RequiredQiId != null, TechniquesFile, $"{t.ID}: a Qi Cultivation method needs its Qi (requiredQiId).");
+                Require(needsQi || t.RequiredQiId == null, TechniquesFile, $"{t.ID}: only a Qi Cultivation method needs a Qi.");
+
+                if (t.RequiredQiId != null)
+                {
+                    Require(qiById.TryGetValue(t.RequiredQiId, out var q), TechniquesFile, $"{t.ID}: the Qi \"{t.RequiredQiId}\" is not in {QiFile}.");
+                    Require(q.Vanished == (t.Category == TechniqueCategory.Ancestral), TechniquesFile,
+                        $"{t.ID}: an ancestral method is one whose Qi has vanished, and only such a method.");
+                }
+
+                if (t.Flaws != null)
+                {
+                    Require(t.Flaws.CounteredById == null || techniques.Any(o => o.ID == t.Flaws.CounteredById), TechniquesFile,
+                        $"{t.ID}: countered by \"{t.Flaws.CounteredById}\", which the catalog does not have.");
+                    Require(t.Flaws.LifespanFactor > 0 && t.Flaws.LifespanFactor <= 1, TechniquesFile, $"{t.ID}: the lifespan factor must lie in (0, 1].");
+                    Require(t.Flaws.SpeedByRealm == null || t.Flaws.SpeedByRealm.Values.All(s => s > 0), TechniquesFile, $"{t.ID}: flawed speeds must be positive.");
+                }
+            }
+
+            var names = catalog.DeductionNames;
+            Require(names != null && !string.IsNullOrWhiteSpace(names.Template), TechniquesFile, "deductionNames needs a template.");
+            Require(DeducibleKinds.All(k => names.Kinds != null && names.Kinds.ContainsKey(k)), TechniquesFile,
+                "deductionNames.kinds needs a noun for every kind a deduction can yield.");
+            Require(Enum.GetValues(typeof(Element)).Cast<Element>().Where(e => e != Element.None)
+                    .All(e => names.Elements != null && names.Elements.ContainsKey(e)),
+                TechniquesFile, "deductionNames.elements needs a phrase for every element.");
+            Require(names.GradeWords != null && names.GradeWords.Count == TechniqueRules.MaxGrade, TechniquesFile,
+                "deductionNames.gradeWords needs one word (possibly empty) per grade.");
+        }
+
+        /// <summary>What the clan knows at the start (clan.json) must exist, and founders must practise a method they can.</summary>
+        private static void CheckClanKnowledge(ClanDefinition clan, IReadOnlyList<TechniqueData> techniques, List<QiDefinition> qi)
+        {
+            var known = clan.StartingTechniques ?? Array.Empty<string>();
+            var unknown = known.FirstOrDefault(id => techniques.All(t => t.ID != id));
+            Require(unknown == null, ClanFile, $"the starting technique \"{unknown}\" is not in {TechniquesFile}.");
+
+            var unknownQi = (clan.StartingQi ?? new Dictionary<string, int>()).FirstOrDefault(kv => qi.All(q => q.Id != kv.Key) || kv.Value < 0);
+            Require(unknownQi.Key == null, ClanFile, $"the starting Qi \"{unknownQi.Key}\" is not in {QiFile} or has a negative amount.");
+
+            foreach (var f in clan.Founders)
+            {
+                var method = techniques.FirstOrDefault(t => t.ID == f.CultivationMethod);
+                if (f.CultivationMethod != null)
+                    Require(method != null && method.Kind == TechniqueKind.Cultivation && known.Contains(method.ID), ClanFile,
+                        $"{f.FirstName} practises \"{f.CultivationMethod}\", which is not a cultivation method the clan knows.");
+                if (f.Realm >= CultivationRealm.QiRefinement)
+                    Require(TechniqueRules.Covers(method, f.Realm), ClanFile,
+                        $"{f.FirstName} is a Qi cultivator or beyond and needs a method covering their realm (LORE.md §5.2).");
+            }
         }
 
         private static bool IsProbability(double value) => value >= 0 && value <= 1;

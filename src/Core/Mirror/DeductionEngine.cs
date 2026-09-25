@@ -21,6 +21,14 @@ namespace MirrorChronicles.Mirror
 
         private static readonly int HighestRealm = Enum.GetValues(typeof(CultivationRealm)).Length - 1;
 
+        /// <summary>What a deduction can yield until it follows the fragments (phase L3d).</summary>
+        private static readonly (TechniqueKind, TechniqueEffect)[] DeducibleForms =
+        {
+            (TechniqueKind.Cultivation, TechniqueEffect.None),
+            (TechniqueKind.Weapon, TechniqueEffect.Strike),
+            (TechniqueKind.Spell, TechniqueEffect.Heal)
+        };
+
         private readonly GameContext ctx;
         private readonly MirrorSystem mirror;
         private readonly List<FragmentData> fragments = new List<FragmentData>();
@@ -72,22 +80,23 @@ namespace MirrorChronicles.Mirror
             int totalQuality = inputs.Sum(f => f.Quality);
             var counts = inputs.GroupBy(f => f.Element).ToDictionary(g => g.Key, g => g.Count());
             var dominant = counts.OrderByDescending(kv => kv.Value).First().Key;
-            var type = (TechniqueType)ctx.Rng.Next(0, 3);
+            var (kind, effect) = DeducibleForms[ctx.Rng.Next(0, DeducibleForms.Length)];
 
             return new TechniqueData
             {
                 ID = ctx.Rng.NextId(),
-                Name = ProceduralName(dominant, type, totalQuality),
-                Type = type,
+                Name = ProceduralName(dominant, kind, totalQuality),
+                Kind = kind,
+                Effect = effect,
                 DominantElement = dominant,
                 RequiredRealm = (CultivationRealm)Math.Clamp(totalQuality / 3, 0, HighestRealm),
                 PowerModifier = totalQuality * 5,
                 QiCost = totalQuality * 2,
-                Range = type switch
+                Range = effect switch
                 {
-                    TechniqueType.MartialArt => Math.Clamp(1 + totalQuality / 8, 1, 3), // melee to short range
-                    TechniqueType.SupportArt => 2,
-                    _ => 0                                                                 // cultivation method: self
+                    TechniqueEffect.Strike => Math.Clamp(1 + totalQuality / 8, 1, 3), // melee to short range
+                    TechniqueEffect.Heal => 2,
+                    _ => 0                                                             // cultivation method: self
                 },
                 RiskFactor = ElementalRisk(counts)
             };
@@ -103,7 +112,7 @@ namespace MirrorChronicles.Mirror
         }
 
         /// <summary>Placeholder names until technique grades and their names move to data (phase L3).</summary>
-        private static string ProceduralName(Element element, TechniqueType type, int quality)
+        private static string ProceduralName(Element element, TechniqueKind kind, int quality)
         {
             string prefix = element switch
             {
@@ -117,10 +126,10 @@ namespace MirrorChronicles.Mirror
                 Element.Light => "Radiant",
                 _ => "Mystic"
             };
-            string suffix = type switch
+            string suffix = kind switch
             {
-                TechniqueType.CultivationMethod => "Mantra",
-                TechniqueType.MartialArt => "Fist",
+                TechniqueKind.Cultivation => "Mantra",
+                TechniqueKind.Weapon => "Fist",
                 _ => "Aura"
             };
             string adjective = quality > 10 ? "Divine " : quality > 5 ? "Profound " : "";

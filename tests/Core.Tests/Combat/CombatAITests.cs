@@ -55,8 +55,8 @@ namespace MirrorChronicles.Tests.Combat
         [Test]
         public void Berserker_UnleashesItsStrongestTechnique()
         {
-            var weak = new TechniqueData { Type = TechniqueType.MartialArt, PowerModifier = 10, Range = 2, QiCost = 5 };
-            var strong = new TechniqueData { Type = TechniqueType.MartialArt, PowerModifier = 30, Range = 2, QiCost = 5 };
+            var weak = new TechniqueData { Kind = TechniqueKind.Weapon, Effect = TechniqueEffect.Strike, PowerModifier = 10, Range = 2, QiCost = 5 };
+            var strong = new TechniqueData { Kind = TechniqueKind.Weapon, Effect = TechniqueEffect.Strike, PowerModifier = 30, Range = 2, QiCost = 5 };
             var known = new Dictionary<string, TechniqueData> { [weak.ID] = weak, [strong.ID] = strong };
             var field = new BattleField(new CombatGrid(10, 10), new Random(1), new RecordingGameLog(), id => known.GetValueOrDefault(id));
             var ally = CombatFixtures.Place(field, 0, 0);

@@ -3,5 +3,6 @@
   "annualBirthChance": 0.25,
   "minMotherAge": 16,
   "maxMotherAge": 45,
-  "annualMarriageChance": 0.3
+  "annualMarriageChance": 0.3,
+  "techniqueSpeedByGrade": [ 0.6, 0.8, 1.0, 1.2, 1.5, 1.8, 2.2 ]
 }

@@ -154,9 +154,9 @@ namespace MirrorChronicles.Combat
     }
 
     /// <summary>
-    /// A known technique: martial arts strike a foe in range for power × (1 + 0.2 per realm), support arts
-    /// heal an ally for power × (1 + 0.15 per realm); +25% when the element is the user's affinity, and
-    /// Water arts strike 20% harder on water. Cultivation methods are not for combat.
+    /// A known art: a striking art hits a foe in range for power × (1 + 0.2 per realm), a healing art
+    /// heals an ally for power × (1 + 0.15 per realm); +25% when the element is the user's affinity, and
+    /// Water arts strike 20% harder on water. Cultivation methods and arts without an effect are not for combat.
     /// </summary>
     public sealed class TechniqueAction : ICombatAction
     {
@@ -177,10 +177,10 @@ namespace MirrorChronicles.Combat
             if (user.BaseData.Realm < technique.RequiredRealm || user.CurrentQi < technique.QiCost) return false;
 
             bool inRange = CombatGrid.Distance(user.CurrentCell, target) <= technique.Range;
-            return technique.Type switch
+            return technique.Effect switch
             {
-                TechniqueType.MartialArt => CombatMath.IsOpponent(user, target) && inRange,
-                TechniqueType.SupportArt => CombatMath.IsFriend(user, target) && inRange,
+                TechniqueEffect.Strike => CombatMath.IsOpponent(user, target) && inRange,
+                TechniqueEffect.Heal => CombatMath.IsFriend(user, target) && inRange,
                 _ => false
             };
         }
@@ -193,7 +193,7 @@ namespace MirrorChronicles.Combat
             var other = target.Occupant;
             bool attuned = technique.DominantElement != Element.None && user.BaseData.Affinity == technique.DominantElement;
 
-            if (technique.Type == TechniqueType.MartialArt)
+            if (technique.Effect == TechniqueEffect.Strike)
             {
                 double raw = Math.Round(technique.PowerModifier * CombatMath.RealmFactor(user, 0.2)); // rounded before bonuses
                 if (attuned) raw = Math.Round(raw * CombatMath.AffinityBonus);

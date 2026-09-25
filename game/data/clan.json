@@ -1,8 +1,10 @@
 {
   "clanName": "Mo",
+  "startingTechniques": [ "clear-spring-sutra", "common-breath-method" ],
+  "startingQi": { "clear-spring-qi": 2 },
   "founders": [
-    { "firstName": "Wei",  "role": "Patriarch", "isMale": true,  "age": 45, "spiritualRoot": 65, "affinity": "Fire",      "realm": "QiRefinement", "realmStage": 3, "mentalStability": 80 },
-    { "firstName": "Xue",  "role": "Matriarch", "isMale": false, "age": 42, "spiritualRoot": 55, "affinity": "Water",     "realm": "QiRefinement", "realmStage": 2, "mentalStability": 85 },
+    { "firstName": "Wei",  "role": "Patriarch", "isMale": true,  "age": 45, "spiritualRoot": 65, "affinity": "Fire",      "realm": "QiRefinement", "realmStage": 3, "mentalStability": 80, "cultivationMethod": "clear-spring-sutra" },
+    { "firstName": "Xue",  "role": "Matriarch", "isMale": false, "age": 42, "spiritualRoot": 55, "affinity": "Water",     "realm": "QiRefinement", "realmStage": 2, "mentalStability": 85, "cultivationMethod": "clear-spring-sutra" },
     { "firstName": "Jian", "role": "Child",     "isMale": true,  "age": 20, "spiritualRoot": 75, "affinity": "Lightning", "realm": "Embryonic",    "realmStage": 2, "mentalStability": 70 },
     { "firstName": "Mei",  "role": "Child",     "isMale": false, "age": 16, "spiritualRoot": 45, "affinity": "Wood",      "realm": "Embryonic",    "realmStage": 1, "mentalStability": 70 },
     { "firstName": "Shan", "role": "Kin",       "isMale": true,  "age": 40, "spiritualRoot": 25, "affinity": "Earth",     "realm": "Embryonic",    "realmStage": 1, "mentalStability": 60 }

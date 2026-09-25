@@ -109,7 +109,7 @@ namespace MirrorChronicles.Combat
         };
     }
 
-    /// <summary>Charges the nearest foe and spends its Qi on its strongest martial art in range.</summary>
+    /// <summary>Charges the nearest foe and spends its Qi on its strongest striking art in range.</summary>
     internal sealed class BerserkerStrategy : IAIStrategy
     {
         public void PlayTurn(CombatUnit unit, BattleField field)
@@ -120,7 +120,7 @@ namespace MirrorChronicles.Combat
 
             var strongest = unit.BaseData.KnownTechniqueIDs
                 .Select(field.FindTechnique)
-                .Where(t => t != null && t.Type == TechniqueType.MartialArt)
+                .Where(t => t != null && t.Effect == TechniqueEffect.Strike)
                 .OrderByDescending(t => t.PowerModifier)
                 .Select(t => new TechniqueAction(t))
                 .FirstOrDefault(a => a.IsValid(unit, target.CurrentCell, field));

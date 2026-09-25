@@ -9,9 +9,13 @@ namespace MirrorChronicles.Tests.Combat
     [TestFixture]
     public class CombatActionsTests
     {
-        private static TechniqueData Technique(TechniqueType type, int power = 20, Element element = Element.Fire,
+        private static TechniqueData Technique(TechniqueEffect effect, int power = 20, Element element = Element.Fire,
             int range = 2, int qiCost = 10, CultivationRealm required = CultivationRealm.Embryonic) =>
-            new TechniqueData { Type = type, PowerModifier = power, DominantElement = element, Range = range, QiCost = qiCost, RequiredRealm = required };
+            new TechniqueData
+            {
+                Kind = effect == TechniqueEffect.None ? TechniqueKind.Cultivation : effect == TechniqueEffect.Heal ? TechniqueKind.Spell : TechniqueKind.Weapon,
+                Effect = effect, PowerModifier = power, DominantElement = element, Range = range, QiCost = qiCost, RequiredRealm = required
+            };
 
         private static CombatUnit Knowing(CombatUnit unit, TechniqueData technique)
         {
@@ -185,7 +189,7 @@ namespace MirrorChronicles.Tests.Combat
         public void MartialArt_SpendsQiAndStrikesWithTheAffinityBonus()
         {
             var field = CombatFixtures.Field();
-            var art = Technique(TechniqueType.MartialArt, power: 20, element: Element.Fire);
+            var art = Technique(TechniqueEffect.Strike, power: 20, element: Element.Fire);
             var u = Knowing(CombatFixtures.Place(field, 0, 0, CultivationRealm.QiRefinement, affinity: Element.Fire), art);
             var foe = CombatFixtures.Place(field, 2, 0, isAlly: false);
             new TechniqueAction(art).Execute(u, foe.CurrentCell, field);
@@ -197,7 +201,7 @@ namespace MirrorChronicles.Tests.Combat
         {
             var field = CombatFixtures.Field();
             field.Grid.SetTerrain(2, 0, TerrainType.Water);
-            var art = Technique(TechniqueType.MartialArt, power: 20, element: Element.Water);
+            var art = Technique(TechniqueEffect.Strike, power: 20, element: Element.Water);
             var u = Knowing(CombatFixtures.Place(field, 0, 0, CultivationRealm.QiRefinement), art);
             var foe = CombatFixtures.Place(field, 2, 0, isAlly: false);
             new TechniqueAction(art).Execute(u, foe.CurrentCell, field);
@@ -208,7 +212,7 @@ namespace MirrorChronicles.Tests.Combat
         public void SupportArt_HealsAnAlly()
         {
             var field = CombatFixtures.Field();
-            var art = Technique(TechniqueType.SupportArt, power: 20, element: Element.Wood);
+            var art = Technique(TechniqueEffect.Heal, power: 20, element: Element.Wood);
             var u = Knowing(CombatFixtures.Place(field, 0, 0, CultivationRealm.QiRefinement, affinity: Element.Wood), art);
             var friend = CombatFixtures.Place(field, 1, 0);
             friend.TakeDamage(50);
@@ -220,7 +224,7 @@ namespace MirrorChronicles.Tests.Combat
         public void Technique_IsInvalid_WhenUnknown()
         {
             var field = CombatFixtures.Field();
-            var art = Technique(TechniqueType.MartialArt);
+            var art = Technique(TechniqueEffect.Strike);
             var u = CombatFixtures.Place(field, 0, 0, CultivationRealm.QiRefinement);
             var foe = CombatFixtures.Place(field, 1, 0, isAlly: false);
             Assert.IsFalse(new TechniqueAction(art).IsValid(u, foe.CurrentCell, field));
@@ -230,7 +234,7 @@ namespace MirrorChronicles.Tests.Combat
         public void Technique_IsInvalid_BelowTheRequiredRealm()
         {
             var field = CombatFixtures.Field();
-            var art = Technique(TechniqueType.MartialArt, required: CultivationRealm.Foundation);
+            var art = Technique(TechniqueEffect.Strike, required: CultivationRealm.Foundation);
             var u = Knowing(CombatFixtures.Place(field, 0, 0, CultivationRealm.QiRefinement), art);
             var foe = CombatFixtures.Place(field, 1, 0, isAlly: false);
             Assert.IsFalse(new TechniqueAction(art).IsValid(u, foe.CurrentCell, field));
@@ -240,7 +244,7 @@ namespace MirrorChronicles.Tests.Combat
         public void CultivationMethod_CannotBeUsedInCombat()
         {
             var field = CombatFixtures.Field();
-            var method = Technique(TechniqueType.CultivationMethod);
+            var method = Technique(TechniqueEffect.None);
             var u = Knowing(CombatFixtures.Place(field, 0, 0, CultivationRealm.QiRefinement), method);
             Assert.IsFalse(new TechniqueAction(method).IsValid(u, u.CurrentCell, field));
         }
