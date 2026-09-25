@@ -20,13 +20,15 @@ namespace MirrorChronicles.Tests.Characters
 
         private GameContext ctx;
         private ClanManager clan;
+        private ResourceManager resources;
         private BreakthroughSystem breakthroughs;
 
         private void Build(Random rng)
         {
             ctx = Fixtures.Context(rng);
             clan = new ClanManager(ctx, "Mo");
-            var cultivation = new CultivationSystem(ctx, new ClanKarmaSystem(ctx, clan), new TechniqueLibrary(ctx), new ResourceManager(ctx));
+            resources = new ResourceManager(ctx);
+            var cultivation = new CultivationSystem(ctx, new ClanKarmaSystem(ctx, clan), new TechniqueLibrary(ctx), resources);
             breakthroughs = new BreakthroughSystem(ctx, clan, cultivation);
         }
 
@@ -52,11 +54,12 @@ namespace MirrorChronicles.Tests.Characters
             return c;
         }
 
-        /// <summary>A member at Qi 9 facing the Foundation wall at 70.</summary>
+        /// <summary>A member at Qi 9 facing the Foundation wall at 70, with the portion of Qi it takes.</summary>
         private CharacterData FacingTheFoundationWall()
         {
             var c = Fixtures.Cultivator(age: 70, realm: CultivationRealm.QiRefinement, stage: 9);
             c.CultivationXP = PowerLadder.XpForNextStage(CultivationRealm.QiRefinement);
+            resources.AddQi(c.QiId, 1);
             clan.AddMember(c);
             return c;
         }
