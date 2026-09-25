@@ -1,0 +1,154 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using MirrorChronicles.Characters;
+using MirrorChronicles.Clan;
+using MirrorChronicles.Data;
+using MirrorChronicles.Diplomacy;
+using MirrorChronicles.Mirror;
+using MirrorChronicles.Session;
+
+namespace MirrorChronicles.Economy
+{
+    /// <summary>What the year's tasks produced, for the UI and the Annals.</summary>
+    public readonly struct YearlyTaskReport
+    {
+        public int StonesMined { get; init; }
+        public int Patrols { get; init; }
+    }
+
+    /// <summary>
+    /// Assigns each member's task for the year (<see cref="TaskRules"/> decides what is allowed) and
+    /// resolves them when the Management phase ends. Teaching is resolved after everyone else.
+    /// </summary>
+    public sealed class TaskAssignmentSystem
+    {
+        public const int MineBaseYield = 50;
+        public const int MineYieldPerRealm = 25;
+        public const int RestStability = 5;
+        public const double StudyBaseChance = 0.15;
+        public const double StudyChancePerRoot = 0.003;
+        public const int StudyXp = 10;
+        public const int TeachingBaseXp = 20;
+        public const int TeachingXpPerRealm = 10;
+        public const int DiplomacyRelation = 5;
+
+        private readonly GameContext ctx;
+        private readonly ClanManager clan;
+        private readonly CultivationSystem cultivation;
+        private readonly ResourceManager resources;
+        private readonly MentalStabilitySystem stability;
+        private readonly FactionManager factions;
+        private readonly DeductionEngine deduction;
+        private readonly EspionageSystem espionage;
+        private readonly BuildingSystem buildings;
+
+        public TaskAssignmentSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation,
+            ResourceManager resources, MentalStabilitySystem stability, FactionManager factions,
+            DeductionEngine deduction, EspionageSystem espionage, BuildingSystem buildings)
+        {
+            this.ctx = ctx;
+            this.clan = clan;
+            this.cultivation = cultivation;
+            this.resources = resources;
+            this.stability = stability;
+            this.factions = factions;
+            this.deduction = deduction;
+            this.espionage = espionage;
+            this.buildings = buildings;
+        }
+
+        public bool AssignTask(CharacterData character, TaskType task)
+        {
+            if (!character.IsAlive) return false;
+            if (!TaskRules.IsAllowed(character, task))
+            {
+                ctx.Log.Warning($"[Tasks] {character.FullName} cannot take {task} ({RankCatalog.DisplayName(character)}).");
+                return false;
+            }
+
+            character.CurrentTask = task;
+            return true;
+        }
+
+        public YearlyTaskReport ProcessYearlyTasks()
+        {
+            var members = clan.LivingMembers.ToList(); // tasks may kill or add members
+            int stonesMined = 0;
+            int patrols = 0;
+
+            foreach (var member in members.Where(m => m.IsAlive))
+            {
+                if (!TaskRules.IsAllowed(member, member.CurrentTask))
+                {
+                    ctx.Log.Warning($"[Tasks] {member.FullName} cannot perform {member.CurrentTask}; task cleared.");
+                    member.CurrentTask = TaskType.None; // e.g. a mortal still set to Cultivation from an old save
+                    continue;
+                }
+
+                switch (member.CurrentTask)
+                {
+                    case TaskType.Cultivation: cultivation.ProcessYearlyCultivation(member); break;
+                    case TaskType.Mine: stonesMined += MineYield(member); break;
+                    case TaskType.Patrol: patrols++; break;
+                    case TaskType.Rest: stability.ApplyModifier(member, RestStability); break;
+                    case TaskType.Study: Study(member); break;
+                    case TaskType.Diplomacy: Diplomacy(); break;
+                    case TaskType.Espionage: espionage.AttemptEspionage(member, factions.RandomFaction()); break;
+                    // Teaching needs this year's students: resolved below
+                }
+            }
+
+            resources.AddSpiritStones(stonesMined);
+            Teach(members);
+            return new YearlyTaskReport { StonesMined = stonesMined, Patrols = patrols };
+        }
+
+        /// <summary>50 + 25 per realm, +5% per Forge level.</summary>
+        private int MineYield(CharacterData miner)
+        {
+            double forge = 1.0 + buildings.ForgeLevel * BuildingSystem.ForgeYieldBonusPerLevel;
+            return (int)Math.Round((MineBaseYield + (int)miner.Realm * MineYieldPerRealm) * forge);
+        }
+
+        /// <summary>A chance to find a fragment (better with the root and the Library); otherwise some XP.</summary>
+        private void Study(CharacterData scholar)
+        {
+            double chance = StudyBaseChance + scholar.SpiritualRoot * StudyChancePerRoot
+                + buildings.LibraryLevel * BuildingSystem.LibraryDiscoveryBonusPerLevel;
+            if (ctx.Rng.Chance(chance))
+            {
+                int quality = Math.Clamp(scholar.SpiritualRoot / 25, 1, 4);
+                var element = scholar.Affinity != Element.None ? scholar.Affinity : ctx.Rng.NextElement();
+                deduction.AddFragment(element, quality, $"Found by {scholar.FullName}");
+                ctx.Log.Info($"[Tasks] {scholar.FullName} finds a Q{quality} {element} fragment while studying.");
+            }
+            else
+            {
+                cultivation.GrantXp(scholar, StudyXp);
+            }
+        }
+
+        /// <summary>+5 relation with a random faction, +2 per Council Room level.</summary>
+        private void Diplomacy()
+        {
+            var target = factions.RandomFaction();
+            if (target == null) return;
+            factions.ChangeRelation(target.ID, DiplomacyRelation + buildings.CouncilLevel * BuildingSystem.CouncilRelationBonusPerLevel);
+        }
+
+        /// <summary>Each teacher takes one cultivating student, lowest realm first: 20 + 10 per teacher realm XP.</summary>
+        private void Teach(IReadOnlyList<CharacterData> members)
+        {
+            var teachers = members.Where(m => m.IsAlive && m.CurrentTask == TaskType.Teaching).ToList();
+            var students = members.Where(m => m.IsAlive && m.CurrentTask == TaskType.Cultivation).OrderBy(m => m.Realm).ToList();
+
+            for (int i = 0; i < teachers.Count && i < students.Count; i++)
+            {
+                int bonus = TeachingBaseXp + (int)teachers[i].Realm * TeachingXpPerRealm;
+                cultivation.GrantXp(students[i], bonus);
+                ctx.Log.Info($"[Tasks] {teachers[i].FullName} teaches {students[i].FullName} (+{bonus} XP).");
+            }
+        }
+    }
+}
