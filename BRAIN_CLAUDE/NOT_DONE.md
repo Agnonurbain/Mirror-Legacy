@@ -5,7 +5,7 @@
 
 ---
 
-## 🔴 BLOQUANT — Infra Unity & Compilation
+## ✅ Infra & compilation (historique Unity, caduc depuis la migration Godot)
 
 | # | Tâche | Priorité | Détails |
 |---|---|---|---|
@@ -76,7 +76,7 @@
 | 65 | **Responsive UI mobile** | 🟢 | Canvas avec Reference Resolution + Scale With Screen Size. Testé 16:9 (PC) + 9:16 (mobile portrait) + 18:9. |
 | 66 | ~~Condition de victoire~~ | ✅ | Fait 2026-04-18. VictoryConditionSystem : victoire si 10 gen + 1 ascension, défaite si clan éteint. Transition GameOver. |
 | 67 | **Équilibrage complet** | 🟢 | Passes d'équilibrage après premiers playtest : courbes XP, taux de percée, drop rate fragments, prix bâtiments. |
-| 68 | **Optimisation mobile** | 🟢 | Unity Profiler avec 100+ membres dans BloodRegistry et 10+ unités en combat. Object Pool pour VFX. |
+| 68 | **Optimisation** | 🟢 | Profileur Godot avec 100+ membres dans BloodRegistry et 10+ unités en combat. Object Pool pour VFX. |
 | 69 | **Build Steam** | 🟢 | Config Steamworks SDK, achievements, cloud saves. |
 | 70 | **Build iOS/Android** | 🟢 | Export, signing, store assets, monetization (à discuter : one-time vs F2P). |
 
@@ -99,7 +99,7 @@
 |---|---|---|---|
 | 100 | ~~Object Pool~~ | ✅ | Fait 2026-04-18. Generic ObjectPool avec RegisterPrefab, Get, Return (immédiat ou delayed). Singleton. |
 | 101 | ~~Memento (save snapshot)~~ | ✅ | Fait 2026-04-18. SaveSystem étendu avec SaveToSlot(1-3), LoadFromSlot, SlotExists. BuildGameData extrait en méthode partagée. |
-| 102 | **MVC strict pour UI** | 🟡 | Séparation Controller UI / ViewBinder / Model (ScriptableObject ou POCO). Pour l'instant tout est dans les MonoBehaviours. |
+| 102 | ~~MVC strict pour UI~~ | ✅ | Fait 2026-09-25 (G4) : les écrans lient des modèles sans moteur et testés (`src/Core/Presentation`). |
 
 ---
 
@@ -118,12 +118,13 @@
 | B1 | **Équilibrage : démographie** | 🟠 | Première simulation headless (G1e) : 600 à 1 500 membres vivants après un siècle (mariage 30 %/an, naissances 25 %/an, aucun frein). Ajouter une pression : capacité du domaine, mortalité infantile, branches cadettes qui essaiment, fertilité décroissante. |
 | B2 | **Équilibrage : économie** | 🟡 | 300 000 à 800 000 pierres après un siècle : chaque mortel mine et rien ne coûte chaque année. Ajouter l'entretien du domaine, les ressources de cultivation, le coût des techniques. |
 | B3 | **Équilibrage : générations** | 🟡 | 1 à 3 générations par siècle (un patriarche de Fondation vit 300 ans) : la victoire « 10 générations » est hors de portée ; à reprendre avec les fins dynastiques (L6, §11.9). |
-| G2 | **Migration Godot — données JSON** | 🔴 | Événements, factions, équilibrage (taux D3), noms en JSON dans `game/data/` ; chargeurs et tests. |
-| G3 | **Migration Godot — logique du combat** | 🔴 | Grille, unités, actions, tour par tour, IA en logique pure testée (rendu plus tard). |
-| G4 | **Migration Godot — couche Godot** | 🔴 | Autoload `Game`, scène principale, domaine du clan (tâches, phase suivante), panneau d'événements, sauvegarde `user://`, fumée headless. |
+| G2 | ~~Migration Godot — données JSON~~ | ✅ | Fait 2026-09-25 : `game/data/*.json` (clan, noms, équilibrage D3, factions, événements, histoire ; textes en français), `GameContentLoader` validé (erreur nommant le fichier), plus aucune table dans le code, `FactionData.FamilyName`, garde contre les noms du roman. |
+| G3 | ~~Migration Godot — logique du combat~~ | ✅ | Fait 2026-09-25 (G3a-G3b) : grille à graine, A*, unités, 6 actions, initiative, 5 IA enfin appelées, `Battle` (fuite, retrait après 100 tours, suites via `ClanManager.Kill` et blessures), Pulsation de Qi du miroir. Rendu à faire (G6). |
+| G4 | ~~Migration Godot — couche Godot~~ | ✅ | Fait 2026-09-25 : autoload `GameRoot` (contenu, reprise, sauvegarde annuelle), écran `ClanDomain` (en-tête, membres et tâches, choix d'histoire, chronique), fumée et capture d'écran ; règles d'âge des tâches et prénoms uniques. |
+| G6 | **Écrans à venir** | 🟠 | Interventions du miroir (dont la Graine de Sceau, L2b), bâtiments, diplomatie, déduction, bataille (grille, actions, IA), arbre généalogique, nouvelle partie et emplacements de sauvegarde, thème Shuimo. |
 | G5 | **Migration Godot — nettoyage** | 🔴 | Supprimer l'arbre Unity, CI `dotnet test` + Godot headless, réécrire `MEMORY.md`/README, graphify complet, revue ECC, fusion. |
 | L3 | **Techniques graduées** | 🟠 | Grade 1-7+, catégorie commune/ancestrale/secrète, type, Qi requis, secret du Manoir Pourpre ; 26 méthodes de Qi en données ; déduction du miroir → grade. |
-| L4 | **Voies, lignées, fondations, capacités, Fruitions** | 🟠 | 5 voies / 9 sous-voies ; ≈60 Fruitions en ScriptableObjects (emplacements non nommés inclus) ; Partenaires Dao ; 5 capacités divines typées ; percée du Manoir Pourpre en 4 épreuves ; positions Réalisation / Surplus / Intercalaire ; Démon d'Essence Métallique. |
+| L4 | **Voies, lignées, fondations, capacités, Fruitions** | 🟠 | 5 voies / 9 sous-voies ; ≈60 Fruitions en données JSON (emplacements non nommés inclus) ; Partenaires Dao ; 5 capacités divines typées ; percée du Manoir Pourpre en 4 épreuves ; positions Réalisation / Surplus / Intercalaire ; Démon d'Essence Métallique. |
 | L4b | **Routes du Noyau d'Or** (§5.9) | 🟠 | R1-R9 (Réalisation, Surplus ×2, Intercalaire ×3, Noyau d'Or sans position, changements de position, réincarnation), R18-R19 (Main Gauche vraie / fausse). |
 | L5 | **Carte et factions renommées** | 🟠 | `RegionDefinition`, 3 sectes + portes + familles en `FactionTemplate`, nouvelle carte Shuimo, `WorldMapUI` par régions. **Nécessite la couche Godot (G4).** |
 | L6 | **Chronologie, monde vivant, rejouabilité** | 🟡 | Introduction an 0, faits historiques, statuts initiaux des Fruitions, phénomènes régionaux, graine de monde, conditions de victoire. |
@@ -133,11 +134,11 @@
 
 ## 📝 Liste de vérification pour passer à Phase 2
 
-- [ ] Tâches 1-5 terminées (infra Unity + compile clean)
+- [x] Tâches 1-5 terminées (caduques : migration Godot, phase G)
 - [ ] Tâches 10-15 terminées (Phase 1 jouable bout-en-bout)
-- [ ] Simulation 10 ans passe sans erreur en Play Mode
-- [ ] Une save existe sur disque après 1 an et est rechargeable
-- [ ] Au moins 2 naissances + 1 mort + 1 percée observées dans une partie test
+- [x] Simulation de 100 ans sans erreur (`SimulationTests`, 2026-09-25)
+- [x] Sauvegarde annuelle rechargeable (`GameRoot`, `SaveSerializerTests`)
+- [x] Naissances, morts et percées observées (`SimulationTests`)
 
 ---
 

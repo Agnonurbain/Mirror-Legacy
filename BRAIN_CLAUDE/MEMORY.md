@@ -1,145 +1,72 @@
 # 🧠 MEMORY.md — Mémoire projet Reflets de Lignée
 
-> ⚠️ **2026-09-25 — Moteur : Godot 4.7.2 .NET (C#) remplace Unity.** Les conventions Unity décrites plus bas (singletons MonoBehaviour, ScriptableObjects, Unity Test Framework) sont **caduques** : simulation sans moteur dans `src/Core` (tests `dotnet test`), couche Godot mince dans `game/`. Migration suivie en phase G (`NOT_DONE.md`) ; ce fichier sera réécrit à la fin de G5.
-> **Dernière session :** 2026-04-14 — Pivot décidé : retour complet à Unity/C# (abandon du portage web).
-> **Prochain rappel :** Lire `NOT_DONE.md` et `WORKED_LESSON.md` avant chaque session.
+> **Dernière mise à jour :** 2026-09-25 — migration Unity → **Godot 4.7.2 .NET** (phase G). Toute la simulation tourne sans moteur ; l'arbre Unity disparaît en G5.
+> **À chaque reprise :** lire `NOT_DONE.md`, `WORKED_LESSON.md` et, pour le monde, `LORE.md` (source de vérité).
 
 ---
 
 ## 📌 Contexte projet
 
 - **Nom** : Reflets de Lignée : Les Chroniques du Miroir (*Mirror Chronicles*)
-- **Inspiration** : *The Mirror Legacy (Xuanjian Xianzu)*
-- **Auteur** : Aymeric
-- **Type** : RPG de Gestion de Clan & Tactique 2D
-- **Moteur** : Unity 6.4 LTS (6000.4.x) + C#
-- **Plateformes** : PC (Steam) + Mobile (iOS/Android)
-- **Perspective** : 2D top-down / isométrique pour le domaine, grille 2D pour le combat
-- **Langue code** : Anglais strict (classes, variables, commentaires XML)
-- **Langue docs/logs** : Français
-- **Univers** : Xianxia (cultivation spirituelle chinoise)
-- **Mode** : Ironman par défaut (1 seule sauvegarde, auto à fin d'année)
+- **Type** : gestion de clan xianxia sur des générations, combat tactique au tour par tour
+- **Le joueur** : une conscience piégée dans un miroir de bronze ancestral ; il guide un clan (le **clan Mo**) sans incarner personne
+- **Moteur** : **Godot 4.7.2 .NET** (C#, .NET 8), choisi le 2026-09-25 à la place d'Unity (jamais installé ni compilé)
+- **Plateforme visée** : PC (Steam) ; aucune console prévue
+- **Langues** : code et commentaires en anglais ; docs, logs de pilotage et **textes du joueur en français**
+- **Sauvegarde** : Ironman, `user://ironman_save.json`, à chaque début d'année
+- **Propriété intellectuelle** : aucun nom propre du roman source dans le jeu ; lexique de renommage en `LORE.md` §13
 
 ---
 
-## 📁 Layout du projet (cible)
+## 📁 Arborescence
 
 ```
 Mirror-Legacy/
-├── Assets/
-│   └── _Project/
-│       ├── Scripts/                # Code C# (actuel — 34 fichiers, 3432 lignes)
-│       │   ├── Core/               # GameManager, TimeManager, SaveSystem
-│       │   ├── Mirror/             # MirrorSystem, DeductionEngine
-│       │   ├── Clan/               # ClanManager, BloodRegistry, GeneticSystem, LegacySystem
-│       │   ├── Characters/         # Cultivation, Breakthrough, Aging, MentalStability, Wound, Ascension
-│       │   ├── Combat/             # TacticalCombatManager, Grid, Turn, AI, Actions
-│       │   ├── Diplomacy/          # FactionManager, MarriageSystem, AllianceSystem
-│       │   ├── Economy/            # ResourceManager, TaskAssignmentSystem
-│       │   ├── Events/             # EventManager, GameEvents (bus global)
-│       │   ├── Data/               # POCOs + Enums (CharacterData, GameData, etc.)
-│       │   └── Tests/              # GameSimulationTest
-│       ├── ScriptableObjects/      # ⚠️ À créer
-│       ├── Prefabs/                # ⚠️ À créer
-│       ├── Art/                    # ⚠️ À créer
-│       ├── Audio/                  # ⚠️ À créer
-│       └── Scenes/                 # ⚠️ À créer (MainMenu, ClanDomain, TacticalCombat, WorldMap)
-│
-├── ProjectSettings/                # ⚠️ MANQUANT — le projet n'est pas un vrai projet Unity
-├── Packages/                       # ⚠️ MANQUANT — pas de manifest.json
-├── Library/                        # (auto-généré au 1er open Unity)
-│
-├── BRAIN_CLAUDE/                   # Documentation projet (ce dossier)
-│   ├── BRAINSTORMING.md            # Point d'entrée session
-│   ├── MEMORY.md                   # Ce fichier
-│   ├── PLAN.md                     # Plan complet du jeu
-│   ├── DONE.md                     # Tâches complétées
-│   ├── NOT_DONE.md                 # Tâches restantes
-│   ├── WORKED_LESSON.md            # Leçons apprises
-│   ├── PACKAGE.md                  # Registre packages Unity
-│   └── TEST.md                     # Règles de tests
-│
-├── BRAIN_QWEN/                     # Docs d'un autre projet (HOMECI) — à ignorer
-│
-└── [Legacy web]                    # À supprimer ou archiver après décision finale
-    ├── src/                        # Port React (obsolète)
-    ├── package.json, vite.config.ts, tsconfig.json
-    ├── index.html, metadata.json
-    └── .env.example
+├── src/Core/              # MirrorChronicles.Core — toute la simulation, sans moteur (net8.0)
+│   ├── Session/           # GameSession (racine de composition), GameContext, GameClock, sauvegardes
+│   ├── Clan/              # ClanManager (seule porte de la mort), registre, génétique, parenté, mariages, karma, héritage
+│   ├── Characters/        # Échelle de puissance, rangs, percées, orifice, tâches, cultivation, vieillissement, blessures
+│   ├── Economy/           # Ressources, tâches annuelles, bâtiments
+│   ├── Diplomacy/         # Factions, alliances, espionnage, mariages
+│   ├── Events/            # Bus d'événements par session, événements aléatoires et d'histoire
+│   ├── Mirror/            # Le miroir (interventions, Graines de Sceau, Pulsation de Qi) et la déduction
+│   ├── Combat/            # Grille, unités, actions, initiative, IA, batailles
+│   ├── Presentation/      # Modèles d'écran testables (domaine du clan, chronique)
+│   └── Data/              # Données sérialisées et contenu (GameContent, chargeur JSON)
+├── tests/Core.Tests/      # NUnit 3 (dotnet test) — mêmes domaines que src/Core
+├── game/                  # Projet Godot : project.godot, scenes/*.tscn (texte), scripts/*.cs, data/*.json
+├── Scripts/dev.sh         # build | test | smoke | screenshot | all
+├── BRAIN_CLAUDE/          # Pilotage (ce dossier)
+└── graphify-out/          # Graphe de connaissances (graphify)
 ```
 
 ---
 
-## 🎮 Pitch du jeu (résumé)
+## 🏗️ Architecture
 
-Le joueur incarne une **conscience piégée dans un miroir de bronze ancestral**. Il ne contrôle aucun personnage — il observe, guide et influence une famille de mortels sur **des dizaines de générations** pour en faire le clan de cultivateurs le plus puissant de **Mount Dali**.
-
-Le jeu mêle :
-- **Gestion de clan multigénérationnelle** (naissances, mariages, morts, trahisons)
-- **Cultivation Xianxia** (6 royaumes : Embryonnaire → Embryon Dao)
-- **Combat tactique tour par tour** sur grille 10x10
-- **Diplomatie, espionnage, alliances** entre familles rivales
-- **Héritage de savoirs** entre générations (Legacy System)
-
----
-
-## 🏗️ Design patterns utilisés
-
-| Pattern | Utilisation actuelle |
+| Élément | Rôle |
 |---|---|
-| **Singleton (MonoBehaviour lazy)** | Tous les Managers (GameManager, TimeManager, ClanManager, etc.) |
-| **Observer (C# Events)** | `GameEvents` static class — bus global. Systèmes s'abonnent OnEnable/OnDisable |
-| **State Machine** | `GameState` (MainMenu/Loading/Playing/GameOver), `GamePhase` (4 phases), `CombatState` |
-| **Strategy** | `IAIStrategy` + `AggressiveStrategy`, `DefensiveStrategy` (autres à implémenter) |
-| **Command** | `ICombatAction` + `AttackAction`, `MoveAction`, `DefendAction` |
-| **MVC** | ⚠️ En théorie — Data (POCOs `CharacterData`, `GameData`) séparée des Managers. View UI **non implémentée**. |
+| **`GameSession`** | Construit tous les systèmes dans un ordre fixe et joue le tour : Événements (tâches, IA des factions, événement aléatoire, mariages) → Percées → Héritage (naissances, examens d'orifice) → nouvelle année (vieillissement, bâtiments, `OnYearStarted`). |
+| **`GameContext`** | Ce que partagent les systèmes d'une partie : bus, journal, hasard à graine, horloge, contenu (lecture seule). |
+| **`GameEventBus`** | Un bus par partie ; les réactions s'exécutent dans l'ordre de construction (déterministe). |
+| **`ClanManager.Kill`** | Seule porte de la mort : la liste des vivants et la succession sont à jour avant `OnCharacterDied`. |
+| **Contenu** | `game/data/*.json` (clan, noms, équilibrage, factions, événements, histoire), chargé et validé par `GameContentLoader` ; jamais modifié par une partie. |
+| **Sauvegarde** | `GameData` v2 (état complet), `SaveSerializer` (Newtonsoft, énumérations par nom) ; `ToSaveData` est un instantané détaché ; les sauvegardes v1 se chargent. |
+| **Couche Godot** | `GameRoot` (autoload : contenu, partie, sauvegarde), `ClanDomain` (écran principal) ; les scripts ne font que lier les modèles de `Presentation`. |
 
 ---
 
-## 📊 État d'avancement global
+## 📝 Conventions de code
 
-```
-Scripts C# (architecture)  : ███████████████████████████░░░░  ~70%
-  - Core (GameManager, TimeManager, SaveSystem)          ✅
-  - Clan (Registry, Manager, Genetics, Legacy)           ✅ (Legacy a un bug)
-  - Characters (Cultivation, Breakthrough, Aging, etc.)  ✅
-  - Combat tactique (Grid, Turn, AI, Actions)            ✅ (partiel — 2 AI strategies sur 5)
-  - Mirror (MirrorSystem, DeductionEngine)               ✅ (bugs compile)
-  - Diplomacy (Factions, Marriage, Alliance)             ✅ (base)
-  - Economy (Resources, Tasks)                           ✅ (base)
-  - Events (Manager + Bus)                               ✅ (4 events sur 10+)
-
-Projet Unity (infra)       : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0%
-  - ProjectSettings/                                     ❌
-  - Packages/manifest.json                               ❌
-  - Scènes .unity                                        ❌
-  - .asmdef                                              ❌
-  - .meta files                                          ❌
-
-ScriptableObjects          : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0%
-UI (Shuimo thème)          : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0%
-Audio                      : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0%
-Art (sprites, VFX)         : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0%
-Tests (Edit/Play Mode)     : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  ~5% (1 script de simu, pas un test unitaire)
-```
-
-**Voir `DONE.md` pour le détail des items complétés.**
-**Voir `NOT_DONE.md` pour le détail des items restants.**
-
----
-
-## 🔴 Problèmes CRITIQUES à résoudre
-
-1. **Le projet n'est pas un projet Unity valide** — aucun `ProjectSettings/`, aucun `Packages/manifest.json`, aucune scène. Unity ne peut pas l'ouvrir.
-2. **Erreurs de compilation** (code ne compile pas en l'état) :
-   - `LegacySystem.cs:50` → `deceased.RootElement` n'existe pas (doit être `Affinity`)
-   - `DeductionEngine.cs:65` → `MirrorSystem.Instance.ConsumeMirrorPower(...)` n'existe pas (doit être `ConsumePower(...)`)
-   - `DeductionEngine.cs:162` → `Element.Ice` n'existe pas dans l'enum `Element`
-   - `GameSimulationTest.cs:75` → `EventManager.Instance.GenerateYearlyEvent()` n'existe pas et la méthode existante `TriggerYearlyEvent()` est privée
-   - `GameSimulationTest.cs:88` → `FactionManager.Instance.ProcessYearlyFactionAI()` est privée
-3. **`JsonUtility` ne sérialise pas les auto-properties** — `CharacterData` utilise `public int Age { get; set; }` qui ne sera **pas** sauvegardé. Deux options : (a) remplacer par des champs publics `public int Age;` (b) passer à Newtonsoft.Json (`com.unity.nuget.newtonsoft-json`).
-4. **Aucun asmdef** — recompilation très lente dès que le projet grandit.
-5. **Aucun ScriptableObject** alors que le master prompt l'exige pour toutes les données statiques (techniques, items, events, factions).
+- **Namespaces** : `MirrorChronicles.<Domaine>` pour Core ; `MirrorChronicles.Game` pour la couche Godot.
+- **Pas de singleton ni de moteur dans Core** : dépendances par constructeur, `GameContext` partagé.
+- **Hasard** : toujours `ctx.Rng` (ou `field.Rng` en combat), identifiants via `Rng.NextId()` — une graine rejoue la même partie.
+- **Règles** : constantes nommées dans des classes pures (`PowerLadder`, `BreakthroughRules`, `SpiritualOrificeRules`, `TaskRules`…) ; les valeurs réglables vont dans `balance.json`.
+- **Noms affichés** : dans les données ou en français dans `Presentation`/`RankCatalog` ; jamais de nom du roman.
+- **Journal** : préfixe `[Système]` via `IGameLog` (développement) ; la `Chronicle` raconte au joueur.
+- **Sauvegarde** : ne jamais renommer un champ ou une valeur d'énumération sauvegardés.
+- **C#** : `ImplicitUsings` et `Nullable` désactivés (code porté non annoté) ; commentaires XML sur les API publiques.
+- **Tests** : TDD (commit RED puis GREEN), un seul assert, noms `Méthode_Résultat_QuandCondition` (voir `TEST.md`).
 
 ---
 
@@ -156,50 +83,30 @@ Tests (Edit/Play Mode)     : █░░░░░░░░░░░░░░░░
 | **Qi/Spirituel** | Violet impérial `#6A0DAD` |
 | **❌ NE PAS faire** | Flat design, Material Design, menus modernes |
 
+L'écran actuel utilise le thème Godot par défaut (placeholder).
+
 ---
 
-> **Lore complet (royaumes, techniques, voies, Fruitions, carte, chronologie) : voir `LORE.md`, source de vérité depuis le 2026-09-24.** Le tableau ci-dessous décrit l'état **actuel** du code ; la cible est dans `LORE.md`.
-
-## 📐 Règles métier clés (rappel)
+## 📐 Règles métier clés (état du code)
 
 | Règle | Valeur |
 |---|---|
-| **Nombre de royaumes** | 6 (Embryonic → DaoEmbryo) |
-| **Min Spiritual Root par royaume** | 0, 10, 30, 50, 70, 90 |
-| **Taux d'échec percée par royaume** | 5%, 15%, 30%, 50%, 70% |
-| **Clan de départ** | 5 membres (Patriarche, Matriarche, Fils, Fille, Oncle) |
-| **Mariage âge min** | 18 ans |
-| **Mariage inceste** | Interdit ≤ 3 générations |
-| **Phases par année** | 4 (Management → Events → Breakthrough → Inheritance) |
-| **Qi en combat** | Ne régénère pas (sauf case ConcentratedQi +5%/tour) |
-| **Sauvegarde** | Ironman, auto à fin d'année, JSON |
-| **Grille combat** | 10x10 (extensible 12x12 batailles majeures) |
-| **Relations factions** | -100 (Guerre) à +100 (Alliance Scellée) |
+| **Royaumes** | 7 (Respiration Embryonnaire → Immortel Doré) avec sous-niveaux (`LORE.md` §5) |
+| **Orifice spirituel** | héréditaire (D3) : 0,3 % / 35 % / 50 % selon les parents (`balance.json`) |
+| **Mortels** | 60-80 ans ; ni cultivation ni percée ; tâches limitées |
+| **Âges** | aucune tâche avant 6 ans ; un enfant mortel ne fait que se reposer jusqu'à 16 ans |
+| **Clan de départ** | 5 membres (`clan.json`) |
+| **Mariage** | 18-40 ans, parenté interdite sur 3 générations, 30 %/an |
+| **Naissances** | mère de 16 à 45 ans, 25 %/an |
+| **Phases** | Gestion → Événements → Percées → Héritage |
+| **Combat** | grille 10×10, initiative, 6 actions, 5 IA ; Qi régénéré seulement sur Qi concentré |
+| **Relations** | -100 à +100 |
 
 ---
 
-## 🚧 Prochaines étapes recommandées (dans l'ordre)
+## 🧭 Où en est le projet
 
-1. **Bootstrapper Unity** — créer `ProjectSettings/` + `Packages/manifest.json` (URP ou Built-in, TextMeshPro, Input System).
-2. **Créer `.asmdef`** — `MirrorChronicles.Runtime.asmdef` sous `Assets/_Project/Scripts/`.
-3. **Corriger les 5 erreurs de compilation** (voir WL-001 à WL-005 dans `WORKED_LESSON.md`).
-4. **Créer scène `ClanDomain.unity`** avec GameObject `[Systems]` portant tous les Singletons.
-5. **Passer à Newtonsoft.Json** pour la sérialisation (sinon auto-properties non sauvegardées).
-6. **Jouer la simulation 10 ans** (`GameSimulationTest`) et valider les logs.
-7. **Créer les premiers ScriptableObjects** : `CultivationTechniqueData`, `FactionData.asset` (remplacer les hardcoded de `FactionManager.InitializeWorldFactions`).
-8. **Commencer l'UI placeholder** de la Phase 1 (BloodRegistry basique, TaskAssignment basique).
-
----
-
-## 📝 Conventions de code (rappel)
-
-- **Namespaces** : `MirrorChronicles.<Module>` (Core, Clan, Characters, Combat, Mirror, Diplomacy, Economy, Events, Data, Tests)
-- **Singletons** : `public static <T> Instance { get; private set; }` + Awake standard (destroy duplicate)
-- **Events** : S'abonner dans `OnEnable`, se désabonner dans `OnDisable`. **JAMAIS dans Awake/Start.**
-- **Commentaires XML** : Sur tous les membres publics + classes
-- **Debug.Log** : Préfixer avec `[NomDuSystem]`, utiliser les couleurs rich text pour les événements marquants (`<color=red>[Death]</color>`)
-- **Nommage** : PascalCase pour types/méthodes/propriétés, camelCase pour champs privés avec underscore (`_turnQueue`)
-- **POCOs** : `[Serializable]` obligatoire, constructeur sans paramètres requis, IDs via `Guid.NewGuid().ToString()`
+Voir `NOT_DONE.md`. En bref (2026-09-25) : L0-L2 faits ; migration Godot G0-G4 faite, G5 (nettoyage) en cours ; équilibrage B1-B3 ouvert (population, économie, générations) ; prochaines phases du lore : L3 (techniques graduées) puis L4.
 
 ---
 
@@ -207,16 +114,11 @@ Tests (Edit/Play Mode)     : █░░░░░░░░░░░░░░░░
 
 | Fichier | Usage |
 |---|---|
-| `PLAN.md` | Plan complet du jeu — architecture, systèmes, phases, paliers |
-| `DONE.md` | Tâches complétées — **mis à jour à chaque étape** |
-| `NOT_DONE.md` | Tâches restantes — **mis à jour à chaque étape** |
-| `WORKED_LESSON.md` | Bugs identifiés & leçons — **mis à jour à chaque session** |
-| `MEMORY.md` | Ce fichier — contexte et résumé pour reprises de session |
-| `PACKAGE.md` | Registre des packages Unity — **mis à jour à chaque ajout/suppression** |
-| `TEST.md` | Règles de tests Edit Mode / Play Mode |
-| `BRAINSTORMING.md` | Point d'entrée — ordre de lecture optimal |
-
----
-
-*Ce fichier doit être lu au début de chaque session pour reprendre le contexte rapidement.*
-*Toujours mettre à jour `DONE.md`, `NOT_DONE.md`, `WORKED_LESSON.md` après chaque tâche.*
+| `BRAINSTORMING.md` | Point d'entrée — ordre de lecture |
+| `LORE.md` | Monde, royaumes, voies, Fruitions, carte, chronologie, lexique — **source de vérité** |
+| `PLAN.md` | Conception du jeu et changelog |
+| `DONE.md` / `NOT_DONE.md` | Avancement — **mis à jour à chaque étape** |
+| `WORKED_LESSON.md` | Bugs et leçons — **mis à jour à chaque session** |
+| `TEST.md` | Règles de tests |
+| `PACKAGE.md` | Dépendances (Godot, .NET, NuGet) |
+| `CLI.md` | Commandes de développement |

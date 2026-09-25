@@ -1,49 +1,29 @@
-# 🎮 Unity 6 + Claude Code (Ubuntu/Linux)
+# 🛠️ CLI.md — Commandes de développement (Godot 4.7.2 .NET, Linux)
 
-## 📋 Configuration
-- **Unity Version**: 6000.4.2f1 (Unity 6)
-- **Plateforme**: Ubuntu 22.04+
-- **Wrapper**: `./Scripts/unity-claude.sh <Commande>`
+## Construire, tester, lancer
 
-## 📋 Commandes disponibles
+| Commande | Effet |
+|---|---|
+| `./Scripts/dev.sh build` | Compile Core, les tests et l'assemblage Godot |
+| `./Scripts/dev.sh test` | Tests de la simulation (`dotnet test`, sans Godot) |
+| `./Scripts/dev.sh smoke` | Jeu sans affichage (`-- --smoke`) : joue 5 ans puis quitte ; échoue sur toute erreur du moteur |
+| `./Scripts/dev.sh screenshot <png>` | Idem dans une fenêtre, puis capture de l'écran |
+| `./Scripts/dev.sh all` | build + test + smoke |
 
-| Commande             | Description                               | Exit Code | Temps estimé |
-| -------------------- | ----------------------------------------- | --------- | ------------ |
-| `Compile`            | Compile C#, retourne erreurs/warnings     | 0/1       | 30-60s       |
-| `BuildLinux64`       | Build standalone Linux64 dans `Builds/`   | 0/1       | 2-5min       |
-| `BuildWindows64`     | Build standalone Windows64                | 0/1       | 2-5min       |
-| `RunEditModeTests`   | Lance tests EditMode (rapide, sans rendu) | 0/1       | 1-3min       |
-| `RunPlayModeTests`   | Lance tests PlayMode (headless avec Xvfb) | 0/1       | 3-10min      |
-| `FindAssets`         | Liste tous les assets (exclut bridge)     | 0         | 5-10s        |
-| `ClearCache`         | Vide console & refresh AssetDatabase      | 0         | 2-5s         |
-| `ScanLegacyPackages` | Détecte packages non-UPM                  | 0         | 10-30s       |
-| `AutoMigrate`        | Migre vers UPM automatiquement            | 0/1       | 1-5min       |
+- Godot est attendu dans `~/Godot/Godot_v4.7.2-stable_mono_linux_x86_64/` ; sinon `GODOT_BIN=/chemin/vers/godot`.
+- Ouvrir l'éditeur : `$GODOT_BIN --path game --editor`.
+- Les parties de fumée et de capture ne touchent jamais la sauvegarde du joueur.
 
-## 🛡️ Règles de sécurité impératives
+## Graphe de connaissances
 
-### ✅ TOUJOURS
-1. Exécuter `Compile` après modification de `.cs`
-2. Versionner via Git avant chaque build/test important
-3. Vérifier `claude-output/result.json` après chaque commande
-4. Utiliser `TIMEOUT=900` pour les builds complexes
+| Commande | Effet |
+|---|---|
+| `graphify query "<question>"` | Sous-graphe ciblé |
+| `graphify explain "<concept>"` | Un concept et ses liens |
+| `graphify path "<A>" "<B>"` | Chemin entre deux nœuds |
+| `graphify update .` | Remise à jour après modification du code (AST seul, gratuit) |
 
-### ❌ JAMAIS
-1. Modifier manuellement `.unity`, `.prefab`, `.asset` (YAML sérialisé)
-2. Modifier/supprimer `.meta` sans utiliser `AssetDatabase`
-3. Éditer `Library/` ou `Temp/`
-4. Lancer plusieurs instances Unity en parallèle (lock file)
+## Git
 
-## 🔄 Workflow recommandé
-
-### Développement quotidien
-```bash
-# 1. Modifier scripts C#
-# 2. Compiler
-./Scripts/unity-claude.sh Compile
-
-# 3. Si erreurs → lire JSON → corriger → recompiler
-# 4. Tester
-./Scripts/unity-claude.sh RunEditModeTests
-
-# 5. Commit
-git add -A && git commit -m "feat: description"
+- Une branche par phase (`feature/...`), commits conventionnels, étapes TDD RED puis GREEN.
+- `main` ne reçoit qu'une branche revue et verte (`dev.sh all`).

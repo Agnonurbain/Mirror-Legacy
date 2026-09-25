@@ -1,7 +1,7 @@
 # 📋 PLAN — Reflets de Lignée : Les Chroniques du Miroir
 
-> **Vision** : Un RPG de gestion de clan multigénérationnel + combat tactique 2D, dans un univers Xianxia, où le joueur est une conscience dans un miroir de bronze qui guide une famille de mortels sur des siècles pour en faire le clan de cultivateurs le plus puissant de Mount Dali.
-> **Dernière mise à jour** : 2026-04-14 — Pivot complet Unity/C# acté.
+> **Vision** : Un RPG de gestion de clan multigénérationnel + combat tactique 2D, dans un univers Xianxia, où le joueur est une conscience dans un miroir de bronze qui guide une famille de mortels sur des siècles pour en faire le clan de cultivateurs le plus puissant de sa région (monde et noms : `LORE.md`).
+> **Dernière mise à jour** : 2026-09-25 — moteur : **Godot 4.7.2 .NET** ; l'architecture technique à jour est dans `MEMORY.md` (le schéma ci-dessous décrit l'ancienne organisation Unity).
 
 ---
 
@@ -289,7 +289,7 @@ Dynamique : musique s'intensifie à l'approche d'un événement ou quand Vitalit
 
 ### ✅ PHASE 1 — Fondations (Prototype Jouable)
 **Objectif :** 1 cycle complet, 1 clan de 5 membres, limité à Fondation.
-Statut : **~80% — le code existe mais ne compile pas & pas de projet Unity.**
+Statut : **fait (2026-09-25)** — boucle annuelle jouable sous Godot, simulation testée sans moteur.
 
 ### 🚧 PHASE 2 — Combat & Événements
 Statut : **~50% — combat fonctionnel en code, EventManager minimal (4 events).**

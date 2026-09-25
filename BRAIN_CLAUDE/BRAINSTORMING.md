@@ -12,7 +12,7 @@ Lire **dans cet ordre** pour une compréhension maximale avec un minimum de lect
 | Ordre | Fichier | Chemin | Pourquoi | Temps de lecture |
 |---|---|---|---|---|
 | **1** | **BRAINSTORMING.md** | `BRAIN_CLAUDE/BRAINSTORMING.md` | Ce fichier — sait quoi lire ensuite | 30s |
-| **2** | **CLAUDE.md** (ou master prompt) | `CLAUDE.md` (racine) ou prompt chat | Règles de codage, conventions Unity/C#, règles métier Xianxia | 2 min |
+| **2** | **CLAUDE.md** (ou master prompt) | `CLAUDE.md` (racine) ou prompt chat | Règles de codage, conventions C#/Godot, règles métier Xianxia | 2 min |
 | **3** | **MEMORY.md** | `BRAIN_CLAUDE/MEMORY.md` | Contexte projet résumé, état actuel, bugs critiques, prochaines étapes | 2 min |
 | **4** | **NOT_DONE.md** | `BRAIN_CLAUDE/NOT_DONE.md` | Tâches restantes numérotées, priorisées, détaillées | 1 min |
 | **5** | **WORKED_LESSON.md** | `BRAIN_CLAUDE/WORKED_LESSON.md` | Pièges à éviter, bugs déjà identifiés | 1 min |
@@ -34,7 +34,7 @@ BRAINSTORMING.md → CLAUDE.md → MEMORY.md → NOT_DONE.md → WORKED_LESSON.m
 | **Vision complète du jeu** | `PLAN.md` | `BRAIN_CLAUDE/PLAN.md` |
 | **Vérifier ce qui a été fait** | `DONE.md` | `BRAIN_CLAUDE/DONE.md` |
 | **Résoudre un bug connu** | `WORKED_LESSON.md` | `BRAIN_CLAUDE/WORKED_LESSON.md` |
-| **Gérer les packages Unity** | `PACKAGE.md` | `BRAIN_CLAUDE/PACKAGE.md` |
+| **Gérer les dépendances (Godot, .NET, NuGet)** | `PACKAGE.md` | `BRAIN_CLAUDE/PACKAGE.md` |
 | **Mettre à jour un test** | `TEST.md` | `BRAIN_CLAUDE/TEST.md` |
 
 ---
@@ -42,7 +42,7 @@ BRAINSTORMING.md → CLAUDE.md → MEMORY.md → NOT_DONE.md → WORKED_LESSON.m
 ## 🎯 État ultra-court du projet
 
 - **Type** : RPG de gestion de clan + tactique 2D, thème Xianxia (cultivation chinoise)
-- **Moteur cible** : Unity 6.4 LTS (6000.4.x) + C#
+- **Moteur** : Godot 4.7.2 .NET + C# (depuis le 2026-09-25 ; Unity abandonné)
 - **Phase actuelle** : **Phases 1-3 terminées, Phase 4 en cours** — 60+ scripts, 6 actions combat, 5 stratégies IA, A*, terrain procédural, 11 events + 6 story events, 8 factions, 8 bâtiments, 5 ressources, espionnage, WorldMap, victoire/défaite, save slots, object pool. 17 tests EditMode passent.
 - **Source de vérité** : le master prompt (également dans chat / CLAUDE.md racine)
 - **Langue** : FR pour docs + logs Debug en FR possible, **EN strict** pour code (classes, variables, commentaires XML)
@@ -105,7 +105,7 @@ BRAINSTORMING.md → CLAUDE.md → MEMORY.md → NOT_DONE.md → WORKED_LESSON.m
 | **5** | `TEST.md` | Vérifier que les tests (Edit Mode / Play Mode) associés sont à jour |
 | **6** | `MEMORY.md` | Mettre à jour le résumé si l'état global a changé |
 | **7** | `BRAINSTORMING.md` (ce fichier) | Mettre à jour les priorités absolues si nécessaire |
-| **8** | `PACKAGE.md` | Si un package Unity a été ajouté/supprimé |
+| **8** | `PACKAGE.md` | Si une dépendance a été ajoutée, retirée ou mise à jour |
 
 ---
 
@@ -114,7 +114,7 @@ BRAINSTORMING.md → CLAUDE.md → MEMORY.md → NOT_DONE.md → WORKED_LESSON.m
 1. **Code anglais strict, docs FR** — pas de mélange.
 2. **Design patterns obligatoires** : Singleton, Observer (C# Events), Strategy, Command, State Machine, MVC.
 3. **Pas de `SendMessage`, pas de `FindObjectOfType` en boucle, pas de `StartCoroutine` pour les timers** (utiliser async/await ou GameEvents).
-4. **ScriptableObjects pour toute donnée statique** (Techniques, Fragments, Factions, Events, Items).
+4. **Données JSON (`game/data/`) pour tout contenu statique** (clan, noms, équilibrage, factions, événements ; techniques et Fruitions à venir).
 5. **Null checks + try/catch** sur les opérations critiques (Save/Load).
 6. **Tests Play Mode** pour chaque système lourd après implémentation.
 7. **Un système à la fois** — proposer l'architecture, valider avec l'utilisateur, puis coder.
