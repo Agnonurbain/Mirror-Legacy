@@ -4,30 +4,37 @@ RPG 2D de gestion de clan multigénérationnel inspiré de *The Mirror Legacy (X
 
 ## Stack
 
-- **Unity 6.4 LTS** (6000.4.2f1, 2D Core template)
-- **C#** — logique métier, systèmes de jeu, IA de combat
-- **Newtonsoft.Json** — sérialisation des sauvegardes (Ironman, auto-save annuelle)
-- **New Input System** — entrées PC + mobile
-- **NUnit** — tests Edit Mode + Play Mode
+- **Godot 4.7.2 .NET** (moteur depuis le 2026-09-25, en remplacement d'Unity)
+- **C# / .NET 8** — toute la simulation, sans dépendance au moteur
+- **Newtonsoft.Json** — sauvegardes (JSON, énumérations écrites par nom)
+- **NUnit 3** — tests via `dotnet test`
 
 ## Architecture
 
 ```
-Assets/_Project/
-├── Scripts/
-│   ├── Core/          # GameManager, TimeManager, SaveSystem
-│   ├── Clan/          # ClanManager, BloodRegistry, GeneticSystem, LegacySystem
-│   ├── Characters/    # Cultivation, Breakthrough, Aging, MentalStability, Wound, Ascension
-│   ├── Combat/        # TacticalCombat, Grid, Actions, AI strategies
-│   ├── Mirror/        # MirrorSystem (interface joueur), DeductionEngine
-│   ├── Diplomacy/     # FactionManager, MarriageSystem, AllianceSystem
-│   ├── Economy/       # ResourceManager, TaskAssignmentSystem
-│   ├── Events/        # GameEvents (bus), EventManager (aléatoire)
-│   └── Data/          # POCOs : CharacterData, GameData, Enums
-├── Tests/             # EditMode + PlayMode NUnit
-├── Scenes/            # MainMenu, ClanDomain, TacticalCombat, WorldMap
-└── Art/, Audio/, Prefabs/
+src/Core/            # Simulation sans moteur (MirrorChronicles.Core)
+├── Session/         # GameSession (racine de composition, phases), GameContext, sauvegardes
+├── Clan/            # ClanManager, BloodRegistry, génétique, parenté, mariages, karma, héritage
+├── Characters/      # Échelle de puissance, rangs, cultivation, percées, orifice, vieillissement, blessures
+├── Economy/         # Ressources, tâches, bâtiments
+├── Diplomacy/       # Factions, alliances, espionnage, mariages
+├── Events/          # Bus d'événements par session, événements aléatoires et d'histoire
+├── Mirror/          # Le miroir (le joueur) et la déduction de techniques
+└── Data/            # Données sérialisées : personnages, sauvegarde, factions…
+tests/Core.Tests/    # Tests NUnit, dont des parties de 100 ans sans moteur
+game/                # Projet Godot : scènes .tscn (texte), scripts C# minces, data/*.json
 ```
+
+## Commandes
+
+```bash
+./Scripts/dev.sh test    # tests de la simulation (seul le SDK .NET 8 est requis)
+./Scripts/dev.sh build   # compile Core, les tests et l'assemblage Godot
+./Scripts/dev.sh smoke   # lance le jeu sans affichage et échoue à la moindre erreur
+./Scripts/dev.sh all     # les trois
+```
+
+Godot 4.7.2 .NET est attendu dans `~/Godot/` (sinon, définir `GODOT_BIN`).
 
 ## Documentation interne
 
@@ -42,7 +49,7 @@ Le dossier [BRAIN_CLAUDE/](BRAIN_CLAUDE/) contient toute la documentation de pil
 
 ## Statut
 
-**Phase 1 — Infrastructure** (en cours). 34 fichiers C# implémentés (boucle annuelle, clan, cultivation, combat, percée, système Miroir). Le projet Unity n'est pas encore bootstrappé — voir [NOT_DONE.md](BRAIN_CLAUDE/NOT_DONE.md#-bloquant--infra-unity--compilation).
+**Phase G — migration vers Godot** (en cours, voir [NOT_DONE.md](BRAIN_CLAUDE/NOT_DONE.md)). La simulation complète tourne sans moteur et est couverte par les tests ; la couche Godot (interface, carte, combat affiché) vient ensuite. L'ancien arbre Unity (`Assets/`, `Packages/`, `ProjectSettings/`) disparaît à la fin de la phase.
 
 ---
 
