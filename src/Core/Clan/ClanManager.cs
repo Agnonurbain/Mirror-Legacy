@@ -82,7 +82,11 @@ namespace MirrorChronicles.Clan
         {
             var rng = ctx.Rng;
             bool isMale = rng.NextDouble() >= 0.5;
-            var names = isMale ? ctx.Content.Names.Male : ctx.Content.Names.Female;
+            // A newborn never takes the first name of a living member while the pool has another
+            var pool = isMale ? ctx.Content.Names.Male : ctx.Content.Names.Female;
+            var taken = living.Select(m => m.FirstName).ToHashSet();
+            var free = pool.Where(n => !taken.Contains(n)).ToList();
+            var names = free.Count > 0 ? free : pool.ToList();
 
             var child = new CharacterData
             {

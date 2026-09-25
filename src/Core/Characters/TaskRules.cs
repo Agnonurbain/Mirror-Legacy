@@ -6,12 +6,23 @@ using MirrorChronicles.Data;
 namespace MirrorChronicles.Characters
 {
     /// <summary>
-    /// Which tasks a member may take (LORE.md §4). Mortals cannot cultivate but work the clan's
-    /// land; Embryonic Breathing cultivators are too fragile for anything but cultivation and rest;
-    /// from Qi Refinement on, every task is open. Pure logic shared by the task system and the UI.
+    /// Which tasks a member may take (LORE.md §4). Children under six have none; mortals cannot
+    /// cultivate and only rest until sixteen, then work the clan's land; Embryonic Breathing
+    /// cultivators are too fragile for anything but cultivation and rest; from Qi Refinement on,
+    /// every task is open. Pure logic shared by the task system and the UI.
     /// </summary>
     public static class TaskRules
     {
+        /// <summary>Before this age a child neither works nor cultivates.</summary>
+        public const int CultivationAge = 6;
+
+        /// <summary>A mortal child only rests until this age.</summary>
+        public const int WorkingAge = 16;
+
+        private static readonly TaskType[] InfantTasks = { TaskType.None };
+
+        private static readonly TaskType[] ChildTasks = { TaskType.None, TaskType.Rest };
+
         private static readonly TaskType[] MortalTasks =
             { TaskType.None, TaskType.Mine, TaskType.Patrol, TaskType.Diplomacy, TaskType.Rest };
 
@@ -23,7 +34,8 @@ namespace MirrorChronicles.Characters
 
         public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character)
         {
-            if (!SpiritualOrificeRules.CanCultivate(character)) return MortalTasks;
+            if (character.Age < CultivationAge) return InfantTasks;
+            if (!SpiritualOrificeRules.CanCultivate(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
             if (character.Realm == CultivationRealm.Embryonic) return EmbryonicTasks;
             return AllTasks;
         }
