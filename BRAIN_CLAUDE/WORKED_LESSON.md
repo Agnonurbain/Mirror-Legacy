@@ -259,6 +259,34 @@ Chaque entrée suit ce format :
 | **Statut** | 🔴 Ouvert (équilibrage). |
 | **Prévention** | Toute règle qui touche la démographie ou l'économie passe par une simulation headless de 100 ans sur plusieurs graines avant d'être validée. |
 
+### WL-016 — Un enfant mortel se voyait proposer des méthodes de cultivation
+| Champ | Valeur |
+|---|---|
+| **ID** | WL-016 |
+| **Date** | 2026-09-25 |
+| **Catégorie** | Règles / Interface |
+| **Fichier** | `src/Core/Characters/TechniqueRules.cs` (`CanPractise`), `src/Core/Presentation/ClanDomainView.cs` |
+| **Problème** | La capture d'écran de L3e montrait un mortel de 5 ans avec « Respiration commune » et un choix de méthodes. Tous les tests étaient verts. |
+| **Cause racine** | `CanPractise` ne regardait que le royaume : un mortel est au stade 0 de la Respiration Embryonnaire, donc une méthode de respiration le « couvrait ». Aucun test ne posait la question pour un mortel. |
+| **Solution** | `CanPractise` refuse qui ne peut pas cultiver (`SpiritualOrificeRules.CanCultivate`, LORE.md §4) ; la ligne d'un mortel affiche « — » (TDD, commits 3853fcc / ca69bad). |
+| **Impact** | 🟡 Moyen — un mortel aurait pu recevoir une méthode (et son défaut de durée de vie). |
+| **Statut** | ✅ Résolu. |
+| **Prévention** | Toute règle « qui peut faire X » commence par `CanCultivate` quand X touche au Qi ; après chaque changement d'écran, regarder une capture (`./Scripts/dev.sh screenshot`), pas seulement les tests. |
+
+### WL-017 — Une recherche de technique avec un identifiant nul faisait planter le combat
+| Champ | Valeur |
+|---|---|
+| **ID** | WL-017 |
+| **Date** | 2026-09-25 |
+| **Catégorie** | Robustesse / Combat |
+| **Fichier** | `src/Core/Combat/BattleField.cs` (`FindTechnique`) |
+| **Problème** | En L3d, la règle d'impuissance cherche la méthode de l'attaquant ; un combattant sans méthode passait `null` à la fonction de recherche fournie par l'appelant, qui (un dictionnaire) levait `ArgumentNullException`. |
+| **Cause racine** | La frontière `BattleField` transmettait tout identifiant à une fonction externe sans contrat sur `null`. |
+| **Solution** | `FindTechnique` répond `null` pour un identifiant nul, sans appeler la fonction externe. |
+| **Impact** | 🟠 Fort — un combat entre combattants sans méthode aurait planté dès la première frappe. |
+| **Statut** | ✅ Résolu (f9afdef). |
+| **Prévention** | Une fonction reçue de l'extérieur (callback, recherche) est protégée à la frontière : les valeurs absentes sont traitées avant l'appel. |
+
 ---
 
 ## 📐 Leçons d'architecture & design

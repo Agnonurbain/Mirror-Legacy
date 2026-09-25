@@ -1,6 +1,6 @@
 # ✅ DONE.md — Ce qui a été fait
 
-> **Mis à jour à chaque étape du projet.** Dernière mise à jour : 2026-09-25 (migration vers Godot terminée).
+> **Mis à jour à chaque étape du projet.** Dernière mise à jour : 2026-09-25 (L3 : techniques graduées).
 
 ---
 
@@ -133,6 +133,7 @@
 | 43a2 | **Orifice spirituel héréditaire (L2, 2026-09-25)** | `SpiritualOrificeRules` : orifice tiré à la naissance (0,3 % sans parent doté, 35 % avec un, 50 % avec deux), seuls les cultivateurs à l'Œil du Sommet ou au-delà le détectent (examen du clan en phase Héritage), mortels 60-80 ans, Graines de Sceau du miroir (40 Puissance, 2 actives + éclats restaurés). `TaskRules` partagé par l'assignation, la résolution annuelle et l'interface. Affichage « Orifice non examiné » / « Mortel » avant le premier chakra. Vieillissement sur la durée de vie propre à chacun ; `DaoWounds` garde la perte d'une blessure du Dao après les percées. 164 tests purs verts. |
 | 43a3 | **Simulation sans moteur (G1, 2026-09-25)** | Tout le jeu tourne hors d'Unity et de Godot dans `src/Core` : `GameSession` (fondation du clan Mo, phases, sauvegarde v2), 30 systèmes portés, 383 tests `dotnet test` dont des parties de 100 ans sur plusieurs graines (invariants, mariages, naissances, percées, déterminisme). |
 | 43a4 | **Migration Godot terminée (G2-G5, 2026-09-25)** | Contenu en `game/data/*.json` validé au chargement ; logique du combat (grille à graine, A*, 6 actions, 5 IA, `Battle`) ; couche Godot (autoload `GameRoot`, écran `ClanDomain`, fumée headless et capture) ; arbre Unity supprimé, CI `dotnet test` + Godot headless. Revue ECC des G2-G4 : 6 constats (1 élevé, 4 moyens, 1 faible) corrigés en RED → GREEN, vérifiés et approuvés. 501 tests verts. |
+| 43a5 | **Techniques graduées (L3, 2026-09-25)** | Catalogue `techniques.json` (26 méthodes de Qi du lore + *Lotus Blanc*, *Sutra de l'Aîné*, *Dialogue de Gongye Shu*) et `qi.json`, validés au chargement. Grade 1-7+ : vitesse (`balance.json`) et plafond de royaume ; secret du Manoir Pourpre ; entrer en Culture du Qi absorbe une portion du Qi de la méthode (aucune pour le *Souffle Commun*) ; récolte du Qi dès l'Œil du Sommet ; un Qi cultivateur reste lié à son Qi ; défauts du *Veilleur du Sentier* (vitesse, durée de vie, impuissance face au sutra d'origine). Déduction du miroir → technique secrète graduée, nommée par les données. Méthode et Qi à l'écran. Sauvegarde 2.1, anciennes sauvegardes mises à niveau. 610 tests verts. |
 | 43b | **KinshipRulesTests** (2026-09-24) | 14 tests EditMode. Les 12 tests de logique pure passent dans un harnais `dotnet test` NUnit ; les 2 tests `CanMarry` attendent l'éditeur Unity (non installé). |
 | 43c | **MarriageMatchmakerTests** (2026-09-24) | 16 tests EditMode purs (éligibilité, partenaire non apparenté, conjoint extérieur, planification annuelle). RED 8 échecs → GREEN 28/28 avec les tests de parenté. |
 
@@ -140,14 +141,14 @@
 
 ## 📊 Métriques
 
-> Au 2026-09-25, après la migration vers Godot.
+> Au 2026-09-25, après L3 (techniques graduées).
 
-- **Fichiers C#** : 66 dans `src/Core`, 3 scripts Godot minces, 49 fichiers de tests
-- **Lignes de code** : 5 100 (simulation) + 328 (Godot) ; 4 770 de tests (501 tests)
+- **Fichiers C#** : 68 dans `src/Core`, 3 scripts Godot minces, 51 fichiers de tests
+- **Lignes de code** : 5 940 (simulation) + 380 (Godot) ; 5 740 de tests (610 tests)
 - **Namespaces** : 10
 - **Singletons** : 0 — un `GameContext` par partie ; côté Godot, le seul autoload `GameRoot`
 - **Événements du bus** : 11 (`GameEventBus`, un par partie)
-- **Données** : 6 fichiers `game/data/*.json`, validés au chargement
+- **Données** : 8 fichiers `game/data/*.json` (dont 29 techniques et 28 Qi), validés au chargement
 - **Royaumes implémentés** : 6 sur 6
 - **Design patterns** : Observer (bus par partie), State Machine (horloge des phases), Strategy (5 IA de combat), Command (6 actions), racine de composition (`GameSession`), instantané détaché pour les sauvegardes
 
