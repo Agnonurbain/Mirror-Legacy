@@ -126,6 +126,28 @@ namespace MirrorChronicles.Tests.EditMode
             Assert.IsTrue(spouse.LastName == "Zhao" && spouse.FatherID == null && spouse.MotherID == null);
         }
 
+        /// <summary>Every draw returns the same sample, so the orifice roll is predictable.</summary>
+        private sealed class FixedRandom : Random
+        {
+            private readonly double sample;
+            public FixedRandom(double sample) { this.sample = sample; }
+            protected override double Sample() => sample;
+        }
+
+        [Test]
+        public void CreateOutsiderSpouse_HasOrifice_WhenRollBeatsCommonerOdds()
+        {
+            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 25), "Zhao", new FixedRandom(0.0));
+            Assert.IsTrue(spouse.HasSpiritualOrifice);
+        }
+
+        [Test]
+        public void CreateOutsiderSpouse_IsMortalWithMortalLifespan_WhenRollFails()
+        {
+            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(Person(true, 25), "Zhao", new FixedRandom(0.99));
+            Assert.IsTrue(!spouse.HasSpiritualOrifice && spouse.MaxLifespan >= 60 && spouse.MaxLifespan <= 80);
+        }
+
         [Test]
         public void PlanAnnualMarriages_MarriesSiblingsToOutsiders_WhenChanceIsCertain()
         {

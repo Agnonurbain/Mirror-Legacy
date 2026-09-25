@@ -19,6 +19,8 @@ SOURCES=(
   Characters/PowerLadder.cs
   Characters/RankCatalog.cs
   Characters/BreakthroughRules.cs
+  Characters/SpiritualOrificeRules.cs
+  Characters/TaskRules.cs
 )
 TESTS=(
   Tests/EditMode/KinshipRulesTests.cs
@@ -26,6 +28,8 @@ TESTS=(
   Tests/EditMode/PowerLadderTests.cs
   Tests/EditMode/RankCatalogTests.cs
   Tests/EditMode/BreakthroughRulesTests.cs
+  Tests/EditMode/SpiritualOrificeRulesTests.cs
+  Tests/EditMode/TaskRulesTests.cs
 )
 
 command -v dotnet >/dev/null || { echo "ERROR: dotnet SDK not found" >&2; exit 1; }

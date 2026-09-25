@@ -26,6 +26,11 @@ namespace MirrorChronicles.Data
         public int RealmStage { get; set; }         // chakras 0-6, Qi levels 1-9, stages 1-4 (LORE.md §5)
         public int CultivationXP { get; set; }      // progress toward the next stage
 
+        // Spiritual orifice (LORE.md §4): without it or a Talisman Seed from the mirror, one stays mortal
+        public bool HasSpiritualOrifice { get; set; }
+        public bool OrificeKnown { get; set; }      // only a confirmed cultivator (or the mirror) can detect it
+        public bool HasTalismanSeed { get; set; }   // Graine de Sceau granted by the mirror
+
         // Cultivation path and Golden Core standing (LORE.md §3, §5.9)
         public CultivationPath Path { get; set; }
         public CultivationSubPath SubPath { get; set; }
