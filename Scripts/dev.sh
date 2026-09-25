@@ -41,10 +41,21 @@ smoke() {
   echo "SMOKE OK"
 }
 
+# Plays the smoke years in a real window (needs a display) and saves it as PNG.
+screenshot() {
+  local out="${1:?usage: $0 screenshot <file.png>}"
+  [ -x "$GODOT_BIN" ] || { echo "ERROR: Godot not found at $GODOT_BIN (set GODOT_BIN)" >&2; exit 1; }
+  build
+  timeout 120 "$GODOT_BIN" --path "$ROOT/game" -- --smoke --screenshot="$(realpath -m "$out")"
+  [ -f "$out" ] || { echo "SCREENSHOT FAILED: $out was not written" >&2; exit 1; }
+  echo "SCREENSHOT $out"
+}
+
 case "${1:-}" in
-  build) build ;;
-  test)  run_tests ;;
-  smoke) smoke ;;
-  all)   build && run_tests && smoke ;;
-  *)     echo "usage: $0 build|test|smoke|all" >&2; exit 2 ;;
+  build)      build ;;
+  test)       run_tests ;;
+  smoke)      smoke ;;
+  screenshot) screenshot "${2:-}" ;;
+  all)        build && run_tests && smoke ;;
+  *)          echo "usage: $0 build|test|smoke|screenshot <file.png>|all" >&2; exit 2 ;;
 esac

@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="Reflets de Lignée"
-run/main_scene="res://scenes/Boot.tscn"
+run/main_scene="res://scenes/ClanDomain.tscn"
 config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
+
+[autoload]
+
+GameRoot="*res://scripts/GameRoot.cs"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
