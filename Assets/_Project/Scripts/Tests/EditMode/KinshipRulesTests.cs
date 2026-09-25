@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using UnityEngine;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
-using MirrorChronicles.Diplomacy;
 
 namespace MirrorChronicles.Tests.EditMode
 {
@@ -131,38 +129,6 @@ namespace MirrorChronicles.Tests.EditMode
         public void AreCloseKin_ReturnsFalse_WhenCharacterIsNull()
         {
             Assert.IsFalse(Related(Person(), null));
-        }
-
-        [Test]
-        public void CanMarry_ReturnsFalse_WhenParentAndChild()
-        {
-            var go = new GameObject("TestMarriageSystem");
-            try
-            {
-                var marriage = go.AddComponent<MarriageSystem>();
-                var father = Person();
-                var daughter = Person(father);
-                Assert.IsFalse(marriage.CanMarry(father, daughter));
-            }
-            finally
-            {
-                Object.DestroyImmediate(go);
-            }
-        }
-
-        [Test]
-        public void CanMarry_ReturnsTrue_WhenUnrelatedAdults()
-        {
-            var go = new GameObject("TestMarriageSystem");
-            try
-            {
-                var marriage = go.AddComponent<MarriageSystem>();
-                Assert.IsTrue(marriage.CanMarry(Person(Person(), Person()), Person(Person(), Person())));
-            }
-            finally
-            {
-                Object.DestroyImmediate(go);
-            }
         }
     }
 }

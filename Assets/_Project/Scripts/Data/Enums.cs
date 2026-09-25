@@ -26,8 +26,9 @@ namespace MirrorChronicles.Data
         QiRefinement, 
         Foundation, 
         PurpleMansion, 
-        GoldenCore, 
-        DaoEmbryo 
+        GoldenCore,
+        DaoEmbryo,
+        GoldenImmortal // appended last: saves store the enum as an int
     }
 
     public enum TaskType 
@@ -62,7 +63,8 @@ namespace MirrorChronicles.Data
         OldAge, 
         Combat, 
         QiDeviation, 
-        Assassination, 
-        Illness 
+        Assassination,
+        Illness,
+        SpiritualDissolution // failed Foundation breakthrough (LORE.md §5.3.1)
     }
 }

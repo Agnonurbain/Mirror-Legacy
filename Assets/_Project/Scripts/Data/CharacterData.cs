@@ -22,8 +22,19 @@ namespace MirrorChronicles.Data
         // Genetics & Cultivation
         public int SpiritualRoot { get; set; }
         public Element Affinity { get; set; }
-        public CultivationRealm Realm { get; set; }
-        public int CultivationXP { get; set; }
+        public CultivationRealm Realm { get; set; } // shared power tier for every path
+        public int RealmStage { get; set; }         // chakras 0-6, Qi levels 1-9, stages 1-4 (LORE.md §5)
+        public int CultivationXP { get; set; }      // progress toward the next stage
+
+        // Cultivation path and Golden Core standing (LORE.md §3, §5.9)
+        public CultivationPath Path { get; set; }
+        public CultivationSubPath SubPath { get; set; }
+        public Species Species { get; set; }
+        public GoldenCoreState GoldenCore { get; set; }
+        public string FruitionId { get; set; }          // Dao lineage held or pursued
+        public string PatronId { get; set; }            // superior a False Left Hand / borrower depends on
+        public string ReincarnationOfId { get; set; }   // reincarnated True Monarch (R9)
+        public string FragmentOfId { get; set; }        // fragment of a split Golden Core (R21)
 
         // Stats
         public int MentalStability { get; set; }
@@ -43,6 +54,10 @@ namespace MirrorChronicles.Data
             IsAlive = true;
             MentalStability = 70; // Default starting stability
             Realm = CultivationRealm.Embryonic;
+            Path = CultivationPath.Immortal;
+            SubPath = CultivationSubPath.PurpleMansionGoldenCore;
+            Species = Species.Human;
+            GoldenCore = GoldenCoreState.None;
             CurrentTask = TaskType.None;
             CauseOfDeath = DeathCause.None;
             KnownTechniqueIDs = new List<string>();
