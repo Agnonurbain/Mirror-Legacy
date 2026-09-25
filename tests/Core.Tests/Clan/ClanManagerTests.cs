@@ -89,6 +89,44 @@ namespace MirrorChronicles.Tests.Clan
         }
 
         [Test]
+        public void Kill_PrefersTheHigherStage_WithinTheSameRealm()
+        {
+            var patriarch = Fixtures.Cultivator(age: 60);
+            var early = Fixtures.Cultivator(age: 50, realm: CultivationRealm.QiRefinement, stage: 2);
+            var late = Fixtures.Cultivator(age: 30, realm: CultivationRealm.QiRefinement, stage: 7);
+            foreach (var m in new[] { patriarch, early, late }) clan.AddMember(m);
+            clan.AppointPatriarch(patriarch);
+            clan.Kill(patriarch, DeathCause.OldAge);
+            Assert.AreEqual(late.ID, clan.PatriarchID);
+        }
+
+        [Test]
+        public void Kill_PrefersTheStrongerRoot_BetweenEquals()
+        {
+            var patriarch = Fixtures.Cultivator(age: 60);
+            var weak = Fixtures.Cultivator(age: 40);
+            var gifted = Fixtures.Cultivator(age: 40);
+            weak.SpiritualRoot = 20;
+            gifted.SpiritualRoot = 80;
+            foreach (var m in new[] { patriarch, weak, gifted }) clan.AddMember(m);
+            clan.AppointPatriarch(patriarch);
+            clan.Kill(patriarch, DeathCause.OldAge);
+            Assert.AreEqual(gifted.ID, clan.PatriarchID);
+        }
+
+        [Test]
+        public void Ascend_ElectsASuccessor_WhenThePatriarchAscends()
+        {
+            var patriarch = Fixtures.Cultivator(realm: CultivationRealm.DaoEmbryo);
+            var heir = Fixtures.Cultivator();
+            clan.AddMember(patriarch);
+            clan.AddMember(heir);
+            clan.AppointPatriarch(patriarch);
+            clan.Ascend(patriarch);
+            Assert.AreEqual(heir.ID, clan.PatriarchID);
+        }
+
+        [Test]
         public void Kill_LeavesNoPatriarch_WhenTheLastMemberDies()
         {
             var last = Fixtures.Cultivator();

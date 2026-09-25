@@ -33,6 +33,32 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ToSaveData_IsASnapshot_ThatLaterPlayLeavesUntouched()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 2 });
+            var saved = s.ToSaveData();
+            int savedAge = saved.HistoricalRecords[0].Age;
+            int savedRelation = saved.Factions[0].RelationWithPlayer;
+
+            s.Clan.LivingMembers[0].Age += 10;
+            s.Factions.ChangeRelation(s.Factions.Factions[0].ID, 30);
+
+            Assert.IsTrue(saved.HistoricalRecords[0].Age == savedAge && saved.Factions[0].RelationWithPlayer == savedRelation);
+        }
+
+        [Test]
+        public void FromSaveData_CopiesTheSave_SoTwoLoadsStayIndependent()
+        {
+            var data = GameSession.NewGame(new GameSetup { Seed = 2 }).ToSaveData();
+            var first = GameSession.FromSaveData(data, new GameSetup());
+            var second = GameSession.FromSaveData(data, new GameSetup());
+
+            first.Clan.LivingMembers[0].Age += 10;
+
+            Assert.AreNotEqual(first.Clan.LivingMembers[0].Age, second.Clan.LivingMembers[0].Age);
+        }
+
+        [Test]
         public void Serialize_WritesEnumsByName()
         {
             var json = SaveSerializer.Serialize(GameSession.NewGame(new GameSetup { Seed = 1 }).ToSaveData());

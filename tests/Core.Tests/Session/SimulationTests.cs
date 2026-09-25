@@ -88,7 +88,9 @@ namespace MirrorChronicles.Tests.Session
             {
                 var s = GameSession.NewGame(new GameSetup { Seed = seed });
                 PlayYears(s, 30);
-                return string.Join(",", s.Clan.Registry.Records.Select(r => $"{r.FirstName}{r.Age}{r.Realm}{r.RealmStage}{r.IsAlive}"))
+                return string.Join(",", s.Clan.Registry.Records.Select(r => $"{r.ID}{r.FirstName}{r.Age}{r.Realm}{r.RealmStage}{r.IsAlive}"))
+                    + "|" + string.Join(",", s.Factions.Factions.Select(f => f.ID))
+                    + "|" + string.Join(",", s.Deduction.Fragments.Select(f => f.ID))
                     + "|" + s.Resources.SpiritStones + "|" + s.Mirror.MirrorPower;
             }
 
