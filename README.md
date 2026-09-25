@@ -44,7 +44,7 @@ Le dossier [BRAIN_CLAUDE/](BRAIN_CLAUDE/) contient toute la documentation de pil
 - [PLAN.md](BRAIN_CLAUDE/PLAN.md) — architecture complète
 - [DONE.md](BRAIN_CLAUDE/DONE.md) / [NOT_DONE.md](BRAIN_CLAUDE/NOT_DONE.md) — avancement
 - [WORKED_LESSON.md](BRAIN_CLAUDE/WORKED_LESSON.md) — bugs résolus
-- [PACKAGE.md](BRAIN_CLAUDE/PACKAGE.md) — dépendances Unity
+- [PACKAGE.md](BRAIN_CLAUDE/PACKAGE.md) — dépendances (Godot, .NET, NuGet)
 - [TEST.md](BRAIN_CLAUDE/TEST.md) — règles de tests
 
 ## Statut

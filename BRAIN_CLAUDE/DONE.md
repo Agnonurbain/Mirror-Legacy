@@ -1,6 +1,6 @@
 # ✅ DONE.md — Ce qui a été fait
 
-> **Mis à jour à chaque étape du projet.** Dernière mise à jour : 2026-04-14 (audit initial après pivot web → Unity/C#).
+> **Mis à jour à chaque étape du projet.** Dernière mise à jour : 2026-09-25 (migration vers Godot terminée).
 
 ---
 
@@ -132,6 +132,7 @@
 | 43a | **Échelle de puissance (L1, 2026-09-25)** | `PowerLadder` (6 chakras / 3 épreuves, 9 niveaux de Qi, 4 stades, durées de vie du lore, XP par sous-niveau, mur de la Fondation, dissolution spirituelle), `RankCatalog` (noms de rangs par voie : immortelle, bouddhiste, diable, divine ; équivalences asymétriques), `BreakthroughRules` (chances et issues). Modèle multi-voies : `CultivationPath` (6 Dao), `CultivationSubPath`, `Species`, `GoldenCoreState`. Percées tentées en phase Percée (jamais appelées avant). `Scripts/run-pure-tests.sh` : 113 tests purs verts sans Unity. |
 | 43a2 | **Orifice spirituel héréditaire (L2, 2026-09-25)** | `SpiritualOrificeRules` : orifice tiré à la naissance (0,3 % sans parent doté, 35 % avec un, 50 % avec deux), seuls les cultivateurs à l'Œil du Sommet ou au-delà le détectent (examen du clan en phase Héritage), mortels 60-80 ans, Graines de Sceau du miroir (40 Puissance, 2 actives + éclats restaurés). `TaskRules` partagé par l'assignation, la résolution annuelle et l'interface. Affichage « Orifice non examiné » / « Mortel » avant le premier chakra. Vieillissement sur la durée de vie propre à chacun ; `DaoWounds` garde la perte d'une blessure du Dao après les percées. 164 tests purs verts. |
 | 43a3 | **Simulation sans moteur (G1, 2026-09-25)** | Tout le jeu tourne hors d'Unity et de Godot dans `src/Core` : `GameSession` (fondation du clan Mo, phases, sauvegarde v2), 30 systèmes portés, 383 tests `dotnet test` dont des parties de 100 ans sur plusieurs graines (invariants, mariages, naissances, percées, déterminisme). |
+| 43a4 | **Migration Godot terminée (G2-G5, 2026-09-25)** | Contenu en `game/data/*.json` validé au chargement ; logique du combat (grille à graine, A*, 6 actions, 5 IA, `Battle`) ; couche Godot (autoload `GameRoot`, écran `ClanDomain`, fumée headless et capture) ; arbre Unity supprimé, CI `dotnet test` + Godot headless. Revue ECC des G2-G4 : 6 constats (1 élevé, 4 moyens, 1 faible) corrigés en RED → GREEN, vérifiés et approuvés. 501 tests verts. |
 | 43b | **KinshipRulesTests** (2026-09-24) | 14 tests EditMode. Les 12 tests de logique pure passent dans un harnais `dotnet test` NUnit ; les 2 tests `CanMarry` attendent l'éditeur Unity (non installé). |
 | 43c | **MarriageMatchmakerTests** (2026-09-24) | 16 tests EditMode purs (éligibilité, partenaire non apparenté, conjoint extérieur, planification annuelle). RED 8 échecs → GREEN 28/28 avec les tests de parenté. |
 
@@ -139,13 +140,16 @@
 
 ## 📊 Métriques
 
-- **Fichiers C#** : 34
-- **Lignes de code** : 3432
+> Au 2026-09-25, après la migration vers Godot.
+
+- **Fichiers C#** : 66 dans `src/Core`, 3 scripts Godot minces, 49 fichiers de tests
+- **Lignes de code** : 5 100 (simulation) + 328 (Godot) ; 4 770 de tests (501 tests)
 - **Namespaces** : 10
-- **Singletons** : 19
-- **Events globaux** : 7
+- **Singletons** : 0 — un `GameContext` par partie ; côté Godot, le seul autoload `GameRoot`
+- **Événements du bus** : 11 (`GameEventBus`, un par partie)
+- **Données** : 6 fichiers `game/data/*.json`, validés au chargement
 - **Royaumes implémentés** : 6 sur 6
-- **Design patterns** : 4 sur 8 attendus (Singleton, Observer, State Machine, Strategy, Command — tous implémentés ; MVC, Memento, Object Pool pas encore)
+- **Design patterns** : Observer (bus par partie), State Machine (horloge des phases), Strategy (5 IA de combat), Command (6 actions), racine de composition (`GameSession`), instantané détaché pour les sauvegardes
 
 ---
 
