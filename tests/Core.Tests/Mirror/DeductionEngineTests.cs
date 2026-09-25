@@ -81,6 +81,66 @@ namespace MirrorChronicles.Tests.Mirror
             Assert.AreEqual(0, technique.RiskFactor);
         }
 
+        /// <summary>A world whose every draw is the given sample: 0 yields a cultivation method, 0.99 a weapon art.</summary>
+        private static TestWorld Fixed(double sample)
+        {
+            var w = new TestWorld(new FixedRandom(sample));
+            w.Mirror.Restore(100, 0);
+            return w;
+        }
+
+        [TestCase(new[] { 1, 1 }, 1)]
+        [TestCase(new[] { 3, 4, 4, 3 }, 4)]
+        [TestCase(new[] { 5, 5, 5, 5, 5 }, 7)]
+        public void AttemptDeduction_GradesTheTechniqueFromItsFragments(int[] qualities, int grade)
+        {
+            var w = PoweredWorld();
+            var technique = w.Deduction.AttemptDeduction(Fragments(w, qualities.Select(q => (Element.Fire, q)).ToArray()));
+            Assert.AreEqual(grade, technique.Grade);
+        }
+
+        [Test]
+        public void AttemptDeduction_YieldsASecretTechnique()
+        {
+            // LORE.md §2.3: a technique rebuilt from pieces, possibly imperfect
+            var w = PoweredWorld();
+            var technique = w.Deduction.AttemptDeduction(Fragments(w, (Element.Fire, 2), (Element.Fire, 2)));
+            Assert.AreEqual(TechniqueCategory.Secret, technique.Category);
+        }
+
+        [Test]
+        public void AttemptDeduction_NamesTheTechniqueWithTheWordsOfTheData()
+        {
+            var w = Fixed(0.99); // a weapon art
+            var technique = w.Deduction.AttemptDeduction(Fragments(w, (Element.Fire, 5), (Element.Fire, 5), (Element.Fire, 5), (Element.Fire, 5)));
+
+            var names = Fixtures.Content.DeductionNames;
+            string expected = names.Template.Replace("{kind}", names.Kinds[TechniqueKind.Weapon])
+                .Replace("{grade}", names.GradeWords[5]).Replace("{element}", names.Elements[Element.Fire]);
+            Assert.AreEqual(expected, technique.Name);
+        }
+
+        [Test]
+        public void AttemptDeduction_OfAMethod_BuildsItOnAHarvestableQiOfItsElement()
+        {
+            var w = Fixed(0.0); // a cultivation method
+            var technique = w.Deduction.AttemptDeduction(Fragments(w, (Element.Water, 3), (Element.Water, 3)));
+
+            var qi = Fixtures.Content.Qi.Single(q => q.Id == technique.RequiredQiId);
+            Assert.IsTrue(technique.Kind == TechniqueKind.Cultivation && technique.RequiredRealm == CultivationRealm.QiRefinement);
+            Assert.IsTrue(qi.Element == Element.Water && !qi.Vanished && !qi.Ubiquitous);
+        }
+
+        [Test]
+        public void AttemptDeduction_OfAnArt_NeedsNoQiAndOpensAtTheRealmOfItsGrade()
+        {
+            var w = Fixed(0.99); // a weapon art
+            var technique = w.Deduction.AttemptDeduction(Fragments(w, (Element.Fire, 5), (Element.Fire, 5), (Element.Fire, 5), (Element.Fire, 5)));
+
+            Assert.IsTrue(technique.Kind == TechniqueKind.Weapon && technique.Effect == TechniqueEffect.Strike && technique.RequiredQiId == null);
+            Assert.AreEqual(CultivationRealm.Foundation, technique.RequiredRealm); // grade 6
+        }
+
         [Test]
         public void AttemptDeduction_RequiresAnExistingRealm_EvenFromDivineFragments()
         {

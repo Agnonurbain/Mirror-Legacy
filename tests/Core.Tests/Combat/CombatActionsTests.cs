@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using MirrorChronicles.Combat;
 using MirrorChronicles.Data;
+using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Tests.Combat
 {
@@ -21,6 +24,40 @@ namespace MirrorChronicles.Tests.Combat
         {
             unit.BaseData.KnownTechniqueIDs.Add(technique.ID);
             return unit;
+        }
+
+        /// <summary>A plain field whose fighters may know the world's techniques and the given ones.</summary>
+        private static BattleField FieldKnowing(params TechniqueData[] extra) =>
+            new BattleField(new CombatGrid(10, 10), new Random(1), new RecordingGameLog(),
+                id => extra.FirstOrDefault(t => t.ID == id) ?? Fixtures.Content.Techniques.FirstOrDefault(t => t.ID == id));
+
+        // ---- Techniques of the lore ----
+
+        [Test]
+        public void Attack_OfTheVeilleurDuSentier_IsPowerless_AgainstTheOriginalSutra()
+        {
+            // LORE.md §2.4: powerless against anyone practising the original sutra, even of a lower realm
+            var field = FieldKnowing();
+            var ally = CombatFixtures.Place(field, 0, 0, realm: CultivationRealm.Foundation);
+            var foe = CombatFixtures.Place(field, 1, 0, isAlly: false);
+            ally.BaseData.CultivationMethodId = "path-watcher";
+            foe.BaseData.CultivationMethodId = "elder-knocking-sutra";
+
+            new AttackAction().Execute(ally, foe.CurrentCell, field);
+
+            Assert.AreEqual(foe.MaxVitality, foe.CurrentVitality);
+        }
+
+        [Test]
+        public void Move_ReachesFurther_WithAMovementArt()
+        {
+            var stride = new TechniqueData { ID = "stride", Kind = TechniqueKind.Movement, Grade = 3 };
+            var field = FieldKnowing(stride);
+            var unit = Knowing(CombatFixtures.Place(field, 0, 0), stride);
+            int reach = unit.MovementRange + 1;
+
+            Assert.AreEqual(reach, field.MovementRangeOf(unit));
+            Assert.IsTrue(new MoveAction().IsValid(unit, field.Grid.GetCellAt(reach, 0), field));
         }
 
         // ---- Move ----
