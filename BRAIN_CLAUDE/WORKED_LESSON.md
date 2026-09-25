@@ -245,6 +245,22 @@ Chaque entrée suit ce format :
 
 ---
 
+### WL-015 — Le jeu n'avait jamais tourné : la population explose
+| Champ | Valeur |
+|---|---|
+| **ID** | WL-015 |
+| **Date** | 2026-09-25 |
+| **Catégorie** | Équilibrage / Boucle annuelle |
+| **Fichier** | `src/Core/Session/GameSession.cs` (première simulation complète) |
+| **Problème** | Une fois la simulation sortie d'Unity, la première partie jouée sans moteur (20 graines, 100 ans) montre 600 à 1 500 membres vivants, des centaines de milliers de pierres et 1 à 3 générations par siècle. Personne ne l'avait vu : sous Unity, le code n'avait jamais été compilé. |
+| **Cause racine** | Règles écrites système par système sans jamais jouer une partie entière ; aucune pression démographique ni dépense récurrente. |
+| **Solution** | Suivi en B1-B3 (`NOT_DONE.md`). Les tests de simulation de `SimulationTests` vérifient désormais les invariants sur un siècle. |
+| **Impact** | 🟠 Fort — jouabilité et performances de l'interface. |
+| **Statut** | 🔴 Ouvert (équilibrage). |
+| **Prévention** | Toute règle qui touche la démographie ou l'économie passe par une simulation headless de 100 ans sur plusieurs graines avant d'être validée. |
+
+---
+
 ## 📐 Leçons d'architecture & design
 
 ### WL-100 — Pivot Unity → Web → Unity : cause de la dette
