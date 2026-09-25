@@ -30,6 +30,8 @@ namespace MirrorChronicles.Characters
         {
             if (!character.IsAlive || character.CurrentTask != TaskType.Cultivation)
                 return;
+            if (!SpiritualOrificeRules.CanCultivate(character))
+                return; // a mortal without orifice or seed gathers no Qi
 
             // Base XP gain depends heavily on Spiritual Root
             int baseGain = 10 + (character.SpiritualRoot / 2);
@@ -56,6 +58,8 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public void AdvanceSubLevels(CharacterData character)
         {
+            if (!SpiritualOrificeRules.CanCultivate(character)) return;
+
             while (true)
             {
                 int required = PowerLadder.XpForNextStage(character.Realm);
@@ -80,6 +84,7 @@ namespace MirrorChronicles.Characters
         {
             var step = PowerLadder.Next(character.Realm, character.RealmStage);
             return character.IsAlive
+                && SpiritualOrificeRules.CanCultivate(character)
                 && step.IsAvailable
                 && step.Trial != TrialKind.None
                 && character.CultivationXP >= PowerLadder.XpForNextStage(character.Realm);

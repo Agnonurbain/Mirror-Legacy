@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Core;
 using MirrorChronicles.Data;
@@ -28,10 +29,6 @@ namespace MirrorChronicles.UI
         private GameObject memberRowTemplate;
 
         private readonly List<GameObject> spawnedRows = new List<GameObject>();
-
-        // Task options filtered per realm level.
-        private static readonly TaskType[] EmbryonicTasks = { TaskType.None, TaskType.Cultivation, TaskType.Rest };
-        private static readonly TaskType[] FullTasks = (TaskType[])Enum.GetValues(typeof(TaskType));
 
         private void Awake()
         {
@@ -143,7 +140,7 @@ namespace MirrorChronicles.UI
 
         private void SetupTaskDropdown(TMP_Dropdown dropdown, CharacterData member)
         {
-            TaskType[] available = member.Realm == CultivationRealm.Embryonic ? EmbryonicTasks : FullTasks;
+            TaskType[] available = TaskRules.AllowedTasks(member).ToArray();
             var options = available.Select(t => new TMP_Dropdown.OptionData(t.ToString())).ToList();
 
             dropdown.ClearOptions();

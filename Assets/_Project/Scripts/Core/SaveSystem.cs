@@ -193,7 +193,8 @@ namespace MirrorChronicles.Core
             foreach (var character in data.HistoricalRecords)
             {
                 MirrorChronicles.Characters.PowerLadder.Normalize(character); // saves made before realm stages
-                character.MaxLifespan = MirrorChronicles.Characters.PowerLadder.MaxLifespan(character.Realm, character.RealmStage);
+                MirrorChronicles.Characters.SpiritualOrificeRules.Normalize(character); // saves made before orifices
+                MirrorChronicles.Characters.PowerLadder.NormalizeLifespan(character); // keeps Dao wounds and mortal rolls
                 BloodRegistry.Instance.HistoricalRecords.Add(character);
                 
                 if (character.IsAlive)

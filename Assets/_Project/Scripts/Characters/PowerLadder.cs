@@ -168,5 +168,24 @@ namespace MirrorChronicles.Characters
             int min = character.Realm == CultivationRealm.Embryonic ? 0 : 1;
             character.RealmStage = Math.Max(min, Math.Min(max, character.RealmStage));
         }
+
+        /// <summary>
+        /// The age at which this character dies of old age: their own lifespan (a mortal's roll,
+        /// shortened by Dao wounds) when set, otherwise the reach of their realm.
+        /// </summary>
+        public static int LifespanLimit(CharacterData character)
+        {
+            return character.MaxLifespan > 0
+                ? character.MaxLifespan
+                : MaxLifespan(character.Realm, character.RealmStage);
+        }
+
+        /// <summary>Keeps lifespan reductions from a save but never lets it exceed the realm's reach.</summary>
+        public static void NormalizeLifespan(CharacterData character)
+        {
+            int reach = MaxLifespan(character.Realm, character.RealmStage);
+            if (character.MaxLifespan <= 0 || character.MaxLifespan > reach)
+                character.MaxLifespan = reach;
+        }
     }
 }

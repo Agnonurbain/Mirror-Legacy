@@ -43,13 +43,9 @@ namespace MirrorChronicles.Economy
         {
             if (!character.IsAlive) return;
 
-            // Basic validation (e.g., Embryonic stage can only Cultivate or Rest)
-            if (character.Realm == CultivationRealm.Embryonic && 
-                newTask != TaskType.Cultivation && 
-                newTask != TaskType.Rest && 
-                newTask != TaskType.None)
+            if (!TaskRules.IsAllowed(character, newTask))
             {
-                Debug.LogWarning($"[TaskAssignmentSystem] {character.FullName} is in Embryonic stage and cannot perform complex tasks.");
+                Debug.LogWarning($"[TaskAssignmentSystem] {character.FullName} cannot take {newTask} ({RankCatalog.DisplayName(character)}).");
                 return;
             }
 
@@ -76,6 +72,12 @@ namespace MirrorChronicles.Economy
             foreach (var member in activeMembers)
             {
                 if (!member.IsAlive) continue;
+                if (!TaskRules.IsAllowed(member, member.CurrentTask))
+                {
+                    Debug.LogWarning($"[TaskAssignmentSystem] {member.FullName} cannot perform {member.CurrentTask}; task cleared.");
+                    member.CurrentTask = TaskType.None; // e.g. a mortal still set to Cultivation from an old save
+                    continue;
+                }
 
                 switch (member.CurrentTask)
                 {

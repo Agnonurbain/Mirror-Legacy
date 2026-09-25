@@ -47,8 +47,28 @@ namespace MirrorChronicles.Clan
 
         private void HandlePhaseChanged(GamePhase phase)
         {
-            if (phase == GamePhase.Inheritance)
-                ProcessAnnualBirths();
+            if (phase != GamePhase.Inheritance) return;
+
+            ProcessAnnualBirths();
+            ExamineOrifices();
+        }
+
+        /// <summary>
+        /// A confirmed cultivator (Summit Eye or beyond) examines newborns and newcomers, so the
+        /// clan learns who can cultivate (LORE.md §4).
+        /// </summary>
+        private void ExamineOrifices()
+        {
+            int examined = SpiritualOrificeRules.RevealOrifices(LivingMembers);
+            if (examined > 0)
+                Debug.Log($"[ClanManager] {examined} member(s) examined for a spiritual orifice.");
+        }
+
+        /// <summary>Founders all cultivate, so their orifices are known from the start.</summary>
+        private static void GiveKnownOrifice(CharacterData founder)
+        {
+            founder.HasSpiritualOrifice = true;
+            founder.OrificeKnown = true;
         }
 
         /// <summary>
@@ -142,6 +162,9 @@ namespace MirrorChronicles.Clan
                 MentalStability = 60
             };
             AddMember(uncle);
+
+            foreach (var founder in new[] { patriarch, matriarch, son, daughter, uncle })
+                GiveKnownOrifice(founder);
         }
 
         public void AddMember(CharacterData newMember)
@@ -153,8 +176,9 @@ namespace MirrorChronicles.Clan
 
         /// <summary>
         /// Creates a new child from two parents using GeneticSystem for
-        /// spiritual root and elemental affinity. The child starts at age 0 in
-        /// Embryonic realm and is immediately added to the clan.
+        /// spiritual root and elemental affinity, and rolls the hereditary spiritual orifice
+        /// (LORE.md §4, D3). The child starts at age 0 in Embryonic realm with a mortal lifespan,
+        /// unexamined, and is immediately added to the clan.
         /// </summary>
         public CharacterData GenerateChild(CharacterData father, CharacterData mother)
         {
@@ -168,10 +192,12 @@ namespace MirrorChronicles.Clan
                 LastName = ClanName,
                 IsMale = isMale,
                 Age = 0,
-                MaxLifespan = PowerLadder.MortalMaxLifespan, // no chakra yet
+                MaxLifespan = SpiritualOrificeRules.MortalLifespan(Random.value), // no chakra yet
                 SpiritualRoot = GeneticSystem.GenerateSpiritualRoot(father, mother),
                 Affinity = GeneticSystem.GenerateAffinity(father, mother),
                 Realm = CultivationRealm.Embryonic,
+                HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(
+                    SpiritualOrificeRules.CountParentsWithOrifice(father, mother), Random.value),
                 MentalStability = 70,
                 FatherID = father?.ID,
                 MotherID = mother?.ID

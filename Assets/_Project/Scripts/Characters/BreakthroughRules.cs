@@ -37,10 +37,7 @@ namespace MirrorChronicles.Characters
             if (character.MentalStability < LowStabilityThreshold)
                 rate -= LowStabilityPenalty;
 
-            int lifespan = character.MaxLifespan > 0
-                ? character.MaxLifespan
-                : PowerLadder.MaxLifespan(character.Realm, character.RealmStage);
-            if (character.Age > lifespan * OldAgeLifespanRatio)
+            if (character.Age > PowerLadder.LifespanLimit(character) * OldAgeLifespanRatio)
                 rate -= OldAgePenalty;
 
             return Math.Max(1, Math.Min(99, rate));

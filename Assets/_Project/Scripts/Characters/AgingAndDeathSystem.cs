@@ -44,9 +44,8 @@ namespace MirrorChronicles.Characters
             foreach (var member in ClanManager.Instance.LivingMembers)
             {
                 member.Age++;
-                int maxLifespan = PowerLadder.MaxLifespan(member.Realm, member.RealmStage);
-
-                if (member.Age >= maxLifespan)
+                // Individual lifespan: a mortal's roll, a realm's reach, minus any Dao wound
+                if (member.Age >= PowerLadder.LifespanLimit(member))
                 {
                     membersToDie.Add(member);
                 }

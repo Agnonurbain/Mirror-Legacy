@@ -123,6 +123,10 @@ namespace MirrorChronicles.Diplomacy
             // Opposite-sex adult from the faction's family (e.g. "Wang"), trained by the faction
             CharacterData politicalSpouse = MarriageMatchmaker.CreateOutsiderSpouse(member, faction.Name.Split(' ')[0], rng);
             politicalSpouse.Realm = CultivationRealm.QiRefinement;
+            politicalSpouse.RealmStage = 1;
+            politicalSpouse.HasSpiritualOrifice = true; // a faction only trains those it has examined
+            politicalSpouse.OrificeKnown = true;
+            politicalSpouse.MaxLifespan = PowerLadder.MaxLifespan(politicalSpouse.Realm, politicalSpouse.RealmStage);
 
             member.SpouseID = politicalSpouse.ID;
             politicalSpouse.SpouseID = member.ID;

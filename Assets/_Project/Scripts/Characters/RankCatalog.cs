@@ -25,6 +25,13 @@ namespace MirrorChronicles.Characters
         /// <summary>Human-readable rank, e.g. "Culture du Qi — 4e niveau (milieu)" or "Maître Moine".</summary>
         public static string DisplayName(CharacterData character)
         {
+            bool beforeFirstChakra = character.Realm == CultivationRealm.Embryonic && character.RealmStage == 0;
+            if (beforeFirstChakra)
+            {
+                if (!character.OrificeKnown) return "Orifice non examiné"; // nobody has looked yet
+                if (!SpiritualOrificeRules.CanCultivate(character)) return "Mortel";
+            }
+
             switch (character.Path)
             {
                 case CultivationPath.Buddhist:

@@ -149,5 +149,29 @@ namespace MirrorChronicles.Tests.EditMode
             PowerLadder.Normalize(c);
             Assert.AreEqual(6, c.RealmStage);
         }
+
+        [Test]
+        public void LifespanLimit_UsesTheIndividualLifespan_WhenSet()
+        {
+            var c = new CharacterData { MaxLifespan = 64 }; // mortal with a short life, or a Dao wound
+            Assert.AreEqual(64, PowerLadder.LifespanLimit(c));
+        }
+
+        [Test]
+        public void LifespanLimit_FallsBackToTheLadder_WhenUnset()
+        {
+            var c = new CharacterData { Realm = CultivationRealm.QiRefinement, RealmStage = 1 };
+            Assert.AreEqual(200, PowerLadder.LifespanLimit(c));
+        }
+
+        [TestCase(0, 200)]    // missing: take the ladder
+        [TestCase(500, 200)]  // above the realm's reach: clamp
+        [TestCase(160, 160)]  // Dao wound: keep it
+        public void NormalizeLifespan_KeepsReductionsButNeverExceedsTheRealm(int stored, int expected)
+        {
+            var c = new CharacterData { Realm = CultivationRealm.QiRefinement, RealmStage = 4, MaxLifespan = stored };
+            PowerLadder.NormalizeLifespan(c);
+            Assert.AreEqual(expected, c.MaxLifespan);
+        }
     }
 }

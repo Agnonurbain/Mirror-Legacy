@@ -1,4 +1,7 @@
+using System.Linq;
 using UnityEngine;
+using MirrorChronicles.Characters;
+using MirrorChronicles.Clan;
 using MirrorChronicles.Combat;
 using MirrorChronicles.Data;
 using MirrorChronicles.Events;
@@ -15,6 +18,11 @@ namespace MirrorChronicles.Mirror
 
         public int MirrorPower { get; private set; } = 50;
         public const int MaxMirrorPower = 100;
+        public const int TalismanSeedCost = 40;
+
+        /// <summary>Restored shards of the mirror; the restoration axis itself arrives with phase L6.</summary>
+        public int RestoredFragments { get; private set; }
+        public int TalismanSeedCapacity => SpiritualOrificeRules.TalismanSeedCapacity(RestoredFragments);
 
         private void Awake()
         {
@@ -104,6 +112,28 @@ namespace MirrorChronicles.Mirror
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Cost: 40. Plants a Talisman Seed in a mortal's dantian so they can cultivate without an
+        /// orifice (LORE.md §4, §11.5). The mirror sustains only a limited number of active seeds.
+        /// </summary>
+        public bool GrantTalismanSeed(CharacterData target)
+        {
+            if (target == null || ClanManager.Instance == null) return false;
+
+            int activeSeeds = ClanManager.Instance.LivingMembers.Count(m => m.HasTalismanSeed);
+            if (!SpiritualOrificeRules.CanReceiveTalismanSeed(target, activeSeeds, TalismanSeedCapacity))
+            {
+                Debug.LogWarning($"[MirrorSystem] {target.FullName} cannot receive a Talisman Seed ({activeSeeds}/{TalismanSeedCapacity} active).");
+                return false;
+            }
+            if (!ConsumePower(TalismanSeedCost)) return false;
+
+            target.HasTalismanSeed = true;
+            target.OrificeKnown = true; // the mirror knows what it planted
+            Debug.Log($"[MirrorSystem] DIVINE INTERVENTION: a Talisman Seed takes root in {target.FullName}.");
+            return true;
         }
 
         /// <summary>

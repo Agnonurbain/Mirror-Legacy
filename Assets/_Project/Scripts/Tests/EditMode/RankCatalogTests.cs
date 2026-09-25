@@ -17,6 +17,27 @@ namespace MirrorChronicles.Tests.EditMode
         }
 
         [Test]
+        public void DisplayName_IsMortal_WhenExaminedWithoutOrifice()
+        {
+            var c = new CharacterData { OrificeKnown = true };
+            Assert.AreEqual("Mortel", RankCatalog.DisplayName(c));
+        }
+
+        [Test]
+        public void DisplayName_HidesTheOrifice_WhenNotYetExamined()
+        {
+            var c = new CharacterData { HasSpiritualOrifice = true };
+            Assert.AreEqual("Orifice non examiné", RankCatalog.DisplayName(c));
+        }
+
+        [Test]
+        public void DisplayName_ShowsNoChakraYet_WhenKnownOrificeBeforeFirstChakra()
+        {
+            var c = new CharacterData { HasSpiritualOrifice = true, OrificeKnown = true };
+            Assert.AreEqual("Respiration Embryonnaire — sans chakra", RankCatalog.DisplayName(c));
+        }
+
+        [Test]
         public void DisplayName_ShowsChakraName_WhenImmortalEmbryonic()
         {
             var name = RankCatalog.DisplayName(Make(CultivationPath.Immortal, CultivationRealm.Embryonic, 1));
