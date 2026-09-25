@@ -18,12 +18,14 @@ SOURCES=(
   Clan/CharacterNames.cs
   Characters/PowerLadder.cs
   Characters/RankCatalog.cs
+  Characters/BreakthroughRules.cs
 )
 TESTS=(
   Tests/EditMode/KinshipRulesTests.cs
   Tests/EditMode/MarriageMatchmakerTests.cs
   Tests/EditMode/PowerLadderTests.cs
   Tests/EditMode/RankCatalogTests.cs
+  Tests/EditMode/BreakthroughRulesTests.cs
 )
 
 command -v dotnet >/dev/null || { echo "ERROR: dotnet SDK not found" >&2; exit 1; }
