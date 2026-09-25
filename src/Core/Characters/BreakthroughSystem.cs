@@ -58,7 +58,7 @@ namespace MirrorChronicles.Characters
                 ctx.Log.Warning($"[Breakthrough] {character.FullName}'s method leads no further than {RankCatalog.DisplayName(character)}.");
                 return null;
             }
-            if (step.Trial == TrialKind.PurpleMansionAscension)
+            if (step.Trial == TrialKind.PurpleMansionAscension) // the phase loop skips it; this guards direct callers
             {
                 ctx.Log.Warning($"[Breakthrough] {character.FullName}'s ascent to the Purple Mansion is a retreat of four trials (PurpleMansionSystem).");
                 return null;

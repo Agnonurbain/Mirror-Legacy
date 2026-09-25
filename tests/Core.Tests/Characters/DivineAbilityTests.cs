@@ -172,6 +172,22 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void Graft_AtTheThreshold_SacrificesTheDonor_EvenWhenTheThresholdFails()
+        {
+            // The graft consumes the foundation during the attempt, like the Qi of any trial: the donor is lost
+            // even if the fourth ability does not come (review of L4, behaviour kept and pinned)
+            var w = new TestWorld(new FixedRandom(Fail));
+            var c = Master(w, Sea, "orthodox-water:ford-watcher", "orthodox-water:storm-sky");
+            var prodigy = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 1));
+            prodigy.FoundationId = Farewell;
+
+            Assert.IsTrue(w.Abilities.GraftDaoPartner(c, prodigy));
+
+            Assert.AreEqual(3, c.DivineAbilities.Count);
+            Assert.IsTrue(prodigy.Realm == CultivationRealm.QiRefinement && prodigy.FoundationId == null);
+        }
+
+        [Test]
         public void Graft_Refuses_AFoundationOfAnotherLineage()
         {
             var w = new TestWorld(new FixedRandom(Pass));

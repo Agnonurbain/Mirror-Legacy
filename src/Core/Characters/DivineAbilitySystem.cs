@@ -69,6 +69,7 @@ namespace MirrorChronicles.Characters
                 var qi = AlignedQi(member.PursuedAbility);
                 if (qi == null || !resources.ConsumeQi(qi.Id, AlignedQiPortions)) continue; // no aligned technique, or its Qi is lacking
 
+                // The Qi and the XP go into the attempt: they are spent even if the Threshold stops it
                 member.CultivationXP -= Xp;
                 if (!PassThreshold(member)) continue;
                 Condense(member, member.PursuedAbility);
@@ -111,6 +112,7 @@ namespace MirrorChronicles.Characters
                 return false;
             }
 
+            // The donor's foundation is consumed during the attempt: it is lost even if the Threshold then fails
             resources.ConsumeOres(Settings.GraftOres);
             string ability = donor.FoundationId;
             FoundationRules.LoseFoundation(donor, techniques.MethodOf(donor));
