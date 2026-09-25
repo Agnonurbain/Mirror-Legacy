@@ -155,6 +155,14 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void Practise_IsBeyondAMortal()
+        {
+            // LORE.md §4: without an orifice (or a Talisman Seed) one stays mortal and cultivates nothing
+            Assert.IsFalse(TechniqueRules.CanPractise(Fixtures.Mortal(), Catalog("white-lotus-intuition")));
+            Assert.IsFalse(TechniqueRules.CanPractise(Fixtures.Mortal(), Catalog("common-breath-method")));
+        }
+
+        [Test]
         public void Practise_NeverAnArt()
         {
             var member = Fixtures.Cultivator(realm: CultivationRealm.Embryonic, stage: 3);

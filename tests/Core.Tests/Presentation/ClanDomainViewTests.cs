@@ -82,6 +82,18 @@ namespace MirrorChronicles.Tests.Presentation
         }
 
         [Test]
+        public void Roster_ShowsNoMethod_ForAMortal()
+        {
+            var s = NewGame();
+            var child = s.Clan.GenerateChild(s.Clan.GetPatriarch(), s.Clan.LivingMembers.First(m => !m.IsMale && m.SpouseID == s.Clan.PatriarchID));
+            child.HasSpiritualOrifice = false;
+
+            var row = ClanDomainView.Roster(s).Single(r => r.Id == child.ID);
+
+            Assert.IsTrue(row.Method == "—" && row.Methods.Count == 0);
+        }
+
+        [Test]
         public void MethodLabel_WritesTheHighestGradeAsSevenPlus()
         {
             Assert.AreEqual("Dialogue (grade 7+)", ClanDomainView.MethodLabel(new TechniqueData { Name = "Dialogue", Grade = 7 }));
