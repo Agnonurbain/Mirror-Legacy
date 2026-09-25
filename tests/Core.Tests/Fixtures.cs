@@ -14,6 +14,18 @@ namespace MirrorChronicles.Tests
         protected override double Sample() => sample;
     }
 
+    /// <summary>
+    /// Returns the given samples in order, then repeats the last one. Next(1, 101) on a sample s
+    /// yields 1 + (int)(s * 100), so 0.0 → 1, 0.495 → 50, 0.995 → 100.
+    /// </summary>
+    internal sealed class SequenceRandom : Random
+    {
+        private readonly double[] samples;
+        private int index;
+        public SequenceRandom(params double[] samples) { this.samples = samples; }
+        protected override double Sample() => samples[Math.Min(index++, samples.Length - 1)];
+    }
+
     /// <summary>Shared builders for the simulation tests.</summary>
     internal static class Fixtures
     {
