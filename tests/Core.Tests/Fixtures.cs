@@ -1,7 +1,11 @@
 using System;
 using MirrorChronicles.Characters;
+using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
+using MirrorChronicles.Diplomacy;
+using MirrorChronicles.Economy;
 using MirrorChronicles.Events;
+using MirrorChronicles.Mirror;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Tests
@@ -24,6 +28,54 @@ namespace MirrorChronicles.Tests
         private int index;
         public SequenceRandom(params double[] samples) { this.samples = samples; }
         protected override double Sample() => samples[Math.Min(index++, samples.Length - 1)];
+    }
+
+    /// <summary>Every system of a session, wired in the session's order, for the system tests.</summary>
+    internal sealed class TestWorld
+    {
+        public GameContext Ctx { get; }
+        public ClanManager Clan { get; }
+        public ResourceManager Resources { get; }
+        public MentalStabilitySystem Stability { get; }
+        public ClanKarmaSystem Karma { get; }
+        public CultivationSystem Cultivation { get; }
+        public BreakthroughSystem Breakthroughs { get; }
+        public FactionManager Factions { get; }
+        public MirrorSystem Mirror { get; }
+        public DeductionEngine Deduction { get; }
+        public BuildingSystem Buildings { get; }
+        public AllianceSystem Alliances { get; }
+        public EspionageSystem Espionage { get; }
+        public TaskAssignmentSystem Tasks { get; }
+        public MarriageSystem Marriages { get; }
+
+        public TestWorld(Random rng)
+        {
+            Ctx = Fixtures.Context(rng);
+            Clan = new ClanManager(Ctx, "Mo");
+            Resources = new ResourceManager(Ctx);
+            Stability = new MentalStabilitySystem(Ctx, Clan);
+            Karma = new ClanKarmaSystem(Ctx, Clan);
+            Cultivation = new CultivationSystem(Ctx, Karma);
+            Breakthroughs = new BreakthroughSystem(Ctx, Clan, Cultivation);
+            Factions = new FactionManager(Ctx);
+            Mirror = new MirrorSystem(Ctx, Clan, Breakthroughs);
+            Deduction = new DeductionEngine(Ctx, Mirror);
+            Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
+            Alliances = new AllianceSystem(Ctx, Factions, Resources);
+            Espionage = new EspionageSystem(Ctx, Factions, Deduction, Stability);
+            Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings);
+            Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
+        }
+
+        public TestWorld(int seed = 1) : this(new Random(seed)) { }
+
+        /// <summary>Adds a member to the clan and returns it.</summary>
+        public CharacterData Join(CharacterData member)
+        {
+            Clan.AddMember(member);
+            return member;
+        }
     }
 
     /// <summary>Shared builders for the simulation tests.</summary>
