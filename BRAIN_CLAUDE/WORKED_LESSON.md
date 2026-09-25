@@ -229,6 +229,22 @@ Chaque entrée suit ce format :
 
 ---
 
+### WL-014 — Les blessures du Dao disparaissaient à la percée suivante
+| Champ | Valeur |
+|---|---|
+| **ID** | WL-014 |
+| **Date** | 2026-09-25 |
+| **Catégorie** | Gameplay / Durée de vie |
+| **Fichier** | `Assets/_Project/Scripts/Characters/CultivationSystem.cs` (`ApplyStep`), `WoundSystem.cs` |
+| **Problème** | Une blessure du Dao retirait 20 % de `MaxLifespan`, mais chaque montée de sous-niveau réécrivait `MaxLifespan` avec la portée du royaume : la blessure « permanente » s'effaçait. Invisible tant que le vieillissement ignorait `MaxLifespan` (L1) ; L2 l'a rendu porteur (durées de vie mortelles individuelles), la revue ECC l'a détecté. |
+| **Cause racine** | Un même champ servait à la fois de cache (portée du royaume) et d'état (pénalité). La pénalité n'était enregistrée nulle part ailleurs (WL-007). |
+| **Solution** | `CharacterData.DaoWounds` compte les blessures ; `PowerLadder.LifespanAfterAdvance` = max(durée actuelle, portée du nouveau royaume diminuée de chaque blessure) ; `NormalizeLifespan` borne à la portée blessée. |
+| **Impact** | 🟠 Fort — une conséquence permanente de combat annulée sans bruit. |
+| **Statut** | ✅ Résolu 2026-09-25 (logique testée hors Unity). |
+| **Prévention** | Ne jamais stocker un état permanent dans un champ qu'un autre système recalcule ; enregistrer la cause (compteur, drapeau) et dériver la valeur. |
+
+---
+
 ## 📐 Leçons d'architecture & design
 
 ### WL-100 — Pivot Unity → Web → Unity : cause de la dette

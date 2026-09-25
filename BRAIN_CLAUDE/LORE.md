@@ -219,7 +219,7 @@ Dao des **dieux, des fantômes et des esprits**, fondé sur l'acte de **saisir u
 - 🔎 Ni la source ni le wiki ne donnent de règle générale ; 📚 le wiki cite un mortel mort « à près de soixante-dix ans ». ✅ **Validé** : 60-80 ans (moyenne ~65-70), avec une variation individuelle ; un Qi de talisman peut l'allonger (*Prolonger la vie et accroître la longévité* : +40 ans, §11.5).
 
 🎮 Phase 2 : `CharacterData.HasSpiritualOrifice` tiré à la naissance selon D3 ; `OrificeKnown` passe à vrai quand un cultivateur confirmé l'examine (tâche ou événement). Un mortel ne peut pas choisir la tâche Cultivation mais travaille (mine, patrouille, commerce). Les Graines de Sceau sont un objet rare (miroir, commerce, événements).
-⚠️ Aujourd'hui tout membre peut cultiver.
+✅ Fait en L2 (2026-09-25) : `SpiritualOrificeRules`, `TaskRules`, `MirrorSystem.GrantTalismanSeed` (40 Puissance, 2 graines actives + 1 par éclat restauré). L'examen a lieu à chaque phase Héritage dès qu'un membre a ouvert l'Œil du Sommet (5e chakra, §5) ; les bêtes spirituelles, esprits et dragons s'éveillent sans orifice.
 
 ---
 
