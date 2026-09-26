@@ -118,5 +118,101 @@ namespace MirrorChronicles.Tests.World
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.AreEqual(35, reloaded.Suspicion.Evidence(Ruan));
         }
+
+        // ---- Leaks (L2c.4b): those who know may talk; an oath of secrecy holds their tongue ----
+
+        private static CharacterData Keeper(TestWorld w, int stability = 20)
+        {
+            var c = w.Join(Fixtures.Cultivator());
+            c.KnowsMirrorSecret = true;
+            c.MentalStability = stability;
+            return c;
+        }
+
+        [Test]
+        public void AKeeperWhoTalks_GivesAPowerCluesAboutTheMirror()
+        {
+            var w = World(new FixedRandom(0.0));
+            Keeper(w);
+
+            w.Secrets.ProcessYear();
+
+            var told = w.Factions.Factions.Single(f => w.Suspicion.MirrorClues(f.Name) > 0);
+            Assert.AreEqual(Settings.LeakMirrorClue, w.Suspicion.MirrorClues(told.Name));
+            Assert.AreEqual(Settings.LeakEvidence, w.Suspicion.Evidence(told.Name));
+        }
+
+        [Test]
+        public void TheLeak_GoesToThePowerThatAsksMost()
+        {
+            var w = World(new FixedRandom(0.0));
+            Keeper(w);
+            w.Suspicion.AddToClan(Fang, 40);
+            w.Secrets.ProcessYear();
+            Assert.AreEqual(Settings.LeakMirrorClue, w.Suspicion.MirrorClues(Fang));
+        }
+
+        [Test]
+        public void ThoseWhoDoNotKnow_HaveNothingToTell()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Secrets.ProcessYear();
+            Assert.IsTrue(w.Factions.Factions.All(f => w.Suspicion.MirrorClues(f.Name) == 0));
+        }
+
+        [Test]
+        public void LeakChance_FallsWithAStableMind_AndAnOathOfSecrecy()
+        {
+            var w = World(new FixedRandom(0.0));
+            var shaken = Keeper(w, stability: 20);
+            var steady = Keeper(w, stability: 90);
+            Assert.Greater(PlotRules.LeakChance(shaken, sworn: false, Fixtures.Content), PlotRules.LeakChance(steady, sworn: false, Fixtures.Content));
+            Assert.Less(PlotRules.LeakChance(shaken, sworn: true, Fixtures.Content), PlotRules.LeakChance(shaken, sworn: false, Fixtures.Content));
+        }
+
+        [Test]
+        public void ASwornKeeperWhoTalks_BreaksTheOath()
+        {
+            var w = World(new FixedRandom(0.0));
+            var keeper = Keeper(w);
+            var patriarch = w.Join(Fixtures.Cultivator());
+            w.Oaths.Swear(keeper, patriarch, new[] { "keep-secret" });
+
+            w.Secrets.ProcessYear();
+
+            Assert.IsTrue(keeper.ProgressionSealed || keeper.HeartDemonYearsLeft > 0, "punished by the Dao");
+        }
+
+        [Test]
+        public void AHuntsTeam_AndATalismansBearer_ComeToKnowTheSecret()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            w.Factions.InitializeFactions();
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
+            var beast = new WorldBeast("iron-boar-heshan-1", "iron-boar", "heshan", CultivationRealm.QiRefinement, 1, null);
+            w.Bestiary.Restore(new[] { beast });
+            w.Knowledge.Reveal(FactKind.Beast, beast.Id, KnowledgeSource.Studied);
+            var striker = w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 7));
+            var decoy = w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 3));
+
+            w.Hunts.Execute(new HuntPlan
+            {
+                TargetBeastId = beast.Id,
+                Team = new System.Collections.Generic.Dictionary<string, HuntRole> { [striker.ID] = HuntRole.Striker },
+                DiversionMemberId = decoy.ID,
+                DiversionRegionId = "wuyang"
+            });
+
+            Assert.IsTrue(striker.KnowsMirrorSecret && decoy.KnowsMirrorSecret);
+        }
+
+        [Test]
+        public void RoundTrip_KeepsTheMirrorClues()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Suspicion.AddMirrorClues(Ruan, 40);
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            Assert.AreEqual(40, reloaded.Suspicion.MirrorClues(Ruan));
+        }
     }
 }
