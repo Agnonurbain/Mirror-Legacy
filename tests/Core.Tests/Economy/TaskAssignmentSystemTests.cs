@@ -137,65 +137,78 @@ namespace MirrorChronicles.Tests.Economy
 
         // ---- Hunting spirit beasts (user decision, 2026-09-26: the talisman ritual sacrifices beasts) ----
 
+        // ---- The hunt (L2c.2): only a beast the clan knows, on its hunting ground, no stronger than the hunter ----
+
+        /// <summary>A world with the hunt open and one beast on the hunting ground, known to the clan or not.</summary>
+        private static (TestWorld w, WorldBeast beast) Ground(double roll, CultivationRealm realm = CultivationRealm.QiRefinement,
+            int stage = 3, bool known = true, string owner = null)
+        {
+            var w = new TestWorld(new FixedRandom(roll));
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
+            var beast = new WorldBeast("mist-wolf-1", "mist-wolf", w.Tasks.HuntingGround, realm, stage, owner);
+            w.Bestiary.Restore(new[] { beast });
+            if (known) w.Knowledge.Reveal(MirrorChronicles.World.FactKind.Beast, beast.Id, MirrorChronicles.World.KnowledgeSource.Studied);
+            return (w, beast);
+        }
+
         [Test]
         public void HuntBeast_OutsideTheWindow_CatchesNothing()
         {
-            var w = new TestWorld(new FixedRandom(0.0)); // the first ritual is twenty years away
-            Working(w, TaskType.HuntBeast);
+            var (w, _) = Ground(0.0);
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year + 10);
+            Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
             w.Tasks.ProcessYearlyTasks();
             Assert.AreEqual(0, w.Resources.Beasts.Count);
         }
 
         [Test]
-        public void HuntBeast_CapturesABeastNoStrongerThanTheHunter()
+        public void HuntBeast_CapturesAKnownBeast_OfTheGround()
         {
-            var w = new TestWorld(new FixedRandom(0.0));
-            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
-            var hunter = Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
+            var (w, beast) = Ground(0.0, owner: "Famille Lou");
+            Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
 
             w.Tasks.ProcessYearlyTasks();
 
-            var beast = w.Resources.Beasts.Single();
-            Assert.AreEqual(hunter.Realm, beast.Realm);
-            Assert.That(beast.Stage, Is.InRange(1, hunter.RealmStage));
+            Assert.AreEqual(new CapturedBeast(beast.Id, beast.Realm, beast.Stage, "Famille Lou"), w.Resources.Beasts.Single());
+            Assert.IsFalse(w.Bestiary.Beasts.Any(b => b.Id == beast.Id), "taken from the world");
+        }
+
+        [Test]
+        public void HuntBeast_IgnoresABeastTheClanHasNotScouted()
+        {
+            var (w, _) = Ground(0.0, known: false);
+            Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
+            w.Tasks.ProcessYearlyTasks();
+            Assert.AreEqual(0, w.Resources.Beasts.Count);
+        }
+
+        [Test]
+        public void HuntBeast_CannotTakeAStrongerBeast()
+        {
+            var (w, _) = Ground(0.0, CultivationRealm.QiRefinement, stage: 8);
+            Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
+            w.Tasks.ProcessYearlyTasks();
+            Assert.AreEqual(0, w.Resources.Beasts.Count);
         }
 
         [Test]
         public void HuntBeast_MayComeBackEmptyHanded()
         {
-            var w = new TestWorld(new FixedRandom(0.999));
-            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
-            Working(w, TaskType.HuntBeast);
+            var (w, _) = Ground(0.999);
+            Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
             w.Tasks.ProcessYearlyTasks();
             Assert.AreEqual(0, w.Resources.Beasts.Count);
         }
 
         [Test]
-        public void HuntBeast_OnAPowersGround_MayTakeOneOfItsBeasts()
+        public void ScoutBeasts_RevealsABeastOfTheGround()
         {
-            var w = new TestWorld(new FixedRandom(0.0));
-            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
-            w.Factions.InitializeFactions();
-            Assert.IsTrue(w.Tasks.SetHuntingGround("heshan")); // the Ruan's prefecture
-            Working(w, TaskType.HuntBeast);
+            var (w, beast) = Ground(0.0, known: false);
+            Working(w, TaskType.ScoutBeasts);
 
             w.Tasks.ProcessYearlyTasks();
 
-            Assert.AreEqual("Famille Ruan", w.Resources.Beasts.Single().OwnerFaction);
-        }
-
-        [Test]
-        public void HuntBeast_OnAnUnclaimedGround_TakesSolitaryBeasts()
-        {
-            var w = new TestWorld(new FixedRandom(0.0));
-            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
-            w.Factions.InitializeFactions();
-            Assert.IsTrue(w.Tasks.SetHuntingGround("beast-abyss")); // no power lives in the Beast Abyss
-            Working(w, TaskType.HuntBeast);
-
-            w.Tasks.ProcessYearlyTasks();
-
-            Assert.IsNull(w.Resources.Beasts.Single().OwnerFaction);
+            Assert.IsTrue(w.Knowledge.Knows(MirrorChronicles.World.FactKind.Beast, beast.Id));
         }
 
         [Test]

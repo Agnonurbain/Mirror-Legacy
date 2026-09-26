@@ -52,6 +52,7 @@ namespace MirrorChronicles.Tests
         public FruitionRegistry Fruitions { get; }
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
+        public BeastRegistry Bestiary { get; }
         public KnowledgeExchange Exchange { get; }
         public FactionManager Factions { get; }
         public MirrorSystem Mirror { get; }
@@ -83,11 +84,12 @@ namespace MirrorChronicles.Tests
             Fruitions = new FruitionRegistry(Ctx);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions);
+            Bestiary = new BeastRegistry(Ctx);
             Exchange = new KnowledgeExchange(Ctx, Factions, Techniques, Resources, Mirror);
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Ctx, Factions, Resources);
             Espionage = new EspionageSystem(Ctx, Factions, Deduction, Stability, Techniques);
-            Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans);
+            Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
         }
 
