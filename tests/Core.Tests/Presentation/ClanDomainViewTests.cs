@@ -148,6 +148,33 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.IsNull(ClanDomainView.Roster(s).First(r => r.Id != patriarch.ID).Abilities);
         }
 
+        // ---- The Golden Core (L4b) ----
+
+        [TestCase(GoldenCoreState.MetallicEssenceOnly, "orthodox-water", null, "Essence métallique sans position (vise Eau Orthodoxe)")]
+        [TestCase(GoldenCoreState.Realization, "orthodox-water", null, "Réalisation — Eau Orthodoxe")]
+        [TestCase(GoldenCoreState.Surplus, "mutable-water", null, "Surplus — Eau Muable")]
+        [TestCase(GoldenCoreState.Intercalary, "nourishing-water", null, "Intercalaire — Eau Nourricière")]
+        [TestCase(GoldenCoreState.TrueLeftHand, "lesser-yin", null, "Main Gauche vraie — Immortels de Jade Tressé (Yin Mineur)")]
+        [TestCase(GoldenCoreState.FalseLeftHand, "mutable-water", "Tan Qing", "Main Gauche fausse — au service de Tan Qing (Eau Muable)")]
+        public void Roster_ShowsTheGoldenCoreStanding(GoldenCoreState state, string fruitionId, string patron, string label)
+        {
+            var s = NewGame();
+            var patriarch = s.Clan.GetPatriarch();
+            patriarch.Realm = CultivationRealm.GoldenCore;
+            patriarch.RealmStage = 1;
+            patriarch.GoldenCore = state;
+            patriarch.FruitionId = fruitionId;
+            patriarch.PatronId = patron;
+
+            Assert.AreEqual(label, RowOf(s, patriarch).Position);
+        }
+
+        [Test]
+        public void Roster_ShowsNoStanding_BeforeTheGoldenCore()
+        {
+            Assert.IsTrue(ClanDomainView.Roster(NewGame()).All(r => r.Position == null));
+        }
+
         [Test]
         public void MethodLabel_WritesTheHighestGradeAsSevenPlus()
         {
