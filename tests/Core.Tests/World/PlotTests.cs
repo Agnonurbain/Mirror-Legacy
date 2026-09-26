@@ -214,5 +214,125 @@ namespace MirrorChronicles.Tests.World
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.AreEqual(40, reloaded.Suspicion.MirrorClues(Ruan));
         }
+
+        // ---- The mirror's answers, the pierced secret, the seizure (L2c.4c) ----
+
+        [Test]
+        public void BlurMemories_DimsAPowersCluesAndProof_ForTheMirrorsPower()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Suspicion.AddMirrorClues(Ruan, 80);
+            w.Suspicion.AddEvidence(Ruan, 60);
+            w.Mirror.AddPower(100);
+            int power = w.Mirror.MirrorPower;
+
+            Assert.IsTrue(w.Secrets.BlurMemories(Ruan));
+
+            Assert.AreEqual(80 - Settings.BlurClues, w.Suspicion.MirrorClues(Ruan));
+            Assert.AreEqual(60 - Settings.BlurEvidence, w.Suspicion.Evidence(Ruan));
+            Assert.AreEqual(power - Settings.BlurMirrorCost, w.Mirror.MirrorPower);
+        }
+
+        [Test]
+        public void BlurMemories_HoldsLessOnAGoldenCoresPower()
+        {
+            // the soul's locks are undetectable « even at the Purple Mansion » (§11.5): not beyond
+            var w = World(new FixedRandom(0.0));
+            w.Suspicion.AddMirrorClues(Peak, 80);
+            w.Mirror.AddPower(100);
+            w.Secrets.BlurMemories(Peak);
+            Assert.AreEqual(80 - (int)(Settings.BlurClues * Settings.BlurStrongFactor), w.Suspicion.MirrorClues(Peak));
+        }
+
+        [Test]
+        public void PlantFalseProof_TurnsAPowersProofIntoDistrustOfAnother()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Suspicion.AddEvidence(Ruan, 60);
+            w.Mirror.AddPower(100);
+
+            Assert.IsTrue(w.Secrets.PlantFalseProof(Ruan, "Famille Lou"));
+
+            Assert.AreEqual(60 - Settings.FalseProofAmount, w.Suspicion.Evidence(Ruan));
+            Assert.AreEqual(Settings.FalseProofAmount, w.Suspicion.Distrust(Ruan, "Famille Lou"));
+        }
+
+        [Test]
+        public void APiercedSecret_BringsAnInvestigatorAtOnce()
+        {
+            var w = World(new FixedRandom(0.999)); // nobody leaks
+            w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
+
+            w.Secrets.ProcessYear();
+
+            Assert.AreEqual(Peak, w.Secrets.Confrontation?.Faction);
+            Assert.AreEqual(SuspicionLedger.Max, w.Suspicion.OfClan(Peak), "the consequences are immediate");
+        }
+
+        [Test]
+        public void ThePowerThatStillKnows_SeizesTheMirror()
+        {
+            var w = World(new FixedRandom(0.999));
+            bool seized = false;
+            w.Ctx.Events.OnMirrorSeized += faction => seized = faction == Peak;
+            w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
+            w.Secrets.ProcessYear(); // the investigator comes
+
+            w.Secrets.ProcessYear(); // nothing was done
+
+            Assert.IsTrue(seized);
+        }
+
+        [Test]
+        public void APowerMadeToDoubt_CannotAct()
+        {
+            var w = World(new FixedRandom(0.999));
+            bool seized = false;
+            w.Ctx.Events.OnMirrorSeized += _ => seized = true;
+            w.Suspicion.AddMirrorClues(Ruan, SuspicionLedger.Max);
+            w.Secrets.ProcessYear();
+            w.Mirror.AddPower(100);
+            w.Secrets.BlurMemories(Ruan);
+            w.Secrets.BlurMemories(Ruan); // below the doubt's threshold
+
+            w.Secrets.ProcessYear();
+
+            Assert.IsFalse(seized);
+            Assert.IsNull(w.Secrets.Confrontation);
+        }
+
+        [Test]
+        public void APowerTooWeakToSeize_SellsTheSecretToTheStrongest()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 1)); // the clan matches the Fang
+            bool seized = false;
+            w.Ctx.Events.OnMirrorSeized += _ => seized = true;
+            w.Suspicion.AddMirrorClues(Fang, SuspicionLedger.Max);
+            w.Secrets.ProcessYear();
+
+            w.Secrets.ProcessYear();
+
+            Assert.IsFalse(seized);
+            string strongest = w.Factions.Factions.Where(f => f.Name != Fang).OrderByDescending(f => f.PowerLevel).First().Name;
+            Assert.Greater(w.Suspicion.MirrorClues(strongest), 0, "profit: it sells what it cannot use");
+        }
+
+        [Test]
+        public void ASeizedMirror_LosesTheGame()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Events.TriggerMirrorSeized(Peak);
+            Assert.IsTrue(s.Victory.GameLost);
+        }
+
+        [Test]
+        public void RoundTrip_KeepsAConfrontation()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Secrets.RestoreConfrontation(new Confrontation(Peak, 1));
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            Assert.AreEqual(new Confrontation(Peak, 1), reloaded.Secrets.Confrontation);
+        }
     }
 }
