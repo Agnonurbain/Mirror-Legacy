@@ -50,6 +50,7 @@ namespace MirrorChronicles.Tests
         public DivineAbilitySystem Abilities { get; }
         public OathSystem Oaths { get; }
         public FruitionRegistry Fruitions { get; }
+        public RegionalQi Place { get; }
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
         public BeastRegistry Bestiary { get; }
@@ -78,7 +79,9 @@ namespace MirrorChronicles.Tests
             Karma = new ClanKarmaSystem(Ctx, Clan);
             Knowledge = WorldKnowledge.Create(Ctx.Content);
             Techniques = new TechniqueLibrary(Ctx, Knowledge);
-            Cultivation = new CultivationSystem(Ctx, Karma, Techniques, Resources);
+            Fruitions = new FruitionRegistry(Ctx);
+            Place = new RegionalQi(Ctx, Fruitions, Techniques);
+            Cultivation = new CultivationSystem(Ctx, Karma, Techniques, Resources, Place);
             Breakthroughs = new BreakthroughSystem(Ctx, Clan, Cultivation);
             Foundations = new FoundationSystem(Ctx, Clan, Techniques);
             PurpleMansion = new PurpleMansionSystem(Ctx, Clan, Cultivation, Techniques);
@@ -87,7 +90,6 @@ namespace MirrorChronicles.Tests
             Mirror = new MirrorSystem(Ctx, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Ctx, Mirror, Techniques);
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
-            Fruitions = new FruitionRegistry(Ctx);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions);
             Bestiary = new BeastRegistry(Ctx);
