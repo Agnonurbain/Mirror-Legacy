@@ -119,7 +119,7 @@ namespace MirrorChronicles.Tests.Session
 
             var elder = s.Clan.GetPatriarch();
             Assert.IsTrue(elder.ID == "elder" && elder.RealmStage == 1 && elder.HasSpiritualOrifice && elder.OrificeKnown
-                && elder.MaxLifespan == 200 && s.Factions.Factions.Count == 8 && s.Resources.SpiritStones == 640 && s.Clock.Year == 7);
+                && elder.MaxLifespan == 200 && s.Factions.Factions.Count == Fixtures.Content.Factions.Count && s.Resources.SpiritStones == 640 && s.Clock.Year == 7);
         }
 
         [Test]
@@ -128,7 +128,7 @@ namespace MirrorChronicles.Tests.Session
             var data = GameSession.NewGame(Fixtures.Setup(1)).ToSaveData();
             foreach (var faction in data.Factions) faction.FamilyName = null; // a save from before FamilyName
             var s = GameSession.FromSaveData(data, Fixtures.Setup());
-            Assert.AreEqual("Wang", s.Factions.Factions.First(f => f.Name == "Famille Wang").FamilyName);
+            Assert.AreEqual("Ruan", s.Factions.Factions.First(f => f.Name == "Famille Ruan").FamilyName);
         }
 
         [Test]
