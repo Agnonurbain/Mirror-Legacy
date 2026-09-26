@@ -159,6 +159,7 @@ namespace MirrorChronicles.Tests.World
             var w = World(new FixedRandom(0.0));
             var captive = Captive(w);
             captive.KnowsMirrorSecret = true;
+            captive.CapturedYear = w.Ctx.Clock.Year - 1;
 
             w.Captives.ProcessYear();
 
@@ -246,6 +247,7 @@ namespace MirrorChronicles.Tests.World
             var w = World(new FixedRandom(0.0));
             var captive = Captive(w);
             captive.KnowsMirrorSecret = true;
+            captive.CapturedYear = w.Ctx.Clock.Year - 1;
             int power = w.Mirror.MirrorPower;
 
             Assert.IsNull(w.Captives.Silence(captive.ID));
@@ -467,6 +469,97 @@ namespace MirrorChronicles.Tests.World
             s.AdvanceYear();
 
             Assert.IsNull(captive.CaptorFaction, "the year's captives are processed: a captor gone, the captive walks free");
+        }
+
+        // ---- Review (L6a) ----
+
+        [Test]
+        public void AMemberTakenThisYear_IsNotYetInterrogated()
+        {
+            var w = World(new FixedRandom(0.0));
+            var captive = Captive(w);
+            captive.KnowsMirrorSecret = true;
+            w.Captives.ProcessYear();
+            Assert.AreEqual(0, w.Suspicion.MirrorClues(Ruan), "the clan has a year to answer");
+        }
+
+        [Test]
+        public void ACaptive_TalksOnlyToTheCaptor_NotInTheYearlyLeak()
+        {
+            var w = World(new FixedRandom(0.0));
+            var captive = Captive(w);
+            captive.KnowsMirrorSecret = true;
+
+            w.Secrets.ProcessYear();
+
+            Assert.IsTrue(w.Factions.Factions.All(f => w.Suspicion.MirrorClues(f.Name) == 0));
+        }
+
+        [Test]
+        public void ARescue_CountsEachRescuerOnce()
+        {
+            // alone: 20 %; counted twice it would be 70 %
+            var w = World(new FixedRandom(0.5));
+            var captive = Captive(w);
+            var rescuer = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 5));
+
+            StringAssert.Contains("échoue", w.Captives.Rescue(captive.ID, new[] { rescuer.ID, rescuer.ID }));
+        }
+
+        [Test]
+        public void ACaptive_NeitherMarries_NorBreaksThrough()
+        {
+            var w = World(new FixedRandom(0.0));
+            var captive = Captive(w);
+            captive.Age = 20;
+            captive.CultivationXP = 1_000_000;
+            var suitor = w.Join(Fixtures.Cultivator(isMale: !captive.IsMale, age: 20));
+
+            Assert.IsFalse(MirrorChronicles.Clan.MarriageMatchmaker.IsEligible(captive));
+            Assert.IsFalse(w.Marriages.CanMarry(captive, suitor));
+            Assert.IsFalse(w.Cultivation.IsReadyForTrial(captive));
+        }
+
+        [Test]
+        public void TakingThePatriarch_HandsTheClanToAFreeMember()
+        {
+            var w = World(new FixedRandom(0.0));
+            var patriarch = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation));
+            var heir = w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement));
+            Assert.AreEqual(patriarch.ID, w.Clan.PatriarchID);
+
+            w.Captives.Take(patriarch, Ruan);
+
+            Assert.AreEqual(heir.ID, w.Clan.PatriarchID);
+        }
+
+        [Test]
+        public void AnExecutedCaptive_IsNoLongerRecordedAsHeld()
+        {
+            var w = World(new FixedRandom(0.0));
+            var captive = Captive(w);
+            captive.CapturedYear = w.Ctx.Clock.Year - Settings.PatienceYears;
+            w.Captives.ProcessYear();
+            Assert.IsNull(captive.CaptorFaction);
+            Assert.AreEqual(DeathCause.Executed, captive.CauseOfDeath);
+        }
+
+        [Test]
+        public void TheYearsAmbushes_AreFew()
+        {
+            var w = World(new FixedRandom(0.0)); // every power schemes
+            for (int i = 0; i < 10; i++) Away(w);
+
+            w.Schemes.ProcessYear();
+
+            Assert.AreEqual(Settings.MaxAmbushesPerYear, w.Captives.Held.Count);
+        }
+
+        [Test]
+        public void SchemeChance_StaysANumber_WithoutAWealthReference()
+        {
+            var settings = Settings with { WealthReference = 0 };
+            Assert.IsFalse(double.IsNaN(SchemeRules.SchemeChance(new FactionData(), 0, settings)));
         }
     }
 }
