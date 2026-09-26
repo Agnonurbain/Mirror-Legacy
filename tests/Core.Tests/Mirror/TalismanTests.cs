@@ -10,10 +10,11 @@ using MirrorChronicles.Session;
 namespace MirrorChronicles.Tests.Mirror
 {
     /// <summary>
-    /// Talisman Qi (LORE.md §11.5, the wiki's page on the mirror's talismans): a being of the Qi Cultivation or
-    /// beyond sacrificed and ten thousand prayers gathered, the mirror refines a talisman Qi of the sacrifice's
-    /// rank — grey for the Qi Cultivation, white for the Foundation — offering one to three to suit the bearer's
-    /// talent and temper. Each gives a trait and a leap in cultivation.
+    /// Talisman Qi (LORE.md §11.5, the wiki's page on the mirror's talismans; user decision of 2026-09-26: the
+    /// sacrifice is a beast, never a clan member): a captured beast of the Qi Cultivation or beyond sacrificed and ten
+    /// thousand prayers gathered, the mirror refines a talisman Qi of the beast's rank — grey for the Qi Cultivation,
+    /// white for the Foundation — the stronger the beast, the higher the quality; one to three are offered to suit
+    /// the bearer's talent and temper. Each gives a trait and a leap in cultivation.
     /// </summary>
     [TestFixture]
     public class TalismanTests
@@ -38,8 +39,13 @@ namespace MirrorChronicles.Tests.Mirror
             return w.Join(c);
         }
 
-        private static CharacterData Sacrifice(TestWorld w, CultivationRealm realm = CultivationRealm.QiRefinement) =>
-            w.Join(Fixtures.Cultivator(realm: realm, stage: 1));
+        /// <summary>A beast the clan captured, in its stock.</summary>
+        private static CapturedBeast Sacrifice(TestWorld w, CultivationRealm realm = CultivationRealm.QiRefinement, int stage = 1)
+        {
+            var beast = new CapturedBeast(w.Ctx.Rng.NextId(), realm, stage);
+            w.Resources.AddBeast(beast);
+            return beast;
+        }
 
         // ---- The catalog ----
 
@@ -97,18 +103,43 @@ namespace MirrorChronicles.Tests.Mirror
         // ---- The ritual ----
 
         [Test]
-        public void PerformRitual_SacrificesTheBeing_SpendsThePrayers_AndMakesAnOffer()
+        public void PerformRitual_SacrificesABeast_SpendsThePrayers_AndMakesAnOffer()
         {
             var w = Devout();
             var bearer = Bearer(w);
-            var victim = Sacrifice(w);
+            int members = w.Clan.LivingMembers.Count;
+            var beast = Sacrifice(w);
 
-            Assert.IsTrue(w.Talismans.PerformRitual(bearer, victim));
+            Assert.IsTrue(w.Talismans.PerformRitual(bearer, beast));
 
-            Assert.AreEqual(DeathCause.Sacrificed, victim.CauseOfDeath);
+            Assert.AreEqual(0, w.Resources.Beasts.Count, "the beast is offered");
+            Assert.AreEqual(members, w.Clan.LivingMembers.Count, "no clan member is sacrificed");
             Assert.AreEqual(0, w.Resources.Prayers);
             Assert.AreEqual(bearer.ID, w.Talismans.PendingOffer.BeneficiaryId);
             Assert.IsTrue(w.Talismans.PendingOffer.Choices.All(id => Talisman(id).Rank == TalismanRank.Grey));
+        }
+
+        [Test]
+        public void PerformRitual_Refuses_ABeastTheClanDoesNotHold()
+        {
+            var w = Devout();
+            Assert.IsFalse(w.Talismans.PerformRitual(Bearer(w), new CapturedBeast("stray", CultivationRealm.QiRefinement, 3)));
+        }
+
+        [TestCase(1, 0)]
+        [TestCase(4, 1)]
+        [TestCase(7, 2)]
+        public void TheStrongerTheBeast_TheHigherTheQuality(int stage, int extraLeap)
+        {
+            // user decision (2026-09-26): the stronger the beast, the higher the talisman's quality
+            var w = Devout();
+            var bearer = Bearer(w);
+            bearer.RealmStage = 1;
+            w.Talismans.PerformRitual(bearer, Sacrifice(w, CultivationRealm.QiRefinement, stage));
+
+            w.Talismans.Choose(w.Talismans.PendingOffer.Choices[0]);
+
+            Assert.AreEqual(1 + Settings.GreyStageLeap + extraLeap, bearer.RealmStage);
         }
 
         [Test]
@@ -130,7 +161,7 @@ namespace MirrorChronicles.Tests.Mirror
         }
 
         [Test]
-        public void PerformRitual_Refuses_ASacrificeBelowTheQiCultivation()
+        public void PerformRitual_Refuses_ABeastBelowTheQiCultivation()
         {
             var w = Devout();
             Assert.IsFalse(w.Talismans.PerformRitual(Bearer(w), Sacrifice(w, CultivationRealm.Embryonic)));
@@ -143,14 +174,6 @@ namespace MirrorChronicles.Tests.Mirror
             var bearer = Bearer(w);
             bearer.TalismanQiId = "prolong-life";
             Assert.IsFalse(w.Talismans.PerformRitual(bearer, Sacrifice(w)));
-        }
-
-        [Test]
-        public void PerformRitual_Refuses_TheBearerAsTheirOwnSacrifice()
-        {
-            var w = Devout();
-            var bearer = Bearer(w);
-            Assert.IsFalse(w.Talismans.PerformRitual(bearer, bearer));
         }
 
         // ---- The choice: a trait and a leap ----
