@@ -38,7 +38,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void Places_ListThePowersLivingThere()
         {
-            CollectionAssert.AreEquivalent(new[] { "Famille Lou", "Famille Fang", "Famille Lü", "Famille Tao" },
+            CollectionAssert.AreEquivalent(new[] { "Famille Lou", "Famille Fang", "Famille Lü", "Famille Tao", "Famille Kang" },
                 Place(NewGame(), "jingshui-lake").Factions.Select(f => f.Name));
         }
 

@@ -799,6 +799,8 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 
 ### 7.3 Autour du clan
 
+📚 **Carte détaillée du lac (wiki, 2026-09-26)** : Tao au nord, Lou au nord-est, Fang et une sixième famille, les **Kang** (💡 nom proposé, à valider), sur la rive sud-est, Mo au sud (villages de Jingxi) ; tribus des montagnes à l'ouest et au sud-ouest ; « familles de la rive est » au-delà. Un domaine marqué « 池 » sur la rive est reste ambigu (famille Bai, ou avant-poste du Pic des Nuées ?) : rien n'est déplacé tant qu'une source ne tranche pas.
+
 📚 **Le lac et ses clans.** Le Lac Jingshui, plus tard appelé **Lac Immortel**, fait face au nord et au sud ; les Ruan vivent dans les terres sauvages au nord-est. Il relevait d'abord de la Secte du Pic des Nuées avant d'être confié aux Mo. **Cinq clans** vivent autour du lac : **Lou, Fang, Mo, Lü et Tao** ; sous la domination des Mo, le lac sera unifié autour de son **île centrale, Cuidao**. Les **Monts Qingyan** forment une longue chaîne : le **Pic de Jingxi** domine le **village de Jingxi** (village natal du clan) ; plus au sud, le **Pic Meiling**, puis le **village de Qingyang**.
 
 
@@ -807,7 +809,7 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 | Centre-ouest | **Lac Jingshui** (« Lac de l'Eau-Miroir »), ancien **Marais Jingshui** | Domaine du clan Mo |
 | Sud du lac | **Monts Qingyan** | Protégés par la **Renarde des Monts Qingyan** (pacte ancien) |
 | Sud-ouest du lac | **Mont Fengxi** | |
-| Ouest du lac | **Préfecture de Wuyang** | |
+| Est du lac (📚 carte du wiki ; « ouest » était une erreur) | **Préfecture de Wuyang** | |
 | Est du lac | **Préfecture de Heshan**, territoire de la **famille Ruan** | Voisins directs |
 | Est | **Préfecture de Qianshi** | |
 | Nord | **Terres Désolées du Nord**, **Plaine de Guling** | Sauvage |
@@ -825,7 +827,7 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 - 🔎 Sur la carte du wiki (état au chapitre 850), le lac, les Monts Qingyan et la Plaine des Roseaux Gris sont dans l'**ouest de Hanshan**, pas dans Linxi : les frontières bougent au fil de l'histoire. Le jeu suit la carte fournie (le lac dans Linxi) ; 💡 un déplacement de frontière pourrait devenir un événement.
 
 🎮 Phase 5 : `RegionDefinition` (nom, position, voisins, faction dominante, modificateur de cultivation, phénomènes) ; `FactionTemplate` étendu (voie, royaume le plus haut, région, techniques possédées) ; nouvelle carte dessinée (style Shuimo) ; `WorldMapUI` par régions.
-✅ Fait en L5 (2026-09-26) : `game/data/regions.json` (États, mers et lieux de ce chapitre ; 🔎 positions relatives, voisinages et trois noms de sièges — *Fleuve du Nord*, *Collines du Nord-Ouest*, *Hauts du Nord-Est* — interprétés) et `factions.json` (les puissances des §7-§10, avec leurs techniques du §2.4 ; 🔎 personnalité, puissance, richesse, relation de départ et royaume le plus haut interprétés ; les familles Bai, Zang, Xun, Qiao, le Manoir de Chenguang et le Monastère de Huiqiu, que le lore ne situe pas, sont placés dans le Linxi). Les 8 factions inventées ont disparu. Écran « Carte du monde ».
+✅ Fait en L5 (2026-09-26), 📚 positions reprises de la carte du Jiangnan du wiki le même jour (référence seulement, D1 ; Wuyang à l'est du lac, Haiyan au sud, Songhe au centre-est, Gouffre des Bêtes au sud du lac, terres des Mille Lames à l'ouest ; les sièges sans nom portent celui de leur secte ou porte : Terres de la Lune Pâle, du Fer Ardent, du Givre Blanc) : `game/data/regions.json` (États, mers et lieux de ce chapitre ; 🔎 positions relatives, voisinages et trois noms de sièges — *Fleuve du Nord*, *Collines du Nord-Ouest*, *Hauts du Nord-Est* — interprétés) et `factions.json` (les puissances des §7-§10, avec leurs techniques du §2.4 ; 🔎 personnalité, puissance, richesse, relation de départ et royaume le plus haut interprétés ; les familles Bai, Zang, Xun, Qiao, le Manoir de Chenguang et le Monastère de Huiqiu, que le lore ne situe pas, sont placés dans le Linxi). Les 8 factions inventées ont disparu. Écran « Carte du monde ».
 
 ---
 
@@ -1350,6 +1352,11 @@ Fondations et capacités divines (§6.5-6.7) :
 | Radiant Visage Immortals · Woven Jade Immortals · False Divine Core | Immortels au Visage Radieux · Immortels de Jade Tressé · Faux Noyau Divin |
 | Revered One Suxikong | Vénérable Kongji |
 | Numinous Treasure Dao Tradition | Tradition du Trésor Numineux |
+
+### 13.9 Ajouts de l'analyse de la carte et des personnages du wiki (2026-09-26, 🟡 à valider)
+| Source | Jeu |
+|---|---|
+| Famille Ding (丁, rive sud-est du Lac du Regard Lunaire) | Famille Kang |
 
 ### 13.8 Ajouts de la passe complète du wiki (✅ validé)
 | Source | Jeu |

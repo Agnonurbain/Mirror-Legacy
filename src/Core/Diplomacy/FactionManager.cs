@@ -92,13 +92,21 @@ namespace MirrorChronicles.Diplomacy
             }
         }
 
-        /// <summary>Restores saved factions; a save from before FamilyName gets it back from the content.</summary>
+        /// <summary>
+        /// Restores saved factions. The map belongs to the content: a power the content knows takes its place from
+        /// it (a save made before the map moved keeps up); a save from before FamilyName gets it back too.
+        /// </summary>
         public void Restore(IEnumerable<FactionData> saved)
         {
             factions.Clear();
             factions.AddRange(saved);
-            foreach (var faction in factions.Where(f => f.FamilyName == null))
-                faction.FamilyName = ctx.Content.Factions.FirstOrDefault(t => t.Name == faction.Name)?.FamilyName;
+            foreach (var faction in factions)
+            {
+                var template = ctx.Content.Factions.FirstOrDefault(t => t.Name == faction.Name);
+                if (template == null) continue; // an older save's invented faction: no place on the map
+                faction.RegionId = template.RegionId;
+                faction.FamilyName ??= template.FamilyName;
+            }
         }
     }
 }
