@@ -76,7 +76,7 @@ namespace MirrorChronicles.Tests.Presentation
 
         [TestCase(FactKind.Technique, "night-frost-canon", "le clan apprend la technique Canon du Givre Nocturne.")]
         [TestCase(FactKind.Qi, "night-frost-qi", "le clan apprend à connaître le Qi du Givre Nocturne.")]
-        [TestCase(FactKind.Lineage, "orthodox-water", "le clan apprend l'existence de la lignée Eau Orthodoxe.")]
+        [TestCase(FactKind.Lineage, "lesser-yin", "le clan apprend l'existence de la lignée Yin Mineur.")]
         [TestCase(FactKind.Ability, "orthodox-water:storm-sky", "le clan apprend la capacité Ciel d'Orage (Eau Orthodoxe).")]
         [TestCase(FactKind.DaoPartners, "orthodox-water:boundless-sea", "le clan apprend les Partenaires Dao de Mer sans Rivage (Eau Orthodoxe).")]
         [TestCase(FactKind.GoldSeeking, "orthodox-water", "le clan apprend la méthode de recherche d'or de la lignée Eau Orthodoxe.")]
@@ -91,9 +91,9 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void RecordsNothing_ForWhatItAlreadyKnew()
         {
-            session.Knowledge.Reveal(FactKind.Lineage, "orthodox-water", KnowledgeSource.Mirror);
+            session.Knowledge.Reveal(FactKind.Lineage, "lesser-yin", KnowledgeSource.Mirror); // newly learned: one line
             int count = chronicle.Entries.Count;
-            session.Knowledge.Reveal(FactKind.Lineage, "orthodox-water", KnowledgeSource.Mirror);
+            session.Knowledge.Reveal(FactKind.Lineage, "lesser-yin", KnowledgeSource.Mirror);
             Assert.AreEqual(count, chronicle.Entries.Count);
         }
 

@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Presentation
 {
     /// <summary>
-    /// The clan's chronicle as the player reads it: births, deaths, breakthroughs and events, one French
+    /// The clan's chronicle as the player reads it: births, deaths, breakthroughs, events and what the clan learns, one French
     /// line each, dated by year. Keeps the most recent entries only. (The full Annals arrive with L6.)
     /// </summary>
     public sealed class Chronicle
@@ -34,6 +35,14 @@ namespace MirrorChronicles.Presentation
             bus.OnRandomEventOccurred += e => Add($"{e.Name} — {e.Description}");
             bus.OnStoryEventRaised += e => Add($"{e.Name}.");
             bus.OnGameOver += won => Add(won ? "la lignée devient éternelle." : "la lignée s'éteint.");
+            session.Knowledge.Revealed += OnRevealed;
+        }
+
+        /// <summary>What the clan learns, except what an older save's knowledge rebuilds (it was known all along).</summary>
+        private void OnRevealed(Fact fact, KnowledgeSource source)
+        {
+            if (source == KnowledgeSource.OlderSave || source == KnowledgeSource.Start) return;
+            Add($"le clan apprend {KnowledgeView.Describe(fact, session.Context.Content)}.");
         }
 
         private void Add(string text)
