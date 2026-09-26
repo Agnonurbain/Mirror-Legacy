@@ -80,6 +80,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Bibliothèque"
 
+[node name="OpenGenealogy" type="Button" parent="Margin/Layout/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Arbre généalogique"
+
 [node name="OpenMap" type="Button" parent="Margin/Layout/Header"]
 unique_name_in_owner = true
 layout_mode = 2

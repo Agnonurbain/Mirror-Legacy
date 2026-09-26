@@ -18,11 +18,14 @@ namespace MirrorChronicles.Tests.Presentation
         private static KinNode Node(GameSession s, string id) => GenealogyView.Tree(s).Single(n => n.Id == id);
 
         [Test]
-        public void TheFounders_StandAtTheFirstGeneration()
+        public void TheFoundingCouple_StandsAtTheFirstGeneration_TheirChildrenBelow()
         {
             var s = NewGame();
-            Assert.IsTrue(s.Clan.LivingMembers.All(m => Node(s, m.ID).Generation == 0));
-            Assert.IsTrue(Node(s, s.Clan.PatriarchID).IsPatriarch);
+            var patriarch = s.Clan.GetPatriarch();
+            Assert.AreEqual(0, Node(s, patriarch.ID).Generation);
+            Assert.IsTrue(Node(s, patriarch.ID).IsPatriarch);
+            Assert.IsTrue(s.Clan.LivingMembers.Where(m => m.FatherID == patriarch.ID).All(c => Node(s, c.ID).Generation == 1));
+            Assert.IsTrue(s.Clan.LivingMembers.Any(m => m.FatherID == patriarch.ID), "the founders have children");
         }
 
         [Test]
