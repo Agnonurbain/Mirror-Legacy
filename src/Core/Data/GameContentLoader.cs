@@ -223,6 +223,7 @@ namespace MirrorChronicles.Data
                 && core.ShallowAbilityPenalty >= 0 && core.GraftedAbilityPenalty >= 0 && core.LifeLastBonus >= 0 && core.AxiomPenalty >= 0
                 && core.PermissionStones >= 0 && IsProbability(core.PermissionChance) && core.GoldSeekingMirrorCost >= 0 && core.SpecialisedMirrorCost >= 0
                 && core.LeftHandMirrorCost >= 0 && core.FalseLeftHandYearlyStones >= 0 && core.LightBorrowingYearlyStones >= 0
+                && core.ImagePointsPerYear > 0 && core.ImageToNextStage?.Count == 3 && core.ImageToNextStage.All(p => p > 0)
                 && core.FalseLeftHandMinAbilities >= 1 && core.FalseLeftHandMinAbilities <= GoldenCoreRules.AbilitiesToForge,
                 BalanceFile, "goldenCore needs chances of 0-100 %, penalties and costs never negative, a permission chance between 0 and 1, 1-5 abilities for a false Left Hand.");
             var rules = balance.Techniques;

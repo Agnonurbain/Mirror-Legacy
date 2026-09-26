@@ -231,6 +231,8 @@ namespace MirrorChronicles.Characters
         /// <summary>Each Breakthrough phase, every false Left Hand and borrowed light pays its patron — or falls, as it falls with them.</summary>
         public void ProcessBreakthroughPhase()
         {
+            foreach (var member in clan.LivingMembers.Where(AffirmsTheImage).ToList())
+                AffirmImage(member);
             foreach (var member in clan.LivingMembers.Where(m => m.BorrowedLight).ToList())
             {
                 if (fruitions.State(member.FruitionId)?.Holder != member.PatronId) ReturnLight(member, "its lender is gone");
@@ -289,6 +291,27 @@ namespace MirrorChronicles.Characters
             member.FruitionId = fruitionId;
             member.PursuedAbility = null;
             member.MaxLifespan = PowerLadder.LifespanAfterAdvance(member);
+            ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
+        }
+
+        /// <summary>A True Monarch with a position or a Left Hand path, cultivating, below the apex.</summary>
+        private static bool AffirmsTheImage(CharacterData m) =>
+            m.Realm == CultivationRealm.GoldenCore && m.CurrentTask == TaskType.Cultivation && m.RealmStage < PowerLadder.StageCount(CultivationRealm.GoldenCore)
+            && (m.GoldenCore == GoldenCoreState.Realization || m.GoldenCore == GoldenCoreState.Surplus || m.GoldenCore == GoldenCoreState.Intercalary
+                || m.GoldenCore == GoldenCoreState.TrueLeftHand || m.GoldenCore == GoldenCoreState.FalseLeftHand);
+
+        /// <summary>A year affirming the Fruition image (§5.5.2): points by the Dao Heart's alignment, a stage when enough.</summary>
+        private void AffirmImage(CharacterData member)
+        {
+            var lineage = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == member.FruitionId);
+            double heart = FoundationRules.HeartAlignmentSpeed(member.Temperament, lineage, ctx.Content.Balance);
+            member.CultivationXP += (int)System.Math.Round(Settings.ImagePointsPerYear * heart);
+
+            int needed = Settings.ImageToNextStage[member.RealmStage - 1];
+            if (member.CultivationXP < needed) return;
+            member.CultivationXP -= needed;
+            member.RealmStage++;
+            ctx.Log.Info($"[Golden Core] {member.FullName} affirms their Fruition image: stage {member.RealmStage}.");
             ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
         }
 

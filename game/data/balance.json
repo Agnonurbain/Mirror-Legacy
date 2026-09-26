@@ -53,7 +53,9 @@
     "falseLeftHandMinAbilities": 3,
     "falseLeftHandChance": 60,
     "falseLeftHandYearlyStones": 300,
-    "lightBorrowingYearlyStones": 150
+    "lightBorrowingYearlyStones": 150,
+    "imagePointsPerYear": 10,
+    "imageToNextStage": [ 1000, 3000, 6000 ]
   },
   "studyRevealsPartnersChance": 0.1,
   "bodyTraitInheritanceChance": 0.5,

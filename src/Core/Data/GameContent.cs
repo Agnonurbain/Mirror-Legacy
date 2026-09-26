@@ -359,6 +359,14 @@ namespace MirrorChronicles.Data
         public int FalseLeftHandChance { get; init; }
         public int FalseLeftHandYearlyStones { get; init; }
 
+        /// <summary>
+        /// The four stages (§5.5.2) rest on affirming one's Fruition image: a True Monarch with a position or a Left Hand
+        /// path, cultivating, gains these points a year (times the Dao Heart's alignment), and needs these to rise
+        /// from stage 1 to 2, 2 to 3, 3 to 4 (« some natural, others demanding millennia »).
+        /// </summary>
+        public int ImagePointsPerYear { get; init; }
+        public IReadOnlyList<int> ImageToNextStage { get; init; } = Array.Empty<int>();
+
         /// <summary>Borrowing a Fruition's light (§5.4.2): the tribute its lender takes each year.</summary>
         public int LightBorrowingYearlyStones { get; init; }
     }
