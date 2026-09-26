@@ -61,6 +61,45 @@ namespace MirrorChronicles.Tests.Data
             CollectionAssert.Contains(Region(region).Neighbours, neighbour);
         }
 
+        // ---- Placed after the wiki's map of the region (2026-09-26, reference only: D1) ----
+
+        private static bool West(string a, string b) => Region(a).X < Region(b).X;
+        private static bool North(string a, string b) => Region(a).Y < Region(b).Y;
+
+        [Test]
+        public void ShippedRegions_FollowTheWikiMap_AroundTheLake()
+        {
+            Assert.IsTrue(West("jingshui-lake", "wuyang"), "Wuyang lies east of the lake");
+            Assert.IsTrue(North("jingshui-lake", "beast-abyss"), "the Beast Abyss lies south of the lake");
+            Assert.IsTrue(North("jingshui-lake", "qingyan-mountains"), "the Qingyan Mountains lie south of the lake");
+            Assert.IsTrue(West("mount-fengxi", "jingshui-lake"), "Mount Fengxi lies south-west of the lake");
+            Assert.IsTrue(West("jingshui-lake", "heshan"), "Heshan, the Ruan's, lies east of the lake");
+        }
+
+        [Test]
+        public void ShippedRegions_FollowTheWikiMap_AcrossLinxi()
+        {
+            Assert.IsTrue(North("siwei", "haiyan") && North("mount-yunfeng", "haiyan"), "Haiyan lies far south, by the sea");
+            Assert.IsTrue(West("qianshi", "mount-songhe"), "Mount Songhe lies east of Qianshi");
+            Assert.IsTrue(West("liuhe", "singing-sands") && West("singing-sands", "jingshui-lake"), "the Thousand Blades' lands lie west");
+            Assert.IsTrue(North("mount-jianfeng", "fiery-iron-lands"), "the Fiery Iron Gate lies below Mount Jianfeng");
+            Assert.IsTrue(North("nanling", "southern-marches") || Region("nanling").Y > 0.85, "Nanling lies at the south edge of Linxi");
+        }
+
+        [Test]
+        public void ShippedRegions_InventNoName()
+        {
+            // the seats the lore leaves unnamed take their gate's or sect's name, as the map does
+            Assert.IsFalse(Fixtures.Content.Regions.Any(r => r.InterpretedFields.Contains("Name")));
+        }
+
+        [Test]
+        public void ShippedRegions_OfTheWikiMap_SayWhereTheyComeFrom()
+        {
+            Assert.AreEqual(Provenance.Wiki, Region("wuyang").Provenance);
+            Assert.IsFalse(Region("wuyang").InterpretedFields.Contains("X"));
+        }
+
         [Test]
         public void ShippedRegions_AreNeighboursBothWays()
         {
@@ -76,10 +115,11 @@ namespace MirrorChronicles.Tests.Data
         }
 
         [Test]
-        public void ShippedRegions_SayTheirPositionsAreInterpreted()
+        public void ShippedRegions_OffTheWikiMap_SayTheirPositionsAreInterpreted()
         {
-            // the lore gives relative positions, not coordinates: every position is an interpretation to refine
-            Assert.IsTrue(Fixtures.Content.Regions.All(r => r.InterpretedFields.Contains("X") && r.InterpretedFields.Contains("Y")));
+            // the lands beyond the wiki's map keep positions guessed from the lore's relative geography
+            Assert.IsTrue(Fixtures.Content.Regions.Where(r => r.Provenance != Provenance.Wiki)
+                .All(r => r.InterpretedFields.Contains("X") && r.InterpretedFields.Contains("Y")));
         }
 
         [Test]

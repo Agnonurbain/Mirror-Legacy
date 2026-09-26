@@ -71,6 +71,9 @@ namespace MirrorChronicles.Tests.Data
         [TestCase("Famille Gu", "grey-reed-plain")]
         [TestCase("Secte du Pic des Nuées", "mount-yunfeng")]
         [TestCase("Porte du Roc Obscur", "yunmen")]
+        [TestCase("Porte du Fer Ardent", "fiery-iron-lands")]
+        [TestCase("Porte du Givre Blanc", "white-frost-lands")]
+        [TestCase("Secte de la Lune Pâle", "pale-moon-lands")]
         [TestCase("Atoll des Perles Noires", "black-pearl-atoll")]
         public void ShippedFactions_LiveWhereTheMapPutsThem(string name, string region)
         {
