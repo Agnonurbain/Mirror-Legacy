@@ -169,6 +169,21 @@ namespace MirrorChronicles.Tests.World
         }
 
         [Test]
+        public void OlderSave_RebuildsWhatItsDeducedTechniquesTeach()
+        {
+            // review of L4.6: a deduced method names its Qi and the foundation it builds, in an older save too
+            var s = GameSession.NewGame(Fixtures.Setup(2));
+            s.Techniques.AddDeduced(new TechniqueData { ID = "deduced-1", Name = "Sutra de l'Onde", Kind = TechniqueKind.Cultivation,
+                Grade = 3, RequiredRealm = CultivationRealm.QiRefinement, RequiredQiId = "silent-tide-qi" });
+            var data = s.ToSaveData();
+            data.Knowledge = null; // saved before L4.6
+
+            var reloaded = GameSession.FromSaveData(data, Fixtures.Setup());
+
+            Assert.IsTrue(reloaded.Knowledge.Knows(new Fact(FactKind.Ability, "mutable-water:mist-veil")));
+        }
+
+        [Test]
         public void Load_Refuses_AStartingFactOfAnUnknownKind()
         {
             var clan = JObject.Parse(Fixtures.ReadDataFile(GameContentLoader.ClanFile));

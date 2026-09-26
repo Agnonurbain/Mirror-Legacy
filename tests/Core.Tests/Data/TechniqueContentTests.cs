@@ -162,6 +162,36 @@ namespace MirrorChronicles.Tests.Data
         }
 
         [Test]
+        public void Load_Refuses_AMovementArtWithoutSteps()
+        {
+            // review of L4.6: a movement art's reach is data; forgetting it must show at startup
+            var catalog = JObject.Parse(Fixtures.ReadDataFile(GameContentLoader.TechniquesFile));
+            var stride = JObject.Parse("{ \"id\": \"stride\", \"name\": \"Pas\", \"kind\": \"Movement\", \"grade\": 3, \"category\": \"Common\" }");
+            ((JArray)catalog["techniques"]).Add(stride);
+            Assert.DoesNotThrow(() => GameContentLoader.Load(name => name == GameContentLoader.TechniquesFile
+                ? catalog.ToString().Replace("\"id\": \"stride\"", "\"id\": \"stride\", \"movementSteps\": 1")
+                : Fixtures.ReadDataFile(name))); // the same art with its steps loads
+            AssertRefused(GameContentLoader.TechniquesFile, catalog.ToString());
+        }
+
+        [Test]
+        public void Load_Refuses_NegativeManifestationBonuses()
+        {
+            var balance = JObject.Parse(Fixtures.ReadDataFile(GameContentLoader.BalanceFile));
+            balance["purpleMansion"]["manifestationPerGrade"] = -5;
+            AssertRefused(GameContentLoader.BalanceFile, balance.ToString());
+        }
+
+        [Test]
+        public void Load_Refuses_ATrialWithoutItsModifiers()
+        {
+            // the talent, stability and grade modifiers of the Purple Mansion's trials are interpretations: data
+            var balance = JObject.Parse(Fixtures.ReadDataFile(GameContentLoader.BalanceFile));
+            balance.Remove("trialModifiers");
+            AssertRefused(GameContentLoader.BalanceFile, balance.ToString());
+        }
+
+        [Test]
         public void Load_Refuses_DeductionNamesMissingAKind()
         {
             var catalog = JObject.Parse(Fixtures.ReadDataFile(GameContentLoader.TechniquesFile));

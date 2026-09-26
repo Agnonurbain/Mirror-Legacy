@@ -34,6 +34,15 @@ namespace MirrorChronicles.Tests.Data
         }
 
         [Test]
+        public void Clone_CopiesTheInterpretedFields()
+        {
+            var original = new TechniqueData { InterpretedFields = new List<string> { "Grade" } };
+            var copy = original.Clone();
+            copy.InterpretedFields.Add("Category");
+            CollectionAssert.AreEqual(new[] { "Grade" }, original.InterpretedFields);
+        }
+
+        [Test]
         public void Clone_CopiesTheFlaws()
         {
             var original = new TechniqueData
