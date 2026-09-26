@@ -8,9 +8,13 @@ using MirrorChronicles.Presentation;
 namespace MirrorChronicles.Game
 {
     /// <summary>
-    /// Draws the world map in ink on paper (Shuimo): borders as brush lines, states and seas as washes, places as
-    /// ink dots, the clan's home as a red seal. The wheel zooms around the cursor, a right or middle drag pans.
-    /// It only draws the engine-free <see cref="WorldMapView"/>.
+    /// Paints the world map in ink on paper (Shuimo): a grained paper, washes under each place (richer where its Qi is
+    /// dense), a tinted haze under an atmosphere (violet-grey for a storm that weighs on all, ochre-red otherwise),
+    /// borders as brush lines, mountains as three brushed peaks, waters as washes with ripples, wilds as grass strokes,
+    /// deserts as dotted sand, towns as roofs, the clan's home as a red seal. Minor places whose name finds no free
+    /// room are named only once zoomed in. The wheel zooms around the cursor, a right or middle drag pans. It only
+    /// draws the engine-free <see cref="WorldMapView"/>; every stroke is placed by a stable hash of the place, so the
+    /// painting never shimmers between frames.
     /// </summary>
     public partial class MapCanvas : Control
     {
@@ -30,6 +34,16 @@ namespace MirrorChronicles.Game
         private static readonly Color Selection = new Color(0.70f, 0.12f, 0.10f, 0.6f);
         private static readonly Color StateInk = new Color(0.13f, 0.12f, 0.11f, 0.55f);
         private static readonly Color WaterInk = new Color(0.20f, 0.33f, 0.42f);
+        private static readonly Color Grain = new Color(0.45f, 0.38f, 0.28f, 0.06f);
+        private static readonly Color StormHaze = new Color(0.36f, 0.30f, 0.45f, 0.10f);
+        private static readonly Color BalefulHaze = new Color(0.55f, 0.25f, 0.12f, 0.08f);
+        private static readonly Color MountainWash = new Color(0.20f, 0.22f, 0.20f, 0.07f);
+        private static readonly Color WildsWash = new Color(0.25f, 0.35f, 0.22f, 0.06f);
+        private static readonly Color PlainWash = new Color(0.40f, 0.45f, 0.25f, 0.05f);
+        private static readonly Color DesertWash = new Color(0.65f, 0.50f, 0.25f, 0.08f);
+        private static readonly Color TownWash = new Color(0.13f, 0.12f, 0.11f, 0.04f);
+        private const int GrainDots = 900;
+        private const float WashRadius = 26f;
         private const int LabelOutline = 4;
         private const float Margin = 48f;
 
@@ -57,7 +71,10 @@ namespace MirrorChronicles.Game
         public override void _Draw()
         {
             DrawRect(new Rect2(Vector2.Zero, Size), Paper);
+            DrawGrain();
             var byId = places.ToDictionary(p => p.Id);
+
+            foreach (var place in places.Where(p => !p.IsState)) DrawWash(place, At(place)); // the land first, under everything
 
             // states and seas are washes behind the places, named in large faint ink; only the places inside are joined
             foreach (var state in places.Where(p => p.IsState))
@@ -81,36 +98,140 @@ namespace MirrorChronicles.Game
                 Label(name, at, LabelSize, Ink, centred: false);
         }
 
-        /// <summary>The home as a red seal; mountains as peaks, waters as blue dots, other places as ink dots.</summary>
+        /// <summary>The paper's grain: faint fibres fixed to the frame, not to the map.</summary>
+        private void DrawGrain()
+        {
+            for (int i = 0; i < GrainDots; i++)
+            {
+                var at = new Vector2(Noise("paper", i) * Size.X, Noise("paper", i + GrainDots) * Size.Y);
+                DrawLine(at, at + new Vector2(2f + Noise("fibre", i) * 4f, Noise("tilt", i) * 2f - 1f), Grain, 1f, true);
+            }
+        }
+
+        /// <summary>
+        /// Layered washes under a place, wider and deeper where its Qi is dense, and the haze of its atmosphere,
+        /// each layer nudged by the place's own hash so neighbouring washes blend like wet ink.
+        /// </summary>
+        private void DrawWash(MapPlace place, Vector2 at)
+        {
+            float scale = Mathf.Sqrt(zoom) * (float)Math.Clamp(place.QiDensity, 0.5, 1.5);
+            var colour = WashOf(place.Kind);
+            for (int layer = 0; layer < 3; layer++)
+            {
+                var offset = new Vector2(Noise(place.Id, layer) - 0.5f, Noise(place.Id, layer + 7) - 0.5f) * WashRadius * 0.6f * scale;
+                DrawCircle(at + offset, WashRadius * scale * (1f - layer * 0.22f), colour);
+            }
+            if (place.Atmosphere != null)
+                for (int layer = 0; layer < 2; layer++)
+                    DrawCircle(at, WashRadius * 1.5f * scale * (1f - layer * 0.3f), place.AtmosphereHarsh ? StormHaze : BalefulHaze);
+        }
+
+        private static Color WashOf(RegionKind kind) => kind switch
+        {
+            RegionKind.Mountain => MountainWash,
+            RegionKind.Lake or RegionKind.River or RegionKind.Sea or RegionKind.Island => Water,
+            RegionKind.Wilds => WildsWash,
+            RegionKind.Plain => PlainWash,
+            RegionKind.Desert => DesertWash,
+            _ => TownWash
+        };
+
+        /// <summary>
+        /// The home as a red seal; mountains as three brushed peaks, waters as washes with ripples, wilds as grass
+        /// strokes, deserts as dotted sand, towns as a roof, other places as ink dots. An inhabited place is drawn larger.
+        /// </summary>
         private void DrawGlyph(MapPlace place, Vector2 at)
         {
             if (place.IsHome)
             {
-                DrawRect(new Rect2(at - Vector2.One * HomeRadius, Vector2.One * HomeRadius * 2), Seal);
+                DrawSeal(at);
                 return;
             }
-            float size = place.Factions.Count > 0 ? PlaceRadius : PlaceRadius * 0.6f;
+            float size = (place.Factions.Count > 0 ? PlaceRadius : PlaceRadius * 0.6f) * Mathf.Sqrt(zoom);
             switch (place.Kind)
             {
-                case RegionKind.Mountain:
-                    DrawColoredPolygon(new[] { at + new Vector2(0, -size * 1.3f), at + new Vector2(size, size), at + new Vector2(-size, size) }, Ink);
-                    break;
+                case RegionKind.Mountain: DrawPeaks(at, size); break;
                 case RegionKind.Lake:
                 case RegionKind.River:
                 case RegionKind.Sea:
-                case RegionKind.Island:
-                    DrawCircle(at, size, WaterInk);
-                    break;
-                default:
-                    DrawCircle(at, size, Ink);
-                    break;
+                case RegionKind.Island: DrawWater(at, size); break;
+                case RegionKind.Wilds: DrawGrass(place.Id, at, size); break;
+                case RegionKind.Desert: DrawSand(place.Id, at, size); break;
+                case RegionKind.Prefecture: DrawRoof(at, size); break;
+                default: DrawCircle(at, size, Ink); break;
             }
+        }
+
+        private void DrawSeal(Vector2 at)
+        {
+            float r = HomeRadius * Mathf.Sqrt(zoom);
+            DrawRect(new Rect2(at - Vector2.One * r, Vector2.One * r * 2), Seal);
+            DrawRect(new Rect2(at - Vector2.One * r * 0.6f, Vector2.One * r * 1.2f), Paper, false, 1.5f); // the carved frame
+            DrawLine(at + new Vector2(-r * 0.35f, 0), at + new Vector2(r * 0.35f, 0), Paper, 1.5f);
+            DrawLine(at + new Vector2(0, -r * 0.35f), at + new Vector2(0, r * 0.35f), Paper, 1.5f);
+        }
+
+        /// <summary>Three peaks, the highest in the middle: a pale wash, then the ink ridge.</summary>
+        private void DrawPeaks(Vector2 at, float size)
+        {
+            foreach (var (dx, h) in new[] { (-0.9f, 0.9f), (0.9f, 1.0f), (0f, 1.5f) }) // the far peaks first
+            {
+                var top = at + new Vector2(dx * size, -h * size);
+                var left = at + new Vector2(dx * size - size, size * 0.8f);
+                var right = at + new Vector2(dx * size + size, size * 0.8f);
+                DrawColoredPolygon(new[] { top, right, left }, new Color(Ink, 0.25f));
+                DrawPolyline(new[] { left, top, right }, Ink, 1.6f, true);
+            }
+        }
+
+        private void DrawWater(Vector2 at, float size)
+        {
+            DrawSetTransform(at, 0, new Vector2(1.4f, 0.8f));
+            DrawCircle(Vector2.Zero, size * 1.1f, new Color(WaterInk, 0.35f));
+            DrawSetTransform(Vector2.Zero, 0, Vector2.One);
+            for (int ripple = 0; ripple < 2; ripple++)
+                DrawArc(at + new Vector2(0, (ripple - 0.5f) * size * 0.8f), size * (0.9f - ripple * 0.3f), Mathf.Pi * 1.15f, Mathf.Pi * 1.85f, 8, WaterInk, 1.2f, true);
+        }
+
+        private void DrawGrass(string id, Vector2 at, float size)
+        {
+            for (int blade = 0; blade < 5; blade++)
+            {
+                var root = at + new Vector2((Noise(id, blade) - 0.5f) * size * 2.4f, (Noise(id, blade + 11) - 0.5f) * size);
+                DrawLine(root, root + new Vector2((Noise(id, blade + 23) - 0.5f) * size * 0.6f, -size * 1.2f), Ink, 1.2f, true);
+            }
+        }
+
+        private void DrawSand(string id, Vector2 at, float size)
+        {
+            for (int grain = 0; grain < 9; grain++)
+                DrawCircle(at + new Vector2((Noise(id, grain) - 0.5f) * size * 3f, (Noise(id, grain + 31) - 0.5f) * size * 1.4f), 1.1f, Ink);
+        }
+
+        /// <summary>A town: a roof over a dot.</summary>
+        private void DrawRoof(Vector2 at, float size)
+        {
+            DrawPolyline(new[] { at + new Vector2(-size * 1.2f, 0), at + new Vector2(0, -size), at + new Vector2(size * 1.2f, 0) }, Ink, 1.8f, true);
+            DrawCircle(at + new Vector2(0, size * 0.4f), size * 0.45f, Ink);
+        }
+
+        /// <summary>A stable number in [0, 1) for a place and a salt (FNV-1a; never string.GetHashCode, which changes per run).</summary>
+        private static float Noise(string id, int salt)
+        {
+            uint hash = 2166136261;
+            foreach (char c in id) hash = (hash ^ c) * 16777619;
+            hash = (hash ^ (uint)salt) * 16777619;
+            hash ^= hash >> 13;
+            hash *= 0x5bd1e995;
+            hash ^= hash >> 15;
+            return (hash & 0xFFFFFF) / (float)0x1000000;
         }
 
         /// <summary>
         /// Greedy label placement: the home and the inhabited places first, each label on the first side of its
         /// place (right, left, above, below; close, then farther) that stays on the map and covers no place and no label already set.
-        /// A label with no free side goes to the right.
+        /// A minor place (no power, not home, not selected) whose name finds no free side is named only once zoomed in;
+        /// any other goes to the right.
         /// </summary>
         private IEnumerable<(string Name, Vector2 At)> PlaceLabels()
         {
@@ -132,6 +253,8 @@ namespace MirrorChronicles.Game
 
                 var free = sides.FirstOrDefault(r => bounds.Encloses(r) && !taken.Any(t => t.Intersects(r))
                     && !inside.Any(p => p != place && r.Grow(PlaceRadius / 2).HasPoint(At(p))));
+                bool minor = !place.IsHome && place.Factions.Count == 0 && place.Id != selected;
+                if (free.Size == Vector2.Zero && minor) continue; // named when zoomed in, where there is room
                 var chosen = free.Size == Vector2.Zero ? sides[0] : free;
                 taken.Add(chosen);
                 yield return (place.Name, new Vector2(chosen.Position.X, chosen.End.Y - LabelSize / 4f - 2));
