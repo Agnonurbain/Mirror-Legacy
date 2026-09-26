@@ -12,6 +12,8 @@ namespace MirrorChronicles.Game
     /// </summary>
     public partial class ClanDomain : Control
     {
+        public const string ScenePath = "res://scenes/ClanDomain.tscn";
+
         private const int ChronicleLines = 40;
         private const int SmokeYears = 5;
         private const int PhasesPerYear = 4;
@@ -44,6 +46,7 @@ namespace MirrorChronicles.Game
             storyChoices = GetNode<VBoxContainer>("%StoryChoices");
 
             nextPhase.Pressed += AdvancePhase;
+            GetNode<Button>("%OpenMap").Pressed += () => GetTree().ChangeSceneToFile(WorldMap.ScenePath);
             root.SessionChanged += Bind;
             Bind();
 
@@ -246,19 +249,9 @@ namespace MirrorChronicles.Game
             GD.Print($"[Smoke] Year {session.Clock.Year}: {session.Clan.LivingMembers.Count} members, "
                 + $"{roster.GetChildCount()} roster rows, {root.Chronicle.Entries.Count} chronicle entries.");
 
-            if (root.ScreenshotPath != null) CaptureAndQuit(root.ScreenshotPath);
+            if (root.SmokeEndsOnMap) GetTree().ChangeSceneToFile(WorldMap.ScenePath); // the map checks itself, then quits
+            else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
-        }
-
-        /// <summary>Lets the layout settle for a few frames, saves the window as PNG, then quits.</summary>
-        private async void CaptureAndQuit(string path)
-        {
-            for (int i = 0; i < 3; i++)
-                await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-
-            var error = GetViewport().GetTexture().GetImage().SavePng(path);
-            if (error != Error.Ok) GD.PushError($"[Smoke] Cannot save the screenshot to {path}: {error}");
-            GetTree().Quit();
         }
 
         private static int IndexOf(IReadOnlyList<TaskType> tasks, TaskType task)
