@@ -26,8 +26,13 @@ namespace MirrorChronicles.Tests.Characters
             c.FoundationId = Sea;
             c.DivineAbilities = new List<string>(abilities.Length > 0 ? abilities : new[] { Sea });
             c.RealmStage = PowerLadder.PurpleMansionStageFromAbilities(c.DivineAbilities.Count);
+            KnowPartners(w, c.FoundationId);
             return w.Join(c);
         }
+
+        /// <summary>The clan knows the foundation's Dao Partners: one aims only at what one knows (L4.6c).</summary>
+        private static void KnowPartners(TestWorld w, string foundation) =>
+            w.Knowledge.Reveal(new MirrorChronicles.World.Fact(MirrorChronicles.World.FactKind.DaoPartners, foundation), MirrorChronicles.World.KnowledgeSource.Studied);
 
         private static int Xp => PowerLadder.XpForNextStage(CultivationRealm.PurpleMansion);
 
@@ -69,6 +74,7 @@ namespace MirrorChronicles.Tests.Characters
             var w = new TestWorld();
             var c = Master(w, "nourishing-water:winter-drizzle");
             c.FoundationId = "nourishing-water:winter-drizzle";
+            KnowPartners(w, c.FoundationId); // the unrevealed one stays out of reach: the lore does not name it
             Assert.IsTrue(w.Abilities.Pursue(c, "nourishing-water:dawn-abyss"));
             Assert.IsFalse(w.Abilities.Pursue(c, "nourishing-water:unrevealed-4"));
         }

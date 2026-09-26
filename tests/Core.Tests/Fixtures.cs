@@ -9,6 +9,7 @@ using MirrorChronicles.Economy;
 using MirrorChronicles.Events;
 using MirrorChronicles.Mirror;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Tests
 {
@@ -40,6 +41,7 @@ namespace MirrorChronicles.Tests
         public ResourceManager Resources { get; }
         public MentalStabilitySystem Stability { get; }
         public ClanKarmaSystem Karma { get; }
+        public KnowledgeBase Knowledge { get; }
         public TechniqueLibrary Techniques { get; }
         public CultivationSystem Cultivation { get; }
         public BreakthroughSystem Breakthroughs { get; }
@@ -62,7 +64,8 @@ namespace MirrorChronicles.Tests
             Resources = new ResourceManager(Ctx);
             Stability = new MentalStabilitySystem(Ctx, Clan);
             Karma = new ClanKarmaSystem(Ctx, Clan);
-            Techniques = new TechniqueLibrary(Ctx);
+            Knowledge = WorldKnowledge.Create(Ctx.Content);
+            Techniques = new TechniqueLibrary(Ctx, Knowledge);
             Cultivation = new CultivationSystem(Ctx, Karma, Techniques, Resources);
             Breakthroughs = new BreakthroughSystem(Ctx, Clan, Cultivation);
             Foundations = new FoundationSystem(Ctx, Clan, Techniques);

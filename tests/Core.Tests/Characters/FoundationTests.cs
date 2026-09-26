@@ -110,6 +110,8 @@ namespace MirrorChronicles.Tests.Characters
             var w = new TestWorld();
             var consumer = w.Join(AtTheFoundation("mutable-metal:engraved-stele", stage: 1));
             var donor = w.Join(AtTheFoundation("mutable-metal:dawn-helm", stage: 2));
+            w.Knowledge.Reveal(new MirrorChronicles.World.Fact(MirrorChronicles.World.FactKind.DaoPartners, consumer.FoundationId),
+                MirrorChronicles.World.KnowledgeSource.Studied); // one devours only a partner one knows (L4.6c)
 
             Assert.IsTrue(w.Foundations.ConsumeDaoPartner(consumer, donor));
 
