@@ -216,10 +216,10 @@ namespace MirrorChronicles.Economy
         /// <summary>Where the clan's hunters go (a regions.json id): its home unless the player sends them elsewhere.</summary>
         public string HuntingGround { get; private set; }
 
-        /// <summary>Sends the hunters to a place of the map; false for a place off it.</summary>
+        /// <summary>Sends the hunters to a place of the map; false for a place off it or a whole state or sea.</summary>
         public bool SetHuntingGround(string regionId)
         {
-            if (ctx.Content.Regions.All(r => r.Id != regionId)) return false;
+            if (ctx.Content.Regions.FirstOrDefault(r => r.Id == regionId)?.ParentId == null) return false;
             HuntingGround = regionId;
             return true;
         }

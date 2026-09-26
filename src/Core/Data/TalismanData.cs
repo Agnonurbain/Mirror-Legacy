@@ -76,9 +76,9 @@ namespace MirrorChronicles.Data
 
     /// <summary>
     /// The talismans the mirror offers a bearer after a ritual, awaiting the player's choice (saved); the leap is set
-    /// by the sacrificed beast's strength (0 in older saves: the rank's own leap).
+    /// by the sacrificed beast's strength (null in older saves: the rank's own leap).
     /// </summary>
-    public sealed record TalismanOffer(string BeneficiaryId, List<string> Choices, int Leap = 0);
+    public sealed record TalismanOffer(string BeneficiaryId, List<string> Choices, int? Leap = null);
 
     /// <summary>
     /// A spirit beast the clan captured, kept for the mirror's ritual (saved): its realm and stage, and the power it

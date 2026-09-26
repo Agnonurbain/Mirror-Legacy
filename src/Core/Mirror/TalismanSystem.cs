@@ -80,7 +80,7 @@ namespace MirrorChronicles.Mirror
             bearer.TalismanQiId = talisman.Id;
             bearer.MaxLifespan += talisman.LifespanYears;
             int rankLeap = talisman.Rank == TalismanRank.White ? Settings.WhiteStageLeap : Settings.GreyStageLeap;
-            TalismanRules.Leap(bearer, offer.Leap > 0 ? offer.Leap : rankLeap); // an older save's offer: the rank's leap
+            TalismanRules.Leap(bearer, offer.Leap ?? rankLeap); // an older save's offer: the rank's leap
             ctx.Log.Info($"[Mirror] {bearer.FullName} receives the talisman Qi « {talisman.Name} ».");
             return true;
         }
