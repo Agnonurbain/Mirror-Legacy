@@ -64,6 +64,14 @@
     "purificationChance": 0.5,
     "mirrorVeilCost": 30
   },
+  "talismans": {
+    "prayersPerRitual": 10000,
+    "prayersPerMortalPerYear": 150,
+    "prayersPerPrestigePerYear": 10,
+    "offerRootThresholds": [ 40, 70 ],
+    "greyStageLeap": 2,
+    "whiteStageLeap": 3
+  },
   "trials": {
     "chakraChances": { "InnerLakeChakra": 70, "MeridianWheelChakra": 80, "SummitEyeChakra": 75 },
     "foundationAdvisedAge": 60,

@@ -36,6 +36,11 @@ namespace MirrorChronicles.Characters
         public static int IllusionsChance(CharacterData c, PurpleMansionSettings s, TrialModifiers m) =>
             Clamp(s.IllusionsBaseChance + (c.MentalStability - m.AverageStability) / m.StabilityPointsPerPercent);
 
+        /// <summary>The Illusions with the whole content: a talisman Qi's still heart dispels them (LORE.md §11.5).</summary>
+        public static int IllusionsChance(CharacterData c, GameContent content) =>
+            Clamp(IllusionsChance(c, content.Balance.PurpleMansion, content.Balance.TrialModifiers)
+                + (Mirror.TalismanRules.Of(c, content.Talismans)?.IllusionsBonus ?? 0));
+
         /// <summary>How long the Great Void holds a cultivator: years of a band, or for life past the last band.</summary>
         public static (int Years, bool ForLife) DrawVoid(Random rng, IReadOnlyList<VoidBand> bands)
         {
@@ -139,7 +144,7 @@ namespace MirrorChronicles.Characters
             member.Retreat = Retreat.None;
             member.RetreatYearsLeft = 0;
 
-            int chance = PurpleMansionRules.IllusionsChance(member, Settings, ctx.Content.Balance.TrialModifiers);
+            int chance = PurpleMansionRules.IllusionsChance(member, ctx.Content);
             if (ctx.Rng.Next(1, 101) > chance)
             {
                 LoseAllCultivation(member);

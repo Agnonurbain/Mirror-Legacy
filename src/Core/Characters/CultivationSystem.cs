@@ -42,18 +42,30 @@ namespace MirrorChronicles.Characters
             if (!SpiritualOrificeRules.CanCultivate(character)) return; // a mortal gathers no Qi
             if (character.ProgressionSealed) return;                     // a consumed Dao Partner: no further, even cultivating
 
-            double speed = TechniqueRules.CultivationSpeed(techniques.MethodOf(character), character.Realm, ctx.Content.Balance);
-            if (speed <= 0) return; // no method guides this realm
+            double multiplier = SpeedOf(character);
+            if (multiplier <= 0) return; // no method guides this realm
 
             int gain = BaseYearlyXp + character.SpiritualRoot / 2 + karma.GetBonusXP();
+            GrantXp(character, (int)Math.Round(gain * multiplier));
+        }
+
+        /// <summary>
+        /// How fast a member cultivates: the method's speed for the realm (0 when none guides it), the clan's karma,
+        /// the Dao Heart's alignment, a talisman Qi, a Heart Demon, a troubled mind.
+        /// </summary>
+        public double SpeedOf(CharacterData character)
+        {
+            double speed = TechniqueRules.CultivationSpeed(techniques.MethodOf(character), character.Realm, ctx.Content.Balance);
+            if (speed <= 0) return 0;
+
             double heart = FoundationRules.HeartAlignmentSpeed(character.Temperament,
                 FoundationRules.FruitionOf(character.FoundationId, ctx.Content.Fruitions), ctx.Content.Balance);
             double multiplier = (1.0 + karma.GetCultivationSpeedBonus()) * speed * heart;
+            multiplier *= Mirror.TalismanRules.Of(character, ctx.Content.Talismans)?.CultivationSpeed ?? 1.0; // a talisman Qi (§11.5)
             if (character.HeartDemonYearsLeft > 0) multiplier *= ctx.Content.Balance.Oaths.HeartDemonSpeed; // an oath broken (L4d)
             if (character.MentalStability < LowStabilityThreshold)
                 multiplier *= LowStabilityMultiplier;
-
-            GrantXp(character, (int)Math.Round(gain * multiplier));
+            return multiplier;
         }
 
         /// <summary>Adds XP from any source (cultivation, study, teaching, buildings) and climbs free sub-levels.</summary>

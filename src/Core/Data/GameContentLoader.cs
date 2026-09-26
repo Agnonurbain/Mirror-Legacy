@@ -25,9 +25,10 @@ namespace MirrorChronicles.Data
         public const string FruitionsFile = "fruitions.json";
         public const string OathsFile = "oaths.json";
         public const string RegionsFile = "regions.json";
+        public const string TalismansFile = "talismans.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -57,6 +58,7 @@ namespace MirrorChronicles.Data
             var fruitions = Read<FruitionCatalog>(readFile, FruitionsFile);
             var oaths = Read<OathCatalog>(readFile, OathsFile);
             var regions = Read<List<RegionDefinition>>(readFile, RegionsFile);
+            var talismans = Read<List<TalismanDefinition>>(readFile, TalismansFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -69,11 +71,13 @@ namespace MirrorChronicles.Data
             CheckFruitions(fruitions);
             CheckOaths(oaths);
             CheckRegions(regions);
+            CheckTalismans(talismans);
             CheckFactions(factions, regions, catalog.Techniques);
             Require(regions.Any(r => r.Id == clan.HomeRegion), ClanFile, $"homeRegion \"{clan.HomeRegion}\" is not a region of {RegionsFile}.");
             CheckFoundations(qi, catalog.Techniques, fruitions.Fruitions);
             CheckInterpretedFields(TechniquesFile, catalog.Techniques.Select(t => (t.ID, typeof(TechniqueData), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(FactionsFile, factions.Select(f => (f.Name, typeof(FactionData), (IEnumerable<string>)f.InterpretedFields)));
+            CheckInterpretedFields(TalismansFile, talismans.Select(t => (t.Id, typeof(TalismanDefinition), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(RegionsFile, regions.Select(r => (r.Id, typeof(RegionDefinition), (IEnumerable<string>)r.InterpretedFields)));
             CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
             CheckInterpretedFields(FruitionsFile, fruitions.Fruitions.Select(f => (f.Id, typeof(FruitionDefinition), (IEnumerable<string>)f.InterpretedFields))
@@ -93,7 +97,8 @@ namespace MirrorChronicles.Data
                 Fruitions = fruitions.Fruitions,
                 AnonymousHolder = fruitions.AnonymousHolder,
                 Oaths = oaths,
-                Regions = regions
+                Regions = regions,
+                Talismans = talismans
             };
         }
 
@@ -174,6 +179,12 @@ namespace MirrorChronicles.Data
                 && IsProbability(oathCosts.DeviationChanceOnInterrupt) && IsProbability(oathCosts.PurificationChance)
                 && oathCosts.HeartDemonSpeed > 0 && oathCosts.HeartDemonStabilityLoss >= 0 && oathCosts.PurificationHerbs >= 0 && oathCosts.MirrorVeilCost >= 0,
                 BalanceFile, "oaths needs three interruption chances and Heart Demon years (severity 1-3), and its costs.");
+            var talismanRitual = balance.Talismans;
+            Require(talismanRitual != null && talismanRitual.PrayersPerRitual > 0 && talismanRitual.PrayersPerMortalPerYear >= 0
+                && talismanRitual.PrayersPerPrestigePerYear >= 0 && talismanRitual.OfferRootThresholds?.Count == 2
+                && talismanRitual.OfferRootThresholds[0] <= talismanRitual.OfferRootThresholds[1]
+                && talismanRitual.GreyStageLeap >= 0 && talismanRitual.WhiteStageLeap >= 0,
+                BalanceFile, "talismans needs positive prayers per ritual, two ordered root thresholds and leaps never negative.");
             var trials = balance.Trials;
             Require(trials != null && trials.ChakraChances != null && trials.ChakraChances.Values.All(c => c >= 0 && c <= 100)
                 && new[] { trials.FoundationWallBaseChance, trials.MinimumTrialChance, trials.DissolutionBaseChance, trials.MaximumDissolutionChance }
@@ -362,6 +373,17 @@ namespace MirrorChronicles.Data
                 .Select(t => t.RequiredQiId).Distinct();
             var missing = reachingFoundation.FirstOrDefault(id => qi.First(q => q.Id == id).Foundation == null);
             Require(missing == null, QiFile, $"{missing}: its methods reach the Foundation, so it must name the foundation it builds.");
+        }
+
+        /// <summary>The talisman Qi (§11.5): unique ids, a name, a positive speed, no lost years.</summary>
+        private static void CheckTalismans(List<TalismanDefinition> talismans)
+        {
+            Require(talismans.All(t => !string.IsNullOrWhiteSpace(t.Id) && !string.IsNullOrWhiteSpace(t.Name)), TalismansFile, "every talisman needs an id and a name.");
+            var duplicate = talismans.GroupBy(t => t.Id).FirstOrDefault(g => g.Count() > 1)?.Key;
+            Require(duplicate == null, TalismansFile, $"two talismans share the id \"{duplicate}\".");
+            var wrong = talismans.FirstOrDefault(t => t.CultivationSpeed <= 0 || t.LifespanYears < 0 || t.IllusionsBonus < 0 || t.OffspringRootBonus < 0
+                || t.Temperaments == null || t.Traits == null || t.InterpretedFields == null);
+            Require(wrong == null, TalismansFile, $"{wrong?.Id}: a talisman needs a positive speed, figures never negative and lists (empty when none).");
         }
 
         /// <summary>The map (L5): unique places with a name, on the map, whose parent and neighbours exist and answer back.</summary>

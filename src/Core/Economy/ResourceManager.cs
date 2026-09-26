@@ -58,6 +58,15 @@ namespace MirrorChronicles.Economy
 
         public void AddPrestige(int amount) => Prestige += amount;
 
+        /// <summary>Prayers offered to the mirror (LORE.md §11.5): ten thousand pay for a talisman Qi's ritual.</summary>
+        public int Prayers { get; private set; }
+
+        public void AddPrayers(int amount) { if (amount > 0) Prayers += amount; }
+
+        public bool ConsumePrayers(int amount) => TryConsume(amount, Prayers, v => Prayers = v);
+
+        public void RestorePrayers(int prayers) => Prayers = Math.Max(0, prayers);
+
         public void AddTechniqueFragments(int amount) { if (amount > 0) TechniqueFragments += amount; }
         public bool ConsumeTechniqueFragments(int amount) => TryConsume(amount, TechniqueFragments, v => TechniqueFragments = v);
 

@@ -70,7 +70,8 @@ namespace MirrorChronicles.Data
         AscentCollapse,        // exhausted before the Shenyang Mansion on the way to the Purple Mansion (appended)
         FoundationDevoured,    // a Dao Partner whose foundation another consumed (user decision, 2026-09-25)
         ManifestationCollapse, // failed to manifest one's divine power at the Shenyang point (user decision)
-        MetalEssenceDemon      // a failed Golden Core: the residual metal essence comes alive (LORE.md §5.5.1)
+        MetalEssenceDemon,     // a failed Golden Core: the residual metal essence comes alive (LORE.md §5.5.1)
+        Sacrificed             // offered to the mirror for a talisman Qi (LORE.md §11.5)
     }
 
     /// <summary>

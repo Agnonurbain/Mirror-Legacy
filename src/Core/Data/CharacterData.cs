@@ -72,6 +72,9 @@ namespace MirrorChronicles.Data
         public int RetreatYearsLeft { get; set; }
         public bool ImprisonedInVoid { get; set; }
 
+        // The talisman Qi the mirror refined for this member (LORE.md §11.5), a talismans.json id
+        public string TalismanQiId { get; set; }
+
         // Oaths of the Dao (L4d): years a Heart Demon still haunts an oath-breaker
         public int HeartDemonYearsLeft { get; set; }
 

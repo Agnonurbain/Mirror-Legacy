@@ -219,6 +219,7 @@ namespace MirrorChronicles.Tests.Mirror
             var plain = Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4);
             var calm = Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4);
             calm.TalismanQiId = "radiant-snow-pine-ridge";
+            plain.MentalStability = calm.MentalStability = 40; // below the 99 % ceiling
             var content = Fixtures.Content;
             int bonus = Talisman("radiant-snow-pine-ridge").IllusionsBonus;
             Assert.Greater(bonus, 0);

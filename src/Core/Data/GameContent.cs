@@ -35,6 +35,9 @@ namespace MirrorChronicles.Data
         /// <summary>The clauses one may swear on one's path, and the loopholes (oaths.json, L4d).</summary>
         public OathCatalog Oaths { get; init; } = new OathCatalog();
 
+        /// <summary>The talisman Qi the mirror can refine (talismans.json, LORE.md §11.5).</summary>
+        public IReadOnlyList<TalismanDefinition> Talismans { get; init; } = Array.Empty<TalismanDefinition>();
+
         /// <summary>The world map (regions.json, LORE.md §7).</summary>
         public IReadOnlyList<RegionDefinition> Regions { get; init; } = Array.Empty<RegionDefinition>();
     }
@@ -154,6 +157,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>What breaking an oath costs (L4d).</summary>
         public OathSettings Oaths { get; init; }
+
+        /// <summary>The ritual of the talisman Qi: prayers, offers, leaps (§11.5; the ten thousand prayers are the lore's).</summary>
+        public TalismanSettings Talismans { get; init; }
 
         /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
         public TrialSettings Trials { get; init; }

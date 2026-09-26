@@ -74,6 +74,10 @@ namespace MirrorChronicles.Clan
             ctx.Events.TriggerAncestorAscended(character);
         }
 
+        /// <summary>The spiritual root a parent's talisman Qi gives their children besides (the stronger parent's).</summary>
+        private int OffspringTalent(CharacterData father, CharacterData mother) =>
+            new[] { father, mother }.Max(p => Mirror.TalismanRules.Of(p, ctx.Content.Talismans)?.OffspringRootBonus ?? 0);
+
         /// <summary>
         /// A newborn of the clan: genetics from both parents, the hereditary orifice rolled (LORE.md §4, D3),
         /// a mortal lifespan until the first chakra, and nobody has examined it yet.
@@ -105,6 +109,7 @@ namespace MirrorChronicles.Clan
             child.HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(
                 SpiritualOrificeRules.CountParentsWithOrifice(father, mother), rng.NextDouble(), ctx.Content.Balance.OrificeOdds);
             child.Temperament = FoundationRules.InheritTemperament(father, mother, rng, ctx.Content.Balance.TemperamentInheritanceChance);
+            child.SpiritualRoot = System.Math.Min(GeneticSystem.MaxSpiritualRoot, child.SpiritualRoot + OffspringTalent(father, mother)); // a talisman Qi (§11.5)
             child.ID = rng.NextId(); // seeded: the same game always names the same child
 
             AddMember(child);

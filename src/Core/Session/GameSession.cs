@@ -47,6 +47,7 @@ namespace MirrorChronicles.Session
         public FactionManager Factions { get; }
         public FruitionRegistry Fruitions { get; }
         public GoldenCoreSystem GoldenCore { get; }
+        public TalismanSystem Talismans { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
         public BuildingSystem Buildings { get; }
@@ -86,6 +87,7 @@ namespace MirrorChronicles.Session
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
+            Talismans = new TalismanSystem(Context, Clan, Resources);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability);
@@ -168,6 +170,8 @@ namespace MirrorChronicles.Session
             }
             session.Oaths.Restore((data.Pacts ?? new List<PactData>()).Select(p => p.Clone()), data.VeiledOathBreakers);
             session.GoldenCore.Restore(data.GoldenCorePermissions); // saves made before L4b have none
+            session.Resources.RestorePrayers(data.Prayers);           // saves made before 2.6: none gathered
+            session.Talismans.Restore(data.TalismanOffer);
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);
@@ -203,6 +207,9 @@ namespace MirrorChronicles.Session
                 QiHarvestProgress = new Dictionary<string, int>(Resources.QiHarvestProgress),
                 FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),
                 GoldenCorePermissions = new Dictionary<string, string>(GoldenCore.Permissions),
+                Prayers = Resources.Prayers,
+                TalismanOffer = Talismans.PendingOffer == null ? null
+                    : new TalismanOffer(Talismans.PendingOffer.BeneficiaryId, new List<string>(Talismans.PendingOffer.Choices)),
                 GenerationCount = Karma.GenerationCount,
                 TotalBirths = Karma.TotalBirths,
                 TotalDeaths = Karma.TotalDeaths,
