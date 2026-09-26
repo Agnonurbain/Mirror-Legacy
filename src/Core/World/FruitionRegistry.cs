@@ -51,6 +51,13 @@ namespace MirrorChronicles.World
             }
         }
 
+        /// <summary>A True Monarch takes the lineage's Realization: it is now held, by them.</summary>
+        public void Claim(string fruitionId, string holder)
+        {
+            if (State(fruitionId) == null) throw new ArgumentException($"Unknown lineage \"{fruitionId}\".", nameof(fruitionId));
+            states[fruitionId] = new FruitionState(FruitionStatus.Occupied, holder);
+        }
+
         /// <summary>The world's own random source for a game seed.</summary>
         public static Random WorldRandom(int seed) => new Random(unchecked(seed * 7919 + 104729));
 

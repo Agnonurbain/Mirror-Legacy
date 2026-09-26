@@ -14,7 +14,8 @@ namespace MirrorChronicles.World
         Ability,        // a foundation / divine ability (« fruition-id:ability-id »)
         DaoPartners,    // the Dao Partners of a foundation (« fruition-id:ability-id »)
         FoundationOfQi, // which foundation a Qi builds (a Qi id)
-        Pact            // that a pact exists (a pact id): others' oaths are learned by spying, the mirror…
+        Pact,           // that a pact exists (a pact id): others' oaths are learned by spying, the mirror…
+        GoldSeeking     // a lineage's gold-seeking method (a fruition id; « fruition-id:intercalary » the specialised one)
     }
 
     /// <summary>Where a piece of knowledge came from.</summary>

@@ -149,6 +149,7 @@ namespace MirrorChronicles.Presentation
             DeathCause.AscentCollapse => "épuisé(e) avant le Manoir Shenyang",
             DeathCause.FoundationDevoured => "sa fondation dévorée par un Partenaire Dao",
             DeathCause.ManifestationCollapse => "en échouant à manifester son pouvoir divin",
+            DeathCause.MetalEssenceDemon => "en échouant au Noyau d'Or : un Démon d'Essence Métallique est né",
             _ => ""
         };
     }

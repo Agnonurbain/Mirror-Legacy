@@ -64,4 +64,11 @@ namespace MirrorChronicles.Data
         DemonicEquivalent,     // R16
         ShamanicEquivalent     // R17
     }
+
+    /// <summary>
+    /// The position five divine abilities lead to in a lineage (LORE.md §5.5.1): its five orthodox abilities
+    /// (Realization), a substitute among them (Surplus), or a complete change of lineage (Intercalary: four of
+    /// another lineage and one of this one, or three and two with a specialised gold-seeking method).
+    /// </summary>
+    public enum PositionRoute { None, Realization, Surplus, IntercalaryFourOne, IntercalaryThreeTwo }
 }

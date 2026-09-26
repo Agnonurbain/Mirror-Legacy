@@ -176,6 +176,12 @@ namespace MirrorChronicles.Data
                 BalanceFile, "divineAbilities needs its costs (never negative).");
             Require(abilities.GraftDonorMinYearsLeft >= 1 && abilities.GraftDonorMinYearsLeft <= abilities.GraftDonorMaxYearsLeft,
                 BalanceFile, "a grafted donor's years left need 1 <= min <= max.");
+            var core = balance.GoldenCore;
+            Require(core != null && new[] { core.ForgeBaseChance, core.RealizationChance, core.SurplusChance, core.IntercalaryFourOneChance, core.IntercalaryThreeTwoChance }
+                    .All(c => c >= 0 && c <= 100)
+                && core.ShallowAbilityPenalty >= 0 && core.GraftedAbilityPenalty >= 0 && core.LifeLastBonus >= 0 && core.AxiomPenalty >= 0
+                && core.PermissionStones >= 0 && IsProbability(core.PermissionChance) && core.GoldSeekingMirrorCost >= 0 && core.SpecialisedMirrorCost >= 0,
+                BalanceFile, "goldenCore needs chances of 0-100 %, penalties and costs never negative, a permission chance between 0 and 1.");
             var rules = balance.Techniques;
             Require(rules != null && rules.CommonBreathingSpeed > 0 && rules.QiPortionsToEnter >= 0 && rules.FoundationQiPortions >= 0
                 && rules.AlignedQiPortions >= 0 && rules.LowestGradeChosenForAMember >= TechniqueRules.MinGrade
