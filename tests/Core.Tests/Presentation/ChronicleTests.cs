@@ -104,5 +104,13 @@ namespace MirrorChronicles.Tests.Presentation
             session.Knowledge.Reveal(FactKind.Lineage, "mutable-water", KnowledgeSource.OlderSave);
             Assert.AreEqual(count, chronicle.Entries.Count);
         }
+
+        [Test]
+        public void AnAbilityTheContentRenamedSince_StaysReadable()
+        {
+            // a save may hold a fact about an ability whose id the content later renamed (unrevealed-1 → great-li-codex)
+            Assert.AreEqual("la capacité non révélée (Feu Orthodoxe)",
+                KnowledgeView.Describe(new Fact(FactKind.Ability, "orthodox-fire:unrevealed-1"), Fixtures.Content));
+        }
     }
 }

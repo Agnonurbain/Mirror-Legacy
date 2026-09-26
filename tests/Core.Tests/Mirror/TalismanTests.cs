@@ -272,5 +272,34 @@ namespace MirrorChronicles.Tests.Mirror
             Assert.AreEqual(s.Resources.Prayers, reloaded.Resources.Prayers);
             CollectionAssert.AreEqual(new[] { "prolong-life" }, reloaded.Talismans.PendingOffer.Choices);
         }
+
+        // ---- An offer never outlives its bearer (review of 2026-09-26) ----
+
+        [Test]
+        public void TheOffer_DiesWithItsBearer_AndTheMirrorCanPerformAgain()
+        {
+            var w = Devout();
+            var bearer = Bearer(w);
+            w.Talismans.PerformRitual(bearer, Sacrifice(w));
+
+            w.Clan.Kill(bearer, DeathCause.OldAge);
+
+            Assert.IsNull(w.Talismans.PendingOffer);
+            w.Resources.AddPrayers(Settings.PrayersPerRitual);
+            Assert.IsTrue(w.Talismans.PerformRitual(Bearer(w), Sacrifice(w)));
+        }
+
+        [Test]
+        public void Restore_DropsAnOfferThatNoLongerResolves()
+        {
+            var w = Devout();
+            var bearer = Bearer(w);
+
+            w.Talismans.Restore(new TalismanOffer("nobody", new System.Collections.Generic.List<string> { "prolong-life" }));
+            Assert.IsNull(w.Talismans.PendingOffer, "an unknown bearer");
+
+            w.Talismans.Restore(new TalismanOffer(bearer.ID, new System.Collections.Generic.List<string> { "no-such-talisman" }));
+            Assert.IsNull(w.Talismans.PendingOffer, "no talisman the content still has");
+        }
     }
 }
