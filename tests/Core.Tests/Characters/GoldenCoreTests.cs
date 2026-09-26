@@ -117,6 +117,13 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(PositionRoute.None, GoldenCoreRules.RouteTo(FiveOrthodoxWater.Take(4), OrthodoxWater, Content.Fruitions));
         }
 
+        [Test]
+        public void RouteTo_TheSameAbilityTwice_CountsOnce()
+        {
+            var abilities = FiveOrthodoxWater.Take(4).Append(FiveOrthodoxWater[0]);
+            Assert.AreEqual(PositionRoute.None, GoldenCoreRules.RouteTo(abilities, OrthodoxWater, Content.Fruitions));
+        }
+
         [TestCase(PositionRoute.IntercalaryFourOne, "orthodox-water", true)]  // « an orthodox position knows no Intercalary »
         [TestCase(PositionRoute.Surplus, "gathered-water", true)]             // « a gathered position knows no Surplus »
         [TestCase(PositionRoute.IntercalaryFourOne, "nourishing-water", false)]
@@ -160,7 +167,9 @@ namespace MirrorChronicles.Tests.Characters
             var w = new TestWorld(new FixedRandom(Pass));
             var c = ReadyToForge(w);
             c.DivineAbilities.RemoveAt(4);
+            c.RealmStage = PowerLadder.PurpleMansionStageFromAbilities(c.DivineAbilities.Count); // late stage, four abilities
             Assert.IsFalse(w.GoldenCore.Forge(c, OrthodoxWater));
+            Assert.AreEqual(Xp, c.CultivationXP); // nothing tried, nothing spent
         }
 
         [Test]
@@ -258,7 +267,7 @@ namespace MirrorChronicles.Tests.Characters
         {
             // One Realization per lineage; the essence may try again later (R7)
             var w = new TestWorld(new FixedRandom(Pass));
-            w.Fruitions.Claim(OrthodoxWater, "Vrai Monarque rival");
+            w.Fruitions.ChangeHolder(OrthodoxWater, "Vrai Monarque rival");
             var c = Forged(w, OrthodoxWater);
 
             Assert.IsFalse(w.GoldenCore.ClaimPosition(c));
@@ -365,7 +374,7 @@ namespace MirrorChronicles.Tests.Characters
             var w = new TestWorld(new FixedRandom(Pass));
             w.Resources.AddSpiritStones(Content.Balance.GoldenCore.PermissionStones);
             w.GoldenCore.RequestPermission(MutableWater);
-            w.Fruitions.Claim(MutableWater, "Nouveau détenteur");
+            w.Fruitions.ChangeHolder(MutableWater, "Nouveau détenteur");
 
             var c = Forged(w, MutableWater, MutableWithSubstitute);
 

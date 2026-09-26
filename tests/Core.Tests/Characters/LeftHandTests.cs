@@ -219,7 +219,7 @@ namespace MirrorChronicles.Tests.Characters
             PatronAgrees(w);
             w.GoldenCore.BindToPatron(c, MutableWater);
             w.Resources.AddSpiritStones(Settings.FalseLeftHandYearlyStones);
-            w.Fruitions.Claim(MutableWater, "Nouveau détenteur");
+            w.Fruitions.ChangeHolder(MutableWater, "Nouveau détenteur");
 
             w.GoldenCore.ProcessBreakthroughPhase();
 
