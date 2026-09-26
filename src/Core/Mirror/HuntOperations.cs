@@ -43,32 +43,43 @@ namespace MirrorChronicles.Mirror
             this.talismans = talismans;
             this.suspicion = suspicion;
             this.stability = stability;
+            ctx.Events.OnYearStarted += year => ReturnFromOperations();
+        }
+
+        /// <summary>Fit and not already sent on a hunt or a diversion this year (one operation a year).</summary>
+        public bool IsFree(CharacterData member) => Fit(member) && member.LastOperationYear != ctx.Clock.Year;
+
+        /// <summary>A new year: those away on an operation are back, free for their tasks.</summary>
+        private void ReturnFromOperations()
+        {
+            foreach (var m in clan.LivingMembers.Where(m => m.CurrentTask == TaskType.HuntBeast || m.CurrentTask == TaskType.Diversion))
+                m.CurrentTask = TaskType.None;
         }
 
         private HuntSettings Settings => ctx.Content.Balance.Hunt;
 
-        /// <summary>Why the plan cannot be carried out, or null when it can.</summary>
+        /// <summary>Why the plan cannot be carried out, told to the player in French, or null when it can.</summary>
         public string Validate(HuntPlan plan)
         {
-            if (plan == null) return "there is no plan";
-            if (!talismans.HuntWindowOpen) return "the hunt's window is closed";
+            if (plan == null) return "il n'y a pas de plan";
+            if (!talismans.HuntWindowOpen) return "la fenêtre de chasse est fermée";
             var beast = Target(plan);
-            if (beast == null) return "the clan has not scouted this beast";
-            if (plan.Team == null || !plan.Team.ContainsValue(HuntRole.Striker)) return "the team needs a striker";
-            var unfit = plan.Team.Keys.FirstOrDefault(id => !Fit(clan.FindById(id)));
-            if (unfit != null) return $"{clan.FindById(unfit)?.FullName ?? unfit} cannot join the hunt";
+            if (beast == null) return "le clan n'a pas repéré cette bête";
+            if (plan.Team == null || !plan.Team.ContainsValue(HuntRole.Striker)) return "l'équipe a besoin d'un frappeur";
+            var unfit = plan.Team.Keys.FirstOrDefault(id => !IsFree(clan.FindById(id)));
+            if (unfit != null) return $"{clan.FindById(unfit)?.FullName ?? unfit} ne peut pas être de la chasse";
 
             if (plan.DiversionMemberId != null)
             {
-                if (plan.Team.ContainsKey(plan.DiversionMemberId)) return "the diversion cannot be one of the team";
-                if (!Fit(clan.FindById(plan.DiversionMemberId))) return "the diversion's member cannot go";
+                if (plan.Team.ContainsKey(plan.DiversionMemberId)) return "la diversion ne peut pas être de l'équipe";
+                if (!IsFree(clan.FindById(plan.DiversionMemberId))) return "le membre de la diversion ne peut pas partir";
                 var place = ctx.Content.Regions.FirstOrDefault(r => r.Id == plan.DiversionRegionId);
-                if (place?.ParentId == null || place.Id == beast.RegionId) return "the diversion must be seen elsewhere, on a place of the map";
+                if (place?.ParentId == null || place.Id == beast.RegionId) return "la diversion doit se montrer ailleurs, sur un lieu de la carte";
             }
             if (plan.FramedFaction != null && (factions.GetFactionByName(plan.FramedFaction) == null || plan.FramedFaction == beast.OwnerFaction))
-                return "the false trail must point at another power";
-            if (mirror.MirrorPower < Settings.AidMirrorCost[(int)plan.Aid]) return "the mirror lacks the power for its help";
-            if (resources.SpiritStones < Settings.CoverStones[(int)plan.Cover]) return "the cover story costs more stones than the clan has";
+                return "la fausse piste doit viser une autre puissance";
+            if (mirror.MirrorPower < Settings.AidMirrorCost[(int)plan.Aid]) return "le miroir manque de puissance pour aider";
+            if (resources.SpiritStones < Settings.CoverStones[(int)plan.Cover]) return "la couverture coûte plus de pierres que le clan n'en a";
             return null;
         }
 
@@ -89,12 +100,14 @@ namespace MirrorChronicles.Mirror
             {
                 var member = clan.FindById(id);
                 member.CurrentTask = TaskType.HuntBeast; // away for the year
+                member.LastOperationYear = ctx.Clock.Year;
                 member.KnowsMirrorSecret = true;         // and in the secret (L2c.4b)
             }
             if (plan.DiversionMemberId != null)
             {
                 var decoy = clan.FindById(plan.DiversionMemberId);
                 decoy.CurrentTask = TaskType.Diversion; // seen elsewhere
+                decoy.LastOperationYear = ctx.Clock.Year;
                 decoy.KnowsMirrorSecret = true;
             }
 

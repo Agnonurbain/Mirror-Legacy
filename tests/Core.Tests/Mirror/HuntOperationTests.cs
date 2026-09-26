@@ -55,7 +55,7 @@ namespace MirrorChronicles.Tests.Mirror
         {
             var (w, beast) = World(new FixedRandom(Pass));
             w.Talismans.RestoreCalendar(w.Ctx.Clock.Year + 10);
-            StringAssert.Contains("window", w.Hunts.Validate(Plan(beast, (Hunter(w), HuntRole.Striker))));
+            StringAssert.Contains("fenêtre", w.Hunts.Validate(Plan(beast, (Hunter(w), HuntRole.Striker))));
         }
 
         [Test]
@@ -288,6 +288,28 @@ namespace MirrorChronicles.Tests.Mirror
 
             Assert.AreEqual(25, reloaded.Suspicion.OfClan(Ruan));
             Assert.AreEqual(10, reloaded.Suspicion.Distrust(Ruan, "Famille Lou"));
+        }
+
+        // ---- One operation a year (review of 2026-09-26) ----
+
+        [Test]
+        public void AMemberBackFromAHunt_CannotGoAgainThatYear_ButCanTheNext()
+        {
+            var (w, beast) = World(new FixedRandom(Pass));
+            var striker = Hunter(w);
+            var second = beast with { Id = "iron-boar-heshan-2" };
+            w.Bestiary.Restore(new[] { beast, second });
+            w.Knowledge.Reveal(FactKind.Beast, second.Id, KnowledgeSource.Studied);
+            w.Hunts.Execute(Plan(beast, (striker, HuntRole.Striker)));
+
+            Assert.IsNotNull(w.Hunts.Validate(Plan(second, (striker, HuntRole.Striker))), "busy for the year");
+            Assert.IsFalse(w.Hunts.IsFree(striker));
+
+            w.Ctx.Clock.Restore(w.Ctx.Clock.Year + 1, GamePhase.Management);
+            w.Ctx.Events.TriggerYearStarted(w.Ctx.Clock.Year);
+
+            Assert.IsTrue(w.Hunts.IsFree(striker));
+            Assert.AreEqual(TaskType.None, striker.CurrentTask, "back from the operation");
         }
     }
 }

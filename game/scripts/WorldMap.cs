@@ -72,7 +72,8 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Map: {WorldMapView.Places(root.Session).Count} places, {WorldMapView.Borders(root.Session).Count} borders.");
-            if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
+            if (root.SmokeEndsOnOperations) GetTree().ChangeSceneToFile(Operations.ScenePath); // the operations check themselves
+            else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }
     }
