@@ -85,8 +85,8 @@ namespace MirrorChronicles.Mirror
             var beast = Target(plan);
             resources.ConsumeSpiritStones(Settings.CoverStones[(int)plan.Cover]);
             mirror.ConsumePower(Settings.AidMirrorCost[(int)plan.Aid]);
-            foreach (var id in plan.Team.Keys.Append(plan.DiversionMemberId).Where(id => id != null))
-                clan.FindById(id).CurrentTask = TaskType.HuntBeast; // away for the year
+            foreach (var id in plan.Team.Keys) clan.FindById(id).CurrentTask = TaskType.HuntBeast; // away for the year
+            if (plan.DiversionMemberId != null) clan.FindById(plan.DiversionMemberId).CurrentTask = TaskType.Diversion; // seen elsewhere
 
             int approach = HuntRules.ApproachChance(plan, beast, factions, ctx.Content);
             if (ctx.Rng.Next(1, 101) > approach)

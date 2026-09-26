@@ -162,6 +162,7 @@ namespace MirrorChronicles.Presentation
             TaskType.Rest => "Repos",
             TaskType.HuntBeast => "Chasse aux bêtes",
             TaskType.ScoutBeasts => "Repérage des bêtes",
+            TaskType.Diversion => "Diversion",
             TaskType.GatherQi => "Récolte de Qi",
             _ => task.ToString()
         };

@@ -107,7 +107,8 @@ namespace MirrorChronicles.Economy
                     case TaskType.Diplomacy: Diplomacy(); break;
                     case TaskType.Espionage: espionage.AttemptEspionage(member, factions.RandomFaction()); break;
                     case TaskType.GatherQi: qiGathered += GatherQi(member); break;
-                    case TaskType.HuntBeast: break; // engaged in a hunt operation this year (HuntOperations)
+                    case TaskType.HuntBeast:
+                    case TaskType.Diversion: break; // engaged in a hunt operation this year (HuntOperations)
                     case TaskType.ScoutBeasts: ScoutBeasts(member); break;
                         // Teaching needs this year's students: resolved below
                 }

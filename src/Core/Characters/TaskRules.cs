@@ -39,7 +39,8 @@ namespace MirrorChronicles.Characters
         private static readonly TaskType[] AllTasks =
             Enum.GetValues(typeof(TaskType)).Cast<TaskType>().ToArray();
 
-        private static readonly TaskType[] TasksOutsideTheHunt = AllTasks.Where(t => t != TaskType.HuntBeast && t != TaskType.ScoutBeasts).ToArray();
+        private static readonly TaskType[] TasksOutsideTheHunt =
+            AllTasks.Where(t => t != TaskType.HuntBeast && t != TaskType.ScoutBeasts && t != TaskType.Diversion).ToArray();
 
         /// <param name="huntOpen">The hunt is open only in the window before the mirror's ritual (user decision, 2026-09-26).</param>
         public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character, bool huntOpen = false)

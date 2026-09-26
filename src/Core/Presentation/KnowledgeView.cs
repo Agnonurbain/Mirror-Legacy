@@ -32,7 +32,8 @@ namespace MirrorChronicles.Presentation
                         ? $"la méthode de recherche d'or de la lignée {LineageName(fact.Subject, content)}"
                         : $"la méthode de recherche d'or spécialisée de la lignée {LineageName(lineage, content)}";
                 case FactKind.Beast:
-                    var beast = content.BeastSpecies.FirstOrDefault(b => fact.Subject.StartsWith(b.Id + "-", System.StringComparison.Ordinal));
+                    var beast = content.BeastSpecies.OrderByDescending(b => b.Id.Length) // the longest id that fits: « boar-cub » before « boar »
+                        .FirstOrDefault(b => fact.Subject.StartsWith(b.Id + "-", System.StringComparison.Ordinal));
                     return $"où vit une bête spirituelle : {beast?.Name ?? fact.Subject}";
                 case FactKind.LeftHand:
                     var fruition = content.Fruitions.FirstOrDefault(f => f.Id == fact.Subject);
