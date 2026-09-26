@@ -154,8 +154,13 @@ namespace MirrorChronicles.Data
             var mansion = balance.PurpleMansion;
             Require(mansion != null && mansion.ManifestationYears > 0 && mansion.VoidBands != null
                 && mansion.VoidBands.All(b => IsProbability(b.Chance) && b.MinYears >= 0 && b.MinYears <= b.MaxYears)
-                && mansion.VoidBands.Sum(b => b.Chance) <= 1.0 + 1e-9,
+                && mansion.VoidBands.Sum(b => b.Chance) <= 1.0 + 1e-9
+                && mansion.ManifestationPerGrade >= 0 && mansion.ManifestationPerTechnique >= 0 && mansion.ManifestationTechniqueCap >= 0,
                 BalanceFile, "purpleMansion needs positive manifestation years and void bands whose chances sum to at most 1 (the rest: for life).");
+            var modifiers = balance.TrialModifiers;
+            Require(modifiers != null && modifiers.RootPointsPerPercent > 0 && modifiers.StabilityPointsPerPercent > 0 && modifiers.LowStabilityPenalty >= 0
+                && modifiers.ReferenceGrade >= TechniqueRules.MinGrade && modifiers.ReferenceGrade <= TechniqueRules.MaxGrade,
+                BalanceFile, "trialModifiers needs positive points per percent, a penalty never negative and a reference grade 1-7.");
             var abilities = balance.DivineAbilities;
             Require(abilities != null && abilities.ResourceStones >= 0 && abilities.ResourceHerbs >= 0 && abilities.ResourceOres >= 0 && abilities.GraftOres >= 0,
                 BalanceFile, "divineAbilities needs its costs (never negative).");
@@ -219,6 +224,7 @@ namespace MirrorChronicles.Data
                     Require(TechniqueRules.SupremeRealm(t) >= t.RequiredRealm, TechniquesFile, $"{t.ID}: its supreme realm lies below its first realm.");
                 Require(!needsQi || t.RequiredQiId != null, TechniquesFile, $"{t.ID}: a Qi Cultivation method needs its Qi (requiredQiId).");
                 Require(needsQi || t.RequiredQiId == null, TechniquesFile, $"{t.ID}: only a Qi Cultivation method needs a Qi.");
+                Require(t.Kind != TechniqueKind.Movement || t.MovementSteps > 0, TechniquesFile, $"{t.ID}: a movement art needs its movementSteps.");
 
                 if (t.RequiredQiId != null)
                 {

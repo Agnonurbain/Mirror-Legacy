@@ -34,6 +34,15 @@
     "graftDonorMaxYearsLeft": 5
   },
   "studyRevealsPartnersChance": 0.1,
+  "trialModifiers": {
+    "rootPointsPerPercent": 5,
+    "averageRoot": 50,
+    "lowStabilityThreshold": 50,
+    "lowStabilityPenalty": 20,
+    "averageStability": 50,
+    "stabilityPointsPerPercent": 2,
+    "referenceGrade": 5
+  },
   "techniques": {
     "commonBreathingSpeed": 1.0,
     "qiPortionsToEnter": 1,

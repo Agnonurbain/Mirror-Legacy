@@ -114,6 +114,8 @@ namespace MirrorChronicles.Clan
                 if (technique.Grade < TechniqueRules.MinGrade)
                     technique.Grade = Math.Clamp((int)technique.RequiredRealm + 1, TechniqueRules.MinGrade, TechniqueRules.MaxGrade - 1);
                 deduced.Add(technique);
+                Knowledge.Reveal(FactKind.Qi, technique.RequiredQiId, KnowledgeSource.OlderSave); // known already in a 2.3 save
+                Knowledge.Reveal(FactKind.FoundationOfQi, technique.RequiredQiId, KnowledgeSource.OlderSave);
             }
         }
 

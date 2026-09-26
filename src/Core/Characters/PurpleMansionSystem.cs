@@ -10,17 +10,12 @@ namespace MirrorChronicles.Characters
     /// <summary>Pure odds of the four trials of the Purple Mansion (LORE.md §5.4.1), from balance.json.</summary>
     public static class PurpleMansionRules
     {
-        private const int RootPointsPerPercent = 5;
-        private const int AverageRoot = 50;
-        private const int LowStabilityThreshold = 50;
-        private const int LowStabilityPenalty = 20;
-        private const int ReferenceGrade = 5;
 
         /// <summary>The Ascent to the Shenyang Mansion: talent carries it, a troubled mind betrays it.</summary>
-        public static int AscentChance(CharacterData c, PurpleMansionSettings s)
+        public static int AscentChance(CharacterData c, PurpleMansionSettings s, TrialModifiers m)
         {
-            int chance = s.AscentBaseChance + (c.SpiritualRoot - AverageRoot) / RootPointsPerPercent;
-            if (c.MentalStability < LowStabilityThreshold) chance -= LowStabilityPenalty;
+            int chance = s.AscentBaseChance + (c.SpiritualRoot - m.AverageRoot) / m.RootPointsPerPercent;
+            if (c.MentalStability < m.LowStabilityThreshold) chance -= m.LowStabilityPenalty;
             return Clamp(chance);
         }
 
@@ -28,18 +23,18 @@ namespace MirrorChronicles.Characters
         /// The Manifestation: « the higher the foundation's degree, the more secret techniques cultivated and the
         /// deeper the Dao, the easier » — the method's grade, the techniques one knows, one's talent.
         /// </summary>
-        public static int ManifestationChance(CharacterData c, TechniqueData method, PurpleMansionSettings s)
+        public static int ManifestationChance(CharacterData c, TechniqueData method, PurpleMansionSettings s, TrialModifiers m)
         {
-            int grade = method?.Grade ?? ReferenceGrade;
+            int grade = method?.Grade ?? m.ReferenceGrade;
             int techniques = Math.Min(s.ManifestationTechniqueCap, Math.Max(0, (c.KnownTechniqueIDs?.Count ?? 0) - 1));
-            int chance = s.ManifestationBaseChance + (grade - ReferenceGrade) * s.ManifestationPerGrade
-                + techniques * s.ManifestationPerTechnique + (c.SpiritualRoot - AverageRoot) / RootPointsPerPercent;
+            int chance = s.ManifestationBaseChance + (grade - m.ReferenceGrade) * s.ManifestationPerGrade
+                + techniques * s.ManifestationPerTechnique + (c.SpiritualRoot - m.AverageRoot) / m.RootPointsPerPercent;
             return Clamp(chance);
         }
 
         /// <summary>The Illusions: forgetting oneself in the dark takes a steady mind.</summary>
-        public static int IllusionsChance(CharacterData c, PurpleMansionSettings s) =>
-            Clamp(s.IllusionsBaseChance + (c.MentalStability - AverageRoot) / 2);
+        public static int IllusionsChance(CharacterData c, PurpleMansionSettings s, TrialModifiers m) =>
+            Clamp(s.IllusionsBaseChance + (c.MentalStability - m.AverageStability) / m.StabilityPointsPerPercent);
 
         /// <summary>How long the Great Void holds a cultivator: years of a band, or for life past the last band.</summary>
         public static (int Years, bool ForLife) DrawVoid(Random rng, IReadOnlyList<VoidBand> bands)
@@ -97,7 +92,7 @@ namespace MirrorChronicles.Characters
 
         private void Ascend(CharacterData member)
         {
-            int chance = PurpleMansionRules.AscentChance(member, Settings);
+            int chance = PurpleMansionRules.AscentChance(member, Settings, ctx.Content.Balance.TrialModifiers);
             if (ctx.Rng.Next(1, 101) > chance)
             {
                 ctx.Log.Info($"[Purple Mansion] {member.FullName} is exhausted before the Shenyang Mansion ({chance}%).");
@@ -122,7 +117,7 @@ namespace MirrorChronicles.Characters
 
         private void EndManifestation(CharacterData member)
         {
-            int chance = PurpleMansionRules.ManifestationChance(member, techniques.MethodOf(member), Settings);
+            int chance = PurpleMansionRules.ManifestationChance(member, techniques.MethodOf(member), Settings, ctx.Content.Balance.TrialModifiers);
             if (ctx.Rng.Next(1, 101) > chance)
             {
                 ctx.Log.Info($"[Purple Mansion] {member.FullName} fails to manifest their divine power ({chance}%) and dies.");
@@ -144,7 +139,7 @@ namespace MirrorChronicles.Characters
             member.Retreat = Retreat.None;
             member.RetreatYearsLeft = 0;
 
-            int chance = PurpleMansionRules.IllusionsChance(member, Settings);
+            int chance = PurpleMansionRules.IllusionsChance(member, Settings, ctx.Content.Balance.TrialModifiers);
             if (ctx.Rng.Next(1, 101) > chance)
             {
                 LoseAllCultivation(member);

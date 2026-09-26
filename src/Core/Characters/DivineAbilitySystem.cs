@@ -21,8 +21,6 @@ namespace MirrorChronicles.Characters
     {
         public const int MaxAbilities = 5;
         private const int ThresholdAbility = 4; // the fourth: the Threshold of Immortality
-        private const int RootPointsPerPercent = 5;
-        private const int AverageRoot = 50;
 
         private readonly GameContext ctx;
         private readonly ClanManager clan;
@@ -38,6 +36,8 @@ namespace MirrorChronicles.Characters
         }
 
         private DivineAbilitySettings Settings => ctx.Content.Balance.DivineAbilities;
+
+        private TrialModifiers Modifiers => ctx.Content.Balance.TrialModifiers;
 
         private static int Xp => PowerLadder.XpForNextStage(CultivationRealm.PurpleMansion);
 
@@ -160,7 +160,7 @@ namespace MirrorChronicles.Characters
         {
             if (member.DivineAbilities.Count + 1 != ThresholdAbility) return true;
 
-            int chance = Math.Max(1, Math.Min(99, Settings.ThresholdBaseChance + (member.SpiritualRoot - AverageRoot) / RootPointsPerPercent));
+            int chance = Math.Max(1, Math.Min(99, Settings.ThresholdBaseChance + (member.SpiritualRoot - Modifiers.AverageRoot) / Modifiers.RootPointsPerPercent));
             if (ctx.Rng.Next(1, 101) <= chance) return true;
 
             member.CultivationXP = 0;

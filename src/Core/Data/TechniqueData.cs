@@ -176,6 +176,7 @@ namespace MirrorChronicles.Data
         {
             var copy = (TechniqueData)MemberwiseClone();
             copy.Flaws = Flaws?.Clone();
+            copy.InterpretedFields = new List<string>(InterpretedFields ?? new List<string>());
             return copy;
         }
 

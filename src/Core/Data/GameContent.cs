@@ -139,8 +139,33 @@ namespace MirrorChronicles.Data
         /// <summary>Chance a year of study reveals the Dao Partners of the scholar's foundation.</summary>
         public double StudyRevealsPartnersChance { get; init; }
 
+        /// <summary>How talent, stability and a method's grade weigh on the Purple Mansion's trials (interpretations).</summary>
+        public TrialModifiers TrialModifiers { get; init; }
+
         /// <summary>The technique rules the lore leaves open (L3 interpretations), replaceable when a source speaks.</summary>
         public TechniqueSettings Techniques { get; init; }
+    }
+
+    /// <summary>
+    /// How a cultivator's talent and state weigh on a trial of the Purple Mansion and on the Threshold of
+    /// Immortality (balance.json; the lore gives no figures).
+    /// </summary>
+    public sealed class TrialModifiers
+    {
+        /// <summary>A spiritual root above the average adds a percent per this many points.</summary>
+        public int RootPointsPerPercent { get; init; }
+        public int AverageRoot { get; init; }
+
+        /// <summary>Below this mental stability, the Ascent loses this many percent.</summary>
+        public int LowStabilityThreshold { get; init; }
+        public int LowStabilityPenalty { get; init; }
+
+        /// <summary>The Illusions gain a percent per this many points of stability above the average.</summary>
+        public int AverageStability { get; init; }
+        public int StabilityPointsPerPercent { get; init; }
+
+        /// <summary>The method grade the Manifestation's base chance is set for.</summary>
+        public int ReferenceGrade { get; init; }
     }
 
     /// <summary>
