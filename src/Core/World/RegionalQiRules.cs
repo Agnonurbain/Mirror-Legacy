@@ -10,7 +10,7 @@ namespace MirrorChronicles.World
         public static bool Favours(AtmosphereDefinition atmosphere, string fruitionId, Element element, CultivationPath path) =>
             atmosphere != null
             && ((fruitionId != null && atmosphere.FavouredFruitions.Contains(fruitionId))
-                || atmosphere.FavouredElements.Contains(element)
+                || (element != Element.None && atmosphere.FavouredElements.Contains(element)) // no Qi, no element to favour
                 || atmosphere.FavouredPaths.Contains(path));
 
         /// <summary>An atmosphere's weight on cultivation: 1 + its general speed, + its favoured speed for those it favours.</summary>

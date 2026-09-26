@@ -19,6 +19,8 @@ namespace MirrorChronicles.World
         private readonly GameContext ctx;
         private readonly FruitionRegistry fruitions;
         private readonly TechniqueLibrary techniques;
+        private readonly Dictionary<string, IReadOnlyList<QiDefinition>> qiByRegion = new Dictionary<string, IReadOnlyList<QiDefinition>>(); // content never changes
+        private Dictionary<string, RegionDefinition> regions;
 
         public RegionalQi(GameContext ctx, FruitionRegistry fruitions, TechniqueLibrary techniques)
         {
@@ -29,20 +31,29 @@ namespace MirrorChronicles.World
 
         private RegionalQiSettings Settings => ctx.Content.Balance.RegionalQi;
 
-        private RegionDefinition Region(string regionId) => ctx.Content.Regions.FirstOrDefault(r => r.Id == regionId);
+        private RegionDefinition Region(string regionId)
+        {
+            regions ??= ctx.Content.Regions.ToDictionary(r => r.Id);
+            return regionId != null && regions.TryGetValue(regionId, out var region) ? region : null;
+        }
 
         /// <summary>The Qi a place offers (none for an unknown place); vanished Qi are nowhere.</summary>
         public IReadOnlyList<QiDefinition> QiOf(string regionId)
         {
             var region = Region(regionId);
             if (region == null) return new List<QiDefinition>();
-            var elements = Settings.KindElements.TryGetValue(region.Kind, out var e) ? e : new List<Element>();
-            return ctx.Content.Qi
-                .Where(q => !q.Vanished)
-                .Where(q => q.Ubiquitous
-                    || (region.Qi != null ? region.Qi.Contains(q.Id)
-                        : elements.Contains(q.Element) || Settings.EverywhereFamilies.Contains(q.Family)))
-                .ToList();
+            if (!qiByRegion.TryGetValue(region.Id, out var qi))
+                qiByRegion[region.Id] = qi = ctx.Content.Qi.Where(q => Offers(region, q)).ToList();
+            return qi;
+        }
+
+        private bool Offers(RegionDefinition region, QiDefinition qi)
+        {
+            if (qi.Vanished) return false;
+            if (qi.Ubiquitous) return true;
+            if (region.Qi != null) return region.Qi.Contains(qi.Id);
+            return (Settings.KindElements.TryGetValue(region.Kind, out var elements) && elements.Contains(qi.Element))
+                || Settings.EverywhereFamilies.Contains(qi.Family);
         }
 
         public double Density(string regionId)
@@ -55,7 +66,8 @@ namespace MirrorChronicles.World
         /// <summary>How abundant a Qi is in a place: its density times its lineage's fortune; 0 where it is not offered.</summary>
         public double Abundance(string regionId, QiDefinition qi)
         {
-            if (qi == null || QiOf(regionId).All(q => q.Id != qi.Id)) return 0;
+            var region = Region(regionId);
+            if (qi == null || region == null || !Offers(region, qi)) return 0;
             if (qi.Ubiquitous) return Density(regionId);
             var lineage = FoundationRef.Parse(qi.Foundation).FruitionId;
             var status = lineage == null ? FruitionStatus.Unspecified : fruitions.State(lineage)?.Status ?? FruitionStatus.Unspecified;

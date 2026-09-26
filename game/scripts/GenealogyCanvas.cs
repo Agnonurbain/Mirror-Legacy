@@ -8,7 +8,7 @@ namespace MirrorChronicles.Game
 {
     /// <summary>
     /// Draws the clan's family tree in ink on paper: a cartouche per member (faded for the dead, ringed in red for the
-    /// patriarch), a double stroke between spouses, elbowed strokes from a couple down to its children. It sizes itself
+    /// patriarch), a double stroke between spouses (dashed across rows when they stand in different generations), elbowed strokes from a couple down to its children. It sizes itself
     /// to the tree, inside a scroll container. It only draws the engine-free <see cref="GenealogyView"/>.
     /// </summary>
     public partial class GenealogyCanvas : Control
@@ -47,7 +47,13 @@ namespace MirrorChronicles.Game
             foreach (var node in nodes.Where(n => n.SpouseId != null && byId.ContainsKey(n.SpouseId)))
             {
                 var spouse = byId[node.SpouseId];
-                if (spouse.Generation != node.Generation || string.CompareOrdinal(node.Id, spouse.Id) > 0) continue; // once per couple
+                if (string.CompareOrdinal(node.Id, spouse.Id) > 0) continue; // once per couple
+                if (spouse.Generation != node.Generation) // spouses of different rows (branches of unequal depth): a dashed link
+                {
+                    var (upper, lower) = node.Generation < spouse.Generation ? (node, spouse) : (spouse, node);
+                    DrawDashedLine(TopLeft(upper) + new Vector2(CardWidth / 2, CardHeight), TopLeft(lower) + new Vector2(CardWidth / 2, 0), Brush, 1.5f, 6f);
+                    continue;
+                }
                 var (left, right) = node.Column < spouse.Column ? (node, spouse) : (spouse, node);
                 float y = TopLeft(left).Y + CardHeight / 2;
                 DrawLine(new Vector2(TopLeft(left).X + CardWidth, y - 2), new Vector2(TopLeft(right).X, y - 2), Brush, 1.5f, true);
