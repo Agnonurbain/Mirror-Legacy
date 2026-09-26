@@ -42,6 +42,25 @@ namespace MirrorChronicles.World
             foreach (var pair in saved ?? new Dictionary<string, int>()) evidence[pair.Key] = Math.Clamp(pair.Value, 0, Max);
         }
 
+        private readonly Dictionary<string, int> clues = new Dictionary<string, int>();
+
+        /// <summary>What a power has pieced together about a hidden treasure behind the clan (0-100): the mirror's secret.</summary>
+        public int MirrorClues(string faction) => faction != null && clues.TryGetValue(faction, out int v) ? v : 0;
+
+        public void AddMirrorClues(string faction, int amount)
+        {
+            if (faction == null || amount == 0) return;
+            clues[faction] = Math.Clamp(MirrorClues(faction) + amount, 0, Max);
+        }
+
+        public IReadOnlyDictionary<string, int> AllMirrorClues => clues;
+
+        public void RestoreMirrorClues(IReadOnlyDictionary<string, int> saved)
+        {
+            clues.Clear();
+            foreach (var pair in saved ?? new Dictionary<string, int>()) clues[pair.Key] = Math.Clamp(pair.Value, 0, Max);
+        }
+
         public int Distrust(string holder, string toward) => distrust.TryGetValue(Key(holder, toward), out int v) ? v : 0;
 
         public void AddDistrust(string holder, string toward, int amount)

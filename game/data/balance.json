@@ -95,7 +95,13 @@
     "reprisalRelation": -30,
     "reprisalStonesShare": 0.2,
     "witnessDistrust": 15,
-    "proofReputation": 10
+    "proofReputation": 10,
+    "leakBaseChance": 0.05,
+    "leakStabilityReference": 70,
+    "leakStabilityScale": 50,
+    "swornLeakFactor": 0.2,
+    "leakMirrorClue": 25,
+    "leakEvidence": 10
   },
   "hunt": {
     "approachBase": 55,

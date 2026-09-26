@@ -137,6 +137,18 @@ namespace MirrorChronicles.Characters
         private ClauseDefinition Clause(string id) => ctx.Content.Oaths.Clauses.FirstOrDefault(c => c.Id == id);
 
         /// <summary>The pact binds the actor towards the victim, unless the actor swore under a false name.</summary>
+        /// <summary>The one a member swore secrecy to (a binding pact with a « keep the secret » clause), or null.</summary>
+        public CharacterData SecrecyPartner(CharacterData member)
+        {
+            foreach (var pact in PactsOf(member))
+            {
+                var other = clan.FindById(pact.PartyA == member.ID ? pact.PartyB : pact.PartyA);
+                if (other != null && Binds(pact, member, other) && pact.Clauses.Select(Clause).Any(c => c?.Act == OathAct.RevealSecret))
+                    return other;
+            }
+            return null;
+        }
+
         private static bool Binds(PactData p, CharacterData actor, CharacterData victim) =>
             (p.PartyA == actor.ID && p.PartyB == victim.ID && !p.FalseNameA)
             || (p.PartyB == actor.ID && p.PartyA == victim.ID && !p.FalseNameB);

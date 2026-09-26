@@ -28,5 +28,16 @@ namespace MirrorChronicles.Data
 
         /// <summary>Striking with proof: the suspicion every other power gains toward the clan (its name suffers).</summary>
         public int ProofReputation { get; init; }
+
+        /// <summary>
+        /// Leaks (L2c.4b): a keeper's yearly chance of talking, times 1 + (reference − stability) / scale, times the
+        /// oath's factor when sworn to secrecy; what a leak gives a power (clues about the mirror, proof).
+        /// </summary>
+        public double LeakBaseChance { get; init; }
+        public int LeakStabilityReference { get; init; }
+        public int LeakStabilityScale { get; init; } = 1;
+        public double SwornLeakFactor { get; init; }
+        public int LeakMirrorClue { get; init; }
+        public int LeakEvidence { get; init; }
     }
 }

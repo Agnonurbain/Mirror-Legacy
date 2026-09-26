@@ -53,6 +53,7 @@ namespace MirrorChronicles.Session
         public SuspicionLedger Suspicion { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
+        public SecretSystem Secrets { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
         public BuildingSystem Buildings { get; }
@@ -102,6 +103,7 @@ namespace MirrorChronicles.Session
             Suspicion = new SuspicionLedger();
             Hunts = new HuntOperations(Context, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
             Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion);
+            Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
@@ -185,6 +187,7 @@ namespace MirrorChronicles.Session
             session.Resources.RestoreBeasts(data.CapturedBeasts);
             session.Suspicion.Restore(data.SuspicionOfClan, data.Distrust); // hidden; none in saves before 2.9
             session.Suspicion.RestoreEvidence(data.Evidence);
+            session.Suspicion.RestoreMirrorClues(data.MirrorClues);
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -232,6 +235,7 @@ namespace MirrorChronicles.Session
                 SuspicionOfClan = new Dictionary<string, int>(Suspicion.ClanSuspicions),
                 Distrust = new Dictionary<string, int>(Suspicion.Distrusts),
                 Evidence = new Dictionary<string, int>(Suspicion.Evidences),
+                MirrorClues = new Dictionary<string, int>(Suspicion.AllMirrorClues),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -279,6 +283,7 @@ namespace MirrorChronicles.Session
                 case GamePhase.Events: // the Management phase is over
                     Tasks.ProcessYearlyTasks();
                     Factions.ProcessYearlyFactionAI();
+                    Secrets.ProcessYear();            // those who know may talk (L2c.4b)
                     Plots.ProcessYear();              // the powers investigate, and strike what they suspect (D7)
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children

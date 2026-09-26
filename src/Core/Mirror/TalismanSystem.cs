@@ -91,6 +91,7 @@ namespace MirrorChronicles.Mirror
 
             PendingOffer = null;
             bearer.TalismanQiId = talisman.Id;
+            bearer.KnowsMirrorSecret = true; // the mirror is no longer a legend to them (L2c.4b)
             bearer.MaxLifespan += talisman.LifespanYears;
             int rankLeap = talisman.Rank == TalismanRank.White ? Settings.WhiteStageLeap : Settings.GreyStageLeap;
             TalismanRules.Leap(bearer, offer.Leap ?? rankLeap); // an older save's offer: the rank's leap
