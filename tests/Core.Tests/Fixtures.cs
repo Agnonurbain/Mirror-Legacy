@@ -51,6 +51,7 @@ namespace MirrorChronicles.Tests
         public OathSystem Oaths { get; }
         public FruitionRegistry Fruitions { get; }
         public GoldenCoreSystem GoldenCore { get; }
+        public TalismanSystem Talismans { get; }
         public FactionManager Factions { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
@@ -80,6 +81,7 @@ namespace MirrorChronicles.Tests
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
             Fruitions = new FruitionRegistry(Ctx);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
+            Talismans = new TalismanSystem(Ctx, Clan, Resources);
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Ctx, Factions, Resources);
             Espionage = new EspionageSystem(Ctx, Factions, Deduction, Stability);
