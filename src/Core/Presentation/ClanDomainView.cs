@@ -151,6 +151,7 @@ namespace MirrorChronicles.Presentation
             TaskType.Diplomacy => "Diplomatie",
             TaskType.Espionage => "Espionnage",
             TaskType.Rest => "Repos",
+            TaskType.HuntBeast => "Chasse aux bêtes",
             TaskType.GatherQi => "Récolte de Qi",
             _ => task.ToString()
         };

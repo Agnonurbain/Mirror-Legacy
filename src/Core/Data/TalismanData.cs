@@ -59,8 +59,30 @@ namespace MirrorChronicles.Data
         /// <summary>Sub-levels a new talisman Qi lifts its bearer, within their realm.</summary>
         public int GreyStageLeap { get; init; }
         public int WhiteStageLeap { get; init; }
+
+        /// <summary>A stronger beast refines a better talisman (user decision, 2026-09-26): one more sub-level per this many of its stages beyond the first.</summary>
+        public int BeastStagesPerExtraLeap { get; init; } = 1;
+
+        /// <summary>Chance a hunter captures a spirit beast in a year (no stronger than they are).</summary>
+        public double HuntCaptureChance { get; init; }
+
+        /// <summary>On a ground where powers live, the chance a captured beast is one of theirs.</summary>
+        public double OwnedBeastChance { get; init; }
+
+        /// <summary>Sacrificing a power's beast: the chance it finds out, and what its mood then loses (negative).</summary>
+        public double OwnedBeastDiscoveryChance { get; init; }
+        public int OwnedBeastRelationPenalty { get; init; }
     }
 
-    /// <summary>The talismans the mirror offers a bearer after a ritual, awaiting the player's choice (saved).</summary>
-    public sealed record TalismanOffer(string BeneficiaryId, List<string> Choices);
+    /// <summary>
+    /// The talismans the mirror offers a bearer after a ritual, awaiting the player's choice (saved); the leap is set
+    /// by the sacrificed beast's strength (0 in older saves: the rank's own leap).
+    /// </summary>
+    public sealed record TalismanOffer(string BeneficiaryId, List<string> Choices, int Leap = 0);
+
+    /// <summary>
+    /// A spirit beast the clan captured, kept for the mirror's ritual (saved): its realm and stage, and the power it
+    /// belongs to — null for a solitary beast (user decision, 2026-09-26: killing a power's beast has a price).
+    /// </summary>
+    public sealed record CapturedBeast(string Id, CultivationRealm Realm, int Stage, string OwnerFaction = null);
 }

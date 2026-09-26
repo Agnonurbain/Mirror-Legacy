@@ -12,12 +12,19 @@ namespace MirrorChronicles.Mirror
     /// </summary>
     public static class TalismanRules
     {
-        /// <summary>Grey from a Qi Cultivation sacrifice, white from the Foundation or beyond; null below.</summary>
-        public static TalismanRank? RankOf(CharacterData sacrifice)
+        /// <summary>Grey from a beast of the Qi Cultivation, white from the Foundation or beyond; null below.</summary>
+        public static TalismanRank? RankOf(CapturedBeast beast)
         {
-            if (sacrifice.Realm >= CultivationRealm.Foundation) return TalismanRank.White;
-            if (sacrifice.Realm == CultivationRealm.QiRefinement) return TalismanRank.Grey;
+            if (beast.Realm >= CultivationRealm.Foundation) return TalismanRank.White;
+            if (beast.Realm == CultivationRealm.QiRefinement) return TalismanRank.Grey;
             return null;
+        }
+
+        /// <summary>The leap a beast's talisman gives: its rank's, and more for a stronger beast (user decision, 2026-09-26).</summary>
+        public static int LeapOf(CapturedBeast beast, TalismanSettings settings)
+        {
+            int rankLeap = RankOf(beast) == TalismanRank.White ? settings.WhiteStageLeap : settings.GreyStageLeap;
+            return rankLeap + Math.Max(0, beast.Stage - 1) / settings.BeastStagesPerExtraLeap;
         }
 
         /// <summary>

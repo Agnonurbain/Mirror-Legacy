@@ -194,8 +194,11 @@ namespace MirrorChronicles.Data
             Require(talismanRitual != null && talismanRitual.PrayersPerRitual > 0 && talismanRitual.PrayersPerMortalPerYear >= 0
                 && talismanRitual.PrayersPerPrestigePerYear >= 0 && talismanRitual.OfferRootThresholds?.Count == 2
                 && talismanRitual.OfferRootThresholds[0] <= talismanRitual.OfferRootThresholds[1]
-                && talismanRitual.GreyStageLeap >= 0 && talismanRitual.WhiteStageLeap >= 0,
-                BalanceFile, "talismans needs positive prayers per ritual, two ordered root thresholds and leaps never negative.");
+                && talismanRitual.GreyStageLeap >= 0 && talismanRitual.WhiteStageLeap >= 0
+                && talismanRitual.BeastStagesPerExtraLeap >= 1 && IsProbability(talismanRitual.HuntCaptureChance)
+                && IsProbability(talismanRitual.OwnedBeastChance) && IsProbability(talismanRitual.OwnedBeastDiscoveryChance)
+                && talismanRitual.OwnedBeastRelationPenalty <= 0,
+                BalanceFile, "talismans needs positive prayers per ritual, two ordered root thresholds, leaps never negative, beast stages per leap of 1+ and a hunt chance.");
             var trials = balance.Trials;
             Require(trials != null && trials.ChakraChances != null && trials.ChakraChances.Values.All(c => c >= 0 && c <= 100)
                 && new[] { trials.FoundationWallBaseChance, trials.MinimumTrialChance, trials.DissolutionBaseChance, trials.MaximumDissolutionChance }

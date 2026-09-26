@@ -9,13 +9,13 @@ namespace MirrorChronicles.Data
     /// Version 2.1 adds the techniques of LORE.md §2 (knowledge, Qi); older saves receive the clan's
     /// starting knowledge on load. Version 2.2 adds the state of the Dao lineages (§6.8); 2.3 the
     /// clan's knowledge (its known techniques now live there); 2.4 the oaths; 2.5 the Golden Core's
-    /// permissions; 2.6 the talisman Qi (prayers, an offer awaiting a choice). Field names never
+    /// permissions; 2.6 the talisman Qi (prayers, an offer awaiting a choice); 2.7 the captured beasts. Field names never
     /// change: older saves must keep loading.
     /// </summary>
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.6";
+        public const string CurrentVersion = "2.7";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -61,6 +61,8 @@ namespace MirrorChronicles.Data
         // The talisman Qi (2.6; zero and null in older saves): prayers gathered, an offer awaiting the player's choice
         public int Prayers { get; set; }
         public TalismanOffer TalismanOffer { get; set; }
+        public List<CapturedBeast> CapturedBeasts { get; set; } // 2.7; null in older saves
+        public string HuntingGround { get; set; }               // 2.7; null in older saves: the clan's home
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

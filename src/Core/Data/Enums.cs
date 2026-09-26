@@ -42,7 +42,8 @@ namespace MirrorChronicles.Data
         Diplomacy, 
         Espionage,
         Rest,
-        GatherQi // harvest spiritual Qi in wisps (LORE.md §2.5); appended last, like every new member
+        GatherQi, // harvest spiritual Qi in wisps (LORE.md §2.5); appended last, like every new member
+        HuntBeast // capture a spirit beast for the mirror's talisman ritual (user decision, 2026-09-26)
     }
 
     public enum Element 

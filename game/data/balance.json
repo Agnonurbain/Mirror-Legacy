@@ -90,7 +90,12 @@
     "prayersPerPrestigePerYear": 10,
     "offerRootThresholds": [ 40, 70 ],
     "greyStageLeap": 2,
-    "whiteStageLeap": 3
+    "whiteStageLeap": 3,
+    "beastStagesPerExtraLeap": 3,
+    "huntCaptureChance": 0.4,
+    "ownedBeastChance": 0.5,
+    "ownedBeastDiscoveryChance": 0.6,
+    "ownedBeastRelationPenalty": -30
   },
   "trials": {
     "chakraChances": { "InnerLakeChakra": 70, "MeridianWheelChakra": 80, "SummitEyeChakra": 75 },

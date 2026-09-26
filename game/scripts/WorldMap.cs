@@ -15,6 +15,7 @@ namespace MirrorChronicles.Game
         private GameRoot root;
         private MapCanvas canvas;
         private Label placeName, placeFactions;
+        private Button hunt;
         private string selected;
 
         public override void _Ready()
@@ -24,6 +25,8 @@ namespace MirrorChronicles.Game
             placeName = GetNode<Label>("%PlaceName");
             placeFactions = GetNode<Label>("%PlaceFactions");
             GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            hunt = GetNode<Button>("%Hunt");
+            hunt.Pressed += () => { root.Session.Tasks.SetHuntingGround(selected); Refresh(); }; // the hunters go there
             canvas.PlaceSelected += Select;
             canvas.Resized += Refresh;
 
@@ -48,6 +51,9 @@ namespace MirrorChronicles.Game
 
             var place = places.FirstOrDefault(p => p.Id == selected);
             placeName.Text = place == null ? "" : place.IsHome ? $"{place.Name} — domaine du clan" : place.Name;
+            bool huntedHere = place != null && session.Tasks.HuntingGround == place.Id;
+            hunt.Disabled = place == null || place.IsState || huntedHere;
+            hunt.Text = huntedHere ? "Les chasseurs du clan chassent ici" : "Chasser ici";
             var factions = place?.Factions ?? System.Array.Empty<MapFaction>();
             placeFactions.Text = factions.Count == 0
                 ? "Aucune puissance connue ici."

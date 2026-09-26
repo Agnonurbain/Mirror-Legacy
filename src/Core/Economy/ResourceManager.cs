@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Economy
@@ -66,6 +68,21 @@ namespace MirrorChronicles.Economy
         public bool ConsumePrayers(int amount) => TryConsume(amount, Prayers, v => Prayers = v);
 
         public void RestorePrayers(int prayers) => Prayers = Math.Max(0, prayers);
+
+        private readonly List<CapturedBeast> beasts = new List<CapturedBeast>();
+
+        /// <summary>The spirit beasts the clan captured, awaiting the mirror's ritual.</summary>
+        public IReadOnlyList<CapturedBeast> Beasts => beasts;
+
+        public void AddBeast(CapturedBeast beast) { if (beast != null) beasts.Add(beast); }
+
+        public bool ConsumeBeast(CapturedBeast beast) => beast != null && beasts.Remove(beast);
+
+        public void RestoreBeasts(IEnumerable<CapturedBeast> saved)
+        {
+            beasts.Clear();
+            beasts.AddRange((saved ?? Enumerable.Empty<CapturedBeast>()).Where(b => b != null));
+        }
 
         public void AddTechniqueFragments(int amount) { if (amount > 0) TechniqueFragments += amount; }
         public bool ConsumeTechniqueFragments(int amount) => TryConsume(amount, TechniqueFragments, v => TechniqueFragments = v);

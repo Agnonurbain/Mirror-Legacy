@@ -82,7 +82,7 @@ namespace MirrorChronicles.Tests
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
             Fruitions = new FruitionRegistry(Ctx);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
-            Talismans = new TalismanSystem(Ctx, Clan, Resources);
+            Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions);
             Exchange = new KnowledgeExchange(Ctx, Factions, Techniques, Resources, Mirror);
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Ctx, Factions, Resources);

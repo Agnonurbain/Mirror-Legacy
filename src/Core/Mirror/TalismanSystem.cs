@@ -2,25 +2,29 @@ using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
+using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Economy;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Mirror
 {
     /// <summary>
-    /// The mirror's talisman Qi (LORE.md §11.5): the clan gathers prayers year after year; a being of the Qi
-    /// Cultivation or beyond sacrificed and ten thousand prayers offered, the mirror refines a talisman Qi of the
-    /// sacrifice's rank and offers one to three to the bearer; the player chooses one, which gives its trait and
-    /// a leap in cultivation. Only clan members can be offered until captives exist (L6): a dilemma the lore allows.
+    /// The mirror's talisman Qi (LORE.md §11.5): the clan gathers prayers year after year; a captured spirit beast of
+    /// the Qi Cultivation or beyond sacrificed (user decision, 2026-09-26: a beast, never a clan member) and ten
+    /// thousand prayers offered, the mirror refines a talisman Qi of the beast's rank — the stronger the beast, the
+    /// higher the quality — and offers one to three to the bearer; the player chooses one, which gives its trait and
+    /// a leap in cultivation.
     /// </summary>
     public sealed class TalismanSystem
     {
         private readonly GameContext ctx;
         private readonly ClanManager clan;
         private readonly ResourceManager resources;
+        private readonly FactionManager factions;
 
-        public TalismanSystem(GameContext ctx, ClanManager clan, ResourceManager resources)
+        public TalismanSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions)
         {
+            this.factions = factions;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -34,19 +38,19 @@ namespace MirrorChronicles.Mirror
         public TalismanOffer PendingOffer { get; private set; }
 
         /// <summary>
-        /// The ritual: the sacrifice dies, the prayers are spent, and the mirror offers talismans of its rank to
+        /// The ritual: the beast is offered, the prayers are spent, and the mirror offers talismans of its rank to
         /// the bearer. False when it cannot be performed (an offer already waits, the bearer already has a talisman
-        /// or cannot cultivate, the sacrifice is below the Qi Cultivation, the prayers are lacking).
+        /// or cannot cultivate, the clan holds no such beast or it is below the Qi Cultivation, the prayers are lacking).
         /// </summary>
-        public bool PerformRitual(CharacterData bearer, CharacterData sacrifice)
+        public bool PerformRitual(CharacterData bearer, CapturedBeast beast)
         {
-            var rank = sacrifice == null ? null : TalismanRules.RankOf(sacrifice);
+            var rank = beast == null ? null : TalismanRules.RankOf(beast);
             string refusal =
                 PendingOffer != null ? "an offer already awaits a choice"
                 : bearer == null || !bearer.IsAlive || !SpiritualOrificeRules.CanCultivate(bearer) ? "the bearer cannot receive a talisman"
                 : bearer.TalismanQiId != null ? "the bearer already has a talisman"
-                : sacrifice == null || sacrifice == bearer || !sacrifice.IsAlive ? "there is no sacrifice"
-                : rank == null ? "the sacrifice is below the Qi Cultivation"
+                : beast == null || !resources.Beasts.Contains(beast) ? "the clan holds no such beast"
+                : rank == null ? "the beast is below the Qi Cultivation"
                 : resources.Prayers < Settings.PrayersPerRitual ? "the prayers are lacking"
                 : null;
             if (refusal != null)
@@ -56,10 +60,11 @@ namespace MirrorChronicles.Mirror
             }
 
             resources.ConsumePrayers(Settings.PrayersPerRitual);
-            clan.Kill(sacrifice, DeathCause.Sacrificed);
+            resources.ConsumeBeast(beast);
+            AnswerToTheOwner(beast);
             var choices = TalismanRules.Offer(bearer, rank.Value, ctx.Content.Talismans, Settings, ctx.Rng);
-            PendingOffer = new TalismanOffer(bearer.ID, choices.ToList());
-            ctx.Log.Info($"[Mirror] {sacrifice.FullName} is offered to the mirror: {choices.Count} talisman(s) await {bearer.FullName}.");
+            PendingOffer = new TalismanOffer(bearer.ID, choices.ToList(), TalismanRules.LeapOf(beast, Settings));
+            ctx.Log.Info($"[Mirror] A beast of the {beast.Realm} (stage {beast.Stage}) is offered to the mirror: {choices.Count} talisman(s) await {bearer.FullName}.");
             return true;
         }
 
@@ -74,9 +79,19 @@ namespace MirrorChronicles.Mirror
             PendingOffer = null;
             bearer.TalismanQiId = talisman.Id;
             bearer.MaxLifespan += talisman.LifespanYears;
-            TalismanRules.Leap(bearer, talisman.Rank == TalismanRank.White ? Settings.WhiteStageLeap : Settings.GreyStageLeap);
+            int rankLeap = talisman.Rank == TalismanRank.White ? Settings.WhiteStageLeap : Settings.GreyStageLeap;
+            TalismanRules.Leap(bearer, offer.Leap > 0 ? offer.Leap : rankLeap); // an older save's offer: the rank's leap
             ctx.Log.Info($"[Mirror] {bearer.FullName} receives the talisman Qi « {talisman.Name} ».");
             return true;
+        }
+
+        /// <summary>A power whose beast was killed may find out, and resents it (user decision, 2026-09-26).</summary>
+        private void AnswerToTheOwner(CapturedBeast beast)
+        {
+            var owner = factions.GetFactionByName(beast.OwnerFaction);
+            if (owner == null || !ctx.Rng.Chance(Settings.OwnedBeastDiscoveryChance)) return;
+            factions.ChangeRelation(owner.ID, Settings.OwnedBeastRelationPenalty);
+            ctx.Log.Warning($"[Mirror] {owner.Name} learns the clan killed one of its beasts.");
         }
 
         /// <summary>Restores the offer of a save (null: none); one whose bearer or talismans no longer resolve is dropped.</summary>

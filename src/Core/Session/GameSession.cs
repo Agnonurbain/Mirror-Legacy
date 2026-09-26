@@ -88,7 +88,7 @@ namespace MirrorChronicles.Session
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
-            Talismans = new TalismanSystem(Context, Clan, Resources);
+            Talismans = new TalismanSystem(Context, Clan, Resources, Factions);
             Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
@@ -173,6 +173,8 @@ namespace MirrorChronicles.Session
             session.Oaths.Restore((data.Pacts ?? new List<PactData>()).Select(p => p.Clone()), data.VeiledOathBreakers);
             session.GoldenCore.Restore(data.GoldenCorePermissions); // saves made before L4b have none
             session.Resources.RestorePrayers(data.Prayers);           // saves made before 2.6: none gathered
+            session.Resources.RestoreBeasts(data.CapturedBeasts);
+            if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
             session.Talismans.Restore(data.TalismanOffer);
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
@@ -210,8 +212,10 @@ namespace MirrorChronicles.Session
                 FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),
                 GoldenCorePermissions = new Dictionary<string, string>(GoldenCore.Permissions),
                 Prayers = Resources.Prayers,
+                CapturedBeasts = Resources.Beasts.ToList(),
+                HuntingGround = Tasks.HuntingGround,
                 TalismanOffer = Talismans.PendingOffer == null ? null
-                    : new TalismanOffer(Talismans.PendingOffer.BeneficiaryId, new List<string>(Talismans.PendingOffer.Choices)),
+                    : new TalismanOffer(Talismans.PendingOffer.BeneficiaryId, new List<string>(Talismans.PendingOffer.Choices), Talismans.PendingOffer.Leap),
                 GenerationCount = Karma.GenerationCount,
                 TotalBirths = Karma.TotalBirths,
                 TotalDeaths = Karma.TotalDeaths,

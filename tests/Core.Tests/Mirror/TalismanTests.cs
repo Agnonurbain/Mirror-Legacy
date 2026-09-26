@@ -371,5 +371,18 @@ namespace MirrorChronicles.Tests.Mirror
 
             CollectionAssert.AreEqual(moods, w.Factions.Factions.Select(f => f.RelationWithPlayer));
         }
+
+        [Test]
+        public void RoundTrip_KeepsTheBeastsAndTheHuntingGround()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Resources.AddBeast(new CapturedBeast("b1", CultivationRealm.Foundation, 2, "Famille Ruan"));
+            s.Tasks.SetHuntingGround("heshan");
+
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+
+            Assert.AreEqual(new CapturedBeast("b1", CultivationRealm.Foundation, 2, "Famille Ruan"), reloaded.Resources.Beasts.Single());
+            Assert.AreEqual("heshan", reloaded.Tasks.HuntingGround);
+        }
     }
 }
