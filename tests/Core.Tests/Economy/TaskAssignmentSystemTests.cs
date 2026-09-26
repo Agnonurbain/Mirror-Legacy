@@ -190,6 +190,7 @@ namespace MirrorChronicles.Tests.Economy
         {
             var w = new TestWorld();
             Assert.IsFalse(w.Tasks.SetHuntingGround("atlantis"));
+            Assert.IsFalse(w.Tasks.SetHuntingGround("linxi"), "a whole state is no hunting ground");
             Assert.AreEqual(Fixtures.Content.Clan.HomeRegion, w.Tasks.HuntingGround);
         }
     }
