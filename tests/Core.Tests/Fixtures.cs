@@ -96,8 +96,8 @@ namespace MirrorChronicles.Tests
             Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
             Suspicion = new SuspicionLedger();
             Hunts = new HuntOperations(Ctx, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
-            Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion);
             Secrets = new SecretSystem(Ctx, Clan, Factions, Suspicion, Oaths, Mirror);
+            Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion, Secrets);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
         }
 

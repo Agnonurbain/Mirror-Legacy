@@ -334,5 +334,52 @@ namespace MirrorChronicles.Tests.World
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.AreEqual(new Confrontation(Peak, 1), reloaded.Secrets.Confrontation);
         }
+
+        // ---- Review of 2026-09-26: a sale ends the confrontation; no double blow; ties drawn ----
+
+        [Test]
+        public void ASoldSecret_EndsTheConfrontation_ForGood()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 1)); // the Fang cannot dare
+            w.Suspicion.AddMirrorClues(Fang, SuspicionLedger.Max);
+            w.Secrets.ProcessYear(); // the investigator comes
+            w.Secrets.ProcessYear(); // it sells
+
+            w.Secrets.ProcessYear(); // and does not come back
+
+            Assert.IsNull(w.Secrets.Confrontation);
+            Assert.Less(w.Suspicion.MirrorClues(Fang), Settings.DoubtClues, "it sold what it knew");
+        }
+
+        [Test]
+        public void APiercedSecret_IsNotAlsoStruckAsAnOrdinaryCase_ThatYear()
+        {
+            var w = World(new FixedRandom(0.999));
+            var peak = w.Factions.GetFactionByName(Peak);
+            int relation = peak.RelationWithPlayer;
+            int stones = w.Resources.SpiritStones;
+            w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
+
+            w.Secrets.ProcessYear();
+            w.Plots.ProcessYear();
+
+            Assert.AreEqual(relation, peak.RelationWithPlayer);
+            Assert.AreEqual(stones, w.Resources.SpiritStones);
+        }
+
+        [Test]
+        public void ALeak_AmongPowersAskingAsMuch_GoesToAnyOfThem()
+        {
+            var w = World(new SequenceRandom(0.0, 0.999)); // it leaks; the draw falls on the last of the tied
+            Keeper(w);
+            w.Suspicion.AddToClan(Ruan, 40);
+            w.Suspicion.AddToClan(Fang, 40);
+
+            w.Secrets.ProcessYear();
+
+            Assert.AreEqual(Settings.LeakMirrorClue, w.Suspicion.MirrorClues(Fang));
+            Assert.AreEqual(0, w.Suspicion.MirrorClues(Ruan));
+        }
     }
 }
