@@ -41,6 +41,7 @@ namespace MirrorChronicles.Session
         public FoundationSystem Foundations { get; }
         public PurpleMansionSystem PurpleMansion { get; }
         public DivineAbilitySystem Abilities { get; }
+        public OathSystem Oaths { get; }
         public AgingSystem Aging { get; }
         public WoundSystem Wounds { get; }
         public FactionManager Factions { get; }
@@ -82,6 +83,7 @@ namespace MirrorChronicles.Session
             Fruitions = new FruitionRegistry(Context);
             Mirror = new MirrorSystem(Context, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
+            Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability);
@@ -162,6 +164,7 @@ namespace MirrorChronicles.Session
                 if (record.Temperament == Temperament.None)                  // saves made before the Dao Heart
                     record.Temperament = FoundationRules.RandomTemperament(rng);
             }
+            session.Oaths.Restore((data.Pacts ?? new List<PactData>()).Select(p => p.Clone()));
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);
@@ -191,6 +194,7 @@ namespace MirrorChronicles.Session
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
                 Knowledge = Knowledge.Keys.ToList(), // the known techniques live there since 2.3
+                Pacts = Oaths.Pacts.Select(p => p.Clone()).ToList(),
                 SpiritualQi = new Dictionary<string, int>(Resources.SpiritualQi),
                 QiHarvestProgress = new Dictionary<string, int>(Resources.QiHarvestProgress),
                 FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),

@@ -48,6 +48,7 @@ namespace MirrorChronicles.Tests
         public FoundationSystem Foundations { get; }
         public PurpleMansionSystem PurpleMansion { get; }
         public DivineAbilitySystem Abilities { get; }
+        public OathSystem Oaths { get; }
         public FactionManager Factions { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
@@ -74,6 +75,7 @@ namespace MirrorChronicles.Tests
             Factions = new FactionManager(Ctx);
             Mirror = new MirrorSystem(Ctx, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Ctx, Mirror, Techniques);
+            Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Ctx, Factions, Resources);
             Espionage = new EspionageSystem(Ctx, Factions, Deduction, Stability);

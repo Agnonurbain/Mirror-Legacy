@@ -34,6 +34,16 @@
     "graftDonorMaxYearsLeft": 5
   },
   "studyRevealsPartnersChance": 0.1,
+  "oaths": {
+    "interruptChanceBySeverity": [ 0.1, 0.25, 0.5 ],
+    "deviationChanceOnInterrupt": 0.2,
+    "heartDemonYearsBySeverity": [ 3, 8, 20 ],
+    "heartDemonSpeed": 0.5,
+    "heartDemonStabilityLoss": 20,
+    "purificationHerbs": 100,
+    "purificationChance": 0.5,
+    "mirrorVeilCost": 30
+  },
   "trialModifiers": {
     "rootPointsPerPercent": 5,
     "averageRoot": 50,

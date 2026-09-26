@@ -40,6 +40,7 @@ namespace MirrorChronicles.Characters
             consumer.RealmStage++;
             consumer.ProgressionSealed = true;
             ctx.Log.Info($"[Foundation] {consumer.FullName} consumes {donor.FullName}'s foundation, a Dao Partner: one stage higher, and no further for ever.");
+            ctx.Events.TriggerHarm(consumer, donor); // an oath between them is broken
             clan.Kill(donor, DeathCause.FoundationDevoured);
             return true;
         }

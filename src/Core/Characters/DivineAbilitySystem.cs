@@ -115,6 +115,7 @@ namespace MirrorChronicles.Characters
             // The donor's foundation is consumed during the attempt: it is lost even if the Threshold then fails
             resources.ConsumeOres(Settings.GraftOres);
             string ability = donor.FoundationId;
+            ctx.Events.TriggerHarm(member, donor); // an oath between them is broken
             FoundationRules.StripCultivation(donor);
             donor.MaxLifespan = donor.Age + ctx.Rng.Next(Settings.GraftDonorMinYearsLeft, Settings.GraftDonorMaxYearsLeft + 1);
             ctx.Log.Info($"[Abilities] {member.FullName} consumes {donor.FullName}'s foundation in a Dao Graft.");

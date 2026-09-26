@@ -23,9 +23,10 @@ namespace MirrorChronicles.Data
         public const string TechniquesFile = "techniques.json";
         public const string QiFile = "qi.json";
         public const string FruitionsFile = "fruitions.json";
+        public const string OathsFile = "oaths.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -53,6 +54,7 @@ namespace MirrorChronicles.Data
             var catalog = Read<TechniqueCatalog>(readFile, TechniquesFile);
             var qi = Read<List<QiDefinition>>(readFile, QiFile);
             var fruitions = Read<FruitionCatalog>(readFile, FruitionsFile);
+            var oaths = Read<OathCatalog>(readFile, OathsFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -64,6 +66,7 @@ namespace MirrorChronicles.Data
             CheckTechniques(catalog, qi);
             CheckClanKnowledge(clan, catalog.Techniques, qi);
             CheckFruitions(fruitions);
+            CheckOaths(oaths);
             CheckFoundations(qi, catalog.Techniques, fruitions.Fruitions);
             CheckInterpretedFields(TechniquesFile, catalog.Techniques.Select(t => (t.ID, typeof(TechniqueData), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
@@ -82,7 +85,8 @@ namespace MirrorChronicles.Data
                 Qi = qi,
                 DeductionNames = catalog.DeductionNames,
                 Fruitions = fruitions.Fruitions,
-                AnonymousHolder = fruitions.AnonymousHolder
+                AnonymousHolder = fruitions.AnonymousHolder,
+                Oaths = oaths
             };
         }
 
@@ -157,6 +161,12 @@ namespace MirrorChronicles.Data
                 && mansion.VoidBands.Sum(b => b.Chance) <= 1.0 + 1e-9
                 && mansion.ManifestationPerGrade >= 0 && mansion.ManifestationPerTechnique >= 0 && mansion.ManifestationTechniqueCap >= 0,
                 BalanceFile, "purpleMansion needs positive manifestation years and void bands whose chances sum to at most 1 (the rest: for life).");
+            var oathCosts = balance.Oaths;
+            Require(oathCosts != null && oathCosts.InterruptChanceBySeverity?.Count == 3 && oathCosts.InterruptChanceBySeverity.All(IsProbability)
+                && oathCosts.HeartDemonYearsBySeverity?.Count == 3 && oathCosts.HeartDemonYearsBySeverity.All(y => y > 0)
+                && IsProbability(oathCosts.DeviationChanceOnInterrupt) && IsProbability(oathCosts.PurificationChance)
+                && oathCosts.HeartDemonSpeed > 0 && oathCosts.HeartDemonStabilityLoss >= 0 && oathCosts.PurificationHerbs >= 0 && oathCosts.MirrorVeilCost >= 0,
+                BalanceFile, "oaths needs three interruption chances and Heart Demon years (severity 1-3), and its costs.");
             var modifiers = balance.TrialModifiers;
             Require(modifiers != null && modifiers.RootPointsPerPercent > 0 && modifiers.StabilityPointsPerPercent > 0 && modifiers.LowStabilityPenalty >= 0
                 && modifiers.ReferenceGrade >= TechniqueRules.MinGrade && modifiers.ReferenceGrade <= TechniqueRules.MaxGrade,
@@ -317,6 +327,17 @@ namespace MirrorChronicles.Data
                 .Select(t => t.RequiredQiId).Distinct();
             var missing = reachingFoundation.FirstOrDefault(id => qi.First(q => q.Id == id).Foundation == null);
             Require(missing == null, QiFile, $"{missing}: its methods reach the Foundation, so it must name the foundation it builds.");
+        }
+
+        /// <summary>Oaths (L4d): unique clauses with a name and a severity 1-3.</summary>
+        private static void CheckOaths(OathCatalog oaths)
+        {
+            var clauses = oaths.Clauses ?? Array.Empty<ClauseDefinition>();
+            Require(clauses.Count > 0 && clauses.All(c => !string.IsNullOrWhiteSpace(c.Id) && !string.IsNullOrWhiteSpace(c.Name)),
+                OathsFile, "every clause needs an id and a name.");
+            Require(clauses.Select(c => c.Id).Distinct().Count() == clauses.Count, OathsFile, "two clauses share an id.");
+            var light = clauses.FirstOrDefault(c => c.Severity < 1 || c.Severity > 3);
+            Require(light == null, OathsFile, $"{light?.Id}: a clause's severity lies between 1 and 3.");
         }
 
         /// <summary>An interpreted field must name a real field, so the gaps report points at something to replace.</summary>

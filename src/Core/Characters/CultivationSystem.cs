@@ -49,6 +49,7 @@ namespace MirrorChronicles.Characters
             double heart = FoundationRules.HeartAlignmentSpeed(character.Temperament,
                 FoundationRules.FruitionOf(character.FoundationId, ctx.Content.Fruitions), ctx.Content.Balance);
             double multiplier = (1.0 + karma.GetCultivationSpeedBonus()) * speed * heart;
+            if (character.HeartDemonYearsLeft > 0) multiplier *= ctx.Content.Balance.Oaths.HeartDemonSpeed; // an oath broken (L4d)
             if (character.MentalStability < LowStabilityThreshold)
                 multiplier *= LowStabilityMultiplier;
 

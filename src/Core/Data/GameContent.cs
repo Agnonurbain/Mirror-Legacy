@@ -30,6 +30,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>How the world calls a True Monarch the lore does not name.</summary>
         public string AnonymousHolder { get; init; }
+
+        /// <summary>The clauses one may swear on one's path, and the loopholes (oaths.json, L4d).</summary>
+        public OathCatalog Oaths { get; init; } = new OathCatalog();
     }
 
     /// <summary>techniques.json: the catalog and the words of deduced names.</summary>
@@ -138,6 +141,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>Chance a year of study reveals the Dao Partners of the scholar's foundation.</summary>
         public double StudyRevealsPartnersChance { get; init; }
+
+        /// <summary>What breaking an oath costs (L4d).</summary>
+        public OathSettings Oaths { get; init; }
 
         /// <summary>How talent, stability and a method's grade weigh on the Purple Mansion's trials (interpretations).</summary>
         public TrialModifiers TrialModifiers { get; init; }

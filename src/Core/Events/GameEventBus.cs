@@ -10,6 +10,11 @@ namespace MirrorChronicles.Events
     /// </summary>
     public sealed class GameEventBus
     {
+        /// <summary>Someone harms someone else (devours or grafts their foundation…): oaths are checked (L4d).</summary>
+        public event Action<CharacterData, CharacterData> OnHarm;
+
+        public void TriggerHarm(CharacterData actor, CharacterData victim) => OnHarm?.Invoke(actor, victim);
+
         // Time & flow
         public event Action<int> OnYearStarted;
         public event Action<GamePhase> OnPhaseChanged;

@@ -13,7 +13,8 @@ namespace MirrorChronicles.World
         Lineage,        // that a Dao lineage exists and what it is
         Ability,        // a foundation / divine ability (« fruition-id:ability-id »)
         DaoPartners,    // the Dao Partners of a foundation (« fruition-id:ability-id »)
-        FoundationOfQi  // which foundation a Qi builds (a Qi id)
+        FoundationOfQi, // which foundation a Qi builds (a Qi id)
+        Pact            // that a pact exists (a pact id): others' oaths are learned by spying, the mirror…
     }
 
     /// <summary>Where a piece of knowledge came from.</summary>

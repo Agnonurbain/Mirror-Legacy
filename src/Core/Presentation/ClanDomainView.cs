@@ -21,7 +21,7 @@ namespace MirrorChronicles.Presentation
     public sealed record MemberRow(string Id, string Name, int Age, string Rank, int Stability,
         TaskType Task, IReadOnlyList<TaskType> AllowedTasks, bool IsPatriarch,
         string MethodId, string Method, IReadOnlyList<MethodChoice> Methods,
-        string Temperament, string Foundation, string Retreat, string Abilities);
+        string Temperament, string Foundation, string Retreat, string Abilities, string HeartDemon = null);
 
     /// <summary>Portions of one spiritual Qi in the clan's store.</summary>
     public sealed record QiLine(string Name, int Portions);
@@ -52,7 +52,8 @@ namespace MirrorChronicles.Presentation
                     m.CurrentTask, TaskRules.AllowedTasks(m), m.ID == patriarchId,
                     m.CultivationMethodId, PractisedMethod(session, m),
                     session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
-                    TemperamentLabel(m.Temperament), FoundationLabel(session, m.FoundationId), RetreatLabel(m), AbilitiesLabel(m)))
+                    TemperamentLabel(m.Temperament), FoundationLabel(session, m.FoundationId), RetreatLabel(m), AbilitiesLabel(m),
+                    m.HeartDemonYearsLeft > 0 ? $"Démon du Cœur ({m.HeartDemonYearsLeft} an{(m.HeartDemonYearsLeft > 1 ? "s" : "")})" : null))
                 .ToList();
         }
 

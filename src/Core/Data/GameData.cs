@@ -14,7 +14,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.3";
+        public const string CurrentVersion = "2.4";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -49,6 +49,9 @@ namespace MirrorChronicles.Data
 
         // What the clan knows (2.3; null in older saves, rebuilt from their techniques and foundations)
         public List<string> Knowledge { get; set; }
+
+        // Oaths of the Dao (2.4; null in older saves)
+        public List<PactData> Pacts { get; set; }
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

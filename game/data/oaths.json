@@ -1,0 +1,15 @@
+{
+  "clauses": [
+    { "id": "never-harm",     "name": "Ne jamais nuire à l'autre",           "act": "Harm",         "severity": 3, "provenance": "Interpretation", "interpretedFields": [ "Severity" ] },
+    { "id": "keep-secret",    "name": "Garder le secret confié",             "act": "RevealSecret", "severity": 2, "provenance": "Interpretation", "interpretedFields": [ "Severity" ] },
+    { "id": "no-spying",      "name": "Ne jamais épier l'autre",             "act": "Espionage",    "severity": 1, "provenance": "Interpretation", "interpretedFields": [ "Severity" ] },
+    { "id": "render-service", "name": "Rendre le service promis avant le terme", "act": "Service",  "severity": 2, "provenance": "Interpretation", "interpretedFields": [ "Severity" ] }
+  ],
+  "loopholes": [
+    { "kind": "ThirdParty",   "name": "La lettre plutôt que l'esprit", "notes": "Un serment ne couvre que ce qu'il nomme : faire agir un tiers ne le rompt pas.", "provenance": "Interpretation" },
+    { "kind": "FalseName",    "name": "Le prête-nom",                  "notes": "Jurer sous un nom qui n'est pas le sien ne lie personne.", "provenance": "Interpretation" },
+    { "kind": "Expiry",       "name": "L'échéance",                    "notes": "Un serment à terme tombe à son échéance.", "provenance": "Interpretation" },
+    { "kind": "MirrorVeil",   "name": "Le voile du miroir",            "notes": "D'un rang d'Embryon du Dao, le miroir bloque divination et liens de destin (§11.5) : il peut voiler une transgression, au prix de sa puissance.", "provenance": "Interpretation" },
+    { "kind": "Purification", "name": "La purification",               "notes": "Pilules et retraite apaisent un Démon du Cœur (cf. le Qi de talisman Crête de pins sous la neige radieuse, qui dissipe les illusions).", "provenance": "Interpretation" }
+  ]
+}
