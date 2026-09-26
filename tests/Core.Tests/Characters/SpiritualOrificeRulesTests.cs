@@ -101,7 +101,7 @@ namespace MirrorChronicles.Tests.Characters
         [TestCase(3, 5)]
         public void TalismanSeedCapacity_GrowsWithMirrorFragments(int fragments, int expected)
         {
-            Assert.AreEqual(expected, SpiritualOrificeRules.TalismanSeedCapacity(fragments));
+            Assert.AreEqual(expected, SpiritualOrificeRules.TalismanSeedCapacity(fragments, Fixtures.Content.Balance.Trials.BaseTalismanSeedCapacity));
         }
 
         [Test]

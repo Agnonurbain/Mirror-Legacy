@@ -94,7 +94,25 @@ namespace MirrorChronicles.Tests.Characters
         [TestCase(TrialKind.FoundationWall, 90, 5)]
         public void BaseTrialChance_UsesBalanceDefaults(TrialKind trial, int age, int expected)
         {
-            Assert.AreEqual(expected, PowerLadder.BaseTrialChance(trial, age));
+            Assert.AreEqual(expected, PowerLadder.BaseTrialChance(trial, age, Fixtures.Content.Balance.Trials));
+        }
+
+        [Test]
+        public void BaseTrialChance_FollowsTheBalance()
+        {
+            var trials = Fixtures.Content.Balance.Trials with
+            {
+                ChakraChances = new System.Collections.Generic.Dictionary<TrialKind, int> { [TrialKind.InnerLakeChakra] = 42 }
+            };
+            Assert.AreEqual(42, PowerLadder.BaseTrialChance(TrialKind.InnerLakeChakra, 30, trials));
+            Assert.AreEqual(0, PowerLadder.BaseTrialChance(TrialKind.SummitEyeChakra, 30, trials)); // a trial the balance leaves out
+        }
+
+        [Test]
+        public void DissolutionChanceOnFailure_FollowsTheBalance()
+        {
+            var trials = Fixtures.Content.Balance.Trials with { DissolutionBaseChance = 1, DissolutionChancePerYear = 0 };
+            Assert.AreEqual(1, PowerLadder.DissolutionChanceOnFailure(100, trials));
         }
 
         [TestCase(40, 20)]
@@ -103,7 +121,7 @@ namespace MirrorChronicles.Tests.Characters
         [TestCase(100, 90)]
         public void DissolutionChanceOnFailure_RisesAfterSixty(int age, int expected)
         {
-            Assert.AreEqual(expected, PowerLadder.DissolutionChanceOnFailure(age));
+            Assert.AreEqual(expected, PowerLadder.DissolutionChanceOnFailure(age, Fixtures.Content.Balance.Trials));
         }
 
         [TestCase(CultivationRealm.Embryonic, 0, 80)]
