@@ -339,7 +339,7 @@
       "source_file": "game/scripts/ClanDomain.cs",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "button",
+      "id": "game_scripts_clandomain_cs_button",
       "community": 1,
       "norm_label": "button"
     },
@@ -1224,10 +1224,20 @@
       "norm_label": "label"
     },
     {
+      "label": "Button",
+      "file_type": "code",
+      "source_file": "game/scripts/WorldMap.cs",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "game_scripts_worldmap_cs_button",
+      "community": 1,
+      "norm_label": "button"
+    },
+    {
       "label": "._Ready()",
       "file_type": "code",
       "source_file": "game/scripts/WorldMap.cs",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "scripts_worldmap_worldmap_ready",
       "community": 1,
@@ -1237,7 +1247,7 @@
       "label": ".Select()",
       "file_type": "code",
       "source_file": "game/scripts/WorldMap.cs",
-      "source_location": "L37",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "scripts_worldmap_worldmap_select",
       "community": 1,
@@ -1247,7 +1257,7 @@
       "label": ".Refresh()",
       "file_type": "code",
       "source_file": "game/scripts/WorldMap.cs",
-      "source_location": "L43",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "scripts_worldmap_worldmap_refresh",
       "community": 1,
@@ -1257,7 +1267,7 @@
       "label": ".RunSmoke()",
       "file_type": "code",
       "source_file": "game/scripts/WorldMap.cs",
-      "source_location": "L62",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "scripts_worldmap_worldmap_runsmoke",
       "community": 1,
@@ -1480,7 +1490,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_breakthroughsystem",
-      "community": 84,
+      "community": 7,
       "norm_label": "breakthroughsystem"
     },
     {
@@ -1490,7 +1500,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_int",
-      "community": 84,
+      "community": 7,
       "norm_label": "int"
     },
     {
@@ -1500,7 +1510,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_gamecontext",
-      "community": 84,
+      "community": 7,
       "norm_label": "gamecontext"
     },
     {
@@ -1510,7 +1520,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_clanmanager",
-      "community": 84,
+      "community": 7,
       "norm_label": "clanmanager"
     },
     {
@@ -1520,7 +1530,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_cultivationsystem",
-      "community": 84,
+      "community": 7,
       "norm_label": "cultivationsystem"
     },
     {
@@ -1530,7 +1540,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_breakthroughsystem_processbreakthroughphase",
-      "community": 84,
+      "community": 7,
       "norm_label": ".processbreakthroughphase()"
     },
     {
@@ -1540,7 +1550,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_breakthroughsystem_calculatesuccessrate",
-      "community": 84,
+      "community": 7,
       "norm_label": ".calculatesuccessrate()"
     },
     {
@@ -1550,7 +1560,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_characterdata",
-      "community": 84,
+      "community": 7,
       "norm_label": "characterdata"
     },
     {
@@ -1560,7 +1570,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_breakthroughsystem_attemptbreakthrough",
-      "community": 84,
+      "community": 7,
       "norm_label": ".attemptbreakthrough()"
     },
     {
@@ -1570,7 +1580,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_breakthroughoutcome",
-      "community": 84,
+      "community": 7,
       "norm_label": "breakthroughoutcome"
     },
     {
@@ -4630,7 +4640,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 167,
+      "community": 7,
       "norm_label": "woundsystem"
     },
     {
@@ -4640,7 +4650,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 167,
+      "community": 7,
       "norm_label": "double"
     },
     {
@@ -4650,7 +4660,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 167,
+      "community": 7,
       "norm_label": "int"
     },
     {
@@ -4660,7 +4670,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 167,
+      "community": 7,
       "norm_label": "gamecontext"
     },
     {
@@ -4670,7 +4680,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 167,
+      "community": 7,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -4680,7 +4690,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 167,
+      "community": 7,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -4690,7 +4700,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 167,
+      "community": 7,
       "norm_label": "characterdata"
     },
     {
@@ -4700,7 +4710,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 167,
+      "community": 7,
       "norm_label": ".applydaowound()"
     },
     {
@@ -4710,7 +4720,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 167,
+      "community": 7,
       "norm_label": ".applywound()"
     },
     {
@@ -5260,7 +5270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 88,
+      "community": 152,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -5270,7 +5280,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 88,
+      "community": 152,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -7170,7 +7180,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "combat_combatunit_combatunit",
-      "community": 74,
+      "community": 7,
       "norm_label": "combatunit"
     },
     {
@@ -7180,7 +7190,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_combat_combatunit_cs_int",
-      "community": 74,
+      "community": 7,
       "norm_label": "int"
     },
     {
@@ -7190,7 +7200,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_combat_combatunit_cs_double",
-      "community": 74,
+      "community": 7,
       "norm_label": "double"
     },
     {
@@ -7200,7 +7210,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "combat_combatunit_combatunit_setcell",
-      "community": 74,
+      "community": 7,
       "norm_label": ".setcell()"
     },
     {
@@ -7210,7 +7220,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "src_core_combat_combatunit_cs_gridcell",
-      "community": 74,
+      "community": 7,
       "norm_label": "gridcell"
     },
     {
@@ -7220,7 +7230,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "combat_combatunit_combatunit_heal",
-      "community": 74,
+      "community": 7,
       "norm_label": ".heal()"
     },
     {
@@ -7230,7 +7240,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "combat_combatunit_combatunit_takedamage",
-      "community": 74,
+      "community": 7,
       "norm_label": ".takedamage()"
     },
     {
@@ -7240,7 +7250,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "combat_combatunit_combatunit_consumeqi",
-      "community": 74,
+      "community": 7,
       "norm_label": ".consumeqi()"
     },
     {
@@ -7250,7 +7260,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "combat_combatunit_combatunit_restoreqi",
-      "community": 74,
+      "community": 7,
       "norm_label": ".restoreqi()"
     },
     {
@@ -7260,7 +7270,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "combat_combatunit_combatunit_flee",
-      "community": 74,
+      "community": 7,
       "norm_label": ".flee()"
     },
     {
@@ -7270,7 +7280,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "combat_combatunit_combatunit_resetturnstate",
-      "community": 74,
+      "community": 7,
       "norm_label": ".resetturnstate()"
     },
     {
@@ -7630,7 +7640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 88,
+      "community": 152,
       "norm_label": "enums.cs"
     },
     {
@@ -7640,7 +7650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 88,
+      "community": 152,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -7650,7 +7660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_factiondata",
-      "community": 40,
+      "community": 59,
       "norm_label": "factiondata.cs"
     },
     {
@@ -7660,7 +7670,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "data_factiondata_mirrorchronicles_data",
-      "community": 40,
+      "community": 59,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -7670,7 +7680,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "data_factiondata_factiondata",
-      "community": 40,
+      "community": 59,
       "norm_label": "factiondata"
     },
     {
@@ -7680,7 +7690,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "data_factiondata_factiondata_clone",
-      "community": 40,
+      "community": 59,
       "norm_label": ".clone()"
     },
     {
@@ -8137,7 +8147,7 @@
       "label": ".CheckFactions()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L241",
+      "source_location": "L244",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfactions",
       "community": 18,
@@ -8147,7 +8157,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L241",
+      "source_location": "L244",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_list",
       "community": 18,
@@ -8157,7 +8167,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L241",
+      "source_location": "L244",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_factiondata",
       "community": 18,
@@ -8167,7 +8177,7 @@
       "label": "RegionDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L241",
+      "source_location": "L244",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_regiondefinition",
       "community": 18,
@@ -8177,7 +8187,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L241",
+      "source_location": "L244",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_ireadonlylist",
       "community": 18,
@@ -8187,7 +8197,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L241",
+      "source_location": "L244",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_techniquedata",
       "community": 18,
@@ -8197,7 +8207,7 @@
       "label": ".CheckEvents()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L255",
+      "source_location": "L258",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkevents",
       "community": 18,
@@ -8207,7 +8217,7 @@
       "label": "RandomEventData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L255",
+      "source_location": "L258",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_randomeventdata",
       "community": 18,
@@ -8217,7 +8227,7 @@
       "label": ".CheckStory()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L261",
+      "source_location": "L264",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkstory",
       "community": 18,
@@ -8227,7 +8237,7 @@
       "label": "StoryEventData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L261",
+      "source_location": "L264",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_storyeventdata",
       "community": 18,
@@ -8237,7 +8247,7 @@
       "label": ".CheckQi()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L273",
+      "source_location": "L276",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkqi",
       "community": 18,
@@ -8247,7 +8257,7 @@
       "label": "QiDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L273",
+      "source_location": "L276",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_qidefinition",
       "community": 18,
@@ -8257,7 +8267,7 @@
       "label": ".CheckTechniques()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L281",
+      "source_location": "L284",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checktechniques",
       "community": 18,
@@ -8267,7 +8277,7 @@
       "label": "TechniqueCatalog",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L281",
+      "source_location": "L284",
       "_origin": "ast",
       "id": "techniquecatalog",
       "community": 18,
@@ -8277,7 +8287,7 @@
       "label": ".CheckClanKnowledge()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L329",
+      "source_location": "L332",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkclanknowledge",
       "community": 18,
@@ -8287,7 +8297,7 @@
       "label": ".CheckFruitions()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L354",
+      "source_location": "L357",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfruitions",
       "community": 18,
@@ -8297,7 +8307,7 @@
       "label": "FruitionCatalog",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L354",
+      "source_location": "L357",
       "_origin": "ast",
       "id": "fruitioncatalog",
       "community": 18,
@@ -8307,7 +8317,7 @@
       "label": ".CheckFoundations()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L378",
+      "source_location": "L381",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfoundations",
       "community": 18,
@@ -8317,7 +8327,7 @@
       "label": "FruitionDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L378",
+      "source_location": "L381",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_fruitiondefinition",
       "community": 18,
@@ -8327,7 +8337,7 @@
       "label": ".CheckFigures()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L395",
+      "source_location": "L398",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfigures",
       "community": 18,
@@ -8337,7 +8347,7 @@
       "label": "FigureDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L395",
+      "source_location": "L398",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_figuredefinition",
       "community": 18,
@@ -8347,7 +8357,7 @@
       "label": ".CheckTalismans()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L410",
+      "source_location": "L413",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checktalismans",
       "community": 18,
@@ -8357,7 +8367,7 @@
       "label": "TalismanDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L410",
+      "source_location": "L413",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_talismandefinition",
       "community": 18,
@@ -8367,7 +8377,7 @@
       "label": ".CheckRegions()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L421",
+      "source_location": "L424",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkregions",
       "community": 18,
@@ -8377,7 +8387,7 @@
       "label": ".CheckOaths()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L444",
+      "source_location": "L447",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkoaths",
       "community": 18,
@@ -8387,7 +8397,7 @@
       "label": "OathCatalog",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L444",
+      "source_location": "L447",
       "_origin": "ast",
       "id": "oathcatalog",
       "community": 18,
@@ -8397,7 +8407,7 @@
       "label": ".CheckInterpretedFields()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L458",
+      "source_location": "L461",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkinterpretedfields",
       "community": 18,
@@ -8407,7 +8417,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L458",
+      "source_location": "L461",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_ienumerable",
       "community": 18,
@@ -8417,7 +8427,7 @@
       "label": "Id",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L458",
+      "source_location": "L461",
       "_origin": "ast",
       "id": "id",
       "community": 18,
@@ -8427,7 +8437,7 @@
       "label": "Type",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L458",
+      "source_location": "L461",
       "_origin": "ast",
       "id": "type",
       "community": 18,
@@ -8437,7 +8447,7 @@
       "label": "Fields",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L458",
+      "source_location": "L461",
       "_origin": "ast",
       "id": "fields",
       "community": 18,
@@ -8447,7 +8457,7 @@
       "label": ".IsProbability()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L468",
+      "source_location": "L471",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_isprobability",
       "community": 18,
@@ -8457,7 +8467,7 @@
       "label": ".Require()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L470",
+      "source_location": "L473",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_require",
       "community": 18,
@@ -8870,7 +8880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem",
-      "community": 40,
+      "community": 74,
       "norm_label": "alliancesystem.cs"
     },
     {
@@ -8880,7 +8890,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_mirrorchronicles_diplomacy",
-      "community": 40,
+      "community": 74,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -8890,7 +8900,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem",
-      "community": 40,
+      "community": 74,
       "norm_label": "alliancesystem"
     },
     {
@@ -8900,7 +8910,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_int",
-      "community": 40,
+      "community": 74,
       "norm_label": "int"
     },
     {
@@ -8910,7 +8920,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_double",
-      "community": 40,
+      "community": 74,
       "norm_label": "double"
     },
     {
@@ -8920,7 +8930,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_gamecontext",
-      "community": 40,
+      "community": 74,
       "norm_label": "gamecontext"
     },
     {
@@ -8930,7 +8940,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_factionmanager",
-      "community": 40,
+      "community": 74,
       "norm_label": "factionmanager"
     },
     {
@@ -8940,7 +8950,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_resourcemanager",
-      "community": 40,
+      "community": 74,
       "norm_label": "resourcemanager"
     },
     {
@@ -8950,7 +8960,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_offertribute",
-      "community": 40,
+      "community": 74,
       "norm_label": ".offertribute()"
     },
     {
@@ -8960,7 +8970,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_proposenonaggression",
-      "community": 40,
+      "community": 74,
       "norm_label": ".proposenonaggression()"
     },
     {
@@ -8970,7 +8980,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_declarewar",
-      "community": 40,
+      "community": 74,
       "norm_label": ".declarewar()"
     },
     {
@@ -9120,7 +9130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 40,
+      "community": 59,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -9130,7 +9140,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 40,
+      "community": 59,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -9430,7 +9440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 40,
+      "community": 59,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -9440,7 +9450,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 40,
+      "community": 59,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -9450,7 +9460,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem",
-      "community": 40,
+      "community": 82,
       "norm_label": "marriagesystem"
     },
     {
@@ -9460,7 +9470,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_int",
-      "community": 40,
+      "community": 82,
       "norm_label": "int"
     },
     {
@@ -9470,7 +9480,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_gamecontext",
-      "community": 40,
+      "community": 82,
       "norm_label": "gamecontext"
     },
     {
@@ -9480,7 +9490,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_clanmanager",
-      "community": 40,
+      "community": 82,
       "norm_label": "clanmanager"
     },
     {
@@ -9490,7 +9500,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_factionmanager",
-      "community": 40,
+      "community": 82,
       "norm_label": "factionmanager"
     },
     {
@@ -9500,7 +9510,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_mentalstabilitysystem",
-      "community": 40,
+      "community": 82,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -9510,7 +9520,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_processannualmarriages",
-      "community": 40,
+      "community": 82,
       "norm_label": ".processannualmarriages()"
     },
     {
@@ -9520,7 +9530,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_canmarry",
-      "community": 40,
+      "community": 82,
       "norm_label": ".canmarry()"
     },
     {
@@ -9530,7 +9540,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_characterdata",
-      "community": 40,
+      "community": 82,
       "norm_label": "characterdata"
     },
     {
@@ -9540,7 +9550,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_handlelovemarriage",
-      "community": 40,
+      "community": 82,
       "norm_label": ".handlelovemarriage()"
     },
     {
@@ -9550,7 +9560,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_handlearrangedmarriage",
-      "community": 40,
+      "community": 82,
       "norm_label": ".handlearrangedmarriage()"
     },
     {
@@ -9560,7 +9570,7 @@
       "source_location": "L101",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_wed",
-      "community": 40,
+      "community": 82,
       "norm_label": ".wed()"
     },
     {
@@ -9767,7 +9777,7 @@
       "label": "MirrorChronicles.Economy",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L5",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "economy_resourcemanager_mirrorchronicles_economy",
       "community": 29,
@@ -9777,7 +9787,7 @@
       "label": "ResourceManager",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L11",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager",
       "community": 29,
@@ -9787,7 +9797,7 @@
       "label": "GameContext",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L13",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_economy_resourcemanager_cs_gamecontext",
       "community": 29,
@@ -9797,7 +9807,7 @@
       "label": ".AddSpiritStones()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L26",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_addspiritstones",
       "community": 29,
@@ -9807,7 +9817,7 @@
       "label": ".ConsumeSpiritStones()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L33",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_consumespiritstones",
       "community": 29,
@@ -9817,7 +9827,7 @@
       "label": ".SetSpiritStones()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L47",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_setspiritstones",
       "community": 29,
@@ -9827,7 +9837,7 @@
       "label": ".AddHerbs()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L53",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_addherbs",
       "community": 29,
@@ -9837,7 +9847,7 @@
       "label": ".ConsumeHerbs()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L54",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_consumeherbs",
       "community": 29,
@@ -9847,7 +9857,7 @@
       "label": ".AddOres()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L56",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_addores",
       "community": 29,
@@ -9857,7 +9867,7 @@
       "label": ".ConsumeOres()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L57",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_consumeores",
       "community": 29,
@@ -9867,7 +9877,7 @@
       "label": ".AddPrestige()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L59",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_addprestige",
       "community": 29,
@@ -9877,7 +9887,7 @@
       "label": ".AddPrayers()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L64",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_addprayers",
       "community": 29,
@@ -9887,7 +9897,7 @@
       "label": ".ConsumePrayers()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L66",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_consumeprayers",
       "community": 29,
@@ -9897,17 +9907,77 @@
       "label": ".RestorePrayers()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L68",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_restoreprayers",
       "community": 29,
       "norm_label": ".restoreprayers()"
     },
     {
+      "label": "List",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "src_core_economy_resourcemanager_cs_list",
+      "community": 29,
+      "norm_label": "list"
+    },
+    {
+      "label": ".AddBeast()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "economy_resourcemanager_resourcemanager_addbeast",
+      "community": 29,
+      "norm_label": ".addbeast()"
+    },
+    {
+      "label": "CapturedBeast",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "src_core_economy_resourcemanager_cs_capturedbeast",
+      "community": 29,
+      "norm_label": "capturedbeast"
+    },
+    {
+      "label": ".ConsumeBeast()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "economy_resourcemanager_resourcemanager_consumebeast",
+      "community": 29,
+      "norm_label": ".consumebeast()"
+    },
+    {
+      "label": ".RestoreBeasts()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "economy_resourcemanager_resourcemanager_restorebeasts",
+      "community": 29,
+      "norm_label": ".restorebeasts()"
+    },
+    {
+      "label": "IEnumerable",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "src_core_economy_resourcemanager_cs_ienumerable",
+      "community": 29,
+      "norm_label": "ienumerable"
+    },
+    {
       "label": ".AddTechniqueFragments()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L70",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_addtechniquefragments",
       "community": 29,
@@ -9917,7 +9987,7 @@
       "label": ".ConsumeTechniqueFragments()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L71",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_consumetechniquefragments",
       "community": 29,
@@ -9927,7 +9997,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L74",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_restore",
       "community": 29,
@@ -9937,7 +10007,7 @@
       "label": "Dictionary",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L86",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "src_core_economy_resourcemanager_cs_dictionary",
       "community": 29,
@@ -9947,7 +10017,7 @@
       "label": ".QiPortions()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L95",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_qiportions",
       "community": 29,
@@ -9957,7 +10027,7 @@
       "label": ".AddQi()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L97",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_addqi",
       "community": 29,
@@ -9967,7 +10037,7 @@
       "label": ".ConsumeQi()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L103",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_consumeqi",
       "community": 29,
@@ -9977,7 +10047,7 @@
       "label": ".AddHarvestWork()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L115",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_addharvestwork",
       "community": 29,
@@ -9987,7 +10057,7 @@
       "label": ".RestoreQi()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L126",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_restoreqi",
       "community": 29,
@@ -9997,7 +10067,7 @@
       "label": "IReadOnlyDictionary",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L126",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "src_core_economy_resourcemanager_cs_ireadonlydictionary",
       "community": 29,
@@ -10007,7 +10077,7 @@
       "label": ".TryConsume()",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L136",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "economy_resourcemanager_resourcemanager_tryconsume",
       "community": 29,
@@ -10017,7 +10087,7 @@
       "label": "Action",
       "file_type": "code",
       "source_file": "src/Core/Economy/ResourceManager.cs",
-      "source_location": "L136",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "src_core_economy_resourcemanager_cs_action",
       "community": 29,
@@ -10177,7 +10247,7 @@
       "label": ".AssignTask()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L65",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
       "community": 33,
@@ -10187,17 +10257,17 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L65",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 59,
+      "community": 33,
       "norm_label": "characterdata"
     },
     {
       "label": "TaskType",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L65",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
       "community": 33,
@@ -10207,111 +10277,131 @@
       "label": ".ProcessYearlyTasks()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L78",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 59,
+      "community": 33,
       "norm_label": ".processyearlytasks()"
     },
     {
       "label": "YearlyTaskReport",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L78",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 59,
+      "community": 33,
       "norm_label": "yearlytaskreport"
     },
     {
       "label": ".GatherQi()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L118",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 59,
+      "community": 33,
       "norm_label": ".gatherqi()"
     },
     {
       "label": ".Harvestable()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L137",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 59,
+      "community": 33,
       "norm_label": ".harvestable()"
     },
     {
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L137",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 59,
+      "community": 33,
       "norm_label": "techniquedata"
     },
     {
       "label": "QiDefinition",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L137",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 59,
+      "community": 33,
       "norm_label": "qidefinition"
     },
     {
       "label": ".MineYield()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L144",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 59,
+      "community": 33,
       "norm_label": ".mineyield()"
     },
     {
       "label": ".Study()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L151",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 59,
+      "community": 33,
       "norm_label": ".study()"
     },
     {
       "label": ".Diplomacy()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L178",
+      "source_location": "L180",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 59,
+      "community": 33,
       "norm_label": ".diplomacy()"
     },
     {
       "label": ".Teach()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L186",
+      "source_location": "L188",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 59,
+      "community": 33,
       "norm_label": ".teach()"
     },
     {
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L186",
+      "source_location": "L188",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 59,
+      "community": 33,
       "norm_label": "ireadonlylist"
+    },
+    {
+      "label": ".HuntBeast()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L205",
+      "_origin": "ast",
+      "id": "economy_taskassignmentsystem_taskassignmentsystem_huntbeast",
+      "community": 33,
+      "norm_label": ".huntbeast()"
+    },
+    {
+      "label": ".SetHuntingGround()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L220",
+      "_origin": "ast",
+      "id": "economy_taskassignmentsystem_taskassignmentsystem_sethuntingground",
+      "community": 33,
+      "norm_label": ".sethuntingground()"
     },
     {
       "label": "EventManager.cs",
@@ -11344,14 +11434,14 @@
       "norm_label": ".rankof()"
     },
     {
-      "label": "CharacterData",
+      "label": "CapturedBeast",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_core_mirror_talismanrules_cs_characterdata",
+      "id": "src_core_mirror_talismanrules_cs_capturedbeast",
       "community": 171,
-      "norm_label": "characterdata"
+      "norm_label": "capturedbeast"
     },
     {
       "label": "TalismanRank",
@@ -11364,20 +11454,50 @@
       "norm_label": "talismanrank"
     },
     {
+      "label": ".LeapOf()",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "mirror_talismanrules_talismanrules_leapof",
+      "community": 171,
+      "norm_label": ".leapof()"
+    },
+    {
+      "label": "TalismanSettings",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "talismansettings",
+      "community": 171,
+      "norm_label": "talismansettings"
+    },
+    {
       "label": ".Offer()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L27",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "mirror_talismanrules_talismanrules_offer",
       "community": 171,
       "norm_label": ".offer()"
     },
     {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "src_core_mirror_talismanrules_cs_characterdata",
+      "community": 171,
+      "norm_label": "characterdata"
+    },
+    {
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L27",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "src_core_mirror_talismanrules_cs_ireadonlylist",
       "community": 171,
@@ -11387,27 +11507,17 @@
       "label": "TalismanDefinition",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L27",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "src_core_mirror_talismanrules_cs_talismandefinition",
       "community": 171,
       "norm_label": "talismandefinition"
     },
     {
-      "label": "TalismanSettings",
-      "file_type": "code",
-      "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L27",
-      "_origin": "ast",
-      "id": "talismansettings",
-      "community": 171,
-      "norm_label": "talismansettings"
-    },
-    {
       "label": "Random",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L27",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "src_core_mirror_talismanrules_cs_random",
       "community": 171,
@@ -11417,7 +11527,7 @@
       "label": ".Leap()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L38",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "mirror_talismanrules_talismanrules_leap",
       "community": 171,
@@ -11427,7 +11537,7 @@
       "label": ".Of()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L44",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "mirror_talismanrules_talismanrules_of",
       "community": 171,
@@ -11447,7 +11557,7 @@
       "label": "MirrorChronicles.Mirror",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_talismansystem_mirrorchronicles_mirror",
       "community": 172,
@@ -11457,7 +11567,7 @@
       "label": "TalismanSystem",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L16",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "mirror_talismansystem_talismansystem",
       "community": 172,
@@ -11467,7 +11577,7 @@
       "label": "GameContext",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L18",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "src_core_mirror_talismansystem_cs_gamecontext",
       "community": 172,
@@ -11477,7 +11587,7 @@
       "label": "ClanManager",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L19",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "src_core_mirror_talismansystem_cs_clanmanager",
       "community": 172,
@@ -11487,17 +11597,27 @@
       "label": "ResourceManager",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L20",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "src_core_mirror_talismansystem_cs_resourcemanager",
       "community": 172,
       "norm_label": "resourcemanager"
     },
     {
+      "label": "FactionManager",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/TalismanSystem.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "src_core_mirror_talismansystem_cs_factionmanager",
+      "community": 172,
+      "norm_label": "factionmanager"
+    },
+    {
       "label": ".PerformRitual()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L41",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "mirror_talismansystem_talismansystem_performritual",
       "community": 172,
@@ -11507,27 +11627,47 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L41",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_mirror_talismansystem_cs_characterdata",
       "community": 172,
       "norm_label": "characterdata"
     },
     {
+      "label": "CapturedBeast",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/TalismanSystem.cs",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "src_core_mirror_talismansystem_cs_capturedbeast",
+      "community": 172,
+      "norm_label": "capturedbeast"
+    },
+    {
       "label": ".Choose()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L67",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "mirror_talismansystem_talismansystem_choose",
       "community": 172,
       "norm_label": ".choose()"
     },
     {
+      "label": ".AnswerToTheOwner()",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/TalismanSystem.cs",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "mirror_talismansystem_talismansystem_answertotheowner",
+      "community": 172,
+      "norm_label": ".answertotheowner()"
+    },
+    {
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L83",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "mirror_talismansystem_talismansystem_restore",
       "community": 172,
@@ -11537,7 +11677,7 @@
       "label": "TalismanOffer",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L83",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "talismanoffer",
       "community": 172,
@@ -11547,7 +11687,7 @@
       "label": ".GatherPrayers()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
-      "source_location": "L91",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "mirror_talismansystem_talismansystem_gatherprayers",
       "community": 172,
@@ -11937,7 +12077,7 @@
       "label": ".DeathLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L159",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_deathlabel",
       "community": 95,
@@ -11947,7 +12087,7 @@
       "label": "DeathCause",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L159",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "src_core_presentation_clandomainview_cs_deathcause",
       "community": 95,
@@ -12377,7 +12517,7 @@
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L186",
+      "source_location": "L188",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 157,
@@ -12387,7 +12527,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L229",
+      "source_location": "L233",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 157,
@@ -12397,7 +12537,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L229",
+      "source_location": "L233",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 157,
@@ -12407,7 +12547,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L233",
+      "source_location": "L237",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 157,
@@ -12417,7 +12557,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L244",
+      "source_location": "L248",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 157,
@@ -12427,7 +12567,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L251",
+      "source_location": "L255",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 157,
@@ -12437,7 +12577,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L251",
+      "source_location": "L255",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 157,
@@ -12447,7 +12587,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L275",
+      "source_location": "L279",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 157,
@@ -24057,7 +24197,7 @@
       "label": "MirrorChronicles.Tests.Economy",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_mirrorchronicles_tests_economy",
       "community": 47,
@@ -24067,7 +24207,7 @@
       "label": "TaskAssignmentSystemTests",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests",
       "community": 47,
@@ -24077,7 +24217,7 @@
       "label": ".Working()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_working",
       "community": 47,
@@ -24087,7 +24227,7 @@
       "label": "TestWorld",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "tests_core_tests_economy_taskassignmentsystemtests_cs_testworld",
       "community": 47,
@@ -24097,7 +24237,7 @@
       "label": "TaskType",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "tests_core_tests_economy_taskassignmentsystemtests_cs_tasktype",
       "community": 47,
@@ -24107,7 +24247,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "tests_core_tests_economy_taskassignmentsystemtests_cs_characterdata",
       "community": 47,
@@ -24117,7 +24257,7 @@
       "label": ".GatherQi_HarvestsTheQiOfTheHarvestersMethod()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_gatherqi_harveststheqioftheharvestersmethod",
       "community": 47,
@@ -24127,7 +24267,7 @@
       "label": "Test",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "tests_core_tests_economy_taskassignmentsystemtests_cs_test",
       "community": 47,
@@ -24137,7 +24277,7 @@
       "label": ".GatherQi_OfABreathingHarvester_TakesTheBestQiTheClanCanHarvest()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_gatherqi_ofabreathingharvester_takesthebestqitheclancanharvest",
       "community": 47,
@@ -24147,7 +24287,7 @@
       "label": ".AssignTask_Refuses_CultivationForAMortal()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_assigntask_refuses_cultivationforamortal",
       "community": 47,
@@ -24157,7 +24297,7 @@
       "label": ".AssignTask_SetsAnAllowedTask()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L53",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_assigntask_setsanallowedtask",
       "community": 47,
@@ -24167,7 +24307,7 @@
       "label": ".ProcessYearlyTasks_MinesFiftyPlusTwentyFivePerRealm()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L61",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_processyearlytasks_minesfiftyplustwentyfiveperrealm",
       "community": 47,
@@ -24177,7 +24317,7 @@
       "label": ".ProcessYearlyTasks_MinesMore_WithAForge()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L70",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_processyearlytasks_minesmore_withaforge",
       "community": 47,
@@ -24187,7 +24327,7 @@
       "label": ".ProcessYearlyTasks_RestSteadiesTheMind()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L79",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_processyearlytasks_reststeadiesthemind",
       "community": 47,
@@ -24197,7 +24337,7 @@
       "label": ".ProcessYearlyTasks_StudyGivesXp_WhenNothingIsFound()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L88",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_processyearlytasks_studygivesxp_whennothingisfound",
       "community": 47,
@@ -24207,7 +24347,7 @@
       "label": ".ProcessYearlyTasks_StudyFindsAFragment_WhenLucky()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L97",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_processyearlytasks_studyfindsafragment_whenlucky",
       "community": 47,
@@ -24217,7 +24357,7 @@
       "label": ".ProcessYearlyTasks_TeachingBoostsACultivatingStudent()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L106",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_processyearlytasks_teachingboostsacultivatingstudent",
       "community": 47,
@@ -24227,7 +24367,7 @@
       "label": ".ProcessYearlyTasks_DiplomacyWarmsAFaction_MoreWithACouncilRoom()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L116",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_processyearlytasks_diplomacywarmsafaction_morewithacouncilroom",
       "community": 47,
@@ -24237,11 +24377,61 @@
       "label": ".ProcessYearlyTasks_ClearsATaskTheMemberCannotPerform()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
-      "source_location": "L128",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_processyearlytasks_clearsataskthemembercannotperform",
       "community": 47,
       "norm_label": ".processyearlytasks_clearsataskthemembercannotperform()"
+    },
+    {
+      "label": ".HuntBeast_CapturesABeastNoStrongerThanTheHunter()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L140",
+      "_origin": "ast",
+      "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_capturesabeastnostrongerthanthehunter",
+      "community": 47,
+      "norm_label": ".huntbeast_capturesabeastnostrongerthanthehunter()"
+    },
+    {
+      "label": ".HuntBeast_MayComeBackEmptyHanded()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L153",
+      "_origin": "ast",
+      "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_maycomebackemptyhanded",
+      "community": 47,
+      "norm_label": ".huntbeast_maycomebackemptyhanded()"
+    },
+    {
+      "label": ".HuntBeast_OnAPowersGround_MayTakeOneOfItsBeasts()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_onapowersground_maytakeoneofitsbeasts",
+      "community": 47,
+      "norm_label": ".huntbeast_onapowersground_maytakeoneofitsbeasts()"
+    },
+    {
+      "label": ".HuntBeast_OnAnUnclaimedGround_TakesSolitaryBeasts()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L175",
+      "_origin": "ast",
+      "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_onanunclaimedground_takessolitarybeasts",
+      "community": 47,
+      "norm_label": ".huntbeast_onanunclaimedground_takessolitarybeasts()"
+    },
+    {
+      "label": ".SetHuntingGround_Refuses_APlaceOffTheMap()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L188",
+      "_origin": "ast",
+      "id": "economy_taskassignmentsystemtests_taskassignmentsystemtests_sethuntingground_refuses_aplaceoffthemap",
+      "community": 47,
+      "norm_label": ".sethuntingground_refuses_aplaceoffthemap()"
     },
     {
       "label": "EventManagerTests.cs",
@@ -25417,7 +25607,7 @@
       "label": "TalismanTests",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests",
       "community": 86,
@@ -25427,7 +25617,7 @@
       "label": ".Talisman()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_talisman",
       "community": 86,
@@ -25437,7 +25627,7 @@
       "label": "TalismanDefinition",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_talismantests_cs_talismandefinition",
       "community": 86,
@@ -25447,7 +25637,7 @@
       "label": ".Devout()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_devout",
       "community": 86,
@@ -25457,7 +25647,7 @@
       "label": "TestWorld",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_talismantests_cs_testworld",
       "community": 86,
@@ -25467,7 +25657,7 @@
       "label": ".Bearer()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_bearer",
       "community": 86,
@@ -25477,7 +25667,7 @@
       "label": "Temperament",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_talismantests_cs_temperament",
       "community": 86,
@@ -25487,7 +25677,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_talismantests_cs_characterdata",
       "community": 86,
@@ -25497,7 +25687,7 @@
       "label": ".Sacrifice()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L41",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_sacrifice",
       "community": 86,
@@ -25507,17 +25697,27 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L41",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_talismantests_cs_cultivationrealm",
       "community": 86,
       "norm_label": "cultivationrealm"
     },
     {
+      "label": "CapturedBeast",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "tests_core_tests_mirror_talismantests_cs_capturedbeast",
+      "community": 86,
+      "norm_label": "capturedbeast"
+    },
+    {
       "label": ".ShippedTalismans_HoldTheFourteenOfTheLore()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L46",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_shippedtalismans_holdthefourteenofthelore",
       "community": 86,
@@ -25527,7 +25727,7 @@
       "label": "Test",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L46",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_talismantests_cs_test",
       "community": 86,
@@ -25537,7 +25737,7 @@
       "label": ".ShippedTalismans_KeepTheFiguresTheWikiGives()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L53",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_shippedtalismans_keepthefiguresthewikigives",
       "community": 86,
@@ -25547,7 +25747,7 @@
       "label": ".Load_Refuses_ATalismanWithANonPositiveSpeed()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L60",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_load_refuses_atalismanwithanonpositivespeed",
       "community": 86,
@@ -25557,7 +25757,7 @@
       "label": ".Offer_GivesMoreChoices_ToAGreaterTalent()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L72",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_offer_givesmorechoices_toagreatertalent",
       "community": 86,
@@ -25567,7 +25767,7 @@
       "label": "TestCase",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L72",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_talismantests_cs_testcase",
       "community": 86,
@@ -25577,7 +25777,7 @@
       "label": ".Offer_PutsTheTalismansOfTheBearersTemperFirst()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L81",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_offer_putsthetalismansofthebearerstemperfirst",
       "community": 86,
@@ -25587,27 +25787,47 @@
       "label": ".Offer_HoldsOnlyTheRankOfTheSacrifice()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L89",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_offer_holdsonlytherankofthesacrifice",
       "community": 86,
       "norm_label": ".offer_holdsonlytherankofthesacrifice()"
     },
     {
-      "label": ".PerformRitual_SacrificesTheBeing_SpendsThePrayers_AndMakesAnOffer()",
+      "label": ".PerformRitual_SacrificesABeast_SpendsThePrayers_AndMakesAnOffer()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L99",
+      "source_location": "L105",
       "_origin": "ast",
-      "id": "mirror_talismantests_talismantests_performritual_sacrificesthebeing_spendstheprayers_andmakesanoffer",
+      "id": "mirror_talismantests_talismantests_performritual_sacrificesabeast_spendstheprayers_andmakesanoffer",
       "community": 86,
-      "norm_label": ".performritual_sacrificesthebeing_spendstheprayers_andmakesanoffer()"
+      "norm_label": ".performritual_sacrificesabeast_spendstheprayers_andmakesanoffer()"
+    },
+    {
+      "label": ".PerformRitual_Refuses_ABeastTheClanDoesNotHold()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "mirror_talismantests_talismantests_performritual_refuses_abeasttheclandoesnothold",
+      "community": 86,
+      "norm_label": ".performritual_refuses_abeasttheclandoesnothold()"
+    },
+    {
+      "label": ".TheStrongerTheBeast_TheHigherTheQuality()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "mirror_talismantests_talismantests_thestrongerthebeast_thehigherthequality",
+      "community": 86,
+      "norm_label": ".thestrongerthebeast_thehigherthequality()"
     },
     {
       "label": ".PerformRitual_AFoundationSacrifice_RefinesAWhiteTalisman()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L114",
+      "source_location": "L145",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_performritual_afoundationsacrifice_refinesawhitetalisman",
       "community": 86,
@@ -25617,47 +25837,37 @@
       "label": ".PerformRitual_Refuses_WithoutTenThousandPrayers()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L122",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_performritual_refuses_withouttenthousandprayers",
       "community": 86,
       "norm_label": ".performritual_refuses_withouttenthousandprayers()"
     },
     {
-      "label": ".PerformRitual_Refuses_ASacrificeBelowTheQiCultivation()",
+      "label": ".PerformRitual_Refuses_ABeastBelowTheQiCultivation()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L132",
+      "source_location": "L163",
       "_origin": "ast",
-      "id": "mirror_talismantests_talismantests_performritual_refuses_asacrificebelowtheqicultivation",
+      "id": "mirror_talismantests_talismantests_performritual_refuses_abeastbelowtheqicultivation",
       "community": 86,
-      "norm_label": ".performritual_refuses_asacrificebelowtheqicultivation()"
+      "norm_label": ".performritual_refuses_abeastbelowtheqicultivation()"
     },
     {
       "label": ".PerformRitual_Refuses_ABearerWhoAlreadyHasATalisman()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L139",
+      "source_location": "L170",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_performritual_refuses_abearerwhoalreadyhasatalisman",
       "community": 86,
       "norm_label": ".performritual_refuses_abearerwhoalreadyhasatalisman()"
     },
     {
-      "label": ".PerformRitual_Refuses_TheBearerAsTheirOwnSacrifice()",
-      "file_type": "code",
-      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L148",
-      "_origin": "ast",
-      "id": "mirror_talismantests_talismantests_performritual_refuses_thebearerastheirownsacrifice",
-      "community": 86,
-      "norm_label": ".performritual_refuses_thebearerastheirownsacrifice()"
-    },
-    {
       "label": ".Choose_GivesTheTalisman_AndALeapInCultivation()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L158",
+      "source_location": "L181",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_choose_givesthetalisman_andaleapincultivation",
       "community": 86,
@@ -25667,7 +25877,7 @@
       "label": ".Choose_Refuses_ATalismanThatWasNotOffered()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L173",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_choose_refuses_atalismanthatwasnotoffered",
       "community": 86,
@@ -25677,7 +25887,7 @@
       "label": ".Leap_StaysWithinTheRealm()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L182",
+      "source_location": "L205",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_leap_stayswithintherealm",
       "community": 86,
@@ -25687,7 +25897,7 @@
       "label": ".Choose_ProlongLife_AddsFortyYears()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L191",
+      "source_location": "L214",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_choose_prolonglife_addsfortyyears",
       "community": 86,
@@ -25697,7 +25907,7 @@
       "label": ".RadiantSnowPineRidge_DoublesTheCultivationSpeed()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L206",
+      "source_location": "L229",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_radiantsnowpineridge_doublesthecultivationspeed",
       "community": 86,
@@ -25707,7 +25917,7 @@
       "label": ".RadiantSnowPineRidge_DispelsTheIllusionsOfThePurpleMansion()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L216",
+      "source_location": "L239",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_radiantsnowpineridge_dispelstheillusionsofthepurplemansion",
       "community": 86,
@@ -25717,7 +25927,7 @@
       "label": ".VermilionFlowingRainbow_GivesMoreGiftedChildren()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L229",
+      "source_location": "L252",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_vermilionflowingrainbow_givesmoregiftedchildren",
       "community": 86,
@@ -25727,7 +25937,7 @@
       "label": ".Prayers_RiseEachYear_FromTheMortalsAndThePrestige()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L245",
+      "source_location": "L268",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_prayers_riseeachyear_fromthemortalsandtheprestige",
       "community": 86,
@@ -25737,7 +25947,7 @@
       "label": ".RoundTrip_KeepsThePrayersTheOfferAndTheTalismans()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L260",
+      "source_location": "L283",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_roundtrip_keepstheprayerstheofferandthetalismans",
       "community": 86,
@@ -25747,7 +25957,7 @@
       "label": ".TheOffer_DiesWithItsBearer_AndTheMirrorCanPerformAgain()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L278",
+      "source_location": "L301",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_theoffer_dieswithitsbearer_andthemirrorcanperformagain",
       "community": 86,
@@ -25757,11 +25967,51 @@
       "label": ".Restore_DropsAnOfferThatNoLongerResolves()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L292",
+      "source_location": "L315",
       "_origin": "ast",
       "id": "mirror_talismantests_talismantests_restore_dropsanofferthatnolongerresolves",
       "community": 86,
       "norm_label": ".restore_dropsanofferthatnolongerresolves()"
+    },
+    {
+      "label": ".SacrificingAPowersBeast_SoursThatPower_WhenFound()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L330",
+      "_origin": "ast",
+      "id": "mirror_talismantests_talismantests_sacrificingapowersbeast_soursthatpower_whenfound",
+      "community": 86,
+      "norm_label": ".sacrificingapowersbeast_soursthatpower_whenfound()"
+    },
+    {
+      "label": ".SacrificingAPowersBeast_UnnoticedCostsNothing()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L346",
+      "_origin": "ast",
+      "id": "mirror_talismantests_talismantests_sacrificingapowersbeast_unnoticedcostsnothing",
+      "community": 86,
+      "norm_label": ".sacrificingapowersbeast_unnoticedcostsnothing()"
+    },
+    {
+      "label": ".SacrificingASolitaryBeast_TouchesNoPower()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L362",
+      "_origin": "ast",
+      "id": "mirror_talismantests_talismantests_sacrificingasolitarybeast_touchesnopower",
+      "community": 86,
+      "norm_label": ".sacrificingasolitarybeast_touchesnopower()"
+    },
+    {
+      "label": ".RoundTrip_KeepsTheBeastsAndTheHuntingGround()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L375",
+      "_origin": "ast",
+      "id": "mirror_talismantests_talismantests_roundtrip_keepsthebeastsandthehuntingground",
+      "community": 86,
+      "norm_label": ".roundtrip_keepsthebeastsandthehuntingground()"
     },
     {
       "label": "net8.0",
@@ -27937,7 +28187,7 @@
       "label": "\ud83d\udcca M\u00e9triques",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/DONE.md",
-      "source_location": "L147",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "brain_claude_done_m\u00e9triques",
       "community": 49,
@@ -28834,14 +29084,14 @@
       "norm_label": "13.7 ajouts du 2026-09-24 tires du wiki (\u2705 valide)"
     },
     {
-      "label": "13.9 Ajouts de l'analyse de la carte et des personnages du wiki (2026-09-26, \ud83d\udfe1 \u00e0 valider)",
+      "label": "13.9 Ajouts de l'analyse de la carte et des personnages du wiki (\u2705 valid\u00e9 par l'utilisateur le 2026-09-26)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
       "source_location": "L1369",
       "_origin": "ast",
-      "id": "brain_claude_lore_13_9_ajouts_de_l_analyse_de_la_carte_et_des_personnages_du_wiki_2026_09_26_\u00e0_valider",
+      "id": "brain_claude_lore_13_9_ajouts_de_l_analyse_de_la_carte_et_des_personnages_du_wiki_valid\u00e9_par_l_utilisateur_le_2026_09_26",
       "community": 63,
-      "norm_label": "13.9 ajouts de l'analyse de la carte et des personnages du wiki (2026-09-26, \ud83d\udfe1 a valider)"
+      "norm_label": "13.9 ajouts de l'analyse de la carte et des personnages du wiki (\u2705 valide par l'utilisateur le 2026-09-26)"
     },
     {
       "label": "13.8 Ajouts de la passe compl\u00e8te du wiki (\u2705 valid\u00e9)",
@@ -29926,7 +30176,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 40,
+      "community": 59,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -30101,7 +30351,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 40,
+      "community": 59,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -30153,7 +30403,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 40,
+      "community": 59,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -30341,7 +30591,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 40,
+      "community": 59,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -30409,7 +30659,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 82,
+      "community": 59,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -30448,7 +30698,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 40,
+      "community": 59,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -30487,7 +30737,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 40,
+      "community": 59,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -30581,7 +30831,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Inconsistent AI-generated renames; prevention: IDE Refactor->Rename, treat CS0103 as error.",
-      "community": 78,
+      "community": 152,
       "norm_label": "wl-001: deceased.rootelement does not exist (use affinity)",
       "id": "brain_claude_worked_lesson_wl_001"
     },
@@ -30595,7 +30845,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Avoid repeating the type prefix in method names.",
-      "community": 78,
+      "community": 152,
       "norm_label": "wl-002: mirrorsystem.consumemirrorpower does not exist (consumepower)",
       "id": "brain_claude_worked_lesson_wl_002"
     },
@@ -30609,7 +30859,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 88,
+      "community": 152,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -30623,7 +30873,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Write real NUnit tests so signature drift is caught immediately.",
-      "community": 78,
+      "community": 152,
       "norm_label": "wl-004: eventmanager.generateyearlyevent missing / triggeryearlyevent private",
       "id": "brain_claude_worked_lesson_wl_004"
     },
@@ -30637,7 +30887,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Separate test assembly + InternalsVisibleTo strategy from the start.",
-      "community": 78,
+      "community": 152,
       "norm_label": "wl-005: private factionmanager.processyearlyfactionai called from test",
       "id": "brain_claude_worked_lesson_wl_005"
     },
@@ -30721,7 +30971,7 @@
       "author": null,
       "contributor": null,
       "rationale": "AI Studio forced a web format and C# was generated alongside without ever being compiled, causing WL-001..005; pick one framework and execute after every AI prompt.",
-      "community": 78,
+      "community": 152,
       "norm_label": "wl-100: unity -> web -> unity pivot debt",
       "id": "brain_claude_worked_lesson_wl_100"
     },
@@ -30735,7 +30985,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 40,
+      "community": 59,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -31133,17 +31383,6 @@
       "target": "scripts_clandomain_mirrorchronicles_game"
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L22",
-      "weight": 1.0,
-      "context": "field",
-      "confidence_score": 1.0,
-      "source": "scripts_clandomain_clandomain",
-      "target": "button"
-    },
-    {
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/ClanDomain.cs",
@@ -31152,6 +31391,17 @@
       "confidence_score": 1.0,
       "source": "scripts_clandomain_clandomain",
       "target": "control"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/ClanDomain.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_clandomain_clandomain",
+      "target": "game_scripts_clandomain_cs_button",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -32747,6 +32997,17 @@
       "confidence_score": 1.0,
       "source": "scripts_worldmap",
       "target": "scripts_worldmap_worldmap"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/WorldMap.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_worldmap_worldmap",
+      "target": "game_scripts_worldmap_cs_button",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -47516,6 +47777,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "economy_resourcemanager_resourcemanager",
+      "target": "economy_resourcemanager_resourcemanager_addbeast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
       "source_location": "L106",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -47591,6 +47862,16 @@
       "confidence_score": 1.0,
       "source": "economy_resourcemanager_resourcemanager",
       "target": "economy_resourcemanager_resourcemanager_addtechniquefragments"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "economy_resourcemanager_resourcemanager",
+      "target": "economy_resourcemanager_resourcemanager_consumebeast",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -47676,6 +47957,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "economy_resourcemanager_resourcemanager",
+      "target": "economy_resourcemanager_resourcemanager_restorebeasts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
       "source_location": "L68",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -47735,6 +48026,17 @@
       "target": "src_core_economy_resourcemanager_cs_gamecontext"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L72",
+      "weight": 1.0,
+      "context": "field",
+      "source": "economy_resourcemanager_resourcemanager",
+      "target": "src_core_economy_resourcemanager_cs_list",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -47766,6 +48068,50 @@
       "confidence_score": 1.0,
       "source": "economy_resourcemanager_resourcemanager_consumeprayers",
       "target": "economy_resourcemanager_resourcemanager_tryconsume"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L77",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "economy_resourcemanager_resourcemanager_addbeast",
+      "target": "src_core_economy_resourcemanager_cs_capturedbeast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L79",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "economy_resourcemanager_resourcemanager_consumebeast",
+      "target": "src_core_economy_resourcemanager_cs_capturedbeast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L81",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "economy_resourcemanager_resourcemanager_restorebeasts",
+      "target": "src_core_economy_resourcemanager_cs_capturedbeast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/ResourceManager.cs",
+      "source_location": "L81",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "economy_resourcemanager_resourcemanager_restorebeasts",
+      "target": "src_core_economy_resourcemanager_cs_ienumerable",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -47927,6 +48273,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L205",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystem_taskassignmentsystem",
+      "target": "economy_taskassignmentsystem_taskassignmentsystem_huntbeast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
       "source_location": "L108",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -47942,6 +48298,16 @@
       "confidence_score": 1.0,
       "source": "economy_taskassignmentsystem_taskassignmentsystem",
       "target": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystem_taskassignmentsystem",
+      "target": "economy_taskassignmentsystem_taskassignmentsystem_sethuntingground",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -48132,6 +48498,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L205",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "economy_taskassignmentsystem_taskassignmentsystem_huntbeast",
+      "target": "src_core_economy_taskassignmentsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
       "source_location": "L108",
       "weight": 1.0,
       "context": "parameter_type",
@@ -48182,6 +48559,17 @@
       "confidence_score": 1.0,
       "source": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
       "target": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
+      "target": "economy_taskassignmentsystem_taskassignmentsystem_huntbeast",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -49810,6 +50198,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "mirror_talismanrules_talismanrules",
+      "target": "mirror_talismanrules_talismanrules_leapof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
       "source_location": "L44",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -49837,6 +50235,28 @@
       "target": "mirror_talismanrules_talismanrules_rankof"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "mirror_talismanrules_talismanrules_leapof",
+      "target": "mirror_talismanrules_talismanrules_rankof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "mirror_talismanrules_talismanrules_rankof",
+      "target": "src_core_mirror_talismanrules_cs_capturedbeast",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
@@ -49862,34 +50282,12 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L38",
+      "source_location": "L24",
       "weight": 1.0,
       "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "mirror_talismanrules_talismanrules_leap",
-      "target": "src_core_mirror_talismanrules_cs_characterdata"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L44",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "mirror_talismanrules_talismanrules_of",
-      "target": "src_core_mirror_talismanrules_cs_characterdata"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L27",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "mirror_talismanrules_talismanrules_offer",
-      "target": "src_core_mirror_talismanrules_cs_characterdata"
+      "source": "mirror_talismanrules_talismanrules_leapof",
+      "target": "src_core_mirror_talismanrules_cs_capturedbeast",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -49901,6 +50299,39 @@
       "confidence_score": 1.0,
       "source": "mirror_talismanrules_talismanrules_offer",
       "target": "talismanrank"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "mirror_talismanrules_talismanrules_leapof",
+      "target": "talismansettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "mirror_talismanrules_talismanrules_offer",
+      "target": "talismansettings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "mirror_talismanrules_talismanrules_offer",
+      "target": "src_core_mirror_talismanrules_cs_characterdata"
     },
     {
       "relation": "references",
@@ -49939,12 +50370,23 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Mirror/TalismanRules.cs",
-      "source_location": "L27",
+      "source_location": "L38",
       "weight": 1.0,
       "context": "parameter_type",
       "confidence_score": 1.0,
-      "source": "mirror_talismanrules_talismanrules_offer",
-      "target": "talismansettings"
+      "source": "mirror_talismanrules_talismanrules_leap",
+      "target": "src_core_mirror_talismanrules_cs_characterdata"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanRules.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "mirror_talismanrules_talismanrules_of",
+      "target": "src_core_mirror_talismanrules_cs_characterdata"
     },
     {
       "relation": "references",
@@ -49987,6 +50429,16 @@
       "confidence_score": 1.0,
       "source": "mirror_talismansystem",
       "target": "mirror_talismansystem_talismansystem"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanSystem.cs",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "mirror_talismansystem_talismansystem",
+      "target": "mirror_talismansystem_talismansystem_answertotheowner",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -50043,6 +50495,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field",
+      "source": "mirror_talismansystem_talismansystem",
+      "target": "src_core_mirror_talismansystem_cs_factionmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanSystem.cs",
       "source_location": "L18",
       "weight": 1.0,
       "context": "field",
@@ -50062,6 +50525,28 @@
       "target": "src_core_mirror_talismansystem_cs_resourcemanager"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanSystem.cs",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "mirror_talismansystem_talismansystem_performritual",
+      "target": "mirror_talismansystem_talismansystem_answertotheowner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanSystem.cs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "mirror_talismansystem_talismansystem_performritual",
+      "target": "src_core_mirror_talismansystem_cs_capturedbeast",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Mirror/TalismanSystem.cs",
@@ -50071,6 +50556,17 @@
       "confidence_score": 1.0,
       "source": "mirror_talismansystem_talismansystem_performritual",
       "target": "src_core_mirror_talismansystem_cs_characterdata"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/TalismanSystem.cs",
+      "source_location": "L89",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "mirror_talismansystem_talismansystem_answertotheowner",
+      "target": "src_core_mirror_talismansystem_cs_capturedbeast",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -58081,9 +58577,9 @@
       "source_file": "tests/Core.Tests/Characters/LeftHandTests.cs",
       "source_location": "L311",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_lefthandtests_lefthandtests",
-      "target": "characters_lefthandtests_lefthandtests_aborrowedlightgoingout_neverliftsanoathbreakersseal",
-      "confidence_score": 1.0
+      "target": "characters_lefthandtests_lefthandtests_aborrowedlightgoingout_neverliftsanoathbreakersseal"
     },
     {
       "relation": "method",
@@ -58566,9 +59062,9 @@
       "source_file": "tests/Core.Tests/Characters/LeftHandTests.cs",
       "source_location": "L317",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_lefthandtests_lefthandtests_aborrowedlightgoingout_neverliftsanoathbreakersseal",
-      "target": "characters_lefthandtests_lefthandtests_patronagrees",
-      "confidence_score": 1.0
+      "target": "characters_lefthandtests_lefthandtests_patronagrees"
     },
     {
       "relation": "calls",
@@ -58687,9 +59183,9 @@
       "source_location": "L311",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_lefthandtests_lefthandtests_aborrowedlightgoingout_neverliftsanoathbreakersseal",
-      "target": "tests_core_tests_characters_lefthandtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_lefthandtests_cs_test"
     },
     {
       "relation": "references",
@@ -58896,9 +59392,9 @@
       "source_file": "tests/Core.Tests/Characters/LeftHandTests.cs",
       "source_location": "L316",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_lefthandtests_lefthandtests_aborrowedlightgoingout_neverliftsanoathbreakersseal",
-      "target": "characters_lefthandtests_lefthandtests_foundationpeak",
-      "confidence_score": 1.0
+      "target": "characters_lefthandtests_lefthandtests_foundationpeak"
     },
     {
       "relation": "calls",
@@ -74738,6 +75234,46 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L140",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests",
+      "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_capturesabeastnostrongerthanthehunter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests",
+      "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_maycomebackemptyhanded",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests",
+      "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_onanunclaimedground_takessolitarybeasts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests",
+      "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_onapowersground_maytakeoneofitsbeasts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
       "source_location": "L102",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -74818,6 +75354,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests",
+      "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_sethuntingground_refuses_aplaceoffthemap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
       "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -74845,6 +75391,50 @@
       "confidence_score": 1.0,
       "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_gatherqi_ofabreathingharvester_takesthebestqitheclancanharvest",
       "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_working"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_capturesabeastnostrongerthanthehunter",
+      "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_working",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_maycomebackemptyhanded",
+      "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_working",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_onanunclaimedground_takessolitarybeasts",
+      "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_working",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_onapowersground_maytakeoneofitsbeasts",
+      "target": "economy_taskassignmentsystemtests_taskassignmentsystemtests_working",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -75015,6 +75605,50 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L140",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_capturesabeastnostrongerthanthehunter",
+      "target": "tests_core_tests_economy_taskassignmentsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L153",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_maycomebackemptyhanded",
+      "target": "tests_core_tests_economy_taskassignmentsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L175",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_onanunclaimedground_takessolitarybeasts",
+      "target": "tests_core_tests_economy_taskassignmentsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L162",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_huntbeast_onapowersground_maytakeoneofitsbeasts",
+      "target": "tests_core_tests_economy_taskassignmentsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
       "source_location": "L102",
       "weight": 1.0,
       "context": "attribute",
@@ -75098,6 +75732,17 @@
       "confidence_score": 1.0,
       "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_processyearlytasks_teachingboostsacultivatingstudent",
       "target": "tests_core_tests_economy_taskassignmentsystemtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/TaskAssignmentSystemTests.cs",
+      "source_location": "L188",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_taskassignmentsystemtests_taskassignmentsystemtests_sethuntingground_refuses_aplaceoffthemap",
+      "target": "tests_core_tests_economy_taskassignmentsystemtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -77539,21 +78184,21 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L132",
+      "source_location": "L163",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests",
-      "target": "mirror_talismantests_talismantests_performritual_refuses_asacrificebelowtheqicultivation"
+      "target": "mirror_talismantests_talismantests_performritual_refuses_abeastbelowtheqicultivation",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L148",
+      "source_location": "L122",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests",
-      "target": "mirror_talismantests_talismantests_performritual_refuses_thebearerastheirownsacrifice"
+      "target": "mirror_talismantests_talismantests_performritual_refuses_abeasttheclandoesnothold",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -77569,11 +78214,11 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L99",
+      "source_location": "L105",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests",
-      "target": "mirror_talismantests_talismantests_performritual_sacrificesthebeing_spendstheprayers_andmakesanoffer"
+      "target": "mirror_talismantests_talismantests_performritual_sacrificesabeast_spendstheprayers_andmakesanoffer",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -77619,6 +78264,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L375",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests",
+      "target": "mirror_talismantests_talismantests_roundtrip_keepsthebeastsandthehuntingground",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
       "source_location": "L260",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -77634,6 +78289,36 @@
       "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests",
       "target": "mirror_talismantests_talismantests_sacrifice"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L330",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests",
+      "target": "mirror_talismantests_talismantests_sacrificingapowersbeast_soursthatpower_whenfound",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L346",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests",
+      "target": "mirror_talismantests_talismantests_sacrificingapowersbeast_unnoticedcostsnothing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L362",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests",
+      "target": "mirror_talismantests_talismantests_sacrificingasolitarybeast_touchesnopower",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -77674,6 +78359,16 @@
       "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests",
       "target": "mirror_talismantests_talismantests_theoffer_dieswithitsbearer_andthemirrorcanperformagain"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests",
+      "target": "mirror_talismantests_talismantests_thestrongerthebeast_thehigherthequality",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -77723,11 +78418,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L111",
+      "source_location": "L119",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_sacrificesthebeing_spendstheprayers_andmakesanoffer",
-      "target": "mirror_talismantests_talismantests_talisman"
+      "source": "mirror_talismantests_talismantests_performritual_sacrificesabeast_spendstheprayers_andmakesanoffer",
+      "target": "mirror_talismantests_talismantests_talisman",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -77844,33 +78539,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L135",
+      "source_location": "L166",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_refuses_asacrificebelowtheqicultivation",
-      "target": "mirror_talismantests_talismantests_devout"
+      "source": "mirror_talismantests_talismantests_performritual_refuses_abeastbelowtheqicultivation",
+      "target": "mirror_talismantests_talismantests_devout",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L151",
+      "source_location": "L125",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_refuses_thebearerastheirownsacrifice",
-      "target": "mirror_talismantests_talismantests_devout"
+      "source": "mirror_talismantests_talismantests_performritual_refuses_abeasttheclandoesnothold",
+      "target": "mirror_talismantests_talismantests_devout",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L102",
+      "source_location": "L108",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_sacrificesthebeing_spendstheprayers_andmakesanoffer",
-      "target": "mirror_talismantests_talismantests_devout"
+      "source": "mirror_talismantests_talismantests_performritual_sacrificesabeast_spendstheprayers_andmakesanoffer",
+      "target": "mirror_talismantests_talismantests_devout",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -77893,6 +78588,17 @@
       "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests_theoffer_dieswithitsbearer_andthemirrorcanperformagain",
       "target": "mirror_talismantests_talismantests_devout"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests_thestrongerthebeast_thehigherthequality",
+      "target": "mirror_talismantests_talismantests_devout",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -78031,22 +78737,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L136",
+      "source_location": "L167",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_refuses_asacrificebelowtheqicultivation",
-      "target": "mirror_talismantests_talismantests_bearer"
+      "source": "mirror_talismantests_talismantests_performritual_refuses_abeastbelowtheqicultivation",
+      "target": "mirror_talismantests_talismantests_bearer",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L152",
+      "source_location": "L126",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_refuses_thebearerastheirownsacrifice",
-      "target": "mirror_talismantests_talismantests_bearer"
+      "source": "mirror_talismantests_talismantests_performritual_refuses_abeasttheclandoesnothold",
+      "target": "mirror_talismantests_talismantests_bearer",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -78064,11 +78770,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L103",
+      "source_location": "L109",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_sacrificesthebeing_spendstheprayers_andmakesanoffer",
-      "target": "mirror_talismantests_talismantests_bearer"
+      "source": "mirror_talismantests_talismantests_performritual_sacrificesabeast_spendstheprayers_andmakesanoffer",
+      "target": "mirror_talismantests_talismantests_bearer",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -78097,11 +78803,55 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L341",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests_sacrificingapowersbeast_soursthatpower_whenfound",
+      "target": "mirror_talismantests_talismantests_bearer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L357",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests_sacrificingapowersbeast_unnoticedcostsnothing",
+      "target": "mirror_talismantests_talismantests_bearer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L370",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests_sacrificingasolitarybeast_touchesnopower",
+      "target": "mirror_talismantests_talismantests_bearer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
       "source_location": "L282",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests_theoffer_dieswithitsbearer_andthemirrorcanperformagain",
       "target": "mirror_talismantests_talismantests_bearer"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests_thestrongerthebeast_thehigherthequality",
+      "target": "mirror_talismantests_talismantests_bearer",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -78163,11 +78913,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L136",
+      "source_location": "L167",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_refuses_asacrificebelowtheqicultivation",
-      "target": "mirror_talismantests_talismantests_sacrifice"
+      "source": "mirror_talismantests_talismantests_performritual_refuses_abeastbelowtheqicultivation",
+      "target": "mirror_talismantests_talismantests_sacrifice",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -78185,11 +78935,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L104",
+      "source_location": "L111",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_sacrificesthebeing_spendstheprayers_andmakesanoffer",
-      "target": "mirror_talismantests_talismantests_sacrifice"
+      "source": "mirror_talismantests_talismantests_performritual_sacrificesabeast_spendstheprayers_andmakesanoffer",
+      "target": "mirror_talismantests_talismantests_sacrifice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "mirror_talismantests_talismantests_sacrifice",
+      "target": "tests_core_tests_mirror_talismantests_cs_capturedbeast",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -78207,11 +78968,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L370",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests_sacrificingasolitarybeast_touchesnopower",
+      "target": "mirror_talismantests_talismantests_sacrifice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
       "source_location": "L283",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests_theoffer_dieswithitsbearer_andthemirrorcanperformagain",
       "target": "mirror_talismantests_talismantests_sacrifice"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "mirror_talismantests_talismantests_thestrongerthebeast_thehigherthequality",
+      "target": "mirror_talismantests_talismantests_sacrifice",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -78327,23 +79110,23 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L132",
+      "source_location": "L163",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_refuses_asacrificebelowtheqicultivation",
-      "target": "tests_core_tests_mirror_talismantests_cs_test"
+      "source": "mirror_talismantests_talismantests_performritual_refuses_abeastbelowtheqicultivation",
+      "target": "tests_core_tests_mirror_talismantests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L148",
+      "source_location": "L122",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_refuses_thebearerastheirownsacrifice",
-      "target": "tests_core_tests_mirror_talismantests_cs_test"
+      "source": "mirror_talismantests_talismantests_performritual_refuses_abeasttheclandoesnothold",
+      "target": "tests_core_tests_mirror_talismantests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -78360,12 +79143,12 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
-      "source_location": "L99",
+      "source_location": "L105",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "mirror_talismantests_talismantests_performritual_sacrificesthebeing_spendstheprayers_andmakesanoffer",
-      "target": "tests_core_tests_mirror_talismantests_cs_test"
+      "source": "mirror_talismantests_talismantests_performritual_sacrificesabeast_spendstheprayers_andmakesanoffer",
+      "target": "tests_core_tests_mirror_talismantests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -78415,12 +79198,56 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L375",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "mirror_talismantests_talismantests_roundtrip_keepsthebeastsandthehuntingground",
+      "target": "tests_core_tests_mirror_talismantests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
       "source_location": "L260",
       "weight": 1.0,
       "context": "attribute",
       "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests_roundtrip_keepstheprayerstheofferandthetalismans",
       "target": "tests_core_tests_mirror_talismantests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L330",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "mirror_talismantests_talismantests_sacrificingapowersbeast_soursthatpower_whenfound",
+      "target": "tests_core_tests_mirror_talismantests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L346",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "mirror_talismantests_talismantests_sacrificingapowersbeast_unnoticedcostsnothing",
+      "target": "tests_core_tests_mirror_talismantests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L362",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "mirror_talismantests_talismantests_sacrificingasolitarybeast_touchesnopower",
+      "target": "tests_core_tests_mirror_talismantests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -78465,6 +79292,17 @@
       "confidence_score": 1.0,
       "source": "mirror_talismantests_talismantests_offer_givesmorechoices_toagreatertalent",
       "target": "tests_core_tests_mirror_talismantests_cs_testcase"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/TalismanTests.cs",
+      "source_location": "L129",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "mirror_talismantests_talismantests_thestrongerthebeast_thehigherthequality",
+      "target": "tests_core_tests_mirror_talismantests_cs_testcase",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -83194,9 +84032,9 @@
       "source_file": "BRAIN_CLAUDE/LORE.md",
       "source_location": "L1369",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "brain_claude_lore_13_lexique_de_renommage_document_interne_seul_endroit_o\u00f9_figurent_les_noms_d_origine",
-      "target": "brain_claude_lore_13_9_ajouts_de_l_analyse_de_la_carte_et_des_personnages_du_wiki_2026_09_26_\u00e0_valider"
+      "target": "brain_claude_lore_13_9_ajouts_de_l_analyse_de_la_carte_et_des_personnages_du_wiki_valid\u00e9_par_l_utilisateur_le_2026_09_26",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -85040,5 +85878,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "ea893094df6e43110fa5d6e8541ff9e418cf65f9"
+  "built_at_commit": "81f8cfc3e42cdef5ac3b989a8c6483185e1390b3"
 }
