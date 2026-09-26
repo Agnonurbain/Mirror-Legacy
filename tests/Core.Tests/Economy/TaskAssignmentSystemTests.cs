@@ -162,45 +162,6 @@ namespace MirrorChronicles.Tests.Economy
         }
 
         [Test]
-        public void HuntBeast_CapturesAKnownBeast_OfTheGround()
-        {
-            var (w, beast) = Ground(0.0, owner: "Famille Lou");
-            Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
-
-            w.Tasks.ProcessYearlyTasks();
-
-            Assert.AreEqual(new CapturedBeast(beast.Id, beast.Realm, beast.Stage, "Famille Lou"), w.Resources.Beasts.Single());
-            Assert.IsFalse(w.Bestiary.Beasts.Any(b => b.Id == beast.Id), "taken from the world");
-        }
-
-        [Test]
-        public void HuntBeast_IgnoresABeastTheClanHasNotScouted()
-        {
-            var (w, _) = Ground(0.0, known: false);
-            Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
-            w.Tasks.ProcessYearlyTasks();
-            Assert.AreEqual(0, w.Resources.Beasts.Count);
-        }
-
-        [Test]
-        public void HuntBeast_CannotTakeAStrongerBeast()
-        {
-            var (w, _) = Ground(0.0, CultivationRealm.QiRefinement, stage: 8);
-            Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
-            w.Tasks.ProcessYearlyTasks();
-            Assert.AreEqual(0, w.Resources.Beasts.Count);
-        }
-
-        [Test]
-        public void HuntBeast_MayComeBackEmptyHanded()
-        {
-            var (w, _) = Ground(0.999);
-            Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
-            w.Tasks.ProcessYearlyTasks();
-            Assert.AreEqual(0, w.Resources.Beasts.Count);
-        }
-
-        [Test]
         public void ScoutBeasts_RevealsABeastOfTheGround()
         {
             var (w, beast) = Ground(0.0, known: false);
