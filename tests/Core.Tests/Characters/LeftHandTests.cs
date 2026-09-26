@@ -251,5 +251,61 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(PowerLadder.PurpleMansionStageFromAbilities(5), c.RealmStage);
             Assert.LessOrEqual(c.MaxLifespan, PowerLadder.MaxLifespan(CultivationRealm.PurpleMansion, c.RealmStage));
         }
+
+        // ---- Borrowing a Fruition's light (LORE.md §5.4.2): a « Merciful » Purple Mansion lent by a True Monarch ----
+
+        private static CharacterData FoundationPeak(TestWorld w)
+        {
+            var c = Fixtures.Cultivator(age: 120, realm: CultivationRealm.Foundation, stage: 4);
+            c.FoundationId = "orthodox-water:boundless-sea";
+            return w.Join(c);
+        }
+
+        [Test]
+        public void BorrowLight_LendsAPurpleMansionsPower_WithoutAbilities()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = FoundationPeak(w);
+            PatronAgrees(w);
+
+            Assert.IsTrue(w.GoldenCore.BorrowLight(c, MutableWater));
+
+            Assert.AreEqual(CultivationRealm.PurpleMansion, c.Realm);
+            Assert.IsTrue(c.BorrowedLight);
+            Assert.AreEqual("Tan Qing", c.PatronId);
+            Assert.AreEqual(0, c.DivineAbilities.Count);
+            Assert.IsFalse(w.Abilities.Pursue(c, "orthodox-water:river-farewell"), "a borrowed light condenses nothing of its own");
+        }
+
+        [Test]
+        public void BorrowLight_Refuses_WithoutTheLendersLeave_OrBeforeTheFoundationsPeak()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = FoundationPeak(w);
+            Assert.IsFalse(w.GoldenCore.BorrowLight(c, MutableWater));
+
+            PatronAgrees(w);
+            c.RealmStage = 3;
+            Assert.IsFalse(w.GoldenCore.BorrowLight(c, MutableWater));
+        }
+
+        [Test]
+        public void ABorrowedLight_GoesOutWithItsLender()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = FoundationPeak(w);
+            PatronAgrees(w);
+            w.GoldenCore.BorrowLight(c, MutableWater);
+            w.Resources.AddSpiritStones(Settings.LightBorrowingYearlyStones);
+            w.Fruitions.ChangeHolder(MutableWater, "Nouveau détenteur");
+
+            w.GoldenCore.ProcessBreakthroughPhase();
+
+            Assert.AreEqual(CultivationRealm.Foundation, c.Realm);
+            Assert.AreEqual(4, c.RealmStage);
+            Assert.IsFalse(c.BorrowedLight);
+            Assert.IsNull(c.PatronId);
+            Assert.LessOrEqual(c.MaxLifespan, PowerLadder.MaxLifespan(CultivationRealm.Foundation, 4));
+        }
     }
 }

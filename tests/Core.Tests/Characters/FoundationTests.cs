@@ -241,5 +241,58 @@ namespace MirrorChronicles.Tests.Characters
             var child = w.Clan.GenerateChild(father, w.Join(Fixtures.Mortal(isMale: false)));
             Assert.AreEqual(trait, child.BodyTrait);
         }
+
+        // ---- A ripe Dao is prey (LORE.md §5.3.3) ----
+
+        private static CharacterData Ripe(TestWorld w, string foundation = "orthodox-water:boundless-sea")
+        {
+            var c = Fixtures.Cultivator(age: 150, realm: CultivationRealm.Foundation, stage: 4);
+            c.FoundationId = foundation;
+            return w.Join(c);
+        }
+
+        [Test]
+        public void ARipeDao_IsHuntedByTheStrong()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var prey = Ripe(w);
+
+            w.Foundations.ProcessRipeDaoHunts();
+
+            Assert.IsFalse(prey.IsAlive);
+            Assert.AreEqual(DeathCause.FoundationDevoured, prey.CauseOfDeath);
+        }
+
+        [Test]
+        public void AnUnripeDao_IsLeftAlone()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var young = Ripe(w);
+            young.RealmStage = 3;
+            w.Foundations.ProcessRipeDaoHunts();
+            Assert.IsTrue(young.IsAlive);
+        }
+
+        [Test]
+        public void ADaoWhosePartnersAreLost_CannotBeHarvested()
+        {
+            // the Dewdrop Pearl's Dawnlight: none of its Dao Partners is known to the world (§2.4)
+            var w = new TestWorld(new FixedRandom(0.0));
+            var safe = Ripe(w, "dawnlight:universal-dawn-mist");
+            w.Foundations.ProcessRipeDaoHunts();
+            Assert.IsTrue(safe.IsAlive);
+        }
+
+        [Test]
+        public void HuntChance_IsLower_WhenTheClanHasAPurpleMansion()
+        {
+            var content = Fixtures.Content;
+            var prey = Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4);
+            prey.FoundationId = "orthodox-water:boundless-sea";
+            double alone = FoundationRules.HuntChance(prey, clanHasAPurpleMansion: false, content);
+            double guarded = FoundationRules.HuntChance(prey, clanHasAPurpleMansion: true, content);
+            Assert.Greater(alone, 0);
+            Assert.AreEqual(alone * content.Balance.RipeDaoGuardedFactor, guarded, 1e-9);
+        }
     }
 }
