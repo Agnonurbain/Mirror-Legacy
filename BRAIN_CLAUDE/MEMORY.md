@@ -114,7 +114,7 @@ L'écran actuel utilise le thème Godot par défaut (placeholder).
 
 ## 🧭 Où en est le projet
 
-Voir `NOT_DONE.md`. En bref (2026-09-25) : L0-L4 faits (L4 : lignées, fondations, Manoir Pourpre) ; migration Godot faite, écrans G6 à venir ; équilibrage B1-B4 ouvert ; L4d (serments) et L4b (routes du Noyau d'Or : forge, positions, Main Gauche) faits le 2026-09-26 ; suites en L4e.
+Voir `NOT_DONE.md`. En bref (2026-09-25) : L0-L4 faits (L4 : lignées, fondations, Manoir Pourpre) ; migration Godot faite, écrans G6 à venir ; équilibrage B1-B4 ouvert ; L4d (serments) et L4b (routes du Noyau d'Or : forge, positions, Main Gauche) faits le 2026-09-26 ; suites en L4e. L5 (carte `regions.json`, factions du lore, écran « Carte du monde ») fait le 2026-09-26 ; suites en L5b.
 
 ---
 
