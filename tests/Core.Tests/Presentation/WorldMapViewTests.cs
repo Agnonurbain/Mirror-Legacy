@@ -77,5 +77,20 @@ namespace MirrorChronicles.Tests.Presentation
             var labels = Enum.GetValues(typeof(FactionKind)).Cast<FactionKind>().Select(WorldMapView.KindLabel).ToList();
             Assert.IsTrue(labels.All(l => !string.IsNullOrWhiteSpace(l)) && labels.Distinct().Count() == labels.Count);
         }
+
+        [Test]
+        public void KnownBeasts_ShowOnlyWhatTheClanScouted()
+        {
+            var s = NewGame();
+            var beast = s.Bestiary.In("heshan").First();
+            Assert.AreEqual(0, WorldMapView.KnownBeastsOf(s, "heshan").Count);
+
+            s.Knowledge.Reveal(MirrorChronicles.World.FactKind.Beast, beast.Id, MirrorChronicles.World.KnowledgeSource.Studied);
+
+            var shown = WorldMapView.KnownBeastsOf(s, "heshan").Single();
+            string species = Fixtures.Content.BeastSpecies.Single(b => b.Id == beast.SpeciesId).Name;
+            Assert.AreEqual(species, shown.Species);
+            Assert.AreEqual(beast.OwnerFaction ?? "solitaire", shown.Owner);
+        }
     }
 }
