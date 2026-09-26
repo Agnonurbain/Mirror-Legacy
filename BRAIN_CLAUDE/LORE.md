@@ -741,6 +741,10 @@ Fondations nommées sans Fruition certaine : *Brume de l'Aube Universelle* ; *Ou
 | **Grand Chaman** | Passerelle vers le Dao chamanique (§3.5) |
 - 📚 Grandes catégories : **Pur, Radieux, Convergent, Fusionnant** ; les **bêtes à plumes** suivent surtout le Pur et le Radieux, les **bêtes à écailles** la Convergence et la Fusion.
 
+### 6.8b Fondations et techniques révélées par les fiches de personnages du wiki (📚, 2026-09-26)
+Les 211 fiches de la catégorie *Characters* nomment 30 fondations et 10 capacités ; toutes sont déjà dans `fruitions.json` sous leur nom du jeu, sauf quatre qui comblent des emplacements non révélés : *Lac de la Lune d'Automne* (Yin Suprême), *Bête aux Plumes d'Or* (Métal Muable), *Grand Codex du Feu Li* (Feu Orthodoxe), *Cœur d'Épine Blanche* (Feu Ardent). Cinq restent sans lignée connue (*Golden Aperture Heart*, *Molten Metal Cave*, *Scroll of Fortunate Attainments*, *The Palace Sun Tiger*, *Vermillion Sage*) : à rattacher quand une source parlera.
+Les fiches citent aussi **43 techniques** ; celles qui ne sont pas au catalogue n'y entrent pas encore, faute de **grade** et de **Qi** connus (L3b). Candidates, avec la lignée de leurs pratiquants : *Radiant Essence Scripture* et *Bright Yang Method* (Yang Lumineux), *Moonlake Autumn Reflection Technique* (Yin Suprême), *Cold Pine Dew Snow Technique* (Qi Froid), *Dawn Dew Gathering Technique* (Lueur de l'Aube), *Expelling Cold Art* et *Subduing Fire* (Feu Ardent), *Gold Aura Profound Inquiry Technique* et *Golden Light Edge Technique* (Métal Geng), *Golden Book of Singular Attunement* (Élixir Parfait), *Guardian of the Courtly Path* et *Jade True Dao Unification Technique* (Jade Premier), *Hidden Esoteric Profound Method* (Grand Chaman), *Pheasant Flame's Long March Technique* (Feu Véritable), *Profound Light Mountain Chasing Scripture* (Terre liée), *Purple Thunder Secret Origin Technique* (Tonnerre Céleste), *River One Qi Technique* et *Stone Pestle Sea Expansion Technique* (Eau de Fosse), *The Heavenly Scripture of the Dimming Li Day* (Feu Li), *Taixu Purple Essence Manual* (Qi Violet), *Great Void Revolution Art*, *Severance Art of Parting Ways*, *Six Stems Talisman Art*, *Tome of Subjugating the Murky Mountain*, *Patterned Brocade technique*, *Profound Flame Merging Fire Secret Technique* ; voies bouddhistes : *Liberation Dao*, *Way of Emptiness*. Les noms du jeu seront donnés en les intégrant (D6).
+
 ### 6.9 Autorité des positions (📚 compléments du wiki)
 
 - **Les trois positions d'or** : **Fruition** (果, la Racine / le Dragon : l'Essence) ; **Surplus** (余, le Feuillage / le Tigre : la Manifestation — autorité asymétrique, dépendante de la structure posée par le détenteur) ; **Intercalaire** (闰, l'Exception / le Phénix : occuper les failles et incohérences des lois du Ciel, comme le mois intercalaire du calendrier lunaire — « ils ne forcent pas le fleuve, ils déplacent son lit »).
@@ -1359,6 +1363,7 @@ Fondations et capacités divines (§6.5-6.7) :
 | Source | Jeu |
 |---|---|
 | Famille Ding (丁, rive sud-est du Lac du Regard Lunaire) | Famille Kang |
+| Autumn Moon Lake (Yin Suprême) · Gold Feathered Beast (Métal Geng) · Great Li Codex (Feu Li) · White Thorn Heart (Feu Ardent) | Lac de la Lune d'Automne · Bête aux Plumes d'Or · Grand Codex du Feu Li · Cœur d'Épine Blanche (traductions descriptives, D6) |
 
 ### 13.8 Ajouts de la passe complète du wiki (✅ validé)
 | Source | Jeu |

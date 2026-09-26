@@ -255,9 +255,11 @@
           ]
         },
         {
-          "id": "unrevealed-5",
-          "name": null,
-          "types": []
+          "id": "autumn-moon-lake",
+          "name": "Lac de la Lune d'Automne",
+          "types": [],
+          "provenance": "Wiki",
+          "interpretedFields": []
         }
       ],
       "status": "Unspecified",
@@ -772,11 +774,13 @@
       "metalEssence": null,
       "abilities": [
         {
-          "id": "unrevealed-1",
-          "name": null,
+          "id": "great-li-codex",
+          "name": "Grand Codex du Feu Li",
           "types": [
             "Life"
-          ]
+          ],
+          "provenance": "Wiki",
+          "interpretedFields": []
         },
         {
           "id": "unrevealed-2",
@@ -1140,9 +1144,11 @@
       "metalEssence": null,
       "abilities": [
         {
-          "id": "unrevealed-1",
-          "name": null,
-          "types": []
+          "id": "white-thorn-heart",
+          "name": "Cœur d'Épine Blanche",
+          "types": [],
+          "provenance": "Wiki",
+          "interpretedFields": []
         },
         {
           "id": "unrevealed-2",
@@ -1669,9 +1675,11 @@
           "types": []
         },
         {
-          "id": "unrevealed-3",
-          "name": null,
-          "types": []
+          "id": "gold-feathered-beast",
+          "name": "Bête aux Plumes d'Or",
+          "types": [],
+          "provenance": "Wiki",
+          "interpretedFields": []
         },
         {
           "id": "unrevealed-4",
