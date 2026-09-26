@@ -257,6 +257,7 @@ namespace MirrorChronicles.Session
                     Factions.ProcessYearlyFactionAI();
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
+                    Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)
                     break;
                 case GamePhase.Breakthrough:
                     Breakthroughs.ProcessBreakthroughPhase();

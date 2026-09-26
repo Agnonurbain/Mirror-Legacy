@@ -52,10 +52,13 @@
     "leftHandMirrorCost": 40,
     "falseLeftHandMinAbilities": 3,
     "falseLeftHandChance": 60,
-    "falseLeftHandYearlyStones": 300
+    "falseLeftHandYearlyStones": 300,
+    "lightBorrowingYearlyStones": 150
   },
   "studyRevealsPartnersChance": 0.1,
   "bodyTraitInheritanceChance": 0.5,
+  "ripeDaoHuntChance": 0.02,
+  "ripeDaoGuardedFactor": 0.5,
   "oaths": {
     "interruptChanceBySeverity": [ 0.1, 0.25, 0.5 ],
     "deviationChanceOnInterrupt": 0.2,

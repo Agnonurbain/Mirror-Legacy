@@ -136,7 +136,8 @@ namespace MirrorChronicles.Characters
         /// </summary>
         private bool CanTake(CharacterData member, string ability)
         {
-            if (member == null || !member.IsAlive || member.Realm != CultivationRealm.PurpleMansion || member.Retreat != Retreat.None) return false;
+            if (member == null || !member.IsAlive || member.Realm != CultivationRealm.PurpleMansion || member.Retreat != Retreat.None
+                || member.ProgressionSealed) return false; // a borrowed light condenses nothing of its own
             if (ability == null || member.DivineAbilities.Count >= MaxAbilities || member.DivineAbilities.Contains(ability)) return false;
 
             var (lineage, abilityId) = FoundationRef.Parse(ability);

@@ -200,9 +200,43 @@ namespace MirrorChronicles.Characters
             return true;
         }
 
-        /// <summary>Each Breakthrough phase, every false Left Hand pays its patron — or falls, as it falls with them.</summary>
+        /// <summary>
+        /// Borrowing a Fruition's light (LORE.md §5.4.2): a Foundation at its peak, lent the light of a lineage by its
+        /// holder (who granted the clan leave), becomes a « Merciful » Purple Mansion without abilities of its own.
+        /// </summary>
+        public bool BorrowLight(CharacterData member, string fruitionId)
+        {
+            var state = fruitions.State(fruitionId);
+            bool lent = state?.Status == FruitionStatus.Occupied && state.Holder != null
+                && permissions.TryGetValue(fruitionId, out var grantor) && grantor == state.Holder;
+            bool ready = member != null && member.IsAlive && member.Retreat == Retreat.None && !member.ProgressionSealed && !member.BorrowedLight
+                && member.Realm == CultivationRealm.Foundation && member.RealmStage >= PowerLadder.StageCount(CultivationRealm.Foundation);
+            if (!lent || !ready)
+            {
+                ctx.Log.Warning($"[Golden Core] {member?.FullName} cannot borrow the light of \"{fruitionId}\".");
+                return false;
+            }
+
+            member.Realm = CultivationRealm.PurpleMansion;
+            member.RealmStage = 1;
+            member.BorrowedLight = true;
+            member.ProgressionSealed = true; // a lent light condenses nothing of its own
+            member.FruitionId = fruitionId;
+            member.PatronId = state.Holder;
+            member.MaxLifespan = PowerLadder.LifespanAfterAdvance(member);
+            ctx.Log.Info($"[Golden Core] {member.FullName} borrows the light of {state.Holder}'s lineage.");
+            return true;
+        }
+
+        /// <summary>Each Breakthrough phase, every false Left Hand and borrowed light pays its patron — or falls, as it falls with them.</summary>
         public void ProcessBreakthroughPhase()
         {
+            foreach (var member in clan.LivingMembers.Where(m => m.BorrowedLight).ToList())
+            {
+                if (fruitions.State(member.FruitionId)?.Holder != member.PatronId) ReturnLight(member, "its lender is gone");
+                else if (!resources.ConsumeSpiritStones(Settings.LightBorrowingYearlyStones)) ReturnLight(member, "the tribute went unpaid");
+            }
+
             foreach (var member in clan.LivingMembers.Where(m => m.GoldenCore == GoldenCoreState.FalseLeftHand).ToList())
             {
                 if (fruitions.State(member.FruitionId)?.Holder != member.PatronId) Fall(member, "their patron is gone");
@@ -256,6 +290,19 @@ namespace MirrorChronicles.Characters
             member.PursuedAbility = null;
             member.MaxLifespan = PowerLadder.LifespanAfterAdvance(member);
             ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
+        }
+
+        /// <summary>A borrowed light goes out: back to the Foundation's peak, free to cultivate again.</summary>
+        private void ReturnLight(CharacterData member, string why)
+        {
+            member.Realm = CultivationRealm.Foundation;
+            member.RealmStage = PowerLadder.StageCount(CultivationRealm.Foundation);
+            member.BorrowedLight = false;
+            member.ProgressionSealed = false;
+            member.FruitionId = null;
+            member.PatronId = null;
+            PowerLadder.NormalizeLifespan(member);
+            ctx.Log.Info($"[Golden Core] {member.FullName}'s borrowed light goes out: {why}.");
         }
 
         /// <summary>A false Left Hand loses the borrowed power: back to the Purple Mansion, abilities kept, the borrowed years gone.</summary>

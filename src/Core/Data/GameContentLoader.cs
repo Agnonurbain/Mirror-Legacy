@@ -210,6 +210,8 @@ namespace MirrorChronicles.Data
             var abilities = balance.DivineAbilities;
             Require(abilities != null && abilities.ResourceStones >= 0 && abilities.ResourceHerbs >= 0 && abilities.ResourceOres >= 0 && abilities.GraftOres >= 0,
                 BalanceFile, "divineAbilities needs its costs (never negative).");
+            Require(IsProbability(balance.RipeDaoHuntChance) && IsProbability(balance.RipeDaoGuardedFactor),
+                BalanceFile, "ripeDaoHuntChance and ripeDaoGuardedFactor lie between 0 and 1.");
             Require(abilities.ImageryXpFactor > 0 && abilities.ImageryXpFactor <= 1 && IsProbability(balance.BodyTraitInheritanceChance),
                 BalanceFile, "the imagery factor lies in ]0, 1] and bodyTraitInheritanceChance between 0 and 1.");
             Require(abilities.GraftDonorMinYearsLeft >= 1 && abilities.GraftDonorMinYearsLeft <= abilities.GraftDonorMaxYearsLeft,
@@ -220,7 +222,7 @@ namespace MirrorChronicles.Data
                     .All(c => c >= 0 && c <= 100)
                 && core.ShallowAbilityPenalty >= 0 && core.GraftedAbilityPenalty >= 0 && core.LifeLastBonus >= 0 && core.AxiomPenalty >= 0
                 && core.PermissionStones >= 0 && IsProbability(core.PermissionChance) && core.GoldSeekingMirrorCost >= 0 && core.SpecialisedMirrorCost >= 0
-                && core.LeftHandMirrorCost >= 0 && core.FalseLeftHandYearlyStones >= 0
+                && core.LeftHandMirrorCost >= 0 && core.FalseLeftHandYearlyStones >= 0 && core.LightBorrowingYearlyStones >= 0
                 && core.FalseLeftHandMinAbilities >= 1 && core.FalseLeftHandMinAbilities <= GoldenCoreRules.AbilitiesToForge,
                 BalanceFile, "goldenCore needs chances of 0-100 %, penalties and costs never negative, a permission chance between 0 and 1, 1-5 abilities for a false Left Hand.");
             var rules = balance.Techniques;

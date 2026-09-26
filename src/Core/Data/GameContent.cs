@@ -143,6 +143,13 @@ namespace MirrorChronicles.Data
         /// <summary>Each year, the chance a foundation's holder takes on the temper its lineage favours.</summary>
         public double HeartAlignmentYearlyChance { get; init; }
 
+        /// <summary>
+        /// A ripe Dao is prey (LORE.md §5.3.3): each year, the chance a Foundation at its peak whose Dao Partners the
+        /// world knows is harvested by a stronger cultivator, and the share of it left when the clan has a Purple Mansion.
+        /// </summary>
+        public double RipeDaoHuntChance { get; init; }
+        public double RipeDaoGuardedFactor { get; init; }
+
         /// <summary>Chance a newborn takes a parent's inhuman body (§11.6: the traits « se transmettent »).</summary>
         public double BodyTraitInheritanceChance { get; init; }
 
@@ -351,6 +358,9 @@ namespace MirrorChronicles.Data
         public int FalseLeftHandMinAbilities { get; init; }
         public int FalseLeftHandChance { get; init; }
         public int FalseLeftHandYearlyStones { get; init; }
+
+        /// <summary>Borrowing a Fruition's light (§5.4.2): the tribute its lender takes each year.</summary>
+        public int LightBorrowingYearlyStones { get; init; }
     }
 
     /// <summary>Odds and durations of the Purple Mansion's breakthrough (balance.json, tuned by simulation).</summary>

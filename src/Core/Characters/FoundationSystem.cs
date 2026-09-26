@@ -25,6 +25,22 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>
+        /// Each year a ripe Dao may be harvested (LORE.md §5.3.3): a stronger cultivator seizes a Foundation at its
+        /// peak whose partners the world knows; the victim dies, their foundation devoured.
+        /// </summary>
+        public void ProcessRipeDaoHunts()
+        {
+            bool guarded = clan.LivingMembers.Any(m => m.Realm >= CultivationRealm.PurpleMansion);
+            foreach (var member in clan.LivingMembers.ToList())
+            {
+                double chance = FoundationRules.HuntChance(member, guarded, ctx.Content);
+                if (chance <= 0 || !ctx.Rng.Chance(chance)) continue;
+                ctx.Log.Info($"[Foundation] {member.FullName}'s ripe Dao is harvested by a stronger cultivator.");
+                clan.Kill(member, DeathCause.FoundationDevoured);
+            }
+        }
+
+        /// <summary>
         /// The consumer absorbs the donor's foundation, a Dao Partner of theirs (same lineage, another
         /// foundation): they rise at once to the next Foundation stage, but can never progress again. The
         /// donor, their foundation devoured, dies (user decision, 2026-09-25).
