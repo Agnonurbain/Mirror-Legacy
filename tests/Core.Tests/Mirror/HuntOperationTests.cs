@@ -212,6 +212,29 @@ namespace MirrorChronicles.Tests.Mirror
         }
 
         [Test]
+        public void Execute_AFailedCapture_AgainstAFarStrongerBeast_MayKillTheStriker()
+        {
+            // approach passes, capture fails, the death roll strikes
+            var (w, beast) = World(new SequenceRandom(Pass, Fail, Pass), realm: CultivationRealm.PurpleMansion, stage: 1); // power 31 against 11
+            var striker = Hunter(w, stage: 1);
+
+            var outcome = w.Hunts.Execute(Plan(beast, (striker, HuntRole.Striker)));
+
+            CollectionAssert.AreEqual(new[] { striker.ID }, outcome.Casualties);
+            Assert.IsFalse(striker.IsAlive);
+            Assert.AreEqual(DeathCause.Combat, striker.CauseOfDeath);
+        }
+
+        [Test]
+        public void Execute_TheDiversion_IsSeenElsewhere_NotHunting()
+        {
+            var (w, beast) = World(new FixedRandom(Pass));
+            var decoy = Hunter(w);
+            w.Hunts.Execute(Plan(beast, (Hunter(w), HuntRole.Striker)) with { DiversionMemberId = decoy.ID, DiversionRegionId = "wuyang" });
+            Assert.AreEqual(TaskType.Diversion, decoy.CurrentTask);
+        }
+
+        [Test]
         public void Execute_ASolitaryBeast_MakesNoPowerSuspicious()
         {
             var (w, beast) = World(new FixedRandom(Fail), owner: null);
