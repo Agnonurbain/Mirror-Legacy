@@ -589,5 +589,81 @@ namespace MirrorChronicles.Tests.Characters
             var core = Content.Balance.GoldenCore;
             Assert.Less(core.TransformationChance, core.TransferChance);
         }
+
+        // ---- The Fruition reclaims its body (« Struggle of the Five Faces », LORE.md §5.5.2) ----
+
+        [Test]
+        public void AFruitionThatHadAMaster_MayReclaimItsHoldersSoul()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Holder(w);                               // the Orthodox Water once held by Yu (§6.8)
+            w.Fruitions.Claim(OrthodoxWater, c.FullName);
+
+            w.GoldenCore.ProcessBreakthroughPhase();
+
+            Assert.AreEqual(DeathCause.SoulReplaced, c.CauseOfDeath);
+            Assert.AreEqual(Lineage(OrthodoxWater).FormerHolders[0], w.Fruitions.State(OrthodoxWater).Holder);
+        }
+
+        [Test]
+        public void AFruitionWithoutFormerMaster_ReclaimsNothing()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Forged(w, NourishingWater, FiveOrthodoxWater.Take(4).Append("nourishing-water:winter-drizzle").ToArray());
+            c.GoldenCore = GoldenCoreState.Realization;
+            w.Fruitions.Claim(NourishingWater, c.FullName);
+
+            w.GoldenCore.ProcessBreakthroughPhase();
+
+            Assert.IsTrue(c.IsAlive);
+        }
+
+        [Test]
+        public void ReclaimChance_FallsWithAStableMind()
+        {
+            var calm = Fixtures.Cultivator();
+            var troubled = Fixtures.Cultivator();
+            calm.MentalStability = 100;
+            troubled.MentalStability = 0;
+            Assert.Less(GoldenCoreRules.ReclaimChance(calm, Content), GoldenCoreRules.ReclaimChance(troubled, Content));
+        }
+
+        // ---- The transformed lineage (§5.5.2): a Realization's descendants reach at least the Purple Mansion ----
+
+        [Test]
+        public void ARealizationHoldersDescendants_BearTheTransformedLineage()
+        {
+            var w = new TestWorld();
+            var holder = Holder(w);
+            var child = w.Clan.GenerateChild(holder, w.Join(Fixtures.Mortal(isMale: false)));
+            var grandchild = w.Clan.GenerateChild(child, w.Join(Fixtures.Mortal(isMale: false)));
+
+            Assert.IsTrue(child.TransformedLineage && grandchild.TransformedLineage);
+        }
+
+        [Test]
+        public void TheTransformedLineage_RisesToThePurpleMansion_WithoutTheMethodsSecret()
+        {
+            var w = new TestWorld();
+            var heir = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4)); // the clan's grade 3 method: no secret
+            var step = PowerLadder.Next(heir.Realm, heir.RealmStage);
+            Assert.IsFalse(w.Cultivation.AllowsNextStep(heir, step));
+
+            heir.TransformedLineage = true;
+
+            Assert.IsTrue(w.Cultivation.AllowsNextStep(heir, step));
+        }
+
+        [Test]
+        public void TheTransformedLineage_EasesThePurpleMansionsTrials()
+        {
+            var s = Content.Balance.PurpleMansion;
+            var m = Content.Balance.TrialModifiers;
+            var plain = Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4);
+            var heir = Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4);
+            plain.MentalStability = heir.MentalStability = 30;
+            heir.TransformedLineage = true;
+            Assert.AreEqual(PurpleMansionRules.AscentChance(plain, s, m) + s.TransformedLineageBonus, PurpleMansionRules.AscentChance(heir, s, m));
+        }
     }
 }
