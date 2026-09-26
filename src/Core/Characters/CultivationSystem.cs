@@ -128,8 +128,13 @@ namespace MirrorChronicles.Characters
             trial != TrialKind.FoundationWall || resources.ConsumeQi(character.QiId, ctx.Content.Balance.Techniques.FoundationQiPortions);
 
         /// <summary>True when the member's method leads to the step (LORE.md §2.2); Embryonic Breathing needs no manual.</summary>
-        public bool AllowsNextStep(CharacterData character, AdvancementStep step) =>
-            TechniqueRules.AllowsAdvance(techniques.MethodOf(character), character.Realm, step.TargetRealm);
+        public bool AllowsNextStep(CharacterData character, AdvancementStep step)
+        {
+            var method = techniques.MethodOf(character);
+            if (TechniqueRules.AllowsAdvance(method, character.Realm, step.TargetRealm)) return true;
+            // a Realization's descendant reaches at least the Purple Mansion, secret or not (§5.5.2)
+            return character.TransformedLineage && step.TargetRealm == CultivationRealm.PurpleMansion && method != null;
+        }
 
         /// <summary>
         /// Moves the character to the step; entering the Foundation forms the foundation of their Qi; the new

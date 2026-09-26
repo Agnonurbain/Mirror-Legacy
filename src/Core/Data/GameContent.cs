@@ -372,6 +372,9 @@ namespace MirrorChronicles.Data
         /// the sovereign position by a deep plan (Transformation, harder). A failure wounds the Dao (« war of positions »).
         /// </summary>
         public int TransferChance { get; init; }
+
+        /// <summary>The yearly chance a Fruition that had a master reclaims its holder's soul (« Struggle of the Five Faces »), before the mind's resistance.</summary>
+        public double ReclaimChance { get; init; }
         public int TransformationChance { get; init; }
 
         /// <summary>Borrowing a Fruition's light (§5.4.2): the tribute its lender takes each year.</summary>
@@ -381,6 +384,9 @@ namespace MirrorChronicles.Data
     /// <summary>Odds and durations of the Purple Mansion's breakthrough (balance.json, tuned by simulation).</summary>
     public sealed class PurpleMansionSettings
     {
+        /// <summary>Percent a Realization holder's descendant gains in each of the four trials (§5.5.2; interpretation).</summary>
+        public int TransformedLineageBonus { get; init; }
+
         /// <summary>Base chance (%) of the Ascent; failing it kills.</summary>
         public int AscentBaseChance { get; init; }
 

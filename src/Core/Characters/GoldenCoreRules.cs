@@ -119,6 +119,10 @@ namespace MirrorChronicles.Characters
             return Clamp(chance + RootBonus(member, content) - (BreaksTheAxiom(route, target) ? s.AxiomPenalty : 0));
         }
 
+        /// <summary>The yearly chance a Fruition reclaims its holder's soul: halved for the most stable mind (§5.5.2).</summary>
+        public static double ReclaimChance(CharacterData holder, GameContent content) =>
+            content.Balance.GoldenCore.ReclaimChance * (1.0 - Math.Clamp(holder.MentalStability, 0, 100) / 200.0);
+
         private static int RootBonus(CharacterData member, GameContent content)
         {
             var m = content.Balance.TrialModifiers;

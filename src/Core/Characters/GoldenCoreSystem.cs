@@ -268,6 +268,8 @@ namespace MirrorChronicles.Characters
         {
             foreach (var member in clan.LivingMembers.Where(AffirmsTheImage).ToList())
                 AffirmImage(member);
+            foreach (var member in clan.LivingMembers.Where(m => m.GoldenCore == GoldenCoreState.Realization).ToList())
+                StruggleOfTheFiveFaces(member);
             foreach (var member in clan.LivingMembers.Where(m => m.BorrowedLight).ToList())
             {
                 if (fruitions.State(member.FruitionId)?.Holder != member.PatronId) ReturnLight(member, "its lender is gone");
@@ -327,6 +329,22 @@ namespace MirrorChronicles.Characters
             member.PursuedAbility = null;
             member.MaxLifespan = PowerLadder.LifespanAfterAdvance(member);
             ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
+        }
+
+        /// <summary>
+        /// The « Struggle of the Five Faces » (§5.5.2): a Fruition remembers its former master and may take back its
+        /// holder's soul; the member is lost and the old master holds the lineage again.
+        /// </summary>
+        private void StruggleOfTheFiveFaces(CharacterData holder)
+        {
+            var lineage = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == holder.FruitionId);
+            if (lineage == null || lineage.FormerHolders.Count == 0) return;
+            if (!ctx.Rng.Chance(GoldenCoreRules.ReclaimChance(holder, ctx.Content))) return;
+
+            string master = lineage.FormerHolders[0];
+            ctx.Log.Info($"[Golden Core] The {lineage.Name} reclaims {holder.FullName}: {master} returns in their body.");
+            clan.Kill(holder, DeathCause.SoulReplaced);
+            if (fruitions.State(lineage.Id)?.Status == FruitionStatus.Occupied) fruitions.ChangeHolder(lineage.Id, master);
         }
 
         /// <summary>A True Monarch with a position or a Left Hand path, cultivating, below the apex.</summary>
