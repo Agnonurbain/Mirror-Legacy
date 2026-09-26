@@ -43,6 +43,17 @@ namespace MirrorChronicles.Mirror
             this.talismans = talismans;
             this.suspicion = suspicion;
             this.stability = stability;
+            ctx.Events.OnYearStarted += year => ReturnFromOperations();
+        }
+
+        /// <summary>Fit and not already sent on a hunt or a diversion this year (one operation a year).</summary>
+        public bool IsFree(CharacterData member) => Fit(member) && member.LastOperationYear != ctx.Clock.Year;
+
+        /// <summary>A new year: those away on an operation are back, free for their tasks.</summary>
+        private void ReturnFromOperations()
+        {
+            foreach (var m in clan.LivingMembers.Where(m => m.CurrentTask == TaskType.HuntBeast || m.CurrentTask == TaskType.Diversion))
+                m.CurrentTask = TaskType.None;
         }
 
         private HuntSettings Settings => ctx.Content.Balance.Hunt;
@@ -55,13 +66,13 @@ namespace MirrorChronicles.Mirror
             var beast = Target(plan);
             if (beast == null) return "le clan n'a pas repéré cette bête";
             if (plan.Team == null || !plan.Team.ContainsValue(HuntRole.Striker)) return "l'équipe a besoin d'un frappeur";
-            var unfit = plan.Team.Keys.FirstOrDefault(id => !Fit(clan.FindById(id)));
+            var unfit = plan.Team.Keys.FirstOrDefault(id => !IsFree(clan.FindById(id)));
             if (unfit != null) return $"{clan.FindById(unfit)?.FullName ?? unfit} ne peut pas être de la chasse";
 
             if (plan.DiversionMemberId != null)
             {
                 if (plan.Team.ContainsKey(plan.DiversionMemberId)) return "la diversion ne peut pas être de l'équipe";
-                if (!Fit(clan.FindById(plan.DiversionMemberId))) return "le membre de la diversion ne peut pas partir";
+                if (!IsFree(clan.FindById(plan.DiversionMemberId))) return "le membre de la diversion ne peut pas partir";
                 var place = ctx.Content.Regions.FirstOrDefault(r => r.Id == plan.DiversionRegionId);
                 if (place?.ParentId == null || place.Id == beast.RegionId) return "la diversion doit se montrer ailleurs, sur un lieu de la carte";
             }
@@ -89,12 +100,14 @@ namespace MirrorChronicles.Mirror
             {
                 var member = clan.FindById(id);
                 member.CurrentTask = TaskType.HuntBeast; // away for the year
+                member.LastOperationYear = ctx.Clock.Year;
                 member.KnowsMirrorSecret = true;         // and in the secret (L2c.4b)
             }
             if (plan.DiversionMemberId != null)
             {
                 var decoy = clan.FindById(plan.DiversionMemberId);
                 decoy.CurrentTask = TaskType.Diversion; // seen elsewhere
+                decoy.LastOperationYear = ctx.Clock.Year;
                 decoy.KnowsMirrorSecret = true;
             }
 

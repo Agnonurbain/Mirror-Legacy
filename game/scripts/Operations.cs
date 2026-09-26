@@ -90,7 +90,7 @@ namespace MirrorChronicles.Game
                 Add(hunt, "Aucune bête repérée : envoyez des éclaireurs (tâche « Repérage des bêtes ») sur un terrain de chasse choisi sur la carte.");
                 return;
             }
-            target ??= targets[0].Id;
+            if (targets.All(t => t.Id != target)) target = targets[0].Id; // a beast taken or gone: the first one left
 
             var targetPicker = Picker(hunt, "Cible", targets.Select(t => (t.Id, $"{t.Species} ({t.Strength}) — {t.Owner}, {t.Place}")).ToList(), target);
             targetPicker.ItemSelected += _ => { target = Selected(targetPicker); ShowHunt(); };
@@ -122,6 +122,7 @@ namespace MirrorChronicles.Game
             if (diversionMember != null)
             {
                 var places = session.Context.Content.Regions.Where(r => r.ParentId != null).Select(r => (r.Id, r.Name)).ToList();
+                if (places.Count == 0) return;
                 diversionPlace ??= places[0].Id;
                 var place = Picker(hunt, "… à", places, diversionPlace);
                 place.ItemSelected += _ => { diversionPlace = Selected(place); ShowHunt(); };
@@ -139,6 +140,10 @@ namespace MirrorChronicles.Game
             {
                 var outcome = session.Hunts.Execute(plan);
                 team.Clear();
+                target = null;
+                diversionMember = null;
+                diversionPlace = null;
+                framed = null;
                 Report(outcome.Refusal != null ? $"Refusé : {outcome.Refusal}."
                     : outcome.Captured ? $"La bête est prise.{(outcome.Blamed != null ? $" On accuse {outcome.Blamed}." : "")}"
                     : outcome.Approached ? $"La bête s'échappe.{(outcome.Casualties.Count > 0 ? " Des frappeurs sont tombés." : "")}"

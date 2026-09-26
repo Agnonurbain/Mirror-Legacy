@@ -65,6 +65,7 @@ namespace MirrorChronicles.Presentation
                 : session.Resources.Prayers < settings.PrayersPerRitual ? "les prières ne suffisent pas"
                 : beasts.Count == 0 ? "aucune bête captive à offrir"
                 : t.PendingOffer != null ? "une offre attend déjà son choix"
+                : bearers.Count == 0 ? "aucun porteur éligible"
                 : null;
 
             return new RitualView(t.NextRitualYear, t.HuntWindowOpen, session.Resources.Prayers, settings.PrayersPerRitual,
@@ -84,11 +85,9 @@ namespace MirrorChronicles.Presentation
                 .ToList();
         }
 
-        /// <summary>The members fit to hunt or to be seen elsewhere: the Qi Cultivation or beyond, not in retreat.</summary>
+        /// <summary>The members free to hunt or to be seen elsewhere: fit, and not already on an operation this year.</summary>
         public static IReadOnlyList<MemberChoice> HuntCandidates(GameSession session) =>
-            session.Clan.LivingMembers
-                .Where(m => m.Realm >= CultivationRealm.QiRefinement && m.Retreat == Retreat.None)
-                .Select(Choice).ToList();
+            session.Clan.LivingMembers.Where(session.Hunts.IsFree).Select(Choice).ToList();
 
         /// <summary>A plan's odds and costs before launching it; the refusal says why it cannot be carried out now.</summary>
         public static HuntPreviewView HuntPreview(GameSession session, HuntPlan plan)
