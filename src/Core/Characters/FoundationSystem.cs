@@ -26,7 +26,7 @@ namespace MirrorChronicles.Characters
         /// <summary>
         /// The consumer absorbs the donor's foundation, a Dao Partner of theirs (same lineage, another
         /// foundation): they rise at once to the next Foundation stage, but can never progress again. The
-        /// donor loses the foundation and falls back to the ninth Qi level (decision of 2026-09-25).
+        /// donor, their foundation devoured, dies (user decision, 2026-09-25).
         /// </summary>
         public bool ConsumeDaoPartner(CharacterData consumer, CharacterData donor)
         {
@@ -38,8 +38,8 @@ namespace MirrorChronicles.Characters
 
             consumer.RealmStage++;
             consumer.ProgressionSealed = true;
-            FoundationRules.LoseFoundation(donor, techniques.MethodOf(donor));
             ctx.Log.Info($"[Foundation] {consumer.FullName} consumes {donor.FullName}'s foundation, a Dao Partner: one stage higher, and no further for ever.");
+            clan.Kill(donor, DeathCause.FoundationDevoured);
             return true;
         }
 

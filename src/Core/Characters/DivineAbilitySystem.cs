@@ -101,7 +101,7 @@ namespace MirrorChronicles.Characters
         /// <summary>
         /// The Dao Graft (§5.4.3), the norm in the South: a clan member's foundation, a Dao Partner of the
         /// cultivator's lineage, is consumed and completed with spiritual objects into a divine ability. The
-        /// donor falls back to the ninth Qi level.
+        /// donor loses all cultivation and has only a few years left (user decision, 2026-09-25: one to five).
         /// </summary>
         public bool GraftDaoPartner(CharacterData member, CharacterData donor)
         {
@@ -115,7 +115,8 @@ namespace MirrorChronicles.Characters
             // The donor's foundation is consumed during the attempt: it is lost even if the Threshold then fails
             resources.ConsumeOres(Settings.GraftOres);
             string ability = donor.FoundationId;
-            FoundationRules.LoseFoundation(donor, techniques.MethodOf(donor));
+            FoundationRules.StripCultivation(donor);
+            donor.MaxLifespan = donor.Age + ctx.Rng.Next(Settings.GraftDonorMinYearsLeft, Settings.GraftDonorMaxYearsLeft + 1);
             ctx.Log.Info($"[Abilities] {member.FullName} consumes {donor.FullName}'s foundation in a Dao Graft.");
             if (!PassThreshold(member)) return true;
 

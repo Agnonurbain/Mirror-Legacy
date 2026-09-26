@@ -26,6 +26,8 @@
     "resourceStones": 3000,
     "resourceHerbs": 150,
     "resourceOres": 60,
-    "graftOres": 20
+    "graftOres": 20,
+    "graftDonorMinYearsLeft": 1,
+    "graftDonorMaxYearsLeft": 5
   }
 }

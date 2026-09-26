@@ -45,17 +45,20 @@ namespace MirrorChronicles.Characters
         public static Temperament RandomTemperament(Random rng) => Temperaments[rng.Next(Temperaments.Length)];
 
         /// <summary>
-        /// A consumed foundation (a Dao Partner absorbed, a Dao Graft): its holder falls back to the ninth Qi level
-        /// with that realm's reach, Dao wounds and the method's flaw kept (decision of 2026-09-25).
+        /// All cultivation gone (the Illusions failed, a Dao Graft's donor): back to a body with an orifice and
+        /// nothing more — no realm, Qi, foundation or ability. The caller sets what life is left.
         /// </summary>
-        public static void LoseFoundation(CharacterData donor, TechniqueData method)
+        public static void StripCultivation(CharacterData member)
         {
-            donor.Realm = CultivationRealm.QiRefinement;
-            donor.RealmStage = PowerLadder.StageCount(CultivationRealm.QiRefinement);
-            donor.FoundationId = null;
-            donor.CultivationXP = 0;
-            int reach = PowerLadder.WoundedLifespan(PowerLadder.MaxLifespan(donor.Realm, donor.RealmStage), donor.DaoWounds);
-            donor.MaxLifespan = TechniqueRules.LifespanWithMethod(reach, method);
+            member.Realm = CultivationRealm.Embryonic;
+            member.RealmStage = 0;
+            member.CultivationXP = 0;
+            member.QiId = null;
+            member.FoundationId = null;
+            member.PursuedAbility = null;
+            member.DivineAbilities.Clear();
+            member.ShallowAbilities.Clear();
+            member.GraftedAbilities.Clear();
         }
 
         /// <summary>A newborn's temper: most often a parent's (father or mother alike), otherwise its own.</summary>

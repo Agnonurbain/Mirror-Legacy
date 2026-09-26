@@ -147,6 +147,10 @@ namespace MirrorChronicles.Data
 
         /// <summary>Spiritual objects of the Purple Mansion completing a grafted foundation.</summary>
         public int GraftOres { get; init; }
+
+        /// <summary>Years a grafted donor has left, stripped of all cultivation (user decision, 2026-09-25: one to five).</summary>
+        public int GraftDonorMinYearsLeft { get; init; }
+        public int GraftDonorMaxYearsLeft { get; init; }
     }
 
     /// <summary>Odds and durations of the Purple Mansion's breakthrough (balance.json, tuned by simulation).</summary>

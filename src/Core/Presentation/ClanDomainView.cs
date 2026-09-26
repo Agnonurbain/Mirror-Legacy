@@ -146,6 +146,8 @@ namespace MirrorChronicles.Presentation
             DeathCause.Illness => "de maladie",
             DeathCause.SpiritualDissolution => "d'une dissolution spirituelle",
             DeathCause.AscentCollapse => "épuisé(e) avant le Manoir Shenyang",
+            DeathCause.FoundationDevoured => "sa fondation dévorée par un Partenaire Dao",
+            DeathCause.ManifestationCollapse => "en échouant à manifester son pouvoir divin",
             _ => ""
         };
     }

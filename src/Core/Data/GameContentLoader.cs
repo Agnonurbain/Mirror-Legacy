@@ -154,6 +154,8 @@ namespace MirrorChronicles.Data
             var abilities = balance.DivineAbilities;
             Require(abilities != null && abilities.ResourceStones >= 0 && abilities.ResourceHerbs >= 0 && abilities.ResourceOres >= 0 && abilities.GraftOres >= 0,
                 BalanceFile, "divineAbilities needs its costs (never negative).");
+            Require(abilities.GraftDonorMinYearsLeft >= 1 && abilities.GraftDonorMinYearsLeft <= abilities.GraftDonorMaxYearsLeft,
+                BalanceFile, "a grafted donor's years left need 1 <= min <= max.");
         }
 
         private static void CheckFactions(List<FactionData> factions)

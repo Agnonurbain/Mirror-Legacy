@@ -63,9 +63,8 @@ namespace MirrorChronicles.Characters
 
     /// <summary>
     /// The breakthrough to the Purple Mansion (LORE.md §5.4.1), resolved at each Breakthrough phase: the
-    /// Ascent (death on failure), then the Manifestation retreat (about six years; a failure falls back to
-    /// the Foundation's apogee), the Great Void (days to decades, or for life), the Illusions (a failure costs
-    /// one's whole cultivation). Success brings the Purple Mansion with the foundation as first divine ability.
+    /// Ascent (death on failure), then the Manifestation retreat (about six years; death on failure), the
+    /// Great Void (days to decades, or for life), the Illusions (a failure costs one's whole cultivation). Success brings the Purple Mansion with the foundation as first divine ability.
     /// </summary>
     public sealed class PurpleMansionSystem
     {
@@ -129,10 +128,8 @@ namespace MirrorChronicles.Characters
             int chance = PurpleMansionRules.ManifestationChance(member, techniques.MethodOf(member), Settings);
             if (ctx.Rng.Next(1, 101) > chance)
             {
-                member.Retreat = Retreat.None;
-                member.RetreatYearsLeft = 0;
-                member.CultivationXP = 0;
-                ctx.Log.Info($"[Purple Mansion] {member.FullName} fails to manifest their divine power and falls back to the Foundation's apogee.");
+                ctx.Log.Info($"[Purple Mansion] {member.FullName} fails to manifest their divine power ({chance}%) and dies.");
+                clan.Kill(member, DeathCause.ManifestationCollapse); // « the main cause of falls » (user decision, 2026-09-25)
                 return;
             }
 
@@ -170,12 +167,7 @@ namespace MirrorChronicles.Characters
         /// <summary>Back to a body with an orifice and nothing more, with a mortal's lifespan.</summary>
         private void LoseAllCultivation(CharacterData member)
         {
-            member.Realm = CultivationRealm.Embryonic;
-            member.RealmStage = 0;
-            member.CultivationXP = 0;
-            member.FoundationId = null;
-            member.QiId = null;
-            member.DivineAbilities.Clear();
+            FoundationRules.StripCultivation(member);
             member.MaxLifespan = PowerLadder.WoundedLifespan(SpiritualOrificeRules.MortalLifespan(ctx.Rng.NextDouble()), member.DaoWounds);
         }
     }
