@@ -22,6 +22,9 @@ namespace MirrorChronicles.Characters
         private static readonly string[] PurpleMansionStages =
             { "début (Maître taoïste)", "milieu (Maître taoïste)", "fin (Grand Maître taoïste)", "Grande Perfection (Grand Maître taoïste)" };
 
+        /// <summary>The name of a realm of the immortal Dao, e.g. "Manoir Pourpre".</summary>
+        public static string RealmName(CultivationRealm realm) => RealmNames[(int)realm];
+
         /// <summary>Human-readable rank, e.g. "Culture du Qi — 4e niveau (milieu)" or "Maître Moine".</summary>
         public static string DisplayName(CharacterData character)
         {
