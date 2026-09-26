@@ -205,5 +205,41 @@ namespace MirrorChronicles.Tests.Characters
 
             Assert.AreEqual(Temperament.Dominant, c.Temperament);
         }
+
+        // ---- An inhuman body in the Dao's image (LORE.md §5.3.2, §11.6) ----
+
+        [Test]
+        public void FormingAMetalFoundation_GivesGoldenBlood()
+        {
+            var w = new TestWorld();
+            var c = w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 9));
+            c.QiId = "clear-edge-qi"; // builds the Engraved Stone of the Mutable Metal
+
+            w.Cultivation.ApplyStep(c, PowerLadder.Next(c.Realm, c.RealmStage));
+
+            Assert.AreEqual("Sang doré", c.BodyTrait);
+        }
+
+        [Test]
+        public void ALineageTheLoreGivesNoBody_LeavesTheBodyHuman()
+        {
+            var w = new TestWorld();
+            var c = w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 9)); // the clan's Clear Spring: Orthodox Water
+
+            w.Cultivation.ApplyStep(c, PowerLadder.Next(c.Realm, c.RealmStage));
+
+            Assert.IsNull(c.BodyTrait);
+        }
+
+        [TestCase(0.0, "Sang doré")]
+        [TestCase(0.999, null)]
+        public void AParentsInhumanBody_PassesToTheChildren_Sometimes(double roll, string trait)
+        {
+            var w = new TestWorld(new FixedRandom(roll));
+            var father = w.Join(Fixtures.Cultivator());
+            father.BodyTrait = "Sang doré";
+            var child = w.Clan.GenerateChild(father, w.Join(Fixtures.Mortal(isMale: false)));
+            Assert.AreEqual(trait, child.BodyTrait);
+        }
     }
 }
