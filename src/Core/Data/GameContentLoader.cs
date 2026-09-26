@@ -184,6 +184,10 @@ namespace MirrorChronicles.Data
                 && IsProbability(oathCosts.DeviationChanceOnInterrupt) && IsProbability(oathCosts.PurificationChance)
                 && oathCosts.HeartDemonSpeed > 0 && oathCosts.HeartDemonStabilityLoss >= 0 && oathCosts.PurificationHerbs >= 0 && oathCosts.MirrorVeilCost >= 0,
                 BalanceFile, "oaths needs three interruption chances and Heart Demon years (severity 1-3), and its costs.");
+            var trade = balance.KnowledgeTrade;
+            Require(trade != null && trade.StonesPerGrade?.Count == TechniqueRules.MaxGrade && trade.StonesPerGrade.All(p => p >= 0)
+                && trade.DaoPartnersMirrorCost >= 0 && trade.MinRelation >= Diplomacy.FactionManager.MinRelation && trade.MinRelation <= Diplomacy.FactionManager.MaxRelation,
+                BalanceFile, "knowledgeTrade needs a price per grade (7, never negative), a mirror cost and a relation within -100..100.");
             var talismanRitual = balance.Talismans;
             Require(talismanRitual != null && talismanRitual.PrayersPerRitual > 0 && talismanRitual.PrayersPerMortalPerYear >= 0
                 && talismanRitual.PrayersPerPrestigePerYear >= 0 && talismanRitual.OfferRootThresholds?.Count == 2

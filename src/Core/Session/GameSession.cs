@@ -48,6 +48,7 @@ namespace MirrorChronicles.Session
         public FruitionRegistry Fruitions { get; }
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
+        public KnowledgeExchange Exchange { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
         public BuildingSystem Buildings { get; }
@@ -88,6 +89,7 @@ namespace MirrorChronicles.Session
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Context, Clan, Resources);
+            Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability);

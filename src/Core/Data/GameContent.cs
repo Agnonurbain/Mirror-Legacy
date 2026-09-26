@@ -161,6 +161,9 @@ namespace MirrorChronicles.Data
         /// <summary>What breaking an oath costs (L4d).</summary>
         public OathSettings Oaths { get; init; }
 
+        /// <summary>What knowledge costs: techniques bought from the powers, the mirror's reading (L4c; interpretations).</summary>
+        public KnowledgeTradeSettings KnowledgeTrade { get; init; }
+
         /// <summary>The ritual of the talisman Qi: prayers, offers, leaps (§11.5; the ten thousand prayers are the lore's).</summary>
         public TalismanSettings Talismans { get; init; }
 
@@ -172,6 +175,19 @@ namespace MirrorChronicles.Data
 
         /// <summary>The technique rules the lore leaves open (L3 interpretations), replaceable when a source speaks.</summary>
         public TechniqueSettings Techniques { get; init; }
+    }
+
+    /// <summary>What knowledge costs (balance.json, L4c; the lore gives no price).</summary>
+    public sealed record KnowledgeTradeSettings
+    {
+        /// <summary>The relation a power needs with the clan before it sells a technique.</summary>
+        public int MinRelation { get; init; }
+
+        /// <summary>Spirit stones a technique costs, by grade 1-7.</summary>
+        public IReadOnlyList<int> StonesPerGrade { get; init; } = Array.Empty<int>();
+
+        /// <summary>Mirror power to read the Dao Partners of a foundation.</summary>
+        public int DaoPartnersMirrorCost { get; init; }
     }
 
     /// <summary>
