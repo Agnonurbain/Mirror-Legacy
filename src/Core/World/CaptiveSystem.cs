@@ -61,12 +61,14 @@ namespace MirrorChronicles.World
             member.CapturedYear = ctx.Clock.Year;
             member.CurrentTask = TaskType.None;
             ctx.Log.Warning($"[Captives] {faction} takes {member.FullName}.");
+            ctx.Events.TriggerMemberCaptured(member, faction);
         }
 
         public void Imprison(Prisoner prisoner)
         {
             prisoners.Add(prisoner);
             ctx.Log.Info($"[Captives] An agent of {prisoner.Faction} is in the clan's hands.");
+            ctx.Events.TriggerAgentCaught(prisoner.Faction);
         }
 
         public void RestorePrisoners(IEnumerable<Prisoner> saved)
@@ -257,6 +259,7 @@ namespace MirrorChronicles.World
             ctx.Log.Info($"[Captives] {member.FullName} is free of {member.CaptorFaction}.");
             member.CaptorFaction = null;
             member.CapturedYear = null;
+            ctx.Events.TriggerMemberFreed(member);
         }
     }
 }
