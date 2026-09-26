@@ -154,5 +154,26 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.IsTrue(keepers.Single(k => k.Id == members[1].ID).Sworn);
             Assert.IsFalse(keepers.Single(k => k.Id == members[2].ID).Sworn);
         }
+
+        [Test]
+        public void HuntCandidates_LeaveOutThoseAlreadyOnAnOperation()
+        {
+            var s = NewGame();
+            var busy = OperationsView.HuntCandidates(s).First();
+            s.Clan.FindById(busy.Id).LastOperationYear = s.Clock.Year;
+            Assert.IsFalse(OperationsView.HuntCandidates(s).Any(c => c.Id == busy.Id));
+        }
+
+        [Test]
+        public void Ritual_SaysSoWhenNoMemberCanBearATalisman()
+        {
+            var s = NewGame();
+            s.Talismans.RestoreCalendar(s.Clock.Year);
+            s.Resources.AddPrayers(Fixtures.Content.Balance.Talismans.PrayersPerRitual);
+            s.Resources.AddBeast(new CapturedBeast("b1", CultivationRealm.QiRefinement, 1, null));
+            foreach (var m in s.Clan.LivingMembers) m.TalismanQiId = "prolong-life";
+
+            StringAssert.Contains("porteur", OperationsView.Ritual(s).Refusal);
+        }
     }
 }
