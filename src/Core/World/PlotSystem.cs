@@ -20,9 +20,12 @@ namespace MirrorChronicles.World
         private readonly ResourceManager resources;
         private readonly FactionManager factions;
         private readonly SuspicionLedger suspicion;
+        private readonly SecretSystem secrets;
 
-        public PlotSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, SuspicionLedger suspicion)
+        public PlotSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, SuspicionLedger suspicion,
+            SecretSystem secrets)
         {
+            this.secrets = secrets;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -43,7 +46,8 @@ namespace MirrorChronicles.World
                     suspicion.AddEvidence(power.Name, Settings.EvidencePerFinding);
                     ctx.Log.Info($"[Plots] {power.Name} finds something against the clan.");
                 }
-                if (suspected >= Settings.ActThreshold) Decide(power);
+                bool confronting = secrets.Confrontation?.Faction == power.Name; // its move is the confrontation's, not an ordinary blow
+                if (suspected >= Settings.ActThreshold && !confronting) Decide(power);
             }
         }
 

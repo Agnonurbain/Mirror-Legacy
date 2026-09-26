@@ -102,8 +102,8 @@ namespace MirrorChronicles.Session
             Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
             Suspicion = new SuspicionLedger();
             Hunts = new HuntOperations(Context, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
-            Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion);
             Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths, Mirror);
+            Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);

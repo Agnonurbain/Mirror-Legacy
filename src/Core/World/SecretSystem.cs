@@ -82,8 +82,9 @@ namespace MirrorChronicles.World
                 var partner = oaths.SecrecyPartner(keeper);
                 if (!ctx.Rng.Chance(PlotRules.LeakChance(keeper, partner != null, ctx.Content))) continue;
 
-                var listener = factions.Factions.OrderByDescending(f => suspicion.OfClan(f.Name)).First();
-                if (suspicion.OfClan(listener.Name) == 0) listener = ctx.Rng.Pick(factions.Factions.ToList());
+                int most = factions.Factions.Max(f => suspicion.OfClan(f.Name));
+                var askers = factions.Factions.Where(f => suspicion.OfClan(f.Name) == most).ToList(); // all when nobody asks
+                var listener = ctx.Rng.Pick(askers);
                 suspicion.AddMirrorClues(listener.Name, Settings.LeakMirrorClue);
                 suspicion.AddEvidence(listener.Name, Settings.LeakEvidence);
                 ctx.Log.Warning($"[Secrets] {keeper.FullName} lets something slip before {listener.Name}.");
@@ -129,6 +130,7 @@ namespace MirrorChronicles.World
             var buyer = factions.Factions.Where(f => f.Name != faction).OrderByDescending(f => f.PowerLevel).FirstOrDefault();
             if (buyer == null) return;
             suspicion.AddMirrorClues(buyer.Name, Settings.LeakMirrorClue); // too weak to seize: it sells the secret (profit)
+            suspicion.AddMirrorClues(faction, Settings.DoubtClues - 1 - suspicion.MirrorClues(faction)); // sold: it moves on
             ctx.Log.Warning($"[Secrets] {faction}, too weak to act, sells what it knows to {buyer.Name}.");
         }
     }
