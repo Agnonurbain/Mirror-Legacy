@@ -1330,7 +1330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_ascensionsystem",
-      "community": 82,
+      "community": 189,
       "norm_label": "ascensionsystem.cs"
     },
     {
@@ -1340,7 +1340,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "characters_ascensionsystem_mirrorchronicles_characters",
-      "community": 82,
+      "community": 189,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -1350,7 +1350,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_ascensionsystem_ascensionsystem",
-      "community": 82,
+      "community": 189,
       "norm_label": "ascensionsystem"
     },
     {
@@ -1360,7 +1360,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "characters_ascensionsystem_ascensionsystem_restore",
-      "community": 82,
+      "community": 189,
       "norm_label": ".restore()"
     },
     {
@@ -1470,7 +1470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 152,
+      "community": 78,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -1480,7 +1480,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 152,
+      "community": 78,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -4630,7 +4630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_woundsystem",
-      "community": 183,
+      "community": 191,
       "norm_label": "woundsystem.cs"
     },
     {
@@ -4640,7 +4640,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "characters_woundsystem_mirrorchronicles_characters",
-      "community": 183,
+      "community": 191,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -7170,7 +7170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 152,
+      "community": 191,
       "norm_label": "combatunit.cs"
     },
     {
@@ -7180,7 +7180,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 152,
+      "community": 191,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -7700,7 +7700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_factiondata",
-      "community": 78,
+      "community": 189,
       "norm_label": "factiondata.cs"
     },
     {
@@ -7710,7 +7710,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "data_factiondata_mirrorchronicles_data",
-      "community": 78,
+      "community": 189,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -7720,7 +7720,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "data_factiondata_factiondata",
-      "community": 78,
+      "community": 189,
       "norm_label": "factiondata"
     },
     {
@@ -7730,7 +7730,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "data_factiondata_factiondata_clone",
-      "community": 78,
+      "community": 189,
       "norm_label": ".clone()"
     },
     {
@@ -9210,7 +9210,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 78,
+      "community": 189,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -9220,7 +9220,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 78,
+      "community": 189,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -11100,7 +11100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionengine",
-      "community": 152,
+      "community": 189,
       "norm_label": "deductionengine.cs"
     },
     {
@@ -11110,7 +11110,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_deductionengine_mirrorchronicles_mirror",
-      "community": 152,
+      "community": 189,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -11740,7 +11740,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem",
-      "community": 83,
+      "community": 190,
       "norm_label": "mirrorsystem"
     },
     {
@@ -11750,7 +11750,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_mirror_mirrorsystem_cs_int",
-      "community": 83,
+      "community": 190,
       "norm_label": "int"
     },
     {
@@ -11760,7 +11760,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_core_mirror_mirrorsystem_cs_double",
-      "community": 83,
+      "community": 190,
       "norm_label": "double"
     },
     {
@@ -11770,7 +11770,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_core_mirror_mirrorsystem_cs_gamecontext",
-      "community": 83,
+      "community": 190,
       "norm_label": "gamecontext"
     },
     {
@@ -11780,7 +11780,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_core_mirror_mirrorsystem_cs_clanmanager",
-      "community": 83,
+      "community": 190,
       "norm_label": "clanmanager"
     },
     {
@@ -11790,7 +11790,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_core_mirror_mirrorsystem_cs_breakthroughsystem",
-      "community": 83,
+      "community": 190,
       "norm_label": "breakthroughsystem"
     },
     {
@@ -11800,7 +11800,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_addpower",
-      "community": 83,
+      "community": 190,
       "norm_label": ".addpower()"
     },
     {
@@ -11810,7 +11810,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_consumepower",
-      "community": 83,
+      "community": 190,
       "norm_label": ".consumepower()"
     },
     {
@@ -11820,7 +11820,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_useqipulse",
-      "community": 83,
+      "community": 190,
       "norm_label": ".useqipulse()"
     },
     {
@@ -11830,7 +11830,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "src_core_mirror_mirrorsystem_cs_combatunit",
-      "community": 83,
+      "community": 190,
       "norm_label": "combatunit"
     },
     {
@@ -11840,7 +11840,7 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_useancestralshield",
-      "community": 83,
+      "community": 190,
       "norm_label": ".useancestralshield()"
     },
     {
@@ -11850,7 +11850,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_usemirrorjudgment",
-      "community": 83,
+      "community": 190,
       "norm_label": ".usemirrorjudgment()"
     },
     {
@@ -11860,7 +11860,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "src_core_mirror_mirrorsystem_cs_characterdata",
-      "community": 83,
+      "community": 190,
       "norm_label": "characterdata"
     },
     {
@@ -11870,7 +11870,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_granttalismanseed",
-      "community": 83,
+      "community": 190,
       "norm_label": ".granttalismanseed()"
     },
     {
@@ -11880,7 +11880,7 @@
       "source_location": "L116",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_restore",
-      "community": 83,
+      "community": 190,
       "norm_label": ".restore()"
     },
     {
@@ -14324,10 +14324,20 @@
       "norm_label": "suspicionledger"
     },
     {
+      "label": "SecretSystem",
+      "file_type": "code",
+      "source_file": "src/Core/World/PlotSystem.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "secretsystem",
+      "community": 181,
+      "norm_label": "secretsystem"
+    },
+    {
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/World/PlotSystem.cs",
-      "source_location": "L35",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "world_plotsystem_plotsystem_processyear",
       "community": 181,
@@ -14337,7 +14347,7 @@
       "label": ".Decide()",
       "file_type": "code",
       "source_file": "src/Core/World/PlotSystem.cs",
-      "source_location": "L50",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "world_plotsystem_plotsystem_decide",
       "community": 181,
@@ -14347,7 +14357,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/World/PlotSystem.cs",
-      "source_location": "L50",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "src_core_world_plotsystem_cs_factiondata",
       "community": 181,
@@ -14507,7 +14517,7 @@
       "label": ".Confront()",
       "file_type": "code",
       "source_file": "src/Core/World/SecretSystem.cs",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "world_secretsystem_secretsystem_confront",
       "community": 84,
@@ -26060,7 +26070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_storyeventmanagertests",
-      "community": 59,
+      "community": 5,
       "norm_label": "storyeventmanagertests.cs"
     },
     {
@@ -26070,7 +26080,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_mirrorchronicles_tests_events",
-      "community": 59,
+      "community": 5,
       "norm_label": "mirrorchronicles.tests.events"
     },
     {
@@ -26080,7 +26090,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests",
-      "community": 59,
+      "community": 5,
       "norm_label": "storyeventmanagertests"
     },
     {
@@ -26090,7 +26100,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_build",
-      "community": 59,
+      "community": 5,
       "norm_label": ".build()"
     },
     {
@@ -26100,7 +26110,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "tests_core_tests_events_storyeventmanagertests_cs_testworld",
-      "community": 59,
+      "community": 5,
       "norm_label": "testworld"
     },
     {
@@ -26110,7 +26120,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "tests_core_tests_events_storyeventmanagertests_cs_world",
-      "community": 59,
+      "community": 5,
       "norm_label": "world"
     },
     {
@@ -26120,7 +26130,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "storyeventmanager",
-      "community": 59,
+      "community": 5,
       "norm_label": "storyeventmanager"
     },
     {
@@ -26130,7 +26140,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "story",
-      "community": 59,
+      "community": 5,
       "norm_label": "story"
     },
     {
@@ -26140,7 +26150,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_firstfoundation_queuesitsstoryevent",
-      "community": 59,
+      "community": 5,
       "norm_label": ".firstfoundation_queuesitsstoryevent()"
     },
     {
@@ -26150,7 +26160,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_core_tests_events_storyeventmanagertests_cs_test",
-      "community": 59,
+      "community": 5,
       "norm_label": "test"
     },
     {
@@ -26160,7 +26170,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_astoryevent_onlyhappensonce",
-      "community": 59,
+      "community": 5,
       "norm_label": ".astoryevent_onlyhappensonce()"
     },
     {
@@ -26170,7 +26180,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_storyevents_waitinline",
-      "community": 59,
+      "community": 5,
       "norm_label": ".storyevents_waitinline()"
     },
     {
@@ -26180,7 +26190,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_resolvechoice_steadieseveryone_whentheclancelebrates",
-      "community": 59,
+      "community": 5,
       "norm_label": ".resolvechoice_steadieseveryone_whentheclancelebrates()"
     },
     {
@@ -26190,7 +26200,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_resolvechoice_paysthestones_itcosts",
-      "community": 59,
+      "community": 5,
       "norm_label": ".resolvechoice_paysthestones_itcosts()"
     },
     {
@@ -26200,7 +26210,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_resolvechoice_changestherelationofthefactionitnames",
-      "community": 59,
+      "community": 5,
       "norm_label": ".resolvechoice_changestherelationofthefactionitnames()"
     },
     {
@@ -26210,7 +26220,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_lastsurvivor_raisestheextinctionthreat",
-      "community": 59,
+      "community": 5,
       "norm_label": ".lastsurvivor_raisestheextinctionthreat()"
     },
     {
@@ -26220,7 +26230,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_storyevent_isannouncedonthebus",
-      "community": 59,
+      "community": 5,
       "norm_label": ".storyevent_isannouncedonthebus()"
     },
     {
@@ -26470,7 +26480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionenginetests",
-      "community": 5,
+      "community": 59,
       "norm_label": "deductionenginetests.cs"
     },
     {
@@ -26480,7 +26490,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_mirrorchronicles_tests_mirror",
-      "community": 5,
+      "community": 59,
       "norm_label": "mirrorchronicles.tests.mirror"
     },
     {
@@ -26490,7 +26500,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests",
-      "community": 5,
+      "community": 59,
       "norm_label": "deductionenginetests"
     },
     {
@@ -26500,7 +26510,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_poweredworld",
-      "community": 5,
+      "community": 59,
       "norm_label": ".poweredworld()"
     },
     {
@@ -26510,7 +26520,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_testworld",
-      "community": 5,
+      "community": 59,
       "norm_label": "testworld"
     },
     {
@@ -26520,7 +26530,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_fragments",
-      "community": 5,
+      "community": 59,
       "norm_label": ".fragments()"
     },
     {
@@ -26530,7 +26540,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_list",
-      "community": 5,
+      "community": 59,
       "norm_label": "list"
     },
     {
@@ -26540,7 +26550,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_fragmentdata",
-      "community": 5,
+      "community": 59,
       "norm_label": "fragmentdata"
     },
     {
@@ -26550,7 +26560,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_needsatleasttwofragments",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_needsatleasttwofragments()"
     },
     {
@@ -26560,7 +26570,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_test",
-      "community": 5,
+      "community": 59,
       "norm_label": "test"
     },
     {
@@ -26570,7 +26580,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_acceptsatmostfivefragments",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_acceptsatmostfivefragments()"
     },
     {
@@ -26580,7 +26590,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_spendstenpowerperfragmentandthefragments",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_spendstenpowerperfragmentandthefragments()"
     },
     {
@@ -26590,7 +26600,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_keepsthefragments_whenthepowerislacking",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_keepsthefragments_whenthepowerislacking()"
     },
     {
@@ -26600,7 +26610,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_takesthemostcommonelement",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_takesthemostcommonelement()"
     },
     {
@@ -26610,7 +26620,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_risksdeviation_whenwatermeetsfire",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_risksdeviation_whenwatermeetsfire()"
     },
     {
@@ -26620,7 +26630,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_issafer_whenwoodfeedsfire",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_issafer_whenwoodfeedsfire()"
     },
     {
@@ -26630,7 +26640,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_fixed",
-      "community": 5,
+      "community": 59,
       "norm_label": ".fixed()"
     },
     {
@@ -26640,7 +26650,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_gradesthetechniquefromitsfragments",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_gradesthetechniquefromitsfragments()"
     },
     {
@@ -26650,7 +26660,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_testcase",
-      "community": 5,
+      "community": 59,
       "norm_label": "testcase"
     },
     {
@@ -26660,7 +26670,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_yieldsasecrettechnique",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_yieldsasecrettechnique()"
     },
     {
@@ -26670,7 +26680,7 @@
       "source_location": "L117",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_namesthetechniquewiththewordsofthedata",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_namesthetechniquewiththewordsofthedata()"
     },
     {
@@ -26680,7 +26690,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_ofamethod_buildsitonaharvestableqiofitselement",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_ofamethod_buildsitonaharvestableqiofitselement()"
     },
     {
@@ -26690,7 +26700,7 @@
       "source_location": "L140",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_ofanart_needsnoqiandopensattherealmofitsgrade",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_ofanart_needsnoqiandopensattherealmofitsgrade()"
     },
     {
@@ -26700,7 +26710,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_yieldsnomethod_whennoqicanbeharvested",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_yieldsnomethod_whennoqicanbeharvested()"
     },
     {
@@ -26710,7 +26720,7 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_requiresanexistingrealm_evenfromdivinefragments",
-      "community": 5,
+      "community": 59,
       "norm_label": ".attemptdeduction_requiresanexistingrealm_evenfromdivinefragments()"
     },
     {
@@ -30154,6 +30164,36 @@
       "norm_label": ".roundtrip_keepsaconfrontation()"
     },
     {
+      "label": ".ASoldSecret_EndsTheConfrontation_ForGood()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L340",
+      "_origin": "ast",
+      "id": "world_plottests_plottests_asoldsecret_endstheconfrontation_forgood",
+      "community": 10,
+      "norm_label": ".asoldsecret_endstheconfrontation_forgood()"
+    },
+    {
+      "label": ".APiercedSecret_IsNotAlsoStruckAsAnOrdinaryCase_ThatYear()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L355",
+      "_origin": "ast",
+      "id": "world_plottests_plottests_apiercedsecret_isnotalsostruckasanordinarycase_thatyear",
+      "community": 10,
+      "norm_label": ".apiercedsecret_isnotalsostruckasanordinarycase_thatyear()"
+    },
+    {
+      "label": ".ALeak_AmongPowersAskingAsMuch_GoesToAnyOfThem()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L371",
+      "_origin": "ast",
+      "id": "world_plottests_plottests_aleak_amongpowersaskingasmuch_goestoanyofthem",
+      "community": 10,
+      "norm_label": ".aleak_amongpowersaskingasmuch_goestoanyofthem()"
+    },
+    {
       "label": "BRAINSTORMING.md",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/BRAINSTORMING.md",
@@ -32844,7 +32884,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 183,
+      "community": 191,
       "norm_label": "wound lethality model (vitality thresholds, dao wound)",
       "id": "brain_claude_plan_wound_lethality"
     },
@@ -32885,7 +32925,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Single slot by default, auto-save at end of each year; optional Casual mode with 3 slots.",
-      "community": 152,
+      "community": 189,
       "norm_label": "ironman save (yearly auto-save json)",
       "id": "brain_claude_plan_ironman_save"
     },
@@ -32899,7 +32939,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 82,
+      "community": 189,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -33155,7 +33195,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Never merge 'In a full implementation...' placeholder comments; add ActiveWounds/HasDaoWound + WoundData POCO.",
-      "community": 183,
+      "community": 191,
       "norm_label": "wl-007: wounds not persisted on characterdata",
       "id": "brain_claude_worked_lesson_wl_007"
     },
@@ -33225,7 +33265,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 78,
+      "community": 189,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -38793,9 +38833,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_secrecypartner",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_secrecypartner"
     },
     {
       "relation": "method",
@@ -38944,9 +38984,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L143",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_secrecypartner",
-      "target": "characters_oathsystem_oathsystem_pactsof",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_pactsof"
     },
     {
       "relation": "references",
@@ -38999,9 +39039,9 @@
       "source_location": "L141",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_secrecypartner",
-      "target": "src_core_characters_oathsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -39219,9 +39259,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_secrecypartner",
-      "target": "characters_oathsystem_oathsystem_binds",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_binds"
     },
     {
       "relation": "calls",
@@ -48558,9 +48598,9 @@
       "source_file": "src/Core/Data/PlotData.cs",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_plotdata",
-      "target": "data_plotdata_mirrorchronicles_data",
-      "confidence_score": 1.0
+      "target": "data_plotdata_mirrorchronicles_data"
     },
     {
       "relation": "contains",
@@ -51409,9 +51449,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggermirrorseized",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggermirrorseized"
     },
     {
       "relation": "method",
@@ -52432,9 +52472,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_huntoperations_huntoperations",
-      "target": "src_core_mirror_huntoperations_cs_suspicionledger",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_huntoperations_cs_suspicionledger"
     },
     {
       "relation": "references",
@@ -55322,9 +55362,9 @@
       "source_file": "src/Core/Session/VictoryConditionSystem.cs",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_victoryconditionsystem_victoryconditionsystem",
-      "target": "session_victoryconditionsystem_victoryconditionsystem_mirrorseized",
-      "confidence_score": 1.0
+      "target": "session_victoryconditionsystem_victoryconditionsystem_mirrorseized"
     },
     {
       "relation": "method",
@@ -56324,9 +56364,9 @@
       "source_file": "src/Core/World/PlotRules.cs",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotrules",
-      "target": "world_plotrules_mirrorchronicles_world",
-      "confidence_score": 1.0
+      "target": "world_plotrules_mirrorchronicles_world"
     },
     {
       "relation": "contains",
@@ -56334,9 +56374,9 @@
       "source_file": "src/Core/World/PlotRules.cs",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotrules",
-      "target": "world_plotrules_plotrules",
-      "confidence_score": 1.0
+      "target": "world_plotrules_plotrules"
     },
     {
       "relation": "method",
@@ -56344,9 +56384,9 @@
       "source_file": "src/Core/World/PlotRules.cs",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules",
-      "target": "world_plotrules_plotrules_dareswithoutproof",
-      "confidence_score": 1.0
+      "target": "world_plotrules_plotrules_dareswithoutproof"
     },
     {
       "relation": "method",
@@ -56354,9 +56394,9 @@
       "source_file": "src/Core/World/PlotRules.cs",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules",
-      "target": "world_plotrules_plotrules_investigationchance",
-      "confidence_score": 1.0
+      "target": "world_plotrules_plotrules_investigationchance"
     },
     {
       "relation": "method",
@@ -56364,9 +56404,9 @@
       "source_file": "src/Core/World/PlotRules.cs",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules",
-      "target": "world_plotrules_plotrules_leakchance",
-      "confidence_score": 1.0
+      "target": "world_plotrules_plotrules_leakchance"
     },
     {
       "relation": "references",
@@ -56375,9 +56415,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules_investigationchance",
-      "target": "src_core_world_plotrules_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotrules_cs_factiondata"
     },
     {
       "relation": "references",
@@ -56386,9 +56426,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules_investigationchance",
-      "target": "src_core_world_plotrules_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotrules_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -56397,9 +56437,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules_dareswithoutproof",
-      "target": "src_core_world_plotrules_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotrules_cs_factiondata"
     },
     {
       "relation": "references",
@@ -56408,9 +56448,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules_dareswithoutproof",
-      "target": "src_core_world_plotrules_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotrules_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -56419,9 +56459,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules_leakchance",
-      "target": "src_core_world_plotrules_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotrules_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -56430,9 +56470,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules_leakchance",
-      "target": "src_core_world_plotrules_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotrules_cs_characterdata"
     },
     {
       "relation": "references",
@@ -56441,9 +56481,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plotrules_plotrules_dareswithoutproof",
-      "target": "src_core_world_plotrules_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotrules_cs_cultivationrealm"
     },
     {
       "relation": "contains",
@@ -56451,9 +56491,9 @@
       "source_file": "src/Core/World/PlotSystem.cs",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotsystem",
-      "target": "world_plotsystem_mirrorchronicles_world",
-      "confidence_score": 1.0
+      "target": "world_plotsystem_mirrorchronicles_world"
     },
     {
       "relation": "contains",
@@ -56461,8 +56501,19 @@
       "source_file": "src/Core/World/PlotSystem.cs",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotsystem",
-      "target": "world_plotsystem_plotsystem",
+      "target": "world_plotsystem_plotsystem"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PlotSystem.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field",
+      "source": "world_plotsystem_plotsystem",
+      "target": "secretsystem",
       "confidence_score": 1.0
     },
     {
@@ -56472,9 +56523,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem",
-      "target": "src_core_world_plotsystem_cs_clanmanager",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotsystem_cs_clanmanager"
     },
     {
       "relation": "references",
@@ -56483,9 +56534,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem",
-      "target": "src_core_world_plotsystem_cs_factionmanager",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotsystem_cs_factionmanager"
     },
     {
       "relation": "references",
@@ -56494,9 +56545,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem",
-      "target": "src_core_world_plotsystem_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotsystem_cs_gamecontext"
     },
     {
       "relation": "references",
@@ -56505,9 +56556,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem",
-      "target": "src_core_world_plotsystem_cs_resourcemanager",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotsystem_cs_resourcemanager"
     },
     {
       "relation": "references",
@@ -56516,9 +56567,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem",
-      "target": "src_core_world_plotsystem_cs_suspicionledger",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotsystem_cs_suspicionledger"
     },
     {
       "relation": "method",
@@ -56526,9 +56577,9 @@
       "source_file": "src/Core/World/PlotSystem.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem",
-      "target": "world_plotsystem_plotsystem_decide",
-      "confidence_score": 1.0
+      "target": "world_plotsystem_plotsystem_decide"
     },
     {
       "relation": "method",
@@ -56536,9 +56587,9 @@
       "source_file": "src/Core/World/PlotSystem.cs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem",
-      "target": "world_plotsystem_plotsystem_processyear",
-      "confidence_score": 1.0
+      "target": "world_plotsystem_plotsystem_processyear"
     },
     {
       "relation": "calls",
@@ -56547,9 +56598,9 @@
       "source_file": "src/Core/World/PlotSystem.cs",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem_processyear",
-      "target": "world_plotsystem_plotsystem_decide",
-      "confidence_score": 1.0
+      "target": "world_plotsystem_plotsystem_decide"
     },
     {
       "relation": "references",
@@ -56558,9 +56609,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem_decide",
-      "target": "src_core_world_plotsystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_plotsystem_cs_factiondata"
     },
     {
       "relation": "contains",
@@ -56568,9 +56619,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem",
-      "target": "world_secretsystem_mirrorchronicles_world",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_mirrorchronicles_world"
     },
     {
       "relation": "contains",
@@ -56578,9 +56629,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem",
-      "target": "world_secretsystem_secretsystem",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem"
     },
     {
       "relation": "references",
@@ -56589,9 +56640,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "oathsystem",
-      "confidence_score": 1.0
+      "target": "oathsystem"
     },
     {
       "relation": "references",
@@ -56600,9 +56651,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "src_core_world_secretsystem_cs_clanmanager",
-      "confidence_score": 1.0
+      "target": "src_core_world_secretsystem_cs_clanmanager"
     },
     {
       "relation": "references",
@@ -56611,9 +56662,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "src_core_world_secretsystem_cs_factionmanager",
-      "confidence_score": 1.0
+      "target": "src_core_world_secretsystem_cs_factionmanager"
     },
     {
       "relation": "references",
@@ -56622,9 +56673,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "src_core_world_secretsystem_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_world_secretsystem_cs_gamecontext"
     },
     {
       "relation": "references",
@@ -56633,9 +56684,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "src_core_world_secretsystem_cs_mirrorsystem",
-      "confidence_score": 1.0
+      "target": "src_core_world_secretsystem_cs_mirrorsystem"
     },
     {
       "relation": "references",
@@ -56644,9 +56695,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "src_core_world_secretsystem_cs_suspicionledger",
-      "confidence_score": 1.0
+      "target": "src_core_world_secretsystem_cs_suspicionledger"
     },
     {
       "relation": "method",
@@ -56654,9 +56705,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "world_secretsystem_secretsystem_blurmemories",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_blurmemories"
     },
     {
       "relation": "method",
@@ -56664,9 +56715,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "world_secretsystem_secretsystem_confront",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_confront"
     },
     {
       "relation": "method",
@@ -56674,9 +56725,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "world_secretsystem_secretsystem_leak",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_leak"
     },
     {
       "relation": "method",
@@ -56684,9 +56735,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "world_secretsystem_secretsystem_plantfalseproof",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_plantfalseproof"
     },
     {
       "relation": "method",
@@ -56694,9 +56745,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "world_secretsystem_secretsystem_processyear",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_processyear"
     },
     {
       "relation": "method",
@@ -56704,9 +56755,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "world_secretsystem_secretsystem_restoreconfrontation",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_restoreconfrontation"
     },
     {
       "relation": "references",
@@ -56715,9 +56766,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem_restoreconfrontation",
-      "target": "confrontation",
-      "confidence_score": 1.0
+      "target": "confrontation"
     },
     {
       "relation": "calls",
@@ -56726,9 +56777,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem_processyear",
-      "target": "world_secretsystem_secretsystem_confront",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_confront"
     },
     {
       "relation": "calls",
@@ -56737,9 +56788,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem_processyear",
-      "target": "world_secretsystem_secretsystem_leak",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_leak"
     },
     {
       "relation": "contains",
@@ -56799,9 +56850,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger",
-      "target": "world_suspicionledger_suspicionledger_addevidence",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_addevidence"
     },
     {
       "relation": "method",
@@ -56809,9 +56860,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger",
-      "target": "world_suspicionledger_suspicionledger_addmirrorclues",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_addmirrorclues"
     },
     {
       "relation": "method",
@@ -56839,9 +56890,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger",
-      "target": "world_suspicionledger_suspicionledger_evidence",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_evidence"
     },
     {
       "relation": "method",
@@ -56859,9 +56910,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger",
-      "target": "world_suspicionledger_suspicionledger_mirrorclues",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_mirrorclues"
     },
     {
       "relation": "method",
@@ -56889,9 +56940,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger",
-      "target": "world_suspicionledger_suspicionledger_restoreevidence",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_restoreevidence"
     },
     {
       "relation": "method",
@@ -56899,9 +56950,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger",
-      "target": "world_suspicionledger_suspicionledger_restoremirrorclues",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_restoremirrorclues"
     },
     {
       "relation": "calls",
@@ -56921,9 +56972,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger_addevidence",
-      "target": "world_suspicionledger_suspicionledger_evidence",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_evidence"
     },
     {
       "relation": "references",
@@ -56932,9 +56983,9 @@
       "source_location": "L39",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger_restoreevidence",
-      "target": "src_core_world_suspicionledger_cs_ireadonlydictionary",
-      "confidence_score": 1.0
+      "target": "src_core_world_suspicionledger_cs_ireadonlydictionary"
     },
     {
       "relation": "references",
@@ -56954,9 +57005,9 @@
       "source_location": "L58",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger_restoremirrorclues",
-      "target": "src_core_world_suspicionledger_cs_ireadonlydictionary",
-      "confidence_score": 1.0
+      "target": "src_core_world_suspicionledger_cs_ireadonlydictionary"
     },
     {
       "relation": "calls",
@@ -56965,9 +57016,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger_addmirrorclues",
-      "target": "world_suspicionledger_suspicionledger_mirrorclues",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_mirrorclues"
     },
     {
       "relation": "calls",
@@ -84890,9 +84941,9 @@
       "source_file": "tests/Core.Tests/Presentation/ChronicleTests.cs",
       "source_location": "L131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_chronicletests_chronicletests",
-      "target": "presentation_chronicletests_chronicletests_aseizedmirror_istoldassuch_notasanextinction",
-      "confidence_score": 1.0
+      "target": "presentation_chronicletests_chronicletests_aseizedmirror_istoldassuch_notasanextinction"
     },
     {
       "relation": "method",
@@ -85068,9 +85119,9 @@
       "source_location": "L131",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_chronicletests_chronicletests_aseizedmirror_istoldassuch_notasanextinction",
-      "target": "tests_core_tests_presentation_chronicletests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_chronicletests_cs_test"
     },
     {
       "relation": "references",
@@ -88642,9 +88693,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests",
-      "target": "world_plottests_mirrorchronicles_tests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_mirrorchronicles_tests_world"
     },
     {
       "relation": "contains",
@@ -88652,9 +88703,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests",
-      "target": "world_plottests_plottests",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests"
     },
     {
       "relation": "references",
@@ -88663,9 +88714,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "tests_core_tests_world_plottests_cs_string",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_string"
     },
     {
       "relation": "method",
@@ -88673,9 +88724,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_abarelysuspiciouspower_doesnotbother",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_abarelysuspiciouspower_doesnotbother"
     },
     {
       "relation": "method",
@@ -88683,9 +88734,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_ahuntsteam_andatalismansbearer_cometoknowthesecret",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_ahuntsteam_andatalismansbearer_cometoknowthesecret"
     },
     {
       "relation": "method",
@@ -88693,8 +88744,18 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_akeeperwhotalks_givesapowercluesaboutthemirror",
+      "target": "world_plottests_plottests_akeeperwhotalks_givesapowercluesaboutthemirror"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L371",
+      "weight": 1.0,
+      "source": "world_plottests_plottests",
+      "target": "world_plottests_plottests_aleak_amongpowersaskingasmuch_goestoanyofthem",
       "confidence_score": 1.0
     },
     {
@@ -88703,8 +88764,18 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L260",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_apiercedsecret_bringsaninvestigatoratonce",
+      "target": "world_plottests_plottests_apiercedsecret_bringsaninvestigatoratonce"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L355",
+      "weight": 1.0,
+      "source": "world_plottests_plottests",
+      "target": "world_plottests_plottests_apiercedsecret_isnotalsostruckasanordinarycase_thatyear",
       "confidence_score": 1.0
     },
     {
@@ -88713,9 +88784,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L286",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_apowermadetodoubt_cannotact",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_apowermadetodoubt_cannotact"
     },
     {
       "relation": "method",
@@ -88723,9 +88794,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L304",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_apowertooweaktoseize_sellsthesecrettothestrongest",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_apowertooweaktoseize_sellsthesecrettothestrongest"
     },
     {
       "relation": "method",
@@ -88733,9 +88804,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_aprovencase_isstruck_andtheclansnamesuffers",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_aprovencase_isstruck_andtheclansnamesuffers"
     },
     {
       "relation": "method",
@@ -88743,8 +88814,18 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L321",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_aseizedmirror_losesthegame",
+      "target": "world_plottests_plottests_aseizedmirror_losesthegame"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L340",
+      "weight": 1.0,
+      "source": "world_plottests_plottests",
+      "target": "world_plottests_plottests_asoldsecret_endstheconfrontation_forgood",
       "confidence_score": 1.0
     },
     {
@@ -88753,9 +88834,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_astrongerpower_investigatesbetter",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_astrongerpower_investigatesbetter"
     },
     {
       "relation": "method",
@@ -88763,9 +88844,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_astrongpower_maystrikewithoutproof_andeveryonedoubtsit",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_astrongpower_maystrikewithoutproof_andeveryonedoubtsit"
     },
     {
       "relation": "method",
@@ -88773,9 +88854,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_asuspiciouspower_investigates_andfindsproof",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_asuspiciouspower_investigates_andfindsproof"
     },
     {
       "relation": "method",
@@ -88783,9 +88864,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L173",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_aswornkeeperwhotalks_breakstheoath",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_aswornkeeperwhotalks_breakstheoath"
     },
     {
       "relation": "method",
@@ -88793,9 +88874,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_aweakpower_doesnotdarewithoutproof",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_aweakpower_doesnotdarewithoutproof"
     },
     {
       "relation": "method",
@@ -88803,9 +88884,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L220",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_blurmemories_dimsapowerscluesandproof_forthemirrorspower",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_blurmemories_dimsapowerscluesandproof_forthemirrorspower"
     },
     {
       "relation": "method",
@@ -88813,9 +88894,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_blurmemories_holdslessonagoldencorespower",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_blurmemories_holdslessonagoldencorespower"
     },
     {
       "relation": "method",
@@ -88823,9 +88904,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_keeper",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_keeper"
     },
     {
       "relation": "method",
@@ -88833,9 +88914,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L163",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_leakchance_fallswithastablemind_andanoathofsecrecy",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_leakchance_fallswithastablemind_andanoathofsecrecy"
     },
     {
       "relation": "method",
@@ -88843,9 +88924,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L247",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_plantfalseproof_turnsapowersproofintodistrustofanother",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_plantfalseproof_turnsapowersproofintodistrustofanother"
     },
     {
       "relation": "method",
@@ -88853,9 +88934,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L329",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_roundtrip_keepsaconfrontation",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_roundtrip_keepsaconfrontation"
     },
     {
       "relation": "method",
@@ -88863,9 +88944,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L209",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_roundtrip_keepsthemirrorclues",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_roundtrip_keepsthemirrorclues"
     },
     {
       "relation": "method",
@@ -88873,9 +88954,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_roundtrip_keepstheproofgathered",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_roundtrip_keepstheproofgathered"
     },
     {
       "relation": "method",
@@ -88883,9 +88964,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_theleak_goestothepowerthatasksmost",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_theleak_goestothepowerthatasksmost"
     },
     {
       "relation": "method",
@@ -88893,9 +88974,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L272",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_thepowerthatstillknows_seizesthemirror",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_thepowerthatstillknows_seizesthemirror"
     },
     {
       "relation": "method",
@@ -88903,9 +88984,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_thosewhodonotknow_havenothingtotell",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_thosewhodonotknow_havenothingtotell"
     },
     {
       "relation": "method",
@@ -88913,9 +88994,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -88924,9 +89005,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_abarelysuspiciouspower_doesnotbother",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -88935,7 +89016,18 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_akeeperwhotalks_givesapowercluesaboutthemirror",
+      "target": "world_plottests_plottests_world"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L374",
+      "weight": 1.0,
+      "source": "world_plottests_plottests_aleak_amongpowersaskingasmuch_goestoanyofthem",
       "target": "world_plottests_plottests_world",
       "confidence_score": 1.0
     },
@@ -88946,7 +89038,18 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L263",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_apiercedsecret_bringsaninvestigatoratonce",
+      "target": "world_plottests_plottests_world"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L358",
+      "weight": 1.0,
+      "source": "world_plottests_plottests_apiercedsecret_isnotalsostruckasanordinarycase_thatyear",
       "target": "world_plottests_plottests_world",
       "confidence_score": 1.0
     },
@@ -88957,9 +89060,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L289",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_apowermadetodoubt_cannotact",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -88968,9 +89071,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L307",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_apowertooweaktoseize_sellsthesecrettothestrongest",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -88979,7 +89082,18 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_aprovencase_isstruck_andtheclansnamesuffers",
+      "target": "world_plottests_plottests_world"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L343",
+      "weight": 1.0,
+      "source": "world_plottests_plottests_asoldsecret_endstheconfrontation_forgood",
       "target": "world_plottests_plottests_world",
       "confidence_score": 1.0
     },
@@ -88990,9 +89104,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_astrongerpower_investigatesbetter",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89001,9 +89115,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_astrongpower_maystrikewithoutproof_andeveryonedoubtsit",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89012,9 +89126,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_asuspiciouspower_investigates_andfindsproof",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89023,9 +89137,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L176",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_aswornkeeperwhotalks_breakstheoath",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89034,9 +89148,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_aweakpower_doesnotdarewithoutproof",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89045,9 +89159,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L223",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_blurmemories_dimsapowerscluesandproof_forthemirrorspower",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89056,9 +89170,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L240",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_blurmemories_holdslessonagoldencorespower",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89067,9 +89181,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L166",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_leakchance_fallswithastablemind_andanoathofsecrecy",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89078,9 +89192,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L250",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_plantfalseproof_turnsapowersproofintodistrustofanother",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89089,9 +89203,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_theleak_goestothepowerthatasksmost",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89100,9 +89214,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L275",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_thepowerthatstillknows_seizesthemirror",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "calls",
@@ -89111,9 +89225,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_thosewhodonotknow_havenothingtotell",
-      "target": "world_plottests_plottests_world",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_world"
     },
     {
       "relation": "references",
@@ -89122,9 +89236,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_world",
-      "target": "tests_core_tests_world_plottests_cs_random",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_random"
     },
     {
       "relation": "references",
@@ -89133,9 +89247,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_world",
-      "target": "tests_core_tests_world_plottests_cs_testworld",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_testworld"
     },
     {
       "relation": "references",
@@ -89144,9 +89258,9 @@
       "source_location": "L124",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_keeper",
-      "target": "tests_core_tests_world_plottests_cs_testworld",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_testworld"
     },
     {
       "relation": "references",
@@ -89155,9 +89269,9 @@
       "source_location": "L34",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_asuspiciouspower_investigates_andfindsproof",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89166,9 +89280,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_abarelysuspiciouspower_doesnotbother",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89177,9 +89291,9 @@
       "source_location": "L186",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_ahuntsteam_andatalismansbearer_cometoknowthesecret",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89188,7 +89302,18 @@
       "source_location": "L132",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_akeeperwhotalks_givesapowercluesaboutthemirror",
+      "target": "tests_core_tests_world_plottests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L371",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_plottests_plottests_aleak_amongpowersaskingasmuch_goestoanyofthem",
       "target": "tests_core_tests_world_plottests_cs_test",
       "confidence_score": 1.0
     },
@@ -89199,7 +89324,18 @@
       "source_location": "L260",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_apiercedsecret_bringsaninvestigatoratonce",
+      "target": "tests_core_tests_world_plottests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L355",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_plottests_plottests_apiercedsecret_isnotalsostruckasanordinarycase_thatyear",
       "target": "tests_core_tests_world_plottests_cs_test",
       "confidence_score": 1.0
     },
@@ -89210,9 +89346,9 @@
       "source_location": "L286",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_apowermadetodoubt_cannotact",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89221,9 +89357,9 @@
       "source_location": "L304",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_apowertooweaktoseize_sellsthesecrettothestrongest",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89232,9 +89368,9 @@
       "source_location": "L65",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_aprovencase_isstruck_andtheclansnamesuffers",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89243,7 +89379,18 @@
       "source_location": "L321",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_aseizedmirror_losesthegame",
+      "target": "tests_core_tests_world_plottests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L340",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_plottests_plottests_asoldsecret_endstheconfrontation_forgood",
       "target": "tests_core_tests_world_plottests_cs_test",
       "confidence_score": 1.0
     },
@@ -89254,9 +89401,9 @@
       "source_location": "L54",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_astrongerpower_investigatesbetter",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89265,9 +89412,9 @@
       "source_location": "L86",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_astrongpower_maystrikewithoutproof_andeveryonedoubtsit",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89276,9 +89423,9 @@
       "source_location": "L173",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_aswornkeeperwhotalks_breakstheoath",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89287,9 +89434,9 @@
       "source_location": "L99",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_aweakpower_doesnotdarewithoutproof",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89298,9 +89445,9 @@
       "source_location": "L220",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_blurmemories_dimsapowerscluesandproof_forthemirrorspower",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89309,9 +89456,9 @@
       "source_location": "L236",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_blurmemories_holdslessonagoldencorespower",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89320,9 +89467,9 @@
       "source_location": "L163",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_leakchance_fallswithastablemind_andanoathofsecrecy",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89331,9 +89478,9 @@
       "source_location": "L247",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_plantfalseproof_turnsapowersproofintodistrustofanother",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89342,9 +89489,9 @@
       "source_location": "L329",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_roundtrip_keepsaconfrontation",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89353,9 +89500,9 @@
       "source_location": "L209",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_roundtrip_keepsthemirrorclues",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89364,9 +89511,9 @@
       "source_location": "L113",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_roundtrip_keepstheproofgathered",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89375,9 +89522,9 @@
       "source_location": "L145",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_theleak_goestothepowerthatasksmost",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89386,9 +89533,9 @@
       "source_location": "L272",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_thepowerthatstillknows_seizesthemirror",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "references",
@@ -89397,9 +89544,9 @@
       "source_location": "L155",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_thosewhodonotknow_havenothingtotell",
-      "target": "tests_core_tests_world_plottests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_test"
     },
     {
       "relation": "calls",
@@ -89408,7 +89555,18 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L136",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_akeeperwhotalks_givesapowercluesaboutthemirror",
+      "target": "world_plottests_plottests_keeper"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L375",
+      "weight": 1.0,
+      "source": "world_plottests_plottests_aleak_amongpowersaskingasmuch_goestoanyofthem",
       "target": "world_plottests_plottests_keeper",
       "confidence_score": 1.0
     },
@@ -89419,9 +89577,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L177",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_aswornkeeperwhotalks_breakstheoath",
-      "target": "world_plottests_plottests_keeper",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_keeper"
     },
     {
       "relation": "references",
@@ -89430,9 +89588,9 @@
       "source_location": "L124",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_keeper",
-      "target": "tests_core_tests_world_plottests_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_plottests_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -89441,9 +89599,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L167",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_leakchance_fallswithastablemind_andanoathofsecrecy",
-      "target": "world_plottests_plottests_keeper",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_keeper"
     },
     {
       "relation": "calls",
@@ -89452,9 +89610,9 @@
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L149",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_plottests_plottests_theleak_goestothepowerthatasksmost",
-      "target": "world_plottests_plottests_keeper",
-      "confidence_score": 1.0
+      "target": "world_plottests_plottests_keeper"
     },
     {
       "relation": "contains",
@@ -92578,5 +92736,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "af52ca22ea613ea15abb9cefd092c2ddce296405"
+  "built_at_commit": "d064c56b6bd329f6dcb1c56a08fe7d7afbe59ab0"
 }
