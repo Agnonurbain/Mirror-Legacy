@@ -27,9 +27,10 @@ namespace MirrorChronicles.Data
         public const string RegionsFile = "regions.json";
         public const string TalismansFile = "talismans.json";
         public const string FiguresFile = "figures.json";
+        public const string BeastsFile = "beasts.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -61,6 +62,7 @@ namespace MirrorChronicles.Data
             var regions = Read<List<RegionDefinition>>(readFile, RegionsFile);
             var talismans = Read<List<TalismanDefinition>>(readFile, TalismansFile);
             var figures = Read<List<FigureDefinition>>(readFile, FiguresFile);
+            var beasts = Read<List<BeastSpecies>>(readFile, BeastsFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -75,6 +77,8 @@ namespace MirrorChronicles.Data
             CheckRegions(regions);
             CheckTalismans(talismans);
             CheckFigures(figures, factions);
+            Require(beasts.Count > 0 && beasts.All(b => !string.IsNullOrWhiteSpace(b.Id) && !string.IsNullOrWhiteSpace(b.Name) && b.Habitats != null)
+                && beasts.Select(b => b.Id).Distinct().Count() == beasts.Count, BeastsFile, "beasts needs species with unique ids, names and habitats.");
             CheckFactions(factions, regions, catalog.Techniques);
             Require(regions.Any(r => r.Id == clan.HomeRegion), ClanFile, $"homeRegion \"{clan.HomeRegion}\" is not a region of {RegionsFile}.");
             CheckFoundations(qi, catalog.Techniques, fruitions.Fruitions);
@@ -103,7 +107,8 @@ namespace MirrorChronicles.Data
                 Oaths = oaths,
                 Regions = regions,
                 Talismans = talismans,
-                Figures = figures
+                Figures = figures,
+                BeastSpecies = beasts
             };
         }
 
@@ -190,6 +195,11 @@ namespace MirrorChronicles.Data
             Require(trade != null && trade.StonesPerGrade?.Count == TechniqueRules.MaxGrade && trade.StonesPerGrade.All(p => p >= 0)
                 && trade.DaoPartnersMirrorCost >= 0 && trade.MinRelation >= Diplomacy.FactionManager.MinRelation && trade.MinRelation <= Diplomacy.FactionManager.MaxRelation,
                 BalanceFile, "knowledgeTrade needs a price per grade (7, never negative), a mirror cost and a relation within -100..100.");
+            var bestiary = balance.Bestiary;
+            Require(bestiary != null && bestiary.BeastsByKind != null && bestiary.BeastsByKind.Values.All(n => n >= 0)
+                && IsProbability(bestiary.OwnedShare) && IsProbability(bestiary.ScoutRevealChance)
+                && bestiary.RealmOdds?.Count == 3 && bestiary.RealmOdds.All(IsProbability) && Math.Abs(bestiary.RealmOdds.Sum() - 1.0) < 1e-6,
+                BalanceFile, "bestiary needs beasts per kind, an owned share, a scouting chance and three realm odds summing to 1.");
             var talismanRitual = balance.Talismans;
             Require(talismanRitual != null && talismanRitual.RitualPeriodYears >= 1 && talismanRitual.HuntWindowYears >= 0
                 && talismanRitual.HuntWindowYears < talismanRitual.RitualPeriodYears,

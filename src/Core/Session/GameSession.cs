@@ -49,6 +49,7 @@ namespace MirrorChronicles.Session
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
         public KnowledgeExchange Exchange { get; }
+        public BeastRegistry Bestiary { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
         public BuildingSystem Buildings { get; }
@@ -90,10 +91,11 @@ namespace MirrorChronicles.Session
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Context, Clan, Resources, Factions);
             Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror);
+            Bestiary = new BeastRegistry(Context);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability, Techniques);
-            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans);
+            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
@@ -115,6 +117,7 @@ namespace MirrorChronicles.Session
             session.Karma.Restore(1, 0, 0, session.Clan.PatriarchID);
             session.Factions.InitializeFactions();
             session.Fruitions.DrawWorld(FruitionRegistry.WorldRandom(setup.Seed));
+            session.Bestiary.Draw(BeastRegistry.WorldRandom(setup.Seed));
             session.Deduction.AddFragment(Element.Fire, 1, "Scorched Scroll");
             session.Deduction.AddFragment(Element.Wood, 1, "Bamboo Slip");
 
@@ -174,6 +177,8 @@ namespace MirrorChronicles.Session
             session.GoldenCore.Restore(data.GoldenCorePermissions); // saves made before L4b have none
             session.Resources.RestorePrayers(data.Prayers);           // saves made before 2.6: none gathered
             session.Resources.RestoreBeasts(data.CapturedBeasts);
+            if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
+            else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
             session.Talismans.Restore(data.TalismanOffer);
             int period = content.Balance.Talismans.RitualPeriodYears;
@@ -215,6 +220,7 @@ namespace MirrorChronicles.Session
                 GoldenCorePermissions = new Dictionary<string, string>(GoldenCore.Permissions),
                 Prayers = Resources.Prayers,
                 CapturedBeasts = Resources.Beasts.ToList(),
+                WorldBeasts = Bestiary.Beasts.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null

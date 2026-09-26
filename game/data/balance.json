@@ -84,6 +84,12 @@
     "stonesPerGrade": [ 100, 250, 600, 1500, 4000, 10000, 30000 ],
     "daoPartnersMirrorCost": 30
   },
+  "bestiary": {
+    "beastsByKind": { "Wilds": 3, "Mountain": 2, "Desert": 2, "Lake": 2, "Island": 2, "River": 2, "Plain": 1, "Prefecture": 1 },
+    "ownedShare": 0.8,
+    "realmOdds": [ 0.7, 0.25, 0.05 ],
+    "scoutRevealChance": 0.5
+  },
   "talismans": {
     "ritualPeriodYears": 20,
     "huntWindowYears": 3,

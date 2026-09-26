@@ -42,6 +42,7 @@ namespace MirrorChronicles.Economy
         private readonly MentalStabilitySystem stability;
         private readonly FactionManager factions;
         private readonly Mirror.TalismanSystem talismans;
+        private readonly World.BeastRegistry bestiary;
         private readonly DeductionEngine deduction;
         private readonly EspionageSystem espionage;
         private readonly BuildingSystem buildings;
@@ -50,9 +51,10 @@ namespace MirrorChronicles.Economy
         public TaskAssignmentSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation,
             ResourceManager resources, MentalStabilitySystem stability, FactionManager factions,
             DeductionEngine deduction, EspionageSystem espionage, BuildingSystem buildings, TechniqueLibrary techniques,
-            Mirror.TalismanSystem talismans)
+            Mirror.TalismanSystem talismans, World.BeastRegistry bestiary)
         {
             this.talismans = talismans;
+            this.bestiary = bestiary;
             this.techniques = techniques;
             this.ctx = ctx;
             this.clan = clan;
@@ -106,6 +108,7 @@ namespace MirrorChronicles.Economy
                     case TaskType.Espionage: espionage.AttemptEspionage(member, factions.RandomFaction()); break;
                     case TaskType.GatherQi: qiGathered += GatherQi(member); break;
                     case TaskType.HuntBeast: HuntBeast(member); break;
+                    case TaskType.ScoutBeasts: ScoutBeasts(member); break;
                         // Teaching needs this year's students: resolved below
                 }
             }
@@ -202,18 +205,36 @@ namespace MirrorChronicles.Economy
         }
 
         /// <summary>
-        /// A year's hunt for a spirit beast (user decision, 2026-09-26: the mirror's ritual sacrifices beasts): with the
-        /// balance's chance, a beast of the hunter's realm, never of a higher stage than theirs.
+        /// A year's hunt (L2c.2): among the beasts of the hunting ground the clan has scouted and the hunter can take
+        /// — never of a higher realm, nor a higher stage in the same realm — the strongest, with the balance's chance.
+        /// It leaves the world and joins the clan's stock, its owner with it (user decision, 2026-09-26).
         /// </summary>
         private void HuntBeast(CharacterData hunter)
         {
-            if (!ctx.Rng.Chance(ctx.Content.Balance.Talismans.HuntCaptureChance)) return;
-            int stage = ctx.Rng.Next(1, System.Math.Max(1, hunter.RealmStage) + 1);
-            var powersHere = factions.Factions.Where(f => f.RegionId == HuntingGround).ToList();
-            string owner = powersHere.Count > 0 && ctx.Rng.Chance(ctx.Content.Balance.Talismans.OwnedBeastChance)
-                ? ctx.Rng.Pick(powersHere).Name : null; // a power's beast, or a solitary one
-            resources.AddBeast(new CapturedBeast(ctx.Rng.NextId(), hunter.Realm, stage, owner));
-            ctx.Log.Info($"[Tasks] {hunter.FullName} captures a spirit beast ({hunter.Realm}, stage {stage}){(owner == null ? "" : $" belonging to {owner}")}.");
+            var knowledge = techniques.Knowledge;
+            var target = bestiary.In(HuntingGround)
+                .Where(b => knowledge.Knows(World.FactKind.Beast, b.Id) && CanTake(hunter, b))
+                .OrderByDescending(b => b.Realm).ThenByDescending(b => b.Stage)
+                .FirstOrDefault();
+            if (target == null || !ctx.Rng.Chance(ctx.Content.Balance.Talismans.HuntCaptureChance)) return;
+
+            bestiary.Take(target);
+            resources.AddBeast(new CapturedBeast(target.Id, target.Realm, target.Stage, target.OwnerFaction));
+            ctx.Log.Info($"[Tasks] {hunter.FullName} captures a spirit beast ({target.Realm}, stage {target.Stage}){(target.OwnerFaction == null ? "" : $" belonging to {target.OwnerFaction}")}.");
+        }
+
+        private static bool CanTake(CharacterData hunter, WorldBeast beast) =>
+            beast.Realm < hunter.Realm || (beast.Realm == hunter.Realm && beast.Stage <= hunter.RealmStage);
+
+        /// <summary>A year's scouting (L2c.2): with the balance's chance, one beast of the hunting ground the clan did not know.</summary>
+        private void ScoutBeasts(CharacterData scout)
+        {
+            var knowledge = techniques.Knowledge;
+            var unknown = bestiary.In(HuntingGround).Where(b => !knowledge.Knows(World.FactKind.Beast, b.Id)).ToList();
+            if (unknown.Count == 0 || !ctx.Rng.Chance(ctx.Content.Balance.Bestiary.ScoutRevealChance)) return;
+            var found = ctx.Rng.Pick(unknown);
+            knowledge.Reveal(World.FactKind.Beast, found.Id, World.KnowledgeSource.Studied);
+            ctx.Log.Info($"[Tasks] {scout.FullName} finds a spirit beast ({found.Realm}, stage {found.Stage}).");
         }
 
         /// <summary>Where the clan's hunters go (a regions.json id): its home unless the player sends them elsewhere.</summary>

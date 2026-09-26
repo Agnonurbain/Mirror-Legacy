@@ -35,6 +35,9 @@ namespace MirrorChronicles.Data
         /// <summary>The clauses one may swear on one's path, and the loopholes (oaths.json, L4d).</summary>
         public OathCatalog Oaths { get; init; } = new OathCatalog();
 
+        /// <summary>The kinds of spirit beasts (beasts.json, L2c.2).</summary>
+        public IReadOnlyList<BeastSpecies> BeastSpecies { get; init; } = Array.Empty<BeastSpecies>();
+
         /// <summary>The talisman Qi the mirror can refine (talismans.json, LORE.md §11.5).</summary>
         public IReadOnlyList<TalismanDefinition> Talismans { get; init; } = Array.Empty<TalismanDefinition>();
 
@@ -170,6 +173,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>What breaking an oath costs (L4d).</summary>
         public OathSettings Oaths { get; init; }
+
+        /// <summary>How the world's beasts are drawn and found (L2c.2; interpretations).</summary>
+        public BestiarySettings Bestiary { get; init; }
 
         /// <summary>How the powers deal with the clan (L5b; interpretations).</summary>
         public DiplomacySettings Diplomacy { get; init; }
