@@ -174,6 +174,9 @@ namespace MirrorChronicles.Data
         /// <summary>What breaking an oath costs (L4d).</summary>
         public OathSettings Oaths { get; init; }
 
+        /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
+        public HuntSettings Hunt { get; init; }
+
         /// <summary>How the world's beasts are drawn and found (L2c.2; interpretations).</summary>
         public BestiarySettings Bestiary { get; init; }
 

@@ -67,9 +67,6 @@ namespace MirrorChronicles.Data
         /// <summary>A stronger beast refines a better talisman (user decision, 2026-09-26): one more sub-level per this many of its stages beyond the first.</summary>
         public int BeastStagesPerExtraLeap { get; init; } = 1;
 
-        /// <summary>Chance a hunter captures a spirit beast in a year (no stronger than they are).</summary>
-        public double HuntCaptureChance { get; init; }
-
         /// <summary>On a ground where powers live, the chance a captured beast is one of theirs.</summary>
         public double OwnedBeastChance { get; init; }
 

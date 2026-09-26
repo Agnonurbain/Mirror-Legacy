@@ -9,13 +9,13 @@ namespace MirrorChronicles.Data
     /// Version 2.1 adds the techniques of LORE.md §2 (knowledge, Qi); older saves receive the clan's
     /// starting knowledge on load. Version 2.2 adds the state of the Dao lineages (§6.8); 2.3 the
     /// clan's knowledge (its known techniques now live there); 2.4 the oaths; 2.5 the Golden Core's
-    /// permissions; 2.6 the talisman Qi (prayers, an offer awaiting a choice); 2.7 the captured beasts; 2.8 the world's beasts. Field names never
+    /// permissions; 2.6 the talisman Qi (prayers, an offer awaiting a choice); 2.7 the captured beasts; 2.8 the world's beasts; 2.9 the powers' hidden suspicion and distrust. Field names never
     /// change: older saves must keep loading.
     /// </summary>
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.8";
+        public const string CurrentVersion = "2.9";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -64,7 +64,9 @@ namespace MirrorChronicles.Data
         public List<CapturedBeast> CapturedBeasts { get; set; } // 2.7; null in older saves
         public string HuntingGround { get; set; }               // 2.7; null in older saves: the clan's home
         public int? NextRitualYear { get; set; }
-        public List<WorldBeast> WorldBeasts { get; set; }             // 2.8; null in older saves: drawn again from the seed                // 2.7; null in older saves: the next multiple of the cycle
+        public List<WorldBeast> WorldBeasts { get; set; }
+        public Dictionary<string, int> SuspicionOfClan { get; set; } // 2.9, hidden: each power's suspicion of the clan
+        public Dictionary<string, int> Distrust { get; set; }        // 2.9, hidden: « holder→toward »             // 2.8; null in older saves: drawn again from the seed                // 2.7; null in older saves: the next multiple of the cycle
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

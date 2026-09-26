@@ -107,7 +107,7 @@ namespace MirrorChronicles.Economy
                     case TaskType.Diplomacy: Diplomacy(); break;
                     case TaskType.Espionage: espionage.AttemptEspionage(member, factions.RandomFaction()); break;
                     case TaskType.GatherQi: qiGathered += GatherQi(member); break;
-                    case TaskType.HuntBeast: HuntBeast(member); break;
+                    case TaskType.HuntBeast: break; // engaged in a hunt operation this year (HuntOperations)
                     case TaskType.ScoutBeasts: ScoutBeasts(member); break;
                         // Teaching needs this year's students: resolved below
                 }
@@ -203,28 +203,6 @@ namespace MirrorChronicles.Economy
                 ctx.Log.Info($"[Tasks] {teachers[i].FullName} teaches {students[i].FullName} (+{bonus} XP).");
             }
         }
-
-        /// <summary>
-        /// A year's hunt (L2c.2): among the beasts of the hunting ground the clan has scouted and the hunter can take
-        /// — never of a higher realm, nor a higher stage in the same realm — the strongest, with the balance's chance.
-        /// It leaves the world and joins the clan's stock, its owner with it (user decision, 2026-09-26).
-        /// </summary>
-        private void HuntBeast(CharacterData hunter)
-        {
-            var knowledge = techniques.Knowledge;
-            var target = bestiary.In(HuntingGround)
-                .Where(b => knowledge.Knows(World.FactKind.Beast, b.Id) && CanTake(hunter, b))
-                .OrderByDescending(b => b.Realm).ThenByDescending(b => b.Stage)
-                .FirstOrDefault();
-            if (target == null || !ctx.Rng.Chance(ctx.Content.Balance.Talismans.HuntCaptureChance)) return;
-
-            bestiary.Take(target);
-            resources.AddBeast(new CapturedBeast(target.Id, target.Realm, target.Stage, target.OwnerFaction));
-            ctx.Log.Info($"[Tasks] {hunter.FullName} captures a spirit beast ({target.Realm}, stage {target.Stage}){(target.OwnerFaction == null ? "" : $" belonging to {target.OwnerFaction}")}.");
-        }
-
-        private static bool CanTake(CharacterData hunter, WorldBeast beast) =>
-            beast.Realm < hunter.Realm || (beast.Realm == hunter.Realm && beast.Stage <= hunter.RealmStage);
 
         /// <summary>A year's scouting (L2c.2): with the balance's chance, one beast of the hunting ground the clan did not know.</summary>
         private void ScoutBeasts(CharacterData scout)
