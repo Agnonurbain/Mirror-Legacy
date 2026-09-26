@@ -53,11 +53,10 @@ namespace MirrorChronicles.Tests.Data
         }
 
         [Test]
-        public void Report_CoversTheAtmospheres_TheFigures_AndTheTalismans()
+        public void Report_CoversTheAtmospheres_AndTheTalismans() // the figures, all from the wiki, have none today
         {
             var report = ContentGaps.Report(Fixtures.Content);
             Assert.IsTrue(report.Any(line => line.StartsWith(GameContentLoader.AtmospheresFile) && line.Contains("falling-water-rising-storm")));
-            Assert.IsTrue(report.Any(line => line.StartsWith(GameContentLoader.FiguresFile)));
             Assert.IsTrue(report.Any(line => line.StartsWith(GameContentLoader.TalismansFile)));
         }
 
