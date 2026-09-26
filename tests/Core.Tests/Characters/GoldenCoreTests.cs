@@ -532,5 +532,62 @@ namespace MirrorChronicles.Tests.Characters
             Years(w, 5);
             Assert.AreEqual(4, c.RealmStage);
         }
+
+        // ---- Moving between positions (LORE.md §5.5.1, R8): Transfer and Transformation ----
+
+        [Test]
+        public void Transfer_ASurplus_TakesTheRealizationOnceItIsFree()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Holder(w, GoldenCoreState.Surplus);
+
+            Assert.IsTrue(w.GoldenCore.Transfer(c));
+
+            Assert.AreEqual(GoldenCoreState.Realization, c.GoldenCore);
+            Assert.AreEqual(new FruitionState(FruitionStatus.Occupied, c.FullName), w.Fruitions.State(OrthodoxWater));
+        }
+
+        [Test]
+        public void Transfer_Refuses_WhileTheRealizationIsHeld_OrWithoutASurplus()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var intercalary = Holder(w, GoldenCoreState.Intercalary);
+            Assert.IsFalse(w.GoldenCore.Transfer(intercalary));
+
+            var surplus = Holder(w, GoldenCoreState.Surplus);
+            w.Fruitions.Claim(OrthodoxWater, "Détenteur");
+            Assert.IsFalse(w.GoldenCore.Transfer(surplus));
+        }
+
+        [Test]
+        public void Transfer_Failure_WoundsTheDao()
+        {
+            var w = new TestWorld(new FixedRandom(Fail));
+            var c = Holder(w, GoldenCoreState.Surplus);
+
+            Assert.IsTrue(w.GoldenCore.Transfer(c)); // tried
+
+            Assert.AreEqual(GoldenCoreState.Surplus, c.GoldenCore);
+            Assert.AreEqual(1, c.DaoWounds);
+            Assert.AreEqual(FruitionStatus.Free, w.Fruitions.State(OrthodoxWater).Status);
+        }
+
+        [Test]
+        public void Transformation_AnIntercalary_SeizesTheSovereignPosition()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Holder(w, GoldenCoreState.Intercalary);
+
+            Assert.IsTrue(w.GoldenCore.Transform(c));
+
+            Assert.AreEqual(GoldenCoreState.Realization, c.GoldenCore);
+        }
+
+        [Test]
+        public void Transformation_IsTheHarderMove()
+        {
+            var core = Content.Balance.GoldenCore;
+            Assert.Less(core.TransformationChance, core.TransferChance);
+        }
     }
 }
