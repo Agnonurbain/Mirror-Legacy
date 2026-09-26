@@ -93,7 +93,7 @@ namespace MirrorChronicles.Session
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability, Techniques);
-            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques);
+            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
@@ -176,6 +176,8 @@ namespace MirrorChronicles.Session
             session.Resources.RestoreBeasts(data.CapturedBeasts);
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
             session.Talismans.Restore(data.TalismanOffer);
+            int period = content.Balance.Talismans.RitualPeriodYears;
+            session.Talismans.RestoreCalendar(data.NextRitualYear ?? (data.CurrentYear + period - 1) / period * period);
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);
@@ -214,6 +216,7 @@ namespace MirrorChronicles.Session
                 Prayers = Resources.Prayers,
                 CapturedBeasts = Resources.Beasts.ToList(),
                 HuntingGround = Tasks.HuntingGround,
+                NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
                     : new TalismanOffer(Talismans.PendingOffer.BeneficiaryId, new List<string>(Talismans.PendingOffer.Choices), Talismans.PendingOffer.Leap),
                 GenerationCount = Karma.GenerationCount,

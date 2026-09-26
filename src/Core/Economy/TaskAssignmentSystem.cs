@@ -41,6 +41,7 @@ namespace MirrorChronicles.Economy
         private readonly ResourceManager resources;
         private readonly MentalStabilitySystem stability;
         private readonly FactionManager factions;
+        private readonly Mirror.TalismanSystem talismans;
         private readonly DeductionEngine deduction;
         private readonly EspionageSystem espionage;
         private readonly BuildingSystem buildings;
@@ -48,8 +49,10 @@ namespace MirrorChronicles.Economy
 
         public TaskAssignmentSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation,
             ResourceManager resources, MentalStabilitySystem stability, FactionManager factions,
-            DeductionEngine deduction, EspionageSystem espionage, BuildingSystem buildings, TechniqueLibrary techniques)
+            DeductionEngine deduction, EspionageSystem espionage, BuildingSystem buildings, TechniqueLibrary techniques,
+            Mirror.TalismanSystem talismans)
         {
+            this.talismans = talismans;
             this.techniques = techniques;
             this.ctx = ctx;
             this.clan = clan;
@@ -66,7 +69,7 @@ namespace MirrorChronicles.Economy
         public bool AssignTask(CharacterData character, TaskType task)
         {
             if (!character.IsAlive) return false;
-            if (!TaskRules.IsAllowed(character, task))
+            if (!TaskRules.IsAllowed(character, task, talismans.HuntWindowOpen))
             {
                 ctx.Log.Warning($"[Tasks] {character.FullName} cannot take {task} ({RankCatalog.DisplayName(character)}).");
                 return false;
@@ -85,7 +88,7 @@ namespace MirrorChronicles.Economy
 
             foreach (var member in members.Where(m => m.IsAlive))
             {
-                if (!TaskRules.IsAllowed(member, member.CurrentTask))
+                if (!TaskRules.IsAllowed(member, member.CurrentTask, talismans.HuntWindowOpen))
                 {
                     ctx.Log.Warning($"[Tasks] {member.FullName} cannot perform {member.CurrentTask}; task cleared.");
                     member.CurrentTask = TaskType.None; // e.g. a mortal still set to Cultivation from an old save

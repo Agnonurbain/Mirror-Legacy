@@ -85,6 +85,8 @@
     "daoPartnersMirrorCost": 30
   },
   "talismans": {
+    "ritualPeriodYears": 20,
+    "huntWindowYears": 3,
     "prayersPerRitual": 10000,
     "prayersPerMortalPerYear": 150,
     "prayersPerPrestigePerYear": 10,

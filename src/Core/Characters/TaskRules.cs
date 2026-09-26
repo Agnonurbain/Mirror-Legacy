@@ -39,18 +39,21 @@ namespace MirrorChronicles.Characters
         private static readonly TaskType[] AllTasks =
             Enum.GetValues(typeof(TaskType)).Cast<TaskType>().ToArray();
 
-        public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character)
+        private static readonly TaskType[] TasksOutsideTheHunt = AllTasks.Where(t => t != TaskType.HuntBeast).ToArray();
+
+        /// <param name="huntOpen">The hunt is open only in the window before the mirror's ritual (user decision, 2026-09-26).</param>
+        public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character, bool huntOpen = false)
         {
             if (character.Age < CultivationAge || character.Retreat != Retreat.None) return InfantTasks; // a retreat leaves no task
             if (!SpiritualOrificeRules.CanCultivate(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
             if (character.Realm == CultivationRealm.Embryonic)
                 return character.RealmStage >= QiPerceptionChakra ? SummitEyeTasks : EmbryonicTasks;
-            return AllTasks;
+            return huntOpen ? AllTasks : TasksOutsideTheHunt;
         }
 
-        public static bool IsAllowed(CharacterData character, TaskType task)
+        public static bool IsAllowed(CharacterData character, TaskType task, bool huntOpen = false)
         {
-            return AllowedTasks(character).Contains(task);
+            return AllowedTasks(character, huntOpen).Contains(task);
         }
     }
 }

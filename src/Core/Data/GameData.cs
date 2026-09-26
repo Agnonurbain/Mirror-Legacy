@@ -63,6 +63,7 @@ namespace MirrorChronicles.Data
         public TalismanOffer TalismanOffer { get; set; }
         public List<CapturedBeast> CapturedBeasts { get; set; } // 2.7; null in older saves
         public string HuntingGround { get; set; }               // 2.7; null in older saves: the clan's home
+        public int? NextRitualYear { get; set; }                // 2.7; null in older saves: the next multiple of the cycle
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

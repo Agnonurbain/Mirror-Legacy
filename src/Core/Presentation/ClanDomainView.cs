@@ -49,13 +49,22 @@ namespace MirrorChronicles.Presentation
                 .ThenByDescending(m => m.RealmStage)
                 .ThenByDescending(m => m.Age)
                 .Select(m => new MemberRow(m.ID, m.FullName, m.Age, RankCatalog.DisplayName(m), m.MentalStability,
-                    m.CurrentTask, TaskRules.AllowedTasks(m), m.ID == patriarchId,
+                    m.CurrentTask, TaskRules.AllowedTasks(m, session.Talismans.HuntWindowOpen), m.ID == patriarchId,
                     m.CultivationMethodId, PractisedMethod(session, m),
                     session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
                     TemperamentLabel(m.Temperament), FoundationLabel(session, m.FoundationId), RetreatLabel(m), AbilitiesLabel(m),
                     m.HeartDemonYearsLeft > 0 ? $"Démon du Cœur ({m.HeartDemonYearsLeft} an{(m.HeartDemonYearsLeft > 1 ? "s" : "")})" : null,
                     PositionLabel(session, m)))
                 .ToList();
+        }
+
+        /// <summary>The mirror's next ritual and when the hunt opens (user decision, 2026-09-26).</summary>
+        public static string RitualLine(GameSession session)
+        {
+            var t = session.Talismans;
+            string hunt = t.HuntWindowOpen ? "chasse ouverte"
+                : $"chasse dès l'an {t.NextRitualYear - session.Context.Content.Balance.Talismans.HuntWindowYears}";
+            return $"Rituel du miroir : an {t.NextRitualYear} — {hunt}";
         }
 
         /// <summary>« Mer sans Rivage (Eau Orthodoxe) », or null without a foundation.</summary>

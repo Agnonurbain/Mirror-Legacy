@@ -191,7 +191,10 @@ namespace MirrorChronicles.Data
                 && trade.DaoPartnersMirrorCost >= 0 && trade.MinRelation >= Diplomacy.FactionManager.MinRelation && trade.MinRelation <= Diplomacy.FactionManager.MaxRelation,
                 BalanceFile, "knowledgeTrade needs a price per grade (7, never negative), a mirror cost and a relation within -100..100.");
             var talismanRitual = balance.Talismans;
-            Require(talismanRitual != null && talismanRitual.PrayersPerRitual > 0 && talismanRitual.PrayersPerMortalPerYear >= 0
+            Require(talismanRitual != null && talismanRitual.RitualPeriodYears >= 1 && talismanRitual.HuntWindowYears >= 0
+                && talismanRitual.HuntWindowYears < talismanRitual.RitualPeriodYears,
+                BalanceFile, "talismans needs a ritual period of a year or more and a hunt window shorter than it.");
+            Require(talismanRitual.PrayersPerRitual > 0 && talismanRitual.PrayersPerMortalPerYear >= 0
                 && talismanRitual.PrayersPerPrestigePerYear >= 0 && talismanRitual.OfferRootThresholds?.Count == 2
                 && talismanRitual.OfferRootThresholds[0] <= talismanRitual.OfferRootThresholds[1]
                 && talismanRitual.GreyStageLeap >= 0 && talismanRitual.WhiteStageLeap >= 0

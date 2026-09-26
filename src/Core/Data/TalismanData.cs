@@ -47,6 +47,10 @@ namespace MirrorChronicles.Data
     /// <summary>The ritual of the talisman Qi (balance.json; the ten thousand prayers are the lore's).</summary>
     public sealed record TalismanSettings
     {
+        /// <summary>The ritual's cycle and the hunt's window before it (user decision, 2026-09-26: every 20 years, 3 years before).</summary>
+        public int RitualPeriodYears { get; init; } = 1;
+        public int HuntWindowYears { get; init; }
+
         public int PrayersPerRitual { get; init; }
 
         /// <summary>Prayers the clan gathers each year: from each mortal member, and per point of prestige.</summary>
