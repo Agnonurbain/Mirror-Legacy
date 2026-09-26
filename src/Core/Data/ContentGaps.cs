@@ -34,6 +34,8 @@ namespace MirrorChronicles.Data
                     else if (a.Types.Count == 0) lines.Add($"{GameContentLoader.FruitionsFile} · {id} · type unknown");
                 }
             }
+            foreach (var f in content.Factions)
+                Describe(lines, GameContentLoader.FactionsFile, f.Name, f.Provenance, f.InterpretedFields);
             foreach (var r in content.Regions)
                 Describe(lines, GameContentLoader.RegionsFile, r.Id, r.Provenance, r.InterpretedFields);
             foreach (var c in content.Oaths.Clauses)

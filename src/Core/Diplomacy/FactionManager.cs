@@ -25,8 +25,8 @@ namespace MirrorChronicles.Diplomacy
         public void AddFaction(FactionData faction) => factions.Add(faction);
 
         /// <summary>
-        /// The world of a new game: a copy of every faction of the content (factions.json), each with a
-        /// seeded ID. (The renamed factions of LORE.md §7 arrive with phase L5.)
+        /// The world of a new game: a copy of every faction of the content (factions.json: the powers of
+        /// LORE.md §7-§10), each with a seeded ID.
         /// </summary>
         public void InitializeFactions()
         {
