@@ -64,6 +64,23 @@
     "purificationChance": 0.5,
     "mirrorVeilCost": 30
   },
+  "trials": {
+    "chakraChances": { "InnerLakeChakra": 70, "MeridianWheelChakra": 80, "SummitEyeChakra": 75 },
+    "foundationAdvisedAge": 60,
+    "foundationWallBaseChance": 35,
+    "foundationWallLossPerYear": 2,
+    "minimumTrialChance": 5,
+    "dissolutionBaseChance": 20,
+    "dissolutionChancePerYear": 3,
+    "maximumDissolutionChance": 90,
+    "chakraMinimumRoot": 10,
+    "wallMinimumRoot": 30,
+    "oldAgeLifespanRatio": 0.8,
+    "oldAgePenalty": 10,
+    "minorFailureMaxRoll": 70,
+    "majorFailureMaxRoll": 95,
+    "baseTalismanSeedCapacity": 2
+  },
   "trialModifiers": {
     "rootPointsPerPercent": 5,
     "averageRoot": 50,

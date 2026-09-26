@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MirrorChronicles.Characters;
 
 namespace MirrorChronicles.Data
 {
@@ -115,7 +116,7 @@ namespace MirrorChronicles.Data
     }
 
     /// <summary>Tunable rates (balance.json); decision D3 sets the orifice odds (LORE.md §4).</summary>
-    public sealed class BalanceSettings
+    public sealed record BalanceSettings
     {
         public OrificeOdds OrificeOdds { get; init; }
         public double AnnualBirthChance { get; init; }
@@ -154,11 +155,51 @@ namespace MirrorChronicles.Data
         /// <summary>What breaking an oath costs (L4d).</summary>
         public OathSettings Oaths { get; init; }
 
+        /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
+        public TrialSettings Trials { get; init; }
+
         /// <summary>How talent, stability and a method's grade weigh on the Purple Mansion's trials (interpretations).</summary>
         public TrialModifiers TrialModifiers { get; init; }
 
         /// <summary>The technique rules the lore leaves open (L3 interpretations), replaceable when a source speaks.</summary>
         public TechniqueSettings Techniques { get; init; }
+    }
+
+    /// <summary>
+    /// The trials of the power ladder (LORE.md §5.1-5.3, balance.json). The lore names the blocking chakras, the
+    /// Foundation wall and spiritual dissolution, but gives no figure: every value is an interpretation (L1-L2,
+    /// moved into the data in L4c). Talent and stability weigh as in <see cref="TrialModifiers"/>.
+    /// </summary>
+    public sealed record TrialSettings
+    {
+        /// <summary>Base chance (%) of each blocking chakra's trial (Inner Lake, Meridian Wheel, Summit Eye).</summary>
+        public IReadOnlyDictionary<TrialKind, int> ChakraChances { get; init; } = new Dictionary<TrialKind, int>();
+
+        /// <summary>The Foundation wall: its chance up to the advised age, then a loss per later year, never below the minimum.</summary>
+        public int FoundationAdvisedAge { get; init; }
+        public int FoundationWallBaseChance { get; init; }
+        public int FoundationWallLossPerYear { get; init; }
+        public int MinimumTrialChance { get; init; }
+
+        /// <summary>Chance (%) a failed wall ends in spiritual dissolution: a base, more per year past the advised age, a ceiling.</summary>
+        public int DissolutionBaseChance { get; init; }
+        public int DissolutionChancePerYear { get; init; }
+        public int MaximumDissolutionChance { get; init; }
+
+        /// <summary>The spiritual root above which talent helps: for the chakras, and for the wall.</summary>
+        public int ChakraMinimumRoot { get; init; }
+        public int WallMinimumRoot { get; init; }
+
+        /// <summary>Past this share of one's lifespan, a trial loses this many percent.</summary>
+        public double OldAgeLifespanRatio { get; init; }
+        public int OldAgePenalty { get; init; }
+
+        /// <summary>A failed trial's severity roll (1-100): minor up to the first, major up to the second, a deadly deviation beyond.</summary>
+        public int MinorFailureMaxRoll { get; init; }
+        public int MajorFailureMaxRoll { get; init; }
+
+        /// <summary>Talisman Seeds the mirror sustains before any fragment is restored (§11.5).</summary>
+        public int BaseTalismanSeedCapacity { get; init; }
     }
 
     /// <summary>

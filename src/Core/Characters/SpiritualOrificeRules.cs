@@ -18,7 +18,6 @@ namespace MirrorChronicles.Characters
         public const int MortalMaxLifespan = PowerLadder.MortalMaxLifespan;
 
         public const int DetectionChakraStage = 5; // Summit Eye: first chakra that sees another's orifice
-        public const int BaseTalismanSeedCapacity = 2;
 
         public static double OrificeChance(int parentsWithOrifice, OrificeOdds odds)
         {
@@ -67,9 +66,9 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>Each restored mirror fragment sustains one more active seed (LORE.md §11.5).</summary>
-        public static int TalismanSeedCapacity(int mirrorFragments)
+        public static int TalismanSeedCapacity(int mirrorFragments, int baseCapacity)
         {
-            return BaseTalismanSeedCapacity + Math.Max(0, mirrorFragments);
+            return baseCapacity + Math.Max(0, mirrorFragments);
         }
 
         /// <summary>

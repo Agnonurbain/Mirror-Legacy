@@ -11,34 +11,28 @@ namespace MirrorChronicles.Characters
     /// </summary>
     public static class BreakthroughRules
     {
-        private const int RootPointsPerPercent = 5;
-        private const int LowStabilityThreshold = 50;
-        private const int LowStabilityPenalty = 20;
-        private const float OldAgeLifespanRatio = 0.8f;
-        private const int OldAgePenalty = 10;
-        private const int MinorFailureMaxRoll = 70;
-        private const int MajorFailureMaxRoll = 95;
-
         /// <summary>
-        /// Success chance (1-99) of the trial gating the character's next step,
-        /// or 0 when no trial is due or the step is not available yet.
+        /// Success chance (1-99) of the trial gating the character's next step, or 0 when no trial is due or the
+        /// step is not available yet. The figures come from balance.json (trials, trialModifiers).
         /// </summary>
-        public static int SuccessRate(CharacterData character)
+        public static int SuccessRate(CharacterData character, BalanceSettings balance)
         {
             var step = PowerLadder.Next(character.Realm, character.RealmStage);
             if (!step.IsAvailable || step.Trial == TrialKind.None) return 0;
 
-            int rate = PowerLadder.BaseTrialChance(step.Trial, character.Age);
+            var trials = balance.Trials;
+            var modifiers = balance.TrialModifiers;
+            int rate = PowerLadder.BaseTrialChance(step.Trial, character.Age, trials);
 
-            int minimumRoot = MinimumRoot(step.Trial);
+            int minimumRoot = step.Trial == TrialKind.FoundationWall ? trials.WallMinimumRoot : trials.ChakraMinimumRoot;
             if (character.SpiritualRoot > minimumRoot)
-                rate += (character.SpiritualRoot - minimumRoot) / RootPointsPerPercent;
+                rate += (character.SpiritualRoot - minimumRoot) / modifiers.RootPointsPerPercent;
 
-            if (character.MentalStability < LowStabilityThreshold)
-                rate -= LowStabilityPenalty;
+            if (character.MentalStability < modifiers.LowStabilityThreshold)
+                rate -= modifiers.LowStabilityPenalty;
 
-            if (character.Age > PowerLadder.LifespanLimit(character) * OldAgeLifespanRatio)
-                rate -= OldAgePenalty;
+            if (character.Age > PowerLadder.LifespanLimit(character) * trials.OldAgeLifespanRatio)
+                rate -= trials.OldAgePenalty;
 
             return Math.Max(1, Math.Min(99, rate));
         }
@@ -47,26 +41,20 @@ namespace MirrorChronicles.Characters
         /// Outcome of an attempt: roll 1-100 against the rate; on failure, the severity roll 1-100
         /// picks the consequence (spiritual dissolution for the Foundation wall, the Qi deviation table otherwise).
         /// </summary>
-        public static BreakthroughOutcome Resolve(TrialKind trial, int successRate, int age, int roll, int severityRoll)
+        public static BreakthroughOutcome Resolve(TrialKind trial, int successRate, int age, int roll, int severityRoll, TrialSettings trials)
         {
             if (roll <= successRate) return BreakthroughOutcome.Success;
 
             if (trial == TrialKind.FoundationWall)
             {
-                return severityRoll <= PowerLadder.DissolutionChanceOnFailure(age)
+                return severityRoll <= PowerLadder.DissolutionChanceOnFailure(age, trials)
                     ? BreakthroughOutcome.SpiritualDissolution
                     : BreakthroughOutcome.MajorFailure;
             }
 
-            if (severityRoll <= MinorFailureMaxRoll) return BreakthroughOutcome.MinorFailure;
-            if (severityRoll <= MajorFailureMaxRoll) return BreakthroughOutcome.MajorFailure;
+            if (severityRoll <= trials.MinorFailureMaxRoll) return BreakthroughOutcome.MinorFailure;
+            if (severityRoll <= trials.MajorFailureMaxRoll) return BreakthroughOutcome.MajorFailure;
             return BreakthroughOutcome.QiDeviationDeath;
-        }
-
-        /// <summary>Spiritual root above which the root bonus applies.</summary>
-        private static int MinimumRoot(TrialKind trial)
-        {
-            return trial == TrialKind.FoundationWall ? 30 : 10;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace MirrorChronicles.Mirror
         /// <summary>Restored shards of the mirror; the restoration axis itself arrives with phase L6.</summary>
         public int RestoredFragments { get; private set; }
 
-        public int TalismanSeedCapacity => SpiritualOrificeRules.TalismanSeedCapacity(RestoredFragments);
+        public int TalismanSeedCapacity => SpiritualOrificeRules.TalismanSeedCapacity(RestoredFragments, ctx.Content.Balance.Trials.BaseTalismanSeedCapacity);
 
         public MirrorSystem(GameContext ctx, ClanManager clan, BreakthroughSystem breakthroughs)
         {

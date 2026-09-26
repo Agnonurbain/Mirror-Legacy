@@ -29,20 +29,13 @@ namespace MirrorChronicles.Characters
 
     /// <summary>
     /// Pure rules of the power ladder shared by every cultivation path (LORE.md §5):
-    /// sub-levels, trials, experience, lifespans. Balance values are defaults to move into BalanceConfig.
+    /// sub-levels, trials, experience, lifespans. The trials' odds come from balance.json (<see cref="TrialSettings"/>).
     /// </summary>
     public static class PowerLadder
     {
         public const int Unbounded = int.MaxValue;
         public const int MortalMaxLifespan = 80;
 
-        private const int FoundationAdvisedAge = 60;
-        private const int FoundationWallBaseChance = 35;
-        private const int FoundationWallChanceLossPerYear = 2;
-        private const int MinimumTrialChance = 5;
-        private const int DissolutionBaseChance = 20;
-        private const int DissolutionChancePerYear = 3;
-        private const int MaximumDissolutionChance = 90;
 
         /// <summary>Number of sub-levels of a realm: 6 chakras, 9 Qi levels, 4 stages.</summary>
         public static int StageCount(CultivationRealm realm)
@@ -111,26 +104,22 @@ namespace MirrorChronicles.Characters
             }
         }
 
-        /// <summary>Base success chance of a trial before personal modifiers.</summary>
-        public static int BaseTrialChance(TrialKind trial, int age)
+        /// <summary>Base success chance of a trial before personal modifiers (0 for a trial the balance does not set).</summary>
+        public static int BaseTrialChance(TrialKind trial, int age, TrialSettings trials)
         {
-            switch (trial)
+            if (trial == TrialKind.FoundationWall)
             {
-                case TrialKind.InnerLakeChakra: return 70;
-                case TrialKind.MeridianWheelChakra: return 80;
-                case TrialKind.SummitEyeChakra: return 75;
-                case TrialKind.FoundationWall:
-                    int lateYears = Math.Max(0, age - FoundationAdvisedAge);
-                    return Math.Max(MinimumTrialChance, FoundationWallBaseChance - lateYears * FoundationWallChanceLossPerYear);
-                default: return 0;
+                int lateYears = Math.Max(0, age - trials.FoundationAdvisedAge);
+                return Math.Max(trials.MinimumTrialChance, trials.FoundationWallBaseChance - lateYears * trials.FoundationWallLossPerYear);
             }
+            return trials.ChakraChances.TryGetValue(trial, out int chance) ? chance : 0;
         }
 
         /// <summary>Chance that a failed Foundation breakthrough ends in spiritual dissolution (death).</summary>
-        public static int DissolutionChanceOnFailure(int age)
+        public static int DissolutionChanceOnFailure(int age, TrialSettings trials)
         {
-            int lateYears = Math.Max(0, age - FoundationAdvisedAge);
-            return Math.Min(MaximumDissolutionChance, DissolutionBaseChance + lateYears * DissolutionChancePerYear);
+            int lateYears = Math.Max(0, age - trials.FoundationAdvisedAge);
+            return Math.Min(trials.MaximumDissolutionChance, trials.DissolutionBaseChance + lateYears * trials.DissolutionChancePerYear);
         }
 
         /// <summary>Lifespan from the lore; stage 0 of Embryonic Breathing is still a mortal.</summary>

@@ -174,6 +174,15 @@ namespace MirrorChronicles.Data
                 && IsProbability(oathCosts.DeviationChanceOnInterrupt) && IsProbability(oathCosts.PurificationChance)
                 && oathCosts.HeartDemonSpeed > 0 && oathCosts.HeartDemonStabilityLoss >= 0 && oathCosts.PurificationHerbs >= 0 && oathCosts.MirrorVeilCost >= 0,
                 BalanceFile, "oaths needs three interruption chances and Heart Demon years (severity 1-3), and its costs.");
+            var trials = balance.Trials;
+            Require(trials != null && trials.ChakraChances != null && trials.ChakraChances.Values.All(c => c >= 0 && c <= 100)
+                && new[] { trials.FoundationWallBaseChance, trials.MinimumTrialChance, trials.DissolutionBaseChance, trials.MaximumDissolutionChance }
+                    .All(c => c >= 0 && c <= 100)
+                && trials.FoundationAdvisedAge >= 0 && trials.FoundationWallLossPerYear >= 0 && trials.DissolutionChancePerYear >= 0
+                && trials.ChakraMinimumRoot >= 0 && trials.WallMinimumRoot >= 0 && trials.OldAgeLifespanRatio > 0 && trials.OldAgePenalty >= 0
+                && trials.MinorFailureMaxRoll >= 0 && trials.MinorFailureMaxRoll <= trials.MajorFailureMaxRoll && trials.MajorFailureMaxRoll <= 100
+                && trials.BaseTalismanSeedCapacity >= 0,
+                BalanceFile, "trials needs chances of 0-100 %, values never negative and a deviation table in order (minor <= major <= 100).");
             var modifiers = balance.TrialModifiers;
             Require(modifiers != null && modifiers.RootPointsPerPercent > 0 && modifiers.StabilityPointsPerPercent > 0 && modifiers.LowStabilityPenalty >= 0
                 && modifiers.ReferenceGrade >= TechniqueRules.MinGrade && modifiers.ReferenceGrade <= TechniqueRules.MaxGrade,
