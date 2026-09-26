@@ -61,6 +61,7 @@ namespace MirrorChronicles.Data
         public string FoundationId { get; set; }
         public bool ProgressionSealed { get; set; }
         public Temperament Temperament { get; set; }
+        public string BodyTrait { get; set; } // the body the foundation made inhuman, or a parent's (§5.3.2, §11.6)
 
         // The Purple Mansion (LORE.md §5.4): divine abilities (« fruition-id:ability-id », the foundation first),
         // and the retreat of its breakthrough, which may hold a cultivator in the Great Void for life

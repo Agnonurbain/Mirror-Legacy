@@ -30,6 +30,7 @@
     "resourceHerbs": 150,
     "resourceOres": 60,
     "graftOres": 20,
+    "imageryXpFactor": 0.5,
     "graftDonorMinYearsLeft": 1,
     "graftDonorMaxYearsLeft": 5
   },
@@ -54,6 +55,7 @@
     "falseLeftHandYearlyStones": 300
   },
   "studyRevealsPartnersChance": 0.1,
+  "bodyTraitInheritanceChance": 0.5,
   "oaths": {
     "interruptChanceBySeverity": [ 0.1, 0.25, 0.5 ],
     "deviationChanceOnInterrupt": 0.2,

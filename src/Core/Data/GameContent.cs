@@ -143,6 +143,9 @@ namespace MirrorChronicles.Data
         /// <summary>Each year, the chance a foundation's holder takes on the temper its lineage favours.</summary>
         public double HeartAlignmentYearlyChance { get; init; }
 
+        /// <summary>Chance a newborn takes a parent's inhuman body (§11.6: the traits « se transmettent »).</summary>
+        public double BodyTraitInheritanceChance { get; init; }
+
         /// <summary>Chance a newborn takes a parent's temper (otherwise a temper of its own).</summary>
         public double TemperamentInheritanceChance { get; init; }
 
@@ -294,6 +297,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>Spiritual objects of the Purple Mansion completing a grafted foundation.</summary>
         public int GraftOres { get; init; }
+
+        /// <summary>Share of the XP an ability costs to a cultivator who embodies its image (§5.4.3; interpretation).</summary>
+        public double ImageryXpFactor { get; init; } = 1.0;
 
         /// <summary>Years a grafted donor has left, stripped of all cultivation (user decision, 2026-09-25: one to five).</summary>
         public int GraftDonorMinYearsLeft { get; init; }

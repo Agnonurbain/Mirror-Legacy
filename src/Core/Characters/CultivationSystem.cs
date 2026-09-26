@@ -141,6 +141,7 @@ namespace MirrorChronicles.Characters
             {
                 character.FoundationId = techniques.FindQi(character.QiId)?.Foundation; // the chakras fuse into the Qi's foundation (§5.3.1)
                 techniques.Knowledge.Reveal(FactKind.Ability, character.FoundationId, KnowledgeSource.Formed);
+                character.BodyTrait = FoundationRules.FruitionOf(character.FoundationId, ctx.Content.Fruitions)?.BodyTrait ?? character.BodyTrait; // inhuman in the Dao's image (§5.3.2)
             }
             character.Realm = step.TargetRealm;
             character.RealmStage = step.TargetStage;

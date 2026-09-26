@@ -52,6 +52,11 @@ namespace MirrorChronicles.Data
         /// <summary>A substitute ability (Surplus, Intercalary), not one of the orthodox five.</summary>
         public bool Substitute { get; init; }
 
+        /// <summary>
+        /// The ability's image (LORE.md §5.4.3): a cultivator whose temper embodies it condenses it faster (None: not known).
+        /// </summary>
+        public Temperament Imagery { get; init; }
+
         public Provenance Provenance { get; init; }
 
         /// <summary>Fields filled by interpretation, to replace when a source speaks.</summary>
@@ -90,6 +95,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>The true Left Hand path founded on the lineage, when one exists (§6.9: Golden Core power without position).</summary>
         public string LeftHand { get; init; }
+
+        /// <summary>The body its foundation gives, inhuman in the Dao's image (§5.3.2: golden blood for the Metal); null when unknown.</summary>
+        public string BodyTrait { get; init; }
 
         /// <summary>The temper the lineage favours (its profile, §6.9): an aligned Dao Heart cultivates it faster.</summary>
         public Temperament Temperament { get; init; }
