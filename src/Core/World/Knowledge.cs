@@ -16,7 +16,8 @@ namespace MirrorChronicles.World
         FoundationOfQi, // which foundation a Qi builds (a Qi id)
         Pact,           // that a pact exists (a pact id): others' oaths are learned by spying, the mirror…
         GoldSeeking,    // a lineage's gold-seeking method (a fruition id; « fruition-id:intercalary » the specialised one)
-        LeftHand        // the true Left Hand path of a lineage (a fruition id)
+        LeftHand,       // the true Left Hand path of a lineage (a fruition id)
+        Beast           // a spirit beast of the world the clan has scouted (a world beast id)
     }
 
     /// <summary>Where a piece of knowledge came from.</summary>

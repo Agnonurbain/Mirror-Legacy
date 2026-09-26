@@ -5,7 +5,8 @@ namespace MirrorChronicles.Session
 {
     /// <summary>
     /// The current endings: victory once ten generations have passed and an ancestor has ascended;
-    /// defeat when no member of the line remains. (The dynastic endings of LORE.md §11.9 arrive with L6.)
+    /// defeat when no member of the line remains, or when a power seizes the mirror (L2c.4c). (The dynastic endings of
+    /// LORE.md §11.9 arrive with L6.)
     /// </summary>
     public sealed class VictoryConditionSystem
     {
@@ -31,6 +32,7 @@ namespace MirrorChronicles.Session
             ctx.Events.OnYearStarted += year => CheckVictory();
             ctx.Events.OnCharacterDied += (c, cause) => CheckDefeat();
             ctx.Events.OnAncestorAscended += c => CheckDefeat();
+            ctx.Events.OnMirrorSeized += MirrorSeized;
         }
 
         public void Restore(bool won, bool lost)
@@ -47,6 +49,15 @@ namespace MirrorChronicles.Session
             GameWon = true;
             ctx.Log.Info("[Victory] Ten generations endured and an ancestor ascended: the line is eternal!");
             ctx.Events.TriggerGameOver(true);
+        }
+
+        /// <summary>The second defeat of LORE.md §11.9: the mirror discovered and seized by a stronger power.</summary>
+        private void MirrorSeized(string faction)
+        {
+            if (IsOver) return;
+            GameLost = true;
+            ctx.Log.Warning($"[Victory] {faction} seizes the mirror: the clan's secret is lost.");
+            ctx.Events.TriggerGameOver(false);
         }
 
         private void CheckDefeat()

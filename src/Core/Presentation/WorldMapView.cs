@@ -12,6 +12,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>A named cultivator of a power, as the map shows it.</summary>
     public sealed record MapFigure(string Name, string Realm);
 
+    /// <summary>A beast the clan scouted, as the map shows it: its species, strength and owner (« solitaire » for none).</summary>
+    public sealed record MapBeast(string Species, string Strength, string Owner);
+
     /// <summary>A place of the map (x west→east, y north→south, 0-1) and the powers living there.</summary>
     public sealed record MapPlace(string Id, string Name, RegionKind Kind, double X, double Y, bool IsState, bool IsHome,
         IReadOnlyList<MapFaction> Factions);
@@ -50,6 +53,16 @@ namespace MirrorChronicles.Presentation
                 .Where(f => f.FactionName == factionName && (f.BornYear ?? int.MinValue) <= session.Clock.Year)
                 .OrderByDescending(f => f.Realm)
                 .Select(f => new MapFigure(f.Name, RankCatalog.RealmName(f.Realm)))
+                .ToList();
+
+        /// <summary>The beasts of a place the clan has scouted (L2c.2): nothing of what it does not know.</summary>
+        public static IReadOnlyList<MapBeast> KnownBeastsOf(GameSession session, string regionId) =>
+            session.Bestiary.In(regionId)
+                .Where(b => session.Knowledge.Knows(World.FactKind.Beast, b.Id))
+                .Select(b => new MapBeast(
+                    session.Context.Content.BeastSpecies.FirstOrDefault(sp => sp.Id == b.SpeciesId)?.Name ?? b.SpeciesId,
+                    $"{RankCatalog.RealmName(b.Realm)}, stade {b.Stage}",
+                    b.OwnerFaction ?? "solitaire"))
                 .ToList();
 
         public static string KindLabel(FactionKind kind) => kind switch

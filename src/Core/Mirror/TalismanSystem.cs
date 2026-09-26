@@ -28,11 +28,22 @@ namespace MirrorChronicles.Mirror
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
-            ctx.Events.OnYearStarted += year => GatherPrayers();
+            NextRitualYear = Settings.RitualPeriodYears;
+            ctx.Events.OnYearStarted += year => { GatherPrayers(); SkipMissedRituals(year); };
             ctx.Events.OnCharacterDied += (dead, cause) => { if (PendingOffer?.BeneficiaryId == dead.ID) PendingOffer = null; }; // the offer dies with its bearer
         }
 
         private TalismanSettings Settings => ctx.Content.Balance.Talismans;
+
+        /// <summary>The year of the next ritual (user decision, 2026-09-26: one every twenty years).</summary>
+        public int NextRitualYear { get; private set; }
+
+        /// <summary>The hunt is open only in the years just before the ritual, and in its year.</summary>
+        public bool HuntWindowOpen =>
+            ctx.Clock.Year >= NextRitualYear - Settings.HuntWindowYears && ctx.Clock.Year <= NextRitualYear;
+
+        /// <summary>Restores the ritual's calendar (a save, or a test).</summary>
+        public void RestoreCalendar(int nextRitualYear) => NextRitualYear = nextRitualYear;
 
         /// <summary>The talismans awaiting the player's choice after a ritual, or null.</summary>
         public TalismanOffer PendingOffer { get; private set; }
@@ -46,7 +57,8 @@ namespace MirrorChronicles.Mirror
         {
             var rank = beast == null ? null : TalismanRules.RankOf(beast);
             string refusal =
-                PendingOffer != null ? "an offer already awaits a choice"
+                ctx.Clock.Year != NextRitualYear ? $"the ritual's year is {NextRitualYear}"
+                : PendingOffer != null ? "an offer already awaits a choice"
                 : bearer == null || !bearer.IsAlive || !SpiritualOrificeRules.CanCultivate(bearer) ? "the bearer cannot receive a talisman"
                 : bearer.TalismanQiId != null ? "the bearer already has a talisman"
                 : beast == null || !resources.Beasts.Contains(beast) ? "the clan holds no such beast"
@@ -61,6 +73,7 @@ namespace MirrorChronicles.Mirror
 
             resources.ConsumePrayers(Settings.PrayersPerRitual);
             resources.ConsumeBeast(beast);
+            NextRitualYear += Settings.RitualPeriodYears;
             AnswerToTheOwner(beast);
             var choices = TalismanRules.Offer(bearer, rank.Value, ctx.Content.Talismans, Settings, ctx.Rng);
             PendingOffer = new TalismanOffer(bearer.ID, choices.ToList(), TalismanRules.LeapOf(beast, Settings));
@@ -78,6 +91,7 @@ namespace MirrorChronicles.Mirror
 
             PendingOffer = null;
             bearer.TalismanQiId = talisman.Id;
+            bearer.KnowsMirrorSecret = true; // the mirror is no longer a legend to them (L2c.4b)
             bearer.MaxLifespan += talisman.LifespanYears;
             int rankLeap = talisman.Rank == TalismanRank.White ? Settings.WhiteStageLeap : Settings.GreyStageLeap;
             TalismanRules.Leap(bearer, offer.Leap ?? rankLeap); // an older save's offer: the rank's leap
@@ -100,6 +114,12 @@ namespace MirrorChronicles.Mirror
             bool resolves = offer?.Choices != null && clan.FindById(offer.BeneficiaryId)?.IsAlive == true
                 && offer.Choices.Count > 0 && offer.Choices.All(id => ctx.Content.Talismans.Any(t => t.Id == id));
             PendingOffer = resolves ? offer : null;
+        }
+
+        /// <summary>A ritual whose year has passed is lost: the next one is a cycle later.</summary>
+        private void SkipMissedRituals(int year)
+        {
+            while (year > NextRitualYear) NextRitualYear += Settings.RitualPeriodYears;
         }
 
         /// <summary>Each year, the clan's mortals and its prestige bring prayers to the mirror.</summary>

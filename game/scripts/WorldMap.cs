@@ -60,6 +60,10 @@ namespace MirrorChronicles.Game
                 : string.Join("\n\n", factions.Select(f => $"{f.Name} ({f.Kind}) — {f.HighestRealm} — relation {f.Relation:+#;-#;0}"
                     + string.Concat(WorldMapView.FiguresOf(session, f.Name).Select(p => $"\n   · {p.Name} ({p.Realm})"))));
 
+            var beasts = place == null ? System.Array.Empty<MapBeast>() : WorldMapView.KnownBeastsOf(session, place.Id);
+            if (beasts.Count > 0)
+                placeFactions.Text += "\n\nBêtes repérées :" + string.Concat(beasts.Select(b => $"\n   · {b.Species} ({b.Strength}) — {b.Owner}"));
+
             var unplaced = WorldMapView.Unplaced(session);
             if (unplaced.Count > 0)
                 placeFactions.Text += $"\n\nSans lieu connu : {string.Join(", ", unplaced.Select(f => f.Name))}";

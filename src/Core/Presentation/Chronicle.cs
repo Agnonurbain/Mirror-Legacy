@@ -34,7 +34,12 @@ namespace MirrorChronicles.Presentation
             bus.OnBreakthroughFailed += c => Add($"{c.FullName} échoue à sa percée.");
             bus.OnRandomEventOccurred += e => Add($"{e.Name} — {e.Description}");
             bus.OnStoryEventRaised += e => Add($"{e.Name}.");
-            bus.OnGameOver += won => Add(won ? "la lignée devient éternelle." : "la lignée s'éteint.");
+            bus.OnMirrorSeized += faction => Add($"{faction} s'empare du miroir : le secret du clan est perdu.");
+            bus.OnGameOver += won =>
+            {
+                if (won) Add("la lignée devient éternelle.");
+                else if (session.Clan.LivingMembers.Count == 0) Add("la lignée s'éteint."); // a seized mirror is told above
+            };
             session.Knowledge.Revealed += OnRevealed;
         }
 

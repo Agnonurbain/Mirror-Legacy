@@ -23,7 +23,7 @@ namespace MirrorChronicles.Game
 
         private GameRoot root;
         private Chronicle boundChronicle;
-        private Label clanName, year, phase, stones, mirror, generation, qi, storyTitle, storyText, chronicle, status;
+        private Label clanName, year, phase, stones, mirror, generation, qi, ritual, storyTitle, storyText, chronicle, status;
         private Button nextPhase;
         private VBoxContainer roster, storyChoices;
 
@@ -37,6 +37,7 @@ namespace MirrorChronicles.Game
             mirror = GetNode<Label>("%Mirror");
             generation = GetNode<Label>("%Generation");
             qi = GetNode<Label>("%Qi");
+            ritual = GetNode<Label>("%Ritual");
             storyTitle = GetNode<Label>("%StoryTitle");
             storyText = GetNode<Label>("%StoryText");
             chronicle = GetNode<Label>("%Chronicle");
@@ -107,6 +108,7 @@ namespace MirrorChronicles.Game
             var stock = ClanDomainView.QiStock(session);
             qi.Text = stock.Count == 0 ? "Aucun Qi en réserve"
                 : string.Join(" · ", stock.Select(line => $"{line.Name} ×{line.Portions}"));
+            ritual.Text = ClanDomainView.RitualLine(session);
 
             ShowRoster(ClanDomainView.Roster(session));
             ShowStory(session.Story.PendingEvent);

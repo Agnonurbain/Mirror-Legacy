@@ -112,5 +112,28 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.AreEqual("la capacité non révélée (Feu Orthodoxe)",
                 KnowledgeView.Describe(new Fact(FactKind.Ability, "orthodox-fire:unrevealed-1"), Fixtures.Content));
         }
+
+        [Test]
+        public void ABeastsSpecies_IsFoundByItsFullId_NotAShorterPrefix()
+        {
+            var content = Fixtures.Content with
+            {
+                BeastSpecies = new[]
+                {
+                    new BeastSpecies { Id = "boar", Name = "Sanglier" },
+                    new BeastSpecies { Id = "boar-cub", Name = "Marcassin" }
+                }
+            };
+            Assert.AreEqual("où vit une bête spirituelle : Marcassin",
+                KnowledgeView.Describe(new Fact(FactKind.Beast, "boar-cub-heshan-1"), content));
+        }
+
+        [Test]
+        public void ASeizedMirror_IsToldAsSuch_NotAsAnExtinction()
+        {
+            session.Events.TriggerMirrorSeized("Secte du Pic des Nuées");
+            CollectionAssert.Contains(chronicle.Entries, "An 1 : Secte du Pic des Nuées s'empare du miroir : le secret du clan est perdu.");
+            Assert.IsFalse(chronicle.Entries.Any(e => e.Contains("la lignée s'éteint")));
+        }
     }
 }

@@ -49,6 +49,11 @@ namespace MirrorChronicles.Session
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
         public KnowledgeExchange Exchange { get; }
+        public BeastRegistry Bestiary { get; }
+        public SuspicionLedger Suspicion { get; }
+        public HuntOperations Hunts { get; }
+        public PlotSystem Plots { get; }
+        public SecretSystem Secrets { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
         public BuildingSystem Buildings { get; }
@@ -90,10 +95,15 @@ namespace MirrorChronicles.Session
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Context, Clan, Resources, Factions);
             Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror);
+            Bestiary = new BeastRegistry(Context);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability, Techniques);
-            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques);
+            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
+            Suspicion = new SuspicionLedger();
+            Hunts = new HuntOperations(Context, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
+            Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths, Mirror);
+            Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
@@ -115,6 +125,7 @@ namespace MirrorChronicles.Session
             session.Karma.Restore(1, 0, 0, session.Clan.PatriarchID);
             session.Factions.InitializeFactions();
             session.Fruitions.DrawWorld(FruitionRegistry.WorldRandom(setup.Seed));
+            session.Bestiary.Draw(BeastRegistry.WorldRandom(setup.Seed));
             session.Deduction.AddFragment(Element.Fire, 1, "Scorched Scroll");
             session.Deduction.AddFragment(Element.Wood, 1, "Bamboo Slip");
 
@@ -174,8 +185,16 @@ namespace MirrorChronicles.Session
             session.GoldenCore.Restore(data.GoldenCorePermissions); // saves made before L4b have none
             session.Resources.RestorePrayers(data.Prayers);           // saves made before 2.6: none gathered
             session.Resources.RestoreBeasts(data.CapturedBeasts);
+            session.Suspicion.Restore(data.SuspicionOfClan, data.Distrust); // hidden; none in saves before 2.9
+            session.Suspicion.RestoreEvidence(data.Evidence);
+            session.Suspicion.RestoreMirrorClues(data.MirrorClues);
+            session.Secrets.RestoreConfrontation(data.Confrontation);
+            if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
+            else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
             session.Talismans.Restore(data.TalismanOffer);
+            int period = content.Balance.Talismans.RitualPeriodYears;
+            session.Talismans.RestoreCalendar(data.NextRitualYear ?? (data.CurrentYear + period - 1) / period * period);
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);
@@ -213,7 +232,14 @@ namespace MirrorChronicles.Session
                 GoldenCorePermissions = new Dictionary<string, string>(GoldenCore.Permissions),
                 Prayers = Resources.Prayers,
                 CapturedBeasts = Resources.Beasts.ToList(),
+                WorldBeasts = Bestiary.Beasts.ToList(),
+                SuspicionOfClan = new Dictionary<string, int>(Suspicion.ClanSuspicions),
+                Distrust = new Dictionary<string, int>(Suspicion.Distrusts),
+                Evidence = new Dictionary<string, int>(Suspicion.Evidences),
+                MirrorClues = new Dictionary<string, int>(Suspicion.AllMirrorClues),
+                Confrontation = Secrets.Confrontation,
                 HuntingGround = Tasks.HuntingGround,
+                NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
                     : new TalismanOffer(Talismans.PendingOffer.BeneficiaryId, new List<string>(Talismans.PendingOffer.Choices), Talismans.PendingOffer.Leap),
                 GenerationCount = Karma.GenerationCount,
@@ -259,6 +285,8 @@ namespace MirrorChronicles.Session
                 case GamePhase.Events: // the Management phase is over
                     Tasks.ProcessYearlyTasks();
                     Factions.ProcessYearlyFactionAI();
+                    Secrets.ProcessYear();            // those who know may talk (L2c.4b)
+                    Plots.ProcessYear();              // the powers investigate, and strike what they suspect (D7)
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)
