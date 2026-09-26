@@ -155,6 +155,64 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(0, a.HeartDemonYearsLeft);
         }
 
+        [Test]
+        public void Breach_ThatInterrupts_CanAlsoWoundTheDao()
+        {
+            var w = new TestWorld(new SequenceRandom(Cut, 0.0)); // interrupted, then the deviation roll hits
+            var a = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 1));
+            var b = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 1));
+            w.Oaths.Swear(a, b, new[] { "never-harm" });
+
+            w.Oaths.Transgress(a, b, OathAct.Harm);
+
+            Assert.IsTrue(a.ProgressionSealed && a.DaoWounds == 1);
+        }
+
+        [Test]
+        public void WithoutTheExpiryLoophole_ATermIsIgnored_AndThePactHoldsForLife()
+        {
+            // review of L4d: a term is itself a loophole the data may withhold
+            var content = Fixtures.Content with { Oaths = new OathCatalog { Clauses = Fixtures.Content.Oaths.Clauses,
+                Loopholes = Fixtures.Content.Oaths.Loopholes.Where(l => l.Kind != LoopholeKind.Expiry).ToList() } };
+            var ctx = new GameContext(new MirrorChronicles.Events.GameEventBus(), new RecordingGameLog(), new FixedRandom(Slow), new GameClock(), content);
+            var clan = new MirrorChronicles.Clan.ClanManager(ctx, "Mo");
+            var oaths = new OathSystem(ctx, clan, new MirrorChronicles.Economy.ResourceManager(ctx), null, MirrorChronicles.World.WorldKnowledge.Create(content));
+            var a = Fixtures.Cultivator(); var b = Fixtures.Cultivator();
+            clan.AddMember(a); clan.AddMember(b);
+
+            var pact = oaths.Swear(a, b, new[] { "never-harm" }, years: 1);
+
+            Assert.IsNull(pact.ExpiresYear);
+        }
+
+        [Test]
+        public void MirrorVeil_SurvivesASave()
+        {
+            // review of L4d: the power spent on a veil is not lost by reloading
+            var s = GameSession.NewGame(Fixtures.Setup(2));
+            var members = s.Clan.LivingMembers;
+            s.Oaths.Swear(members[0], members[1], new[] { "never-harm" });
+            s.Mirror.Restore(100, 0);
+            s.Oaths.VeilNextBreach(members[0]);
+
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            var a = reloaded.Clan.FindById(members[0].ID);
+            reloaded.Oaths.Transgress(a, reloaded.Clan.FindById(members[1].ID), OathAct.Harm);
+
+            Assert.IsTrue(a.HeartDemonYearsLeft == 0 && !a.ProgressionSealed);
+        }
+
+        [Test]
+        public void Load_Refuses_OathsWithoutLoopholes()
+        {
+            // « nothing is perfect »: an oath catalog must declare its loopholes
+            var oaths = JObject.Parse(Fixtures.ReadDataFile(GameContentLoader.OathsFile));
+            oaths["loopholes"] = new JArray();
+            var error = Assert.Throws<InvalidDataException>(() =>
+                GameContentLoader.Load(name => name == GameContentLoader.OathsFile ? oaths.ToString() : Fixtures.ReadDataFile(name)));
+            StringAssert.Contains(GameContentLoader.OathsFile, error.Message);
+        }
+
         // ---- A promised service ----
 
         [Test]
