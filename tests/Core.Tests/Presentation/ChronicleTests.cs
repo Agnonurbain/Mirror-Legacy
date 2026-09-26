@@ -135,5 +135,20 @@ namespace MirrorChronicles.Tests.Presentation
             CollectionAssert.Contains(chronicle.Entries, "An 1 : Secte du Pic des Nuées s'empare du miroir : le secret du clan est perdu.");
             Assert.IsFalse(chronicle.Entries.Any(e => e.Contains("la lignée s'éteint")));
         }
+
+        [Test]
+        public void TellsOfTheCaptives_TakenFreed_AndTheAgentsCaught()
+        {
+            var member = session.Clan.LivingMembers.Last();
+            session.Captives.Take(member, "Famille Ruan");
+            Assert.AreEqual($"An 1 : {member.FullName} est enlevé(e) par Famille Ruan.", Last);
+
+            session.Resources.AddSpiritStones(100000);
+            session.Captives.PayRansom(member.ID);
+            Assert.AreEqual($"An 1 : {member.FullName} est libre.", Last);
+
+            session.Captives.Imprison(new Prisoner("agent-1", "Famille Lou", CultivationRealm.QiRefinement, 1));
+            Assert.AreEqual("An 1 : un agent de Famille Lou tombe entre les mains du clan.", Last);
+        }
     }
 }
