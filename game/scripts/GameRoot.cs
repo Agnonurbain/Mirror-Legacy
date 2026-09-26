@@ -33,6 +33,9 @@ namespace MirrorChronicles.Game
         /// <summary>With <c>-- --smoke --map --ops</c>, the smoke run goes on from the map to the secret operations screen.</summary>
         public bool SmokeEndsOnOperations { get; private set; }
 
+        /// <summary>With <c>--lib</c> (implies <c>--ops</c>), the smoke run goes on from the operations to the clan's library.</summary>
+        public bool SmokeEndsOnLibrary { get; private set; }
+
         /// <summary>Raised when a new game starts or a save is loaded: views bind to the new session.</summary>
         public event Action SessionChanged;
 
@@ -42,7 +45,8 @@ namespace MirrorChronicles.Game
         {
             var args = OS.GetCmdlineUserArgs();
             IsSmokeRun = args.Contains("--smoke");
-            SmokeEndsOnOperations = args.Contains("--ops");
+            SmokeEndsOnLibrary = args.Contains("--lib");
+            SmokeEndsOnOperations = args.Contains("--ops") || SmokeEndsOnLibrary; // the library is reached through the operations
             SmokeEndsOnMap = args.Contains("--map") || SmokeEndsOnOperations; // the operations are reached through the map
             ScreenshotPath = args.Where(a => a.StartsWith(ScreenshotArgument)).Select(a => a.Substring(ScreenshotArgument.Length)).FirstOrDefault();
             content = GameContentLoader.Load(ReadDataFile); // unplayable content stops the game at startup, naming the file

@@ -376,7 +376,8 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Operations: ritual in year {OperationsView.Ritual(root.Session).Year}, {OperationsView.Signs(root.Session).Count} powers watched.");
-            if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
+            if (root.SmokeEndsOnLibrary) GetTree().ChangeSceneToFile(Library.ScenePath); // the library checks itself
+            else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }
     }

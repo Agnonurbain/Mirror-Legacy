@@ -75,6 +75,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Opérations secrètes"
 
+[node name="OpenLibrary" type="Button" parent="Margin/Layout/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Bibliothèque"
+
 [node name="OpenMap" type="Button" parent="Margin/Layout/Header"]
 unique_name_in_owner = true
 layout_mode = 2
