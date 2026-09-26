@@ -60,6 +60,7 @@ namespace MirrorChronicles.World
             member.CaptorFaction = faction;
             member.CapturedYear = ctx.Clock.Year;
             member.CurrentTask = TaskType.None;
+            clan.HandOver(member); // a patriarch taken: a free member leads the clan
             ctx.Log.Warning($"[Captives] {faction} takes {member.FullName}.");
             ctx.Events.TriggerMemberCaptured(member, faction);
         }
@@ -100,7 +101,7 @@ namespace MirrorChronicles.World
 
         private void Interrogate(CharacterData captive, FactionData captor)
         {
-            if (!captive.KnowsMirrorSecret) return;
+            if (!captive.KnowsMirrorSecret || captive.CapturedYear == ctx.Clock.Year) return; // the clan has a year to answer
             var partner = oaths.SecrecyPartner(captive);
             if (!ctx.Rng.Chance(SchemeRules.InterrogationChance(captive, partner != null, ctx.Content))) return;
             suspicion.AddMirrorClues(captor.Name, ctx.Content.Balance.Plots.LeakMirrorClue);
@@ -140,7 +141,7 @@ namespace MirrorChronicles.World
             var captive = HeldMember(memberId);
             if (captive == null) return "ce membre n'est pas captif";
             if (teamIds == null || teamIds.Count == 0) return "il faut une équipe";
-            var team = teamIds.Select(clan.FindById).ToList();
+            var team = teamIds.Distinct().Select(clan.FindById).ToList(); // each rescuer counts once
             var unfit = team.FirstOrDefault(m => !hunts.IsFree(m));
             if (unfit != null || team.Contains(null)) return $"{unfit?.FullName ?? "un membre"} ne peut pas partir";
             var captor = factions.GetFactionByName(captive.CaptorFaction);

@@ -85,7 +85,7 @@ namespace MirrorChronicles.World
 
         private void Leak()
         {
-            foreach (var keeper in clan.LivingMembers.Where(m => m.KnowsMirrorSecret).ToList())
+            foreach (var keeper in clan.LivingMembers.Where(m => m.KnowsMirrorSecret && m.CaptorFaction == null).ToList()) // a captive talks to its captor (L6a)
             {
                 var partner = oaths.SecrecyPartner(keeper);
                 if (!ctx.Rng.Chance(PlotRules.LeakChance(keeper, partner != null, ctx.Content))) continue;

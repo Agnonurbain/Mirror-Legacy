@@ -526,7 +526,7 @@ namespace MirrorChronicles.Tests.World
             var w = World(new FixedRandom(0.0));
             var patriarch = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation));
             var heir = w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement));
-            Assert.AreEqual(patriarch.ID, w.Clan.PatriarchID);
+            w.Clan.AppointPatriarch(patriarch);
 
             w.Captives.Take(patriarch, Ruan);
 

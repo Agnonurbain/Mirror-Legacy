@@ -53,6 +53,7 @@ namespace MirrorChronicles.Diplomacy
         public bool CanMarry(CharacterData a, CharacterData b)
         {
             if (a == null || b == null || !a.IsAlive || !b.IsAlive) return false;
+            if (a.CaptorFaction != null || b.CaptorFaction != null) return false; // a captive marries nobody (L6a)
             if (a.Age < MarriageMatchmaker.MinMarriageAge || b.Age < MarriageMatchmaker.MinMarriageAge) return false;
             if (!string.IsNullOrEmpty(a.SpouseID) || !string.IsNullOrEmpty(b.SpouseID)) return false;
             return !KinshipRules.AreCloseKin(a, b, KinshipRules.MarriageForbiddenGenerations, clan.FindById);
@@ -75,7 +76,7 @@ namespace MirrorChronicles.Diplomacy
         /// </summary>
         public bool HandleArrangedMarriage(CharacterData member, string factionId, bool isForced)
         {
-            if (member == null || !member.IsAlive || member.Age < MarriageMatchmaker.MinMarriageAge
+            if (member == null || !member.IsAlive || member.CaptorFaction != null || member.Age < MarriageMatchmaker.MinMarriageAge
                 || !string.IsNullOrEmpty(member.SpouseID))
                 return false;
 

@@ -55,6 +55,8 @@ namespace MirrorChronicles.Clan
 
             character.IsAlive = false;
             character.CauseOfDeath = cause;
+            character.CaptorFaction = null; // death ends every captivity (L6a)
+            character.CapturedYear = null;
             LeaveTheLiving(character);
 
             ctx.Log.Info($"[ClanManager] {character.FullName} dies at {character.Age}: {cause}.");
@@ -172,11 +174,18 @@ namespace MirrorChronicles.Clan
             if (character.ID == PatriarchID) ElectPatriarch();
         }
 
-        /// <summary>Highest realm, then eldest, then strongest root.</summary>
+        /// <summary>A patriarch taken captive (L6a): a free member leads the clan; the captive keeps no title on return.</summary>
+        public void HandOver(CharacterData taken)
+        {
+            if (taken?.ID == PatriarchID && living.Any(m => m.CaptorFaction == null)) ElectPatriarch();
+        }
+
+        /// <summary>A free member first, then highest realm, then eldest, then strongest root.</summary>
         private void ElectPatriarch()
         {
             var successor = living
-                .OrderByDescending(m => (int)m.Realm)
+                .OrderBy(m => m.CaptorFaction != null)
+                .ThenByDescending(m => (int)m.Realm)
                 .ThenByDescending(m => m.RealmStage)
                 .ThenByDescending(m => m.Age)
                 .ThenByDescending(m => m.SpiritualRoot)

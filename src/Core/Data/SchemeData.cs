@@ -30,6 +30,9 @@ namespace MirrorChronicles.Data
         public int WealthReference { get; init; } = 1;
         public double MaxGreed { get; init; } = 1;
 
+        /// <summary>At most this many ambushes a year, all powers together (the powers scheme, they do not swarm).</summary>
+        public int MaxAmbushesPerYear { get; init; } = 1;
+
         /// <summary>The tasks that take a member away from the domain, where an ambush can reach them.</summary>
         public List<TaskType> AwayTasks { get; init; }
 

@@ -118,6 +118,7 @@
     "friendshipDamping": 0.8,
     "wealthReference": 1000,
     "maxGreed": 3.0,
+    "maxAmbushesPerYear": 1,
     "awayTasks": [ "Diplomacy", "Espionage", "HuntBeast", "ScoutBeasts", "Diversion" ],
     "captureBase": 50,
     "capturePerRealm": 20,

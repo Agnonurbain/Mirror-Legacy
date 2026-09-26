@@ -28,7 +28,7 @@ namespace MirrorChronicles.Game
         private MirrorAid aid;
         private string proofFrom;
         private string proofToward;
-        private string rescuer; // the member sent to free a captive
+        private readonly Dictionary<string, string> rescuers = new Dictionary<string, string>(); // captive → the member sent to free them
 
         public override void _Ready()
         {
@@ -280,10 +280,11 @@ namespace MirrorChronicles.Game
 
             var candidates = OperationsView.HuntCandidates(session).Select(c => (c.Id, $"{c.Name} ({c.Rank})")).ToList();
             if (candidates.Count == 0) return;
-            if (candidates.All(c => c.Id != rescuer)) rescuer = candidates[0].Id;
+            if (!rescuers.TryGetValue(held.Id, out var rescuer) || candidates.All(c => c.Id != rescuer))
+                rescuer = rescuers[held.Id] = candidates[0].Id;
             var picker = Picker(captives, "Sauvetage par", candidates, rescuer);
-            picker.ItemSelected += _ => { rescuer = Selected(picker); ShowCaptives(); };
-            Act(captives, "Tenter le sauvetage", () => session.Captives.Rescue(held.Id, new[] { rescuer }), $"{held.Name} est arraché à {held.Captor}.");
+            picker.ItemSelected += _ => { rescuers[held.Id] = Selected(picker); ShowCaptives(); };
+            Act(captives, "Tenter le sauvetage", () => session.Captives.Rescue(held.Id, new[] { rescuers[held.Id] }), $"{held.Name} est arraché à {held.Captor}.");
         }
 
         /// <summary>An agent held: sold back, released, interrogated and denounced once each, or executed.</summary>

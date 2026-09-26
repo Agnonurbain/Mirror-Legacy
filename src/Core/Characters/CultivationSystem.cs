@@ -118,6 +118,7 @@ namespace MirrorChronicles.Characters
         {
             var step = PowerLadder.Next(character.Realm, character.RealmStage);
             return character.IsAlive
+                && character.CaptorFaction == null // no trial in a cell (L6a)
                 && SpiritualOrificeRules.CanCultivate(character)
                 && step.IsAvailable
                 && step.Trial != TrialKind.None

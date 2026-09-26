@@ -34,10 +34,12 @@ namespace MirrorChronicles.World
         public void ProcessYear()
         {
             int stones = captives.ClanStones;
-            foreach (var power in factions.Factions.ToList())
+            int ambushes = 0;
+            foreach (var power in factions.Factions.OrderBy(_ => ctx.Rng.Next()).ToList()) // no power always first
             {
+                if (ambushes >= Settings.MaxAmbushesPerYear) return;
                 if (secrets.Confrontation?.Faction == power.Name) continue; // its move is the confrontation's
-                if (ctx.Rng.Chance(SchemeRules.SchemeChance(power, stones, Settings))) Ambush(power);
+                if (ctx.Rng.Chance(SchemeRules.SchemeChance(power, stones, Settings)) && Ambush(power)) ambushes++;
             }
         }
 

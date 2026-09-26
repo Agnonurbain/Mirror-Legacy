@@ -18,7 +18,7 @@ namespace MirrorChronicles.World
             double temper = s.PersonalityFactors != null && s.PersonalityFactors.TryGetValue(power.Personality, out var f) ? f : 1.0;
             double hostility = 1 + Math.Max(0, -power.RelationWithPlayer) / 100.0 * s.HostilityWeight;
             double friendship = Math.Max(0, 1 - Math.Max(0, power.RelationWithPlayer) / 100.0 * s.FriendshipDamping);
-            double greed = Math.Min(s.MaxGreed, 1 + Math.Max(0, clanStones) / (double)s.WealthReference);
+            double greed = Math.Min(s.MaxGreed, 1 + Math.Max(0, clanStones) / (double)Math.Max(1, s.WealthReference));
             return Math.Clamp(s.BaseChance * temper * hostility * friendship * greed, 0, 1);
         }
 
