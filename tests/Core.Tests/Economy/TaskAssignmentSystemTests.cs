@@ -158,5 +158,39 @@ namespace MirrorChronicles.Tests.Economy
             w.Tasks.ProcessYearlyTasks();
             Assert.AreEqual(0, w.Resources.Beasts.Count);
         }
+
+        [Test]
+        public void HuntBeast_OnAPowersGround_MayTakeOneOfItsBeasts()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            w.Factions.InitializeFactions();
+            Assert.IsTrue(w.Tasks.SetHuntingGround("heshan")); // the Ruan's prefecture
+            Working(w, TaskType.HuntBeast);
+
+            w.Tasks.ProcessYearlyTasks();
+
+            Assert.AreEqual("Famille Ruan", w.Resources.Beasts.Single().OwnerFaction);
+        }
+
+        [Test]
+        public void HuntBeast_OnAnUnclaimedGround_TakesSolitaryBeasts()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            w.Factions.InitializeFactions();
+            Assert.IsTrue(w.Tasks.SetHuntingGround("beast-abyss")); // no power lives in the Beast Abyss
+            Working(w, TaskType.HuntBeast);
+
+            w.Tasks.ProcessYearlyTasks();
+
+            Assert.IsNull(w.Resources.Beasts.Single().OwnerFaction);
+        }
+
+        [Test]
+        public void SetHuntingGround_Refuses_APlaceOffTheMap()
+        {
+            var w = new TestWorld();
+            Assert.IsFalse(w.Tasks.SetHuntingGround("atlantis"));
+            Assert.AreEqual(Fixtures.Content.Clan.HomeRegion, w.Tasks.HuntingGround);
+        }
     }
 }

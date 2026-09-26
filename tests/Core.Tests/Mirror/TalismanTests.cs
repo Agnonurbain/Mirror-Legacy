@@ -157,7 +157,7 @@ namespace MirrorChronicles.Tests.Mirror
             w.Resources.AddPrayers(Settings.PrayersPerRitual - 1);
             var victim = Sacrifice(w);
             Assert.IsFalse(w.Talismans.PerformRitual(Bearer(w), victim));
-            Assert.IsTrue(victim.IsAlive);
+            CollectionAssert.Contains(w.Resources.Beasts, victim); // the beast is kept
         }
 
         [Test]
@@ -323,6 +323,53 @@ namespace MirrorChronicles.Tests.Mirror
 
             w.Talismans.Restore(new TalismanOffer(bearer.ID, new System.Collections.Generic.List<string> { "no-such-talisman" }));
             Assert.IsNull(w.Talismans.PendingOffer, "no talisman the content still has");
+        }
+
+        // ---- A beast may belong to a power: killing it has a price (user decision, 2026-09-26) ----
+
+        [Test]
+        public void SacrificingAPowersBeast_SoursThatPower_WhenFound()
+        {
+            var w = new TestWorld(new FixedRandom(0.0)); // found out
+            w.Factions.InitializeFactions();
+            w.Resources.AddPrayers(Settings.PrayersPerRitual);
+            var owner = w.Factions.GetFactionByName("Famille Ruan");
+            int before = owner.RelationWithPlayer;
+            var beast = new CapturedBeast("ruan-beast", CultivationRealm.QiRefinement, 2, "Famille Ruan");
+            w.Resources.AddBeast(beast);
+
+            Assert.IsTrue(w.Talismans.PerformRitual(Bearer(w), beast));
+
+            Assert.AreEqual(before + Settings.OwnedBeastRelationPenalty, owner.RelationWithPlayer);
+        }
+
+        [Test]
+        public void SacrificingAPowersBeast_UnnoticedCostsNothing()
+        {
+            var w = new TestWorld(new FixedRandom(0.999)); // nobody notices
+            w.Factions.InitializeFactions();
+            w.Resources.AddPrayers(Settings.PrayersPerRitual);
+            var owner = w.Factions.GetFactionByName("Famille Ruan");
+            int before = owner.RelationWithPlayer;
+            var beast = new CapturedBeast("ruan-beast", CultivationRealm.QiRefinement, 2, "Famille Ruan");
+            w.Resources.AddBeast(beast);
+
+            w.Talismans.PerformRitual(Bearer(w), beast);
+
+            Assert.AreEqual(before, owner.RelationWithPlayer);
+        }
+
+        [Test]
+        public void SacrificingASolitaryBeast_TouchesNoPower()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            w.Factions.InitializeFactions();
+            w.Resources.AddPrayers(Settings.PrayersPerRitual);
+            var moods = w.Factions.Factions.Select(f => f.RelationWithPlayer).ToList();
+
+            w.Talismans.PerformRitual(Bearer(w), Sacrifice(w));
+
+            CollectionAssert.AreEqual(moods, w.Factions.Factions.Select(f => f.RelationWithPlayer));
         }
     }
 }
