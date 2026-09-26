@@ -92,7 +92,7 @@ namespace MirrorChronicles.Session
             Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
-            Espionage = new EspionageSystem(Context, Factions, Deduction, Stability);
+            Espionage = new EspionageSystem(Context, Factions, Deduction, Stability, Techniques);
             Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);

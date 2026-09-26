@@ -61,7 +61,8 @@ namespace MirrorChronicles.Tests.Diplomacy
         public void AttemptEspionage_TakesAFragment_WhenThePowerHoldsNothingNew()
         {
             var (w, target, spy) = Mission(new FixedRandom(0.0));
-            target.Techniques.Add("clear-spring-sutra"); // the clan's own
+            w.Techniques.Learn("clear-spring-sutra");
+            target.Techniques.Add("clear-spring-sutra"); // the clan knows it already
 
             var result = w.Espionage.AttemptEspionage(spy, target);
 
