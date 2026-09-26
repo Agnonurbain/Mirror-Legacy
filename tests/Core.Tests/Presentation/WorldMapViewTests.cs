@@ -92,5 +92,39 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.AreEqual(species, shown.Species);
             Assert.AreEqual(beast.OwnerFaction ?? "solitaire", shown.Owner);
         }
+
+        // ---- The Qi of a place (L5b) ----
+
+        [Test]
+        public void QiOf_TellsTheDensity_TheQi_AndTheirAbundance()
+        {
+            var qi = WorldMapView.QiOf(NewGame(), "jingshui-lake");
+
+            Assert.AreEqual("Qi ordinaire", qi.Density);
+            Assert.IsTrue(qi.Qi.Any(q => q.Name == "Qi de la Source Claire" && !string.IsNullOrEmpty(q.Abundance)));
+            Assert.IsNull(qi.Atmosphere);
+        }
+
+        [Test]
+        public void QiOf_NamesTheAtmosphere_AndWhatItFavours()
+        {
+            var qi = WorldMapView.QiOf(NewGame(), "baishi");
+
+            Assert.AreEqual("Grand Entrepôt des Esprits Funestes", qi.Atmosphere);
+            StringAssert.Contains("Eau Nourricière", qi.AtmosphereEffect);
+            StringAssert.Contains("Dao du Diable", qi.AtmosphereEffect);
+        }
+
+        [Test]
+        public void QiOf_TellsTheStormsWeight()
+        {
+            StringAssert.Contains("−2,5 %", WorldMapView.QiOf(NewGame(), "zhanghe").AtmosphereEffect);
+        }
+
+        [Test]
+        public void QiOf_AnUnknownPlace_IsNull()
+        {
+            Assert.IsNull(WorldMapView.QiOf(NewGame(), "nowhere"));
+        }
     }
 }
