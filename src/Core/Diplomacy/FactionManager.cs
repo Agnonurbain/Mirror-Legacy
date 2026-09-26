@@ -93,8 +93,9 @@ namespace MirrorChronicles.Diplomacy
         }
 
         /// <summary>
-        /// Restores saved factions. The map belongs to the content: a power the content knows takes its place from
-        /// it (a save made before the map moved keeps up); a save from before FamilyName gets it back too.
+        /// Restores saved factions. A power whose place is gone from the map (a save made before the map moved) takes
+        /// its place from the content; one still on the map keeps it (it may have moved in the game). A save from before
+        /// FamilyName gets it back too.
         /// </summary>
         public void Restore(IEnumerable<FactionData> saved)
         {
@@ -104,7 +105,7 @@ namespace MirrorChronicles.Diplomacy
             {
                 var template = ctx.Content.Factions.FirstOrDefault(t => t.Name == faction.Name);
                 if (template == null) continue; // an older save's invented faction: no place on the map
-                faction.RegionId = template.RegionId;
+                if (ctx.Content.Regions.All(r => r.Id != faction.RegionId)) faction.RegionId = template.RegionId;
                 faction.FamilyName ??= template.FamilyName;
             }
         }

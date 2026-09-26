@@ -25,6 +25,7 @@ namespace MirrorChronicles.Mirror
             this.clan = clan;
             this.resources = resources;
             ctx.Events.OnYearStarted += year => GatherPrayers();
+            ctx.Events.OnCharacterDied += (dead, cause) => { if (PendingOffer?.BeneficiaryId == dead.ID) PendingOffer = null; }; // the offer dies with its bearer
         }
 
         private TalismanSettings Settings => ctx.Content.Balance.Talismans;
@@ -40,12 +41,17 @@ namespace MirrorChronicles.Mirror
         public bool PerformRitual(CharacterData bearer, CharacterData sacrifice)
         {
             var rank = sacrifice == null ? null : TalismanRules.RankOf(sacrifice);
-            bool possible = PendingOffer == null && bearer != null && bearer.IsAlive && bearer.TalismanQiId == null
-                && SpiritualOrificeRules.CanCultivate(bearer) && sacrifice != bearer && sacrifice.IsAlive && rank != null
-                && resources.Prayers >= Settings.PrayersPerRitual;
-            if (!possible)
+            string refusal =
+                PendingOffer != null ? "an offer already awaits a choice"
+                : bearer == null || !bearer.IsAlive || !SpiritualOrificeRules.CanCultivate(bearer) ? "the bearer cannot receive a talisman"
+                : bearer.TalismanQiId != null ? "the bearer already has a talisman"
+                : sacrifice == null || sacrifice == bearer || !sacrifice.IsAlive ? "there is no sacrifice"
+                : rank == null ? "the sacrifice is below the Qi Cultivation"
+                : resources.Prayers < Settings.PrayersPerRitual ? "the prayers are lacking"
+                : null;
+            if (refusal != null)
             {
-                ctx.Log.Warning($"[Mirror] The talisman ritual for {bearer?.FullName} cannot be performed.");
+                ctx.Log.Warning($"[Mirror] The talisman ritual for {bearer?.FullName} cannot be performed: {refusal}.");
                 return false;
             }
 
@@ -73,8 +79,13 @@ namespace MirrorChronicles.Mirror
             return true;
         }
 
-        /// <summary>Restores the offer of a save (null: none).</summary>
-        public void Restore(TalismanOffer offer) => PendingOffer = offer;
+        /// <summary>Restores the offer of a save (null: none); one whose bearer or talismans no longer resolve is dropped.</summary>
+        public void Restore(TalismanOffer offer)
+        {
+            bool resolves = offer?.Choices != null && clan.FindById(offer.BeneficiaryId)?.IsAlive == true
+                && offer.Choices.Count > 0 && offer.Choices.All(id => ctx.Content.Talismans.Any(t => t.Id == id));
+            PendingOffer = resolves ? offer : null;
+        }
 
         /// <summary>Each year, the clan's mortals and its prestige bring prayers to the mirror.</summary>
         private void GatherPrayers()
