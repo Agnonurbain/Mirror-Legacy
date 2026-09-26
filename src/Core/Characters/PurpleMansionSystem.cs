@@ -14,7 +14,7 @@ namespace MirrorChronicles.Characters
         /// <summary>The Ascent to the Shenyang Mansion: talent carries it, a troubled mind betrays it.</summary>
         public static int AscentChance(CharacterData c, PurpleMansionSettings s, TrialModifiers m)
         {
-            int chance = s.AscentBaseChance + (c.SpiritualRoot - m.AverageRoot) / m.RootPointsPerPercent;
+            int chance = s.AscentBaseChance + (c.SpiritualRoot - m.AverageRoot) / m.RootPointsPerPercent + Lineage(c, s);
             if (c.MentalStability < m.LowStabilityThreshold) chance -= m.LowStabilityPenalty;
             return Clamp(chance);
         }
@@ -28,13 +28,21 @@ namespace MirrorChronicles.Characters
             int grade = method?.Grade ?? m.ReferenceGrade;
             int techniques = Math.Min(s.ManifestationTechniqueCap, Math.Max(0, (c.KnownTechniqueIDs?.Count ?? 0) - 1));
             int chance = s.ManifestationBaseChance + (grade - m.ReferenceGrade) * s.ManifestationPerGrade
-                + techniques * s.ManifestationPerTechnique + (c.SpiritualRoot - m.AverageRoot) / m.RootPointsPerPercent;
+                + techniques * s.ManifestationPerTechnique + (c.SpiritualRoot - m.AverageRoot) / m.RootPointsPerPercent + Lineage(c, s);
             return Clamp(chance);
         }
 
         /// <summary>The Illusions: forgetting oneself in the dark takes a steady mind.</summary>
         public static int IllusionsChance(CharacterData c, PurpleMansionSettings s, TrialModifiers m) =>
-            Clamp(s.IllusionsBaseChance + (c.MentalStability - m.AverageStability) / m.StabilityPointsPerPercent);
+            Clamp(s.IllusionsBaseChance + (c.MentalStability - m.AverageStability) / m.StabilityPointsPerPercent + Lineage(c, s));
+
+        /// <summary>A Realization holder's descendant eases each trial (the transformed lineage, §5.5.2).</summary>
+        private static int Lineage(CharacterData c, PurpleMansionSettings s) => c.TransformedLineage ? s.TransformedLineageBonus : 0;
+
+        /// <summary>The Illusions with the whole content: a talisman Qi's still heart dispels them (LORE.md §11.5).</summary>
+        public static int IllusionsChance(CharacterData c, GameContent content) =>
+            Clamp(IllusionsChance(c, content.Balance.PurpleMansion, content.Balance.TrialModifiers)
+                + (Mirror.TalismanRules.Of(c, content.Talismans)?.IllusionsBonus ?? 0));
 
         /// <summary>How long the Great Void holds a cultivator: years of a band, or for life past the last band.</summary>
         public static (int Years, bool ForLife) DrawVoid(Random rng, IReadOnlyList<VoidBand> bands)
@@ -139,7 +147,7 @@ namespace MirrorChronicles.Characters
             member.Retreat = Retreat.None;
             member.RetreatYearsLeft = 0;
 
-            int chance = PurpleMansionRules.IllusionsChance(member, Settings, ctx.Content.Balance.TrialModifiers);
+            int chance = PurpleMansionRules.IllusionsChance(member, ctx.Content);
             if (ctx.Rng.Next(1, 101) > chance)
             {
                 LoseAllCultivation(member);

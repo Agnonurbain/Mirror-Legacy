@@ -172,5 +172,18 @@ namespace MirrorChronicles.Tests.Data
             Assert.AreEqual(fruition, f.Name);
             Assert.AreEqual(foundation, f.Abilities.Single(a => a.Id == abilityId).Name);
         }
+
+        // ---- Revealed by the wiki's character pages (2026-09-26) ----
+
+        [TestCase("supreme-yin", "Lac de la Lune d'Automne")]   // Autumn Moon Lake
+        [TestCase("mutable-metal", "Bête aux Plumes d'Or")]     // Gold Feathered Beast
+        [TestCase("orthodox-fire", "Grand Codex du Feu Li")]    // Great Li Codex
+        [TestCase("blazing-fire", "Cœur d'Épine Blanche")]      // White Thorn Heart
+        public void ShippedFruitions_NameTheFoundationsTheCharactersHold(string fruitionId, string foundation)
+        {
+            var ability = Fixtures.Content.Fruitions.Single(f => f.Id == fruitionId).Abilities.Single(a => a.Name == foundation);
+            Assert.AreEqual(Provenance.Wiki, ability.Provenance);
+            Assert.IsFalse(ability.Id.StartsWith("unrevealed"), "a revealed ability takes an id of its own");
+        }
     }
 }

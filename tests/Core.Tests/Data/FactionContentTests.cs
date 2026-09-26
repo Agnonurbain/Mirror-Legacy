@@ -67,10 +67,14 @@ namespace MirrorChronicles.Tests.Data
         [TestCase("Famille Fang", "jingshui-lake")]
         [TestCase("Famille Lü", "jingshui-lake")]
         [TestCase("Famille Tao", "jingshui-lake")]
+        [TestCase("Famille Kang", "jingshui-lake")]  // the lake map of the wiki: a sixth family on the south-east shore
         [TestCase("Famille Ruan", "heshan")]
         [TestCase("Famille Gu", "grey-reed-plain")]
         [TestCase("Secte du Pic des Nuées", "mount-yunfeng")]
         [TestCase("Porte du Roc Obscur", "yunmen")]
+        [TestCase("Porte du Fer Ardent", "fiery-iron-lands")]
+        [TestCase("Porte du Givre Blanc", "white-frost-lands")]
+        [TestCase("Secte de la Lune Pâle", "pale-moon-lands")]
         [TestCase("Atoll des Perles Noires", "black-pearl-atoll")]
         public void ShippedFactions_LiveWhereTheMapPutsThem(string name, string region)
         {

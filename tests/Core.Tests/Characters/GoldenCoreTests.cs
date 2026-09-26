@@ -471,5 +471,199 @@ namespace MirrorChronicles.Tests.Characters
                 GameContentLoader.Load(name => name == GameContentLoader.BalanceFile ? balance.ToString() : Fixtures.ReadDataFile(name)));
             StringAssert.Contains(GameContentLoader.BalanceFile, error.Message);
         }
+
+        // ---- The four stages: affirming one's Fruition image (LORE.md §5.5.2) ----
+
+        private static CharacterData Holder(TestWorld w, GoldenCoreState state = GoldenCoreState.Realization)
+        {
+            var c = Forged(w, OrthodoxWater);
+            c.GoldenCore = state;
+            c.CurrentTask = TaskType.Cultivation;
+            c.CultivationXP = 0;
+            c.Temperament = Temperament.None; // neutral heart: one point a year
+            return c;
+        }
+
+        private static void Years(TestWorld w, int years)
+        {
+            for (int y = 0; y < years; y++) w.GoldenCore.ProcessBreakthroughPhase();
+        }
+
+        [Test]
+        public void AHolder_AffirmsTheImage_AndRisesAStage()
+        {
+            var w = new TestWorld();
+            var c = Holder(w);
+            var core = Content.Balance.GoldenCore;
+            int needed = core.ImageToNextStage[0] / core.ImagePointsPerYear; // years at a neutral heart
+
+            Years(w, needed - 1);
+            Assert.AreEqual(1, c.RealmStage);
+            Years(w, 1);
+            Assert.AreEqual(2, c.RealmStage);
+        }
+
+        [Test]
+        public void AnEssenceWithoutPosition_AffirmsNoImage()
+        {
+            var w = new TestWorld();
+            var c = Holder(w, GoldenCoreState.MetallicEssenceOnly);
+            Years(w, Content.Balance.GoldenCore.ImageToNextStage[0] / Content.Balance.GoldenCore.ImagePointsPerYear);
+            Assert.AreEqual(1, c.RealmStage);
+        }
+
+        [Test]
+        public void AHeartAlignedWithTheLineage_AffirmsFaster()
+        {
+            var w = new TestWorld();
+            var neutral = Holder(w);
+            var aligned = Holder(w);
+            aligned.Temperament = Lineage(OrthodoxWater).Temperament;
+            Years(w, 10);
+            Assert.Greater(aligned.CultivationXP, neutral.CultivationXP);
+        }
+
+        [Test]
+        public void TheLastStage_IsTheApex()
+        {
+            var w = new TestWorld();
+            var c = Holder(w);
+            c.RealmStage = 4;
+            Years(w, 5);
+            Assert.AreEqual(4, c.RealmStage);
+        }
+
+        // ---- Moving between positions (LORE.md §5.5.1, R8): Transfer and Transformation ----
+
+        [Test]
+        public void Transfer_ASurplus_TakesTheRealizationOnceItIsFree()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Holder(w, GoldenCoreState.Surplus);
+
+            Assert.IsTrue(w.GoldenCore.Transfer(c));
+
+            Assert.AreEqual(GoldenCoreState.Realization, c.GoldenCore);
+            Assert.AreEqual(new FruitionState(FruitionStatus.Occupied, c.FullName), w.Fruitions.State(OrthodoxWater));
+        }
+
+        [Test]
+        public void Transfer_Refuses_WhileTheRealizationIsHeld_OrWithoutASurplus()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var intercalary = Holder(w, GoldenCoreState.Intercalary);
+            Assert.IsFalse(w.GoldenCore.Transfer(intercalary));
+
+            var surplus = Holder(w, GoldenCoreState.Surplus);
+            w.Fruitions.Claim(OrthodoxWater, "Détenteur");
+            Assert.IsFalse(w.GoldenCore.Transfer(surplus));
+        }
+
+        [Test]
+        public void Transfer_Failure_WoundsTheDao()
+        {
+            var w = new TestWorld(new FixedRandom(Fail));
+            var c = Holder(w, GoldenCoreState.Surplus);
+
+            Assert.IsTrue(w.GoldenCore.Transfer(c)); // tried
+
+            Assert.AreEqual(GoldenCoreState.Surplus, c.GoldenCore);
+            Assert.AreEqual(1, c.DaoWounds);
+            Assert.AreEqual(FruitionStatus.Free, w.Fruitions.State(OrthodoxWater).Status);
+        }
+
+        [Test]
+        public void Transformation_AnIntercalary_SeizesTheSovereignPosition()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Holder(w, GoldenCoreState.Intercalary);
+
+            Assert.IsTrue(w.GoldenCore.Transform(c));
+
+            Assert.AreEqual(GoldenCoreState.Realization, c.GoldenCore);
+        }
+
+        [Test]
+        public void Transformation_IsTheHarderMove()
+        {
+            var core = Content.Balance.GoldenCore;
+            Assert.Less(core.TransformationChance, core.TransferChance);
+        }
+
+        // ---- The Fruition reclaims its body (« Struggle of the Five Faces », LORE.md §5.5.2) ----
+
+        [Test]
+        public void AFruitionThatHadAMaster_MayReclaimItsHoldersSoul()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Holder(w);                               // the Orthodox Water once held by Yu (§6.8)
+            w.Fruitions.Claim(OrthodoxWater, c.FullName);
+
+            w.GoldenCore.ProcessBreakthroughPhase();
+
+            Assert.AreEqual(DeathCause.SoulReplaced, c.CauseOfDeath);
+            Assert.AreEqual(Lineage(OrthodoxWater).FormerHolders[0], w.Fruitions.State(OrthodoxWater).Holder);
+        }
+
+        [Test]
+        public void AFruitionWithoutFormerMaster_ReclaimsNothing()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Forged(w, NourishingWater, FiveOrthodoxWater.Take(4).Append("nourishing-water:winter-drizzle").ToArray());
+            c.GoldenCore = GoldenCoreState.Realization;
+            w.Fruitions.Claim(NourishingWater, c.FullName);
+
+            w.GoldenCore.ProcessBreakthroughPhase();
+
+            Assert.IsTrue(c.IsAlive);
+        }
+
+        [Test]
+        public void ReclaimChance_FallsWithAStableMind()
+        {
+            var calm = Fixtures.Cultivator();
+            var troubled = Fixtures.Cultivator();
+            calm.MentalStability = 100;
+            troubled.MentalStability = 0;
+            Assert.Less(GoldenCoreRules.ReclaimChance(calm, Content), GoldenCoreRules.ReclaimChance(troubled, Content));
+        }
+
+        // ---- The transformed lineage (§5.5.2): a Realization's descendants reach at least the Purple Mansion ----
+
+        [Test]
+        public void ARealizationHoldersDescendants_BearTheTransformedLineage()
+        {
+            var w = new TestWorld();
+            var holder = Holder(w);
+            var child = w.Clan.GenerateChild(holder, w.Join(Fixtures.Mortal(isMale: false)));
+            var grandchild = w.Clan.GenerateChild(child, w.Join(Fixtures.Mortal(isMale: false)));
+
+            Assert.IsTrue(child.TransformedLineage && grandchild.TransformedLineage);
+        }
+
+        [Test]
+        public void TheTransformedLineage_RisesToThePurpleMansion_WithoutTheMethodsSecret()
+        {
+            var w = new TestWorld();
+            var heir = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4)); // the clan's grade 3 method: no secret
+            var step = PowerLadder.Next(heir.Realm, heir.RealmStage);
+            Assert.IsFalse(w.Cultivation.AllowsNextStep(heir, step));
+
+            heir.TransformedLineage = true;
+
+            Assert.IsTrue(w.Cultivation.AllowsNextStep(heir, step));
+        }
+
+        [Test]
+        public void TheTransformedLineage_EasesThePurpleMansionsTrials()
+        {
+            var s = Content.Balance.PurpleMansion;
+            var m = Content.Balance.TrialModifiers;
+            var plain = Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4);
+            var heir = Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4);
+            plain.MentalStability = heir.MentalStability = 30;
+            heir.TransformedLineage = true;
+            Assert.AreEqual(PurpleMansionRules.AscentChance(plain, s, m) + s.TransformedLineageBonus, PurpleMansionRules.AscentChance(heir, s, m));
+        }
     }
 }

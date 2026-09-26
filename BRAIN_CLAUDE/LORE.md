@@ -308,6 +308,8 @@ Exemple (*Qiu Mingshan*, avec une méthode d'Eau de grade 3) : les six chakras d
 - **Alignement du Cœur Dao** : on adopte inconsciemment un tempérament proche de sa fondation, pour cultiver plus efficacement. Cela dépend beaucoup de la personnalité d'origine : un meneur au cœur dominateur (*Hou Lie*) cultive bien mieux le Yang Lumineux, fougueux, qu'un solitaire (*Nian Suo*). Un Cœur mal aligné **entrave** la cultivation (ampleur inconnue).
 - Le corps devient **inhumain à l'image du Dao** : sang doré pour une fondation de Métal (*Ban Jinhe*), sang flottant en gouttelettes électrifiées pour une fondation du Magnétisme Primordial (*Nian Suo*).
 
+✅ L4c (2026-09-26) : le corps inhumain vient avec la fondation (`bodyTrait` des lignées : sang doré pour le Métal, gouttelettes électrifiées pour le Magnétisme Primordial ; les autres lignées attendent une source) et se transmet aux enfants (🔎 une chance sur deux).
+
 #### 5.3.3 Partenaires Dao
 - Chaque fondation immortelle a **4 Partenaires Dao** (« fondations compatibles »).
 - **Consommer** un de ses Partenaires Dao fait passer **instantanément au stade suivant**, mais **bloque définitivement** toute progression ultérieure, même en cultivant.
@@ -364,6 +366,8 @@ Royaume de la culture et du raffinement des **pouvoirs divins** (dans l'Antiquit
 #### 5.4.2 Voies de contournement
 - **Lien à un trésor** : lier son essence et son destin à un **trésor spirituel du Manoir Pourpre**, voire à une **Grotte Céleste**, pour atteindre divers niveaux de maîtrise — en sacrifiant la progression future ou en soumettant son destin à l'objet. Exemple : *Lan Guyu*, grâce à sa fonction innée (Bénédiction Divine), à la capacité divine *Attente du Rare Présage* d'un parent et à des ressources compatibles, obtient les pouvoirs d'un Maître à **double capacité divine sans en posséder aucune**.
 - **Emprunt de lumière** : emprunter la lumière d'une Fruition par l'intermédiaire d'un Vrai Monarque ou équivalent, pour devenir un cultivateur du Manoir Pourpre comparable à un « Miséricordieux ».
+
+✅ L4c (2026-09-26) : **emprunt de lumière** (une Fondation à l'apogée, avec la permission d'un détenteur, devient un Manoir Pourpre « Miséricordieux » sans capacité propre ; tribut annuel 🔎, chute si le prêteur disparaît). Le **lien à un trésor** attend les trésors (L6).
 
 #### 5.4.3 Progression : cinq capacités divines
 - Après la 1re capacité, recommencer avec **une autre technique alignée sur un Partenaire Dao**, la cultiver jusqu'au Manoir Pourpre et condenser la 2e capacité, et ainsi de suite **jusqu'à cinq**.
@@ -429,6 +433,7 @@ Maîtriser **5 capacités divines** et atteindre la perfection suprême dans les
 
 ✅ Fait en L4b (2026-09-26) : `GoldenCoreSystem`. **Deux étapes** : `Forge` (5 capacités, XP du royaume, méthode de recherche d'or de la lignée visée — fait `GoldSeeking`, déchiffré par le miroir ; la méthode spécialisée `lignée:intercalary` pour 3A+2B) donne un Vrai Monarque **sans position** (R7), qui peut attendre ; `ClaimPosition` demande la position que ses capacités ouvrent (`GoldenCoreRules.RouteTo`) : **Réalisation** (5 capacités de la lignée, aucune de substitution ; lignée **libre** seulement, le membre en devient détenteur), **Surplus** (5 de la lignée dont une de substitution), **Intercalaire** (1 ou 2 de la lignée visée, le reste d'**une seule** autre ; les 4e et 5e capacités peuvent venir d'une autre lignée). Lignée occupée : Surplus ou Intercalaire avec **la permission du détenteur** (tribut ; caduque si le détenteur change) ; brisée, cachée ou soupçonnée : fermée. **Échec** de l'une ou l'autre étape : mort, **Démon d'Essence Métallique** (événement ; menace régionale en L6).
 🔎 Interprétations (valeurs dans `balance.json` `goldenCore`) : chances de forge et de chaque position ; capacités superficielles (−8 %) et greffées (−12 %) pèsent sur la forge (« chemin inévitablement périlleux ») ; la Vie condensée en dernier aide (+10 %, §5.4.4) ; l'axiome des positions coûte 30 % ; le Surplus est plus sûr que la Réalisation (« influence moindre »), l'Intercalaire 3+2 plus sûr que le 4+1 (« très difficile mais plus sûre » : la difficulté est la méthode spécialisée) ; la permission coûte 5000 pierres, 30 % d'accord.
+✅ L4e (2026-09-26) : **stades 2 à 4** par l'affirmation de l'image (🔎 points annuels × alignement du Cœur, seuils 1000/3000/6000) ; **Transfert** (Surplus → Réalisation libérée, 🔎 60 %) et **Transformation** (Intercalaire → position souveraine, 🔎 35 %), l'échec blesse le Dao ; **Reprise de la Fruition** (🔎 1 %/an, moitié moins pour l'esprit le plus stable : le membre est perdu, l'ancien maître reprend la lignée) ; **lignée transformée** (descendants d'un détenteur de Réalisation : montée au Manoir Pourpre sans le secret de la méthode, 🔎 +20 % aux quatre épreuves).
 🎮 Phase 4 : `FruitionPosition` (Realization / Surplus / Intercalary) ; **état du monde** : chaque Fruition a un détenteur ou non (§6.8) ; percée = choix de position + permission éventuelle du détenteur ; échec = événement **Démon d'Essence Métallique** (boss régional) ; réincarnation d'un ancêtre Vrai Monarque = événement majeur ; bonus de lignée pour les descendants.
 
 ### 5.6 Embryon du Dao (Immortel)
@@ -741,6 +746,10 @@ Fondations nommées sans Fruition certaine : *Brume de l'Aube Universelle* ; *Ou
 | **Grand Chaman** | Passerelle vers le Dao chamanique (§3.5) |
 - 📚 Grandes catégories : **Pur, Radieux, Convergent, Fusionnant** ; les **bêtes à plumes** suivent surtout le Pur et le Radieux, les **bêtes à écailles** la Convergence et la Fusion.
 
+### 6.8b Fondations et techniques révélées par les fiches de personnages du wiki (📚, 2026-09-26)
+Les 211 fiches de la catégorie *Characters* nomment 30 fondations et 10 capacités ; toutes sont déjà dans `fruitions.json` sous leur nom du jeu, sauf quatre qui comblent des emplacements non révélés : *Lac de la Lune d'Automne* (Yin Suprême), *Bête aux Plumes d'Or* (Métal Muable), *Grand Codex du Feu Li* (Feu Orthodoxe), *Cœur d'Épine Blanche* (Feu Ardent). Cinq restent sans lignée connue (*Golden Aperture Heart*, *Molten Metal Cave*, *Scroll of Fortunate Attainments*, *The Palace Sun Tiger*, *Vermillion Sage*) : à rattacher quand une source parlera.
+Les fiches citent aussi **43 techniques** ; celles qui ne sont pas au catalogue n'y entrent pas encore, faute de **grade** et de **Qi** connus (L3b). Candidates, avec la lignée de leurs pratiquants : *Radiant Essence Scripture* et *Bright Yang Method* (Yang Lumineux), *Moonlake Autumn Reflection Technique* (Yin Suprême), *Cold Pine Dew Snow Technique* (Qi Froid), *Dawn Dew Gathering Technique* (Lueur de l'Aube), *Expelling Cold Art* et *Subduing Fire* (Feu Ardent), *Gold Aura Profound Inquiry Technique* et *Golden Light Edge Technique* (Métal Geng), *Golden Book of Singular Attunement* (Élixir Parfait), *Guardian of the Courtly Path* et *Jade True Dao Unification Technique* (Jade Premier), *Hidden Esoteric Profound Method* (Grand Chaman), *Pheasant Flame's Long March Technique* (Feu Véritable), *Profound Light Mountain Chasing Scripture* (Terre liée), *Purple Thunder Secret Origin Technique* (Tonnerre Céleste), *River One Qi Technique* et *Stone Pestle Sea Expansion Technique* (Eau de Fosse), *The Heavenly Scripture of the Dimming Li Day* (Feu Li), *Taixu Purple Essence Manual* (Qi Violet), *Great Void Revolution Art*, *Severance Art of Parting Ways*, *Six Stems Talisman Art*, *Tome of Subjugating the Murky Mountain*, *Patterned Brocade technique*, *Profound Flame Merging Fire Secret Technique* ; voies bouddhistes : *Liberation Dao*, *Way of Emptiness*. Les noms du jeu seront donnés en les intégrant (D6).
+
 ### 6.9 Autorité des positions (📚 compléments du wiki)
 
 - **Les trois positions d'or** : **Fruition** (果, la Racine / le Dragon : l'Essence) ; **Surplus** (余, le Feuillage / le Tigre : la Manifestation — autorité asymétrique, dépendante de la structure posée par le détenteur) ; **Intercalaire** (闰, l'Exception / le Phénix : occuper les failles et incohérences des lois du Ciel, comme le mois intercalaire du calendrier lunaire — « ils ne forcent pas le fleuve, ils déplacent son lit »).
@@ -799,6 +808,8 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 
 ### 7.3 Autour du clan
 
+📚 **Carte détaillée du lac (wiki, 2026-09-26)** : Tao au nord, Lou au nord-est, Fang et une sixième famille, les **Kang** (✅ nom validé), sur la rive sud-est, Mo au sud (villages de Jingxi) ; tribus des montagnes à l'ouest et au sud-ouest ; « familles de la rive est » au-delà. Un domaine marqué « 池 » sur la rive est reste ambigu (famille Bai, ou avant-poste du Pic des Nuées ?) : rien n'est déplacé tant qu'une source ne tranche pas.
+
 📚 **Le lac et ses clans.** Le Lac Jingshui, plus tard appelé **Lac Immortel**, fait face au nord et au sud ; les Ruan vivent dans les terres sauvages au nord-est. Il relevait d'abord de la Secte du Pic des Nuées avant d'être confié aux Mo. **Cinq clans** vivent autour du lac : **Lou, Fang, Mo, Lü et Tao** ; sous la domination des Mo, le lac sera unifié autour de son **île centrale, Cuidao**. Les **Monts Qingyan** forment une longue chaîne : le **Pic de Jingxi** domine le **village de Jingxi** (village natal du clan) ; plus au sud, le **Pic Meiling**, puis le **village de Qingyang**.
 
 
@@ -807,7 +818,7 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 | Centre-ouest | **Lac Jingshui** (« Lac de l'Eau-Miroir »), ancien **Marais Jingshui** | Domaine du clan Mo |
 | Sud du lac | **Monts Qingyan** | Protégés par la **Renarde des Monts Qingyan** (pacte ancien) |
 | Sud-ouest du lac | **Mont Fengxi** | |
-| Ouest du lac | **Préfecture de Wuyang** | |
+| Est du lac (📚 carte du wiki ; « ouest » était une erreur) | **Préfecture de Wuyang** | |
 | Est du lac | **Préfecture de Heshan**, territoire de la **famille Ruan** | Voisins directs |
 | Est | **Préfecture de Qianshi** | |
 | Nord | **Terres Désolées du Nord**, **Plaine de Guling** | Sauvage |
@@ -825,7 +836,7 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 - 🔎 Sur la carte du wiki (état au chapitre 850), le lac, les Monts Qingyan et la Plaine des Roseaux Gris sont dans l'**ouest de Hanshan**, pas dans Linxi : les frontières bougent au fil de l'histoire. Le jeu suit la carte fournie (le lac dans Linxi) ; 💡 un déplacement de frontière pourrait devenir un événement.
 
 🎮 Phase 5 : `RegionDefinition` (nom, position, voisins, faction dominante, modificateur de cultivation, phénomènes) ; `FactionTemplate` étendu (voie, royaume le plus haut, région, techniques possédées) ; nouvelle carte dessinée (style Shuimo) ; `WorldMapUI` par régions.
-✅ Fait en L5 (2026-09-26) : `game/data/regions.json` (États, mers et lieux de ce chapitre ; 🔎 positions relatives, voisinages et trois noms de sièges — *Fleuve du Nord*, *Collines du Nord-Ouest*, *Hauts du Nord-Est* — interprétés) et `factions.json` (les puissances des §7-§10, avec leurs techniques du §2.4 ; 🔎 personnalité, puissance, richesse, relation de départ et royaume le plus haut interprétés ; les familles Bai, Zang, Xun, Qiao, le Manoir de Chenguang et le Monastère de Huiqiu, que le lore ne situe pas, sont placés dans le Linxi). Les 8 factions inventées ont disparu. Écran « Carte du monde ».
+✅ Fait en L5 (2026-09-26), 📚 positions reprises de la carte du Jiangnan du wiki le même jour (référence seulement, D1 ; Wuyang à l'est du lac, Haiyan au sud, Songhe au centre-est, Gouffre des Bêtes au sud du lac, terres des Mille Lames à l'ouest ; les sièges sans nom portent celui de leur secte ou porte : Terres de la Lune Pâle, du Fer Ardent, du Givre Blanc) : `game/data/regions.json` (États, mers et lieux de ce chapitre ; 🔎 positions relatives, voisinages et trois noms de sièges — *Fleuve du Nord*, *Collines du Nord-Ouest*, *Hauts du Nord-Est* — interprétés) et `factions.json` (les puissances des §7-§10, avec leurs techniques du §2.4 ; 🔎 personnalité, puissance, richesse, relation de départ et royaume le plus haut interprétés ; les familles Bai, Zang, Xun, Qiao, le Manoir de Chenguang et le Monastère de Huiqiu, que le lore ne situe pas, sont placés dans le Linxi). Les 8 factions inventées ont disparu. Écran « Carte du monde ».
 
 ---
 
@@ -884,6 +895,8 @@ Les personnages cités en exemple par la source deviennent des **figures du mond
 | **Moine Wuyi** | Commentateur de l'essence métallique de Xiaoyun |
 | **Yinjun**, **Taichen** | Immortels Dorés de l'Antiquité |
 
+📚 **Figures des puissances** (fiches de personnages du wiki, 2026-09-26 ; `game/data/figures.json`, noms ✅ validés au §13.9) : 20 cultivateurs nommés des sectes, portes et familles, avec leur royaume (celui du wiki, souvent leur apogée) et leur naissance comptée depuis la découverte du miroir (an 0). Au Pic des Nuées : Bai Chengyu, Bai Ruozhi (né 192 ans avant le miroir), Pan Yuanwei (400), Qin Mingzhu (300), Pan Yiqiu, Qin Yuanhe, Lou Wenqing, Bai Zhiqing ; le Vénérable Lingxu (Noyau d'Or, Réalisation du Jade Premier) à la Lune Pâle ; Guan Yunhe aux Mille Lames ; Ruan Chuhe, patriarche des Ruan au Manoir Pourpre ; Zang Tiaoyun et Zang Wanru ; un Manoir Pourpre à la tête de six portes. Les puissances concernées atteignent donc au moins ce royaume. La carte montre les figures déjà nées ; les faire vivre et agir sous les mêmes règles que le clan (P1) : L5b-L6.
+
 ---
 
 ## 10. Ordres et lieux sacrés (renommés)
@@ -936,7 +949,7 @@ Le jeu s'adresse aux **amoureux du xianxia**. Sa profondeur ne vient pas de règ
 |---|---|---|
 | Technique de grade 1-2 (*Souffle Commun*) | N'importe qui cultive | Essence et aura impures, potentiel inférieur, plafond à la Culture du Qi |
 | Graine de Sceau | Cultiver sans orifice | Don **du miroir** : consomme du Clair de Lune du Yin Suprême et une place limitée par le niveau de restauration du miroir (§11.5) |
-| Qi de talisman | Trait unique + bond de cultivation | Rituel : **sacrifier** un être d'au moins la Culture du Qi (encens, âme, essence de sang, force spirituelle) + **dix mille prières** (§11.5) |
+| Qi de talisman | Trait unique + bond de cultivation | Rituel : **sacrifier une bête spirituelle chassée** d'au moins la Culture du Qi (✅ décision 2026-09-26) + **dix mille prières** (§11.5) |
 | Technique secrète | Accès à une méthode dont le Qi a disparu | Souvent imparfaite |
 | Consommer un Partenaire Dao | Stade suivant instantané | Progression **définitivement bloquée** ; Dao exploitable par les plus forts |
 | Ressources pour une capacité | Perfection rapide | Fondements superficiels, sorts plus faibles |
@@ -1009,6 +1022,8 @@ Le jeu s'adresse aux **amoureux du xianxia**. Sa profondeur ne vient pas de règ
 | Blanc | *Vent de vallée guidant le feu* | Le feu attire le Qi et raffine l'essence |
 | Blanc | *Arc-en-ciel perçant la voie céleste* | Esprit fortifié, lecture des sorts adverses, légère prolongation de la vie |
 | Blanc | *Arc-en-ciel vermillon fluide* | Descendance plus douée, fondation renforcée, vol plus rapide |
+
+✅ Fait le 2026-09-26 (`TalismanSystem`, `game/data/talismans.json`). ✅ **Décisions de l'utilisateur (2026-09-26)** : le rituel sacrifie **une bête spirituelle, jamais un membre du clan** ; **plus la bête est puissante, plus le Qi de talisman est de qualité** (son royaume fixe le rang — gris dès la Culture du Qi, blanc dès la Fondation — et 🔎 chaque tranche de trois stades ajoute un sous-niveau au bond) ; **le clan chasse ses bêtes** (tâche *Chasse aux bêtes*, 🔎 40 % de prise par an, une bête du royaume du chasseur et jamais d'un stade supérieur) sur un **terrain de chasse** choisi sur la carte ; une bête peut être **solitaire ou appartenir à une puissance** du lieu (🔎 une chance sur deux là où vivent des puissances) : la **tuer a un prix** — la puissance peut l'apprendre (🔎 60 %) et en garde rancune (🔎 −30 de relation). Il faut donc bien manœuvrer : choisir son terrain, garder les bêtes solitaires pour le rituel, ou attendre d'être en bons termes. Le reste : les **prières** s'accumulent chaque année (🔎 150 par mortel du clan, 10 par point de prestige) ; le rituel dépense **dix mille prières** ; le miroir offre 1 à 3 Qi du rang de la bête (🔎 1 sous 40 de racine, 2 dès 40, 3 dès 70 ; ceux du tempérament du porteur d'abord) ; le choix donne le bond et le trait. Déjà actifs en jeu : années de vie (+40 ; 🔎 +10 pour l'Arc-en-ciel perçant), vitesse de cultivation (×2 pour la Crête de pins ; 🔎 ×1,2-1,25 pour les Qi d'absorption), épreuve des Illusions (🔎 +20 %), racine des enfants (🔎 +15). Les autres traits (prémonition, force, vol, agilité, arts…) attendent le combat et les arts. *Épuiser la vie pour réussir* reste sans effet tant qu'une source ne le détaille pas.
 
 **Sa restauration.** Le miroir est incomplet : chaque **éclat** retrouvé (le premier est repêché dans le lac) lui rend de la puissance et des **souvenirs** (le premier contenait le *Sutra de la respiration du Yin Suprême*, technique de la Respiration Embryonnaire du Manoir de l'Aube d'Argent). Pendant l'intégration d'un éclat, l'esprit **s'endort** par intermittence ; son âme se renforce au fil des éclats.
 
@@ -1350,6 +1365,15 @@ Fondations et capacités divines (§6.5-6.7) :
 | Radiant Visage Immortals · Woven Jade Immortals · False Divine Core | Immortels au Visage Radieux · Immortels de Jade Tressé · Faux Noyau Divin |
 | Revered One Suxikong | Vénérable Kongji |
 | Numinous Treasure Dao Tradition | Tradition du Trésor Numineux |
+
+### 13.9 Ajouts de l'analyse de la carte et des personnages du wiki (✅ validé par l'utilisateur le 2026-09-26)
+| Source | Jeu |
+|---|---|
+| Famille Ding (丁, rive sud-est du Lac du Regard Lunaire) | Famille Kang |
+| Tang Yuanwu · Si Boxiu · Si Yuanbai · Yu Muxian · Chi Zhiyun (Étang d'Azur) | Pan Yuanwei · Qin Mingzhu · Qin Yuanhe · Lou Wenqing · Bai Zhiqing (famille Si → Qin) |
+| Zhang Yun (Plume d'Or) · Xiao Chuting · Xiao Yuansi · Ning Tiaoxiao · Ning Wan | Guan Yunhe (famille Zhang → Guan) · Ruan Chuhe · Ruan Yuanshi · Zang Tiaoyun · Zang Wanru |
+| Kong Yanxi (Profound Peak) · Lin Wei (Owl Mallow) · Zipei (Purple Smoke) · Chang Xiaozi (Changxiao) · Hengxing (Hengzhu) · Tulong Jian (Slaughter Jun) | Wen Yanqiu (famille Kong → Wen) · Hua Songlan · Daoïste Yanmo · Daoïste Changmu · Daoïste Hengyu · Shi Longhan |
+| Autumn Moon Lake (Yin Suprême) · Gold Feathered Beast (Métal Geng) · Great Li Codex (Feu Li) · White Thorn Heart (Feu Ardent) | Lac de la Lune d'Automne · Bête aux Plumes d'Or · Grand Codex du Feu Li · Cœur d'Épine Blanche (traductions descriptives, D6) |
 
 ### 13.8 Ajouts de la passe complète du wiki (✅ validé)
 | Source | Jeu |

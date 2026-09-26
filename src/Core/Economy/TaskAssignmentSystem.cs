@@ -57,6 +57,7 @@ namespace MirrorChronicles.Economy
             this.resources = resources;
             this.stability = stability;
             this.factions = factions;
+            HuntingGround = ctx.Content.Clan.HomeRegion;
             this.deduction = deduction;
             this.espionage = espionage;
             this.buildings = buildings;
@@ -101,6 +102,7 @@ namespace MirrorChronicles.Economy
                     case TaskType.Diplomacy: Diplomacy(); break;
                     case TaskType.Espionage: espionage.AttemptEspionage(member, factions.RandomFaction()); break;
                     case TaskType.GatherQi: qiGathered += GatherQi(member); break;
+                    case TaskType.HuntBeast: HuntBeast(member); break;
                         // Teaching needs this year's students: resolved below
                 }
             }
@@ -194,6 +196,32 @@ namespace MirrorChronicles.Economy
                 cultivation.GrantXp(students[i], bonus);
                 ctx.Log.Info($"[Tasks] {teachers[i].FullName} teaches {students[i].FullName} (+{bonus} XP).");
             }
+        }
+
+        /// <summary>
+        /// A year's hunt for a spirit beast (user decision, 2026-09-26: the mirror's ritual sacrifices beasts): with the
+        /// balance's chance, a beast of the hunter's realm, never of a higher stage than theirs.
+        /// </summary>
+        private void HuntBeast(CharacterData hunter)
+        {
+            if (!ctx.Rng.Chance(ctx.Content.Balance.Talismans.HuntCaptureChance)) return;
+            int stage = ctx.Rng.Next(1, System.Math.Max(1, hunter.RealmStage) + 1);
+            var powersHere = factions.Factions.Where(f => f.RegionId == HuntingGround).ToList();
+            string owner = powersHere.Count > 0 && ctx.Rng.Chance(ctx.Content.Balance.Talismans.OwnedBeastChance)
+                ? ctx.Rng.Pick(powersHere).Name : null; // a power's beast, or a solitary one
+            resources.AddBeast(new CapturedBeast(ctx.Rng.NextId(), hunter.Realm, stage, owner));
+            ctx.Log.Info($"[Tasks] {hunter.FullName} captures a spirit beast ({hunter.Realm}, stage {stage}){(owner == null ? "" : $" belonging to {owner}")}.");
+        }
+
+        /// <summary>Where the clan's hunters go (a regions.json id): its home unless the player sends them elsewhere.</summary>
+        public string HuntingGround { get; private set; }
+
+        /// <summary>Sends the hunters to a place of the map; false for a place off it or a whole state or sea.</summary>
+        public bool SetHuntingGround(string regionId)
+        {
+            if (ctx.Content.Regions.FirstOrDefault(r => r.Id == regionId)?.ParentId == null) return false;
+            HuntingGround = regionId;
+            return true;
         }
     }
 }

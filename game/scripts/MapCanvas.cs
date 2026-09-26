@@ -9,7 +9,8 @@ namespace MirrorChronicles.Game
 {
     /// <summary>
     /// Draws the world map in ink on paper (Shuimo): borders as brush lines, states and seas as washes, places as
-    /// ink dots, the clan's home as a red seal. It only draws the engine-free <see cref="WorldMapView"/>.
+    /// ink dots, the clan's home as a red seal. The wheel zooms around the cursor, a right or middle drag pans.
+    /// It only draws the engine-free <see cref="WorldMapView"/>.
     /// </summary>
     public partial class MapCanvas : Control
     {
@@ -35,6 +36,12 @@ namespace MirrorChronicles.Game
         private IReadOnlyList<MapPlace> places = Array.Empty<MapPlace>();
         private IReadOnlyList<MapBorder> borders = Array.Empty<MapBorder>();
         private string selected;
+        private float zoom = 1f;
+        private Vector2 pan = Vector2.Zero;
+
+        private const float MinZoom = 1f;
+        private const float MaxZoom = 4f;
+        private const float ZoomStep = 1.15f;
 
         /// <summary>Raised with the id of the place the player clicks.</summary>
         public event Action<string> PlaceSelected;
@@ -150,17 +157,47 @@ namespace MirrorChronicles.Game
 
         public override void _GuiInput(InputEvent input)
         {
+            if (input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.WheelUp or MouseButton.WheelDown } wheel)
+            {
+                ZoomAround(wheel.Position, wheel.ButtonIndex == MouseButton.WheelUp ? ZoomStep : 1f / ZoomStep);
+                return;
+            }
+            if (input is InputEventMouseMotion motion && (motion.ButtonMask & (MouseButtonMask.Right | MouseButtonMask.Middle)) != 0)
+            {
+                pan += motion.Relative;
+                ClampPan();
+                QueueRedraw();
+                return;
+            }
             if (input is not InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } click) return;
             var nearest = places.OrderBy(p => At(p).DistanceTo(click.Position)).FirstOrDefault();
             if (nearest != null && At(nearest).DistanceTo(click.Position) <= (nearest.IsState ? StateRadius : PickRadius))
                 PlaceSelected?.Invoke(nearest.Id);
         }
 
-        /// <summary>The place on the canvas, inside a margin so nothing touches the frame.</summary>
+        /// <summary>The place on the canvas, inside a margin so nothing touches the frame, zoomed and panned.</summary>
         private Vector2 At(MapPlace place)
         {
             var inner = Size - Vector2.One * Margin * 2;
-            return new Vector2(Margin + (float)place.X * inner.X, Margin + (float)place.Y * inner.Y);
+            var flat = new Vector2(Margin + (float)place.X * inner.X, Margin + (float)place.Y * inner.Y);
+            return flat * zoom + pan;
+        }
+
+        /// <summary>Zooms keeping the point under the cursor in place (mouse wheel).</summary>
+        private void ZoomAround(Vector2 cursor, float factor)
+        {
+            float next = Mathf.Clamp(zoom * factor, MinZoom, MaxZoom);
+            pan = cursor - (cursor - pan) * (next / zoom);
+            zoom = next;
+            ClampPan();
+            QueueRedraw();
+        }
+
+        /// <summary>Never lets the map drift off the frame.</summary>
+        private void ClampPan()
+        {
+            var overflow = Size * (zoom - 1f);
+            pan = new Vector2(Mathf.Clamp(pan.X, -overflow.X, 0), Mathf.Clamp(pan.Y, -overflow.Y, 0));
         }
     }
 }

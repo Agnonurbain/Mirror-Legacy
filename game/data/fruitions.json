@@ -99,6 +99,10 @@
           "name": "Monarque Assiégé",
           "types": [
             "Body"
+          ],
+          "imagery": "Patient",
+          "interpretedFields": [
+            "Imagery"
           ]
         },
         {
@@ -255,9 +259,11 @@
           ]
         },
         {
-          "id": "unrevealed-5",
-          "name": null,
-          "types": []
+          "id": "autumn-moon-lake",
+          "name": "Lac de la Lune d'Automne",
+          "types": [],
+          "provenance": "Wiki",
+          "interpretedFields": []
         }
       ],
       "status": "Unspecified",
@@ -772,11 +778,13 @@
       "metalEssence": null,
       "abilities": [
         {
-          "id": "unrevealed-1",
-          "name": null,
+          "id": "great-li-codex",
+          "name": "Grand Codex du Feu Li",
           "types": [
             "Life"
-          ]
+          ],
+          "provenance": "Wiki",
+          "interpretedFields": []
         },
         {
           "id": "unrevealed-2",
@@ -1140,9 +1148,11 @@
       "metalEssence": null,
       "abilities": [
         {
-          "id": "unrevealed-1",
-          "name": null,
-          "types": []
+          "id": "white-thorn-heart",
+          "name": "Cœur d'Épine Blanche",
+          "types": [],
+          "provenance": "Wiki",
+          "interpretedFields": []
         },
         {
           "id": "unrevealed-2",
@@ -1522,7 +1532,8 @@
       "provenance": "Lore",
       "interpretedFields": [
         "Temperament"
-      ]
+      ],
+      "bodyTrait": "Sang doré"
     },
     {
       "id": "gathered-metal",
@@ -1580,7 +1591,8 @@
       "provenance": "Lore",
       "interpretedFields": [
         "Temperament"
-      ]
+      ],
+      "bodyTrait": "Sang doré"
     },
     {
       "id": "wandering-metal",
@@ -1638,7 +1650,8 @@
       "provenance": "Lore",
       "interpretedFields": [
         "Temperament"
-      ]
+      ],
+      "bodyTrait": "Sang doré"
     },
     {
       "id": "mutable-metal",
@@ -1669,9 +1682,11 @@
           "types": []
         },
         {
-          "id": "unrevealed-3",
-          "name": null,
-          "types": []
+          "id": "gold-feathered-beast",
+          "name": "Bête aux Plumes d'Or",
+          "types": [],
+          "provenance": "Wiki",
+          "interpretedFields": []
         },
         {
           "id": "unrevealed-4",
@@ -1695,7 +1710,8 @@
       "provenance": "Lore",
       "interpretedFields": [
         "Temperament"
-      ]
+      ],
+      "bodyTrait": "Sang doré"
     },
     {
       "id": "hidden-metal",
@@ -1754,7 +1770,8 @@
       "provenance": "Lore",
       "interpretedFields": [
         "Temperament"
-      ]
+      ],
+      "bodyTrait": "Sang doré"
     },
     {
       "id": "harmonious-metal",
@@ -1809,7 +1826,8 @@
       "provenance": "Lore",
       "interpretedFields": [
         "Temperament"
-      ]
+      ],
+      "bodyTrait": "Sang doré"
     },
     {
       "id": "joy-metal",
@@ -1864,7 +1882,8 @@
       "provenance": "Lore",
       "interpretedFields": [
         "Temperament"
-      ]
+      ],
+      "bodyTrait": "Sang doré"
     },
     {
       "id": "green-origin-gold",
@@ -1920,7 +1939,8 @@
       "interpretedFields": [
         "Temperament",
         "Holder"
-      ]
+      ],
+      "bodyTrait": "Sang doré"
     },
     {
       "id": "orthodox-wood",
@@ -3076,7 +3096,8 @@
       "interpretedFields": [
         "Temperament",
         "Groups"
-      ]
+      ],
+      "bodyTrait": "Sang flottant en gouttelettes électrifiées"
     },
     {
       "id": "celestial-regent",

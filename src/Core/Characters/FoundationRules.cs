@@ -42,6 +42,21 @@ namespace MirrorChronicles.Characters
         public static Temperament RandomTemperament(Random rng) => Temperaments[rng.Next(Temperaments.Length)];
 
         /// <summary>
+        /// The yearly chance a ripe Dao is harvested (LORE.md §5.3.3): a Foundation at its peak whose lineage has
+        /// another orthodox ability the world names (a partner someone can hold); lower when the clan has a Purple
+        /// Mansion to guard it. Zero otherwise: a Dao whose partners are lost is safe (§2.4).
+        /// </summary>
+        public static double HuntChance(CharacterData member, bool clanHasAPurpleMansion, GameContent content)
+        {
+            if (member.Realm != CultivationRealm.Foundation || member.RealmStage < PowerLadder.StageCount(CultivationRealm.Foundation)) return 0;
+            var (_, abilityId) = FoundationRef.Parse(member.FoundationId);
+            var lineage = FruitionOf(member.FoundationId, content.Fruitions);
+            bool partnersKnown = lineage != null && lineage.Abilities.Any(a => a.Id != abilityId && !a.Substitute && a.Name != null);
+            if (!partnersKnown) return 0;
+            return content.Balance.RipeDaoHuntChance * (clanHasAPurpleMansion ? content.Balance.RipeDaoGuardedFactor : 1.0);
+        }
+
+        /// <summary>
         /// All cultivation gone (the Illusions failed, a Dao Graft's donor): back to a body with an orifice and
         /// nothing more — no realm, Qi, foundation or ability. The caller sets what life is left.
         /// </summary>

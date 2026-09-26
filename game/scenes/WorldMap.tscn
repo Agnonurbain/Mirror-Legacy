@@ -67,6 +67,11 @@ theme_override_constants/separation = 8
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="Hunt" type="Button" parent="Margin/Layout/Body/Side"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Chasser ici"
+
 [node name="PlaceFactions" type="Label" parent="Margin/Layout/Body/Side"]
 unique_name_in_owner = true
 layout_mode = 2

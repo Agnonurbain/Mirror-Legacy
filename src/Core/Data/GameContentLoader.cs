@@ -25,9 +25,11 @@ namespace MirrorChronicles.Data
         public const string FruitionsFile = "fruitions.json";
         public const string OathsFile = "oaths.json";
         public const string RegionsFile = "regions.json";
+        public const string TalismansFile = "talismans.json";
+        public const string FiguresFile = "figures.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -57,6 +59,8 @@ namespace MirrorChronicles.Data
             var fruitions = Read<FruitionCatalog>(readFile, FruitionsFile);
             var oaths = Read<OathCatalog>(readFile, OathsFile);
             var regions = Read<List<RegionDefinition>>(readFile, RegionsFile);
+            var talismans = Read<List<TalismanDefinition>>(readFile, TalismansFile);
+            var figures = Read<List<FigureDefinition>>(readFile, FiguresFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -69,11 +73,15 @@ namespace MirrorChronicles.Data
             CheckFruitions(fruitions);
             CheckOaths(oaths);
             CheckRegions(regions);
+            CheckTalismans(talismans);
+            CheckFigures(figures, factions);
             CheckFactions(factions, regions, catalog.Techniques);
             Require(regions.Any(r => r.Id == clan.HomeRegion), ClanFile, $"homeRegion \"{clan.HomeRegion}\" is not a region of {RegionsFile}.");
             CheckFoundations(qi, catalog.Techniques, fruitions.Fruitions);
             CheckInterpretedFields(TechniquesFile, catalog.Techniques.Select(t => (t.ID, typeof(TechniqueData), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(FactionsFile, factions.Select(f => (f.Name, typeof(FactionData), (IEnumerable<string>)f.InterpretedFields)));
+            CheckInterpretedFields(FiguresFile, figures.Select(f => (f.Id, typeof(FigureDefinition), (IEnumerable<string>)f.InterpretedFields)));
+            CheckInterpretedFields(TalismansFile, talismans.Select(t => (t.Id, typeof(TalismanDefinition), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(RegionsFile, regions.Select(r => (r.Id, typeof(RegionDefinition), (IEnumerable<string>)r.InterpretedFields)));
             CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
             CheckInterpretedFields(FruitionsFile, fruitions.Fruitions.Select(f => (f.Id, typeof(FruitionDefinition), (IEnumerable<string>)f.InterpretedFields))
@@ -93,7 +101,9 @@ namespace MirrorChronicles.Data
                 Fruitions = fruitions.Fruitions,
                 AnonymousHolder = fruitions.AnonymousHolder,
                 Oaths = oaths,
-                Regions = regions
+                Regions = regions,
+                Talismans = talismans,
+                Figures = figures
             };
         }
 
@@ -174,6 +184,30 @@ namespace MirrorChronicles.Data
                 && IsProbability(oathCosts.DeviationChanceOnInterrupt) && IsProbability(oathCosts.PurificationChance)
                 && oathCosts.HeartDemonSpeed > 0 && oathCosts.HeartDemonStabilityLoss >= 0 && oathCosts.PurificationHerbs >= 0 && oathCosts.MirrorVeilCost >= 0,
                 BalanceFile, "oaths needs three interruption chances and Heart Demon years (severity 1-3), and its costs.");
+            Require(balance.Diplomacy != null && balance.Diplomacy.NeighbourIntensity >= 1 && IsProbability(balance.Diplomacy.StealManualChance),
+                BalanceFile, "diplomacy needs a neighbour intensity of at least 1 and a steal chance between 0 and 1.");
+            var trade = balance.KnowledgeTrade;
+            Require(trade != null && trade.StonesPerGrade?.Count == TechniqueRules.MaxGrade && trade.StonesPerGrade.All(p => p >= 0)
+                && trade.DaoPartnersMirrorCost >= 0 && trade.MinRelation >= Diplomacy.FactionManager.MinRelation && trade.MinRelation <= Diplomacy.FactionManager.MaxRelation,
+                BalanceFile, "knowledgeTrade needs a price per grade (7, never negative), a mirror cost and a relation within -100..100.");
+            var talismanRitual = balance.Talismans;
+            Require(talismanRitual != null && talismanRitual.PrayersPerRitual > 0 && talismanRitual.PrayersPerMortalPerYear >= 0
+                && talismanRitual.PrayersPerPrestigePerYear >= 0 && talismanRitual.OfferRootThresholds?.Count == 2
+                && talismanRitual.OfferRootThresholds[0] <= talismanRitual.OfferRootThresholds[1]
+                && talismanRitual.GreyStageLeap >= 0 && talismanRitual.WhiteStageLeap >= 0
+                && talismanRitual.BeastStagesPerExtraLeap >= 1 && IsProbability(talismanRitual.HuntCaptureChance)
+                && IsProbability(talismanRitual.OwnedBeastChance) && IsProbability(talismanRitual.OwnedBeastDiscoveryChance)
+                && talismanRitual.OwnedBeastRelationPenalty <= 0,
+                BalanceFile, "talismans needs positive prayers per ritual, two ordered root thresholds, leaps never negative, beast stages per leap of 1+ and a hunt chance.");
+            var trials = balance.Trials;
+            Require(trials != null && trials.ChakraChances != null && trials.ChakraChances.Values.All(c => c >= 0 && c <= 100)
+                && new[] { trials.FoundationWallBaseChance, trials.MinimumTrialChance, trials.DissolutionBaseChance, trials.MaximumDissolutionChance }
+                    .All(c => c >= 0 && c <= 100)
+                && trials.FoundationAdvisedAge >= 0 && trials.FoundationWallLossPerYear >= 0 && trials.DissolutionChancePerYear >= 0
+                && trials.ChakraMinimumRoot >= 0 && trials.WallMinimumRoot >= 0 && trials.OldAgeLifespanRatio > 0 && trials.OldAgePenalty >= 0
+                && trials.MinorFailureMaxRoll >= 0 && trials.MinorFailureMaxRoll <= trials.MajorFailureMaxRoll && trials.MajorFailureMaxRoll <= 100
+                && trials.BaseTalismanSeedCapacity >= 0,
+                BalanceFile, "trials needs chances of 0-100 %, values never negative and a deviation table in order (minor <= major <= 100).");
             var modifiers = balance.TrialModifiers;
             Require(modifiers != null && modifiers.RootPointsPerPercent > 0 && modifiers.StabilityPointsPerPercent > 0 && modifiers.LowStabilityPenalty >= 0
                 && modifiers.ReferenceGrade >= TechniqueRules.MinGrade && modifiers.ReferenceGrade <= TechniqueRules.MaxGrade,
@@ -181,15 +215,20 @@ namespace MirrorChronicles.Data
             var abilities = balance.DivineAbilities;
             Require(abilities != null && abilities.ResourceStones >= 0 && abilities.ResourceHerbs >= 0 && abilities.ResourceOres >= 0 && abilities.GraftOres >= 0,
                 BalanceFile, "divineAbilities needs its costs (never negative).");
+            Require(IsProbability(balance.RipeDaoHuntChance) && IsProbability(balance.RipeDaoGuardedFactor),
+                BalanceFile, "ripeDaoHuntChance and ripeDaoGuardedFactor lie between 0 and 1.");
+            Require(abilities.ImageryXpFactor > 0 && abilities.ImageryXpFactor <= 1 && IsProbability(balance.BodyTraitInheritanceChance),
+                BalanceFile, "the imagery factor lies in ]0, 1] and bodyTraitInheritanceChance between 0 and 1.");
             Require(abilities.GraftDonorMinYearsLeft >= 1 && abilities.GraftDonorMinYearsLeft <= abilities.GraftDonorMaxYearsLeft,
                 BalanceFile, "a grafted donor's years left need 1 <= min <= max.");
             var core = balance.GoldenCore;
             Require(core != null && new[] { core.ForgeBaseChance, core.RealizationChance, core.SurplusChance, core.IntercalaryFourOneChance, core.IntercalaryThreeTwoChance,
-                        core.TrueLeftHandChance, core.FalseLeftHandChance }
+                        core.TrueLeftHandChance, core.FalseLeftHandChance, core.TransferChance, core.TransformationChance }
                     .All(c => c >= 0 && c <= 100)
                 && core.ShallowAbilityPenalty >= 0 && core.GraftedAbilityPenalty >= 0 && core.LifeLastBonus >= 0 && core.AxiomPenalty >= 0
                 && core.PermissionStones >= 0 && IsProbability(core.PermissionChance) && core.GoldSeekingMirrorCost >= 0 && core.SpecialisedMirrorCost >= 0
-                && core.LeftHandMirrorCost >= 0 && core.FalseLeftHandYearlyStones >= 0
+                && core.LeftHandMirrorCost >= 0 && core.FalseLeftHandYearlyStones >= 0 && core.LightBorrowingYearlyStones >= 0
+                && IsProbability(core.ReclaimChance) && core.ImagePointsPerYear > 0 && core.ImageToNextStage?.Count == 3 && core.ImageToNextStage.All(p => p > 0)
                 && core.FalseLeftHandMinAbilities >= 1 && core.FalseLeftHandMinAbilities <= GoldenCoreRules.AbilitiesToForge,
                 BalanceFile, "goldenCore needs chances of 0-100 %, penalties and costs never negative, a permission chance between 0 and 1, 1-5 abilities for a false Left Hand.");
             var rules = balance.Techniques;
@@ -353,6 +392,32 @@ namespace MirrorChronicles.Data
                 .Select(t => t.RequiredQiId).Distinct();
             var missing = reachingFoundation.FirstOrDefault(id => qi.First(q => q.Id == id).Foundation == null);
             Require(missing == null, QiFile, $"{missing}: its methods reach the Foundation, so it must name the foundation it builds.");
+        }
+
+        /// <summary>The powers' figures: unique ids, a name, a power of factions.json, never above that power's highest realm.</summary>
+        private static void CheckFigures(List<FigureDefinition> figures, List<FactionData> factions)
+        {
+            Require(figures.All(f => !string.IsNullOrWhiteSpace(f.Id) && !string.IsNullOrWhiteSpace(f.Name) && f.InterpretedFields != null),
+                FiguresFile, "every figure needs an id, a name and a list of interpreted fields.");
+            var duplicate = figures.GroupBy(f => f.Id).FirstOrDefault(g => g.Count() > 1)?.Key;
+            Require(duplicate == null, FiguresFile, $"two figures share the id \"{duplicate}\".");
+            foreach (var figure in figures)
+            {
+                var power = factions.FirstOrDefault(f => f.Name == figure.FactionName);
+                Require(power != null, FiguresFile, $"{figure.Id}: \"{figure.FactionName}\" is not a faction of {FactionsFile}.");
+                Require(figure.Realm <= power.HighestRealm, FiguresFile, $"{figure.Id}: above the highest realm of {power.Name}.");
+            }
+        }
+
+        /// <summary>The talisman Qi (§11.5): unique ids, a name, a positive speed, no lost years.</summary>
+        private static void CheckTalismans(List<TalismanDefinition> talismans)
+        {
+            Require(talismans.All(t => !string.IsNullOrWhiteSpace(t.Id) && !string.IsNullOrWhiteSpace(t.Name)), TalismansFile, "every talisman needs an id and a name.");
+            var duplicate = talismans.GroupBy(t => t.Id).FirstOrDefault(g => g.Count() > 1)?.Key;
+            Require(duplicate == null, TalismansFile, $"two talismans share the id \"{duplicate}\".");
+            var wrong = talismans.FirstOrDefault(t => t.CultivationSpeed <= 0 || t.LifespanYears < 0 || t.IllusionsBonus < 0 || t.OffspringRootBonus < 0
+                || t.Temperaments == null || t.Traits == null || t.InterpretedFields == null);
+            Require(wrong == null, TalismansFile, $"{wrong?.Id}: a talisman needs a positive speed, figures never negative and lists (empty when none).");
         }
 
         /// <summary>The map (L5): unique places with a name, on the map, whose parent and neighbours exist and answer back.</summary>

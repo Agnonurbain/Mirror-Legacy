@@ -38,7 +38,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void Places_ListThePowersLivingThere()
         {
-            CollectionAssert.AreEquivalent(new[] { "Famille Lou", "Famille Fang", "Famille Lü", "Famille Tao" },
+            CollectionAssert.AreEquivalent(new[] { "Famille Lou", "Famille Fang", "Famille Lü", "Famille Tao", "Famille Kang" },
                 Place(NewGame(), "jingshui-lake").Factions.Select(f => f.Name));
         }
 
@@ -48,7 +48,7 @@ namespace MirrorChronicles.Tests.Presentation
             var s = NewGame();
             s.Factions.ChangeRelation(s.Factions.GetFactionByName("Famille Ruan").ID, 7);
             var ruan = Place(s, "heshan").Factions.Single();
-            Assert.AreEqual(new MapFaction("Famille Ruan", "Famille", -3, "Établissement des Fondations"), ruan);
+            Assert.AreEqual(new MapFaction("Famille Ruan", "Famille", -3, "Manoir Pourpre"), ruan); // Ruan Chuhe, their patriarch (wiki)
         }
 
         [Test]

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using NUnit.Framework;
 using MirrorChronicles.Data;
 
@@ -132,6 +133,65 @@ namespace MirrorChronicles.Tests.Economy
             var mortal = Working(w, TaskType.Cultivation, Fixtures.Mortal());
             w.Tasks.ProcessYearlyTasks();
             Assert.AreEqual(TaskType.None, mortal.CurrentTask);
+        }
+
+        // ---- Hunting spirit beasts (user decision, 2026-09-26: the talisman ritual sacrifices beasts) ----
+
+        [Test]
+        public void HuntBeast_CapturesABeastNoStrongerThanTheHunter()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var hunter = Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
+
+            w.Tasks.ProcessYearlyTasks();
+
+            var beast = w.Resources.Beasts.Single();
+            Assert.AreEqual(hunter.Realm, beast.Realm);
+            Assert.That(beast.Stage, Is.InRange(1, hunter.RealmStage));
+        }
+
+        [Test]
+        public void HuntBeast_MayComeBackEmptyHanded()
+        {
+            var w = new TestWorld(new FixedRandom(0.999));
+            Working(w, TaskType.HuntBeast);
+            w.Tasks.ProcessYearlyTasks();
+            Assert.AreEqual(0, w.Resources.Beasts.Count);
+        }
+
+        [Test]
+        public void HuntBeast_OnAPowersGround_MayTakeOneOfItsBeasts()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            w.Factions.InitializeFactions();
+            Assert.IsTrue(w.Tasks.SetHuntingGround("heshan")); // the Ruan's prefecture
+            Working(w, TaskType.HuntBeast);
+
+            w.Tasks.ProcessYearlyTasks();
+
+            Assert.AreEqual("Famille Ruan", w.Resources.Beasts.Single().OwnerFaction);
+        }
+
+        [Test]
+        public void HuntBeast_OnAnUnclaimedGround_TakesSolitaryBeasts()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            w.Factions.InitializeFactions();
+            Assert.IsTrue(w.Tasks.SetHuntingGround("beast-abyss")); // no power lives in the Beast Abyss
+            Working(w, TaskType.HuntBeast);
+
+            w.Tasks.ProcessYearlyTasks();
+
+            Assert.IsNull(w.Resources.Beasts.Single().OwnerFaction);
+        }
+
+        [Test]
+        public void SetHuntingGround_Refuses_APlaceOffTheMap()
+        {
+            var w = new TestWorld();
+            Assert.IsFalse(w.Tasks.SetHuntingGround("atlantis"));
+            Assert.IsFalse(w.Tasks.SetHuntingGround("linxi"), "a whole state is no hunting ground");
+            Assert.AreEqual(Fixtures.Content.Clan.HomeRegion, w.Tasks.HuntingGround);
         }
     }
 }

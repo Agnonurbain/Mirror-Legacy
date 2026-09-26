@@ -63,15 +63,17 @@ namespace MirrorChronicles.Characters
         {
             foreach (var member in clan.LivingMembers.Where(m => m.Realm == CultivationRealm.PurpleMansion && m.Retreat == Retreat.None).ToList())
             {
-                if (member.DivineAbilities.Count >= MaxAbilities || member.CultivationXP < Xp) continue;
+                if (member.DivineAbilities.Count >= MaxAbilities) continue;
                 if (member.PursuedAbility == null || !CanTake(member, member.PursuedAbility))
                     member.PursuedAbility = FirstCultivable(member);
+                int cost = CostOf(member, member.PursuedAbility, Xp);
+                if (member.CultivationXP < cost) continue;
 
                 var qi = AlignedQi(member.PursuedAbility);
                 if (qi == null || !resources.ConsumeQi(qi.Id, ctx.Content.Balance.Techniques.AlignedQiPortions)) continue; // no aligned technique, or its Qi is lacking
 
                 // The Qi and the XP go into the attempt: they are spent even if the Threshold stops it
-                member.CultivationXP -= Xp;
+                member.CultivationXP -= cost;
                 if (!PassThreshold(member)) continue;
                 Condense(member, member.PursuedAbility);
             }
@@ -81,7 +83,8 @@ namespace MirrorChronicles.Characters
         public bool CondenseWithResources(CharacterData member, string ability)
         {
             var s = Settings;
-            if (!CanTake(member, ability) || member.CultivationXP < Xp / 2
+            int cost = CostOf(member, ability, Xp / 2);
+            if (!CanTake(member, ability) || member.CultivationXP < cost
                 || resources.SpiritStones < s.ResourceStones || resources.MedicinalHerbs < s.ResourceHerbs || resources.SpiritualOres < s.ResourceOres)
             {
                 ctx.Log.Warning($"[Abilities] {member.FullName} cannot condense \"{ability}\" with resources.");
@@ -91,7 +94,7 @@ namespace MirrorChronicles.Characters
             resources.ConsumeSpiritStones(s.ResourceStones);
             resources.ConsumeHerbs(s.ResourceHerbs);
             resources.ConsumeOres(s.ResourceOres);
-            member.CultivationXP -= Xp / 2;
+            member.CultivationXP -= cost;
             if (!PassThreshold(member)) return true; // paid and tried: the threshold stopped them
 
             Condense(member, ability);
@@ -133,7 +136,8 @@ namespace MirrorChronicles.Characters
         /// </summary>
         private bool CanTake(CharacterData member, string ability)
         {
-            if (member == null || !member.IsAlive || member.Realm != CultivationRealm.PurpleMansion || member.Retreat != Retreat.None) return false;
+            if (member == null || !member.IsAlive || member.Realm != CultivationRealm.PurpleMansion || member.Retreat != Retreat.None
+                || member.ProgressionSealed || member.BorrowedLight) return false; // a sealed path, or a lent light, condenses nothing
             if (ability == null || member.DivineAbilities.Count >= MaxAbilities || member.DivineAbilities.Contains(ability)) return false;
 
             var (lineage, abilityId) = FoundationRef.Parse(ability);
@@ -149,6 +153,15 @@ namespace MirrorChronicles.Characters
         {
             var others = member.DivineAbilities.Select(a => FoundationRef.Parse(a).FruitionId).Where(l => l != ownLineage).Distinct().ToList();
             return member.DivineAbilities.Count >= OwnLineageBeforeAnother && others.All(l => l == lineage);
+        }
+
+        /// <summary>The XP an ability costs: less to a cultivator whose temper embodies its image (§5.4.3, Imagery).</summary>
+        private int CostOf(CharacterData member, string ability, int xp)
+        {
+            var (lineage, abilityId) = FoundationRef.Parse(ability);
+            var image = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == lineage)?.Abilities.FirstOrDefault(a => a.Id == abilityId)?.Imagery;
+            bool embodied = image != null && image != Temperament.None && image == member.Temperament;
+            return embodied ? System.Math.Max(1, (int)(xp * Settings.ImageryXpFactor)) : xp;
         }
 
         /// <summary>The Qi of a known technique aligned on the ability (its Qi builds that foundation), or null.</summary>

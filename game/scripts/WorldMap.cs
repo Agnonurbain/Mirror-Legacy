@@ -15,6 +15,7 @@ namespace MirrorChronicles.Game
         private GameRoot root;
         private MapCanvas canvas;
         private Label placeName, placeFactions;
+        private Button hunt;
         private string selected;
 
         public override void _Ready()
@@ -24,10 +25,13 @@ namespace MirrorChronicles.Game
             placeName = GetNode<Label>("%PlaceName");
             placeFactions = GetNode<Label>("%PlaceFactions");
             GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            hunt = GetNode<Button>("%Hunt");
+            hunt.Pressed += () => { root.Session.Tasks.SetHuntingGround(selected); Refresh(); }; // the hunters go there
             canvas.PlaceSelected += Select;
             canvas.Resized += Refresh;
 
-            selected = WorldMapView.Places(root.Session).FirstOrDefault(p => p.IsHome)?.Id;
+            // MAP_SELECT=<region id> opens the map on that place (screenshots of a smoke run)
+            selected = OS.GetEnvironment("MAP_SELECT") is { Length: > 0 } picked ? picked : WorldMapView.Places(root.Session).FirstOrDefault(p => p.IsHome)?.Id;
             Refresh();
 
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
@@ -47,10 +51,14 @@ namespace MirrorChronicles.Game
 
             var place = places.FirstOrDefault(p => p.Id == selected);
             placeName.Text = place == null ? "" : place.IsHome ? $"{place.Name} — domaine du clan" : place.Name;
+            bool huntedHere = place != null && session.Tasks.HuntingGround == place.Id;
+            hunt.Disabled = place == null || place.IsState || huntedHere;
+            hunt.Text = huntedHere ? "Les chasseurs du clan chassent ici" : "Chasser ici";
             var factions = place?.Factions ?? System.Array.Empty<MapFaction>();
             placeFactions.Text = factions.Count == 0
                 ? "Aucune puissance connue ici."
-                : string.Join("\n", factions.Select(f => $"{f.Name} ({f.Kind}) — {f.HighestRealm} — relation {f.Relation:+#;-#;0}"));
+                : string.Join("\n\n", factions.Select(f => $"{f.Name} ({f.Kind}) — {f.HighestRealm} — relation {f.Relation:+#;-#;0}"
+                    + string.Concat(WorldMapView.FiguresOf(session, f.Name).Select(p => $"\n   · {p.Name} ({p.Realm})"))));
 
             var unplaced = WorldMapView.Unplaced(session);
             if (unplaced.Count > 0)

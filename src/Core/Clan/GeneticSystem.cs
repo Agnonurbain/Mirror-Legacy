@@ -6,6 +6,8 @@ namespace MirrorChronicles.Clan
     /// <summary>Spiritual root and elemental affinity of newborns.</summary>
     public static class GeneticSystem
     {
+        public const int MaxSpiritualRoot = 100;
+
         private const int UnknownParentRoot = 10;
         private const int MaxMutation = 15;
         private const double InheritAffinityChance = 0.7;
@@ -19,7 +21,7 @@ namespace MirrorChronicles.Clan
             int fatherRoot = father != null ? father.SpiritualRoot : UnknownParentRoot;
             int motherRoot = mother != null ? mother.SpiritualRoot : UnknownParentRoot;
             int mutation = rng.Next(-MaxMutation, MaxMutation + 1);
-            return Math.Clamp((fatherRoot + motherRoot) / 2 + mutation, 1, 100);
+            return Math.Clamp((fatherRoot + motherRoot) / 2 + mutation, 1, MaxSpiritualRoot);
         }
 
         /// <summary>70% chance to inherit a parent's affinity; otherwise a mutation, rarer elements less often.</summary>

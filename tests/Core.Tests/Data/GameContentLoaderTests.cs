@@ -97,5 +97,35 @@ namespace MirrorChronicles.Tests.Data
         {
             AssertRefused(GameContentLoader.StoryFile, "[ { \"triggerType\": \"FirstFoundation\", \"name\": \"Sans choix\", \"choices\": [] } ]");
         }
+
+        // ---- The trials of the power ladder (L4c: interpretations of L1-L2 moved into the data) ----
+
+        private static void AssertBalanceRefused(System.Action<Newtonsoft.Json.Linq.JObject> edit)
+        {
+            var balance = Newtonsoft.Json.Linq.JObject.Parse(Fixtures.ReadDataFile(GameContentLoader.BalanceFile));
+            edit(balance);
+            var error = Assert.Throws<System.IO.InvalidDataException>(() =>
+                GameContentLoader.Load(name => name == GameContentLoader.BalanceFile ? balance.ToString() : Fixtures.ReadDataFile(name)));
+            StringAssert.Contains(GameContentLoader.BalanceFile, error.Message);
+        }
+
+        [Test]
+        public void Load_Refuses_ABalanceWithoutItsTrials()
+        {
+            AssertBalanceRefused(b => b.Remove("trials"));
+        }
+
+        [Test]
+        public void Load_Refuses_AChakraChanceAboveAHundred()
+        {
+            AssertBalanceRefused(b => b["trials"]["chakraChances"]["InnerLakeChakra"] = 101);
+        }
+
+        [Test]
+        public void Load_Refuses_ADeviationTableOutOfOrder()
+        {
+            // a minor failure up to the first roll, a major one up to the second, death beyond
+            AssertBalanceRefused(b => b["trials"]["majorFailureMaxRoll"] = 50);
+        }
     }
 }

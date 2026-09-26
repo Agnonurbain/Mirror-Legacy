@@ -223,5 +223,44 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(4, c.RealmStage);
             Assert.IsFalse(w.Abilities.Pursue(c, "orthodox-water:peril-refuge"));
         }
+
+        // ---- Imagery (LORE.md §5.4.3): a cultivator who embodies an ability's image condenses it faster ----
+
+        /// <summary>A Purple Mansion of the Bright Yang, their Besieged Monarch known, the resources of a condensing in store.</summary>
+        private static CharacterData BrightYangMaster(TestWorld w, Temperament temper, int xp)
+        {
+            var c = Master(w, "bright-yang:throne-gaze");
+            c.FoundationId = "bright-yang:throne-gaze";
+            c.Temperament = temper;
+            c.CultivationXP = xp;
+            w.Knowledge.Reveal(MirrorChronicles.World.FactKind.Ability, "bright-yang:besieged-monarch", MirrorChronicles.World.KnowledgeSource.Studied);
+            var s = w.Ctx.Content.Balance.DivineAbilities;
+            w.Resources.AddSpiritStones(s.ResourceStones);
+            w.Resources.AddHerbs(s.ResourceHerbs);
+            w.Resources.AddOres(s.ResourceOres);
+            return c;
+        }
+
+        [Test]
+        public void Imagery_ABesiegedMonarchsPrudence_CondensesItForLess()
+        {
+            // Kuang Yao, ambushed and oppressed, cultivated the Besieged Monarch at an incredible speed
+            var w = new TestWorld();
+            int cost = (int)(Xp / 2 * w.Ctx.Content.Balance.DivineAbilities.ImageryXpFactor);
+            var prudent = BrightYangMaster(w, Temperament.Patient, cost);
+
+            Assert.IsTrue(w.Abilities.CondenseWithResources(prudent, "bright-yang:besieged-monarch"));
+            CollectionAssert.Contains(prudent.DivineAbilities, "bright-yang:besieged-monarch");
+        }
+
+        [Test]
+        public void Imagery_WithoutTheImage_TheFullCostStands()
+        {
+            var w = new TestWorld();
+            int cost = (int)(Xp / 2 * w.Ctx.Content.Balance.DivineAbilities.ImageryXpFactor);
+            var rash = BrightYangMaster(w, Temperament.Fiery, cost);
+
+            Assert.IsFalse(w.Abilities.CondenseWithResources(rash, "bright-yang:besieged-monarch"));
+        }
     }
 }

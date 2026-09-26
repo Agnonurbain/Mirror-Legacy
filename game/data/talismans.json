@@ -1,0 +1,302 @@
+[
+  {
+    "id": "evade-death",
+    "name": "Échapper à la mort, prolonger la vie",
+    "rank": "Grey",
+    "temperaments": [
+      "Cunning",
+      "Patient"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.0,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "Premonition"
+    ],
+    "notes": "Prémonition des dangers à venir.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments"
+    ]
+  },
+  {
+    "id": "strength-to-move-mountains",
+    "name": "Force à déplacer les montagnes",
+    "rank": "Grey",
+    "temperaments": [
+      "Fiery",
+      "Dominant"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.0,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "Strength"
+    ],
+    "notes": "Force sans égale, même sans mana.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments"
+    ]
+  },
+  {
+    "id": "prolong-life",
+    "name": "Prolonger la vie et accroître la longévité",
+    "rank": "Grey",
+    "temperaments": [
+      "Patient",
+      "Serene"
+    ],
+    "lifespanYears": 40,
+    "cultivationSpeed": 1.0,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "Longevity"
+    ],
+    "notes": "+40 ans de vie.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments"
+    ]
+  },
+  {
+    "id": "chasing-clouds-and-moon",
+    "name": "Poursuivre nuages et lune",
+    "rank": "Grey",
+    "temperaments": [
+      "Solitary"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.0,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "Flight"
+    ],
+    "notes": "Chevaucher le vent plusieurs fois plus vite.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments"
+    ]
+  },
+  {
+    "id": "vast-sky-fierce-sparrow",
+    "name": "Moineau féroce du vaste ciel",
+    "rank": "Grey",
+    "temperaments": [
+      "Fiery"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.0,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "Agility"
+    ],
+    "notes": "Agilité, bravoure décuplée à la vue du sang, maîtrise du vent.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments"
+    ]
+  },
+  {
+    "id": "holding-profit",
+    "name": "Garder profit et prospérité",
+    "rank": "Grey",
+    "temperaments": [
+      "Cunning",
+      "Patient"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.0,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "Arts"
+    ],
+    "notes": "Améliore les cent arts (alchimie, talismans…), apaise les tourmentes de fortune.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments"
+    ]
+  },
+  {
+    "id": "deep-ocean-long-whale",
+    "name": "Longue baleine de l'océan profond",
+    "rank": "White",
+    "temperaments": [
+      "Patient",
+      "Dominant"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.25,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "QiPool"
+    ],
+    "notes": "Qihai ×5-6, régénération du mana ×10.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments",
+      "CultivationSpeed"
+    ]
+  },
+  {
+    "id": "exhausting-life",
+    "name": "Épuiser la vie pour réussir",
+    "rank": "White",
+    "temperaments": [
+      "Fiery",
+      "Dominant"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.0,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "CostOfLife"
+    ],
+    "notes": "Non détaillé par le wiki : aucun effet chiffré tant qu'une source ne parle pas.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments"
+    ]
+  },
+  {
+    "id": "flowing-qi-swallowing-spirit",
+    "name": "Qi fluide avalant l'esprit",
+    "rank": "White",
+    "temperaments": [
+      "Serene",
+      "Solitary"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.25,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "QiAbsorption"
+    ],
+    "notes": "Absorption rapide du Qi, commander nuages et brumes.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments",
+      "CultivationSpeed"
+    ]
+  },
+  {
+    "id": "ice-bones-frosty-flesh",
+    "name": "Os de glace, chair de givre",
+    "rank": "White",
+    "temperaments": [
+      "Solitary",
+      "Serene"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.25,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "QiAbsorption",
+      "IceMastery"
+    ],
+    "notes": "Absorption accrue, maîtrise de la glace et de la neige.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments",
+      "CultivationSpeed"
+    ]
+  },
+  {
+    "id": "radiant-snow-pine-ridge",
+    "name": "Crête de pins sous la neige radieuse",
+    "rank": "White",
+    "temperaments": [
+      "Serene",
+      "Patient"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 2.0,
+    "illusionsBonus": 20,
+    "offspringRootBonus": 0,
+    "traits": [
+      "CalmHeart"
+    ],
+    "notes": "Cœur calme comme l'eau, dissipe les illusions, cultivation deux fois plus efficace.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments",
+      "IllusionsBonus"
+    ]
+  },
+  {
+    "id": "valley-wind-leading-fire",
+    "name": "Vent de vallée guidant le feu",
+    "rank": "White",
+    "temperaments": [
+      "Fiery"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.2,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "FireRefinement"
+    ],
+    "notes": "Le feu attire le Qi et raffine l'essence.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments",
+      "CultivationSpeed"
+    ]
+  },
+  {
+    "id": "rainbow-pierce-skyway",
+    "name": "Arc-en-ciel perçant la voie céleste",
+    "rank": "White",
+    "temperaments": [
+      "Cunning"
+    ],
+    "lifespanYears": 10,
+    "cultivationSpeed": 1.0,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 0,
+    "traits": [
+      "SpellInsight",
+      "Longevity"
+    ],
+    "notes": "Esprit fortifié, lecture des sorts adverses, légère prolongation de la vie.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments",
+      "LifespanYears"
+    ]
+  },
+  {
+    "id": "vermilion-flowing-rainbow",
+    "name": "Arc-en-ciel vermillon fluide",
+    "rank": "White",
+    "temperaments": [
+      "Dominant"
+    ],
+    "lifespanYears": 0,
+    "cultivationSpeed": 1.0,
+    "illusionsBonus": 0,
+    "offspringRootBonus": 15,
+    "traits": [
+      "OffspringTalent",
+      "FoundationStrength",
+      "Flight"
+    ],
+    "notes": "Descendance plus douée, fondation renforcée, vol plus rapide.",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Temperaments",
+      "OffspringRootBonus"
+    ]
+  }
+]

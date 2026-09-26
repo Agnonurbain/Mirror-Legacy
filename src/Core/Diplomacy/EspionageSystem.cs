@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using MirrorChronicles.Characters;
+using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Mirror;
 using MirrorChronicles.Session;
@@ -12,6 +14,7 @@ namespace MirrorChronicles.Diplomacy
         public bool Success { get; init; }
         public string TargetFaction { get; init; }
         public int FragmentQuality { get; init; }
+        public string StolenTechniqueId { get; init; } // a manual the power held and the clan lacked (L5b)
         public Element FragmentElement { get; init; }
         public int RelationPenalty { get; init; }
         public int StabilityPenalty { get; init; }
@@ -19,8 +22,9 @@ namespace MirrorChronicles.Diplomacy
     }
 
     /// <summary>
-    /// Spies steal technique fragments from rival factions. Success = root × 0.5% − power / 100,
-    /// between 5% and 60%; a caught spy sours relations, is shaken, and may provoke a fight.
+    /// Spies steal from rival factions. Success = root × 0.5% − power / 100, between 5% and 60%: sometimes a
+    /// manual the power holds and the clan lacks (LORE.md §2.4), otherwise a technique fragment. A caught spy sours
+    /// relations, is shaken, and may provoke a fight.
     /// </summary>
     public sealed class EspionageSystem
     {
@@ -34,9 +38,12 @@ namespace MirrorChronicles.Diplomacy
         private readonly FactionManager factions;
         private readonly DeductionEngine deduction;
         private readonly MentalStabilitySystem stability;
+        private readonly TechniqueLibrary techniques;
 
-        public EspionageSystem(GameContext ctx, FactionManager factions, DeductionEngine deduction, MentalStabilitySystem stability)
+        public EspionageSystem(GameContext ctx, FactionManager factions, DeductionEngine deduction, MentalStabilitySystem stability,
+            TechniqueLibrary techniques)
         {
+            this.techniques = techniques;
             this.ctx = ctx;
             this.factions = factions;
             this.deduction = deduction;
@@ -51,6 +58,15 @@ namespace MirrorChronicles.Diplomacy
             double chance = Math.Clamp(spy.SpiritualRoot * 0.005 - target.PowerLevel / 100.0, MinSuccessChance, MaxSuccessChance);
             if (ctx.Rng.Chance(chance))
             {
+                var unknown = (target.Techniques ?? new System.Collections.Generic.List<string>()).Where(id => !techniques.Knows(id)).ToList();
+                if (unknown.Count > 0 && ctx.Rng.Chance(ctx.Content.Balance.Diplomacy.StealManualChance))
+                {
+                    string stolen = ctx.Rng.Pick(unknown);
+                    techniques.Learn(stolen);
+                    ctx.Log.Info($"[Espionage] {spy.FullName} steals the manual « {stolen} » from {target.Name}.");
+                    return new EspionageResult { Success = true, TargetFaction = target.Name, StolenTechniqueId = stolen };
+                }
+
                 int quality = Math.Clamp(target.PowerLevel / 250, 1, 5);
                 var element = ctx.Rng.NextElement();
                 deduction.AddFragment(element, quality, $"Stolen from {target.Name} by {spy.FullName}");

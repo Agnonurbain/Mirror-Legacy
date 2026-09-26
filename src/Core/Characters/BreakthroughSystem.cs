@@ -42,7 +42,7 @@ namespace MirrorChronicles.Characters
             return attempts;
         }
 
-        public int CalculateSuccessRate(CharacterData character) => BreakthroughRules.SuccessRate(character);
+        public int CalculateSuccessRate(CharacterData character) => BreakthroughRules.SuccessRate(character, ctx.Content.Balance);
 
         /// <summary>Returns the outcome, or null when the character has no trial to attempt.</summary>
         public BreakthroughOutcome? AttemptBreakthrough(CharacterData character)
@@ -83,7 +83,7 @@ namespace MirrorChronicles.Characters
 
             int roll = ctx.Rng.Next(1, 101);
             int severityRoll = ctx.Rng.Next(1, 101);
-            var outcome = BreakthroughRules.Resolve(step.Trial, successRate, character.Age, roll, severityRoll);
+            var outcome = BreakthroughRules.Resolve(step.Trial, successRate, character.Age, roll, severityRoll, ctx.Content.Balance.Trials);
             int required = PowerLadder.XpForNextStage(character.Realm);
 
             ctx.Log.Info($"[Breakthrough] {character.FullName} attempts the {step.Trial} trial ({successRate}%, roll {roll}): {outcome}.");

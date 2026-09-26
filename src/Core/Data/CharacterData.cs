@@ -41,6 +41,8 @@ namespace MirrorChronicles.Data
         public GoldenCoreState GoldenCore { get; set; }
         public string FruitionId { get; set; }          // Dao lineage held or pursued
         public string PatronId { get; set; }            // superior a False Left Hand / borrower depends on
+        public bool BorrowedLight { get; set; }         // a « Merciful » Purple Mansion on a Fruition's lent light (§5.4.2)
+        public bool TransformedLineage { get; set; }    // a Realization holder's descendant: reaches at least the Purple Mansion (§5.5.2)
         public string ReincarnationOfId { get; set; }   // reincarnated True Monarch (R9)
         public string FragmentOfId { get; set; }        // fragment of a split Golden Core (R21)
 
@@ -61,6 +63,7 @@ namespace MirrorChronicles.Data
         public string FoundationId { get; set; }
         public bool ProgressionSealed { get; set; }
         public Temperament Temperament { get; set; }
+        public string BodyTrait { get; set; } // the body the foundation made inhuman, or a parent's (§5.3.2, §11.6)
 
         // The Purple Mansion (LORE.md §5.4): divine abilities (« fruition-id:ability-id », the foundation first),
         // and the retreat of its breakthrough, which may hold a cultivator in the Great Void for life
@@ -71,6 +74,9 @@ namespace MirrorChronicles.Data
         public Retreat Retreat { get; set; }
         public int RetreatYearsLeft { get; set; }
         public bool ImprisonedInVoid { get; set; }
+
+        // The talisman Qi the mirror refined for this member (LORE.md §11.5), a talismans.json id
+        public string TalismanQiId { get; set; }
 
         // Oaths of the Dao (L4d): years a Heart Demon still haunts an oath-breaker
         public int HeartDemonYearsLeft { get; set; }

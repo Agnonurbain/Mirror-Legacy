@@ -3,6 +3,7 @@ using NUnit.Framework;
 using MirrorChronicles.Data;
 using MirrorChronicles.Presentation;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Tests.Presentation
 {
@@ -69,6 +70,47 @@ namespace MirrorChronicles.Tests.Presentation
             chronicle.OnEntryAdded += e => heard = e;
             session.Events.TriggerRandomEventOccurred(new RandomEventData { Name = "Année paisible", Description = "Rien." });
             Assert.AreEqual(Last, heard);
+        }
+
+        // ---- What the clan learns (L4c: the knowledge base tells the chronicle) ----
+
+        [TestCase(FactKind.Technique, "night-frost-canon", "le clan apprend la technique Canon du Givre Nocturne.")]
+        [TestCase(FactKind.Qi, "night-frost-qi", "le clan apprend à connaître le Qi du Givre Nocturne.")]
+        [TestCase(FactKind.Lineage, "lesser-yin", "le clan apprend l'existence de la lignée Yin Mineur.")]
+        [TestCase(FactKind.Ability, "orthodox-water:storm-sky", "le clan apprend la capacité Ciel d'Orage (Eau Orthodoxe).")]
+        [TestCase(FactKind.DaoPartners, "orthodox-water:boundless-sea", "le clan apprend les Partenaires Dao de Mer sans Rivage (Eau Orthodoxe).")]
+        [TestCase(FactKind.GoldSeeking, "orthodox-water", "le clan apprend la méthode de recherche d'or de la lignée Eau Orthodoxe.")]
+        [TestCase(FactKind.GoldSeeking, "orthodox-water:intercalary", "le clan apprend la méthode de recherche d'or spécialisée de la lignée Eau Orthodoxe.")]
+        [TestCase(FactKind.LeftHand, "lesser-yin", "le clan apprend la voie des Immortels de Jade Tressé (Yin Mineur).")]
+        public void RecordsWhatTheClanLearns(FactKind kind, string subject, string line)
+        {
+            session.Knowledge.Reveal(kind, subject, KnowledgeSource.Mirror);
+            CollectionAssert.Contains(chronicle.Entries, $"An 1 : {line}");
+        }
+
+        [Test]
+        public void RecordsNothing_ForWhatItAlreadyKnew()
+        {
+            session.Knowledge.Reveal(FactKind.Lineage, "lesser-yin", KnowledgeSource.Mirror); // newly learned: one line
+            int count = chronicle.Entries.Count;
+            session.Knowledge.Reveal(FactKind.Lineage, "lesser-yin", KnowledgeSource.Mirror);
+            Assert.AreEqual(count, chronicle.Entries.Count);
+        }
+
+        [Test]
+        public void RecordsNothing_ForAnOlderSavesRebuiltKnowledge()
+        {
+            int count = chronicle.Entries.Count;
+            session.Knowledge.Reveal(FactKind.Lineage, "mutable-water", KnowledgeSource.OlderSave);
+            Assert.AreEqual(count, chronicle.Entries.Count);
+        }
+
+        [Test]
+        public void AnAbilityTheContentRenamedSince_StaysReadable()
+        {
+            // a save may hold a fact about an ability whose id the content later renamed (unrevealed-1 → great-li-codex)
+            Assert.AreEqual("la capacité non révélée (Feu Orthodoxe)",
+                KnowledgeView.Describe(new Fact(FactKind.Ability, "orthodox-fire:unrevealed-1"), Fixtures.Content));
         }
     }
 }

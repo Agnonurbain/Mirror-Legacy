@@ -12,6 +12,7 @@
   "temperamentInheritanceChance": 0.8,
   "purpleMansion": {
     "ascentBaseChance": 60,
+    "transformedLineageBonus": 20,
     "manifestationYears": 6,
     "manifestationBaseChance": 45,
     "manifestationPerGrade": 5,
@@ -30,6 +31,7 @@
     "resourceHerbs": 150,
     "resourceOres": 60,
     "graftOres": 20,
+    "imageryXpFactor": 0.5,
     "graftDonorMinYearsLeft": 1,
     "graftDonorMaxYearsLeft": 5
   },
@@ -51,9 +53,18 @@
     "leftHandMirrorCost": 40,
     "falseLeftHandMinAbilities": 3,
     "falseLeftHandChance": 60,
-    "falseLeftHandYearlyStones": 300
+    "falseLeftHandYearlyStones": 300,
+    "lightBorrowingYearlyStones": 150,
+    "transferChance": 60,
+    "reclaimChance": 0.01,
+    "transformationChance": 35,
+    "imagePointsPerYear": 10,
+    "imageToNextStage": [ 1000, 3000, 6000 ]
   },
   "studyRevealsPartnersChance": 0.1,
+  "bodyTraitInheritanceChance": 0.5,
+  "ripeDaoHuntChance": 0.02,
+  "ripeDaoGuardedFactor": 0.5,
   "oaths": {
     "interruptChanceBySeverity": [ 0.1, 0.25, 0.5 ],
     "deviationChanceOnInterrupt": 0.2,
@@ -63,6 +74,45 @@
     "purificationHerbs": 100,
     "purificationChance": 0.5,
     "mirrorVeilCost": 30
+  },
+  "diplomacy": {
+    "neighbourIntensity": 2,
+    "stealManualChance": 0.3
+  },
+  "knowledgeTrade": {
+    "minRelation": 20,
+    "stonesPerGrade": [ 100, 250, 600, 1500, 4000, 10000, 30000 ],
+    "daoPartnersMirrorCost": 30
+  },
+  "talismans": {
+    "prayersPerRitual": 10000,
+    "prayersPerMortalPerYear": 150,
+    "prayersPerPrestigePerYear": 10,
+    "offerRootThresholds": [ 40, 70 ],
+    "greyStageLeap": 2,
+    "whiteStageLeap": 3,
+    "beastStagesPerExtraLeap": 3,
+    "huntCaptureChance": 0.4,
+    "ownedBeastChance": 0.5,
+    "ownedBeastDiscoveryChance": 0.6,
+    "ownedBeastRelationPenalty": -30
+  },
+  "trials": {
+    "chakraChances": { "InnerLakeChakra": 70, "MeridianWheelChakra": 80, "SummitEyeChakra": 75 },
+    "foundationAdvisedAge": 60,
+    "foundationWallBaseChance": 35,
+    "foundationWallLossPerYear": 2,
+    "minimumTrialChance": 5,
+    "dissolutionBaseChance": 20,
+    "dissolutionChancePerYear": 3,
+    "maximumDissolutionChance": 90,
+    "chakraMinimumRoot": 10,
+    "wallMinimumRoot": 30,
+    "oldAgeLifespanRatio": 0.8,
+    "oldAgePenalty": 10,
+    "minorFailureMaxRoll": 70,
+    "majorFailureMaxRoll": 95,
+    "baseTalismanSeedCapacity": 2
   },
   "trialModifiers": {
     "rootPointsPerPercent": 5,

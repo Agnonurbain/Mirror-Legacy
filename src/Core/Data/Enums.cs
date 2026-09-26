@@ -42,7 +42,8 @@ namespace MirrorChronicles.Data
         Diplomacy, 
         Espionage,
         Rest,
-        GatherQi // harvest spiritual Qi in wisps (LORE.md §2.5); appended last, like every new member
+        GatherQi, // harvest spiritual Qi in wisps (LORE.md §2.5); appended last, like every new member
+        HuntBeast // capture a spirit beast for the mirror's talisman ritual (user decision, 2026-09-26)
     }
 
     public enum Element 
@@ -70,7 +71,9 @@ namespace MirrorChronicles.Data
         AscentCollapse,        // exhausted before the Shenyang Mansion on the way to the Purple Mansion (appended)
         FoundationDevoured,    // a Dao Partner whose foundation another consumed (user decision, 2026-09-25)
         ManifestationCollapse, // failed to manifest one's divine power at the Shenyang point (user decision)
-        MetalEssenceDemon      // a failed Golden Core: the residual metal essence comes alive (LORE.md §5.5.1)
+        MetalEssenceDemon,     // a failed Golden Core: the residual metal essence comes alive (LORE.md §5.5.1)
+        Sacrificed,            // offered to the mirror for a talisman Qi (LORE.md §11.5)
+        SoulReplaced           // the Fruition took back its body for its former master (LORE.md §5.5.2)
     }
 
     /// <summary>

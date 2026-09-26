@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MirrorChronicles.Characters;
 
 namespace MirrorChronicles.Data
 {
@@ -33,6 +34,12 @@ namespace MirrorChronicles.Data
 
         /// <summary>The clauses one may swear on one's path, and the loopholes (oaths.json, L4d).</summary>
         public OathCatalog Oaths { get; init; } = new OathCatalog();
+
+        /// <summary>The talisman Qi the mirror can refine (talismans.json, LORE.md §11.5).</summary>
+        public IReadOnlyList<TalismanDefinition> Talismans { get; init; } = Array.Empty<TalismanDefinition>();
+
+        /// <summary>The named cultivators of the world's powers (figures.json, from the wiki, renamed).</summary>
+        public IReadOnlyList<FigureDefinition> Figures { get; init; } = Array.Empty<FigureDefinition>();
 
         /// <summary>The world map (regions.json, LORE.md §7).</summary>
         public IReadOnlyList<RegionDefinition> Regions { get; init; } = Array.Empty<RegionDefinition>();
@@ -115,7 +122,7 @@ namespace MirrorChronicles.Data
     }
 
     /// <summary>Tunable rates (balance.json); decision D3 sets the orifice odds (LORE.md §4).</summary>
-    public sealed class BalanceSettings
+    public sealed record BalanceSettings
     {
         public OrificeOdds OrificeOdds { get; init; }
         public double AnnualBirthChance { get; init; }
@@ -136,6 +143,16 @@ namespace MirrorChronicles.Data
         /// <summary>Each year, the chance a foundation's holder takes on the temper its lineage favours.</summary>
         public double HeartAlignmentYearlyChance { get; init; }
 
+        /// <summary>
+        /// A ripe Dao is prey (LORE.md §5.3.3): each year, the chance a Foundation at its peak whose Dao Partners the
+        /// world knows is harvested by a stronger cultivator, and the share of it left when the clan has a Purple Mansion.
+        /// </summary>
+        public double RipeDaoHuntChance { get; init; }
+        public double RipeDaoGuardedFactor { get; init; }
+
+        /// <summary>Chance a newborn takes a parent's inhuman body (§11.6: the traits « se transmettent »).</summary>
+        public double BodyTraitInheritanceChance { get; init; }
+
         /// <summary>Chance a newborn takes a parent's temper (otherwise a temper of its own).</summary>
         public double TemperamentInheritanceChance { get; init; }
 
@@ -154,11 +171,83 @@ namespace MirrorChronicles.Data
         /// <summary>What breaking an oath costs (L4d).</summary>
         public OathSettings Oaths { get; init; }
 
+        /// <summary>How the powers deal with the clan (L5b; interpretations).</summary>
+        public DiplomacySettings Diplomacy { get; init; }
+
+        /// <summary>What knowledge costs: techniques bought from the powers, the mirror's reading (L4c; interpretations).</summary>
+        public KnowledgeTradeSettings KnowledgeTrade { get; init; }
+
+        /// <summary>The ritual of the talisman Qi: prayers, offers, leaps (§11.5; the ten thousand prayers are the lore's).</summary>
+        public TalismanSettings Talismans { get; init; }
+
+        /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
+        public TrialSettings Trials { get; init; }
+
         /// <summary>How talent, stability and a method's grade weigh on the Purple Mansion's trials (interpretations).</summary>
         public TrialModifiers TrialModifiers { get; init; }
 
         /// <summary>The technique rules the lore leaves open (L3 interpretations), replaceable when a source speaks.</summary>
         public TechniqueSettings Techniques { get; init; }
+    }
+
+    /// <summary>How the powers deal with the clan (balance.json, L5b).</summary>
+    public sealed record DiplomacySettings
+    {
+        /// <summary>How many times more strongly a power bordering the clan's home moves its mood each year.</summary>
+        public int NeighbourIntensity { get; init; } = 1;
+
+        /// <summary>Chance a successful spy steals a manual the power holds and the clan lacks, rather than a fragment.</summary>
+        public double StealManualChance { get; init; }
+    }
+
+    /// <summary>What knowledge costs (balance.json, L4c; the lore gives no price).</summary>
+    public sealed record KnowledgeTradeSettings
+    {
+        /// <summary>The relation a power needs with the clan before it sells a technique.</summary>
+        public int MinRelation { get; init; }
+
+        /// <summary>Spirit stones a technique costs, by grade 1-7.</summary>
+        public IReadOnlyList<int> StonesPerGrade { get; init; } = Array.Empty<int>();
+
+        /// <summary>Mirror power to read the Dao Partners of a foundation.</summary>
+        public int DaoPartnersMirrorCost { get; init; }
+    }
+
+    /// <summary>
+    /// The trials of the power ladder (LORE.md §5.1-5.3, balance.json). The lore names the blocking chakras, the
+    /// Foundation wall and spiritual dissolution, but gives no figure: every value is an interpretation (L1-L2,
+    /// moved into the data in L4c). Talent and stability weigh as in <see cref="TrialModifiers"/>.
+    /// </summary>
+    public sealed record TrialSettings
+    {
+        /// <summary>Base chance (%) of each blocking chakra's trial (Inner Lake, Meridian Wheel, Summit Eye).</summary>
+        public IReadOnlyDictionary<TrialKind, int> ChakraChances { get; init; } = new Dictionary<TrialKind, int>();
+
+        /// <summary>The Foundation wall: its chance up to the advised age, then a loss per later year, never below the minimum.</summary>
+        public int FoundationAdvisedAge { get; init; }
+        public int FoundationWallBaseChance { get; init; }
+        public int FoundationWallLossPerYear { get; init; }
+        public int MinimumTrialChance { get; init; }
+
+        /// <summary>Chance (%) a failed wall ends in spiritual dissolution: a base, more per year past the advised age, a ceiling.</summary>
+        public int DissolutionBaseChance { get; init; }
+        public int DissolutionChancePerYear { get; init; }
+        public int MaximumDissolutionChance { get; init; }
+
+        /// <summary>The spiritual root above which talent helps: for the chakras, and for the wall.</summary>
+        public int ChakraMinimumRoot { get; init; }
+        public int WallMinimumRoot { get; init; }
+
+        /// <summary>Past this share of one's lifespan, a trial loses this many percent.</summary>
+        public double OldAgeLifespanRatio { get; init; }
+        public int OldAgePenalty { get; init; }
+
+        /// <summary>A failed trial's severity roll (1-100): minor up to the first, major up to the second, a deadly deviation beyond.</summary>
+        public int MinorFailureMaxRoll { get; init; }
+        public int MajorFailureMaxRoll { get; init; }
+
+        /// <summary>Talisman Seeds the mirror sustains before any fragment is restored (§11.5).</summary>
+        public int BaseTalismanSeedCapacity { get; init; }
     }
 
     /// <summary>
@@ -229,6 +318,9 @@ namespace MirrorChronicles.Data
         /// <summary>Spiritual objects of the Purple Mansion completing a grafted foundation.</summary>
         public int GraftOres { get; init; }
 
+        /// <summary>Share of the XP an ability costs to a cultivator who embodies its image (§5.4.3; interpretation).</summary>
+        public double ImageryXpFactor { get; init; } = 1.0;
+
         /// <summary>Years a grafted donor has left, stripped of all cultivation (user decision, 2026-09-25: one to five).</summary>
         public int GraftDonorMinYearsLeft { get; init; }
         public int GraftDonorMaxYearsLeft { get; init; }
@@ -279,11 +371,35 @@ namespace MirrorChronicles.Data
         public int FalseLeftHandMinAbilities { get; init; }
         public int FalseLeftHandChance { get; init; }
         public int FalseLeftHandYearlyStones { get; init; }
+
+        /// <summary>
+        /// The four stages (§5.5.2) rest on affirming one's Fruition image: a True Monarch with a position or a Left Hand
+        /// path, cultivating, gains these points a year (times the Dao Heart's alignment), and needs these to rise
+        /// from stage 1 to 2, 2 to 3, 3 to 4 (« some natural, others demanding millennia »).
+        /// </summary>
+        public int ImagePointsPerYear { get; init; }
+        public IReadOnlyList<int> ImageToNextStage { get; init; } = Array.Empty<int>();
+
+        /// <summary>
+        /// Moving between positions (§5.5.1, R8): a Surplus takes the freed Realization (Transfer), an Intercalary seizes
+        /// the sovereign position by a deep plan (Transformation, harder). A failure wounds the Dao (« war of positions »).
+        /// </summary>
+        public int TransferChance { get; init; }
+
+        /// <summary>The yearly chance a Fruition that had a master reclaims its holder's soul (« Struggle of the Five Faces »), before the mind's resistance.</summary>
+        public double ReclaimChance { get; init; }
+        public int TransformationChance { get; init; }
+
+        /// <summary>Borrowing a Fruition's light (§5.4.2): the tribute its lender takes each year.</summary>
+        public int LightBorrowingYearlyStones { get; init; }
     }
 
     /// <summary>Odds and durations of the Purple Mansion's breakthrough (balance.json, tuned by simulation).</summary>
     public sealed class PurpleMansionSettings
     {
+        /// <summary>Percent a Realization holder's descendant gains in each of the four trials (§5.5.2; interpretation).</summary>
+        public int TransformedLineageBonus { get; init; }
+
         /// <summary>Base chance (%) of the Ascent; failing it kills.</summary>
         public int AscentBaseChance { get; init; }
 

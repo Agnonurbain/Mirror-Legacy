@@ -200,9 +200,81 @@ namespace MirrorChronicles.Characters
             return true;
         }
 
-        /// <summary>Each Breakthrough phase, every false Left Hand pays its patron — or falls, as it falls with them.</summary>
+        /// <summary>Transfer (R8): a Surplus takes its lineage's Realization once it is free. True once tried.</summary>
+        public bool Transfer(CharacterData member) => MoveToRealization(member, GoldenCoreState.Surplus, Settings.TransferChance, "Transfer");
+
+        /// <summary>Transformation (R8): an Intercalary seizes its lineage's sovereign position by a deep plan. True once tried.</summary>
+        public bool Transform(CharacterData member) => MoveToRealization(member, GoldenCoreState.Intercalary, Settings.TransformationChance, "Transformation");
+
+        /// <summary>
+        /// A position's holder rises to the Realization of their lineage when it is free; a failure wounds their Dao (a
+        /// fifth of their lifespan, LORE.md §5.3) in the war of positions.
+        /// </summary>
+        private bool MoveToRealization(CharacterData member, GoldenCoreState from, int baseChance, string move)
+        {
+            if (member == null || !member.IsAlive || member.GoldenCore != from || member.Retreat != Retreat.None
+                || fruitions.State(member.FruitionId)?.Status != FruitionStatus.Free)
+            {
+                ctx.Log.Warning($"[Golden Core] {member?.FullName} cannot attempt the {move}.");
+                return false;
+            }
+
+            int chance = System.Math.Max(1, System.Math.Min(99, baseChance + (member.SpiritualRoot - ctx.Content.Balance.TrialModifiers.AverageRoot)
+                / ctx.Content.Balance.TrialModifiers.RootPointsPerPercent));
+            if (ctx.Rng.Next(1, 101) > chance)
+            {
+                member.DaoWounds++;
+                member.MaxLifespan = System.Math.Max(member.Age + 1, PowerLadder.WoundedLifespan(member.MaxLifespan, 1));
+                ctx.Log.Info($"[Golden Core] {member.FullName}'s {move} fails ({chance}%): their Dao is wounded.");
+                return true;
+            }
+
+            fruitions.Claim(member.FruitionId, member.FullName);
+            member.GoldenCore = GoldenCoreState.Realization;
+            ctx.Log.Info($"[Golden Core] {member.FullName} rises to the Realization by {move}.");
+            return true;
+        }
+
+        /// <summary>
+        /// Borrowing a Fruition's light (LORE.md §5.4.2): a Foundation at its peak, lent the light of a lineage by its
+        /// holder (who granted the clan leave), becomes a « Merciful » Purple Mansion without abilities of its own.
+        /// </summary>
+        public bool BorrowLight(CharacterData member, string fruitionId)
+        {
+            var state = fruitions.State(fruitionId);
+            bool lent = state?.Status == FruitionStatus.Occupied && state.Holder != null
+                && permissions.TryGetValue(fruitionId, out var grantor) && grantor == state.Holder;
+            bool ready = member != null && member.IsAlive && member.Retreat == Retreat.None && !member.ProgressionSealed && !member.BorrowedLight
+                && member.Realm == CultivationRealm.Foundation && member.RealmStage >= PowerLadder.StageCount(CultivationRealm.Foundation);
+            if (!lent || !ready)
+            {
+                ctx.Log.Warning($"[Golden Core] {member?.FullName} cannot borrow the light of \"{fruitionId}\".");
+                return false;
+            }
+
+            member.Realm = CultivationRealm.PurpleMansion;
+            member.RealmStage = 1;
+            member.BorrowedLight = true; // a lent light condenses nothing of its own (DivineAbilitySystem refuses it)
+            member.FruitionId = fruitionId;
+            member.PatronId = state.Holder;
+            member.MaxLifespan = PowerLadder.LifespanAfterAdvance(member);
+            ctx.Log.Info($"[Golden Core] {member.FullName} borrows the light of {state.Holder}'s lineage.");
+            return true;
+        }
+
+        /// <summary>Each Breakthrough phase, every false Left Hand and borrowed light pays its patron — or falls, as it falls with them.</summary>
         public void ProcessBreakthroughPhase()
         {
+            foreach (var member in clan.LivingMembers.Where(AffirmsTheImage).ToList())
+                AffirmImage(member);
+            foreach (var member in clan.LivingMembers.Where(m => m.GoldenCore == GoldenCoreState.Realization).ToList())
+                StruggleOfTheFiveFaces(member);
+            foreach (var member in clan.LivingMembers.Where(m => m.BorrowedLight).ToList())
+            {
+                if (fruitions.State(member.FruitionId)?.Holder != member.PatronId) ReturnLight(member, "its lender is gone");
+                else if (!resources.ConsumeSpiritStones(Settings.LightBorrowingYearlyStones)) ReturnLight(member, "the tribute went unpaid");
+            }
+
             foreach (var member in clan.LivingMembers.Where(m => m.GoldenCore == GoldenCoreState.FalseLeftHand).ToList())
             {
                 if (fruitions.State(member.FruitionId)?.Holder != member.PatronId) Fall(member, "their patron is gone");
@@ -256,6 +328,55 @@ namespace MirrorChronicles.Characters
             member.PursuedAbility = null;
             member.MaxLifespan = PowerLadder.LifespanAfterAdvance(member);
             ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
+        }
+
+        /// <summary>
+        /// The « Struggle of the Five Faces » (§5.5.2): a Fruition remembers its former master and may take back its
+        /// holder's soul; the member is lost and the old master holds the lineage again.
+        /// </summary>
+        private void StruggleOfTheFiveFaces(CharacterData holder)
+        {
+            var lineage = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == holder.FruitionId);
+            if (lineage == null || lineage.FormerHolders.Count == 0) return;
+            if (!ctx.Rng.Chance(GoldenCoreRules.ReclaimChance(holder, ctx.Content))) return;
+
+            string master = lineage.FormerHolders[0];
+            ctx.Log.Info($"[Golden Core] The {lineage.Name} reclaims {holder.FullName}: {master} returns in their body.");
+            clan.Kill(holder, DeathCause.SoulReplaced);
+            if (fruitions.State(lineage.Id)?.Status == FruitionStatus.Occupied) fruitions.ChangeHolder(lineage.Id, master);
+        }
+
+        /// <summary>A True Monarch with a position or a Left Hand path, cultivating, below the apex.</summary>
+        private static bool AffirmsTheImage(CharacterData m) =>
+            m.Realm == CultivationRealm.GoldenCore && m.CurrentTask == TaskType.Cultivation && m.RealmStage < PowerLadder.StageCount(CultivationRealm.GoldenCore)
+            && (m.GoldenCore == GoldenCoreState.Realization || m.GoldenCore == GoldenCoreState.Surplus || m.GoldenCore == GoldenCoreState.Intercalary
+                || m.GoldenCore == GoldenCoreState.TrueLeftHand || m.GoldenCore == GoldenCoreState.FalseLeftHand);
+
+        /// <summary>A year affirming the Fruition image (§5.5.2): points by the Dao Heart's alignment, a stage when enough.</summary>
+        private void AffirmImage(CharacterData member)
+        {
+            var lineage = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == member.FruitionId);
+            double heart = FoundationRules.HeartAlignmentSpeed(member.Temperament, lineage, ctx.Content.Balance);
+            member.CultivationXP += (int)System.Math.Round(Settings.ImagePointsPerYear * heart);
+
+            int needed = Settings.ImageToNextStage[member.RealmStage - 1];
+            if (member.CultivationXP < needed) return;
+            member.CultivationXP -= needed;
+            member.RealmStage++;
+            ctx.Log.Info($"[Golden Core] {member.FullName} affirms their Fruition image: stage {member.RealmStage}.");
+            ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
+        }
+
+        /// <summary>A borrowed light goes out: back to the Foundation's peak (a seal from elsewhere stays: it is not the light's).</summary>
+        private void ReturnLight(CharacterData member, string why)
+        {
+            member.Realm = CultivationRealm.Foundation;
+            member.RealmStage = PowerLadder.StageCount(CultivationRealm.Foundation);
+            member.BorrowedLight = false;
+            member.FruitionId = null;
+            member.PatronId = null;
+            PowerLadder.NormalizeLifespan(member);
+            ctx.Log.Info($"[Golden Core] {member.FullName}'s borrowed light goes out: {why}.");
         }
 
         /// <summary>A false Left Hand loses the borrowed power: back to the Purple Mansion, abilities kept, the borrowed years gone.</summary>
