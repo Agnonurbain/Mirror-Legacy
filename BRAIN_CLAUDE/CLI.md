@@ -8,6 +8,7 @@
 | `./Scripts/dev.sh test` | Tests de la simulation (`dotnet test`, sans Godot) |
 | `./Scripts/dev.sh smoke` | Jeu sans affichage (`-- --smoke`) : joue 5 ans puis quitte ; échoue sur toute erreur du moteur |
 | `./Scripts/dev.sh screenshot <png>` | Idem dans une fenêtre, puis capture de l'écran |
+| `./Scripts/dev.sh gaps` | Ce que le lore ne donne pas encore : interprétations, capacités non révélées, types inconnus (`ContentGaps`) — à remplacer dans les données quand une source parle |
 | `./Scripts/dev.sh all` | build + test + smoke |
 
 - Godot est attendu dans `~/Godot/Godot_v4.7.2-stable_mono_linux_x86_64/` ; sinon `GODOT_BIN=/chemin/vers/godot`.

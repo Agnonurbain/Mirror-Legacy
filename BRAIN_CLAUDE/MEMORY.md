@@ -51,9 +51,11 @@ Mirror-Legacy/
 | **`GameEventBus`** | Un bus par partie ; les réactions s'exécutent dans l'ordre de construction (déterministe). |
 | **`ClanManager.Kill`** | Seule porte de la mort : la liste des vivants et la succession sont à jour avant `OnCharacterDied`. |
 | **Contenu** | `game/data/*.json` (clan, noms, équilibrage, factions, événements, histoire, techniques, Qi), chargé et validé par `GameContentLoader` ; jamais modifié par une partie. |
+| **Savoir** | `World/KnowledgeBase` : faits typés (`FactKind`) révélés par une source, implications branchables (`WorldKnowledge`) ; les règles demandent `Knows(...)`, les nouvelles sources appellent `Reveal(...)`. |
+| **Trous du lore** | Chaque donnée porte `provenance` et `interpretedFields` ; aucune valeur d'interprétation dans le code (tout dans `balance.json`) ; `./Scripts/dev.sh gaps` liste ce qui reste à confirmer. |
 | **Monde** | `World/FruitionRegistry` : l'état des 63 lignées dans une partie (statuts du lore, les autres tirés d'une source de hasard propre au monde, `WorldRandom(seed)`). |
 | **Techniques** | `TechniqueLibrary` : ce que le clan sait (catalogue appris + déductions du miroir, sauvegardées entières) et la méthode de chaque membre ; `TechniqueRules` pour les règles pures du grade. |
-| **Sauvegarde** | `GameData` 2.2 (état complet : techniques, Qi, lignées), `SaveSerializer` (Newtonsoft, énumérations par nom) ; `ToSaveData` est un instantané détaché ; les sauvegardes v1, 2.0 et 2.1 se chargent et sont mises à niveau. |
+| **Sauvegarde** | `GameData` 2.3 (état complet : techniques, Qi, lignées, savoir), `SaveSerializer` (Newtonsoft, énumérations par nom) ; `ToSaveData` est un instantané détaché ; les sauvegardes v1 à 2.2 se chargent et sont mises à niveau. |
 | **Couche Godot** | `GameRoot` (autoload : contenu, partie, sauvegarde), `ClanDomain` (écran principal) ; les scripts ne font que lier les modèles de `Presentation`. |
 
 ---
