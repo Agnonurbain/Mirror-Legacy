@@ -26,6 +26,7 @@ namespace MirrorChronicles.Game
         private HuntTiming timing;
         private CoverStory cover;
         private MirrorAid aid;
+        private string proofFrom, proofToward;
 
         public override void _Ready()
         {
@@ -35,6 +36,8 @@ namespace MirrorChronicles.Game
             secret = GetNode<VBoxContainer>("%Secret");
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            // OPS_TAB=<0-2> opens a tab (screenshots of a smoke run)
+            if (int.TryParse(OS.GetEnvironment("OPS_TAB"), out int tab)) GetNode<TabContainer>("%Tabs").CurrentTab = tab;
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
         }
@@ -94,7 +97,18 @@ namespace MirrorChronicles.Game
 
             var targetPicker = Picker(hunt, "Cible", targets.Select(t => (t.Id, $"{t.Species} ({t.Strength}) — {t.Owner}, {t.Place}")).ToList(), target);
             targetPicker.ItemSelected += _ => { target = Selected(targetPicker); ShowHunt(); };
+            ShowTeam(session);
+            EnumPicker(hunt, "Moment", timing, OperationsView.TimingLabel, v => timing = v);
+            EnumPicker(hunt, "Couverture", cover, OperationsView.CoverLabel, v => cover = v);
+            EnumPicker(hunt, "Aide du miroir", aid, OperationsView.AidLabel, v => aid = v);
+            ShowDiversion(session);
+            ShowFalseTrail(session);
+            ShowLaunch(session);
+        }
 
+        /// <summary>Each free member with a role, or absent.</summary>
+        private void ShowTeam(Session.GameSession session)
+        {
             Add(hunt, "Équipe :");
             foreach (var member in OperationsView.HuntCandidates(session))
             {
@@ -110,29 +124,36 @@ namespace MirrorChronicles.Game
                     ShowHunt();
                 };
             }
+        }
 
-            EnumPicker(hunt, "Moment", timing, OperationsView.TimingLabel, v => timing = v);
-            EnumPicker(hunt, "Couverture", cover, OperationsView.CoverLabel, v => cover = v);
-            EnumPicker(hunt, "Aide du miroir", aid, OperationsView.AidLabel, v => aid = v);
-
+        /// <summary>A free member outside the team, seen on another place of the map.</summary>
+        private void ShowDiversion(Session.GameSession session)
+        {
             var others = OperationsView.HuntCandidates(session).Where(c => !team.ContainsKey(c.Id)).Select(c => (c.Id, c.Name)).ToList();
             others.Insert(0, (None, "aucune"));
             var decoy = Picker(hunt, "Diversion (vu ailleurs)", others, diversionMember ?? None);
             decoy.ItemSelected += _ => { diversionMember = Selected(decoy) == None ? null : Selected(decoy); ShowHunt(); };
-            if (diversionMember != null)
-            {
-                var places = session.Context.Content.Regions.Where(r => r.ParentId != null).Select(r => (r.Id, r.Name)).ToList();
-                if (places.Count == 0) return;
-                diversionPlace ??= places[0].Id;
-                var place = Picker(hunt, "… à", places, diversionPlace);
-                place.ItemSelected += _ => { diversionPlace = Selected(place); ShowHunt(); };
-            }
+            if (diversionMember == null) return;
 
+            var places = session.Context.Content.Regions.Where(r => r.ParentId != null).Select(r => (r.Id, r.Name)).ToList();
+            if (places.Count == 0) return;
+            diversionPlace ??= places[0].Id;
+            var place = Picker(hunt, "… à", places, diversionPlace);
+            place.ItemSelected += _ => { diversionPlace = Selected(place); ShowHunt(); };
+        }
+
+        /// <summary>A power to blame, or none.</summary>
+        private void ShowFalseTrail(Session.GameSession session)
+        {
             var powers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
             powers.Insert(0, (None, "aucune"));
             var frame = Picker(hunt, "Fausse piste (accuser)", powers, framed ?? None);
             frame.ItemSelected += _ => { framed = Selected(frame) == None ? null : Selected(frame); ShowHunt(); };
+        }
 
+        /// <summary>The plan's odds and costs, and the launch (disabled, with its reason, when it cannot be).</summary>
+        private void ShowLaunch(Session.GameSession session)
+        {
             var plan = Plan();
             var preview = OperationsView.HuntPreview(session, plan);
             Add(hunt, $"Approche {preview.Approach} % · capture {preview.Capture} % · traces si tout va bien : {preview.Exposure} · coût : {preview.Stones} pierres, {preview.MirrorPower} de puissance du miroir");
@@ -185,10 +206,22 @@ namespace MirrorChronicles.Game
             if (OperationsView.Signs(session).All(p => p.Sign == "calme")) Add(secret, "Tout est calme.");
 
             var powers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
-            var from = Picker(secret, "Fausse preuve : chez", powers);
-            var toward = Picker(secret, "… contre", powers, powers.Count > 1 ? powers[1].Item1 : null);
-            AddButton(secret, "Fabriquer une fausse preuve", () => Report(session.Secrets.PlantFalseProof(Selected(from), Selected(toward))
-                ? "Une fausse preuve est en place." : "Impossible : même puissance, ou le miroir manque de puissance."));
+            if (powers.Count > 1)
+            {
+                proofFrom ??= powers[0].Item1;
+                proofToward ??= powers[1].Item1;
+                var from = Picker(secret, "Fausse preuve : chez", powers, proofFrom);
+                from.ItemSelected += _ => { proofFrom = Selected(from); ShowSecret(); };
+                var toward = Picker(secret, "… contre", powers, proofToward);
+                toward.ItemSelected += _ => { proofToward = Selected(toward); ShowSecret(); };
+                int cost = session.Context.Content.Balance.Plots.FalseProofMirrorCost;
+                string why = proofFrom == proofToward ? "choisissez deux puissances différentes"
+                    : session.Mirror.MirrorPower < cost ? $"il faut {cost} de puissance du miroir" : null;
+                var plant = AddButton(secret, "Fabriquer une fausse preuve", () => Report(session.Secrets.PlantFalseProof(proofFrom, proofToward)
+                    ? $"Une fausse preuve tourne les yeux de {proofFrom} vers {proofToward}." : "La fausse preuve n'a pu être placée."));
+                plant.Disabled = why != null;
+                if (why != null) Add(secret, $"Pas encore : {why}.");
+            }
 
             Add(secret, "Dans la confidence :");
             var patriarch = session.Clan.GetPatriarch();
