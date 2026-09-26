@@ -53,6 +53,7 @@ namespace MirrorChronicles.Session
         public SuspicionLedger Suspicion { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
+        public RegionalQi Place { get; }
         public CaptiveSystem Captives { get; }
         public SchemeSystem Schemes { get; }
         public SecretSystem Secrets { get; }
@@ -82,7 +83,9 @@ namespace MirrorChronicles.Session
             Karma = new ClanKarmaSystem(Context, Clan);
             Knowledge = WorldKnowledge.Create(Context.Content);
             Techniques = new TechniqueLibrary(Context, Knowledge);
-            Cultivation = new CultivationSystem(Context, Karma, Techniques, Resources);
+            Fruitions = new FruitionRegistry(Context);
+            Place = new RegionalQi(Context, Fruitions, Techniques);
+            Cultivation = new CultivationSystem(Context, Karma, Techniques, Resources, Place);
             Breakthroughs = new BreakthroughSystem(Context, Clan, Cultivation);
             Foundations = new FoundationSystem(Context, Clan, Techniques);
             PurpleMansion = new PurpleMansionSystem(Context, Clan, Cultivation, Techniques);
@@ -90,7 +93,6 @@ namespace MirrorChronicles.Session
             Aging = new AgingSystem(Context, Clan);
             Wounds = new WoundSystem(Context, Stability);
             Factions = new FactionManager(Context);
-            Fruitions = new FruitionRegistry(Context);
             Mirror = new MirrorSystem(Context, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);

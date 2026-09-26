@@ -1,0 +1,54 @@
+[
+  {
+    "id": "profound-balance",
+    "name": "Atmosphère de l'Équilibre Profond",
+    "favouredFruitions": [ "first-jade" ],
+    "favouredElements": [],
+    "favouredPaths": [],
+    "generalSpeed": 0.02,
+    "favouredSpeed": 0.2,
+    "favouredBreakthrough": 10,
+    "notes": "Créée pour aider une percée au Noyau d'Or du Jade Premier ; exige un climat doux et la paix et la prospérité de millions de gens (LORE.md §5.8). Brisée en Mer Orientale par Eaux Tombantes, Tempête Montante : elle ne règne aujourd'hui sur aucun lieu.",
+    "provenance": "Lore",
+    "interpretedFields": [ "GeneralSpeed", "FavouredSpeed", "FavouredBreakthrough" ]
+  },
+  {
+    "id": "falling-water-rising-storm",
+    "name": "Eaux Tombantes, Tempête Montante",
+    "favouredFruitions": [ "veiled-yin", "hidden-water" ],
+    "favouredElements": [],
+    "favouredPaths": [],
+    "generalSpeed": -0.05,
+    "favouredSpeed": 0.15,
+    "favouredBreakthrough": 5,
+    "notes": "Déclenchée en Mer Orientale par une secte rivale pour briser l'Équilibre Profond : pseudo-Eau Yin qui ruine les récoltes, noie les villages et engendre du ressentiment (LORE.md §5.8).",
+    "provenance": "Lore",
+    "interpretedFields": [ "FavouredFruitions", "GeneralSpeed", "FavouredSpeed", "FavouredBreakthrough" ]
+  },
+  {
+    "id": "baleful-spirits-storehouse",
+    "name": "Grand Entrepôt des Esprits Funestes",
+    "favouredFruitions": [ "orthodox-earth", "gathered-earth", "nourishing-earth", "mutable-earth", "hidden-earth", "nourishing-water", "baleful-qi" ],
+    "favouredElements": [],
+    "favouredPaths": [ "Devil" ],
+    "generalSpeed": 0.0,
+    "favouredSpeed": 0.15,
+    "favouredBreakthrough": 5,
+    "notes": "Le sud de Linxi : favorable à la Vertu de la Terre, au Dao du Diable, à l'Eau Nourricière et au sang-qi (LORE.md §5.8). Le sang-qi n'est pas encore une lignée des données ; le Qi Funeste y est ajouté par interprétation.",
+    "provenance": "Lore",
+    "interpretedFields": [ "GeneralSpeed", "FavouredSpeed", "FavouredBreakthrough" ]
+  },
+  {
+    "id": "overturned-waters-storm",
+    "name": "Tempête des Eaux Renversées",
+    "favouredFruitions": [],
+    "favouredElements": [],
+    "favouredPaths": [],
+    "generalSpeed": -0.025,
+    "favouredSpeed": 0.0,
+    "favouredBreakthrough": 0,
+    "notes": "Phénomène céleste durable né de l'échec d'un membre de la lignée dragonne en Mer Orientale : nuages noirs, pluies torrentielles, éclairs noirs et violets ; un cultivateur de la côte y a perdu 2,5 % de vitesse de cultivation (LORE.md §5.7).",
+    "provenance": "Lore",
+    "interpretedFields": []
+  }
+]

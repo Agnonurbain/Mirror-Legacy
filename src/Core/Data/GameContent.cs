@@ -36,6 +36,7 @@ namespace MirrorChronicles.Data
         public OathCatalog Oaths { get; init; } = new OathCatalog();
 
         /// <summary>The kinds of spirit beasts (beasts.json, L2c.2).</summary>
+        public IReadOnlyList<AtmosphereDefinition> Atmospheres { get; init; } = Array.Empty<AtmosphereDefinition>();
         public IReadOnlyList<BeastSpecies> BeastSpecies { get; init; } = Array.Empty<BeastSpecies>();
 
         /// <summary>The talisman Qi the mirror can refine (talismans.json, LORE.md §11.5).</summary>
@@ -179,6 +180,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>The powers' schemes for profit and the captives on both sides (L6a; interpretations).</summary>
         public SchemeSettings Schemes { get; init; }
+
+        /// <summary>The Qi of the places (L5b; interpretations).</summary>
+        public RegionalQiSettings RegionalQi { get; init; }
 
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }

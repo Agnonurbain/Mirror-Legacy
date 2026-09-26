@@ -142,6 +142,24 @@
     "executeRelation": -40,
     "executeWitnessRelation": -5
   },
+  "regionalQi": {
+    "kindElements": {
+      "State": [ "Earth", "Wood", "Water", "Fire", "Metal" ],
+      "Sea": [ "Water" ],
+      "Prefecture": [ "Earth", "Wood" ],
+      "Mountain": [ "Earth", "Metal", "Lightning" ],
+      "Lake": [ "Water" ],
+      "River": [ "Water", "Wood" ],
+      "Plain": [ "Wood", "Earth" ],
+      "Wilds": [ "Wood", "Darkness", "Lightning" ],
+      "Desert": [ "Fire", "Metal", "Light" ],
+      "Island": [ "Water", "Wood" ]
+    },
+    "everywhereFamilies": [ "TwelveEssences" ],
+    "kindDensity": { "State": 1.0, "Sea": 1.0, "Prefecture": 0.9, "Mountain": 1.1, "Lake": 1.1, "River": 1.0, "Plain": 0.9, "Wilds": 1.2, "Desert": 0.7, "Island": 1.1 },
+    "lineageStatusFactors": { "Unspecified": 1.0, "Occupied": 1.25, "Free": 1.0, "Broken": 0.6, "Hidden": 1.0, "Suspected": 1.0 },
+    "absentQiFactor": 0.8
+  },
   "hunt": {
     "approachBase": 55,
     "lookoutBonus": 10,

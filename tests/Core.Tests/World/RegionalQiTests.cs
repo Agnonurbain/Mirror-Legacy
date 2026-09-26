@@ -88,7 +88,8 @@ namespace MirrorChronicles.Tests.World
             var w = new TestWorld();
             var spring = w.Join(Fixtures.Cultivator());
             var ember = w.Join(Fixtures.Cultivator());
-            ember.CultivationMethodId = "ember-phoenix-sutra";
+            w.Techniques.Learn("ember-phoenix-stride");
+            ember.CultivationMethodId = "ember-phoenix-stride";
             var place = Place(w);
 
             Assert.AreEqual(Settings.AbsentQiFactor, place.SpeedFactor(ember), 1e-9);

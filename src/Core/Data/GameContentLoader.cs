@@ -28,9 +28,10 @@ namespace MirrorChronicles.Data
         public const string TalismansFile = "talismans.json";
         public const string FiguresFile = "figures.json";
         public const string BeastsFile = "beasts.json";
+        public const string AtmospheresFile = "atmospheres.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -63,6 +64,7 @@ namespace MirrorChronicles.Data
             var talismans = Read<List<TalismanDefinition>>(readFile, TalismansFile);
             var figures = Read<List<FigureDefinition>>(readFile, FiguresFile);
             var beasts = Read<List<BeastSpecies>>(readFile, BeastsFile);
+            var atmospheres = Read<List<AtmosphereDefinition>>(readFile, AtmospheresFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -75,6 +77,8 @@ namespace MirrorChronicles.Data
             CheckFruitions(fruitions);
             CheckOaths(oaths);
             CheckRegions(regions);
+            CheckAtmospheres(atmospheres, fruitions.Fruitions);
+            CheckRegionalQi(regions, qi, atmospheres);
             CheckTalismans(talismans);
             CheckFigures(figures, factions);
             Require(beasts.Count > 0 && beasts.All(b => !string.IsNullOrWhiteSpace(b.Id) && !string.IsNullOrWhiteSpace(b.Name) && b.Habitats != null)
@@ -87,6 +91,7 @@ namespace MirrorChronicles.Data
             CheckInterpretedFields(FiguresFile, figures.Select(f => (f.Id, typeof(FigureDefinition), (IEnumerable<string>)f.InterpretedFields)));
             CheckInterpretedFields(TalismansFile, talismans.Select(t => (t.Id, typeof(TalismanDefinition), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(RegionsFile, regions.Select(r => (r.Id, typeof(RegionDefinition), (IEnumerable<string>)r.InterpretedFields)));
+            CheckInterpretedFields(AtmospheresFile, atmospheres.Select(a => (a.Id, typeof(AtmosphereDefinition), (IEnumerable<string>)a.InterpretedFields)));
             CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
             CheckInterpretedFields(FruitionsFile, fruitions.Fruitions.Select(f => (f.Id, typeof(FruitionDefinition), (IEnumerable<string>)f.InterpretedFields))
                 .Concat(fruitions.Fruitions.SelectMany(f => f.Abilities.Select(a => ($"{f.Id}:{a.Id}", typeof(DivineAbilityDefinition), (IEnumerable<string>)a.InterpretedFields)))));
@@ -108,7 +113,8 @@ namespace MirrorChronicles.Data
                 Regions = regions,
                 Talismans = talismans,
                 Figures = figures,
-                BeastSpecies = beasts
+                BeastSpecies = beasts,
+                Atmospheres = atmospheres
             };
         }
 
@@ -215,6 +221,12 @@ namespace MirrorChronicles.Data
                 && schemes.RansomRealmFactor >= 1 && schemes.SilenceMirrorCost >= 0 && schemes.InterrogationFragments >= 0
                 && schemes.FailedRescueSuspicion >= 0 && schemes.DenounceDistrust >= 0,
                 BalanceFile, "schemes needs a factor for every personality, the tasks away from the domain, and odds and costs in range.");
+            var place = balance.RegionalQi;
+            Require(place != null && place.KindElements != null && place.KindDensity != null && place.LineageStatusFactors != null
+                && Enum.GetValues(typeof(RegionKind)).Cast<RegionKind>().All(k => place.KindElements.ContainsKey(k) && place.KindDensity.TryGetValue(k, out var d) && d > 0)
+                && Enum.GetValues(typeof(FruitionStatus)).Cast<FruitionStatus>().All(s => place.LineageStatusFactors.TryGetValue(s, out var f) && f >= 0)
+                && place.EverywhereFamilies != null && place.AbsentQiFactor >= 0,
+                BalanceFile, "regionalQi needs the elements and a positive density of every kind of place, and a factor for every lineage state.");
             var hunt = balance.Hunt;
             Require(hunt != null && hunt.TimingApproach?.Count == 3 && hunt.TimingCapture?.Count == 3 && hunt.CoverExposure?.Count == 4
                 && hunt.CoverStones?.Count == 4 && hunt.CoverStones.All(c => c >= 0) && hunt.AidMirrorCost?.Count == 3 && hunt.AidMirrorCost.All(c => c >= 0)
@@ -479,6 +491,30 @@ namespace MirrorChronicles.Data
                     Require(byId.ContainsKey(n), RegionsFile, $"{r.Id}: its neighbour \"{n}\" is not a region.");
                     Require(byId[n].Neighbours?.Contains(r.Id) == true, RegionsFile, $"{r.Id} borders {n}, but {n} does not border {r.Id}.");
                 }
+            }
+        }
+
+        /// <summary>Atmospheres (L5b): unique ids, names, lists, and favoured lineages that exist.</summary>
+        private static void CheckAtmospheres(List<AtmosphereDefinition> atmospheres, IReadOnlyList<FruitionDefinition> fruitions)
+        {
+            Require(atmospheres.All(a => !string.IsNullOrWhiteSpace(a.Id) && !string.IsNullOrWhiteSpace(a.Name)
+                    && a.FavouredFruitions != null && a.FavouredElements != null && a.FavouredPaths != null && a.InterpretedFields != null)
+                && atmospheres.Select(a => a.Id).Distinct().Count() == atmospheres.Count,
+                AtmospheresFile, "every atmosphere needs a unique id, a name and lists (empty when none).");
+            var unknown = atmospheres.SelectMany(a => a.FavouredFruitions.Select(f => (a.Id, f))).FirstOrDefault(p => fruitions.All(f => f.Id != p.f));
+            Require(unknown.f == null, AtmospheresFile, $"{unknown.Id}: the lineage \"{unknown.f}\" is not in {FruitionsFile}.");
+        }
+
+        /// <summary>The Qi of the places (L5b): the Qi they name exist, their atmosphere exists, their density is positive.</summary>
+        private static void CheckRegionalQi(List<RegionDefinition> regions, IReadOnlyList<QiDefinition> qi, List<AtmosphereDefinition> atmospheres)
+        {
+            foreach (var r in regions)
+            {
+                var missing = r.Qi?.FirstOrDefault(id => qi.All(q => q.Id != id));
+                Require(missing == null, RegionsFile, $"{r.Id}: the Qi \"{missing}\" is not in {QiFile}.");
+                Require(r.AtmosphereId == null || atmospheres.Any(a => a.Id == r.AtmosphereId), RegionsFile,
+                    $"{r.Id}: the atmosphere \"{r.AtmosphereId}\" is not in {AtmospheresFile}.");
+                Require(r.QiDensity == null || r.QiDensity > 0, RegionsFile, $"{r.Id}: its Qi density must be positive.");
             }
         }
 

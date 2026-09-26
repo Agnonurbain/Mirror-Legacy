@@ -132,7 +132,8 @@
       "X",
       "Y",
       "Neighbours"
-    ]
+    ],
+    "atmosphereId": "falling-water-rising-storm"
   },
   {
     "id": "northern-sea",
@@ -189,8 +190,10 @@
     "notes": "« Lac de l'Eau-Miroir », ancien Marais Jingshui, plus tard Lac Immortel ; domaine du clan Mo. Cinq clans y vivent : Lou, Fang, Mo, Lü et Tao ; île centrale Cuidao.",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "QiDensity"
+    ],
+    "qiDensity": 1.0
   },
   {
     "id": "qingyan-mountains",
@@ -416,8 +419,10 @@
     "notes": "Centre-est ; terres du Pic des Nuées.",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "baleful-spirits-storehouse"
   },
   {
     "id": "siwei",
@@ -436,8 +441,10 @@
     "notes": "Centre-est ; terres du Pic des Nuées.",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "baleful-spirits-storehouse"
   },
   {
     "id": "haiyan",
@@ -453,8 +460,10 @@
     "notes": "Tout au sud, au bord de la mer ; terres du Pic des Nuées.",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "baleful-spirits-storehouse"
   },
   {
     "id": "mount-yunfeng",
@@ -473,8 +482,10 @@
     "notes": "Centre-est ; siège de la Secte du Pic des Nuées.",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "baleful-spirits-storehouse"
   },
   {
     "id": "singing-sands",
@@ -597,8 +608,10 @@
     "notes": "Est ; Porte de l'Épée Stellaire.",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "overturned-waters-storm"
   },
   {
     "id": "qingyuan",
@@ -654,8 +667,10 @@
     "notes": "Sud ; Porte des Saules Pleureurs.",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "baleful-spirits-storehouse"
   },
   {
     "id": "baishi",
@@ -672,8 +687,10 @@
     "notes": "Sud ; Porte des Saules Pleureurs.",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "baleful-spirits-storehouse"
   },
   {
     "id": "nanling",
@@ -688,8 +705,10 @@
     "notes": "Sud ; Porte du Tambour Sacré.",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "baleful-spirits-storehouse"
   },
   {
     "id": "tiger-frontier",
@@ -706,8 +725,10 @@
     "notes": "Frontière du Linxi, près de la Préfecture de Pingjiang (carte du continent du wiki).",
     "provenance": "Wiki",
     "interpretedFields": [
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "baleful-spirits-storehouse"
   },
   {
     "id": "black-pearl-atoll",
@@ -928,8 +949,10 @@
     "interpretedFields": [
       "X",
       "Y",
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "falling-water-rising-storm"
   },
   {
     "id": "vermilion-sea",
@@ -946,8 +969,10 @@
     "interpretedFields": [
       "X",
       "Y",
-      "Neighbours"
-    ]
+      "Neighbours",
+      "AtmosphereId"
+    ],
+    "atmosphereId": "falling-water-rising-storm"
   },
   {
     "id": "southern-marches",
