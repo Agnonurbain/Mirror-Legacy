@@ -67,6 +67,7 @@ namespace MirrorChronicles.Data
         public List<WorldBeast> WorldBeasts { get; set; }
         public Dictionary<string, int> SuspicionOfClan { get; set; } // 2.9, hidden: each power's suspicion of the clan
         public Dictionary<string, int> Distrust { get; set; }        // 2.9, hidden: « holder→toward »
+        public Confrontation Confrontation { get; set; }             // 2.9: a power that pierced the secret, awaiting its move
         public Dictionary<string, int> MirrorClues { get; set; }     // 2.9, hidden: what each power pieced together about the mirror
         public Dictionary<string, int> Evidence { get; set; }        // 2.9, hidden: the proof each power holds against the clan             // 2.8; null in older saves: drawn again from the seed                // 2.7; null in older saves: the next multiple of the cycle
 

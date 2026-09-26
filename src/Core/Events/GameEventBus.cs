@@ -27,7 +27,8 @@ namespace MirrorChronicles.Events
         // Cultivation
         public event Action<CharacterData, CultivationRealm> OnBreakthroughSuccess;
         public event Action<CharacterData> OnBreakthroughFailed;
-        public event Action<CharacterData> OnMetalEssenceDemon;             // a failed Golden Core comes alive (regional threat, L6)
+        public event Action<CharacterData> OnMetalEssenceDemon;
+        public event Action<string> OnMirrorSeized;                          // a power seized the mirror: the game is lost (§11.9)             // a failed Golden Core comes alive (regional threat, L6)
 
         // Economy
         public event Action<int> OnSpiritStonesChanged;
@@ -44,6 +45,7 @@ namespace MirrorChronicles.Events
         public void TriggerAncestorAscended(CharacterData character) => OnAncestorAscended?.Invoke(character);
         public void TriggerBreakthroughSuccess(CharacterData character, CultivationRealm newRealm) => OnBreakthroughSuccess?.Invoke(character, newRealm);
         public void TriggerMetalEssenceDemon(CharacterData character) => OnMetalEssenceDemon?.Invoke(character);
+        public void TriggerMirrorSeized(string faction) => OnMirrorSeized?.Invoke(faction);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);

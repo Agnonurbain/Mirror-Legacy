@@ -3,6 +3,7 @@ using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
+using MirrorChronicles.Mirror;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.World
@@ -11,7 +12,10 @@ namespace MirrorChronicles.World
     /// The mirror's secret and those who carry it (L2c.4b; LORE.md §11.5: the mirror must stay hidden, D7). Each year a
     /// member in the secret may talk — more when their mind is unsteady, far less when sworn to secrecy, whose oath then
     /// breaks. A leak reaches the power asking most (the most suspicious), or any: proof against the clan, and clues about
-    /// a hidden treasure behind it.
+    /// a hidden treasure behind it. The mirror answers (L2c.4c): it blurs a power's memories or plants a false proof. When
+    /// a power pieces the secret together, the consequences are immediate — an investigator comes — but the clan has a
+    /// little time to sow doubt: a power made to doubt cannot act; one that still knows seizes the mirror if it dares,
+    /// and otherwise sells the secret to the strongest (profit, D7).
     /// </summary>
     public sealed class SecretSystem
     {
@@ -20,9 +24,12 @@ namespace MirrorChronicles.World
         private readonly FactionManager factions;
         private readonly SuspicionLedger suspicion;
         private readonly OathSystem oaths;
+        private readonly MirrorSystem mirror;
 
-        public SecretSystem(GameContext ctx, ClanManager clan, FactionManager factions, SuspicionLedger suspicion, OathSystem oaths)
+        public SecretSystem(GameContext ctx, ClanManager clan, FactionManager factions, SuspicionLedger suspicion, OathSystem oaths,
+            MirrorSystem mirror)
         {
+            this.mirror = mirror;
             this.ctx = ctx;
             this.clan = clan;
             this.factions = factions;
@@ -32,9 +39,44 @@ namespace MirrorChronicles.World
 
         private PlotSettings Settings => ctx.Content.Balance.Plots;
 
+        /// <summary>A power that pierced the secret, awaiting its move; null when none.</summary>
+        public Confrontation Confrontation { get; private set; }
+
+        public void RestoreConfrontation(Confrontation saved) => Confrontation = saved;
+
+        /// <summary>The mirror blurs a power's memories: its clues and proof dim (less against a Golden Core).</summary>
+        public bool BlurMemories(string faction)
+        {
+            var power = factions.GetFactionByName(faction);
+            if (power == null || !mirror.ConsumePower(Settings.BlurMirrorCost)) return false;
+            double hold = power.HighestRealm >= CultivationRealm.GoldenCore ? Settings.BlurStrongFactor : 1.0;
+            suspicion.AddMirrorClues(faction, -(int)(Settings.BlurClues * hold));
+            suspicion.AddEvidence(faction, -(int)(Settings.BlurEvidence * hold));
+            ctx.Log.Info($"[Secrets] The mirror blurs what {faction} remembers.");
+            return true;
+        }
+
+        /// <summary>The mirror plants a false proof: part of a power's proof becomes its distrust of another.</summary>
+        public bool PlantFalseProof(string faction, string framed)
+        {
+            if (factions.GetFactionByName(faction) == null || factions.GetFactionByName(framed) == null || faction == framed
+                || !mirror.ConsumePower(Settings.FalseProofMirrorCost)) return false;
+            int moved = System.Math.Min(Settings.FalseProofAmount, suspicion.Evidence(faction));
+            suspicion.AddEvidence(faction, -moved);
+            suspicion.AddDistrust(faction, framed, moved);
+            ctx.Log.Info($"[Secrets] A false proof turns {faction}'s eyes toward {framed}.");
+            return true;
+        }
+
         public void ProcessYear()
         {
             if (factions.Factions.Count == 0) return;
+            Leak();
+            Confront();
+        }
+
+        private void Leak()
+        {
             foreach (var keeper in clan.LivingMembers.Where(m => m.KnowsMirrorSecret).ToList())
             {
                 var partner = oaths.SecrecyPartner(keeper);
@@ -47,6 +89,47 @@ namespace MirrorChronicles.World
                 ctx.Log.Warning($"[Secrets] {keeper.FullName} lets something slip before {listener.Name}.");
                 if (partner != null) oaths.Transgress(keeper, partner, OathAct.RevealSecret); // the oath breaks
             }
+        }
+
+        /// <summary>The pierced secret: an investigator comes; a year later, doubt, seizure or sale.</summary>
+        private void Confront()
+        {
+            if (Confrontation == null)
+            {
+                var knowing = factions.Factions.FirstOrDefault(f => suspicion.MirrorClues(f.Name) >= SuspicionLedger.Max);
+                if (knowing == null) return;
+                Confrontation = new Confrontation(knowing.Name, Settings.ConfrontationYears);
+                suspicion.AddToClan(knowing.Name, SuspicionLedger.Max); // the consequences are immediate
+                ctx.Log.Warning($"[Secrets] {knowing.Name} has pieced the secret together: an investigator comes.");
+                return;
+            }
+
+            int left = Confrontation.YearsLeft - 1;
+            string faction = Confrontation.Faction;
+            if (suspicion.MirrorClues(faction) < Settings.DoubtClues)
+            {
+                Confrontation = null; // made to doubt, it cannot act
+                ctx.Log.Info($"[Secrets] {faction} doubts what it thought it knew.");
+                return;
+            }
+            if (left > 0)
+            {
+                Confrontation = Confrontation with { YearsLeft = left };
+                return;
+            }
+
+            Confrontation = null;
+            var power = factions.GetFactionByName(faction);
+            var strongest = clan.LivingMembers.Select(m => m.Realm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
+            if (power != null && PlotRules.DaresWithoutProof(power, strongest, ctx.Content))
+            {
+                ctx.Events.TriggerMirrorSeized(faction);
+                return;
+            }
+            var buyer = factions.Factions.Where(f => f.Name != faction).OrderByDescending(f => f.PowerLevel).FirstOrDefault();
+            if (buyer == null) return;
+            suspicion.AddMirrorClues(buyer.Name, Settings.LeakMirrorClue); // too weak to seize: it sells the secret (profit)
+            ctx.Log.Warning($"[Secrets] {faction}, too weak to act, sells what it knows to {buyer.Name}.");
         }
     }
 }

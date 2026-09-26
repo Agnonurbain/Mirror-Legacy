@@ -101,7 +101,15 @@
     "leakStabilityScale": 50,
     "swornLeakFactor": 0.2,
     "leakMirrorClue": 25,
-    "leakEvidence": 10
+    "leakEvidence": 10,
+    "blurMirrorCost": 40,
+    "blurClues": 40,
+    "blurEvidence": 30,
+    "blurStrongFactor": 0.5,
+    "falseProofMirrorCost": 30,
+    "falseProofAmount": 30,
+    "confrontationYears": 1,
+    "doubtClues": 60
   },
   "hunt": {
     "approachBase": 55,

@@ -103,7 +103,7 @@ namespace MirrorChronicles.Session
             Suspicion = new SuspicionLedger();
             Hunts = new HuntOperations(Context, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
             Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion);
-            Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths);
+            Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths, Mirror);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
@@ -188,6 +188,7 @@ namespace MirrorChronicles.Session
             session.Suspicion.Restore(data.SuspicionOfClan, data.Distrust); // hidden; none in saves before 2.9
             session.Suspicion.RestoreEvidence(data.Evidence);
             session.Suspicion.RestoreMirrorClues(data.MirrorClues);
+            session.Secrets.RestoreConfrontation(data.Confrontation);
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -236,6 +237,7 @@ namespace MirrorChronicles.Session
                 Distrust = new Dictionary<string, int>(Suspicion.Distrusts),
                 Evidence = new Dictionary<string, int>(Suspicion.Evidences),
                 MirrorClues = new Dictionary<string, int>(Suspicion.AllMirrorClues),
+                Confrontation = Secrets.Confrontation,
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null

@@ -1,5 +1,8 @@
 namespace MirrorChronicles.Data
 {
+    /// <summary>A power that pierced the mirror's secret, and the years left before it acts (L2c.4c; saved).</summary>
+    public sealed record Confrontation(string Faction, int YearsLeft);
+
     /// <summary>
     /// How the powers answer what they suspect (balance.json, L2c.4a; LORE.md D7; interpretations): when they
     /// investigate, how they find proof, when they strike, and the hidden price of striking without proof.
@@ -39,5 +42,20 @@ namespace MirrorChronicles.Data
         public double SwornLeakFactor { get; init; }
         public int LeakMirrorClue { get; init; }
         public int LeakEvidence { get; init; }
+
+        /// <summary>
+        /// The mirror's answers (L2c.4c): blurring a power's memories (clues and proof dimmed; less against a power with a
+        /// Golden Core, beyond the locks' reach, §11.5), planting a false proof (proof turned into distrust of another).
+        /// </summary>
+        public int BlurMirrorCost { get; init; }
+        public int BlurClues { get; init; }
+        public int BlurEvidence { get; init; }
+        public double BlurStrongFactor { get; init; }
+        public int FalseProofMirrorCost { get; init; }
+        public int FalseProofAmount { get; init; }
+
+        /// <summary>The pierced secret: the years the clan has to sow doubt, and the clues under which the power doubts.</summary>
+        public int ConfrontationYears { get; init; } = 1;
+        public int DoubtClues { get; init; }
     }
 }

@@ -201,7 +201,10 @@ namespace MirrorChronicles.Data
                 && plots.InvestigationBonusPerRealm >= 0 && plots.BoldnessRealmMargin >= 0 && plots.ReprisalRelation <= 0
                 && IsProbability(plots.ReprisalStonesShare) && plots.WitnessDistrust >= 0 && plots.ProofReputation >= 0
                 && IsProbability(plots.LeakBaseChance) && plots.LeakStabilityScale > 0 && IsProbability(plots.SwornLeakFactor)
-                && plots.LeakMirrorClue >= 0 && plots.LeakEvidence >= 0,
+                && plots.LeakMirrorClue >= 0 && plots.LeakEvidence >= 0
+                && plots.BlurMirrorCost >= 0 && plots.BlurClues >= 0 && plots.BlurEvidence >= 0 && IsProbability(plots.BlurStrongFactor)
+                && plots.FalseProofMirrorCost >= 0 && plots.FalseProofAmount >= 0 && plots.ConfrontationYears >= 1
+                && plots.DoubtClues > 0 && plots.DoubtClues <= 100,
                 BalanceFile, "plots needs thresholds in order (investigate <= act), positive proof, and odds and penalties in range.");
             var hunt = balance.Hunt;
             Require(hunt != null && hunt.TimingApproach?.Count == 3 && hunt.TimingCapture?.Count == 3 && hunt.CoverExposure?.Count == 4
