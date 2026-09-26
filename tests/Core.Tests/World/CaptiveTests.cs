@@ -458,17 +458,15 @@ namespace MirrorChronicles.Tests.World
         }
 
         [Test]
-        public void TheSessionsYear_LetsThePowersScheme_AndHoldsTheirCaptives()
+        public void TheSessionsYear_HoldsTheCaptives()
         {
             var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
             var captive = s.Clan.LivingMembers.Last();
-            captive.KnowsMirrorSecret = true;
-            s.Captives.Take(captive, Ruan);
-            int before = s.Suspicion.MirrorClues(Ruan);
+            s.Captives.Take(captive, "Puissance disparue");
 
-            for (int i = 0; i < 30 && s.Suspicion.MirrorClues(Ruan) == before && captive.CaptorFaction != null; i++) s.AdvanceYear();
+            s.AdvanceYear();
 
-            Assert.IsTrue(s.Suspicion.MirrorClues(Ruan) > before || captive.CaptorFaction == null, "the captive is interrogated each year");
+            Assert.IsNull(captive.CaptorFaction, "the year's captives are processed: a captor gone, the captive walks free");
         }
     }
 }

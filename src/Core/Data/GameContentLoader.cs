@@ -206,6 +206,15 @@ namespace MirrorChronicles.Data
                 && plots.FalseProofMirrorCost >= 0 && plots.FalseProofAmount >= 0 && plots.ConfrontationYears >= 1
                 && plots.DoubtClues > 0 && plots.DoubtClues <= 100,
                 BalanceFile, "plots needs thresholds in order (investigate <= act), positive proof, and odds and penalties in range.");
+            var schemes = balance.Schemes;
+            Require(schemes != null && IsProbability(schemes.BaseChance) && schemes.PersonalityFactors != null
+                && Enum.GetValues(typeof(FactionPersonality)).Cast<FactionPersonality>().All(p => schemes.PersonalityFactors.TryGetValue(p, out var f) && f >= 0)
+                && schemes.HostilityWeight >= 0 && schemes.FriendshipDamping >= 0 && schemes.WealthReference > 0 && schemes.MaxGreed >= 1
+                && schemes.AwayTasks != null && IsProbability(schemes.AgentTakenChance) && schemes.PatienceYears >= 1
+                && IsProbability(schemes.ExecutionChance) && schemes.InterrogationFactor >= 0 && schemes.RansomBase >= 0
+                && schemes.RansomRealmFactor >= 1 && schemes.SilenceMirrorCost >= 0 && schemes.InterrogationFragments >= 0
+                && schemes.FailedRescueSuspicion >= 0 && schemes.DenounceDistrust >= 0,
+                BalanceFile, "schemes needs a factor for every personality, the tasks away from the domain, and odds and costs in range.");
             var hunt = balance.Hunt;
             Require(hunt != null && hunt.TimingApproach?.Count == 3 && hunt.TimingCapture?.Count == 3 && hunt.CoverExposure?.Count == 4
                 && hunt.CoverStones?.Count == 4 && hunt.CoverStones.All(c => c >= 0) && hunt.AidMirrorCost?.Count == 3 && hunt.AidMirrorCost.All(c => c >= 0)

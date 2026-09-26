@@ -177,6 +177,9 @@ namespace MirrorChronicles.Data
         /// <summary>How the powers answer what they suspect (L2c.4a; interpretations).</summary>
         public PlotSettings Plots { get; init; }
 
+        /// <summary>The powers' schemes for profit and the captives on both sides (L6a; interpretations).</summary>
+        public SchemeSettings Schemes { get; init; }
+
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
 

@@ -140,7 +140,7 @@ namespace MirrorChronicles.Mirror
             bestiary.Beasts.FirstOrDefault(b => b.Id == plan.TargetBeastId && knowledge.Knows(FactKind.Beast, b.Id));
 
         private static bool Fit(CharacterData m) =>
-            m != null && m.IsAlive && m.Realm >= CultivationRealm.QiRefinement && m.Retreat == Retreat.None;
+            m != null && m.IsAlive && m.Realm >= CultivationRealm.QiRefinement && m.Retreat == Retreat.None && m.CaptorFaction == null;
 
         /// <summary>A failed capture shakes the strikers; the far stronger beast may kill them.</summary>
         private List<string> Hurt(HuntPlan plan, WorldBeast beast)

@@ -45,7 +45,8 @@ namespace MirrorChronicles.Characters
         /// <param name="huntOpen">The hunt is open only in the window before the mirror's ritual (user decision, 2026-09-26).</param>
         public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character, bool huntOpen = false)
         {
-            if (character.Age < CultivationAge || character.Retreat != Retreat.None) return InfantTasks; // a retreat leaves no task
+            if (character.Age < CultivationAge || character.Retreat != Retreat.None || character.CaptorFaction != null)
+                return InfantTasks; // a retreat, or captivity, leaves no task
             if (!SpiritualOrificeRules.CanCultivate(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
             if (character.Realm == CultivationRealm.Embryonic)
                 return character.RealmStage >= QiPerceptionChakra ? SummitEyeTasks : EmbryonicTasks;
