@@ -106,15 +106,15 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
-        public void Manifestation_Fails_BackToTheFoundationsApogee()
+        public void Manifestation_Fails_AndTheCultivatorDies()
         {
-            // 🔎 « the main cause of falls »: the breakthrough fails, the cultivator lives
+            // « the main cause of falls »: failing the manifestation kills (decision of the user, 2026-09-25)
             var w = new TestWorld(new SequenceRandom(Pass, Fail)); // the ascent passes, the manifestation fails
             var c = AtTheApogee(w);
 
             PassYears(w, 1 + w.Ctx.Content.Balance.PurpleMansion.ManifestationYears);
 
-            Assert.IsTrue(c.IsAlive && c.Retreat == Retreat.None && c.Realm == CultivationRealm.Foundation && c.RealmStage == 4 && c.CultivationXP == 0);
+            Assert.IsTrue(!c.IsAlive && c.CauseOfDeath == DeathCause.ManifestationCollapse);
         }
 
         [Test]

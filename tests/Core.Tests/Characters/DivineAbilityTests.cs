@@ -31,6 +31,18 @@ namespace MirrorChronicles.Tests.Characters
 
         private static int Xp => PowerLadder.XpForNextStage(CultivationRealm.PurpleMansion);
 
+        /// <summary>
+        /// A grafted donor loses all cultivation and has only a few years left (decision of the user,
+        /// 2026-09-25: one to five, from balance.json).
+        /// </summary>
+        private static void AssertGraftedAway(TestWorld w, CharacterData donor)
+        {
+            var years = w.Ctx.Content.Balance.DivineAbilities;
+            Assert.IsTrue(donor.IsAlive && donor.Realm == CultivationRealm.Embryonic && donor.RealmStage == 0
+                && donor.FoundationId == null && donor.QiId == null);
+            Assert.That(donor.MaxLifespan - donor.Age, Is.InRange(years.GraftDonorMinYearsLeft, years.GraftDonorMaxYearsLeft));
+        }
+
         // ---- Choosing the next ability ----
 
         [Test]
@@ -168,7 +180,7 @@ namespace MirrorChronicles.Tests.Characters
 
             CollectionAssert.Contains(c.DivineAbilities, Farewell);
             CollectionAssert.Contains(c.GraftedAbilities, Farewell);
-            Assert.IsTrue(prodigy.Realm == CultivationRealm.QiRefinement && prodigy.RealmStage == 9 && prodigy.FoundationId == null);
+            AssertGraftedAway(w, prodigy);
         }
 
         [Test]
@@ -184,7 +196,7 @@ namespace MirrorChronicles.Tests.Characters
             Assert.IsTrue(w.Abilities.GraftDaoPartner(c, prodigy));
 
             Assert.AreEqual(3, c.DivineAbilities.Count);
-            Assert.IsTrue(prodigy.Realm == CultivationRealm.QiRefinement && prodigy.FoundationId == null);
+            AssertGraftedAway(w, prodigy);
         }
 
         [Test]

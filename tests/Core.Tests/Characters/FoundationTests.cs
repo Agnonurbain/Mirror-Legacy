@@ -105,7 +105,7 @@ namespace MirrorChronicles.Tests.Characters
         // ---- Consuming a Dao Partner (§5.3.3) ----
 
         [Test]
-        public void ConsumeDaoPartner_RaisesTheConsumerAStage_AndSealsTheirProgression()
+        public void ConsumeDaoPartner_RaisesTheConsumerAStage_SealsTheirProgression_AndKillsTheDonor()
         {
             var w = new TestWorld();
             var consumer = w.Join(AtTheFoundation("mutable-metal:engraved-stele", stage: 1));
@@ -114,7 +114,7 @@ namespace MirrorChronicles.Tests.Characters
             Assert.IsTrue(w.Foundations.ConsumeDaoPartner(consumer, donor));
 
             Assert.IsTrue(consumer.RealmStage == 2 && consumer.ProgressionSealed);
-            Assert.IsTrue(donor.Realm == CultivationRealm.QiRefinement && donor.RealmStage == 9 && donor.FoundationId == null);
+            Assert.IsTrue(!donor.IsAlive && donor.CauseOfDeath == DeathCause.FoundationDevoured); // decision of the user, 2026-09-25
         }
 
         [Test]
