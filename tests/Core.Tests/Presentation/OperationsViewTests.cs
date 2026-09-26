@@ -175,5 +175,20 @@ namespace MirrorChronicles.Tests.Presentation
 
             StringAssert.Contains("porteur", OperationsView.Ritual(s).Refusal);
         }
+        [Test]
+        public void FalseProofRefusal_MatchesEveryRefusalOfTheMirror()
+        {
+            var s = NewGame();
+            const string peak = "Secte du Pic des Nuées", ruan = "Famille Ruan";
+
+            Assert.IsNull(OperationsView.FalseProofRefusal(s, peak, ruan));
+            StringAssert.Contains("différentes", OperationsView.FalseProofRefusal(s, ruan, ruan));
+            StringAssert.Contains("inconnue", OperationsView.FalseProofRefusal(s, "Puissance disparue", ruan));
+            StringAssert.Contains("inconnue", OperationsView.FalseProofRefusal(s, peak, null));
+
+            s.Mirror.ConsumePower(s.Mirror.MirrorPower);
+            StringAssert.Contains("puissance du miroir", OperationsView.FalseProofRefusal(s, peak, ruan));
+            Assert.IsFalse(s.Secrets.PlantFalseProof(peak, ruan), "the view says no when the mirror says no");
+        }
     }
 }
