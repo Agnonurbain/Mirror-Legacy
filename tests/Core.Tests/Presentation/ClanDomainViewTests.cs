@@ -176,6 +176,15 @@ namespace MirrorChronicles.Tests.Presentation
         }
 
         [Test]
+        public void RitualLine_AnnouncesTheNextRitualAndTheHunt()
+        {
+            var s = NewGame();
+            Assert.AreEqual("Rituel du miroir : an 20 — chasse dès l'an 17", ClanDomainView.RitualLine(s));
+            s.Talismans.RestoreCalendar(s.Clock.Year + 2);
+            Assert.AreEqual("Rituel du miroir : an 3 — chasse ouverte", ClanDomainView.RitualLine(s));
+        }
+
+        [Test]
         public void MethodLabel_WritesTheHighestGradeAsSevenPlus()
         {
             Assert.AreEqual("Dialogue (grade 7+)", ClanDomainView.MethodLabel(new TechniqueData { Name = "Dialogue", Grade = 7 }));

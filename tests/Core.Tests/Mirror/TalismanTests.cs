@@ -311,6 +311,7 @@ namespace MirrorChronicles.Tests.Mirror
 
             Assert.IsNull(w.Talismans.PendingOffer);
             w.Resources.AddPrayers(Settings.PrayersPerRitual);
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year); // the next ritual's year has come
             Assert.IsTrue(w.Talismans.PerformRitual(Bearer(w), Sacrifice(w)));
         }
 
