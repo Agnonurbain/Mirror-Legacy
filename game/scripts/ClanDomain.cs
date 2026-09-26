@@ -48,6 +48,7 @@ namespace MirrorChronicles.Game
 
             nextPhase.Pressed += AdvancePhase;
             GetNode<Button>("%OpenMap").Pressed += () => GetTree().ChangeSceneToFile(WorldMap.ScenePath);
+            GetNode<Button>("%OpenOperations").Pressed += () => GetTree().ChangeSceneToFile(Operations.ScenePath);
             root.SessionChanged += Bind;
             Bind();
 
