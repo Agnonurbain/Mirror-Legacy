@@ -307,5 +307,22 @@ namespace MirrorChronicles.Tests.Characters
             Assert.IsNull(c.PatronId);
             Assert.LessOrEqual(c.MaxLifespan, PowerLadder.MaxLifespan(CultivationRealm.Foundation, 4));
         }
+
+        [Test]
+        public void ABorrowedLightGoingOut_NeverLiftsAnOathBreakersSeal()
+        {
+            // the seal of an interrupted path (an oath broken while the light was lent) is for ever (L4d)
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = FoundationPeak(w);
+            PatronAgrees(w);
+            w.GoldenCore.BorrowLight(c, MutableWater);
+            c.ProgressionSealed = true; // broke an oath meanwhile
+            w.Fruitions.ChangeHolder(MutableWater, "Nouveau détenteur");
+
+            w.GoldenCore.ProcessBreakthroughPhase();
+
+            Assert.IsFalse(c.BorrowedLight);
+            Assert.IsTrue(c.ProgressionSealed);
+        }
     }
 }
