@@ -471,5 +471,66 @@ namespace MirrorChronicles.Tests.Characters
                 GameContentLoader.Load(name => name == GameContentLoader.BalanceFile ? balance.ToString() : Fixtures.ReadDataFile(name)));
             StringAssert.Contains(GameContentLoader.BalanceFile, error.Message);
         }
+
+        // ---- The four stages: affirming one's Fruition image (LORE.md §5.5.2) ----
+
+        private static CharacterData Holder(TestWorld w, GoldenCoreState state = GoldenCoreState.Realization)
+        {
+            var c = Forged(w, OrthodoxWater);
+            c.GoldenCore = state;
+            c.CurrentTask = TaskType.Cultivation;
+            c.CultivationXP = 0;
+            c.Temperament = Temperament.None; // neutral heart: one point a year
+            return c;
+        }
+
+        private static void Years(TestWorld w, int years)
+        {
+            for (int y = 0; y < years; y++) w.GoldenCore.ProcessBreakthroughPhase();
+        }
+
+        [Test]
+        public void AHolder_AffirmsTheImage_AndRisesAStage()
+        {
+            var w = new TestWorld();
+            var c = Holder(w);
+            var core = Content.Balance.GoldenCore;
+            int needed = core.ImageToNextStage[0] / core.ImagePointsPerYear; // years at a neutral heart
+
+            Years(w, needed - 1);
+            Assert.AreEqual(1, c.RealmStage);
+            Years(w, 1);
+            Assert.AreEqual(2, c.RealmStage);
+        }
+
+        [Test]
+        public void AnEssenceWithoutPosition_AffirmsNoImage()
+        {
+            var w = new TestWorld();
+            var c = Holder(w, GoldenCoreState.MetallicEssenceOnly);
+            Years(w, Content.Balance.GoldenCore.ImageToNextStage[0] / Content.Balance.GoldenCore.ImagePointsPerYear);
+            Assert.AreEqual(1, c.RealmStage);
+        }
+
+        [Test]
+        public void AHeartAlignedWithTheLineage_AffirmsFaster()
+        {
+            var w = new TestWorld();
+            var neutral = Holder(w);
+            var aligned = Holder(w);
+            aligned.Temperament = Lineage(OrthodoxWater).Temperament;
+            Years(w, 10);
+            Assert.Greater(aligned.CultivationXP, neutral.CultivationXP);
+        }
+
+        [Test]
+        public void TheLastStage_IsTheApex()
+        {
+            var w = new TestWorld();
+            var c = Holder(w);
+            c.RealmStage = 4;
+            Years(w, 5);
+            Assert.AreEqual(4, c.RealmStage);
+        }
     }
 }
