@@ -36,6 +36,15 @@ namespace MirrorChronicles.Presentation
     /// <summary>A member in the mirror's secret, and whether they swore to keep it.</summary>
     public sealed record KeeperLine(string Id, string Name, bool Sworn);
 
+    /// <summary>A member held by a power: since when, their ransom, and whether they could betray the mirror (L6a).</summary>
+    public sealed record HeldLine(string Id, string Name, string Rank, string Captor, int Years, int Ransom, bool KnowsSecret);
+
+    /// <summary>An agent of a power the clan holds: its price, and what was already done with it (L6a).</summary>
+    public sealed record AgentLine(string Id, string Power, string Strength, int Price, bool Interrogated, bool Denounced);
+
+    /// <summary>The captives on both sides.</summary>
+    public sealed record CaptivesView(IReadOnlyList<HeldLine> Held, IReadOnlyList<AgentLine> Agents);
+
     /// <summary>
     /// The secret operations screen (L2c.5): the mirror's ritual, the hunt's planning with its odds before launching it,
     /// and the secret — the signs the mirror perceives of the powers (the ledger stays hidden, D7) and those who carry it.
@@ -157,6 +166,20 @@ namespace MirrorChronicles.Presentation
             MirrorAid.MemoryTheft => "Vol de souvenirs",
             _ => aid.ToString()
         };
+
+        /// <summary>Our members held by the powers, and the powers' agents we hold (L6a).</summary>
+        public static CaptivesView Captives(GameSession session)
+        {
+            var s = session.Context.Content.Balance.Schemes;
+            var held = session.Captives.Held
+                .Select(m => new HeldLine(m.ID, m.FullName, RankCatalog.DisplayName(m), m.CaptorFaction,
+                    session.Clock.Year - (m.CapturedYear ?? session.Clock.Year), SchemeRules.Ransom(m.Realm, s), m.KnowsMirrorSecret))
+                .ToList();
+            var agents = session.Captives.Prisoners
+                .Select(p => new AgentLine(p.Id, p.Faction, RankCatalog.RealmName(p.Realm), SchemeRules.Ransom(p.Realm, s), p.Interrogated, p.Denounced))
+                .ToList();
+            return new CaptivesView(held, agents);
+        }
 
         private static MemberChoice Choice(CharacterData m) => new MemberChoice(m.ID, m.FullName, RankCatalog.DisplayName(m));
 

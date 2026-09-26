@@ -209,7 +209,7 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.AreEqual((member.ID, "Famille Ruan", 0, true), (held.Id, held.Captor, held.Years, held.KnowsSecret));
             Assert.AreEqual(SchemeRules.Ransom(member.Realm, schemes), held.Ransom);
             var agent = captives.Agents.Single();
-            Assert.AreEqual(new AgentLine("agent-1", "Famille Lou", "Fondation", SchemeRules.Ransom(CultivationRealm.Foundation, schemes), true, false), agent);
+            Assert.AreEqual(new AgentLine("agent-1", "Famille Lou", MirrorChronicles.Characters.RankCatalog.RealmName(CultivationRealm.Foundation), SchemeRules.Ransom(CultivationRealm.Foundation, schemes), true, false), agent);
         }
     }
 }

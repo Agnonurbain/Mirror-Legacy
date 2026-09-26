@@ -94,9 +94,10 @@ namespace MirrorChronicles.Presentation
             };
         }
 
-        /// <summary>The retreat of the Purple Mansion's breakthrough under way, or null.</summary>
+        /// <summary>Captivity (L6a), or the retreat of the Purple Mansion's breakthrough under way, or null.</summary>
         public static string RetreatLabel(CharacterData member)
         {
+            if (member.CaptorFaction != null) return $"captif de {member.CaptorFaction}";
             if (member.Retreat == Retreat.None) return null;
             if (member.ImprisonedInVoid) return "prisonnier du Grand Vide";
             string stage = member.Retreat == Retreat.Manifestation ? "Manifestation" : "Grand Vide";

@@ -8,8 +8,8 @@ using MirrorChronicles.Presentation;
 namespace MirrorChronicles.Game
 {
     /// <summary>
-    /// The secret operations screen (L2c.5): the mirror's ritual, the hunt's plan with its odds before launching it, and
-    /// the secret. It only binds <see cref="OperationsView"/> and forwards the player's choices to the session.
+    /// The secret operations screen (L2c.5): the mirror's ritual, the hunt's plan with its odds before launching it, the
+    /// secret, and the captives on both sides (L6a). It only binds <see cref="OperationsView"/> and forwards the player's choices to the session.
     /// </summary>
     public partial class Operations : Control
     {
@@ -17,7 +17,7 @@ namespace MirrorChronicles.Game
         private const string None = "—";
 
         private GameRoot root;
-        private VBoxContainer ritual, hunt, secret;
+        private VBoxContainer ritual, hunt, secret, captives;
         private Label status;
 
         // the plan being built
@@ -28,6 +28,7 @@ namespace MirrorChronicles.Game
         private MirrorAid aid;
         private string proofFrom;
         private string proofToward;
+        private string rescuer; // the member sent to free a captive
 
         public override void _Ready()
         {
@@ -35,9 +36,10 @@ namespace MirrorChronicles.Game
             ritual = GetNode<VBoxContainer>("%Ritual");
             hunt = GetNode<VBoxContainer>("%Hunt");
             secret = GetNode<VBoxContainer>("%Secret");
+            captives = GetNode<VBoxContainer>("%Captives");
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
-            // OPS_TAB=<0-2> opens a tab (screenshots of a smoke run)
+            // OPS_TAB=<0-3> opens a tab (screenshots of a smoke run)
             if (int.TryParse(OS.GetEnvironment("OPS_TAB"), out int tab)) GetNode<TabContainer>("%Tabs").CurrentTab = tab;
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
@@ -48,6 +50,7 @@ namespace MirrorChronicles.Game
             ShowRitual();
             ShowHunt();
             ShowSecret();
+            ShowCaptives();
         }
 
         // ---- The ritual ----
@@ -244,6 +247,74 @@ namespace MirrorChronicles.Game
                 }
                 secret.AddChild(line);
             }
+        }
+
+        // ---- The captives (L6a) ----
+
+        private void ShowCaptives()
+        {
+            Clear(captives);
+            var session = root.Session;
+            var view = OperationsView.Captives(session);
+            Add(captives, "Nos captifs :");
+            if (view.Held.Count == 0) Add(captives, "Aucun membre n'est retenu.");
+            foreach (var held in view.Held) ShowHeld(session, held, view.Agents);
+
+            Add(captives, "Les agents que nous détenons :");
+            if (view.Agents.Count == 0) Add(captives, "Aucun.");
+            foreach (var agent in view.Agents) ShowAgent(session, agent);
+        }
+
+        /// <summary>A member held: ransom, rescue by a free member, exchange for one of the captor's agents, the mirror's blur.</summary>
+        private void ShowHeld(Session.GameSession session, HeldLine held, IReadOnlyList<AgentLine> agents)
+        {
+            string years = held.Years == 0 ? "cette année" : $"depuis {held.Years} an{(held.Years > 1 ? "s" : "")}";
+            Add(captives, $"{held.Name} ({held.Rank}) — retenu par {held.Captor}, {years}{(held.KnowsSecret ? " · connaît le secret du miroir" : "")}");
+            var line = new HBoxContainer();
+            captives.AddChild(line);
+            Act(line, $"Payer la rançon ({held.Ransom} pierres)", () => session.Captives.PayRansom(held.Id), $"{held.Name} est libéré contre rançon.");
+            if (held.KnowsSecret)
+                Act(line, "Brouiller sa mémoire (miroir)", () => session.Captives.Silence(held.Id), $"Le miroir efface ce que {held.Name} savait.");
+            foreach (var agent in agents.Where(a => a.Power == held.Captor))
+                Act(line, $"Échanger contre l'agent ({agent.Strength})", () => session.Captives.Exchange(held.Id, agent.Id), $"{held.Name} est échangé.");
+
+            var candidates = OperationsView.HuntCandidates(session).Select(c => (c.Id, $"{c.Name} ({c.Rank})")).ToList();
+            if (candidates.Count == 0) return;
+            if (candidates.All(c => c.Id != rescuer)) rescuer = candidates[0].Id;
+            var picker = Picker(captives, "Sauvetage par", candidates, rescuer);
+            picker.ItemSelected += _ => { rescuer = Selected(picker); ShowCaptives(); };
+            Act(captives, "Tenter le sauvetage", () => session.Captives.Rescue(held.Id, new[] { rescuer }), $"{held.Name} est arraché à {held.Captor}.");
+        }
+
+        /// <summary>An agent held: sold back, released, interrogated and denounced once each, or executed.</summary>
+        private void ShowAgent(Session.GameSession session, AgentLine agent)
+        {
+            Add(captives, $"Agent de {agent.Power} ({agent.Strength}){(agent.Interrogated ? " · interrogé" : "")}{(agent.Denounced ? " · montré aux autres" : "")}");
+            var line = new HBoxContainer();
+            captives.AddChild(line);
+            Act(line, $"Le revendre ({agent.Price} pierres)", () => session.Captives.SellBack(agent.Id), $"{agent.Power} rachète son agent.");
+            Act(line, "Le relâcher", () => session.Captives.Release(agent.Id), $"L'agent retourne auprès de {agent.Power}.");
+            if (!agent.Interrogated)
+            {
+                var ask = new Button { Text = "L'interroger" };
+                ask.Pressed += () => Report(session.Captives.Interrogate(agent.Id) ?? "Il n'a plus rien à dire.");
+                line.AddChild(ask);
+            }
+            if (!agent.Denounced)
+                Act(line, "Le montrer aux autres puissances", () => session.Captives.Denounce(agent.Id), $"Les autres puissances savent ce que {agent.Power} a tramé.");
+            Act(line, "L'exécuter", () => session.Captives.Execute(agent.Id), "L'agent est exécuté.");
+        }
+
+        /// <summary>A button for an action that answers with its refusal, or null when done.</summary>
+        private void Act(Container box, string text, Func<string> action, string done)
+        {
+            var button = new Button { Text = text };
+            button.Pressed += () =>
+            {
+                string refusal = action();
+                Report(refusal == null ? done : $"Refusé : {refusal}.");
+            };
+            box.AddChild(button);
         }
 
         // ---- Widgets ----
