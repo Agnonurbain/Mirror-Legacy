@@ -132,6 +132,16 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void FromSaveData_TakesTheFactionsPlaceFromTheContent()
+        {
+            // the map belongs to the content: a save keeps a power's standing, not an outdated region
+            var data = GameSession.NewGame(Fixtures.Setup(1)).ToSaveData();
+            data.Factions.First(f => f.Name == "Porte du Fer Ardent").RegionId = "northwest-hills"; // an L5 save
+            var s = GameSession.FromSaveData(data, Fixtures.Setup());
+            Assert.AreEqual("fiery-iron-lands", s.Factions.GetFactionByName("Porte du Fer Ardent").RegionId);
+        }
+
+        [Test]
         public void FromSaveData_KeepsTheStoryEventsStillWaitingForAChoice()
         {
             var s = GameSession.NewGame(Fixtures.Setup(1));
