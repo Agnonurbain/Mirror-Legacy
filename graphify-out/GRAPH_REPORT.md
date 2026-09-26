@@ -1,16 +1,16 @@
 # Graph Report - Mirror-Legacy  (2026-09-26)
 
 ## Corpus Check
-- 204 files · ~152,607 words
+- 204 files · ~152,851 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3381 nodes · 5745 edges · 193 communities (181 shown, 12 thin omitted)
+- 3386 nodes · 5761 edges · 199 communities (186 shown, 13 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 19 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `613cfb12`
+- Built from commit: `019491fa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -208,6 +208,12 @@
 - [[_COMMUNITY_Community 190|Community 190]]
 - [[_COMMUNITY_Community 191|Community 191]]
 - [[_COMMUNITY_Community 192|Community 192]]
+- [[_COMMUNITY_Community 193|Community 193]]
+- [[_COMMUNITY_Community 194|Community 194]]
+- [[_COMMUNITY_Community 195|Community 195]]
+- [[_COMMUNITY_Community 196|Community 196]]
+- [[_COMMUNITY_Community 197|Community 197]]
+- [[_COMMUNITY_Community 198|Community 198]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `GoldenCoreTests` - 61 edges
@@ -217,9 +223,9 @@
 5. `GoldenCoreSystem` - 31 edges
 6. `ClanDomain` - 30 edges
 7. `PlotTests` - 30 edges
-8. `CultivationSystemTests` - 28 edges
-9. `CombatActionsTests` - 28 edges
-10. `HuntOperationTests` - 28 edges
+8. `HuntOperationTests` - 29 edges
+9. `CultivationSystemTests` - 28 edges
+10. `CombatActionsTests` - 28 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Unity 2022.3 LTS (README stack, outdated)` --conceptually_related_to--> `Unity 6000.4.2f1 (Unity 6.4)`  [AMBIGUOUS]
@@ -241,7 +247,7 @@
 - **Command-pattern combat actions** — brain_claude_memory_command_pattern, combat_icombataction, combat_attackaction, combat_moveaction, combat_defendaction, combat_techniqueaction, combat_itemaction, combat_fleeaction [EXTRACTED 1.00]
 - **Annual four-phase game loop** — brain_claude_plan_annual_cycle, assets_project_scripts_core_timemanager_cs_core_timemanager, economy_taskassignmentsystem, events_eventmanager, diplomacy_factionmanager [EXTRACTED 1.00]
 
-## Communities (193 total, 12 thin omitted)
+## Communities (199 total, 13 thin omitted)
 
 ### Community 0 - "Data Models & Balancing"
 Cohesion: 0.10
@@ -260,8 +266,8 @@ Cohesion: 0.19
 Nodes (13): AggressiveStrategy, BerserkerStrategy, CautiousStrategy, CombatAI, DefensiveStrategy, IAIStrategy, MirrorChronicles.Combat, StrategicStrategy (+5 more)
 
 ### Community 5 - "Story Events"
-Cohesion: 0.05
-Nodes (30): EventManager, events, EventManagerTests, MirrorChronicles.Tests.Events, GameEventBusTests, MirrorChronicles.Tests.Events, MirrorChronicles.Tests.Events, StoryEventManagerTests (+22 more)
+Cohesion: 0.06
+Nodes (26): events, GameEventBusTests, MirrorChronicles.Tests.Events, MirrorChronicles.Tests.Events, StoryEventManagerTests, DeductionEngineTests, MirrorChronicles.Tests.Mirror, GameContext (+18 more)
 
 ### Community 6 - "Headless Unity CLI"
 Cohesion: 0.17
@@ -372,8 +378,8 @@ Cohesion: 0.17
 Nodes (8): MirrorChronicles.Tests.Characters, RankCatalogTests, CultivationPath, CultivationSubPath, CharacterData, CultivationRealm, Test, TestCase
 
 ### Community 33 - "Scene Bootstrapper"
-Cohesion: 0.09
-Nodes (21): TaskAssignmentSystem, EspionageSystem, BeastRegistry, BuildingSystem, CharacterData, ClanManager, CultivationSystem, DeductionEngine (+13 more)
+Cohesion: 0.12
+Nodes (15): TaskAssignmentSystem, EspionageSystem, BeastRegistry, BuildingSystem, ClanManager, CultivationSystem, DeductionEngine, double (+7 more)
 
 ### Community 34 - "Building Data"
 Cohesion: 0.29
@@ -476,8 +482,8 @@ Cohesion: 0.12
 Nodes (9): a, b, MirrorChronicles.Tests.Characters, OathTests, CharacterData, double, Test, TestWorld (+1 more)
 
 ### Community 59 - "Community 59"
-Cohesion: 0.21
-Nodes (7): DeductionEngineTests, MirrorChronicles.Tests.Mirror, FragmentData, List, Test, TestCase, TestWorld
+Cohesion: 0.18
+Nodes (11): EventManager, EventManagerTests, MirrorChronicles.Tests.Events, RandomEventType, CultivationRealm, Random, RandomEventData, Test (+3 more)
 
 ### Community 60 - "Community 60"
 Cohesion: 0.25
@@ -548,8 +554,8 @@ Cohesion: 0.40
 Nodes (5): 7.1 États et grandes régions, 7.2 Les trois sectes et les portes, 7.3 Autour du clan, 7.4 Autres puissances et lieux (📚 carte traduite du wiki), 7. Carte du monde (renommée)
 
 ### Community 78 - "Community 78"
-Cohesion: 0.18
-Nodes (8): Annual 4-phase cycle (Management -> Events -> Breakthrough -> Inheritance), Phase 2 - Combat & Events, LegacySystem, MirrorChronicles.Clan, MirrorChronicles.Data, RandomEventData, MirrorChronicles.Events, int
+Cohesion: 0.11
+Nodes (16): Annual 4-phase cycle (Management -> Events -> Breakthrough -> Inheritance), Phase 2 - Combat & Events, WL-001: deceased.RootElement does not exist (use Affinity), WL-002: MirrorSystem.ConsumeMirrorPower does not exist (ConsumePower), WL-004: EventManager.GenerateYearlyEvent missing / TriggerYearlyEvent private, WL-005: private FactionManager.ProcessYearlyFactionAI called from test, WL-100: Unity -> Web -> Unity pivot debt, LegacySystem (+8 more)
 
 ### Community 80 - "Community 80"
 Cohesion: 0.17
@@ -560,8 +566,8 @@ Cohesion: 0.13
 Nodes (17): MirrorChronicles.Characters, PurpleMansionRules, PurpleMansionSystem, ForLife, PurpleMansionSettings, CharacterData, ClanManager, CultivationSystem (+9 more)
 
 ### Community 82 - "Community 82"
-Cohesion: 0.07
-Nodes (22): Clan Karma (per-generation passive bonus), Victory: 10 generations + Dao Embryo ascension, AscensionSystem, MirrorChronicles.Characters, CultivationSystem, MirrorChronicles.Characters, ClanKarmaSystem, MirrorChronicles.Clan (+14 more)
+Cohesion: 0.09
+Nodes (19): Clan Karma (per-generation passive bonus), CultivationSystem, MirrorChronicles.Characters, ClanKarmaSystem, MirrorChronicles.Clan, AdvancementStep, CharacterData, ClanKarmaSystem (+11 more)
 
 ### Community 83 - "Community 83"
 Cohesion: 0.16
@@ -824,8 +830,8 @@ Cohesion: 0.11
 Nodes (13): GoldenCoreSystem, MirrorChronicles.Characters, FruitionRegistry, CharacterData, ClanManager, Dictionary, GameContext, GoldenCoreState (+5 more)
 
 ### Community 151 - "Community 151"
-Cohesion: 0.05
-Nodes (32): Key Xianxia business rules, WorldMap scene (#42), Six cultivation realms (Embryonic -> DaoEmbryo), Scenes: MainMenu, ClanDomain, TacticalCombat, WorldMap, Phase 3 - World & Diplomacy, AllianceSystem, MirrorChronicles.Diplomacy, EspionageSystem (+24 more)
+Cohesion: 0.27
+Nodes (7): MarriageSystem, CharacterData, ClanManager, FactionManager, GameContext, int, MentalStabilitySystem
 
 ### Community 152 - "Community 152"
 Cohesion: 0.09
@@ -848,12 +854,12 @@ Cohesion: 0.17
 Nodes (13): HuntOperationTests, MirrorChronicles.Tests.Mirror, beast, CharacterData, CultivationRealm, double, HuntPlan, Random (+5 more)
 
 ### Community 157 - "Community 157"
-Cohesion: 0.29
+Cohesion: 0.26
 Nodes (4): MirrorChronicles.Tests.Presentation, OperationsViewTests, GameSession, Test
 
 ### Community 158 - "Community 158"
-Cohesion: 0.25
-Nodes (7): Child birth via ClanManager.GenerateChild (#14), Missing task types: Study, Teaching, Diplomacy, Espionage (#15), Phase 1 placeholder UI + TaskAssignment UI (#12-13), UGUI + TextMeshPro (com.unity.ugui), Phase 1 - Foundations (playable prototype), MirrorChronicles.Clan, MirrorChronicles.Economy
+Cohesion: 0.33
+Nodes (6): Child birth via ClanManager.GenerateChild (#14), Missing task types: Study, Teaching, Diplomacy, Espionage (#15), Phase 1 placeholder UI + TaskAssignment UI (#12-13), UGUI + TextMeshPro (com.unity.ugui), Phase 1 - Foundations (playable prototype), MirrorChronicles.Economy
 
 ### Community 159 - "Community 159"
 Cohesion: 0.16
@@ -952,20 +958,40 @@ Cohesion: 0.33
 Nodes (6): 📖 Comment utiliser ce fichier, 📐 Leçons d'architecture & design, 📝 Template pour nouvelles entrées, WL-100 — Pivot Unity → Web → Unity : cause de la dette, WL-101 — Factions hardcodées au lieu de ScriptableObjects, 📚 WORKED_LESSON.md — Bugs identifiés & Leçons apprises
 
 ### Community 189 - "Community 189"
-Cohesion: 0.17
-Nodes (8): Player as consciousness trapped in ancestral bronze mirror, Ironman save (yearly auto-save JSON), FactionData, MirrorChronicles.Data, MirrorChronicles.Diplomacy, MirrorChronicles.Mirror, Reflets de Lignee: Les Chroniques du Miroir (Mirror Chronicles), The Mirror Legacy (Xuanjian Xianzu) - inspiration
+Cohesion: 0.20
+Nodes (7): Divine Interventions (Qi Pulse, Ancestral Shield, Mirror Judgment), Player as consciousness trapped in ancestral bronze mirror, MirrorChronicles.Characters, MirrorChronicles.Combat, MirrorChronicles.Mirror, Reflets de Lignee: Les Chroniques du Miroir (Mirror Chronicles), The Mirror Legacy (Xuanjian Xianzu) - inspiration
 
 ### Community 190 - "Community 190"
 Cohesion: 0.18
 Nodes (8): MirrorSystem, BreakthroughSystem, CharacterData, ClanManager, CombatUnit, double, GameContext, int
 
 ### Community 191 - "Community 191"
-Cohesion: 0.40
-Nodes (3): Divine Interventions (Qi Pulse, Ancestral Shield, Mirror Judgment), MirrorChronicles.Characters, MirrorChronicles.Combat
+Cohesion: 0.24
+Nodes (4): CharacterData, IReadOnlyList, TaskType, YearlyTaskReport
 
 ### Community 192 - "Community 192"
-Cohesion: 0.27
-Nodes (8): WL-001: deceased.RootElement does not exist (use Affinity), WL-002: MirrorSystem.ConsumeMirrorPower does not exist (ConsumePower), WL-003: Element.Ice missing from Element enum, WL-004: EventManager.GenerateYearlyEvent missing / TriggerYearlyEvent private, WL-005: private FactionManager.ProcessYearlyFactionAI called from test, WL-100: Unity -> Web -> Unity pivot debt, MirrorChronicles.Data, MirrorChronicles.Mirror
+Cohesion: 0.29
+Nodes (5): Key Xianxia business rules, Six cultivation realms (Embryonic -> DaoEmbryo), WL-003: Element.Ice missing from Element enum, MirrorChronicles.Clan, MirrorChronicles.Data
+
+### Community 193 - "Community 193"
+Cohesion: 0.20
+Nodes (9): EspionageSystem, MirrorChronicles.Diplomacy, DeductionEngine, double, FactionManager, GameContext, int, MentalStabilitySystem (+1 more)
+
+### Community 194 - "Community 194"
+Cohesion: 0.22
+Nodes (6): AllianceSystem, double, FactionManager, GameContext, int, ResourceManager
+
+### Community 195 - "Community 195"
+Cohesion: 0.25
+Nodes (5): Ironman save (yearly auto-save JSON), Victory: 10 generations + Dao Embryo ascension, AscensionSystem, MirrorChronicles.Characters, MirrorChronicles.Mirror
+
+### Community 196 - "Community 196"
+Cohesion: 0.29
+Nodes (5): WorldMap scene (#42), Scenes: MainMenu, ClanDomain, TacticalCombat, WorldMap, Phase 3 - World & Diplomacy, MirrorChronicles.Diplomacy, MirrorChronicles.Diplomacy
+
+### Community 197 - "Community 197"
+Cohesion: 0.50
+Nodes (3): EspionageResult, CharacterData, FactionData
 
 ## Ambiguous Edges - Review These
 - `MarriageSystem.cs` → `Key Xianxia business rules`  [AMBIGUOUS]
@@ -974,9 +1000,9 @@ Nodes (8): WL-001: deceased.RootElement does not exist (use Affinity), WL-002: M
   README.md · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **1035 isolated node(s):** `net8.0`, `Godot.NET.Sdk/4.7.2`, `MirrorChronicles.Game`, `string`, `int` (+1030 more)
+- **1034 isolated node(s):** `net8.0`, `Godot.NET.Sdk/4.7.2`, `MirrorChronicles.Game`, `string`, `int` (+1029 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -985,13 +1011,13 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: implements) - confidence is low._
 - **What is the exact relationship between `Unity 6000.4.2f1 (Unity 6.4)` and `Unity 2022.3 LTS (README stack, outdated)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `CLAUDE.md / master prompt (source of truth)` connect `Community 176` to `BRAIN_CLAUDE Workflow`, `Community 82`, `Community 151`?**
+- **Why does `CLAUDE.md / master prompt (source of truth)` connect `Community 176` to `Community 192`, `BRAIN_CLAUDE Workflow`, `Community 195`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Why does `Session start reading order` connect `BRAIN_CLAUDE Workflow` to `Community 176`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **Why does `WL-101: Factions hardcoded instead of ScriptableObjects` connect `Community 176` to `Community 189`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+- **Why does `WL-101: Factions hardcoded instead of ScriptableObjects` connect `Community 176` to `Community 78`?**
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **What connects `net8.0`, `Godot.NET.Sdk/4.7.2`, `MirrorChronicles.Game` to the rest of the system?**
-  _1044 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1043 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Data Models & Balancing` be split into smaller, more focused modules?**
   _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._

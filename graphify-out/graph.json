@@ -1247,7 +1247,7 @@
       "label": ".Plan()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L151",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "scripts_operations_operations_plan",
       "community": 74,
@@ -1257,7 +1257,7 @@
       "label": "HuntPlan",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L151",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_huntplan",
       "community": 74,
@@ -1267,7 +1267,7 @@
       "label": ".ShowSecret()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L165",
+      "source_location": "L170",
       "_origin": "ast",
       "id": "scripts_operations_operations_showsecret",
       "community": 74,
@@ -1277,7 +1277,7 @@
       "label": ".Report()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L207",
+      "source_location": "L212",
       "_origin": "ast",
       "id": "scripts_operations_operations_report",
       "community": 74,
@@ -1287,7 +1287,7 @@
       "label": ".Add()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L213",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "scripts_operations_operations_add",
       "community": 74,
@@ -1297,7 +1297,7 @@
       "label": "Container",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L213",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "container",
       "community": 74,
@@ -1307,7 +1307,7 @@
       "label": ".AddButton()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L216",
+      "source_location": "L221",
       "_origin": "ast",
       "id": "scripts_operations_operations_addbutton",
       "community": 74,
@@ -1317,7 +1317,7 @@
       "label": "Action",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L216",
+      "source_location": "L221",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_action",
       "community": 74,
@@ -1327,7 +1327,7 @@
       "label": "Button",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L216",
+      "source_location": "L221",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_button",
       "community": 74,
@@ -1337,7 +1337,7 @@
       "label": ".Picker()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L225",
+      "source_location": "L230",
       "_origin": "ast",
       "id": "scripts_operations_operations_picker",
       "community": 74,
@@ -1347,7 +1347,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L225",
+      "source_location": "L230",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_ireadonlylist",
       "community": 74,
@@ -1357,7 +1357,7 @@
       "label": "Value",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L225",
+      "source_location": "L230",
       "_origin": "ast",
       "id": "value",
       "community": 74,
@@ -1367,7 +1367,7 @@
       "label": "OptionButton",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L225",
+      "source_location": "L230",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_optionbutton",
       "community": 74,
@@ -1377,7 +1377,7 @@
       "label": ".EnumPicker()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L241",
+      "source_location": "L246",
       "_origin": "ast",
       "id": "scripts_operations_operations_enumpicker",
       "community": 74,
@@ -1387,7 +1387,7 @@
       "label": "T",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L241",
+      "source_location": "L246",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_t",
       "community": 74,
@@ -1397,7 +1397,7 @@
       "label": "Func",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L241",
+      "source_location": "L246",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_func",
       "community": 74,
@@ -1407,7 +1407,7 @@
       "label": ".Selected()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L248",
+      "source_location": "L253",
       "_origin": "ast",
       "id": "scripts_operations_operations_selected",
       "community": 74,
@@ -1417,7 +1417,7 @@
       "label": ".Clear()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L251",
+      "source_location": "L256",
       "_origin": "ast",
       "id": "scripts_operations_operations_clear",
       "community": 74,
@@ -1427,7 +1427,7 @@
       "label": "Node",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L251",
+      "source_location": "L256",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_node",
       "community": 74,
@@ -1437,7 +1437,7 @@
       "label": ".RunSmoke()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L260",
+      "source_location": "L265",
       "_origin": "ast",
       "id": "scripts_operations_operations_runsmoke",
       "community": 74,
@@ -1680,7 +1680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_ascensionsystem",
-      "community": 82,
+      "community": 195,
       "norm_label": "ascensionsystem.cs"
     },
     {
@@ -1690,7 +1690,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "characters_ascensionsystem_mirrorchronicles_characters",
-      "community": 82,
+      "community": 195,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -1700,7 +1700,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_ascensionsystem_ascensionsystem",
-      "community": 82,
+      "community": 195,
       "norm_label": "ascensionsystem"
     },
     {
@@ -1710,7 +1710,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "characters_ascensionsystem_ascensionsystem_restore",
-      "community": 82,
+      "community": 195,
       "norm_label": ".restore()"
     },
     {
@@ -1820,7 +1820,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 191,
+      "community": 189,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -1830,7 +1830,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 191,
+      "community": 189,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -5630,7 +5630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 158,
+      "community": 192,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -5640,7 +5640,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 158,
+      "community": 192,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -7520,7 +7520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 191,
+      "community": 189,
       "norm_label": "combatunit.cs"
     },
     {
@@ -7530,7 +7530,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 191,
+      "community": 189,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -7897,7 +7897,7 @@
       "label": ".Clone()",
       "file_type": "code",
       "source_file": "src/Core/Data/CharacterData.cs",
-      "source_location": "L111",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "data_characterdata_characterdata_clone",
       "community": 183,
@@ -8050,7 +8050,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_factiondata",
-      "community": 189,
+      "community": 78,
       "norm_label": "factiondata.cs"
     },
     {
@@ -8060,7 +8060,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "data_factiondata_mirrorchronicles_data",
-      "community": 189,
+      "community": 78,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -8070,7 +8070,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "data_factiondata_factiondata",
-      "community": 189,
+      "community": 78,
       "norm_label": "factiondata"
     },
     {
@@ -8080,7 +8080,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "data_factiondata_factiondata_clone",
-      "community": 189,
+      "community": 78,
       "norm_label": ".clone()"
     },
     {
@@ -9310,7 +9310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem",
-      "community": 151,
+      "community": 196,
       "norm_label": "alliancesystem.cs"
     },
     {
@@ -9320,7 +9320,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_mirrorchronicles_diplomacy",
-      "community": 151,
+      "community": 196,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -9330,7 +9330,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem",
-      "community": 151,
+      "community": 194,
       "norm_label": "alliancesystem"
     },
     {
@@ -9340,7 +9340,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_int",
-      "community": 151,
+      "community": 194,
       "norm_label": "int"
     },
     {
@@ -9350,7 +9350,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_double",
-      "community": 151,
+      "community": 194,
       "norm_label": "double"
     },
     {
@@ -9360,7 +9360,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_gamecontext",
-      "community": 151,
+      "community": 194,
       "norm_label": "gamecontext"
     },
     {
@@ -9370,7 +9370,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_factionmanager",
-      "community": 151,
+      "community": 194,
       "norm_label": "factionmanager"
     },
     {
@@ -9380,7 +9380,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_resourcemanager",
-      "community": 151,
+      "community": 194,
       "norm_label": "resourcemanager"
     },
     {
@@ -9390,7 +9390,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_offertribute",
-      "community": 151,
+      "community": 194,
       "norm_label": ".offertribute()"
     },
     {
@@ -9400,7 +9400,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_proposenonaggression",
-      "community": 151,
+      "community": 194,
       "norm_label": ".proposenonaggression()"
     },
     {
@@ -9410,7 +9410,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_declarewar",
-      "community": 151,
+      "community": 194,
       "norm_label": ".declarewar()"
     },
     {
@@ -9420,7 +9420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 151,
+      "community": 193,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -9430,7 +9430,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 151,
+      "community": 193,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -9440,7 +9440,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_espionagesystem",
-      "community": 151,
+      "community": 193,
       "norm_label": "espionagesystem"
     },
     {
@@ -9450,7 +9450,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_double",
-      "community": 151,
+      "community": 193,
       "norm_label": "double"
     },
     {
@@ -9460,7 +9460,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_int",
-      "community": 151,
+      "community": 193,
       "norm_label": "int"
     },
     {
@@ -9470,7 +9470,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_gamecontext",
-      "community": 151,
+      "community": 193,
       "norm_label": "gamecontext"
     },
     {
@@ -9480,7 +9480,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_factionmanager",
-      "community": 151,
+      "community": 193,
       "norm_label": "factionmanager"
     },
     {
@@ -9490,7 +9490,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_deductionengine",
-      "community": 151,
+      "community": 193,
       "norm_label": "deductionengine"
     },
     {
@@ -9500,7 +9500,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_mentalstabilitysystem",
-      "community": 151,
+      "community": 193,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -9510,7 +9510,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_techniquelibrary",
-      "community": 151,
+      "community": 193,
       "norm_label": "techniquelibrary"
     },
     {
@@ -9520,7 +9520,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_espionagesystem_attemptespionage",
-      "community": 151,
+      "community": 197,
       "norm_label": ".attemptespionage()"
     },
     {
@@ -9530,7 +9530,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_characterdata",
-      "community": 151,
+      "community": 197,
       "norm_label": "characterdata"
     },
     {
@@ -9540,7 +9540,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_factiondata",
-      "community": 151,
+      "community": 197,
       "norm_label": "factiondata"
     },
     {
@@ -9550,7 +9550,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "espionageresult",
-      "community": 151,
+      "community": 197,
       "norm_label": "espionageresult"
     },
     {
@@ -9560,7 +9560,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 189,
+      "community": 78,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -9570,7 +9570,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 189,
+      "community": 78,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -9870,7 +9870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 151,
+      "community": 196,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -9880,7 +9880,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 151,
+      "community": 196,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -10700,7 +10700,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
-      "community": 33,
+      "community": 191,
       "norm_label": ".assigntask()"
     },
     {
@@ -10710,7 +10710,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 33,
+      "community": 191,
       "norm_label": "characterdata"
     },
     {
@@ -10720,7 +10720,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
-      "community": 33,
+      "community": 191,
       "norm_label": "tasktype"
     },
     {
@@ -10730,7 +10730,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 33,
+      "community": 191,
       "norm_label": ".processyearlytasks()"
     },
     {
@@ -10740,7 +10740,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 33,
+      "community": 191,
       "norm_label": "yearlytaskreport"
     },
     {
@@ -10750,7 +10750,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 33,
+      "community": 198,
       "norm_label": ".gatherqi()"
     },
     {
@@ -10760,7 +10760,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 33,
+      "community": 198,
       "norm_label": ".harvestable()"
     },
     {
@@ -10770,7 +10770,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 33,
+      "community": 198,
       "norm_label": "techniquedata"
     },
     {
@@ -10780,7 +10780,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 33,
+      "community": 198,
       "norm_label": "qidefinition"
     },
     {
@@ -10790,7 +10790,7 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 33,
+      "community": 191,
       "norm_label": ".mineyield()"
     },
     {
@@ -10800,7 +10800,7 @@
       "source_location": "L160",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 33,
+      "community": 191,
       "norm_label": ".study()"
     },
     {
@@ -10810,7 +10810,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 33,
+      "community": 191,
       "norm_label": ".diplomacy()"
     },
     {
@@ -10820,7 +10820,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 33,
+      "community": 191,
       "norm_label": ".teach()"
     },
     {
@@ -10830,7 +10830,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 33,
+      "community": 191,
       "norm_label": "ireadonlylist"
     },
     {
@@ -10840,7 +10840,7 @@
       "source_location": "L209",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
-      "community": 33,
+      "community": 191,
       "norm_label": ".scoutbeasts()"
     },
     {
@@ -11450,7 +11450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionengine",
-      "community": 192,
+      "community": 195,
       "norm_label": "deductionengine.cs"
     },
     {
@@ -11460,7 +11460,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_deductionengine_mirrorchronicles_mirror",
-      "community": 192,
+      "community": 195,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -11814,10 +11814,40 @@
       "norm_label": "mentalstabilitysystem"
     },
     {
+      "label": ".IsFree()",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/HuntOperations.cs",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "mirror_huntoperations_huntoperations_isfree",
+      "community": 173,
+      "norm_label": ".isfree()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/HuntOperations.cs",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "src_core_mirror_huntoperations_cs_characterdata",
+      "community": 173,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".ReturnFromOperations()",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/HuntOperations.cs",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "mirror_huntoperations_huntoperations_returnfromoperations",
+      "community": 173,
+      "norm_label": ".returnfromoperations()"
+    },
+    {
       "label": ".Validate()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L51",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_validate",
       "community": 173,
@@ -11827,7 +11857,7 @@
       "label": "HuntPlan",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L51",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "src_core_mirror_huntoperations_cs_huntplan",
       "community": 173,
@@ -11837,7 +11867,7 @@
       "label": ".Execute()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L76",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_execute",
       "community": 173,
@@ -11847,7 +11877,7 @@
       "label": "HuntOutcome",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L76",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "huntoutcome",
       "community": 173,
@@ -11857,7 +11887,7 @@
       "label": ".Target()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L126",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_target",
       "community": 173,
@@ -11867,7 +11897,7 @@
       "label": "WorldBeast",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L126",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "src_core_mirror_huntoperations_cs_worldbeast",
       "community": 173,
@@ -11877,27 +11907,17 @@
       "label": ".Fit()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L129",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_fit",
       "community": 173,
       "norm_label": ".fit()"
     },
     {
-      "label": "CharacterData",
-      "file_type": "code",
-      "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L129",
-      "_origin": "ast",
-      "id": "src_core_mirror_huntoperations_cs_characterdata",
-      "community": 173,
-      "norm_label": "characterdata"
-    },
-    {
       "label": ".Hurt()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L133",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_hurt",
       "community": 173,
@@ -11907,7 +11927,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L133",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "src_core_mirror_huntoperations_cs_list",
       "community": 173,
@@ -11917,7 +11937,7 @@
       "label": ".Suspect()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L153",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_suspect",
       "community": 173,
@@ -13117,7 +13137,7 @@
       "label": ".HuntTargets()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L75",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_hunttargets",
       "community": 152,
@@ -13127,7 +13147,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L75",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_ireadonlylist",
       "community": 152,
@@ -13137,7 +13157,7 @@
       "label": "HuntTarget",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L75",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "hunttarget",
       "community": 152,
@@ -13147,7 +13167,7 @@
       "label": ".HuntCandidates()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L88",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_huntcandidates",
       "community": 152,
@@ -13157,7 +13177,7 @@
       "label": "MemberChoice",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L88",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "memberchoice",
       "community": 152,
@@ -13167,7 +13187,7 @@
       "label": ".HuntPreview()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L94",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_huntpreview",
       "community": 152,
@@ -13177,7 +13197,7 @@
       "label": "HuntPlan",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L94",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_huntplan",
       "community": 152,
@@ -13187,7 +13207,7 @@
       "label": "HuntPreviewView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L94",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "huntpreviewview",
       "community": 152,
@@ -13197,7 +13217,7 @@
       "label": ".Signs()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L106",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_signs",
       "community": 152,
@@ -13207,7 +13227,7 @@
       "label": "PowerSign",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L106",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "powersign",
       "community": 152,
@@ -13217,7 +13237,7 @@
       "label": ".Keepers()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L120",
+      "source_location": "L119",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_keepers",
       "community": 152,
@@ -13227,7 +13247,7 @@
       "label": "KeeperLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L120",
+      "source_location": "L119",
       "_origin": "ast",
       "id": "keeperline",
       "community": 152,
@@ -13237,7 +13257,7 @@
       "label": ".RoleLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L124",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_rolelabel",
       "community": 152,
@@ -13247,7 +13267,7 @@
       "label": "HuntRole",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L124",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "huntrole",
       "community": 152,
@@ -13257,7 +13277,7 @@
       "label": ".TimingLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L133",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_timinglabel",
       "community": 152,
@@ -13267,7 +13287,7 @@
       "label": "HuntTiming",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L133",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_hunttiming",
       "community": 152,
@@ -13277,7 +13297,7 @@
       "label": ".CoverLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L141",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_coverlabel",
       "community": 152,
@@ -13287,7 +13307,7 @@
       "label": "CoverStory",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L141",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_coverstory",
       "community": 152,
@@ -13297,7 +13317,7 @@
       "label": ".AidLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L150",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_aidlabel",
       "community": 152,
@@ -13307,7 +13327,7 @@
       "label": "MirrorAid",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L150",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_mirroraid",
       "community": 152,
@@ -13317,7 +13337,7 @@
       "label": ".Choice()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L158",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_choice",
       "community": 152,
@@ -13327,7 +13347,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L158",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_characterdata",
       "community": 152,
@@ -13337,7 +13357,7 @@
       "label": ".Strength()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L160",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_strength",
       "community": 152,
@@ -13347,7 +13367,7 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L160",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_cultivationrealm",
       "community": 152,
@@ -26390,7 +26410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_eventmanagertests",
-      "community": 5,
+      "community": 59,
       "norm_label": "eventmanagertests.cs"
     },
     {
@@ -26400,7 +26420,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "events_eventmanagertests_mirrorchronicles_tests_events",
-      "community": 5,
+      "community": 59,
       "norm_label": "mirrorchronicles.tests.events"
     },
     {
@@ -26410,7 +26430,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests",
-      "community": 5,
+      "community": 59,
       "norm_label": "eventmanagertests"
     },
     {
@@ -26420,7 +26440,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_entry",
-      "community": 5,
+      "community": 59,
       "norm_label": ".entry()"
     },
     {
@@ -26430,7 +26450,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "randomeventtype",
-      "community": 5,
+      "community": 59,
       "norm_label": "randomeventtype"
     },
     {
@@ -26440,7 +26460,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "tests_core_tests_events_eventmanagertests_cs_cultivationrealm",
-      "community": 5,
+      "community": 59,
       "norm_label": "cultivationrealm"
     },
     {
@@ -26450,7 +26470,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "tests_core_tests_events_eventmanagertests_cs_randomeventdata",
-      "community": 5,
+      "community": 59,
       "norm_label": "randomeventdata"
     },
     {
@@ -26460,7 +26480,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_with",
-      "community": 5,
+      "community": 59,
       "norm_label": ".with()"
     },
     {
@@ -26470,7 +26490,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_core_tests_events_eventmanagertests_cs_random",
-      "community": 5,
+      "community": 59,
       "norm_label": "random"
     },
     {
@@ -26480,7 +26500,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_core_tests_events_eventmanagertests_cs_testworld",
-      "community": 5,
+      "community": 59,
       "norm_label": "testworld"
     },
     {
@@ -26490,7 +26510,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_core_tests_events_eventmanagertests_cs_world",
-      "community": 5,
+      "community": 59,
       "norm_label": "world"
     },
     {
@@ -26500,7 +26520,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "eventmanager",
-      "community": 5,
+      "community": 59,
       "norm_label": "eventmanager"
     },
     {
@@ -26520,7 +26540,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_withoutatable_drawsfromthecontent",
-      "community": 5,
+      "community": 59,
       "norm_label": ".withoutatable_drawsfromthecontent()"
     },
     {
@@ -26530,7 +26550,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "tests_core_tests_events_eventmanagertests_cs_test",
-      "community": 5,
+      "community": 59,
       "norm_label": "test"
     },
     {
@@ -26540,7 +26560,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_geteligibleevents_waitsfortheminimumyear",
-      "community": 5,
+      "community": 59,
       "norm_label": ".geteligibleevents_waitsfortheminimumyear()"
     },
     {
@@ -26550,7 +26570,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_geteligibleevents_waitsforamemberoftheminimumrealm",
-      "community": 5,
+      "community": 59,
       "norm_label": ".geteligibleevents_waitsforamemberoftheminimumrealm()"
     },
     {
@@ -26560,7 +26580,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_triggeryearlyevent_drawsbyweight",
-      "community": 5,
+      "community": 59,
       "norm_label": ".triggeryearlyevent_drawsbyweight()"
     },
     {
@@ -26570,7 +26590,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "tests_core_tests_events_eventmanagertests_cs_testcase",
-      "community": 5,
+      "community": 59,
       "norm_label": "testcase"
     },
     {
@@ -26580,7 +26600,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_triggeryearlyevent_returnsnull_whennothingiseligible",
-      "community": 5,
+      "community": 59,
       "norm_label": ".triggeryearlyevent_returnsnull_whennothingiseligible()"
     },
     {
@@ -26590,7 +26610,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_triggeryearlyevent_raisestheevent",
-      "community": 5,
+      "community": 59,
       "norm_label": ".triggeryearlyevent_raisestheevent()"
     },
     {
@@ -26600,7 +26620,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_naturaldisaster_costsstones",
-      "community": 5,
+      "community": 59,
       "norm_label": ".naturaldisaster_costsstones()"
     },
     {
@@ -26610,7 +26630,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_naturaldisaster_issoftenedbytheprotectiveformation",
-      "community": 5,
+      "community": 59,
       "norm_label": ".naturaldisaster_issoftenedbytheprotectiveformation()"
     },
     {
@@ -26620,7 +26640,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_epidemic_shakesthelowrealms",
-      "community": 5,
+      "community": 59,
       "norm_label": ".epidemic_shakesthelowrealms()"
     },
     {
@@ -26630,7 +26650,7 @@
       "source_location": "L101",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_ruinsdiscovery_yieldsafragment",
-      "community": 5,
+      "community": 59,
       "norm_label": ".ruinsdiscovery_yieldsafragment()"
     },
     {
@@ -26640,7 +26660,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_diplomaticvisit_warmsafaction",
-      "community": 5,
+      "community": 59,
       "norm_label": ".diplomaticvisit_warmsafaction()"
     },
     {
@@ -26650,7 +26670,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "events_eventmanagertests_eventmanagertests_internalbetrayal_deepensthemostunstablemembersfall",
-      "community": 5,
+      "community": 59,
       "norm_label": ".internalbetrayal_deepensthemostunstablemembersfall()"
     },
     {
@@ -27130,7 +27150,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionenginetests",
-      "community": 59,
+      "community": 5,
       "norm_label": "deductionenginetests.cs"
     },
     {
@@ -27140,7 +27160,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_mirrorchronicles_tests_mirror",
-      "community": 59,
+      "community": 5,
       "norm_label": "mirrorchronicles.tests.mirror"
     },
     {
@@ -27150,7 +27170,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests",
-      "community": 59,
+      "community": 5,
       "norm_label": "deductionenginetests"
     },
     {
@@ -27160,7 +27180,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_poweredworld",
-      "community": 59,
+      "community": 5,
       "norm_label": ".poweredworld()"
     },
     {
@@ -27170,7 +27190,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_testworld",
-      "community": 59,
+      "community": 5,
       "norm_label": "testworld"
     },
     {
@@ -27180,7 +27200,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_fragments",
-      "community": 59,
+      "community": 5,
       "norm_label": ".fragments()"
     },
     {
@@ -27190,7 +27210,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_list",
-      "community": 59,
+      "community": 5,
       "norm_label": "list"
     },
     {
@@ -27200,7 +27220,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_fragmentdata",
-      "community": 59,
+      "community": 5,
       "norm_label": "fragmentdata"
     },
     {
@@ -27210,7 +27230,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_needsatleasttwofragments",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_needsatleasttwofragments()"
     },
     {
@@ -27220,7 +27240,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_test",
-      "community": 59,
+      "community": 5,
       "norm_label": "test"
     },
     {
@@ -27230,7 +27250,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_acceptsatmostfivefragments",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_acceptsatmostfivefragments()"
     },
     {
@@ -27240,7 +27260,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_spendstenpowerperfragmentandthefragments",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_spendstenpowerperfragmentandthefragments()"
     },
     {
@@ -27250,7 +27270,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_keepsthefragments_whenthepowerislacking",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_keepsthefragments_whenthepowerislacking()"
     },
     {
@@ -27260,7 +27280,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_takesthemostcommonelement",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_takesthemostcommonelement()"
     },
     {
@@ -27270,7 +27290,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_risksdeviation_whenwatermeetsfire",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_risksdeviation_whenwatermeetsfire()"
     },
     {
@@ -27280,7 +27300,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_issafer_whenwoodfeedsfire",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_issafer_whenwoodfeedsfire()"
     },
     {
@@ -27290,7 +27310,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_fixed",
-      "community": 59,
+      "community": 5,
       "norm_label": ".fixed()"
     },
     {
@@ -27300,7 +27320,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_gradesthetechniquefromitsfragments",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_gradesthetechniquefromitsfragments()"
     },
     {
@@ -27310,7 +27330,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "tests_core_tests_mirror_deductionenginetests_cs_testcase",
-      "community": 59,
+      "community": 5,
       "norm_label": "testcase"
     },
     {
@@ -27320,7 +27340,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_yieldsasecrettechnique",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_yieldsasecrettechnique()"
     },
     {
@@ -27330,7 +27350,7 @@
       "source_location": "L117",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_namesthetechniquewiththewordsofthedata",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_namesthetechniquewiththewordsofthedata()"
     },
     {
@@ -27340,7 +27360,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_ofamethod_buildsitonaharvestableqiofitselement",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_ofamethod_buildsitonaharvestableqiofitselement()"
     },
     {
@@ -27350,7 +27370,7 @@
       "source_location": "L140",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_ofanart_needsnoqiandopensattherealmofitsgrade",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_ofanart_needsnoqiandopensattherealmofitsgrade()"
     },
     {
@@ -27360,7 +27380,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_yieldsnomethod_whennoqicanbeharvested",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_yieldsnomethod_whennoqicanbeharvested()"
     },
     {
@@ -27370,7 +27390,7 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_requiresanexistingrealm_evenfromdivinefragments",
-      "community": 59,
+      "community": 5,
       "norm_label": ".attemptdeduction_requiresanexistingrealm_evenfromdivinefragments()"
     },
     {
@@ -27762,6 +27782,16 @@
       "id": "mirror_huntoperationtests_huntoperationtests_roundtrip_keepsthehiddensuspicionanddistrust",
       "community": 156,
       "norm_label": ".roundtrip_keepsthehiddensuspicionanddistrust()"
+    },
+    {
+      "label": ".AMemberBackFromAHunt_CannotGoAgainThatYear_ButCanTheNext()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Mirror/HuntOperationTests.cs",
+      "source_location": "L295",
+      "_origin": "ast",
+      "id": "mirror_huntoperationtests_huntoperationtests_amemberbackfromahunt_cannotgoagainthatyear_butcanthenext",
+      "community": 156,
+      "norm_label": ".amemberbackfromahunt_cannotgoagainthatyear_butcanthenext()"
     },
     {
       "label": "MirrorSystemTests.cs",
@@ -29182,6 +29212,26 @@
       "id": "presentation_operationsviewtests_operationsviewtests_keepers_arethoseinthesecret_andwhethertheyswore",
       "community": 157,
       "norm_label": ".keepers_arethoseinthesecret_andwhethertheyswore()"
+    },
+    {
+      "label": ".HuntCandidates_LeaveOutThoseAlreadyOnAnOperation()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "presentation_operationsviewtests_operationsviewtests_huntcandidates_leaveoutthosealreadyonanoperation",
+      "community": 157,
+      "norm_label": ".huntcandidates_leaveoutthosealreadyonanoperation()"
+    },
+    {
+      "label": ".Ritual_SaysSoWhenNoMemberCanBearATalisman()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L167",
+      "_origin": "ast",
+      "id": "presentation_operationsviewtests_operationsviewtests_ritual_sayssowhennomembercanbearatalisman",
+      "community": 157,
+      "norm_label": ".ritual_sayssowhennomembercanbearatalisman()"
     },
     {
       "label": "WorldMapViewTests.cs",
@@ -33310,7 +33360,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 191,
+      "community": 189,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -33431,7 +33481,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 151,
+      "community": 192,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -33483,7 +33533,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 151,
+      "community": 196,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -33671,7 +33721,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 151,
+      "community": 192,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -33725,7 +33775,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Single slot by default, auto-save at end of each year; optional Casual mode with 3 slots.",
-      "community": 189,
+      "community": 195,
       "norm_label": "ironman save (yearly auto-save json)",
       "id": "brain_claude_plan_ironman_save"
     },
@@ -33739,7 +33789,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 82,
+      "community": 195,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -33778,7 +33828,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 151,
+      "community": 196,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -33817,7 +33867,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 151,
+      "community": 196,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -33911,7 +33961,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Inconsistent AI-generated renames; prevention: IDE Refactor->Rename, treat CS0103 as error.",
-      "community": 192,
+      "community": 78,
       "norm_label": "wl-001: deceased.rootelement does not exist (use affinity)",
       "id": "brain_claude_worked_lesson_wl_001"
     },
@@ -33925,7 +33975,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Avoid repeating the type prefix in method names.",
-      "community": 192,
+      "community": 78,
       "norm_label": "wl-002: mirrorsystem.consumemirrorpower does not exist (consumepower)",
       "id": "brain_claude_worked_lesson_wl_002"
     },
@@ -33953,7 +34003,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Write real NUnit tests so signature drift is caught immediately.",
-      "community": 192,
+      "community": 78,
       "norm_label": "wl-004: eventmanager.generateyearlyevent missing / triggeryearlyevent private",
       "id": "brain_claude_worked_lesson_wl_004"
     },
@@ -33967,7 +34017,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Separate test assembly + InternalsVisibleTo strategy from the start.",
-      "community": 192,
+      "community": 78,
       "norm_label": "wl-005: private factionmanager.processyearlyfactionai called from test",
       "id": "brain_claude_worked_lesson_wl_005"
     },
@@ -34051,7 +34101,7 @@
       "author": null,
       "contributor": null,
       "rationale": "AI Studio forced a web format and C# was generated alongside without ever being compiled, causing WL-001..005; pick one framework and execute after every AI prompt.",
-      "community": 192,
+      "community": 78,
       "norm_label": "wl-100: unity -> web -> unity pivot debt",
       "id": "brain_claude_worked_lesson_wl_100"
     },
@@ -34556,9 +34606,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_clandomain_clandomain",
-      "target": "game_scripts_clandomain_cs_vboxcontainer",
-      "confidence_score": 1.0
+      "target": "game_scripts_clandomain_cs_vboxcontainer"
     },
     {
       "relation": "method",
@@ -34798,9 +34848,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "control",
-      "confidence_score": 1.0
+      "target": "control"
     },
     {
       "relation": "inherits",
@@ -35171,9 +35221,9 @@
       "source_location": "L194",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "scripts_clandomain_clandomain_selector",
-      "target": "game_scripts_clandomain_cs_optionbutton",
-      "confidence_score": 1.0
+      "target": "game_scripts_clandomain_cs_optionbutton"
     },
     {
       "relation": "references",
@@ -36022,9 +36072,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations",
-      "target": "scripts_operations_mirrorchronicles_game",
-      "confidence_score": 1.0
+      "target": "scripts_operations_mirrorchronicles_game"
     },
     {
       "relation": "contains",
@@ -36032,9 +36082,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations",
-      "target": "scripts_operations_operations",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations"
     },
     {
       "relation": "references",
@@ -36043,9 +36093,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "game_scripts_operations_cs_coverstory",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_coverstory"
     },
     {
       "relation": "references",
@@ -36054,9 +36104,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "game_scripts_operations_cs_dictionary",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_dictionary"
     },
     {
       "relation": "references",
@@ -36065,9 +36115,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "game_scripts_operations_cs_gameroot",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_gameroot"
     },
     {
       "relation": "references",
@@ -36076,9 +36126,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "game_scripts_operations_cs_hunttiming",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_hunttiming"
     },
     {
       "relation": "references",
@@ -36087,9 +36137,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "game_scripts_operations_cs_label",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_label"
     },
     {
       "relation": "references",
@@ -36098,9 +36148,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "game_scripts_operations_cs_mirroraid",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_mirroraid"
     },
     {
       "relation": "references",
@@ -36109,9 +36159,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "game_scripts_operations_cs_string",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_string"
     },
     {
       "relation": "references",
@@ -36120,9 +36170,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "game_scripts_operations_cs_vboxcontainer",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_vboxcontainer"
     },
     {
       "relation": "method",
@@ -36130,9 +36180,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L213",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_add",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_add"
     },
     {
       "relation": "method",
@@ -36140,9 +36190,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L216",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_addbutton",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_addbutton"
     },
     {
       "relation": "method",
@@ -36150,9 +36200,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L251",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_clear",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_clear"
     },
     {
       "relation": "method",
@@ -36160,9 +36210,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L241",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_enumpicker",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_enumpicker"
     },
     {
       "relation": "method",
@@ -36170,9 +36220,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L225",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_picker",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_picker"
     },
     {
       "relation": "method",
@@ -36180,9 +36230,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L151",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_plan",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_plan"
     },
     {
       "relation": "method",
@@ -36190,9 +36240,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_ready",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_ready"
     },
     {
       "relation": "method",
@@ -36200,9 +36250,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_refresh",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_refresh"
     },
     {
       "relation": "method",
@@ -36210,9 +36260,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L207",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_report",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_report"
     },
     {
       "relation": "method",
@@ -36220,9 +36270,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L260",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_runsmoke",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_runsmoke"
     },
     {
       "relation": "method",
@@ -36230,9 +36280,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L248",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_selected",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_selected"
     },
     {
       "relation": "method",
@@ -36240,9 +36290,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_showhunt",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_showhunt"
     },
     {
       "relation": "method",
@@ -36250,9 +36300,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_showritual",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_showritual"
     },
     {
       "relation": "method",
@@ -36260,9 +36310,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L165",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_showsecret",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_showsecret"
     },
     {
       "relation": "references",
@@ -36271,9 +36321,9 @@
       "source_location": "L225",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_picker",
-      "target": "game_scripts_operations_cs_label",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_label"
     },
     {
       "relation": "calls",
@@ -36282,9 +36332,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_ready",
-      "target": "scripts_operations_operations_refresh",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_refresh"
     },
     {
       "relation": "calls",
@@ -36293,9 +36343,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_refresh",
-      "target": "scripts_operations_operations_showhunt",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_showhunt"
     },
     {
       "relation": "calls",
@@ -36304,9 +36354,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_refresh",
-      "target": "scripts_operations_operations_showritual",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_showritual"
     },
     {
       "relation": "calls",
@@ -36315,9 +36365,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_refresh",
-      "target": "scripts_operations_operations_showsecret",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_showsecret"
     },
     {
       "relation": "calls",
@@ -36326,9 +36376,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L210",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_report",
-      "target": "scripts_operations_operations_refresh",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_refresh"
     },
     {
       "relation": "calls",
@@ -36337,9 +36387,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showritual",
-      "target": "scripts_operations_operations_add",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_add"
     },
     {
       "relation": "calls",
@@ -36348,9 +36398,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showritual",
-      "target": "scripts_operations_operations_addbutton",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_addbutton"
     },
     {
       "relation": "calls",
@@ -36359,9 +36409,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showritual",
-      "target": "scripts_operations_operations_clear",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_clear"
     },
     {
       "relation": "calls",
@@ -36370,9 +36420,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showritual",
-      "target": "scripts_operations_operations_picker",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_picker"
     },
     {
       "relation": "calls",
@@ -36381,9 +36431,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showritual",
-      "target": "scripts_operations_operations_report",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_report"
     },
     {
       "relation": "calls",
@@ -36392,9 +36442,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showritual",
-      "target": "scripts_operations_operations_selected",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_selected"
     },
     {
       "relation": "calls",
@@ -36403,9 +36453,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L245",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_enumpicker",
-      "target": "scripts_operations_operations_showhunt",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_showhunt"
     },
     {
       "relation": "calls",
@@ -36414,9 +36464,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showhunt",
-      "target": "scripts_operations_operations_add",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_add"
     },
     {
       "relation": "calls",
@@ -36425,9 +36475,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showhunt",
-      "target": "scripts_operations_operations_addbutton",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_addbutton"
     },
     {
       "relation": "calls",
@@ -36436,9 +36486,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showhunt",
-      "target": "scripts_operations_operations_clear",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_clear"
     },
     {
       "relation": "calls",
@@ -36447,9 +36497,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showhunt",
-      "target": "scripts_operations_operations_picker",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_picker"
     },
     {
       "relation": "calls",
@@ -36458,9 +36508,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showhunt",
-      "target": "scripts_operations_operations_plan",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_plan"
     },
     {
       "relation": "calls",
@@ -36469,9 +36519,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L142",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showhunt",
-      "target": "scripts_operations_operations_report",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_report"
     },
     {
       "relation": "calls",
@@ -36480,9 +36530,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showhunt",
-      "target": "scripts_operations_operations_selected",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_selected"
     },
     {
       "relation": "references",
@@ -36491,9 +36541,9 @@
       "source_location": "L151",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_plan",
-      "target": "game_scripts_operations_cs_huntplan",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_huntplan"
     },
     {
       "relation": "calls",
@@ -36502,9 +36552,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L169",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showsecret",
-      "target": "scripts_operations_operations_add",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_add"
     },
     {
       "relation": "calls",
@@ -36513,9 +36563,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L185",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showsecret",
-      "target": "scripts_operations_operations_addbutton",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_addbutton"
     },
     {
       "relation": "calls",
@@ -36524,9 +36574,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L167",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showsecret",
-      "target": "scripts_operations_operations_clear",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_clear"
     },
     {
       "relation": "calls",
@@ -36535,9 +36585,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L183",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showsecret",
-      "target": "scripts_operations_operations_picker",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_picker"
     },
     {
       "relation": "calls",
@@ -36546,9 +36596,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L175",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showsecret",
-      "target": "scripts_operations_operations_report",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_report"
     },
     {
       "relation": "calls",
@@ -36557,9 +36607,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L185",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showsecret",
-      "target": "scripts_operations_operations_selected",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_selected"
     },
     {
       "relation": "references",
@@ -36568,9 +36618,9 @@
       "source_location": "L213",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_add",
-      "target": "container",
-      "confidence_score": 1.0
+      "target": "container"
     },
     {
       "relation": "references",
@@ -36579,9 +36629,9 @@
       "source_location": "L216",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_addbutton",
-      "target": "container",
-      "confidence_score": 1.0
+      "target": "container"
     },
     {
       "relation": "references",
@@ -36590,9 +36640,9 @@
       "source_location": "L241",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_enumpicker",
-      "target": "container",
-      "confidence_score": 1.0
+      "target": "container"
     },
     {
       "relation": "references",
@@ -36601,9 +36651,9 @@
       "source_location": "L225",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_picker",
-      "target": "container",
-      "confidence_score": 1.0
+      "target": "container"
     },
     {
       "relation": "references",
@@ -36612,9 +36662,9 @@
       "source_location": "L216",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_addbutton",
-      "target": "game_scripts_operations_cs_action",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_action"
     },
     {
       "relation": "references",
@@ -36623,9 +36673,9 @@
       "source_location": "L216",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_addbutton",
-      "target": "game_scripts_operations_cs_button",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_button"
     },
     {
       "relation": "references",
@@ -36634,9 +36684,9 @@
       "source_location": "L241",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_enumpicker",
-      "target": "game_scripts_operations_cs_action",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_action"
     },
     {
       "relation": "calls",
@@ -36645,9 +36695,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L244",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_enumpicker",
-      "target": "scripts_operations_operations_picker",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_picker"
     },
     {
       "relation": "references",
@@ -36656,9 +36706,9 @@
       "source_location": "L225",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_picker",
-      "target": "game_scripts_operations_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -36667,9 +36717,9 @@
       "source_location": "L225",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_picker",
-      "target": "game_scripts_operations_cs_optionbutton",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_optionbutton"
     },
     {
       "relation": "references",
@@ -36678,9 +36728,9 @@
       "source_location": "L225",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_picker",
-      "target": "value",
-      "confidence_score": 1.0
+      "target": "value"
     },
     {
       "relation": "references",
@@ -36689,9 +36739,9 @@
       "source_location": "L248",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_selected",
-      "target": "game_scripts_operations_cs_optionbutton",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_optionbutton"
     },
     {
       "relation": "references",
@@ -36700,9 +36750,9 @@
       "source_location": "L241",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_enumpicker",
-      "target": "game_scripts_operations_cs_func",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_func"
     },
     {
       "relation": "references",
@@ -36711,9 +36761,9 @@
       "source_location": "L241",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_enumpicker",
-      "target": "game_scripts_operations_cs_t",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_t"
     },
     {
       "relation": "calls",
@@ -36722,9 +36772,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L245",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_enumpicker",
-      "target": "scripts_operations_operations_selected",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_selected"
     },
     {
       "relation": "references",
@@ -36733,9 +36783,9 @@
       "source_location": "L251",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_clear",
-      "target": "game_scripts_operations_cs_node",
-      "confidence_score": 1.0
+      "target": "game_scripts_operations_cs_node"
     },
     {
       "relation": "contains",
@@ -53882,6 +53932,26 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "mirror_huntoperations_huntoperations",
+      "target": "mirror_huntoperations_huntoperations_isfree",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/HuntOperations.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "mirror_huntoperations_huntoperations",
+      "target": "mirror_huntoperations_huntoperations_returnfromoperations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/HuntOperations.cs",
       "source_location": "L143",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -54017,6 +54087,50 @@
       "confidence_score": 1.0,
       "source": "mirror_huntoperations_huntoperations",
       "target": "src_core_mirror_huntoperations_cs_talismansystem"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/HuntOperations.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "mirror_huntoperations_huntoperations_isfree",
+      "target": "mirror_huntoperations_huntoperations_fit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/HuntOperations.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "mirror_huntoperations_huntoperations_isfree",
+      "target": "src_core_mirror_huntoperations_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/HuntOperations.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "mirror_huntoperations_huntoperations_validate",
+      "target": "mirror_huntoperations_huntoperations_isfree",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/HuntOperations.cs",
+      "source_location": "L119",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "mirror_huntoperations_huntoperations_fit",
+      "target": "src_core_mirror_huntoperations_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -54171,17 +54285,6 @@
       "confidence_score": 1.0,
       "source": "mirror_huntoperations_huntoperations_suspect",
       "target": "src_core_mirror_huntoperations_cs_worldbeast"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L119",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "mirror_huntoperations_huntoperations_fit",
-      "target": "src_core_mirror_huntoperations_cs_characterdata"
     },
     {
       "relation": "references",
@@ -55865,9 +55968,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview",
-      "target": "presentation_operationsview_mirrorchronicles_presentation",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_mirrorchronicles_presentation"
     },
     {
       "relation": "contains",
@@ -55875,9 +55978,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview",
-      "target": "presentation_operationsview_operationsview",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview"
     },
     {
       "relation": "method",
@@ -55885,9 +55988,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_aidlabel",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_aidlabel"
     },
     {
       "relation": "method",
@@ -55895,9 +55998,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_choice",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_choice"
     },
     {
       "relation": "method",
@@ -55905,9 +56008,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_coverlabel",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_coverlabel"
     },
     {
       "relation": "method",
@@ -55915,9 +56018,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_huntcandidates",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_huntcandidates"
     },
     {
       "relation": "method",
@@ -55925,9 +56028,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_huntpreview",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_huntpreview"
     },
     {
       "relation": "method",
@@ -55935,9 +56038,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_hunttargets",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_hunttargets"
     },
     {
       "relation": "method",
@@ -55945,9 +56048,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_keepers",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_keepers"
     },
     {
       "relation": "method",
@@ -55955,9 +56058,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_ritual",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_ritual"
     },
     {
       "relation": "method",
@@ -55965,9 +56068,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_rolelabel",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_rolelabel"
     },
     {
       "relation": "method",
@@ -55975,9 +56078,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_signs",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_signs"
     },
     {
       "relation": "method",
@@ -55985,9 +56088,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_strength",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_strength"
     },
     {
       "relation": "method",
@@ -55995,9 +56098,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_timinglabel",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_timinglabel"
     },
     {
       "relation": "calls",
@@ -56006,9 +56109,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_ritual",
-      "target": "presentation_operationsview_operationsview_strength",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_strength"
     },
     {
       "relation": "references",
@@ -56017,9 +56120,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_ritual",
-      "target": "ritualview",
-      "confidence_score": 1.0
+      "target": "ritualview"
     },
     {
       "relation": "references",
@@ -56028,9 +56131,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_ritual",
-      "target": "src_core_presentation_operationsview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -56039,9 +56142,9 @@
       "source_location": "L88",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_huntcandidates",
-      "target": "src_core_presentation_operationsview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -56050,9 +56153,9 @@
       "source_location": "L94",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_huntpreview",
-      "target": "src_core_presentation_operationsview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -56061,9 +56164,9 @@
       "source_location": "L75",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_hunttargets",
-      "target": "src_core_presentation_operationsview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -56072,9 +56175,9 @@
       "source_location": "L120",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_keepers",
-      "target": "src_core_presentation_operationsview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -56083,9 +56186,9 @@
       "source_location": "L106",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_signs",
-      "target": "src_core_presentation_operationsview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -56094,9 +56197,9 @@
       "source_location": "L75",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_hunttargets",
-      "target": "hunttarget",
-      "confidence_score": 1.0
+      "target": "hunttarget"
     },
     {
       "relation": "calls",
@@ -56105,9 +56208,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_hunttargets",
-      "target": "presentation_operationsview_operationsview_strength",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_strength"
     },
     {
       "relation": "references",
@@ -56116,9 +56219,9 @@
       "source_location": "L75",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_hunttargets",
-      "target": "src_core_presentation_operationsview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -56127,9 +56230,9 @@
       "source_location": "L88",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_huntcandidates",
-      "target": "src_core_presentation_operationsview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -56138,9 +56241,9 @@
       "source_location": "L120",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_keepers",
-      "target": "src_core_presentation_operationsview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -56149,9 +56252,9 @@
       "source_location": "L106",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_signs",
-      "target": "src_core_presentation_operationsview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -56160,9 +56263,9 @@
       "source_location": "L88",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_huntcandidates",
-      "target": "memberchoice",
-      "confidence_score": 1.0
+      "target": "memberchoice"
     },
     {
       "relation": "references",
@@ -56171,9 +56274,9 @@
       "source_location": "L158",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_choice",
-      "target": "memberchoice",
-      "confidence_score": 1.0
+      "target": "memberchoice"
     },
     {
       "relation": "references",
@@ -56182,9 +56285,9 @@
       "source_location": "L94",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_huntpreview",
-      "target": "huntpreviewview",
-      "confidence_score": 1.0
+      "target": "huntpreviewview"
     },
     {
       "relation": "references",
@@ -56193,9 +56296,9 @@
       "source_location": "L94",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_huntpreview",
-      "target": "src_core_presentation_operationsview_cs_huntplan",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_huntplan"
     },
     {
       "relation": "references",
@@ -56204,9 +56307,9 @@
       "source_location": "L106",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_signs",
-      "target": "powersign",
-      "confidence_score": 1.0
+      "target": "powersign"
     },
     {
       "relation": "references",
@@ -56215,9 +56318,9 @@
       "source_location": "L120",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_keepers",
-      "target": "keeperline",
-      "confidence_score": 1.0
+      "target": "keeperline"
     },
     {
       "relation": "references",
@@ -56226,9 +56329,9 @@
       "source_location": "L124",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_rolelabel",
-      "target": "huntrole",
-      "confidence_score": 1.0
+      "target": "huntrole"
     },
     {
       "relation": "references",
@@ -56237,9 +56340,9 @@
       "source_location": "L133",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_timinglabel",
-      "target": "src_core_presentation_operationsview_cs_hunttiming",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_hunttiming"
     },
     {
       "relation": "references",
@@ -56248,9 +56351,9 @@
       "source_location": "L141",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_coverlabel",
-      "target": "src_core_presentation_operationsview_cs_coverstory",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_coverstory"
     },
     {
       "relation": "references",
@@ -56259,9 +56362,9 @@
       "source_location": "L150",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_aidlabel",
-      "target": "src_core_presentation_operationsview_cs_mirroraid",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_mirroraid"
     },
     {
       "relation": "references",
@@ -56270,9 +56373,9 @@
       "source_location": "L158",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_choice",
-      "target": "src_core_presentation_operationsview_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_characterdata"
     },
     {
       "relation": "references",
@@ -56281,9 +56384,9 @@
       "source_location": "L160",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_strength",
-      "target": "src_core_presentation_operationsview_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_cultivationrealm"
     },
     {
       "relation": "contains",
@@ -83780,6 +83883,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/HuntOperationTests.cs",
+      "source_location": "L295",
+      "weight": 1.0,
+      "source": "mirror_huntoperationtests_huntoperationtests",
+      "target": "mirror_huntoperationtests_huntoperationtests_amemberbackfromahunt_cannotgoagainthatyear_butcanthenext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/HuntOperationTests.cs",
       "source_location": "L136",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -84047,6 +84160,17 @@
       "confidence_score": 1.0,
       "source": "mirror_huntoperationtests_huntoperationtests",
       "target": "tests_core_tests_mirror_huntoperationtests_cs_string"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/HuntOperationTests.cs",
+      "source_location": "L298",
+      "weight": 1.0,
+      "source": "mirror_huntoperationtests_huntoperationtests_amemberbackfromahunt_cannotgoagainthatyear_butcanthenext",
+      "target": "mirror_huntoperationtests_huntoperationtests_world",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -84372,6 +84496,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/HuntOperationTests.cs",
+      "source_location": "L299",
+      "weight": 1.0,
+      "source": "mirror_huntoperationtests_huntoperationtests_amemberbackfromahunt_cannotgoagainthatyear_butcanthenext",
+      "target": "mirror_huntoperationtests_huntoperationtests_hunter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/HuntOperationTests.cs",
       "source_location": "L141",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -84608,6 +84743,17 @@
       "confidence_score": 1.0,
       "source": "mirror_huntoperationtests_huntoperationtests_validate_refuses_outsidethehuntswindow",
       "target": "mirror_huntoperationtests_huntoperationtests_hunter"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/HuntOperationTests.cs",
+      "source_location": "L303",
+      "weight": 1.0,
+      "source": "mirror_huntoperationtests_huntoperationtests_amemberbackfromahunt_cannotgoagainthatyear_butcanthenext",
+      "target": "mirror_huntoperationtests_huntoperationtests_plan",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -84861,6 +85007,17 @@
       "confidence_score": 1.0,
       "source": "mirror_huntoperationtests_huntoperationtests_validate_refuses_outsidethehuntswindow",
       "target": "tests_core_tests_mirror_huntoperationtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/HuntOperationTests.cs",
+      "source_location": "L295",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "mirror_huntoperationtests_huntoperationtests_amemberbackfromahunt_cannotgoagainthatyear_butcanthenext",
+      "target": "tests_core_tests_mirror_huntoperationtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -87983,9 +88140,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests",
-      "target": "presentation_operationsviewtests_mirrorchronicles_tests_presentation",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_mirrorchronicles_tests_presentation"
     },
     {
       "relation": "contains",
@@ -87993,9 +88150,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests"
     },
     {
       "relation": "method",
@@ -88003,8 +88160,18 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_huntcandidates_arethemembersfittogo",
+      "target": "presentation_operationsviewtests_operationsviewtests_huntcandidates_arethemembersfittogo"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "presentation_operationsviewtests_operationsviewtests",
+      "target": "presentation_operationsviewtests_operationsviewtests_huntcandidates_leaveoutthosealreadyonanoperation",
       "confidence_score": 1.0
     },
     {
@@ -88013,9 +88180,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_huntpreview_givestheoddsthetracesandthecosts_orwhyitcannotbe",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_huntpreview_givestheoddsthetracesandthecosts_orwhyitcannotbe"
     },
     {
       "relation": "method",
@@ -88023,9 +88190,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_hunttargets_arethescoutedbeasts_withtheirplace",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_hunttargets_arethescoutedbeasts_withtheirplace"
     },
     {
       "relation": "method",
@@ -88033,9 +88200,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L142",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_keepers_arethoseinthesecret_andwhethertheyswore",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_keepers_arethoseinthesecret_andwhethertheyswore"
     },
     {
       "relation": "method",
@@ -88043,9 +88210,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_labels_nameeverychoicedifferently",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_labels_nameeverychoicedifferently"
     },
     {
       "relation": "method",
@@ -88053,8 +88220,18 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L167",
+      "weight": 1.0,
+      "source": "presentation_operationsviewtests_operationsviewtests",
+      "target": "presentation_operationsviewtests_operationsviewtests_ritual_sayssowhennomembercanbearatalisman",
       "confidence_score": 1.0
     },
     {
@@ -88063,9 +88240,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_ritual_showsthetalismansoffered",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_ritual_showsthetalismansoffered"
     },
     {
       "relation": "method",
@@ -88073,9 +88250,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_ritual_tellstheyeartheprayersandthebeasts",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_ritual_tellstheyeartheprayersandthebeasts"
     },
     {
       "relation": "method",
@@ -88083,9 +88260,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_signs_showtheinvestigatorwhocame",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_signs_showtheinvestigatorwhocame"
     },
     {
       "relation": "method",
@@ -88093,9 +88270,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_signs_showwhatthemirrorperceives_neverthenumbers",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_signs_showwhatthemirrorperceives_neverthenumbers"
     },
     {
       "relation": "calls",
@@ -88104,7 +88281,18 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_huntcandidates_arethemembersfittogo",
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "presentation_operationsviewtests_operationsviewtests_huntcandidates_leaveoutthosealreadyonanoperation",
       "target": "presentation_operationsviewtests_operationsviewtests_newgame",
       "confidence_score": 1.0
     },
@@ -88115,9 +88303,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_huntpreview_givestheoddsthetracesandthecosts_orwhyitcannotbe",
-      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
     },
     {
       "relation": "calls",
@@ -88126,9 +88314,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_hunttargets_arethescoutedbeasts_withtheirplace",
-      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
     },
     {
       "relation": "calls",
@@ -88137,9 +88325,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_keepers_arethoseinthesecret_andwhethertheyswore",
-      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
     },
     {
       "relation": "references",
@@ -88148,8 +88336,19 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_newgame",
-      "target": "tests_core_tests_presentation_operationsviewtests_cs_gamesession",
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_gamesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "presentation_operationsviewtests_operationsviewtests_ritual_sayssowhennomembercanbearatalisman",
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
       "confidence_score": 1.0
     },
     {
@@ -88159,9 +88358,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_ritual_showsthetalismansoffered",
-      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
     },
     {
       "relation": "calls",
@@ -88170,9 +88369,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_ritual_tellstheyeartheprayersandthebeasts",
-      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
     },
     {
       "relation": "calls",
@@ -88181,9 +88380,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_signs_showtheinvestigatorwhocame",
-      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
     },
     {
       "relation": "calls",
@@ -88192,9 +88391,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_signs_showwhatthemirrorperceives_neverthenumbers",
-      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
     },
     {
       "relation": "references",
@@ -88203,9 +88402,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_ritual_tellstheyeartheprayersandthebeasts",
-      "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -88214,7 +88413,18 @@
       "source_location": "L65",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_huntcandidates_arethemembersfittogo",
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_operationsviewtests_operationsviewtests_huntcandidates_leaveoutthosealreadyonanoperation",
       "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
       "confidence_score": 1.0
     },
@@ -88225,9 +88435,9 @@
       "source_location": "L74",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_huntpreview_givestheoddsthetracesandthecosts_orwhyitcannotbe",
-      "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -88236,9 +88446,9 @@
       "source_location": "L51",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_hunttargets_arethescoutedbeasts_withtheirplace",
-      "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -88247,9 +88457,9 @@
       "source_location": "L142",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_keepers_arethoseinthesecret_andwhethertheyswore",
-      "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -88258,7 +88468,18 @@
       "source_location": "L101",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_labels_nameeverychoicedifferently",
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L167",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_operationsviewtests_operationsviewtests_ritual_sayssowhennomembercanbearatalisman",
       "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
       "confidence_score": 1.0
     },
@@ -88269,9 +88490,9 @@
       "source_location": "L37",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_ritual_showsthetalismansoffered",
-      "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -88280,9 +88501,9 @@
       "source_location": "L134",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_signs_showtheinvestigatorwhocame",
-      "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -88291,9 +88512,9 @@
       "source_location": "L119",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_signs_showwhatthemirrorperceives_neverthenumbers",
-      "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
     },
     {
       "relation": "contains",
@@ -95011,5 +95232,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "613cfb1220ece21a2259a47a6b319db44b27ff9c"
+  "built_at_commit": "019491fafaad9ddd506944b5c8386d75dde2e8d9"
 }
