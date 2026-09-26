@@ -1,10 +1,820 @@
 [
-  { "name": "Famille Wang",                  "familyName": "Wang", "personality": "Aggressive",   "powerLevel": 500,   "wealth": 1000,  "relationWithPlayer": -20 },
-  { "name": "Guilde marchande Zhao",         "familyName": "Zhao", "personality": "Merchant",     "powerLevel": 200,   "wealth": 5000,  "relationWithPlayer": 10 },
-  { "name": "Secte des Nuées Célestes",      "familyName": null,   "personality": "Isolationist", "powerLevel": 5000,  "wealth": 2000,  "relationWithPlayer": 0 },
-  { "name": "Salle du Poing de Fer",         "familyName": null,   "personality": "Aggressive",   "powerLevel": 800,   "wealth": 600,   "relationWithPlayer": -10 },
-  { "name": "Pavillon du Phénix de Jade",    "familyName": null,   "personality": "Merchant",     "powerLevel": 300,   "wealth": 8000,  "relationWithPlayer": 15 },
-  { "name": "Secte du Voile d'Ombre",        "familyName": null,   "personality": "Manipulative", "powerLevel": 1200,  "wealth": 1500,  "relationWithPlayer": -5 },
-  { "name": "Ermitage du Bambou Verdoyant",  "familyName": null,   "personality": "Isolationist", "powerLevel": 700,   "wealth": 400,   "relationWithPlayer": 5 },
-  { "name": "Empire du Soleil d'Or",         "familyName": null,   "personality": "Expansionist", "powerLevel": 10000, "wealth": 20000, "relationWithPlayer": 0 }
+  {
+    "name": "Secte du Pic des Nuées",
+    "familyName": null,
+    "kind": "Sect",
+    "regionId": "mount-yunfeng",
+    "path": "Immortal",
+    "highestRealm": "GoldenCore",
+    "techniques": [
+      "night-frost-canon",
+      "measured-rain-method",
+      "dewdrop-pearl-method"
+    ],
+    "personality": "Expansionist",
+    "powerLevel": 10000,
+    "wealth": 20000,
+    "relationWithPlayer": 10,
+    "notes": "Secte dominante du Linxi, soutenue par au moins un Vrai Monarque ; le Lac Jingshui relevait d'elle avant d'être confié aux Mo.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Secte des Mille Lames",
+    "familyName": null,
+    "kind": "Sect",
+    "regionId": "singing-sands",
+    "path": "Immortal",
+    "highestRealm": "PurpleMansion",
+    "techniques": [],
+    "personality": "Aggressive",
+    "powerLevel": 6000,
+    "wealth": 8000,
+    "relationWithPlayer": -5,
+    "notes": "Grande zone de l'ouest : Désert des Sables Chantants, Trois Commanderies de Liuhe.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Secte de la Lune Pâle",
+    "familyName": null,
+    "kind": "Sect",
+    "regionId": "northern-river",
+    "path": "Immortal",
+    "highestRealm": "PurpleMansion",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 5000,
+    "wealth": 6000,
+    "relationWithPlayer": 0,
+    "notes": "Au nord, le long du fleuve.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte du Fer Ardent",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "northwest-hills",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "clear-edge-method"
+    ],
+    "personality": "Aggressive",
+    "powerLevel": 1500,
+    "wealth": 1500,
+    "relationWithPlayer": 0,
+    "notes": "Nord-ouest ; liée à la famille Lü (Méthode du Tranchant Clair).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte du Roc Obscur",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "yunmen",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 1200,
+    "wealth": 1200,
+    "relationWithPlayer": 0,
+    "notes": "Préfecture de Yunmen.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte du Givre Blanc",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "northeast-heights",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 1200,
+    "wealth": 1000,
+    "relationWithPlayer": 0,
+    "notes": "Nord-est.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte de l'Épée Stellaire",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "zhanghe",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Aggressive",
+    "powerLevel": 1800,
+    "wealth": 1400,
+    "relationWithPlayer": -5,
+    "notes": "Préfecture de Zhanghe.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte des Brumes d'Ambre",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "qingyuan",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Merchant",
+    "powerLevel": 1000,
+    "wealth": 3000,
+    "relationWithPlayer": 5,
+    "notes": "Préfecture de Qingyuan.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte du Chrysanthème Noir",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "pingjiang",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Manipulative",
+    "powerLevel": 1300,
+    "wealth": 1600,
+    "relationWithPlayer": -5,
+    "notes": "Préfecture de Pingjiang.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte des Saules Pleureurs",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "luoping",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Merchant",
+    "powerLevel": 1100,
+    "wealth": 2500,
+    "relationWithPlayer": 5,
+    "notes": "Préfectures de Luoping et Baishi.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte du Tambour Sacré",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "nanling",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Aggressive",
+    "powerLevel": 1400,
+    "wealth": 1200,
+    "relationWithPlayer": -5,
+    "notes": "Préfecture de Nanling.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte du Carnage",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "carnage-gate-lands",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Aggressive",
+    "powerLevel": 2000,
+    "wealth": 1500,
+    "relationWithPlayer": -10,
+    "notes": "Au sud de Hanshan ; la liste des portes du wiki la compte parmi les huit (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Porte de la Clarté Révérée",
+    "familyName": null,
+    "kind": "Gate",
+    "regionId": "mount-jianfeng",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 1500,
+    "wealth": 1500,
+    "relationWithPlayer": 0,
+    "notes": "Puissance taoïste de Tai (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "RegionId"
+    ]
+  },
+  {
+    "name": "Atoll des Perles Noires",
+    "familyName": null,
+    "kind": "ImmortalIsland",
+    "regionId": "black-pearl-atoll",
+    "path": "Immortal",
+    "highestRealm": "PurpleMansion",
+    "techniques": [
+      "engulfed-blaze-art"
+    ],
+    "personality": "Isolationist",
+    "powerLevel": 3000,
+    "wealth": 5000,
+    "relationWithPlayer": 0,
+    "notes": "Île immortelle de la Mer Orientale.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Famille Ruan",
+    "familyName": "Ruan",
+    "kind": "Family",
+    "regionId": "heshan",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "clear-spring-sutra",
+      "upstream-brook-method"
+    ],
+    "personality": "Aggressive",
+    "powerLevel": 400,
+    "wealth": 800,
+    "relationWithPlayer": -10,
+    "notes": "Voisins directs à l'est du lac ; Ruan Xianzhou fut piégé et tué il y a ~200 ans par Bai Chengyu avec les sectes et les portes.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Famille Gu",
+    "familyName": "Gu",
+    "kind": "Family",
+    "regionId": "grey-reed-plain",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "upstream-brook-method",
+      "seven-terraces-canon"
+    ],
+    "personality": "Merchant",
+    "powerLevel": 600,
+    "wealth": 1200,
+    "relationWithPlayer": 0,
+    "notes": "Plaine des Roseaux Gris ; venue du Temple Lianhuo.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Famille Bai",
+    "familyName": "Bai",
+    "kind": "Family",
+    "regionId": "linxi",
+    "path": "Immortal",
+    "highestRealm": "PurpleMansion",
+    "techniques": [
+      "silent-tide-sutra",
+      "first-word-sutra"
+    ],
+    "personality": "Expansionist",
+    "powerLevel": 2500,
+    "wealth": 3000,
+    "relationWithPlayer": -5,
+    "notes": "Bai Chengyu devint Manoir Pourpre il y a ~200 ans. Le lore ne situe pas la famille.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "RegionId"
+    ]
+  },
+  {
+    "name": "Famille Zang",
+    "familyName": "Zang",
+    "kind": "Family",
+    "regionId": "linxi",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "bronze-rampart-method",
+      "cedar-murmur-art"
+    ],
+    "personality": "Isolationist",
+    "powerLevel": 500,
+    "wealth": 700,
+    "relationWithPlayer": 0,
+    "notes": "Le lore ne situe pas la famille.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "RegionId"
+    ]
+  },
+  {
+    "name": "Famille Lü",
+    "familyName": "Lü",
+    "kind": "Family",
+    "regionId": "jingshui-lake",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "clear-edge-method"
+    ],
+    "personality": "Merchant",
+    "powerLevel": 300,
+    "wealth": 500,
+    "relationWithPlayer": 5,
+    "notes": "L'un des cinq clans du lac ; liée à la Porte du Fer Ardent.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Famille Tao",
+    "familyName": "Tao",
+    "kind": "Family",
+    "regionId": "jingshui-lake",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "woven-heart-sutra",
+      "winter-wind-method"
+    ],
+    "personality": "Merchant",
+    "powerLevel": 250,
+    "wealth": 400,
+    "relationWithPlayer": 20,
+    "notes": "L'un des cinq clans du lac ; alliée que les Mo défendent contre les Lou.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Famille Lou",
+    "familyName": "Lou",
+    "kind": "Family",
+    "regionId": "jingshui-lake",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Aggressive",
+    "powerLevel": 350,
+    "wealth": 500,
+    "relationWithPlayer": -15,
+    "notes": "L'un des cinq clans du lac ; ennemie des Tao.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Famille Xun",
+    "familyName": "Xun",
+    "kind": "Family",
+    "regionId": "linxi",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "underground-spring-method"
+    ],
+    "personality": "Isolationist",
+    "powerLevel": 300,
+    "wealth": 400,
+    "relationWithPlayer": 0,
+    "notes": "Le lore ne situe pas la famille.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "RegionId"
+    ]
+  },
+  {
+    "name": "Famille Qiao",
+    "familyName": "Qiao",
+    "kind": "Family",
+    "regionId": "linxi",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "distant-rumble-art"
+    ],
+    "personality": "Isolationist",
+    "powerLevel": 800,
+    "wealth": 900,
+    "relationWithPlayer": 0,
+    "notes": "Le lore ne situe pas la famille.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "RegionId"
+    ]
+  },
+  {
+    "name": "Famille Fang",
+    "familyName": "Fang",
+    "kind": "Family",
+    "regionId": "jingshui-lake",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "path-watcher"
+    ],
+    "personality": "Isolationist",
+    "powerLevel": 200,
+    "wealth": 300,
+    "relationWithPlayer": 5,
+    "notes": "L'un des cinq clans du lac.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Famille Qu",
+    "familyName": "Qu",
+    "kind": "Family",
+    "regionId": "eastern-sea",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [
+      "six-harmonies-method"
+    ],
+    "personality": "Isolationist",
+    "powerLevel": 1500,
+    "wealth": 4000,
+    "relationWithPlayer": 0,
+    "notes": "Mer Orientale ; branche directe de la dynastie Zhen. La Méthode des Six Harmonies est « de la Mer Orientale » (§2.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "Techniques"
+    ]
+  },
+  {
+    "name": "Manoir immortel de Chenguang",
+    "familyName": null,
+    "kind": "Order",
+    "regionId": "linxi",
+    "path": "Immortal",
+    "highestRealm": "PurpleMansion",
+    "techniques": [
+      "inner-sun-manual"
+    ],
+    "personality": "Isolationist",
+    "powerLevel": 2000,
+    "wealth": 2500,
+    "relationWithPlayer": 0,
+    "notes": "Détient le Manuel du Soleil Intérieur (§10). Le lore ne le situe pas.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "RegionId"
+    ]
+  },
+  {
+    "name": "Voie des Immortels de la Capitale",
+    "familyName": null,
+    "kind": "Order",
+    "regionId": "mount-jianfeng",
+    "path": "Immortal",
+    "highestRealm": "PurpleMansion",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 5000,
+    "wealth": 5000,
+    "relationWithPlayer": 0,
+    "notes": "Puissance taoïste de Tai (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "RegionId"
+    ]
+  },
+  {
+    "name": "Temple du Lotus",
+    "familyName": null,
+    "kind": "Temple",
+    "regionId": "kun",
+    "path": "Buddhist",
+    "highestRealm": "PurpleMansion",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 6000,
+    "wealth": 6000,
+    "relationWithPlayer": 0,
+    "notes": "Puissance bouddhiste de l'Empire de Kun (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Temple de la Merveille Profonde",
+    "familyName": null,
+    "kind": "Temple",
+    "regionId": "tai",
+    "path": "Buddhist",
+    "highestRealm": "PurpleMansion",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 4000,
+    "wealth": 4000,
+    "relationWithPlayer": 0,
+    "notes": "Puissance bouddhiste de Tai (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  },
+  {
+    "name": "Grand Monastère de Huiqiu",
+    "familyName": null,
+    "kind": "Temple",
+    "regionId": "linxi",
+    "path": "Buddhist",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 3000,
+    "wealth": 3000,
+    "relationWithPlayer": 0,
+    "notes": "Puissance bouddhiste du Linxi (§7.4). Le lore ne le situe pas dans le royaume.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "RegionId"
+    ]
+  },
+  {
+    "name": "Empire de Kun",
+    "familyName": null,
+    "kind": "State",
+    "regionId": "kun",
+    "path": "Immortal",
+    "highestRealm": "GoldenCore",
+    "techniques": [],
+    "personality": "Expansionist",
+    "powerLevel": 15000,
+    "wealth": 30000,
+    "relationWithPlayer": 0,
+    "notes": "Grand État du Nord, successeur des dynasties anciennes ; équilibre des trois Dao sous l'Empereur Shengwu (§9).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "Path"
+    ]
+  },
+  {
+    "name": "Principauté de Tai",
+    "familyName": null,
+    "kind": "State",
+    "regionId": "tai",
+    "path": "Immortal",
+    "highestRealm": "PurpleMansion",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 7000,
+    "wealth": 9000,
+    "relationWithPlayer": 0,
+    "notes": "Au nord-ouest, autour du Mont Jianfeng.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "Path"
+    ]
+  },
+  {
+    "name": "Royaume de Hanshan",
+    "familyName": null,
+    "kind": "State",
+    "regionId": "hanshan",
+    "path": "Immortal",
+    "highestRealm": "PurpleMansion",
+    "techniques": [],
+    "personality": "Aggressive",
+    "powerLevel": 6000,
+    "wealth": 7000,
+    "relationWithPlayer": -5,
+    "notes": "À l'ouest ; ses frontières bougent.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "Path"
+    ]
+  },
+  {
+    "name": "Duché de Pei",
+    "familyName": null,
+    "kind": "State",
+    "regionId": "pei",
+    "path": "Immortal",
+    "highestRealm": "Foundation",
+    "techniques": [],
+    "personality": "Merchant",
+    "powerLevel": 2000,
+    "wealth": 5000,
+    "relationWithPlayer": 5,
+    "notes": "Petit duché du sud-ouest.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm",
+      "Path"
+    ]
+  },
+  {
+    "name": "Terres chamaniques de Nanwu",
+    "familyName": null,
+    "kind": "State",
+    "regionId": "nanwu",
+    "path": "Shamanic",
+    "highestRealm": "PurpleMansion",
+    "techniques": [],
+    "personality": "Isolationist",
+    "powerLevel": 4000,
+    "wealth": 3000,
+    "relationWithPlayer": 0,
+    "notes": "Au sud : la voie chamanique.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Personality",
+      "PowerLevel",
+      "Wealth",
+      "RelationWithPlayer",
+      "HighestRealm"
+    ]
+  }
 ]

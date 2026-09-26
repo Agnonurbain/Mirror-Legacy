@@ -71,20 +71,20 @@ namespace MirrorChronicles.Tests.Events
         {
             var w = new TestWorld();
             w.Factions.InitializeFactions();
-            var wang = w.Factions.Factions.First(f => f.Name == "Famille Wang");
-            int before = wang.RelationWithPlayer;
+            var ruan = w.Factions.Factions.First(f => f.Name == "Famille Ruan");
+            int before = ruan.RelationWithPlayer;
             var visit = new StoryEventData
             {
                 Name = "Une visite",
                 TriggerType = StoryTriggerType.FirstFoundation,
-                Choices = { new StoryChoice { Label = "Recevoir", Outcome = new StoryOutcome { FactionName = "Famille Wang", RelationChange = 10 } } }
+                Choices = { new StoryChoice { Label = "Recevoir", Outcome = new StoryOutcome { FactionName = "Famille Ruan", RelationChange = 10 } } }
             };
             var story = new StoryEventManager(w.Ctx, w.Clan, w.Resources, w.Stability, w.Factions, new[] { visit });
 
             w.Ctx.Events.TriggerBreakthroughSuccess(w.Join(Fixtures.Cultivator()), CultivationRealm.Foundation);
             story.ResolveChoice(0);
 
-            Assert.AreEqual(before + 10, wang.RelationWithPlayer);
+            Assert.AreEqual(before + 10, ruan.RelationWithPlayer);
         }
 
         [Test]

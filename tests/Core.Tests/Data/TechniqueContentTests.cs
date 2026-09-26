@@ -52,7 +52,16 @@ namespace MirrorChronicles.Tests.Data
                 ? TechniquesWith($"[ {ClearSpring} ]")
                 : name == GameContentLoader.ClanFile
                     ? ClanWith(c => { c["startingTechniques"] = new JArray("t"); foreach (var f in c["founders"]) f["cultivationMethod"] = "t"; })
-                    : Fixtures.ReadDataFile(name)));
+                    : name == GameContentLoader.FactionsFile
+                        ? FactionsWithoutTechniques()   // the factions' techniques are not in a minimal catalog
+                        : Fixtures.ReadDataFile(name)));
+        }
+
+        private static string FactionsWithoutTechniques()
+        {
+            var factions = JArray.Parse(Fixtures.ReadDataFile(GameContentLoader.FactionsFile));
+            foreach (var f in factions) f["techniques"] = new JArray();
+            return factions.ToString();
         }
 
         [TestCase(0)]

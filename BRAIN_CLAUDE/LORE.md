@@ -825,7 +825,7 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 - 🔎 Sur la carte du wiki (état au chapitre 850), le lac, les Monts Qingyan et la Plaine des Roseaux Gris sont dans l'**ouest de Hanshan**, pas dans Linxi : les frontières bougent au fil de l'histoire. Le jeu suit la carte fournie (le lac dans Linxi) ; 💡 un déplacement de frontière pourrait devenir un événement.
 
 🎮 Phase 5 : `RegionDefinition` (nom, position, voisins, faction dominante, modificateur de cultivation, phénomènes) ; `FactionTemplate` étendu (voie, royaume le plus haut, région, techniques possédées) ; nouvelle carte dessinée (style Shuimo) ; `WorldMapUI` par régions.
-⚠️ Aujourd'hui 8 factions inventées (Wang Family, Golden Sun Empire…) disposées en cercle.
+✅ Fait en L5 (2026-09-26) : `game/data/regions.json` (États, mers et lieux de ce chapitre ; 🔎 positions relatives, voisinages et trois noms de sièges — *Fleuve du Nord*, *Collines du Nord-Ouest*, *Hauts du Nord-Est* — interprétés) et `factions.json` (les puissances des §7-§10, avec leurs techniques du §2.4 ; 🔎 personnalité, puissance, richesse, relation de départ et royaume le plus haut interprétés ; les familles Bai, Zang, Xun, Qiao, le Manoir de Chenguang et le Monastère de Huiqiu, que le lore ne situe pas, sont placés dans le Linxi). Les 8 factions inventées ont disparu. Écran « Carte du monde ».
 
 ---
 

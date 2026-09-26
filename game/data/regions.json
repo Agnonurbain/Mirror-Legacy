@@ -1,0 +1,1055 @@
+[
+  {
+    "id": "linxi",
+    "name": "Royaume de Linxi",
+    "kind": "State",
+    "parentId": null,
+    "x": 0.5,
+    "y": 0.52,
+    "neighbours": [
+      "eastern-sea",
+      "hanshan",
+      "kun",
+      "nanwu",
+      "northern-sea",
+      "pei",
+      "tai"
+    ],
+    "notes": "État du joueur ; « trois sectes et huit portes » (§7.1).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "kun",
+    "name": "Empire de Kun",
+    "kind": "State",
+    "parentId": null,
+    "x": 0.22,
+    "y": 0.1,
+    "neighbours": [
+      "hanshan",
+      "linxi",
+      "northern-sea",
+      "tai",
+      "western-steppes"
+    ],
+    "notes": "Grand État du Nord, successeur des dynasties anciennes (§12).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "tai",
+    "name": "Principauté de Tai",
+    "kind": "State",
+    "parentId": null,
+    "x": 0.3,
+    "y": 0.24,
+    "neighbours": [
+      "hanshan",
+      "kun",
+      "linxi"
+    ],
+    "notes": "Au nord-ouest, autour du Mont Jianfeng.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "hanshan",
+    "name": "Royaume de Hanshan",
+    "kind": "State",
+    "parentId": null,
+    "x": 0.12,
+    "y": 0.48,
+    "neighbours": [
+      "kun",
+      "linxi",
+      "pei",
+      "tai",
+      "western-steppes"
+    ],
+    "notes": "À l'ouest ; ses frontières bougent au fil de l'histoire (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "pei",
+    "name": "Duché de Pei",
+    "kind": "State",
+    "parentId": null,
+    "x": 0.18,
+    "y": 0.72,
+    "neighbours": [
+      "hanshan",
+      "linxi",
+      "nanwu"
+    ],
+    "notes": "Petit duché du sud-ouest.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "nanwu",
+    "name": "Terres chamaniques de Nanwu",
+    "kind": "State",
+    "parentId": null,
+    "x": 0.38,
+    "y": 0.92,
+    "neighbours": [
+      "eastern-sea",
+      "linxi",
+      "pei"
+    ],
+    "notes": "Terres de la voie chamanique, au sud.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "eastern-sea",
+    "name": "Mer Orientale",
+    "kind": "Sea",
+    "parentId": null,
+    "x": 0.93,
+    "y": 0.55,
+    "neighbours": [
+      "linxi",
+      "nanwu"
+    ],
+    "notes": "Îles, lignée dragonne.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "northern-sea",
+    "name": "Mer du Nord",
+    "kind": "Sea",
+    "parentId": null,
+    "x": 0.55,
+    "y": 0.03,
+    "neighbours": [
+      "kun",
+      "linxi"
+    ],
+    "notes": "Perdue par les dragons ; au-delà, les Glaces du Nord de l'Impératrice Hanlu.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "western-steppes",
+    "name": "Steppes de l'Ouest",
+    "kind": "State",
+    "parentId": null,
+    "x": 0.03,
+    "y": 0.28,
+    "neighbours": [
+      "hanshan",
+      "kun"
+    ],
+    "notes": "Terres du Seigneur Démon Gu'e.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "jingshui-lake",
+    "name": "Lac Jingshui",
+    "kind": "Lake",
+    "parentId": "linxi",
+    "x": 0.38,
+    "y": 0.52,
+    "neighbours": [
+      "beast-abyss",
+      "heshan",
+      "mount-fengxi",
+      "northern-wastes",
+      "qingyan-mountains",
+      "wuyang"
+    ],
+    "notes": "« Lac de l'Eau-Miroir », ancien Marais Jingshui, plus tard Lac Immortel ; domaine du clan Mo. Cinq clans y vivent : Lou, Fang, Mo, Lü et Tao ; île centrale Cuidao.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "qingyan-mountains",
+    "name": "Monts Qingyan",
+    "kind": "Mountain",
+    "parentId": "linxi",
+    "x": 0.38,
+    "y": 0.6,
+    "neighbours": [
+      "grey-reed-plain",
+      "jingshui-lake",
+      "mount-fengxi",
+      "tiger-frontier",
+      "wuyang"
+    ],
+    "notes": "Longue chaîne au sud du lac, protégée par la Renarde des Monts Qingyan (pacte ancien) : Pic et village de Jingxi, Pic Meiling, village de Qingyang.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "mount-fengxi",
+    "name": "Mont Fengxi",
+    "kind": "Mountain",
+    "parentId": "linxi",
+    "x": 0.32,
+    "y": 0.59,
+    "neighbours": [
+      "jingshui-lake",
+      "qingyan-mountains",
+      "tiger-frontier",
+      "wuyang",
+      "xiliu"
+    ],
+    "notes": "Au sud-ouest du lac.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "wuyang",
+    "name": "Préfecture de Wuyang",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.31,
+    "y": 0.52,
+    "neighbours": [
+      "beast-abyss",
+      "jingshui-lake",
+      "mount-fengxi",
+      "qingyan-mountains",
+      "xiliu"
+    ],
+    "notes": "À l'ouest du lac.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "heshan",
+    "name": "Préfecture de Heshan",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.45,
+    "y": 0.51,
+    "neighbours": [
+      "grey-reed-plain",
+      "guling-plain",
+      "jingshui-lake",
+      "mount-songhe",
+      "qianshi"
+    ],
+    "notes": "À l'est du lac ; territoire de la famille Ruan, voisins directs.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "qianshi",
+    "name": "Préfecture de Qianshi",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.52,
+    "y": 0.5,
+    "neighbours": [
+      "grey-reed-plain",
+      "heshan",
+      "mount-songhe"
+    ],
+    "notes": "À l'est.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "northern-wastes",
+    "name": "Terres Désolées du Nord",
+    "kind": "Wilds",
+    "parentId": "linxi",
+    "x": 0.37,
+    "y": 0.42,
+    "neighbours": [
+      "beast-abyss",
+      "guling-plain",
+      "jingshui-lake",
+      "northwest-hills"
+    ],
+    "notes": "Terres sauvages au nord du lac.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "guling-plain",
+    "name": "Plaine de Guling",
+    "kind": "Plain",
+    "parentId": "linxi",
+    "x": 0.44,
+    "y": 0.41,
+    "neighbours": [
+      "heshan",
+      "mount-songhe",
+      "northern-river",
+      "northern-wastes",
+      "northwest-hills"
+    ],
+    "notes": "Sauvage, au nord.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "grey-reed-plain",
+    "name": "Plaine des Roseaux Gris",
+    "kind": "Plain",
+    "parentId": "linxi",
+    "x": 0.49,
+    "y": 0.58,
+    "neighbours": [
+      "heshan",
+      "luoping",
+      "qianshi",
+      "qingyan-mountains"
+    ],
+    "notes": "Au centre ; famille Gu.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "beast-abyss",
+    "name": "Gouffre des Bêtes",
+    "kind": "Wilds",
+    "parentId": "linxi",
+    "x": 0.33,
+    "y": 0.46,
+    "neighbours": [
+      "jingshui-lake",
+      "liuhe",
+      "northern-wastes",
+      "singing-sands",
+      "wuyang",
+      "xiliu"
+    ],
+    "notes": "Centre-ouest ; voie démoniaque des bêtes.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "xiliu",
+    "name": "Préfecture de Xiliu",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.25,
+    "y": 0.53,
+    "neighbours": [
+      "beast-abyss",
+      "mount-fengxi",
+      "singing-sands",
+      "wuyang"
+    ],
+    "notes": "À l'ouest.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "mount-songhe",
+    "name": "Mont Songhe",
+    "kind": "Mountain",
+    "parentId": "linxi",
+    "x": 0.51,
+    "y": 0.45,
+    "neighbours": [
+      "guling-plain",
+      "heshan",
+      "northern-river",
+      "qianshi"
+    ],
+    "notes": "Au centre ; ancienne Secte Songhe.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "mount-tingsong",
+    "name": "Mont Tingsong",
+    "kind": "Mountain",
+    "parentId": "linxi",
+    "x": 0.61,
+    "y": 0.44,
+    "neighbours": [
+      "haiyan",
+      "mount-yunfeng",
+      "siwei",
+      "yunmen"
+    ],
+    "notes": "Centre-est ; terres du Pic des Nuées.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "siwei",
+    "name": "Préfecture de Siwei",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.62,
+    "y": 0.52,
+    "neighbours": [
+      "haiyan",
+      "mount-tingsong",
+      "mount-yunfeng"
+    ],
+    "notes": "Centre-est ; terres du Pic des Nuées.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "haiyan",
+    "name": "Préfecture de Haiyan",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.68,
+    "y": 0.46,
+    "neighbours": [
+      "mount-tingsong",
+      "mount-yunfeng",
+      "northeast-heights",
+      "qingyuan",
+      "siwei",
+      "yunmen",
+      "zhanghe"
+    ],
+    "notes": "Centre-est ; terres du Pic des Nuées.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "mount-yunfeng",
+    "name": "Mont Yunfeng",
+    "kind": "Mountain",
+    "parentId": "linxi",
+    "x": 0.66,
+    "y": 0.5,
+    "neighbours": [
+      "haiyan",
+      "mount-tingsong",
+      "siwei",
+      "zhanghe"
+    ],
+    "notes": "Centre-est ; siège de la Secte du Pic des Nuées.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "singing-sands",
+    "name": "Désert des Sables Chantants",
+    "kind": "Desert",
+    "parentId": "linxi",
+    "x": 0.2,
+    "y": 0.43,
+    "neighbours": [
+      "beast-abyss",
+      "liuhe",
+      "xiliu"
+    ],
+    "notes": "Ouest ; grande zone de la Secte des Mille Lames.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "liuhe",
+    "name": "Trois Commanderies de Liuhe",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.26,
+    "y": 0.38,
+    "neighbours": [
+      "beast-abyss",
+      "northwest-hills",
+      "singing-sands"
+    ],
+    "notes": "Ouest ; Secte des Mille Lames.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "northern-river",
+    "name": "Fleuve du Nord",
+    "kind": "River",
+    "parentId": "linxi",
+    "x": 0.5,
+    "y": 0.3,
+    "neighbours": [
+      "guling-plain",
+      "mount-songhe",
+      "northwest-hills"
+    ],
+    "notes": "Au nord, le long du fleuve : Secte de la Lune Pâle. Le lore ne nomme pas le fleuve.",
+    "provenance": "Interpretation",
+    "interpretedFields": [
+      "Name",
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "northwest-hills",
+    "name": "Collines du Nord-Ouest",
+    "kind": "Wilds",
+    "parentId": "linxi",
+    "x": 0.36,
+    "y": 0.32,
+    "neighbours": [
+      "guling-plain",
+      "liuhe",
+      "northern-river",
+      "northern-wastes"
+    ],
+    "notes": "Nord-ouest : siège de la Porte du Fer Ardent. Le lore ne nomme pas le lieu.",
+    "provenance": "Interpretation",
+    "interpretedFields": [
+      "Name",
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "yunmen",
+    "name": "Préfecture de Yunmen",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.68,
+    "y": 0.32,
+    "neighbours": [
+      "haiyan",
+      "mount-tingsong",
+      "northeast-heights"
+    ],
+    "notes": "Nord-est ; Porte du Roc Obscur.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "northeast-heights",
+    "name": "Hauts du Nord-Est",
+    "kind": "Wilds",
+    "parentId": "linxi",
+    "x": 0.76,
+    "y": 0.36,
+    "neighbours": [
+      "haiyan",
+      "qingyuan",
+      "yunmen"
+    ],
+    "notes": "Nord-est : siège de la Porte du Givre Blanc. Le lore ne nomme pas le lieu.",
+    "provenance": "Interpretation",
+    "interpretedFields": [
+      "Name",
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "zhanghe",
+    "name": "Préfecture de Zhanghe",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.78,
+    "y": 0.5,
+    "neighbours": [
+      "haiyan",
+      "mount-yunfeng",
+      "pingjiang",
+      "qingyuan"
+    ],
+    "notes": "Est ; Porte de l'Épée Stellaire.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "qingyuan",
+    "name": "Préfecture de Qingyuan",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.8,
+    "y": 0.42,
+    "neighbours": [
+      "haiyan",
+      "northeast-heights",
+      "zhanghe"
+    ],
+    "notes": "Est ; Porte des Brumes d'Ambre.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "pingjiang",
+    "name": "Préfecture de Pingjiang",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.76,
+    "y": 0.66,
+    "neighbours": [
+      "zhanghe"
+    ],
+    "notes": "Sud-est ; Porte du Chrysanthème Noir.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "luoping",
+    "name": "Préfecture de Luoping",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.56,
+    "y": 0.72,
+    "neighbours": [
+      "baishi",
+      "grey-reed-plain",
+      "nanling"
+    ],
+    "notes": "Sud ; Porte des Saules Pleureurs.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "baishi",
+    "name": "Préfecture de Baishi",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.62,
+    "y": 0.76,
+    "neighbours": [
+      "luoping",
+      "nanling"
+    ],
+    "notes": "Sud ; Porte des Saules Pleureurs.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "nanling",
+    "name": "Préfecture de Nanling",
+    "kind": "Prefecture",
+    "parentId": "linxi",
+    "x": 0.48,
+    "y": 0.8,
+    "neighbours": [
+      "baishi",
+      "luoping"
+    ],
+    "notes": "Sud ; Porte du Tambour Sacré.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "tiger-frontier",
+    "name": "Frontière du Tigre",
+    "kind": "Wilds",
+    "parentId": "linxi",
+    "x": 0.3,
+    "y": 0.7,
+    "neighbours": [
+      "mount-fengxi",
+      "qingyan-mountains"
+    ],
+    "notes": "Frontière du Linxi (§7.4) ; le lore ne la situe pas.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "black-pearl-atoll",
+    "name": "Atoll des Perles Noires",
+    "kind": "Island",
+    "parentId": "eastern-sea",
+    "x": 0.94,
+    "y": 0.64,
+    "neighbours": [
+      "confluent-sky-sea",
+      "shiyuan"
+    ],
+    "notes": "Île immortelle ; Art du Brasier Englouti.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "shiyuan",
+    "name": "Archipel de Shiyuan",
+    "kind": "Island",
+    "parentId": "eastern-sea",
+    "x": 0.9,
+    "y": 0.72,
+    "neighbours": [
+      "black-pearl-atoll",
+      "vermilion-sea"
+    ],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "mount-jianfeng",
+    "name": "Mont Jianfeng",
+    "kind": "Mountain",
+    "parentId": "tai",
+    "x": 0.3,
+    "y": 0.22,
+    "neighbours": [
+      "mount-baiye",
+      "qingshui-marsh",
+      "salt-lake",
+      "star-sword-peak"
+    ],
+    "notes": "Cœur de la Principauté de Tai.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "salt-lake",
+    "name": "Lac Salé",
+    "kind": "Lake",
+    "parentId": "tai",
+    "x": 0.24,
+    "y": 0.2,
+    "neighbours": [
+      "mount-baiye",
+      "mount-jianfeng",
+      "qingshui-marsh"
+    ],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "qingshui-marsh",
+    "name": "Marais de Qingshui",
+    "kind": "Wilds",
+    "parentId": "tai",
+    "x": 0.35,
+    "y": 0.18,
+    "neighbours": [
+      "mount-jianfeng",
+      "salt-lake",
+      "star-sword-peak"
+    ],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "mount-baiye",
+    "name": "Mont Baiye",
+    "kind": "Mountain",
+    "parentId": "tai",
+    "x": 0.27,
+    "y": 0.28,
+    "neighbours": [
+      "mount-jianfeng",
+      "salt-lake",
+      "star-sword-peak"
+    ],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "star-sword-peak",
+    "name": "Pic de l'Épée Stellaire",
+    "kind": "Mountain",
+    "parentId": "tai",
+    "x": 0.33,
+    "y": 0.27,
+    "neighbours": [
+      "mount-baiye",
+      "mount-jianfeng",
+      "qingshui-marsh"
+    ],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "kuyan-desert",
+    "name": "Grand Désert de Kuyan",
+    "kind": "Desert",
+    "parentId": "hanshan",
+    "x": 0.08,
+    "y": 0.42,
+    "neighbours": [
+      "mount-kuiyun"
+    ],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "mount-kuiyun",
+    "name": "Mont Kuiyun",
+    "kind": "Mountain",
+    "parentId": "hanshan",
+    "x": 0.14,
+    "y": 0.52,
+    "neighbours": [
+      "carnage-gate-lands",
+      "kuyan-desert"
+    ],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "carnage-gate-lands",
+    "name": "Terres de la Porte du Carnage",
+    "kind": "Wilds",
+    "parentId": "hanshan",
+    "x": 0.13,
+    "y": 0.6,
+    "neighbours": [
+      "mount-kuiyun"
+    ],
+    "notes": "Au sud de Hanshan (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "northern-ice",
+    "name": "Glaces du Nord",
+    "kind": "Wilds",
+    "parentId": "northern-sea",
+    "x": 0.55,
+    "y": 0.01,
+    "neighbours": [],
+    "notes": "Domaine de l'Impératrice Hanlu.",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "confluent-sky-sea",
+    "name": "Mer du Ciel Confluent",
+    "kind": "Sea",
+    "parentId": "eastern-sea",
+    "x": 0.97,
+    "y": 0.4,
+    "neighbours": [
+      "black-pearl-atoll"
+    ],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "vermilion-sea",
+    "name": "Mer Vermillon",
+    "kind": "Sea",
+    "parentId": "eastern-sea",
+    "x": 0.85,
+    "y": 0.88,
+    "neighbours": [
+      "shiyuan"
+    ],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  },
+  {
+    "id": "southern-marches",
+    "name": "Marches du Sud",
+    "kind": "Wilds",
+    "parentId": "nanwu",
+    "x": 0.45,
+    "y": 0.95,
+    "neighbours": [],
+    "notes": "Carte du wiki (§7.4).",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "X",
+      "Y",
+      "Neighbours"
+    ]
+  }
+]
