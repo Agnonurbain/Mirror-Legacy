@@ -56,11 +56,19 @@ namespace MirrorChronicles.World
             return true;
         }
 
+        /// <summary>Why the mirror cannot plant this false proof now; null when it can.</summary>
+        public string FalseProofRefusal(string faction, string framed)
+        {
+            if (factions.GetFactionByName(faction) == null || factions.GetFactionByName(framed) == null) return "puissance inconnue";
+            if (faction == framed) return "choisissez deux puissances différentes";
+            if (mirror.MirrorPower < Settings.FalseProofMirrorCost) return $"il faut {Settings.FalseProofMirrorCost} de puissance du miroir";
+            return null;
+        }
+
         /// <summary>The mirror plants a false proof: part of a power's proof becomes its distrust of another.</summary>
         public bool PlantFalseProof(string faction, string framed)
         {
-            if (factions.GetFactionByName(faction) == null || factions.GetFactionByName(framed) == null || faction == framed
-                || !mirror.ConsumePower(Settings.FalseProofMirrorCost)) return false;
+            if (FalseProofRefusal(faction, framed) != null || !mirror.ConsumePower(Settings.FalseProofMirrorCost)) return false;
             int moved = System.Math.Min(Settings.FalseProofAmount, suspicion.Evidence(faction));
             suspicion.AddEvidence(faction, -moved);
             suspicion.AddDistrust(faction, framed, moved);

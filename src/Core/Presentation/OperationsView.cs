@@ -116,6 +116,10 @@ namespace MirrorChronicles.Presentation
         }
 
         /// <summary>The members in the mirror's secret, and whether they swore to keep it.</summary>
+        /// <summary>Why the mirror cannot plant a false proof in a power's hands against another; null when it can.</summary>
+        public static string FalseProofRefusal(GameSession session, string faction, string framed) =>
+            session.Secrets.FalseProofRefusal(faction, framed);
+
         public static IReadOnlyList<KeeperLine> Keepers(GameSession session) =>
             session.Clan.LivingMembers.Where(m => m.KnowsMirrorSecret)
                 .Select(m => new KeeperLine(m.ID, m.FullName, session.Oaths.SecrecyPartner(m) != null)).ToList();

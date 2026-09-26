@@ -26,7 +26,8 @@ namespace MirrorChronicles.Game
         private HuntTiming timing;
         private CoverStory cover;
         private MirrorAid aid;
-        private string proofFrom, proofToward;
+        private string proofFrom;
+        private string proofToward;
 
         public override void _Ready()
         {
@@ -130,6 +131,7 @@ namespace MirrorChronicles.Game
         private void ShowDiversion(Session.GameSession session)
         {
             var others = OperationsView.HuntCandidates(session).Where(c => !team.ContainsKey(c.Id)).Select(c => (c.Id, c.Name)).ToList();
+            if (others.All(o => o.Item1 != diversionMember)) diversionMember = null; // gone, or now in the team
             others.Insert(0, (None, "aucune"));
             var decoy = Picker(hunt, "Diversion (vu ailleurs)", others, diversionMember ?? None);
             decoy.ItemSelected += _ => { diversionMember = Selected(decoy) == None ? null : Selected(decoy); ShowHunt(); };
@@ -137,7 +139,7 @@ namespace MirrorChronicles.Game
 
             var places = session.Context.Content.Regions.Where(r => r.ParentId != null).Select(r => (r.Id, r.Name)).ToList();
             if (places.Count == 0) return;
-            diversionPlace ??= places[0].Id;
+            if (places.All(p => p.Id != diversionPlace)) diversionPlace = places[0].Id;
             var place = Picker(hunt, "… à", places, diversionPlace);
             place.ItemSelected += _ => { diversionPlace = Selected(place); ShowHunt(); };
         }
@@ -146,6 +148,7 @@ namespace MirrorChronicles.Game
         private void ShowFalseTrail(Session.GameSession session)
         {
             var powers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
+            if (powers.All(p => p.Item1 != framed)) framed = null;
             powers.Insert(0, (None, "aucune"));
             var frame = Picker(hunt, "Fausse piste (accuser)", powers, framed ?? None);
             frame.ItemSelected += _ => { framed = Selected(frame) == None ? null : Selected(frame); ShowHunt(); };
@@ -172,6 +175,25 @@ namespace MirrorChronicles.Game
             });
             launch.Disabled = preview.Refusal != null;
             if (preview.Refusal != null) Add(hunt, $"Pas encore : {preview.Refusal}.");
+        }
+
+        /// <summary>A false proof planted in one power's hands against another (disabled, with its reason, when it cannot be).</summary>
+        private void ShowFalseProof(Session.GameSession session)
+        {
+            var powers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
+            if (powers.Count < 2) return;
+            if (powers.All(p => p.Item1 != proofFrom)) proofFrom = powers[0].Item1;   // a power gone: the first one left
+            if (powers.All(p => p.Item1 != proofToward)) proofToward = powers[1].Item1;
+            var from = Picker(secret, "Fausse preuve : chez", powers, proofFrom);
+            from.ItemSelected += _ => { proofFrom = Selected(from); ShowSecret(); };
+            var toward = Picker(secret, "… contre", powers, proofToward);
+            toward.ItemSelected += _ => { proofToward = Selected(toward); ShowSecret(); };
+
+            string why = OperationsView.FalseProofRefusal(session, proofFrom, proofToward);
+            var plant = AddButton(secret, "Fabriquer une fausse preuve", () => Report(session.Secrets.PlantFalseProof(proofFrom, proofToward)
+                ? $"Une fausse preuve tourne les yeux de {proofFrom} vers {proofToward}." : "La fausse preuve n'a pu être placée."));
+            plant.Disabled = why != null;
+            if (why != null) Add(secret, $"Pas encore : {why}.");
         }
 
         private HuntPlan Plan() => new HuntPlan
@@ -205,23 +227,7 @@ namespace MirrorChronicles.Game
             }
             if (OperationsView.Signs(session).All(p => p.Sign == "calme")) Add(secret, "Tout est calme.");
 
-            var powers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
-            if (powers.Count > 1)
-            {
-                proofFrom ??= powers[0].Item1;
-                proofToward ??= powers[1].Item1;
-                var from = Picker(secret, "Fausse preuve : chez", powers, proofFrom);
-                from.ItemSelected += _ => { proofFrom = Selected(from); ShowSecret(); };
-                var toward = Picker(secret, "… contre", powers, proofToward);
-                toward.ItemSelected += _ => { proofToward = Selected(toward); ShowSecret(); };
-                int cost = session.Context.Content.Balance.Plots.FalseProofMirrorCost;
-                string why = proofFrom == proofToward ? "choisissez deux puissances différentes"
-                    : session.Mirror.MirrorPower < cost ? $"il faut {cost} de puissance du miroir" : null;
-                var plant = AddButton(secret, "Fabriquer une fausse preuve", () => Report(session.Secrets.PlantFalseProof(proofFrom, proofToward)
-                    ? $"Une fausse preuve tourne les yeux de {proofFrom} vers {proofToward}." : "La fausse preuve n'a pu être placée."));
-                plant.Disabled = why != null;
-                if (why != null) Add(secret, $"Pas encore : {why}.");
-            }
+            ShowFalseProof(session);
 
             Add(secret, "Dans la confidence :");
             var patriarch = session.Clan.GetPatriarch();

@@ -27,7 +27,7 @@ namespace MirrorChronicles.Game
 
         private const string ScreenshotArgument = "--screenshot=";
 
-        /// <summary>With <c>-- --smoke --map</c>, the smoke run ends on the world map (the screen it checks and captures).</summary>
+        /// <summary>With <c>-- --smoke --map</c> (or <c>--ops</c>, reached through the map), the smoke run ends on the world map (the screen it checks and captures).</summary>
         public bool SmokeEndsOnMap { get; private set; }
 
         /// <summary>With <c>-- --smoke --map --ops</c>, the smoke run goes on from the map to the secret operations screen.</summary>
