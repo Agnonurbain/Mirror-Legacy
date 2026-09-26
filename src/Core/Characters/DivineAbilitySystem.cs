@@ -20,7 +20,6 @@ namespace MirrorChronicles.Characters
     {
         public const int MaxAbilities = 5;
         private const int ThresholdAbility = 4; // the fourth: the Threshold of Immortality
-        private const int AlignedQiPortions = 1;
         private const int RootPointsPerPercent = 5;
         private const int AverageRoot = 50;
 
@@ -67,7 +66,7 @@ namespace MirrorChronicles.Characters
                     member.PursuedAbility = FirstCultivable(member);
 
                 var qi = AlignedQi(member.PursuedAbility);
-                if (qi == null || !resources.ConsumeQi(qi.Id, AlignedQiPortions)) continue; // no aligned technique, or its Qi is lacking
+                if (qi == null || !resources.ConsumeQi(qi.Id, ctx.Content.Balance.Techniques.AlignedQiPortions)) continue; // no aligned technique, or its Qi is lacking
 
                 // The Qi and the XP go into the attempt: they are spent even if the Threshold stops it
                 member.CultivationXP -= Xp;

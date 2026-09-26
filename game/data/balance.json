@@ -14,6 +14,9 @@
     "ascentBaseChance": 60,
     "manifestationYears": 6,
     "manifestationBaseChance": 45,
+    "manifestationPerGrade": 5,
+    "manifestationPerTechnique": 2,
+    "manifestationTechniqueCap": 5,
     "illusionsBaseChance": 70,
     "voidBands": [
       { "chance": 0.5,  "minYears": 0,  "maxYears": 0 },
@@ -29,5 +32,16 @@
     "graftOres": 20,
     "graftDonorMinYearsLeft": 1,
     "graftDonorMaxYearsLeft": 5
+  },
+  "techniques": {
+    "commonBreathingSpeed": 1.0,
+    "qiPortionsToEnter": 1,
+    "foundationQiPortions": 1,
+    "alignedQiPortions": 1,
+    "lowestGradeChosenForAMember": 3,
+    "artRequiredRealmByGrade": [ "Embryonic", "Embryonic", "QiRefinement", "QiRefinement", "Foundation", "Foundation", "PurpleMansion" ],
+    "movementArtStepsByGrade": [ 1, 1, 1, 1, 2, 2, 2 ],
+    "deductionCompleteFragments": 4,
+    "deductionMaxGrade": 6
   }
 }

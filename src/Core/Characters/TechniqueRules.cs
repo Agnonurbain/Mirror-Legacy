@@ -37,20 +37,17 @@ namespace MirrorChronicles.Characters
             && realm >= method.RequiredRealm
             && realm <= SupremeRealm(method);
 
-        /// <summary>Speed of cultivating in Embryonic Breathing without a manual: the common breathing.</summary>
-        public const double CommonBreathingSpeed = 1.0;
-
         /// <summary>
         /// How fast the method cultivates in a realm: its grade's speed, times its flaw in that realm.
         /// Without a method covering the realm, one only breathes (Embryonic) or does not progress at all.
         /// </summary>
-        /// <param name="speedByGrade">One speed per grade, 1 to 7 (balance.json).</param>
-        public static double CultivationSpeed(TechniqueData method, CultivationRealm realm, IReadOnlyList<double> speedByGrade)
+        /// <param name="balance">The speed per grade and of the common breathing (balance.json).</param>
+        public static double CultivationSpeed(TechniqueData method, CultivationRealm realm, BalanceSettings balance)
         {
             if (!Covers(method, realm))
-                return realm == CultivationRealm.Embryonic ? CommonBreathingSpeed : 0.0;
+                return realm == CultivationRealm.Embryonic ? balance.Techniques.CommonBreathingSpeed : 0.0;
 
-            double speed = speedByGrade[Math.Clamp(method.Grade, MinGrade, MaxGrade) - 1];
+            double speed = balance.TechniqueSpeedByGrade[Math.Clamp(method.Grade, MinGrade, MaxGrade) - 1];
             if (method.Flaws?.SpeedByRealm != null && method.Flaws.SpeedByRealm.TryGetValue(realm, out double factor))
                 speed *= factor;
             return speed;
@@ -87,17 +84,17 @@ namespace MirrorChronicles.Characters
             method.HasPurpleMansionSecret ?? method.Grade >= 5;
 
         /// <summary>Portions of the Qi absorbed to enter Qi Cultivation: none for a Qi found everywhere.</summary>
-        public static int QiPortionsToEnter(QiDefinition qi) => qi.Ubiquitous ? 0 : 1;
+        public static int QiPortionsToEnter(QiDefinition qi, TechniqueSettings rules) => qi.Ubiquitous ? 0 : rules.QiPortionsToEnter;
 
         /// <summary>
         /// Entering Qi Cultivation (LORE.md §5.2): absorb a spiritual Qi and cultivate it with the matching
         /// method, so the method must cover Qi Cultivation and the clan must hold enough of its Qi.
         /// </summary>
-        public static bool CanEnterQiCultivation(TechniqueData method, QiDefinition qi, int portions) =>
+        public static bool CanEnterQiCultivation(TechniqueData method, QiDefinition qi, int portions, TechniqueSettings rules) =>
             Covers(method, CultivationRealm.QiRefinement)
             && qi != null
             && qi.Id == method.RequiredQiId
-            && portions >= QiPortionsToEnter(qi);
+            && portions >= QiPortionsToEnter(qi, rules);
 
         /// <summary>
         /// Whether a member may take up a cultivation method: a breathing member may practise a breathing
@@ -125,39 +122,26 @@ namespace MirrorChronicles.Characters
         public static bool IsPowerlessAgainst(TechniqueData technique, string opponentMethodId) =>
             technique?.Flaws?.CounteredById != null && technique.Flaws.CounteredById == opponentMethodId;
 
-        /// <summary>
-        /// The realm from which an art of this grade can be wielded, following the grade table (§2.2): the arts
-        /// of a grade 3-4 manual belong to Qi cultivators, those of a grade 5-6 one to the Foundation.
-        /// </summary>
-        public static CultivationRealm ArtRequiredRealm(int grade)
-        {
-            if (grade <= 2) return CultivationRealm.Embryonic;
-            if (grade <= 4) return CultivationRealm.QiRefinement;
-            if (grade <= 6) return CultivationRealm.Foundation;
-            return CultivationRealm.PurpleMansion;
-        }
+        /// <summary>The realm from which an art of this grade can be wielded (balance.json; the lore gives none).</summary>
+        public static CultivationRealm ArtRequiredRealm(int grade, TechniqueSettings rules) =>
+            rules.ArtRequiredRealmByGrade[Math.Clamp(grade, MinGrade, MaxGrade) - 1];
 
-        /// <summary>Grade from which a movement art lends two steps instead of one.</summary>
-        public const int GreatMovementArtGrade = 5;
-
-        /// <summary>Extra steps a movement art lends in battle: one, two from grade 5.</summary>
-        public static int MovementArtSteps(int grade) => grade >= GreatMovementArtGrade ? 2 : 1;
-
-        /// <summary>Fragments from which a deduction completes a technique beyond their average quality.</summary>
-        public const int CompleteDeductionFragments = 4;
+        /// <summary>Extra steps a movement art of this grade lends in battle (balance.json).</summary>
+        public static int MovementArtSteps(int grade, TechniqueSettings rules) =>
+            rules.MovementArtStepsByGrade[Math.Clamp(grade, MinGrade, MaxGrade) - 1];
 
         /// <summary>
-        /// The grade the mirror deduces from fragments of quality 1-5: their average quality, one more when
-        /// four or more fragments complete each other, at most 6; a grade 7+ only from five divine fragments
-        /// (a single such manual is known, §2.2).
+        /// The grade the mirror deduces from fragments of quality 1-5: their average quality, one more when enough
+        /// fragments complete each other, capped (balance.json); a grade 7+ only from five divine fragments (a
+        /// single such manual is known, §2.2).
         /// </summary>
-        public static int DeductionGrade(IReadOnlyList<int> qualities)
+        public static int DeductionGrade(IReadOnlyList<int> qualities, TechniqueSettings rules)
         {
             if (qualities.Count == 5 && qualities.All(q => q >= 5)) return MaxGrade;
 
             int grade = (int)Math.Floor(qualities.Average());
-            if (qualities.Count >= CompleteDeductionFragments) grade++;
-            return Math.Clamp(grade, MinGrade, MaxGrade - 1);
+            if (qualities.Count >= rules.DeductionCompleteFragments) grade++;
+            return Math.Clamp(grade, MinGrade, rules.DeductionMaxGrade);
         }
     }
 }

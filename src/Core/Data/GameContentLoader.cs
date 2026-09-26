@@ -160,6 +160,13 @@ namespace MirrorChronicles.Data
                 BalanceFile, "divineAbilities needs its costs (never negative).");
             Require(abilities.GraftDonorMinYearsLeft >= 1 && abilities.GraftDonorMinYearsLeft <= abilities.GraftDonorMaxYearsLeft,
                 BalanceFile, "a grafted donor's years left need 1 <= min <= max.");
+            var rules = balance.Techniques;
+            Require(rules != null && rules.CommonBreathingSpeed > 0 && rules.QiPortionsToEnter >= 0 && rules.FoundationQiPortions >= 0
+                && rules.AlignedQiPortions >= 0 && rules.LowestGradeChosenForAMember >= TechniqueRules.MinGrade
+                && rules.ArtRequiredRealmByGrade?.Count == TechniqueRules.MaxGrade
+                && rules.MovementArtStepsByGrade?.Count == TechniqueRules.MaxGrade && rules.MovementArtStepsByGrade.All(s => s >= 0)
+                && rules.DeductionCompleteFragments >= 2 && rules.DeductionMaxGrade >= TechniqueRules.MinGrade && rules.DeductionMaxGrade <= TechniqueRules.MaxGrade,
+                BalanceFile, "techniques needs its rules: positive speed, portions, a grade per list entry (7), deduction bounds.");
         }
 
         private static void CheckFactions(List<FactionData> factions)

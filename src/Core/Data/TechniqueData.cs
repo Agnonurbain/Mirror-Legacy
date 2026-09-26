@@ -161,6 +161,7 @@ namespace MirrorChronicles.Data
         public int QiCost { get; set; }
         public int Range { get; set; } // Manhattan distance; 1 = melee, 2+ = ranged
         public int RiskFactor { get; set; } // 0-100% chance of Qi Deviation when practicing
+        public int MovementSteps { get; set; } // a movement art's extra steps in battle
 
         /// <summary>Where a catalog technique comes from; never saved (a deduction is the mirror's own).</summary>
         public Provenance Provenance { get; set; }

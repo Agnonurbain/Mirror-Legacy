@@ -51,7 +51,7 @@ namespace MirrorChronicles.Tests.Combat
         [Test]
         public void Move_ReachesFurther_WithAMovementArt()
         {
-            var stride = new TechniqueData { ID = "stride", Kind = TechniqueKind.Movement, Grade = 3 };
+            var stride = new TechniqueData { ID = "stride", Kind = TechniqueKind.Movement, Grade = 3, MovementSteps = 1 };
             var field = FieldKnowing(stride);
             var unit = Knowing(CombatFixtures.Place(field, 0, 0), stride);
             int reach = unit.MovementRange + 1;

@@ -14,9 +14,6 @@ namespace MirrorChronicles.Characters
         private const int AverageRoot = 50;
         private const int LowStabilityThreshold = 50;
         private const int LowStabilityPenalty = 20;
-        private const int ManifestationPerGrade = 5;
-        private const int ManifestationPerTechnique = 2;
-        private const int ManifestationTechniqueCap = 5;
         private const int ReferenceGrade = 5;
 
         /// <summary>The Ascent to the Shenyang Mansion: talent carries it, a troubled mind betrays it.</summary>
@@ -34,9 +31,9 @@ namespace MirrorChronicles.Characters
         public static int ManifestationChance(CharacterData c, TechniqueData method, PurpleMansionSettings s)
         {
             int grade = method?.Grade ?? ReferenceGrade;
-            int techniques = Math.Min(ManifestationTechniqueCap, Math.Max(0, (c.KnownTechniqueIDs?.Count ?? 0) - 1));
-            int chance = s.ManifestationBaseChance + (grade - ReferenceGrade) * ManifestationPerGrade
-                + techniques * ManifestationPerTechnique + (c.SpiritualRoot - AverageRoot) / RootPointsPerPercent;
+            int techniques = Math.Min(s.ManifestationTechniqueCap, Math.Max(0, (c.KnownTechniqueIDs?.Count ?? 0) - 1));
+            int chance = s.ManifestationBaseChance + (grade - ReferenceGrade) * s.ManifestationPerGrade
+                + techniques * s.ManifestationPerTechnique + (c.SpiritualRoot - AverageRoot) / RootPointsPerPercent;
             return Clamp(chance);
         }
 

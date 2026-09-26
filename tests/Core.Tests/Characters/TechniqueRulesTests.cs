@@ -10,7 +10,9 @@ namespace MirrorChronicles.Tests.Characters
     [TestFixture]
     public class TechniqueRulesTests
     {
-        private static readonly IReadOnlyList<double> Speeds = new[] { 0.6, 0.8, 1.0, 1.2, 1.5, 1.8, 2.2 };
+        private static BalanceSettings Balance => Fixtures.Content.Balance; // speeds 0.6, 0.8, 1.0, 1.2, 1.5, 1.8, 2.2
+
+        private static TechniqueSettings Rules => Balance.Techniques;
 
         private static TechniqueData Catalog(string id) => Fixtures.Content.Techniques.Single(t => t.ID == id);
 
@@ -27,29 +29,29 @@ namespace MirrorChronicles.Tests.Characters
         [TestCase(7, 2.2)]
         public void Speed_FollowsTheGrade(int grade, double speed)
         {
-            Assert.AreEqual(speed, TechniqueRules.CultivationSpeed(Method(grade), CultivationRealm.QiRefinement, Speeds), 1e-9);
+            Assert.AreEqual(speed, TechniqueRules.CultivationSpeed(Method(grade), CultivationRealm.QiRefinement, Balance), 1e-9);
         }
 
         [Test]
         public void Speed_OfAGradeFiveBreathing_MatchesAPurpleMansionManual()
         {
             // §2.1: the White Lotus Intuition breathes as fast as a Purple Mansion technique cultivates
-            double lotus = TechniqueRules.CultivationSpeed(Catalog("white-lotus-intuition"), CultivationRealm.Embryonic, Speeds);
-            double mansion = TechniqueRules.CultivationSpeed(Catalog("night-frost-canon"), CultivationRealm.QiRefinement, Speeds);
+            double lotus = TechniqueRules.CultivationSpeed(Catalog("white-lotus-intuition"), CultivationRealm.Embryonic, Balance);
+            double mansion = TechniqueRules.CultivationSpeed(Catalog("night-frost-canon"), CultivationRealm.QiRefinement, Balance);
             Assert.AreEqual(mansion, lotus, 1e-9);
         }
 
         [Test]
         public void Speed_WithoutAManual_IsTheCommonBreathingInEmbryonicAndNothingBeyond()
         {
-            Assert.AreEqual(1.0, TechniqueRules.CultivationSpeed(null, CultivationRealm.Embryonic, Speeds), 1e-9);
-            Assert.AreEqual(0.0, TechniqueRules.CultivationSpeed(null, CultivationRealm.QiRefinement, Speeds), 1e-9);
+            Assert.AreEqual(1.0, TechniqueRules.CultivationSpeed(null, CultivationRealm.Embryonic, Balance), 1e-9);
+            Assert.AreEqual(0.0, TechniqueRules.CultivationSpeed(null, CultivationRealm.QiRefinement, Balance), 1e-9);
         }
 
         [Test]
         public void Speed_OfAMethodOutsideItsRealms_IsNothing()
         {
-            Assert.AreEqual(0.0, TechniqueRules.CultivationSpeed(Method(3), CultivationRealm.PurpleMansion, Speeds), 1e-9);
+            Assert.AreEqual(0.0, TechniqueRules.CultivationSpeed(Method(3), CultivationRealm.PurpleMansion, Balance), 1e-9);
         }
 
         [Test]
@@ -57,8 +59,8 @@ namespace MirrorChronicles.Tests.Characters
         {
             // §2.4: rapid in Embryonic Breathing, very slow in Qi Cultivation
             var veilleur = Catalog("path-watcher");
-            Assert.AreEqual(0.8 * 1.5, TechniqueRules.CultivationSpeed(veilleur, CultivationRealm.Embryonic, Speeds), 1e-9);
-            Assert.AreEqual(0.8 * 0.5, TechniqueRules.CultivationSpeed(veilleur, CultivationRealm.QiRefinement, Speeds), 1e-9);
+            Assert.AreEqual(0.8 * 1.5, TechniqueRules.CultivationSpeed(veilleur, CultivationRealm.Embryonic, Balance), 1e-9);
+            Assert.AreEqual(0.8 * 0.5, TechniqueRules.CultivationSpeed(veilleur, CultivationRealm.QiRefinement, Balance), 1e-9);
         }
 
         // ---- Ceiling (§2.2) ----
@@ -120,17 +122,17 @@ namespace MirrorChronicles.Tests.Characters
         public void EnterQi_NeedsAMethodAndAPortionOfItsQi()
         {
             var clearSpring = Catalog("clear-spring-sutra");
-            Assert.IsTrue(TechniqueRules.CanEnterQiCultivation(clearSpring, Qi("clear-spring-qi"), portions: 1));
-            Assert.IsFalse(TechniqueRules.CanEnterQiCultivation(clearSpring, Qi("clear-spring-qi"), portions: 0));
-            Assert.IsFalse(TechniqueRules.CanEnterQiCultivation(Catalog("white-lotus-intuition"), null, portions: 5));
+            Assert.IsTrue(TechniqueRules.CanEnterQiCultivation(clearSpring, Qi("clear-spring-qi"), portions: 1, Rules));
+            Assert.IsFalse(TechniqueRules.CanEnterQiCultivation(clearSpring, Qi("clear-spring-qi"), portions: 0, Rules));
+            Assert.IsFalse(TechniqueRules.CanEnterQiCultivation(Catalog("white-lotus-intuition"), null, portions: 5, Rules));
         }
 
         [Test]
         public void EnterQi_WithTheSouffleCommun_NeedsNoPortion()
         {
             var commonQi = Qi("common-breath-qi");
-            Assert.AreEqual(0, TechniqueRules.QiPortionsToEnter(commonQi));
-            Assert.IsTrue(TechniqueRules.CanEnterQiCultivation(Catalog("common-breath-method"), commonQi, portions: 0));
+            Assert.AreEqual(0, TechniqueRules.QiPortionsToEnter(commonQi, Rules));
+            Assert.IsTrue(TechniqueRules.CanEnterQiCultivation(Catalog("common-breath-method"), commonQi, portions: 0, Rules));
         }
 
         // ---- Who may practise a method ----
@@ -197,7 +199,7 @@ namespace MirrorChronicles.Tests.Characters
         [TestCase(new[] { 5, 5, 5, 5, 5 }, 7)]
         public void Deduction_GradeFollowsTheFragments(int[] qualities, int grade)
         {
-            Assert.AreEqual(grade, TechniqueRules.DeductionGrade(qualities));
+            Assert.AreEqual(grade, TechniqueRules.DeductionGrade(qualities, Rules));
         }
     }
 }

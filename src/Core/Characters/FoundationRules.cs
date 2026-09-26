@@ -12,9 +12,6 @@ namespace MirrorChronicles.Characters
     /// </summary>
     public static class FoundationRules
     {
-        /// <summary>Portions of one's Qi the immortal foundation absorbs (§2.5: at least one for complex uses).</summary>
-        public const int FoundationQiPortions = 1;
-
         private static readonly Temperament[] Temperaments =
             { Temperament.Dominant, Temperament.Solitary, Temperament.Patient, Temperament.Fiery, Temperament.Cunning, Temperament.Serene };
 

@@ -77,7 +77,8 @@ namespace MirrorChronicles.Mirror
         private TechniqueData GenerateTechnique(IReadOnlyList<FragmentData> inputs)
         {
             int totalQuality = inputs.Sum(f => f.Quality);
-            int grade = TechniqueRules.DeductionGrade(inputs.Select(f => f.Quality).ToList());
+            var rules = ctx.Content.Balance.Techniques;
+            int grade = TechniqueRules.DeductionGrade(inputs.Select(f => f.Quality).ToList(), rules);
             var counts = inputs.GroupBy(f => f.Element).ToDictionary(g => g.Key, g => g.Count());
             var dominant = counts.OrderByDescending(kv => kv.Value).First().Key;
             var kinds = HarvestableQi().Any() ? DeducibleKinds : DeducibleKinds.Where(k => k != TechniqueKind.Cultivation).ToArray();
@@ -99,7 +100,8 @@ namespace MirrorChronicles.Mirror
                 Grade = grade,
                 Category = TechniqueCategory.Secret,
                 DominantElement = dominant,
-                RequiredRealm = isMethod ? CultivationRealm.QiRefinement : TechniqueRules.ArtRequiredRealm(grade),
+                RequiredRealm = isMethod ? CultivationRealm.QiRefinement : TechniqueRules.ArtRequiredRealm(grade, rules),
+                MovementSteps = kind == TechniqueKind.Movement ? TechniqueRules.MovementArtSteps(grade, rules) : 0,
                 RequiredQiId = isMethod ? QiFor(dominant)?.Id : null,
                 PowerModifier = totalQuality * 5,
                 QiCost = totalQuality * 2,

@@ -132,6 +132,41 @@ namespace MirrorChronicles.Data
 
         /// <summary>Condensing the divine abilities of the Purple Mansion (LORE.md §5.4.3).</summary>
         public DivineAbilitySettings DivineAbilities { get; init; }
+
+        /// <summary>The technique rules the lore leaves open (L3 interpretations), replaceable when a source speaks.</summary>
+        public TechniqueSettings Techniques { get; init; }
+    }
+
+    /// <summary>
+    /// Values of the technique rules that the lore does not give (user request, 2026-09-26: every interpretation
+    /// lives in the data). Grades 1 to 7 index the lists.
+    /// </summary>
+    public sealed class TechniqueSettings
+    {
+        /// <summary>Speed of Embryonic Breathing without a manual.</summary>
+        public double CommonBreathingSpeed { get; init; }
+
+        /// <summary>Portions of a method's Qi absorbed on entering Qi Cultivation (none for a ubiquitous Qi).</summary>
+        public int QiPortionsToEnter { get; init; }
+
+        /// <summary>Portions of one's Qi the immortal foundation absorbs.</summary>
+        public int FoundationQiPortions { get; init; }
+
+        /// <summary>Portions of an aligned technique's Qi a divine ability absorbs.</summary>
+        public int AlignedQiPortions { get; init; }
+
+        /// <summary>The lowest grade the elders choose for a member entering Qi Cultivation on their own.</summary>
+        public int LowestGradeChosenForAMember { get; init; }
+
+        /// <summary>The realm from which an art of each grade can be wielded.</summary>
+        public IReadOnlyList<CultivationRealm> ArtRequiredRealmByGrade { get; init; } = Array.Empty<CultivationRealm>();
+
+        /// <summary>Extra steps in battle of a movement art of each grade.</summary>
+        public IReadOnlyList<int> MovementArtStepsByGrade { get; init; } = Array.Empty<int>();
+
+        /// <summary>A deduction's grade: the fragments' average, +1 from this many fragments, at most this grade (7+ only from five divine ones).</summary>
+        public int DeductionCompleteFragments { get; init; }
+        public int DeductionMaxGrade { get; init; }
     }
 
     /// <summary>What condensing a divine ability costs (balance.json, tuned by simulation).</summary>
@@ -167,6 +202,11 @@ namespace MirrorChronicles.Data
 
         /// <summary>Base chance (%) of the Illusions; failing them costs one's whole cultivation.</summary>
         public int IllusionsBaseChance { get; init; }
+
+        /// <summary>The Manifestation's ease: per grade above 5, per technique known (up to a cap).</summary>
+        public int ManifestationPerGrade { get; init; }
+        public int ManifestationPerTechnique { get; init; }
+        public int ManifestationTechniqueCap { get; init; }
 
         /// <summary>How long the Great Void holds a cultivator, band by band; past the last band, for life.</summary>
         public IReadOnlyList<VoidBand> VoidBands { get; init; } = Array.Empty<VoidBand>();

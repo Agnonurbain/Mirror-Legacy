@@ -18,9 +18,6 @@ namespace MirrorChronicles.Characters
         public const int LowStabilityThreshold = 50;
         public const double LowStabilityMultiplier = 0.8;
 
-        /// <summary>Methods below this grade stop at Qi Cultivation: the elders never impose one on a member's behalf.</summary>
-        public const int LowestGradeChosenForAMember = 3;
-
         private readonly GameContext ctx;
         private readonly ClanKarmaSystem karma;
         private readonly TechniqueLibrary techniques;
@@ -44,8 +41,7 @@ namespace MirrorChronicles.Characters
             if (!SpiritualOrificeRules.CanCultivate(character)) return; // a mortal gathers no Qi
             if (character.ProgressionSealed) return;                     // a consumed Dao Partner: no further, even cultivating
 
-            double speed = TechniqueRules.CultivationSpeed(techniques.MethodOf(character), character.Realm,
-                ctx.Content.Balance.TechniqueSpeedByGrade);
+            double speed = TechniqueRules.CultivationSpeed(techniques.MethodOf(character), character.Realm, ctx.Content.Balance);
             if (speed <= 0) return; // no method guides this realm
 
             int gain = BaseYearlyXp + character.SpiritualRoot / 2 + karma.GetBonusXP();
@@ -111,11 +107,11 @@ namespace MirrorChronicles.Characters
 
         /// <summary>The Foundation wall absorbs a portion of the cultivator's own Qi (LORE.md §2.5); other trials need none.</summary>
         public bool HasTrialQi(CharacterData character, TrialKind trial) =>
-            trial != TrialKind.FoundationWall || resources.QiPortions(character.QiId) >= FoundationRules.FoundationQiPortions;
+            trial != TrialKind.FoundationWall || resources.QiPortions(character.QiId) >= ctx.Content.Balance.Techniques.FoundationQiPortions;
 
         /// <summary>Spends what the trial absorbs, whatever its outcome; false when the Qi is lacking.</summary>
         public bool PayTrialQi(CharacterData character, TrialKind trial) =>
-            trial != TrialKind.FoundationWall || resources.ConsumeQi(character.QiId, FoundationRules.FoundationQiPortions);
+            trial != TrialKind.FoundationWall || resources.ConsumeQi(character.QiId, ctx.Content.Balance.Techniques.FoundationQiPortions);
 
         /// <summary>True when the member's method leads to the step (LORE.md §2.2); Embryonic Breathing needs no manual.</summary>
         public bool AllowsNextStep(CharacterData character, AdvancementStep step) =>
@@ -150,15 +146,15 @@ namespace MirrorChronicles.Characters
             if (!TechniqueRules.Covers(method, CultivationRealm.QiRefinement))
             {
                 method = techniques.MethodsFor(character)
-                    .Where(m => m.Grade >= LowestGradeChosenForAMember)
+                    .Where(m => m.Grade >= ctx.Content.Balance.Techniques.LowestGradeChosenForAMember) // never a capped method on their behalf
                     .FirstOrDefault(m => CanEnter(m));
                 if (method == null || !techniques.AssignMethod(character, method.ID)) return false;
             }
 
             var qi = techniques.FindQi(method.RequiredQiId);
-            if (!TechniqueRules.CanEnterQiCultivation(method, qi, resources.QiPortions(qi?.Id))) return false;
+            if (!TechniqueRules.CanEnterQiCultivation(method, qi, resources.QiPortions(qi?.Id), ctx.Content.Balance.Techniques)) return false;
 
-            resources.ConsumeQi(qi.Id, TechniqueRules.QiPortionsToEnter(qi));
+            resources.ConsumeQi(qi.Id, TechniqueRules.QiPortionsToEnter(qi, ctx.Content.Balance.Techniques));
             character.QiId = qi.Id;
             if (!character.KnownTechniqueIDs.Contains(method.ID)) character.KnownTechniqueIDs.Add(method.ID);
             ctx.Log.Info($"[Cultivation] {character.FullName} absorbs the {qi.Name} with the {method.Name}.");
@@ -168,7 +164,7 @@ namespace MirrorChronicles.Characters
         private bool CanEnter(TechniqueData method)
         {
             var qi = techniques.FindQi(method.RequiredQiId);
-            return TechniqueRules.CanEnterQiCultivation(method, qi, resources.QiPortions(qi?.Id));
+            return TechniqueRules.CanEnterQiCultivation(method, qi, resources.QiPortions(qi?.Id), ctx.Content.Balance.Techniques);
         }
     }
 }

@@ -49,9 +49,9 @@ namespace MirrorChronicles.Combat
             var best = unit.BaseData.KnownTechniqueIDs
                 .Select(FindTechnique)
                 .Where(t => t != null && t.Kind == TechniqueKind.Movement)
-                .OrderByDescending(t => t.Grade)
+                .OrderByDescending(t => t.MovementSteps)
                 .FirstOrDefault();
-            return unit.MovementRange + (best == null ? 0 : TechniqueRules.MovementArtSteps(best.Grade));
+            return unit.MovementRange + (best?.MovementSteps ?? 0);
         }
 
         /// <summary>
