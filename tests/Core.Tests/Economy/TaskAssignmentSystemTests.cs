@@ -138,9 +138,19 @@ namespace MirrorChronicles.Tests.Economy
         // ---- Hunting spirit beasts (user decision, 2026-09-26: the talisman ritual sacrifices beasts) ----
 
         [Test]
+        public void HuntBeast_OutsideTheWindow_CatchesNothing()
+        {
+            var w = new TestWorld(new FixedRandom(0.0)); // the first ritual is twenty years away
+            Working(w, TaskType.HuntBeast);
+            w.Tasks.ProcessYearlyTasks();
+            Assert.AreEqual(0, w.Resources.Beasts.Count);
+        }
+
+        [Test]
         public void HuntBeast_CapturesABeastNoStrongerThanTheHunter()
         {
             var w = new TestWorld(new FixedRandom(0.0));
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
             var hunter = Working(w, TaskType.HuntBeast, Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5));
 
             w.Tasks.ProcessYearlyTasks();
@@ -154,6 +164,7 @@ namespace MirrorChronicles.Tests.Economy
         public void HuntBeast_MayComeBackEmptyHanded()
         {
             var w = new TestWorld(new FixedRandom(0.999));
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
             Working(w, TaskType.HuntBeast);
             w.Tasks.ProcessYearlyTasks();
             Assert.AreEqual(0, w.Resources.Beasts.Count);
@@ -163,6 +174,7 @@ namespace MirrorChronicles.Tests.Economy
         public void HuntBeast_OnAPowersGround_MayTakeOneOfItsBeasts()
         {
             var w = new TestWorld(new FixedRandom(0.0));
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
             w.Factions.InitializeFactions();
             Assert.IsTrue(w.Tasks.SetHuntingGround("heshan")); // the Ruan's prefecture
             Working(w, TaskType.HuntBeast);
@@ -176,6 +188,7 @@ namespace MirrorChronicles.Tests.Economy
         public void HuntBeast_OnAnUnclaimedGround_TakesSolitaryBeasts()
         {
             var w = new TestWorld(new FixedRandom(0.0));
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
             w.Factions.InitializeFactions();
             Assert.IsTrue(w.Tasks.SetHuntingGround("beast-abyss")); // no power lives in the Beast Abyss
             Working(w, TaskType.HuntBeast);

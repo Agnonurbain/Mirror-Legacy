@@ -28,6 +28,7 @@ namespace MirrorChronicles.Tests.Mirror
         {
             var w = new TestWorld();
             w.Resources.AddPrayers(Settings.PrayersPerRitual);
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year); // this is the ritual's year
             return w;
         }
 
@@ -154,6 +155,7 @@ namespace MirrorChronicles.Tests.Mirror
         public void PerformRitual_Refuses_WithoutTenThousandPrayers()
         {
             var w = new TestWorld();
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
             w.Resources.AddPrayers(Settings.PrayersPerRitual - 1);
             var victim = Sacrifice(w);
             Assert.IsFalse(w.Talismans.PerformRitual(Bearer(w), victim));
@@ -333,6 +335,7 @@ namespace MirrorChronicles.Tests.Mirror
             var w = new TestWorld(new FixedRandom(0.0)); // found out
             w.Factions.InitializeFactions();
             w.Resources.AddPrayers(Settings.PrayersPerRitual);
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
             var owner = w.Factions.GetFactionByName("Famille Ruan");
             int before = owner.RelationWithPlayer;
             var beast = new CapturedBeast("ruan-beast", CultivationRealm.QiRefinement, 2, "Famille Ruan");
@@ -349,6 +352,7 @@ namespace MirrorChronicles.Tests.Mirror
             var w = new TestWorld(new FixedRandom(0.999)); // nobody notices
             w.Factions.InitializeFactions();
             w.Resources.AddPrayers(Settings.PrayersPerRitual);
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
             var owner = w.Factions.GetFactionByName("Famille Ruan");
             int before = owner.RelationWithPlayer;
             var beast = new CapturedBeast("ruan-beast", CultivationRealm.QiRefinement, 2, "Famille Ruan");
@@ -365,6 +369,7 @@ namespace MirrorChronicles.Tests.Mirror
             var w = new TestWorld(new FixedRandom(0.0));
             w.Factions.InitializeFactions();
             w.Resources.AddPrayers(Settings.PrayersPerRitual);
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year);
             var moods = w.Factions.Factions.Select(f => f.RelationWithPlayer).ToList();
 
             w.Talismans.PerformRitual(Bearer(w), Sacrifice(w));
@@ -383,6 +388,79 @@ namespace MirrorChronicles.Tests.Mirror
 
             Assert.AreEqual(new CapturedBeast("b1", CultivationRealm.Foundation, 2, "Famille Ruan"), reloaded.Resources.Beasts.Single());
             Assert.AreEqual("heshan", reloaded.Tasks.HuntingGround);
+        }
+
+        // ---- The ritual's calendar (user decision, 2026-09-26: every 20 years, the hunt opens 3 years before) ----
+
+        [Test]
+        public void ANewGame_SetsTheFirstRitual_OneCycleAhead()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            Assert.AreEqual(Settings.RitualPeriodYears, s.Talismans.NextRitualYear);
+            Assert.AreEqual(20, Settings.RitualPeriodYears);
+            Assert.AreEqual(3, Settings.HuntWindowYears);
+        }
+
+        [TestCase(16, false)]
+        [TestCase(17, true)]
+        [TestCase(20, true)]
+        public void TheHunt_OpensOnlyThreeYearsBeforeTheRitual(int year, bool open)
+        {
+            var w = new TestWorld();
+            w.Talismans.RestoreCalendar(20);
+            w.Ctx.Clock.Restore(year, GamePhase.Management);
+            Assert.AreEqual(open, w.Talismans.HuntWindowOpen);
+        }
+
+        [Test]
+        public void PerformRitual_Refuses_OutsideTheRitualsYear()
+        {
+            var w = Devout();
+            w.Talismans.RestoreCalendar(w.Ctx.Clock.Year + 1);
+            var beast = Sacrifice(w);
+            Assert.IsFalse(w.Talismans.PerformRitual(Bearer(w), beast));
+            CollectionAssert.Contains(w.Resources.Beasts, beast);
+        }
+
+        [Test]
+        public void PerformRitual_SetsTheNextOne_ACycleLater()
+        {
+            var w = Devout();
+            int year = w.Ctx.Clock.Year;
+            w.Talismans.PerformRitual(Bearer(w), Sacrifice(w));
+            Assert.AreEqual(year + Settings.RitualPeriodYears, w.Talismans.NextRitualYear);
+        }
+
+        [Test]
+        public void AMissedRitual_WaitsForTheNextCycle()
+        {
+            var w = new TestWorld();
+            w.Talismans.RestoreCalendar(20);
+            w.Ctx.Clock.Restore(21, GamePhase.Management);
+            w.Ctx.Events.TriggerYearStarted(21);
+            Assert.AreEqual(40, w.Talismans.NextRitualYear);
+        }
+
+        [Test]
+        public void TheRoster_OffersTheHunt_OnlyInsideTheWindow()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var cultivator = MirrorChronicles.Presentation.ClanDomainView.Roster(s).First(r => r.Rank.StartsWith("Culture du Qi"));
+            CollectionAssert.DoesNotContain(cultivator.AllowedTasks, TaskType.HuntBeast);
+
+            s.Talismans.RestoreCalendar(s.Clock.Year);
+
+            cultivator = MirrorChronicles.Presentation.ClanDomainView.Roster(s).First(r => r.Id == cultivator.Id);
+            CollectionAssert.Contains(cultivator.AllowedTasks, TaskType.HuntBeast);
+        }
+
+        [Test]
+        public void RoundTrip_KeepsTheRitualsCalendar()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Talismans.RestoreCalendar(60);
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            Assert.AreEqual(60, reloaded.Talismans.NextRitualYear);
         }
     }
 }
