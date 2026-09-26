@@ -20,7 +20,8 @@ namespace MirrorChronicles.Tests.Data
             var content = Fixtures.Content;
             CollectionAssert.Contains(content.Qi.Single(q => q.Id == "six-harmonies-qi").InterpretedFields, "Foundation");
             CollectionAssert.Contains(content.Techniques.Single(t => t.ID == "six-harmonies-method").InterpretedFields, "Grade");
-            CollectionAssert.IsEmpty(content.Qi.Single(q => q.Id == "clear-spring-qi").InterpretedFields); // the wiki names it
+            // the wiki gives the Clear Spring Qi's foundation; its name follows its method
+            CollectionAssert.AreEqual(new[] { "Name" }, content.Qi.Single(q => q.Id == "clear-spring-qi").InterpretedFields);
         }
 
         [Test]

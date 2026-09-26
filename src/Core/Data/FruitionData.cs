@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 namespace MirrorChronicles.Data
 {
+    /// <summary>
+    /// Where a piece of content comes from (user request, 2026-09-26): LORE.md (the source and the wiki pass),
+    /// the novel's wiki read later, or an interpretation filling a gap — to replace when a source speaks.
+    /// </summary>
+    public enum Provenance { Lore, Wiki, Interpretation }
+
     /// <summary>The families of Dao lineages (LORE.md §6.4); a lineage may belong to several.</summary>
     public enum FruitionGroup
     {
@@ -45,6 +51,11 @@ namespace MirrorChronicles.Data
 
         /// <summary>A substitute ability (Surplus, Intercalary), not one of the orthodox five.</summary>
         public bool Substitute { get; init; }
+
+        public Provenance Provenance { get; init; }
+
+        /// <summary>Fields filled by interpretation, to replace when a source speaks.</summary>
+        public IReadOnlyList<string> InterpretedFields { get; init; } = Array.Empty<string>();
     }
 
     /// <summary>A Dao lineage (Fruition, LORE.md §6): what its holder embodies, its abilities, its state.</summary>
@@ -81,6 +92,11 @@ namespace MirrorChronicles.Data
         public Temperament Temperament { get; init; }
 
         public string Notes { get; init; }
+
+        public Provenance Provenance { get; init; }
+
+        /// <summary>Fields filled by interpretation, to replace when a source speaks.</summary>
+        public IReadOnlyList<string> InterpretedFields { get; init; } = Array.Empty<string>();
     }
 
     /// <summary>fruitions.json: the lineages and the name given to a True Monarch the lore does not name.</summary>

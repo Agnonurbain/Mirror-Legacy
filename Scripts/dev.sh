@@ -3,6 +3,7 @@
 #   ./Scripts/dev.sh build   compile Core, its tests and the Godot game assembly
 #   ./Scripts/dev.sh test    run the engine-free Core tests (dotnet test, no Godot needed)
 #   ./Scripts/dev.sh smoke   run the game headless with --smoke; fails on any engine or script error
+#   ./Scripts/dev.sh gaps    list what the lore leaves open: interpretations, unrevealed abilities (ContentGaps)
 #   ./Scripts/dev.sh all     build + test + smoke
 # GODOT_BIN overrides the editor binary (default: Godot 4.7.2 .NET in ~/Godot).
 set -euo pipefail
@@ -18,6 +19,11 @@ build() {
 
 run_tests() {
   dotnet test "$TESTS" --nologo
+}
+
+gaps() {
+  dotnet test "$TESTS" --nologo --filter "FullyQualifiedName~ContentGapsTests.ContentGapsReport" \
+    --logger "console;verbosity=detailed" | grep ' · '
 }
 
 smoke() {
@@ -54,8 +60,9 @@ screenshot() {
 case "${1:-}" in
   build)      build ;;
   test)       run_tests ;;
+gaps)       gaps ;;
   smoke)      smoke ;;
   screenshot) screenshot "${2:-}" ;;
   all)        build && run_tests && smoke ;;
-  *)          echo "usage: $0 build|test|smoke|screenshot <file.png>|all" >&2; exit 2 ;;
+  *)          echo "usage: $0 build|test|gaps|smoke|screenshot <file.png>|all" >&2; exit 2 ;;
 esac

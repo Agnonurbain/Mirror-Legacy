@@ -78,6 +78,11 @@ namespace MirrorChronicles.Data
         /// every Qi depends on a lineage); null for a Qi whose methods stop at Qi Cultivation.
         /// </summary>
         public string Foundation { get; init; }
+
+        public Provenance Provenance { get; init; }
+
+        /// <summary>Fields filled by interpretation, to replace when a source speaks.</summary>
+        public IReadOnlyList<string> InterpretedFields { get; init; } = Array.Empty<string>();
     }
 
     /// <summary>The drawbacks of an imperfect technique, usually a secret one (LORE.md §2.3-2.4).</summary>
@@ -156,6 +161,15 @@ namespace MirrorChronicles.Data
         public int QiCost { get; set; }
         public int Range { get; set; } // Manhattan distance; 1 = melee, 2+ = ranged
         public int RiskFactor { get; set; } // 0-100% chance of Qi Deviation when practicing
+
+        /// <summary>Where a catalog technique comes from; never saved (a deduction is the mirror's own).</summary>
+        public Provenance Provenance { get; set; }
+
+        /// <summary>Fields filled by interpretation, to replace when a source speaks; never saved.</summary>
+        public List<string> InterpretedFields { get; set; } = new List<string>();
+
+        public bool ShouldSerializeProvenance() => false;
+        public bool ShouldSerializeInterpretedFields() => false;
 
         public TechniqueData Clone()
         {

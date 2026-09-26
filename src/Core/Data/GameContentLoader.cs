@@ -65,6 +65,10 @@ namespace MirrorChronicles.Data
             CheckClanKnowledge(clan, catalog.Techniques, qi);
             CheckFruitions(fruitions);
             CheckFoundations(qi, catalog.Techniques, fruitions.Fruitions);
+            CheckInterpretedFields(TechniquesFile, catalog.Techniques.Select(t => (t.ID, typeof(TechniqueData), (IEnumerable<string>)t.InterpretedFields)));
+            CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
+            CheckInterpretedFields(FruitionsFile, fruitions.Fruitions.Select(f => (f.Id, typeof(FruitionDefinition), (IEnumerable<string>)f.InterpretedFields))
+                .Concat(fruitions.Fruitions.SelectMany(f => f.Abilities.Select(a => ($"{f.Id}:{a.Id}", typeof(DivineAbilityDefinition), (IEnumerable<string>)a.InterpretedFields)))));
 
             return new GameContent
             {
@@ -296,6 +300,17 @@ namespace MirrorChronicles.Data
                 .Select(t => t.RequiredQiId).Distinct();
             var missing = reachingFoundation.FirstOrDefault(id => qi.First(q => q.Id == id).Foundation == null);
             Require(missing == null, QiFile, $"{missing}: its methods reach the Foundation, so it must name the foundation it builds.");
+        }
+
+        /// <summary>An interpreted field must name a real field, so the gaps report points at something to replace.</summary>
+        private static void CheckInterpretedFields(string file, IEnumerable<(string Id, Type Type, IEnumerable<string> Fields)> items)
+        {
+            foreach (var (id, type, fields) in items)
+            {
+                var unknown = (fields ?? Enumerable.Empty<string>()).FirstOrDefault(field =>
+                    type.GetProperty(field, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.IgnoreCase) == null);
+                Require(unknown == null, file, $"{id}: \"{unknown}\" is not a field of {type.Name}, so it cannot be an interpreted field.");
+            }
         }
 
         private static bool IsProbability(double value) => value >= 0 && value <= 1;
