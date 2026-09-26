@@ -24,9 +24,10 @@ namespace MirrorChronicles.Data
         public const string QiFile = "qi.json";
         public const string FruitionsFile = "fruitions.json";
         public const string OathsFile = "oaths.json";
+        public const string RegionsFile = "regions.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -55,6 +56,7 @@ namespace MirrorChronicles.Data
             var qi = Read<List<QiDefinition>>(readFile, QiFile);
             var fruitions = Read<FruitionCatalog>(readFile, FruitionsFile);
             var oaths = Read<OathCatalog>(readFile, OathsFile);
+            var regions = Read<List<RegionDefinition>>(readFile, RegionsFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -67,8 +69,11 @@ namespace MirrorChronicles.Data
             CheckClanKnowledge(clan, catalog.Techniques, qi);
             CheckFruitions(fruitions);
             CheckOaths(oaths);
+            CheckRegions(regions);
+            Require(regions.Any(r => r.Id == clan.HomeRegion), ClanFile, $"homeRegion \"{clan.HomeRegion}\" is not a region of {RegionsFile}.");
             CheckFoundations(qi, catalog.Techniques, fruitions.Fruitions);
             CheckInterpretedFields(TechniquesFile, catalog.Techniques.Select(t => (t.ID, typeof(TechniqueData), (IEnumerable<string>)t.InterpretedFields)));
+            CheckInterpretedFields(RegionsFile, regions.Select(r => (r.Id, typeof(RegionDefinition), (IEnumerable<string>)r.InterpretedFields)));
             CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
             CheckInterpretedFields(FruitionsFile, fruitions.Fruitions.Select(f => (f.Id, typeof(FruitionDefinition), (IEnumerable<string>)f.InterpretedFields))
                 .Concat(fruitions.Fruitions.SelectMany(f => f.Abilities.Select(a => ($"{f.Id}:{a.Id}", typeof(DivineAbilityDefinition), (IEnumerable<string>)a.InterpretedFields)))));
@@ -86,7 +91,8 @@ namespace MirrorChronicles.Data
                 DeductionNames = catalog.DeductionNames,
                 Fruitions = fruitions.Fruitions,
                 AnonymousHolder = fruitions.AnonymousHolder,
-                Oaths = oaths
+                Oaths = oaths,
+                Regions = regions
             };
         }
 
@@ -336,6 +342,25 @@ namespace MirrorChronicles.Data
                 .Select(t => t.RequiredQiId).Distinct();
             var missing = reachingFoundation.FirstOrDefault(id => qi.First(q => q.Id == id).Foundation == null);
             Require(missing == null, QiFile, $"{missing}: its methods reach the Foundation, so it must name the foundation it builds.");
+        }
+
+        /// <summary>The map (L5): unique places with a name, on the map, whose parent and neighbours exist and answer back.</summary>
+        private static void CheckRegions(List<RegionDefinition> regions)
+        {
+            Require(regions.All(r => !string.IsNullOrWhiteSpace(r.Id) && !string.IsNullOrWhiteSpace(r.Name)), RegionsFile, "every region needs an id and a name.");
+            var duplicate = regions.GroupBy(r => r.Id).FirstOrDefault(g => g.Count() > 1)?.Key;
+            Require(duplicate == null, RegionsFile, $"two regions share the id \"{duplicate}\".");
+            var byId = regions.ToDictionary(r => r.Id);
+            foreach (var r in regions)
+            {
+                Require(r.X >= 0 && r.X <= 1 && r.Y >= 0 && r.Y <= 1, RegionsFile, $"{r.Id}: its position must lie within the map (0-1).");
+                Require(r.ParentId == null || byId.ContainsKey(r.ParentId), RegionsFile, $"{r.Id}: its parent \"{r.ParentId}\" is not a region.");
+                foreach (var n in r.Neighbours ?? Array.Empty<string>())
+                {
+                    Require(byId.ContainsKey(n), RegionsFile, $"{r.Id}: its neighbour \"{n}\" is not a region.");
+                    Require(byId[n].Neighbours?.Contains(r.Id) == true, RegionsFile, $"{r.Id} borders {n}, but {n} does not border {r.Id}.");
+                }
+            }
         }
 
         /// <summary>Oaths (L4d): unique clauses with a name and a severity 1-3.</summary>

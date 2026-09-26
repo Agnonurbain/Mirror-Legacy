@@ -33,6 +33,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>The clauses one may swear on one's path, and the loopholes (oaths.json, L4d).</summary>
         public OathCatalog Oaths { get; init; } = new OathCatalog();
+
+        /// <summary>The world map (regions.json, LORE.md §7).</summary>
+        public IReadOnlyList<RegionDefinition> Regions { get; init; } = Array.Empty<RegionDefinition>();
     }
 
     /// <summary>techniques.json: the catalog and the words of deduced names.</summary>
@@ -60,6 +63,9 @@ namespace MirrorChronicles.Data
     public sealed class ClanDefinition
     {
         public string ClanName { get; init; }
+
+        /// <summary>Where the clan lives (a regions.json id): Lake Jingshui (LORE.md §7.3).</summary>
+        public string HomeRegion { get; init; }
         public IReadOnlyList<FounderDefinition> Founders { get; init; } = Array.Empty<FounderDefinition>();
 
         /// <summary>Catalog techniques the clan knows at the start.</summary>
