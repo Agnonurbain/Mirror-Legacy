@@ -52,6 +52,8 @@ namespace MirrorChronicles.Characters
             bool falseNameA = false, bool falseNameB = false)
         {
             var known = clauses.Where(id => ctx.Content.Oaths.Clauses.Any(c => c.Id == id)).ToList();
+            foreach (var unknown in clauses.Except(known))
+                ctx.Log.Warning($"[Oaths] No clause \"{unknown}\" exists to be sworn.");
             if (a == null || b == null || a == b || known.Count == 0) return null;
 
             var pact = new PactData
@@ -61,7 +63,9 @@ namespace MirrorChronicles.Characters
                 PartyB = b.ID,
                 Clauses = known,
                 SwornYear = ctx.Clock.Year,
-                ExpiresYear = years.HasValue ? ctx.Clock.Year + years.Value : (int?)null,
+                // A term is a loophole: without it the pact holds for life. It stays binding through the
+                // year SwornYear + years and lapses at the start of the next one.
+                ExpiresYear = years.HasValue && Allows(LoopholeKind.Expiry) ? ctx.Clock.Year + years.Value : (int?)null,
                 FalseNameA = falseNameA && Allows(LoopholeKind.FalseName),
                 FalseNameB = falseNameB && Allows(LoopholeKind.FalseName)
             };
@@ -119,10 +123,15 @@ namespace MirrorChronicles.Characters
             return true;
         }
 
-        public void Restore(IEnumerable<PactData> saved)
+        /// <summary>Members whose next breach the mirror veils (saved: the power was spent).</summary>
+        public IReadOnlyCollection<string> Veiled => veiled.OrderBy(id => id, StringComparer.Ordinal).ToList();
+
+        public void Restore(IEnumerable<PactData> saved, IEnumerable<string> savedVeiled = null)
         {
             pacts.Clear();
             pacts.AddRange(saved ?? Enumerable.Empty<PactData>());
+            veiled.Clear();
+            foreach (var id in savedVeiled ?? Enumerable.Empty<string>()) veiled.Add(id);
         }
 
         private ClauseDefinition Clause(string id) => ctx.Content.Oaths.Clauses.FirstOrDefault(c => c.Id == id);

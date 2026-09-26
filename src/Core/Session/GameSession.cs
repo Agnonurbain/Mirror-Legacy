@@ -164,7 +164,7 @@ namespace MirrorChronicles.Session
                 if (record.Temperament == Temperament.None)                  // saves made before the Dao Heart
                     record.Temperament = FoundationRules.RandomTemperament(rng);
             }
-            session.Oaths.Restore((data.Pacts ?? new List<PactData>()).Select(p => p.Clone()));
+            session.Oaths.Restore((data.Pacts ?? new List<PactData>()).Select(p => p.Clone()), data.VeiledOathBreakers);
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);
@@ -195,6 +195,7 @@ namespace MirrorChronicles.Session
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
                 Knowledge = Knowledge.Keys.ToList(), // the known techniques live there since 2.3
                 Pacts = Oaths.Pacts.Select(p => p.Clone()).ToList(),
+                VeiledOathBreakers = Oaths.Veiled.ToList(),
                 SpiritualQi = new Dictionary<string, int>(Resources.SpiritualQi),
                 QiHarvestProgress = new Dictionary<string, int>(Resources.QiHarvestProgress),
                 FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),

@@ -338,6 +338,9 @@ namespace MirrorChronicles.Data
             Require(clauses.Select(c => c.Id).Distinct().Count() == clauses.Count, OathsFile, "two clauses share an id.");
             var light = clauses.FirstOrDefault(c => c.Severity < 1 || c.Severity > 3);
             Require(light == null, OathsFile, $"{light?.Id}: a clause's severity lies between 1 and 3.");
+            var loopholes = oaths.Loopholes ?? Array.Empty<LoopholeDefinition>();
+            Require(loopholes.Count > 0 && loopholes.All(l => !string.IsNullOrWhiteSpace(l.Name)) && loopholes.Select(l => l.Kind).Distinct().Count() == loopholes.Count,
+                OathsFile, "nothing is perfect: declare the loopholes, each named once.");
         }
 
         /// <summary>An interpreted field must name a real field, so the gaps report points at something to replace.</summary>

@@ -52,6 +52,7 @@ namespace MirrorChronicles.Data
 
         // Oaths of the Dao (2.4; null in older saves)
         public List<PactData> Pacts { get; set; }
+        public List<string> VeiledOathBreakers { get; set; } // the mirror's veil bought for their next breach
 
         // Lineage
         public int GenerationCount { get; set; } = 1;
