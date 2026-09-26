@@ -808,7 +808,7 @@ La carte du jeu reprend la **géographie relative** de la carte source (position
 
 ### 7.3 Autour du clan
 
-📚 **Carte détaillée du lac (wiki, 2026-09-26)** : Tao au nord, Lou au nord-est, Fang et une sixième famille, les **Kang** (💡 nom proposé, à valider), sur la rive sud-est, Mo au sud (villages de Jingxi) ; tribus des montagnes à l'ouest et au sud-ouest ; « familles de la rive est » au-delà. Un domaine marqué « 池 » sur la rive est reste ambigu (famille Bai, ou avant-poste du Pic des Nuées ?) : rien n'est déplacé tant qu'une source ne tranche pas.
+📚 **Carte détaillée du lac (wiki, 2026-09-26)** : Tao au nord, Lou au nord-est, Fang et une sixième famille, les **Kang** (✅ nom validé), sur la rive sud-est, Mo au sud (villages de Jingxi) ; tribus des montagnes à l'ouest et au sud-ouest ; « familles de la rive est » au-delà. Un domaine marqué « 池 » sur la rive est reste ambigu (famille Bai, ou avant-poste du Pic des Nuées ?) : rien n'est déplacé tant qu'une source ne tranche pas.
 
 📚 **Le lac et ses clans.** Le Lac Jingshui, plus tard appelé **Lac Immortel**, fait face au nord et au sud ; les Ruan vivent dans les terres sauvages au nord-est. Il relevait d'abord de la Secte du Pic des Nuées avant d'être confié aux Mo. **Cinq clans** vivent autour du lac : **Lou, Fang, Mo, Lü et Tao** ; sous la domination des Mo, le lac sera unifié autour de son **île centrale, Cuidao**. Les **Monts Qingyan** forment une longue chaîne : le **Pic de Jingxi** domine le **village de Jingxi** (village natal du clan) ; plus au sud, le **Pic Meiling**, puis le **village de Qingyang**.
 
@@ -895,7 +895,7 @@ Les personnages cités en exemple par la source deviennent des **figures du mond
 | **Moine Wuyi** | Commentateur de l'essence métallique de Xiaoyun |
 | **Yinjun**, **Taichen** | Immortels Dorés de l'Antiquité |
 
-📚 **Figures des puissances** (fiches de personnages du wiki, 2026-09-26 ; `game/data/figures.json`, noms 🟡 à valider au §13.9) : 20 cultivateurs nommés des sectes, portes et familles, avec leur royaume (celui du wiki, souvent leur apogée) et leur naissance comptée depuis la découverte du miroir (an 0). Au Pic des Nuées : Bai Chengyu, Bai Ruozhi (né 192 ans avant le miroir), Pan Yuanwei (400), Qin Mingzhu (300), Pan Yiqiu, Qin Yuanhe, Lou Wenqing, Bai Zhiqing ; le Vénérable Lingxu (Noyau d'Or, Réalisation du Jade Premier) à la Lune Pâle ; Guan Yunhe aux Mille Lames ; Ruan Chuhe, patriarche des Ruan au Manoir Pourpre ; Zang Tiaoyun et Zang Wanru ; un Manoir Pourpre à la tête de six portes. Les puissances concernées atteignent donc au moins ce royaume. La carte montre les figures déjà nées ; les faire vivre et agir sous les mêmes règles que le clan (P1) : L5b-L6.
+📚 **Figures des puissances** (fiches de personnages du wiki, 2026-09-26 ; `game/data/figures.json`, noms ✅ validés au §13.9) : 20 cultivateurs nommés des sectes, portes et familles, avec leur royaume (celui du wiki, souvent leur apogée) et leur naissance comptée depuis la découverte du miroir (an 0). Au Pic des Nuées : Bai Chengyu, Bai Ruozhi (né 192 ans avant le miroir), Pan Yuanwei (400), Qin Mingzhu (300), Pan Yiqiu, Qin Yuanhe, Lou Wenqing, Bai Zhiqing ; le Vénérable Lingxu (Noyau d'Or, Réalisation du Jade Premier) à la Lune Pâle ; Guan Yunhe aux Mille Lames ; Ruan Chuhe, patriarche des Ruan au Manoir Pourpre ; Zang Tiaoyun et Zang Wanru ; un Manoir Pourpre à la tête de six portes. Les puissances concernées atteignent donc au moins ce royaume. La carte montre les figures déjà nées ; les faire vivre et agir sous les mêmes règles que le clan (P1) : L5b-L6.
 
 ---
 
@@ -949,7 +949,7 @@ Le jeu s'adresse aux **amoureux du xianxia**. Sa profondeur ne vient pas de règ
 |---|---|---|
 | Technique de grade 1-2 (*Souffle Commun*) | N'importe qui cultive | Essence et aura impures, potentiel inférieur, plafond à la Culture du Qi |
 | Graine de Sceau | Cultiver sans orifice | Don **du miroir** : consomme du Clair de Lune du Yin Suprême et une place limitée par le niveau de restauration du miroir (§11.5) |
-| Qi de talisman | Trait unique + bond de cultivation | Rituel : **sacrifier** un être d'au moins la Culture du Qi (encens, âme, essence de sang, force spirituelle) + **dix mille prières** (§11.5) |
+| Qi de talisman | Trait unique + bond de cultivation | Rituel : **sacrifier une bête spirituelle chassée** d'au moins la Culture du Qi (✅ décision 2026-09-26) + **dix mille prières** (§11.5) |
 | Technique secrète | Accès à une méthode dont le Qi a disparu | Souvent imparfaite |
 | Consommer un Partenaire Dao | Stade suivant instantané | Progression **définitivement bloquée** ; Dao exploitable par les plus forts |
 | Ressources pour une capacité | Perfection rapide | Fondements superficiels, sorts plus faibles |
@@ -1023,7 +1023,7 @@ Le jeu s'adresse aux **amoureux du xianxia**. Sa profondeur ne vient pas de règ
 | Blanc | *Arc-en-ciel perçant la voie céleste* | Esprit fortifié, lecture des sorts adverses, légère prolongation de la vie |
 | Blanc | *Arc-en-ciel vermillon fluide* | Descendance plus douée, fondation renforcée, vol plus rapide |
 
-✅ Fait le 2026-09-26 (`TalismanSystem`, `game/data/talismans.json`) : les **prières** s'accumulent chaque année (🔎 150 par mortel du clan, 10 par point de prestige) ; le **rituel** sacrifie un membre d'au moins la Culture du Qi (🔎 seuls les membres du clan peuvent l'être tant que les captifs n'existent pas, L6 — un dilemme que le lore permet) et dépense **dix mille prières** ; le miroir offre 1 à 3 Qi du rang du sacrifice (🔎 1 sous 40 de racine, 2 dès 40, 3 dès 70 ; ceux du tempérament du porteur d'abord) ; le choix donne un **bond** (🔎 gris +2, blanc +3 sous-niveaux dans le royaume) et le trait. Déjà actifs en jeu : années de vie (+40 ; 🔎 +10 pour l'Arc-en-ciel perçant), vitesse de cultivation (×2 pour la Crête de pins ; 🔎 ×1,2-1,25 pour les Qi d'absorption), épreuve des Illusions (🔎 +20 %), racine des enfants (🔎 +15). Les autres traits (prémonition, force, vol, agilité, arts…) attendent le combat et les arts. *Épuiser la vie pour réussir* reste sans effet tant qu'une source ne le détaille pas.
+✅ Fait le 2026-09-26 (`TalismanSystem`, `game/data/talismans.json`). ✅ **Décisions de l'utilisateur (2026-09-26)** : le rituel sacrifie **une bête spirituelle, jamais un membre du clan** ; **plus la bête est puissante, plus le Qi de talisman est de qualité** (son royaume fixe le rang — gris dès la Culture du Qi, blanc dès la Fondation — et 🔎 chaque tranche de trois stades ajoute un sous-niveau au bond) ; **le clan chasse ses bêtes** (tâche *Chasse aux bêtes*, 🔎 40 % de prise par an, une bête du royaume du chasseur et jamais d'un stade supérieur) sur un **terrain de chasse** choisi sur la carte ; une bête peut être **solitaire ou appartenir à une puissance** du lieu (🔎 une chance sur deux là où vivent des puissances) : la **tuer a un prix** — la puissance peut l'apprendre (🔎 60 %) et en garde rancune (🔎 −30 de relation). Il faut donc bien manœuvrer : choisir son terrain, garder les bêtes solitaires pour le rituel, ou attendre d'être en bons termes. Le reste : les **prières** s'accumulent chaque année (🔎 150 par mortel du clan, 10 par point de prestige) ; le rituel dépense **dix mille prières** ; le miroir offre 1 à 3 Qi du rang de la bête (🔎 1 sous 40 de racine, 2 dès 40, 3 dès 70 ; ceux du tempérament du porteur d'abord) ; le choix donne le bond et le trait. Déjà actifs en jeu : années de vie (+40 ; 🔎 +10 pour l'Arc-en-ciel perçant), vitesse de cultivation (×2 pour la Crête de pins ; 🔎 ×1,2-1,25 pour les Qi d'absorption), épreuve des Illusions (🔎 +20 %), racine des enfants (🔎 +15). Les autres traits (prémonition, force, vol, agilité, arts…) attendent le combat et les arts. *Épuiser la vie pour réussir* reste sans effet tant qu'une source ne le détaille pas.
 
 **Sa restauration.** Le miroir est incomplet : chaque **éclat** retrouvé (le premier est repêché dans le lac) lui rend de la puissance et des **souvenirs** (le premier contenait le *Sutra de la respiration du Yin Suprême*, technique de la Respiration Embryonnaire du Manoir de l'Aube d'Argent). Pendant l'intégration d'un éclat, l'esprit **s'endort** par intermittence ; son âme se renforce au fil des éclats.
 
@@ -1366,7 +1366,7 @@ Fondations et capacités divines (§6.5-6.7) :
 | Revered One Suxikong | Vénérable Kongji |
 | Numinous Treasure Dao Tradition | Tradition du Trésor Numineux |
 
-### 13.9 Ajouts de l'analyse de la carte et des personnages du wiki (2026-09-26, 🟡 à valider)
+### 13.9 Ajouts de l'analyse de la carte et des personnages du wiki (✅ validé par l'utilisateur le 2026-09-26)
 | Source | Jeu |
 |---|---|
 | Famille Ding (丁, rive sud-est du Lac du Regard Lunaire) | Famille Kang |
