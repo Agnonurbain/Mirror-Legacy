@@ -261,6 +261,18 @@ namespace MirrorChronicles.Data
         /// <summary>Mirror power to decipher a lineage's gold-seeking method, and its specialised Intercalary method.</summary>
         public int GoldSeekingMirrorCost { get; init; }
         public int SpecialisedMirrorCost { get; init; }
+
+        /// <summary>The true Left Hand (R18): base chance (%) of its forging, and the mirror power to decipher its path.</summary>
+        public int TrueLeftHandChance { get; init; }
+        public int LeftHandMirrorCost { get; init; }
+
+        /// <summary>
+        /// The false Left Hand (R19): the abilities a patron's borrowed power needs, its chance (%) once the patron
+        /// agrees, and the tribute paid each year — unpaid, or the patron gone, and the borrowed power falls.
+        /// </summary>
+        public int FalseLeftHandMinAbilities { get; init; }
+        public int FalseLeftHandChance { get; init; }
+        public int FalseLeftHandYearlyStones { get; init; }
     }
 
     /// <summary>Odds and durations of the Purple Mansion's breakthrough (balance.json, tuned by simulation).</summary>

@@ -16,6 +16,9 @@ namespace MirrorChronicles.Characters
     /// Realization, Surplus or Intercalary (R1-R5). A Surplus or an Intercalary of a held lineage needs its
     /// holder's permission. Either failure gives life to a Metal Essence Demon. The gold-seeking methods are
     /// knowledge (P3): the mirror deciphers them; quests and ruins come with L6.
+    /// The Left Hand paths reach a Golden Core's power without a position (§6.9): the true one, autonomous,
+    /// forged from the Grand Perfection of a lineage that founded one (R18); the false one, a patron's borrowed
+    /// power — a holder who agreed — that falls with the patron or the unpaid tribute (R19).
     /// </summary>
     public sealed class GoldenCoreSystem
     {
@@ -66,14 +69,8 @@ namespace MirrorChronicles.Characters
                 return true;
             }
 
-            member.Realm = CultivationRealm.GoldenCore;
-            member.RealmStage = 1;
-            member.GoldenCore = GoldenCoreState.MetallicEssenceOnly;
-            member.FruitionId = fruitionId;
-            member.PursuedAbility = null;
-            member.MaxLifespan = PowerLadder.LifespanAfterAdvance(member);
+            RiseWithoutPosition(member, GoldenCoreState.MetallicEssenceOnly, fruitionId);
             ctx.Log.Info($"[Golden Core] {member.FullName} forges a metal essence: a True Monarch without position.");
-            ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
             return true;
         }
 
@@ -137,6 +134,82 @@ namespace MirrorChronicles.Characters
             return knowledge.Reveal(FactKind.GoldSeeking, subject, KnowledgeSource.Mirror);
         }
 
+        /// <summary>
+        /// The true Left Hand (R18): a Grand Perfection of a lineage that founded one, whose path the clan knows,
+        /// forges a Golden Core's power without a position. False when it cannot be tried; true once tried.
+        /// </summary>
+        public bool ForgeTrueLeftHand(CharacterData member)
+        {
+            string lineage = GoldenCoreRules.SingleLineage(member?.DivineAbilities);
+            bool ready = IsReadyToRise(member, GoldenCoreRules.AbilitiesToForge) && lineage != null
+                && ctx.Content.Fruitions.FirstOrDefault(f => f.Id == lineage)?.LeftHand != null
+                && knowledge.Knows(FactKind.LeftHand, lineage);
+            if (!ready)
+            {
+                ctx.Log.Warning($"[Golden Core] {member?.FullName} cannot walk a true Left Hand path.");
+                return false;
+            }
+
+            member.CultivationXP -= Xp;
+            int chance = GoldenCoreRules.TrueLeftHandChance(member, ctx.Content);
+            if (ctx.Rng.Next(1, 101) > chance)
+            {
+                BecomeDemon(member, $"fails on the Left Hand path ({chance}%)"); // a lesser demon of the old ways (§6.9)
+                return true;
+            }
+
+            RiseWithoutPosition(member, GoldenCoreState.TrueLeftHand, lineage);
+            ctx.Log.Info($"[Golden Core] {member.FullName} reaches a Golden Core's power by the true Left Hand.");
+            return true;
+        }
+
+        /// <summary>The mirror deciphers the true Left Hand path a lineage founded.</summary>
+        public bool DecipherLeftHand(string fruitionId)
+        {
+            if (ctx.Content.Fruitions.FirstOrDefault(f => f.Id == fruitionId)?.LeftHand == null
+                || knowledge.Knows(FactKind.LeftHand, fruitionId) || !mirror.ConsumePower(Settings.LeftHandMirrorCost)) return false;
+            return knowledge.Reveal(FactKind.LeftHand, fruitionId, KnowledgeSource.Mirror);
+        }
+
+        /// <summary>
+        /// The false Left Hand (R19): a lineage's holder who granted the clan leave lends a Golden Core's power
+        /// to a Purple Mansion. A failure spends the XP but forges no essence. False when it cannot be tried.
+        /// </summary>
+        public bool BindToPatron(CharacterData member, string fruitionId)
+        {
+            var state = fruitions.State(fruitionId);
+            bool patronAgrees = state?.Status == FruitionStatus.Occupied && state.Holder != null
+                && permissions.TryGetValue(fruitionId, out var grantor) && grantor == state.Holder;
+            if (!patronAgrees || !IsReadyToRise(member, Settings.FalseLeftHandMinAbilities))
+            {
+                ctx.Log.Warning($"[Golden Core] {member?.FullName} cannot borrow a patron's power in \"{fruitionId}\".");
+                return false;
+            }
+
+            member.CultivationXP -= Xp;
+            int chance = GoldenCoreRules.FalseLeftHandChance(member, ctx.Content);
+            if (ctx.Rng.Next(1, 101) > chance)
+            {
+                ctx.Log.Info($"[Golden Core] {member.FullName} cannot hold {state.Holder}'s borrowed power ({chance}%).");
+                return true;
+            }
+
+            RiseWithoutPosition(member, GoldenCoreState.FalseLeftHand, fruitionId);
+            member.PatronId = state.Holder;
+            ctx.Log.Info($"[Golden Core] {member.FullName} becomes a false Left Hand in {state.Holder}'s service.");
+            return true;
+        }
+
+        /// <summary>Each Breakthrough phase, every false Left Hand pays its patron — or falls, as it falls with them.</summary>
+        public void ProcessBreakthroughPhase()
+        {
+            foreach (var member in clan.LivingMembers.Where(m => m.GoldenCore == GoldenCoreState.FalseLeftHand).ToList())
+            {
+                if (fruitions.State(member.FruitionId)?.Holder != member.PatronId) Fall(member, "their patron is gone");
+                else if (!resources.ConsumeSpiritStones(Settings.FalseLeftHandYearlyStones)) Fall(member, "the tribute went unpaid");
+            }
+        }
+
         /// <summary>Restores the permissions of a save.</summary>
         public void Restore(IReadOnlyDictionary<string, string> saved)
         {
@@ -145,10 +218,13 @@ namespace MirrorChronicles.Characters
                 if (pair.Key != null && pair.Value != null) permissions[pair.Key] = pair.Value;
         }
 
+        private static bool IsReadyToRise(CharacterData member, int abilities) =>
+            member != null && member.IsAlive && member.Realm == CultivationRealm.PurpleMansion && member.Retreat == Retreat.None
+            && member.DivineAbilities.Count >= abilities && member.CultivationXP >= Xp;
+
         private PositionRoute ForgeRoute(CharacterData member, string fruitionId)
         {
-            if (member == null || !member.IsAlive || member.Realm != CultivationRealm.PurpleMansion || member.Retreat != Retreat.None
-                || member.CultivationXP < Xp) return PositionRoute.None;
+            if (!IsReadyToRise(member, GoldenCoreRules.AbilitiesToForge)) return PositionRoute.None;
 
             var route = GoldenCoreRules.RouteTo(member.DivineAbilities, fruitionId, ctx.Content.Fruitions);
             if (route == PositionRoute.None) return route;
@@ -169,6 +245,29 @@ namespace MirrorChronicles.Characters
 
             bool heldByTheClan = clan.LivingMembers.Any(m => m.GoldenCore == GoldenCoreState.Realization && m.FruitionId == fruitionId);
             return heldByTheClan || (permissions.TryGetValue(fruitionId, out var grantor) && grantor == state.Holder);
+        }
+
+        private void RiseWithoutPosition(CharacterData member, GoldenCoreState standing, string fruitionId)
+        {
+            member.Realm = CultivationRealm.GoldenCore;
+            member.RealmStage = 1;
+            member.GoldenCore = standing;
+            member.FruitionId = fruitionId;
+            member.PursuedAbility = null;
+            member.MaxLifespan = PowerLadder.LifespanAfterAdvance(member);
+            ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
+        }
+
+        /// <summary>A false Left Hand loses the borrowed power: back to the Purple Mansion, abilities kept, the borrowed years gone.</summary>
+        private void Fall(CharacterData member, string why)
+        {
+            member.Realm = CultivationRealm.PurpleMansion;
+            member.RealmStage = PowerLadder.PurpleMansionStageFromAbilities(member.DivineAbilities.Count);
+            member.GoldenCore = GoldenCoreState.None;
+            member.FruitionId = null;
+            member.PatronId = null;
+            PowerLadder.NormalizeLifespan(member);
+            ctx.Log.Info($"[Golden Core] {member.FullName} falls back to the Purple Mansion: {why}.");
         }
 
         private void BecomeDemon(CharacterData member, string how)

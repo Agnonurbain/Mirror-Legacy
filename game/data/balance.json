@@ -46,7 +46,12 @@
     "permissionStones": 5000,
     "permissionChance": 0.3,
     "goldSeekingMirrorCost": 40,
-    "specialisedMirrorCost": 70
+    "specialisedMirrorCost": 70,
+    "trueLeftHandChance": 55,
+    "leftHandMirrorCost": 40,
+    "falseLeftHandMinAbilities": 3,
+    "falseLeftHandChance": 60,
+    "falseLeftHandYearlyStones": 300
   },
   "studyRevealsPartnersChance": 0.1,
   "oaths": {

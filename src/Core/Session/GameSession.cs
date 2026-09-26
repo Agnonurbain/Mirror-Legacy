@@ -253,6 +253,7 @@ namespace MirrorChronicles.Session
                     Breakthroughs.ProcessBreakthroughPhase();
                     PurpleMansion.ProcessBreakthroughPhase(); // the ascent's four trials and the retreats under way
                     Abilities.ProcessBreakthroughPhase();     // divine abilities condensed from the Dao Partners
+                    GoldenCore.ProcessBreakthroughPhase();    // the false Left Hands pay their patrons, or fall
                     break;
                 case GamePhase.Inheritance:
                     Clan.ProcessAnnualBirths();

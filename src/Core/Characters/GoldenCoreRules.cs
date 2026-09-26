@@ -67,7 +67,30 @@ namespace MirrorChronicles.Characters
         /// Chance (%) of forging the metal essence: shallow and grafted abilities weigh on it, the Life ability
         /// condensed last helps (§5.4.4), and so does talent.
         /// </summary>
-        public static int ForgeChance(CharacterData member, GameContent content)
+        public static int ForgeChance(CharacterData member, GameContent content) =>
+            ForgingChance(member, content, content.Balance.GoldenCore.ForgeBaseChance);
+
+        /// <summary>Chance (%) of forging a true Left Hand: its own base, weighed like any forging.</summary>
+        public static int TrueLeftHandChance(CharacterData member, GameContent content) =>
+            ForgingChance(member, content, content.Balance.GoldenCore.TrueLeftHandChance);
+
+        /// <summary>Chance (%) of binding a patron's borrowed power once they agree: its base and talent.</summary>
+        public static int FalseLeftHandChance(CharacterData member, GameContent content) =>
+            Clamp(content.Balance.GoldenCore.FalseLeftHandChance + RootBonus(member, content));
+
+        /// <summary>
+        /// The lineage whose five abilities the cultivator holds, all of it (substitutes included), or null:
+        /// the Grand Perfection a true Left Hand is forged from.
+        /// </summary>
+        public static string SingleLineage(IEnumerable<string> abilities)
+        {
+            var held = abilities?.Distinct().ToList();
+            if (held == null || held.Count != AbilitiesToForge) return null;
+            var lineages = held.Select(a => FoundationRef.Parse(a).FruitionId).Distinct().ToList();
+            return lineages.Count == 1 ? lineages[0] : null;
+        }
+
+        private static int ForgingChance(CharacterData member, GameContent content, int baseChance)
         {
             var s = content.Balance.GoldenCore;
             var abilities = member.DivineAbilities;
@@ -76,7 +99,7 @@ namespace MirrorChronicles.Characters
             bool lifeLast = abilities.Count > 0
                 && Definition(abilities[abilities.Count - 1], content.Fruitions).Ability?.Types.Contains(AbilityType.Life) == true;
 
-            return Clamp(s.ForgeBaseChance + RootBonus(member, content)
+            return Clamp(baseChance + RootBonus(member, content)
                 - shallow * s.ShallowAbilityPenalty - grafted * s.GraftedAbilityPenalty + (lifeLast ? s.LifeLastBonus : 0));
         }
 
