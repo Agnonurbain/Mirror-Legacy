@@ -267,7 +267,7 @@ namespace MirrorChronicles.Tests.Characters
         {
             // One Realization per lineage; the essence may try again later (R7)
             var w = new TestWorld(new FixedRandom(Pass));
-            w.Fruitions.ChangeHolder(OrthodoxWater, "Vrai Monarque rival");
+            Assert.IsTrue(w.Fruitions.Claim(OrthodoxWater, "Vrai Monarque rival"));
             var c = Forged(w, OrthodoxWater);
 
             Assert.IsFalse(w.GoldenCore.ClaimPosition(c));

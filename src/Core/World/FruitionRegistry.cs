@@ -51,10 +51,22 @@ namespace MirrorChronicles.World
             }
         }
 
-        /// <summary>A True Monarch takes the lineage's Realization: it is now held, by them.</summary>
-        public void Claim(string fruitionId, string holder)
+        /// <summary>
+        /// A True Monarch takes the lineage's Realization: only a free one (one Realization per lineage, LORE.md
+        /// §5.5.1). False, and nothing changes, when it is held, broken, hidden or suspected.
+        /// </summary>
+        public bool Claim(string fruitionId, string holder)
         {
-            if (State(fruitionId) == null) throw new ArgumentException($"Unknown lineage \"{fruitionId}\".", nameof(fruitionId));
+            if (State(fruitionId)?.Status != FruitionStatus.Free) return false;
+            states[fruitionId] = new FruitionState(FruitionStatus.Occupied, holder);
+            return true;
+        }
+
+        /// <summary>A held lineage passes to another holder (a successor, a usurper: world events).</summary>
+        public void ChangeHolder(string fruitionId, string holder)
+        {
+            if (State(fruitionId)?.Status != FruitionStatus.Occupied)
+                throw new InvalidOperationException($"\"{fruitionId}\" has no holder to replace.");
             states[fruitionId] = new FruitionState(FruitionStatus.Occupied, holder);
         }
 
