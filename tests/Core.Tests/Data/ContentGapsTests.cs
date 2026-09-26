@@ -52,6 +52,15 @@ namespace MirrorChronicles.Tests.Data
             Assert.IsTrue(report.Any(line => line.Contains("nourishing-water") && line.Contains("unrevealed-4")));
         }
 
+        [Test]
+        public void Report_CoversTheAtmospheres_TheFigures_AndTheTalismans()
+        {
+            var report = ContentGaps.Report(Fixtures.Content);
+            Assert.IsTrue(report.Any(line => line.StartsWith(GameContentLoader.AtmospheresFile) && line.Contains("falling-water-rising-storm")));
+            Assert.IsTrue(report.Any(line => line.StartsWith(GameContentLoader.FiguresFile)));
+            Assert.IsTrue(report.Any(line => line.StartsWith(GameContentLoader.TalismansFile)));
+        }
+
         /// <summary>Prints the gaps (./Scripts/dev.sh gaps).</summary>
         [Test, Explicit]
         public void ContentGapsReport()
