@@ -126,5 +126,15 @@ namespace MirrorChronicles.Tests.Presentation
         {
             Assert.IsNull(WorldMapView.QiOf(NewGame(), "nowhere"));
         }
+
+        [Test]
+        public void Places_CarryTheirQiDensity_AndTheAtmosphereOverThem()
+        {
+            var s = NewGame();
+            Assert.AreEqual(1.0, Place(s, "jingshui-lake").QiDensity, 1e-9);
+            Assert.IsNull(Place(s, "jingshui-lake").Atmosphere);
+            Assert.AreEqual(("Grand Entrepôt des Esprits Funestes", false), (Place(s, "baishi").Atmosphere, Place(s, "baishi").AtmosphereHarsh));
+            Assert.IsTrue(Place(s, "zhanghe").AtmosphereHarsh, "a storm weighs on all");
+        }
     }
 }
