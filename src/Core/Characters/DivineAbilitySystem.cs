@@ -137,7 +137,7 @@ namespace MirrorChronicles.Characters
         private bool CanTake(CharacterData member, string ability)
         {
             if (member == null || !member.IsAlive || member.Realm != CultivationRealm.PurpleMansion || member.Retreat != Retreat.None
-                || member.ProgressionSealed) return false; // a borrowed light condenses nothing of its own
+                || member.ProgressionSealed || member.BorrowedLight) return false; // a sealed path, or a lent light, condenses nothing
             if (ability == null || member.DivineAbilities.Count >= MaxAbilities || member.DivineAbilities.Contains(ability)) return false;
 
             var (lineage, abilityId) = FoundationRef.Parse(ability);
@@ -161,7 +161,7 @@ namespace MirrorChronicles.Characters
             var (lineage, abilityId) = FoundationRef.Parse(ability);
             var image = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == lineage)?.Abilities.FirstOrDefault(a => a.Id == abilityId)?.Imagery;
             bool embodied = image != null && image != Temperament.None && image == member.Temperament;
-            return embodied ? (int)(xp * Settings.ImageryXpFactor) : xp;
+            return embodied ? System.Math.Max(1, (int)(xp * Settings.ImageryXpFactor)) : xp;
         }
 
         /// <summary>The Qi of a known technique aligned on the ability (its Qi builds that foundation), or null.</summary>

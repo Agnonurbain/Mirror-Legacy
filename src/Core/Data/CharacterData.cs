@@ -41,8 +41,8 @@ namespace MirrorChronicles.Data
         public GoldenCoreState GoldenCore { get; set; }
         public string FruitionId { get; set; }          // Dao lineage held or pursued
         public string PatronId { get; set; }            // superior a False Left Hand / borrower depends on
-        public bool BorrowedLight { get; set; }
-        public bool TransformedLineage { get; set; }    // a Realization holder's descendant: reaches at least the Purple Mansion (§5.5.2)         // a « Merciful » Purple Mansion on a Fruition's lent light (§5.4.2)
+        public bool BorrowedLight { get; set; }         // a « Merciful » Purple Mansion on a Fruition's lent light (§5.4.2)
+        public bool TransformedLineage { get; set; }    // a Realization holder's descendant: reaches at least the Purple Mansion (§5.5.2)
         public string ReincarnationOfId { get; set; }   // reincarnated True Monarch (R9)
         public string FragmentOfId { get; set; }        // fragment of a split Golden Core (R21)
 

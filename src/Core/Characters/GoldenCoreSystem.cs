@@ -254,8 +254,7 @@ namespace MirrorChronicles.Characters
 
             member.Realm = CultivationRealm.PurpleMansion;
             member.RealmStage = 1;
-            member.BorrowedLight = true;
-            member.ProgressionSealed = true; // a lent light condenses nothing of its own
+            member.BorrowedLight = true; // a lent light condenses nothing of its own (DivineAbilitySystem refuses it)
             member.FruitionId = fruitionId;
             member.PatronId = state.Holder;
             member.MaxLifespan = PowerLadder.LifespanAfterAdvance(member);
@@ -368,13 +367,12 @@ namespace MirrorChronicles.Characters
             ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
         }
 
-        /// <summary>A borrowed light goes out: back to the Foundation's peak, free to cultivate again.</summary>
+        /// <summary>A borrowed light goes out: back to the Foundation's peak (a seal from elsewhere stays: it is not the light's).</summary>
         private void ReturnLight(CharacterData member, string why)
         {
             member.Realm = CultivationRealm.Foundation;
             member.RealmStage = PowerLadder.StageCount(CultivationRealm.Foundation);
             member.BorrowedLight = false;
-            member.ProgressionSealed = false;
             member.FruitionId = null;
             member.PatronId = null;
             PowerLadder.NormalizeLifespan(member);
