@@ -1030,7 +1030,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 7,
+      "community": 152,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -1040,7 +1040,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 7,
+      "community": 152,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -1050,7 +1050,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_breakthroughsystem",
-      "community": 7,
+      "community": 156,
       "norm_label": "breakthroughsystem"
     },
     {
@@ -1060,7 +1060,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_int",
-      "community": 7,
+      "community": 156,
       "norm_label": "int"
     },
     {
@@ -1070,7 +1070,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_gamecontext",
-      "community": 7,
+      "community": 156,
       "norm_label": "gamecontext"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_clanmanager",
-      "community": 7,
+      "community": 156,
       "norm_label": "clanmanager"
     },
     {
@@ -1090,7 +1090,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_cultivationsystem",
-      "community": 7,
+      "community": 156,
       "norm_label": "cultivationsystem"
     },
     {
@@ -1100,7 +1100,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_breakthroughsystem_processbreakthroughphase",
-      "community": 7,
+      "community": 156,
       "norm_label": ".processbreakthroughphase()"
     },
     {
@@ -1110,7 +1110,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_breakthroughsystem_calculatesuccessrate",
-      "community": 7,
+      "community": 156,
       "norm_label": ".calculatesuccessrate()"
     },
     {
@@ -1120,7 +1120,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_characterdata",
-      "community": 7,
+      "community": 156,
       "norm_label": "characterdata"
     },
     {
@@ -1130,7 +1130,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_breakthroughsystem_attemptbreakthrough",
-      "community": 7,
+      "community": 156,
       "norm_label": ".attemptbreakthrough()"
     },
     {
@@ -1140,7 +1140,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_breakthroughoutcome",
-      "community": 7,
+      "community": 156,
       "norm_label": "breakthroughoutcome"
     },
     {
@@ -2117,7 +2117,7 @@
       "label": ".Transgress()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L78",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_transgress",
       "community": 11,
@@ -2127,7 +2127,7 @@
       "label": "OathAct",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L78",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "oathact",
       "community": 11,
@@ -2137,7 +2137,7 @@
       "label": ".Fulfil()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L96",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_fulfil",
       "community": 11,
@@ -2147,7 +2147,7 @@
       "label": ".VeilNextBreach()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L104",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_veilnextbreach",
       "community": 11,
@@ -2157,7 +2157,7 @@
       "label": ".Purify()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L112",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_purify",
       "community": 11,
@@ -2167,7 +2167,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L122",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_restore",
       "community": 11,
@@ -2177,7 +2177,7 @@
       "label": ".Clause()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L128",
+      "source_location": "L137",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_clause",
       "community": 11,
@@ -2187,7 +2187,7 @@
       "label": "ClauseDefinition",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L128",
+      "source_location": "L137",
       "_origin": "ast",
       "id": "clausedefinition",
       "community": 11,
@@ -2197,7 +2197,7 @@
       "label": ".Binds()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L131",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_binds",
       "community": 11,
@@ -2207,7 +2207,7 @@
       "label": ".Punish()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L135",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_punish",
       "community": 11,
@@ -2217,7 +2217,7 @@
       "label": ".PassYear()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L162",
+      "source_location": "L171",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_passyear",
       "community": 11,
@@ -3430,7 +3430,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_woundsystem",
-      "community": 7,
+      "community": 155,
       "norm_label": "woundsystem.cs"
     },
     {
@@ -3440,7 +3440,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "characters_woundsystem_mirrorchronicles_characters",
-      "community": 7,
+      "community": 155,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -3450,7 +3450,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 7,
+      "community": 157,
       "norm_label": "woundsystem"
     },
     {
@@ -3460,7 +3460,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 7,
+      "community": 157,
       "norm_label": "double"
     },
     {
@@ -3470,7 +3470,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 7,
+      "community": 157,
       "norm_label": "int"
     },
     {
@@ -3480,7 +3480,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 7,
+      "community": 157,
       "norm_label": "gamecontext"
     },
     {
@@ -3490,7 +3490,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 7,
+      "community": 157,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -3500,7 +3500,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 7,
+      "community": 157,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -3510,7 +3510,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 7,
+      "community": 157,
       "norm_label": "characterdata"
     },
     {
@@ -3520,7 +3520,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 7,
+      "community": 157,
       "norm_label": ".applydaowound()"
     },
     {
@@ -3530,7 +3530,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 7,
+      "community": 157,
       "norm_label": ".applywound()"
     },
     {
@@ -4070,7 +4070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 69,
+      "community": 88,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -4080,7 +4080,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 69,
+      "community": 88,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -5960,7 +5960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 7,
+      "community": 152,
       "norm_label": "combatunit.cs"
     },
     {
@@ -5970,7 +5970,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 7,
+      "community": 152,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -6280,7 +6280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_characterdata",
-      "community": 7,
+      "community": 155,
       "norm_label": "characterdata.cs"
     },
     {
@@ -6290,7 +6290,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "data_characterdata_mirrorchronicles_data",
-      "community": 7,
+      "community": 155,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -6300,7 +6300,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "data_characterdata_characterdata",
-      "community": 7,
+      "community": 155,
       "norm_label": "characterdata"
     },
     {
@@ -6310,7 +6310,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "data_characterdata_characterdata_clone",
-      "community": 7,
+      "community": 155,
       "norm_label": ".clone()"
     },
     {
@@ -7117,7 +7117,7 @@
       "label": ".CheckInterpretedFields()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L344",
+      "source_location": "L347",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkinterpretedfields",
       "community": 18,
@@ -7127,7 +7127,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L344",
+      "source_location": "L347",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_ienumerable",
       "community": 18,
@@ -7137,7 +7137,7 @@
       "label": "Id",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L344",
+      "source_location": "L347",
       "_origin": "ast",
       "id": "id",
       "community": 18,
@@ -7147,7 +7147,7 @@
       "label": "Type",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L344",
+      "source_location": "L347",
       "_origin": "ast",
       "id": "type",
       "community": 18,
@@ -7157,7 +7157,7 @@
       "label": "Fields",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L344",
+      "source_location": "L347",
       "_origin": "ast",
       "id": "fields",
       "community": 18,
@@ -7167,7 +7167,7 @@
       "label": ".IsProbability()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L354",
+      "source_location": "L357",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_isprobability",
       "community": 18,
@@ -7177,7 +7177,7 @@
       "label": ".Require()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L356",
+      "source_location": "L359",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_require",
       "community": 18,
@@ -7530,7 +7530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem",
-      "community": 74,
+      "community": 150,
       "norm_label": "alliancesystem.cs"
     },
     {
@@ -7540,7 +7540,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_mirrorchronicles_diplomacy",
-      "community": 74,
+      "community": 150,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -7640,7 +7640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 33,
+      "community": 150,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -7650,7 +7650,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 33,
+      "community": 150,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -7660,7 +7660,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_espionagesystem",
-      "community": 33,
+      "community": 151,
       "norm_label": "espionagesystem"
     },
     {
@@ -7670,7 +7670,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_double",
-      "community": 33,
+      "community": 151,
       "norm_label": "double"
     },
     {
@@ -7680,7 +7680,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_int",
-      "community": 33,
+      "community": 151,
       "norm_label": "int"
     },
     {
@@ -7690,7 +7690,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_gamecontext",
-      "community": 33,
+      "community": 151,
       "norm_label": "gamecontext"
     },
     {
@@ -7700,7 +7700,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_factionmanager",
-      "community": 33,
+      "community": 151,
       "norm_label": "factionmanager"
     },
     {
@@ -7710,7 +7710,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_deductionengine",
-      "community": 33,
+      "community": 151,
       "norm_label": "deductionengine"
     },
     {
@@ -7720,7 +7720,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_mentalstabilitysystem",
-      "community": 33,
+      "community": 151,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -7730,7 +7730,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_espionagesystem_attemptespionage",
-      "community": 33,
+      "community": 151,
       "norm_label": ".attemptespionage()"
     },
     {
@@ -7740,7 +7740,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_characterdata",
-      "community": 33,
+      "community": 151,
       "norm_label": "characterdata"
     },
     {
@@ -7750,7 +7750,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_factiondata",
-      "community": 33,
+      "community": 151,
       "norm_label": "factiondata"
     },
     {
@@ -7760,7 +7760,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "espionageresult",
-      "community": 33,
+      "community": 151,
       "norm_label": "espionageresult"
     },
     {
@@ -7930,7 +7930,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 84,
+      "community": 150,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -7940,7 +7940,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 84,
+      "community": 150,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -8500,7 +8500,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 33,
+      "community": 158,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -8510,7 +8510,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 33,
+      "community": 158,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -9600,7 +9600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_mirrorsystem",
-      "community": 88,
+      "community": 152,
       "norm_label": "mirrorsystem.cs"
     },
     {
@@ -9610,7 +9610,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorchronicles_mirror",
-      "community": 88,
+      "community": 152,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -10297,7 +10297,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L215",
+      "source_location": "L216",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 146,
@@ -10307,7 +10307,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L215",
+      "source_location": "L216",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 146,
@@ -10317,7 +10317,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L219",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 146,
@@ -10327,7 +10327,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L230",
+      "source_location": "L231",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 146,
@@ -10337,7 +10337,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L237",
+      "source_location": "L238",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 146,
@@ -10347,7 +10347,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L237",
+      "source_location": "L238",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 146,
@@ -10357,7 +10357,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L259",
+      "source_location": "L260",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 146,
@@ -13114,10 +13114,50 @@
       "norm_label": ".loophole_purificationcanliftaheartdemon()"
     },
     {
+      "label": ".Breach_ThatInterrupts_CanAlsoWoundTheDao()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "characters_oathtests_oathtests_breach_thatinterrupts_canalsowoundthedao",
+      "community": 58,
+      "norm_label": ".breach_thatinterrupts_canalsowoundthedao()"
+    },
+    {
+      "label": ".WithoutTheExpiryLoophole_ATermIsIgnored_AndThePactHoldsForLife()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "characters_oathtests_oathtests_withouttheexpiryloophole_atermisignored_andthepactholdsforlife",
+      "community": 58,
+      "norm_label": ".withouttheexpiryloophole_atermisignored_andthepactholdsforlife()"
+    },
+    {
+      "label": ".MirrorVeil_SurvivesASave()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L188",
+      "_origin": "ast",
+      "id": "characters_oathtests_oathtests_mirrorveil_survivesasave",
+      "community": 58,
+      "norm_label": ".mirrorveil_survivesasave()"
+    },
+    {
+      "label": ".Load_Refuses_OathsWithoutLoopholes()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L205",
+      "_origin": "ast",
+      "id": "characters_oathtests_oathtests_load_refuses_oathswithoutloopholes",
+      "community": 58,
+      "norm_label": ".load_refuses_oathswithoutloopholes()"
+    },
+    {
       "label": ".Service_NotRenderedByItsDeadline_BreaksTheOath()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
-      "source_location": "L160",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "characters_oathtests_oathtests_service_notrenderedbyitsdeadline_breakstheoath",
       "community": 58,
@@ -13127,7 +13167,7 @@
       "label": ".Service_Rendered_KeepsThePathClear()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
-      "source_location": "L174",
+      "source_location": "L232",
       "_origin": "ast",
       "id": "characters_oathtests_oathtests_service_rendered_keepsthepathclear",
       "community": 58,
@@ -13137,7 +13177,7 @@
       "label": ".ShippedOaths_MarkThemselvesAsInterpretation()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
-      "source_location": "L192",
+      "source_location": "L250",
       "_origin": "ast",
       "id": "characters_oathtests_oathtests_shippedoaths_markthemselvesasinterpretation",
       "community": 58,
@@ -13147,7 +13187,7 @@
       "label": ".Load_Refuses_AClauseWithoutSeverity()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
-      "source_location": "L199",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "characters_oathtests_oathtests_load_refuses_aclausewithoutseverity",
       "community": 58,
@@ -13157,7 +13197,7 @@
       "label": ".RoundTrip_KeepsThePactsAndTheHeartDemons()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
-      "source_location": "L209",
+      "source_location": "L267",
       "_origin": "ast",
       "id": "characters_oathtests_oathtests_roundtrip_keepsthepactsandtheheartdemons",
       "community": 58,
@@ -24890,7 +24930,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 7,
+      "community": 152,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -24904,7 +24944,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player controls no character directly; observes, guides and influences a mortal family over generations to become the strongest cultivator clan of Mount Dali.",
-      "community": 88,
+      "community": 152,
       "norm_label": "player as consciousness trapped in ancestral bronze mirror",
       "id": "brain_claude_memory_mirror_consciousness_premise"
     },
@@ -24983,7 +25023,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Only theoretical so far: POCO data separated from managers, but UI logic still lives in MonoBehaviours (NOT_DONE #102).",
-      "community": 20,
+      "community": 4,
       "norm_label": "mvc pattern (data pocos vs managers vs ui)",
       "id": "brain_claude_memory_mvc_pattern"
     },
@@ -25011,7 +25051,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 84,
+      "community": 150,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -25024,7 +25064,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 33,
+      "community": 158,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -25037,7 +25077,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 33,
+      "community": 158,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -25050,7 +25090,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 33,
+      "community": 158,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -25063,7 +25103,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 84,
+      "community": 150,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -25102,7 +25142,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 4,
       "norm_label": "strict mvc for ui (#102)",
       "id": "brain_claude_not_done_mvc_ui"
     },
@@ -25171,7 +25211,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Replaces JsonUtility, which cannot serialize auto-properties (WL-006).",
-      "community": 7,
+      "community": 155,
       "norm_label": "newtonsoft json (com.unity.nuget.newtonsoft-json)",
       "id": "brain_claude_package_newtonsoft_json"
     },
@@ -25210,7 +25250,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 33,
+      "community": 158,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -25251,7 +25291,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 84,
+      "community": 150,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -25264,7 +25304,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 155,
       "norm_label": "wound lethality model (vitality thresholds, dao wound)",
       "id": "brain_claude_plan_wound_lethality"
     },
@@ -25358,7 +25398,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 84,
+      "community": 150,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -25371,7 +25411,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 33,
+      "community": 158,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -25397,7 +25437,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 84,
+      "community": 150,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -25561,7 +25601,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Save produced empty characters silently; default to Newtonsoft.Json for non-trivial save logic.",
-      "community": 7,
+      "community": 155,
       "norm_label": "wl-006: jsonutility does not serialize auto-properties",
       "id": "brain_claude_worked_lesson_wl_006"
     },
@@ -25575,7 +25615,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Never merge 'In a full implementation...' placeholder comments; add ActiveWounds/HasDaoWound + WoundData POCO.",
-      "community": 7,
+      "community": 155,
       "norm_label": "wl-007: wounds not persisted on characterdata",
       "id": "brain_claude_worked_lesson_wl_007"
     },
@@ -25685,7 +25725,7 @@
       "author": null,
       "contributor": null,
       "rationale": "2D multigenerational clan-management RPG with Xianxia cultivation, turn-based tactical combat, faction diplomacy and inheritance over 10+ generations.",
-      "community": 88,
+      "community": 152,
       "norm_label": "reflets de lignee: les chroniques du miroir (mirror chronicles)",
       "id": "readme_mirror_chronicles"
     },
@@ -25698,7 +25738,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 88,
+      "community": 152,
       "norm_label": "the mirror legacy (xuanjian xianzu) - inspiration",
       "id": "readme_the_mirror_legacy"
     },
@@ -28883,9 +28923,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem",
-      "target": "characters_oathsystem_mirrorchronicles_characters",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_mirrorchronicles_characters"
     },
     {
       "relation": "contains",
@@ -28893,9 +28933,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem",
-      "target": "characters_oathsystem_oathsystem",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem"
     },
     {
       "relation": "method",
@@ -28903,9 +28943,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_allows",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_allows"
     },
     {
       "relation": "method",
@@ -28913,9 +28953,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_binds",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_binds"
     },
     {
       "relation": "method",
@@ -28923,9 +28963,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_clause",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_clause"
     },
     {
       "relation": "method",
@@ -28933,9 +28973,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_fulfil",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_fulfil"
     },
     {
       "relation": "method",
@@ -28943,9 +28983,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_pactsof",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_pactsof"
     },
     {
       "relation": "method",
@@ -28953,9 +28993,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_passyear",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_passyear"
     },
     {
       "relation": "method",
@@ -28963,9 +29003,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_punish",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_punish"
     },
     {
       "relation": "method",
@@ -28973,9 +29013,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L112",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_purify",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_purify"
     },
     {
       "relation": "method",
@@ -28983,9 +29023,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_restore",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_restore"
     },
     {
       "relation": "method",
@@ -28993,9 +29033,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_swear",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_swear"
     },
     {
       "relation": "method",
@@ -29003,9 +29043,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_transgress",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_transgress"
     },
     {
       "relation": "method",
@@ -29013,9 +29053,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "characters_oathsystem_oathsystem_veilnextbreach",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_veilnextbreach"
     },
     {
       "relation": "references",
@@ -29024,9 +29064,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "knowledgebase",
-      "confidence_score": 1.0
+      "target": "knowledgebase"
     },
     {
       "relation": "references",
@@ -29035,9 +29075,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "src_core_characters_oathsystem_cs_clanmanager",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_clanmanager"
     },
     {
       "relation": "references",
@@ -29046,9 +29086,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "src_core_characters_oathsystem_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_gamecontext"
     },
     {
       "relation": "references",
@@ -29057,9 +29097,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "src_core_characters_oathsystem_cs_hashset",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_hashset"
     },
     {
       "relation": "references",
@@ -29068,9 +29108,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "src_core_characters_oathsystem_cs_list",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_list"
     },
     {
       "relation": "references",
@@ -29079,9 +29119,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "src_core_characters_oathsystem_cs_mirrorsystem",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_mirrorsystem"
     },
     {
       "relation": "references",
@@ -29090,9 +29130,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem",
-      "target": "src_core_characters_oathsystem_cs_resourcemanager",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_resourcemanager"
     },
     {
       "relation": "references",
@@ -29101,9 +29141,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_pactsof",
-      "target": "pactdata",
-      "confidence_score": 1.0
+      "target": "pactdata"
     },
     {
       "relation": "references",
@@ -29112,9 +29152,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_pactsof",
-      "target": "src_core_characters_oathsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -29123,9 +29163,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_pactsof",
-      "target": "src_core_characters_oathsystem_cs_ienumerable",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_ienumerable"
     },
     {
       "relation": "references",
@@ -29134,9 +29174,9 @@
       "source_location": "L131",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_binds",
-      "target": "src_core_characters_oathsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -29145,9 +29185,9 @@
       "source_location": "L96",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_fulfil",
-      "target": "src_core_characters_oathsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -29156,9 +29196,9 @@
       "source_location": "L135",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_punish",
-      "target": "src_core_characters_oathsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -29167,9 +29207,9 @@
       "source_location": "L112",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_purify",
-      "target": "src_core_characters_oathsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -29178,9 +29218,9 @@
       "source_location": "L51",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_swear",
-      "target": "src_core_characters_oathsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -29189,9 +29229,9 @@
       "source_location": "L78",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_transgress",
-      "target": "src_core_characters_oathsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -29200,9 +29240,9 @@
       "source_location": "L104",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_veilnextbreach",
-      "target": "src_core_characters_oathsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -29211,9 +29251,9 @@
       "source_location": "L122",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_restore",
-      "target": "src_core_characters_oathsystem_cs_ienumerable",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_ienumerable"
     },
     {
       "relation": "references",
@@ -29222,9 +29262,9 @@
       "source_location": "L131",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_binds",
-      "target": "pactdata",
-      "confidence_score": 1.0
+      "target": "pactdata"
     },
     {
       "relation": "references",
@@ -29233,9 +29273,9 @@
       "source_location": "L96",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_fulfil",
-      "target": "pactdata",
-      "confidence_score": 1.0
+      "target": "pactdata"
     },
     {
       "relation": "references",
@@ -29244,9 +29284,9 @@
       "source_location": "L122",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_restore",
-      "target": "pactdata",
-      "confidence_score": 1.0
+      "target": "pactdata"
     },
     {
       "relation": "references",
@@ -29255,9 +29295,9 @@
       "source_location": "L51",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_swear",
-      "target": "pactdata",
-      "confidence_score": 1.0
+      "target": "pactdata"
     },
     {
       "relation": "references",
@@ -29266,9 +29306,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_allows",
-      "target": "loopholekind",
-      "confidence_score": 1.0
+      "target": "loopholekind"
     },
     {
       "relation": "calls",
@@ -29277,9 +29317,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_passyear",
-      "target": "characters_oathsystem_oathsystem_allows",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_allows"
     },
     {
       "relation": "calls",
@@ -29288,9 +29328,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_purify",
-      "target": "characters_oathsystem_oathsystem_allows",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_allows"
     },
     {
       "relation": "calls",
@@ -29299,9 +29339,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_swear",
-      "target": "characters_oathsystem_oathsystem_allows",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_allows"
     },
     {
       "relation": "calls",
@@ -29310,9 +29350,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_transgress",
-      "target": "characters_oathsystem_oathsystem_allows",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_allows"
     },
     {
       "relation": "calls",
@@ -29321,9 +29361,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_veilnextbreach",
-      "target": "characters_oathsystem_oathsystem_allows",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_allows"
     },
     {
       "relation": "references",
@@ -29332,9 +29372,9 @@
       "source_location": "L51",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_swear",
-      "target": "src_core_characters_oathsystem_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_characters_oathsystem_cs_ireadonlylist"
     },
     {
       "relation": "calls",
@@ -29343,9 +29383,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_transgress",
-      "target": "characters_oathsystem_oathsystem_binds",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_binds"
     },
     {
       "relation": "calls",
@@ -29354,9 +29394,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_transgress",
-      "target": "characters_oathsystem_oathsystem_punish",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_punish"
     },
     {
       "relation": "references",
@@ -29365,9 +29405,9 @@
       "source_location": "L78",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_transgress",
-      "target": "oathact",
-      "confidence_score": 1.0
+      "target": "oathact"
     },
     {
       "relation": "references",
@@ -29376,9 +29416,9 @@
       "source_location": "L128",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_clause",
-      "target": "clausedefinition",
-      "confidence_score": 1.0
+      "target": "clausedefinition"
     },
     {
       "relation": "calls",
@@ -29387,9 +29427,9 @@
       "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L175",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathsystem_oathsystem_passyear",
-      "target": "characters_oathsystem_oathsystem_punish",
-      "confidence_score": 1.0
+      "target": "characters_oathsystem_oathsystem_punish"
     },
     {
       "relation": "contains",
@@ -37358,9 +37398,9 @@
       "source_file": "src/Core/Data/GameContentLoader.cs",
       "source_location": "L333",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_gamecontentloader_gamecontentloader",
-      "target": "data_gamecontentloader_gamecontentloader_checkoaths",
-      "confidence_score": 1.0
+      "target": "data_gamecontentloader_gamecontentloader_checkoaths"
     },
     {
       "relation": "method",
@@ -37582,9 +37622,9 @@
       "source_file": "src/Core/Data/GameContentLoader.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_gamecontentloader_gamecontentloader_load",
-      "target": "data_gamecontentloader_gamecontentloader_checkoaths",
-      "confidence_score": 1.0
+      "target": "data_gamecontentloader_gamecontentloader_checkoaths"
     },
     {
       "relation": "calls",
@@ -38099,9 +38139,9 @@
       "source_file": "src/Core/Data/GameContentLoader.cs",
       "source_location": "L336",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_gamecontentloader_gamecontentloader_checkoaths",
-      "target": "data_gamecontentloader_gamecontentloader_require",
-      "confidence_score": 1.0
+      "target": "data_gamecontentloader_gamecontentloader_require"
     },
     {
       "relation": "references",
@@ -38110,9 +38150,9 @@
       "source_location": "L333",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "data_gamecontentloader_gamecontentloader_checkoaths",
-      "target": "oathcatalog",
-      "confidence_score": 1.0
+      "target": "oathcatalog"
     },
     {
       "relation": "calls",
@@ -38226,9 +38266,9 @@
       "source_file": "src/Core/Data/OathData.cs",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_oathdata",
-      "target": "data_oathdata_clausedefinition",
-      "confidence_score": 1.0
+      "target": "data_oathdata_clausedefinition"
     },
     {
       "relation": "contains",
@@ -38236,9 +38276,9 @@
       "source_file": "src/Core/Data/OathData.cs",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_oathdata",
-      "target": "data_oathdata_loopholedefinition",
-      "confidence_score": 1.0
+      "target": "data_oathdata_loopholedefinition"
     },
     {
       "relation": "contains",
@@ -38246,9 +38286,9 @@
       "source_file": "src/Core/Data/OathData.cs",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_oathdata",
-      "target": "data_oathdata_mirrorchronicles_data",
-      "confidence_score": 1.0
+      "target": "data_oathdata_mirrorchronicles_data"
     },
     {
       "relation": "contains",
@@ -38256,9 +38296,9 @@
       "source_file": "src/Core/Data/OathData.cs",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_oathdata",
-      "target": "data_oathdata_oathcatalog",
-      "confidence_score": 1.0
+      "target": "data_oathdata_oathcatalog"
     },
     {
       "relation": "contains",
@@ -38266,9 +38306,9 @@
       "source_file": "src/Core/Data/OathData.cs",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_oathdata",
-      "target": "data_oathdata_oathsettings",
-      "confidence_score": 1.0
+      "target": "data_oathdata_oathsettings"
     },
     {
       "relation": "contains",
@@ -38276,9 +38316,9 @@
       "source_file": "src/Core/Data/OathData.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_oathdata",
-      "target": "data_oathdata_pactdata",
-      "confidence_score": 1.0
+      "target": "data_oathdata_pactdata"
     },
     {
       "relation": "references",
@@ -38287,9 +38327,9 @@
       "source_location": "L102",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "data_oathdata_pactdata_clone",
-      "target": "data_oathdata_pactdata",
-      "confidence_score": 1.0
+      "target": "data_oathdata_pactdata"
     },
     {
       "relation": "contains",
@@ -40664,9 +40704,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggerharm",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggerharm"
     },
     {
       "relation": "method",
@@ -40725,9 +40765,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus_triggerharm",
-      "target": "src_core_events_gameeventbus_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_events_gameeventbus_cs_characterdata"
     },
     {
       "relation": "references",
@@ -41211,9 +41251,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_deductionengine_deductionengine",
-      "target": "src_core_mirror_deductionengine_cs_mirrorsystem",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_deductionengine_cs_mirrorsystem"
     },
     {
       "relation": "references",
@@ -46988,9 +47028,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests",
-      "target": "characters_oathtests_mirrorchronicles_tests_characters",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_mirrorchronicles_tests_characters"
     },
     {
       "relation": "contains",
@@ -46998,9 +47038,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests",
-      "target": "characters_oathtests_oathtests",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests"
     },
     {
       "relation": "method",
@@ -47008,9 +47048,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_anacttheoathdoesnotname_isnobreach",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_anacttheoathdoesnotname_isnobreach"
     },
     {
       "relation": "method",
@@ -47018,9 +47058,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_breach_caninterruptthepath",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_breach_caninterruptthepath"
     },
     {
       "relation": "method",
@@ -47028,8 +47068,18 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_breach_slowsthepathwithaheartdemon",
+      "target": "characters_oathtests_oathtests_breach_slowsthepathwithaheartdemon"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "characters_oathtests_oathtests",
+      "target": "characters_oathtests_oathtests_breach_thatinterrupts_canalsowoundthedao",
       "confidence_score": 1.0
     },
     {
@@ -47038,9 +47088,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_devouringaswornpartner_breakstheoath",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_devouringaswornpartner_breakstheoath"
     },
     {
       "relation": "method",
@@ -47048,9 +47098,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_heartdemon_slowscultivation_andfadeswiththeyears",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_heartdemon_slowscultivation_andfadeswiththeyears"
     },
     {
       "relation": "method",
@@ -47058,8 +47108,18 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L199",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_load_refuses_aclausewithoutseverity",
+      "target": "characters_oathtests_oathtests_load_refuses_aclausewithoutseverity"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L205",
+      "weight": 1.0,
+      "source": "characters_oathtests_oathtests",
+      "target": "characters_oathtests_oathtests_load_refuses_oathswithoutloopholes",
       "confidence_score": 1.0
     },
     {
@@ -47068,9 +47128,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_loophole_anoathexpires",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_loophole_anoathexpires"
     },
     {
       "relation": "method",
@@ -47078,9 +47138,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_loophole_anoathswornunderafalsenamebindsnothing",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_loophole_anoathswornunderafalsenamebindsnothing"
     },
     {
       "relation": "method",
@@ -47088,9 +47148,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_loophole_purificationcanliftaheartdemon",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_loophole_purificationcanliftaheartdemon"
     },
     {
       "relation": "method",
@@ -47098,9 +47158,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_loophole_theletternotthespirit_athirdpartyacts",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_loophole_theletternotthespirit_athirdpartyacts"
     },
     {
       "relation": "method",
@@ -47108,8 +47168,18 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_loophole_themirrorveilsabreach_atacost",
+      "target": "characters_oathtests_oathtests_loophole_themirrorveilsabreach_atacost"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "characters_oathtests_oathtests",
+      "target": "characters_oathtests_oathtests_mirrorveil_survivesasave",
       "confidence_score": 1.0
     },
     {
@@ -47118,9 +47188,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "method",
@@ -47128,9 +47198,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L209",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_roundtrip_keepsthepactsandtheheartdemons",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_roundtrip_keepsthepactsandtheheartdemons"
     },
     {
       "relation": "method",
@@ -47138,9 +47208,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_service_notrenderedbyitsdeadline_breakstheoath",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_service_notrenderedbyitsdeadline_breakstheoath"
     },
     {
       "relation": "method",
@@ -47148,9 +47218,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L174",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_service_rendered_keepsthepathclear",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_service_rendered_keepsthepathclear"
     },
     {
       "relation": "method",
@@ -47158,9 +47228,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L192",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_shippedoaths_markthemselvesasinterpretation",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_shippedoaths_markthemselvesasinterpretation"
     },
     {
       "relation": "method",
@@ -47168,8 +47238,18 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "characters_oathtests_oathtests_swear_bindsbothparties",
+      "target": "characters_oathtests_oathtests_swear_bindsbothparties"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "characters_oathtests_oathtests",
+      "target": "characters_oathtests_oathtests_withouttheexpiryloophole_atermisignored_andthepactholdsforlife",
       "confidence_score": 1.0
     },
     {
@@ -47179,9 +47259,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests",
-      "target": "tests_core_tests_characters_oathtests_cs_double",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_double"
     },
     {
       "relation": "calls",
@@ -47190,9 +47270,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_anacttheoathdoesnotname_isnobreach",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "calls",
@@ -47201,9 +47281,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_breach_caninterruptthepath",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "calls",
@@ -47212,9 +47292,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_breach_slowsthepathwithaheartdemon",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "calls",
@@ -47223,9 +47303,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_devouringaswornpartner_breakstheoath",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "calls",
@@ -47234,9 +47314,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_heartdemon_slowscultivation_andfadeswiththeyears",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "calls",
@@ -47245,9 +47325,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_loophole_purificationcanliftaheartdemon",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "calls",
@@ -47256,9 +47336,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_loophole_theletternotthespirit_athirdpartyacts",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "calls",
@@ -47267,9 +47347,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_loophole_themirrorveilsabreach_atacost",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "references",
@@ -47278,9 +47358,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_pact",
-      "target": "a",
-      "confidence_score": 1.0
+      "target": "a"
     },
     {
       "relation": "references",
@@ -47289,9 +47369,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_pact",
-      "target": "b",
-      "confidence_score": 1.0
+      "target": "b"
     },
     {
       "relation": "references",
@@ -47300,9 +47380,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_pact",
-      "target": "tests_core_tests_characters_oathtests_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_characterdata"
     },
     {
       "relation": "references",
@@ -47311,9 +47391,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_pact",
-      "target": "tests_core_tests_characters_oathtests_cs_testworld",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_testworld"
     },
     {
       "relation": "references",
@@ -47322,9 +47402,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_pact",
-      "target": "w",
-      "confidence_score": 1.0
+      "target": "w"
     },
     {
       "relation": "calls",
@@ -47333,9 +47413,9 @@
       "source_file": "tests/Core.Tests/Characters/OathTests.cs",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_swear_bindsbothparties",
-      "target": "characters_oathtests_oathtests_pact",
-      "confidence_score": 1.0
+      "target": "characters_oathtests_oathtests_pact"
     },
     {
       "relation": "references",
@@ -47344,9 +47424,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_swear_bindsbothparties",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47355,9 +47435,9 @@
       "source_location": "L76",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_anacttheoathdoesnotname_isnobreach",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47366,9 +47446,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_breach_caninterruptthepath",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47377,7 +47457,18 @@
       "source_location": "L38",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_breach_slowsthepathwithaheartdemon",
+      "target": "tests_core_tests_characters_oathtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_oathtests_oathtests_breach_thatinterrupts_canalsowoundthedao",
       "target": "tests_core_tests_characters_oathtests_cs_test",
       "confidence_score": 1.0
     },
@@ -47388,9 +47479,9 @@
       "source_location": "L84",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_devouringaswornpartner_breakstheoath",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47399,9 +47490,9 @@
       "source_location": "L58",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_heartdemon_slowscultivation_andfadeswiththeyears",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47410,7 +47501,18 @@
       "source_location": "L199",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_load_refuses_aclausewithoutseverity",
+      "target": "tests_core_tests_characters_oathtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L205",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_oathtests_oathtests_load_refuses_oathswithoutloopholes",
       "target": "tests_core_tests_characters_oathtests_cs_test",
       "confidence_score": 1.0
     },
@@ -47421,9 +47523,9 @@
       "source_location": "L120",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_loophole_anoathexpires",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47432,9 +47534,9 @@
       "source_location": "L108",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_loophole_anoathswornunderafalsenamebindsnothing",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47443,9 +47545,9 @@
       "source_location": "L147",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_loophole_purificationcanliftaheartdemon",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47454,9 +47556,9 @@
       "source_location": "L100",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_loophole_theletternotthespirit_athirdpartyacts",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47465,7 +47567,18 @@
       "source_location": "L134",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_loophole_themirrorveilsabreach_atacost",
+      "target": "tests_core_tests_characters_oathtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L188",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_oathtests_oathtests_mirrorveil_survivesasave",
       "target": "tests_core_tests_characters_oathtests_cs_test",
       "confidence_score": 1.0
     },
@@ -47476,9 +47589,9 @@
       "source_location": "L209",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_roundtrip_keepsthepactsandtheheartdemons",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47487,9 +47600,9 @@
       "source_location": "L160",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_service_notrenderedbyitsdeadline_breakstheoath",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47498,9 +47611,9 @@
       "source_location": "L174",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_service_rendered_keepsthepathclear",
-      "target": "tests_core_tests_characters_oathtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_oathtests_cs_test"
     },
     {
       "relation": "references",
@@ -47509,7 +47622,18 @@
       "source_location": "L192",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_shippedoaths_markthemselvesasinterpretation",
+      "target": "tests_core_tests_characters_oathtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/OathTests.cs",
+      "source_location": "L171",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_oathtests_oathtests_withouttheexpiryloophole_atermisignored_andthepactholdsforlife",
       "target": "tests_core_tests_characters_oathtests_cs_test",
       "confidence_score": 1.0
     },
@@ -68650,5 +68774,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "c28de525608b128192baa790dd7536a22d50d44a"
+  "built_at_commit": "f40a7b8771995f225eceae5708518823ceb482a1"
 }
