@@ -171,6 +171,9 @@ namespace MirrorChronicles.Data
         /// <summary>What breaking an oath costs (L4d).</summary>
         public OathSettings Oaths { get; init; }
 
+        /// <summary>How the powers deal with the clan (L5b; interpretations).</summary>
+        public DiplomacySettings Diplomacy { get; init; }
+
         /// <summary>What knowledge costs: techniques bought from the powers, the mirror's reading (L4c; interpretations).</summary>
         public KnowledgeTradeSettings KnowledgeTrade { get; init; }
 
@@ -185,6 +188,16 @@ namespace MirrorChronicles.Data
 
         /// <summary>The technique rules the lore leaves open (L3 interpretations), replaceable when a source speaks.</summary>
         public TechniqueSettings Techniques { get; init; }
+    }
+
+    /// <summary>How the powers deal with the clan (balance.json, L5b).</summary>
+    public sealed record DiplomacySettings
+    {
+        /// <summary>How many times more strongly a power bordering the clan's home moves its mood each year.</summary>
+        public int NeighbourIntensity { get; init; } = 1;
+
+        /// <summary>Chance a successful spy steals a manual the power holds and the clan lacks, rather than a fragment.</summary>
+        public double StealManualChance { get; init; }
     }
 
     /// <summary>What knowledge costs (balance.json, L4c; the lore gives no price).</summary>

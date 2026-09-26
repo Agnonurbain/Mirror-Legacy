@@ -64,19 +64,19 @@ namespace MirrorChronicles.Diplomacy
                         if (faction.RelationWithPlayer <= -80)
                             ctx.Log.Warning($"[Factions] {faction.Name} declares war!");
                         else if (faction.RelationWithPlayer < -30)
-                            ChangeRelation(faction.ID, -5);
+                            Drift(faction, -5);
                         break;
                     case FactionPersonality.Merchant:
                         if (faction.RelationWithPlayer >= 50)
                             ctx.Log.Info($"[Factions] {faction.Name} offers a trade deal.");
                         else
-                            ChangeRelation(faction.ID, +2);
+                            Drift(faction, +2);
                         break;
                     case FactionPersonality.Manipulative:
                         if (faction.RelationWithPlayer < 0)
                         {
                             ctx.Log.Warning($"[Factions] {faction.Name} spreads rumours about the clan.");
-                            ChangeRelation(faction.ID, -3);
+                            Drift(faction, -3);
                         }
                         break;
                     case FactionPersonality.Expansionist:
@@ -85,12 +85,25 @@ namespace MirrorChronicles.Diplomacy
                             ctx.Log.Warning($"[Factions] {faction.Name} eyes the clan's territory.");
                         break;
                     case FactionPersonality.Isolationist:
-                        if (faction.RelationWithPlayer > 0) ChangeRelation(faction.ID, -1);
-                        else if (faction.RelationWithPlayer < 0) ChangeRelation(faction.ID, +1);
+                        if (faction.RelationWithPlayer > 0) Drift(faction, -1);
+                        else if (faction.RelationWithPlayer < 0) Drift(faction, +1);
                         break;
                 }
             }
         }
+
+        /// <summary>A power living on the clan's home or on a place bordering it (the map, L5).</summary>
+        public bool IsNeighbour(FactionData faction)
+        {
+            string home = ctx.Content.Clan.HomeRegion;
+            if (faction?.RegionId == null || home == null) return false;
+            if (faction.RegionId == home) return true;
+            return ctx.Content.Regions.FirstOrDefault(r => r.Id == home)?.Neighbours.Contains(faction.RegionId) == true;
+        }
+
+        /// <summary>A yearly move of a power's mood, stronger for a neighbour.</summary>
+        private void Drift(FactionData faction, int amount) =>
+            ChangeRelation(faction.ID, IsNeighbour(faction) ? amount * ctx.Content.Balance.Diplomacy.NeighbourIntensity : amount);
 
         /// <summary>
         /// Restores saved factions. A power whose place is gone from the map (a save made before the map moved) takes

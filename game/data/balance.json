@@ -75,6 +75,10 @@
     "purificationChance": 0.5,
     "mirrorVeilCost": 30
   },
+  "diplomacy": {
+    "neighbourIntensity": 2,
+    "stealManualChance": 0.3
+  },
   "knowledgeTrade": {
     "minRelation": 20,
     "stonesPerGrade": [ 100, 250, 600, 1500, 4000, 10000, 30000 ],

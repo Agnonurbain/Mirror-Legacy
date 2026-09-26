@@ -184,6 +184,8 @@ namespace MirrorChronicles.Data
                 && IsProbability(oathCosts.DeviationChanceOnInterrupt) && IsProbability(oathCosts.PurificationChance)
                 && oathCosts.HeartDemonSpeed > 0 && oathCosts.HeartDemonStabilityLoss >= 0 && oathCosts.PurificationHerbs >= 0 && oathCosts.MirrorVeilCost >= 0,
                 BalanceFile, "oaths needs three interruption chances and Heart Demon years (severity 1-3), and its costs.");
+            Require(balance.Diplomacy != null && balance.Diplomacy.NeighbourIntensity >= 1 && IsProbability(balance.Diplomacy.StealManualChance),
+                BalanceFile, "diplomacy needs a neighbour intensity of at least 1 and a steal chance between 0 and 1.");
             var trade = balance.KnowledgeTrade;
             Require(trade != null && trade.StonesPerGrade?.Count == TechniqueRules.MaxGrade && trade.StonesPerGrade.All(p => p >= 0)
                 && trade.DaoPartnersMirrorCost >= 0 && trade.MinRelation >= Diplomacy.FactionManager.MinRelation && trade.MinRelation <= Diplomacy.FactionManager.MaxRelation,
