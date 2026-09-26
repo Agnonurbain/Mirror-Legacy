@@ -7,6 +7,7 @@ using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Mirror;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Economy
 {
@@ -149,6 +150,15 @@ namespace MirrorChronicles.Economy
         /// <summary>A chance to find a fragment (better with the root and the Library); otherwise some XP.</summary>
         private void Study(CharacterData scholar)
         {
+            // A scholar with a foundation may first come to understand its Dao Partners (§5.3.3)
+            if (scholar.FoundationId != null && !techniques.Knowledge.Knows(FactKind.DaoPartners, scholar.FoundationId)
+                && ctx.Rng.Chance(ctx.Content.Balance.StudyRevealsPartnersChance))
+            {
+                techniques.Knowledge.Reveal(FactKind.DaoPartners, scholar.FoundationId, KnowledgeSource.Studied);
+                ctx.Log.Info($"[Tasks] {scholar.FullName} comes to understand the Dao Partners of their foundation.");
+                return;
+            }
+
             double chance = StudyBaseChance + scholar.SpiritualRoot * StudyChancePerRoot
                 + buildings.LibraryLevel * BuildingSystem.LibraryDiscoveryBonusPerLevel;
             if (ctx.Rng.Chance(chance))

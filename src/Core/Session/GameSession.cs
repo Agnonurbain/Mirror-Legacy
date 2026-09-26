@@ -34,6 +34,7 @@ namespace MirrorChronicles.Session
         public ResourceManager Resources { get; }
         public MentalStabilitySystem Stability { get; }
         public ClanKarmaSystem Karma { get; }
+        public KnowledgeBase Knowledge { get; }
         public TechniqueLibrary Techniques { get; }
         public CultivationSystem Cultivation { get; }
         public BreakthroughSystem Breakthroughs { get; }
@@ -68,7 +69,8 @@ namespace MirrorChronicles.Session
             Resources = new ResourceManager(Context);
             Stability = new MentalStabilitySystem(Context, Clan);
             Karma = new ClanKarmaSystem(Context, Clan);
-            Techniques = new TechniqueLibrary(Context);
+            Knowledge = WorldKnowledge.Create(Context.Content);
+            Techniques = new TechniqueLibrary(Context, Knowledge);
             Cultivation = new CultivationSystem(Context, Karma, Techniques, Resources);
             Breakthroughs = new BreakthroughSystem(Context, Clan, Cultivation);
             Foundations = new FoundationSystem(Context, Clan, Techniques);
@@ -99,6 +101,7 @@ namespace MirrorChronicles.Session
             var session = new GameSession(setup.Seed, new Random(setup.Seed), content.Clan.ClanName, setup);
 
             foreach (var id in content.Clan.StartingTechniques) session.Techniques.Learn(id);
+            foreach (var key in content.Clan.Knowledge) session.Knowledge.Reveal(Fact.Parse(key), KnowledgeSource.Start);
             foreach (var (qi, portions) in content.Clan.StartingQi) session.Resources.AddQi(qi, portions);
             FoundingClan.Found(session.Clan, content.Clan, session.Techniques, session.Context.Rng);
             session.Karma.Restore(1, 0, 0, session.Clan.PatriarchID);
@@ -142,13 +145,20 @@ namespace MirrorChronicles.Session
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
             else session.Factions.InitializeFactions();
             session.Deduction.Restore((data.Fragments ?? new List<FragmentData>()).Select(f => f.Clone()));
+            session.Knowledge.Restore(data.Knowledge);
             session.Techniques.Restore(
-                data.KnownTechniqueIds ?? content.Clan.StartingTechniques,   // saves made before techniques
+                data.Knowledge != null ? null : data.KnownTechniqueIds ?? content.Clan.StartingTechniques, // saves made before the knowledge module
                 (data.Techniques ?? new List<TechniqueData>()).Select(t => t.Clone()));
             session.Resources.RestoreQi(data.SpiritualQi ?? content.Clan.StartingQi, data.QiHarvestProgress);
             foreach (var record in records)
             {
                 session.Techniques.NormalizeMember(record);                  // a Qi cultivator practises a method
+                if (data.Knowledge == null)                                 // saves made before the knowledge module
+                {
+                    session.Knowledge.Reveal(FactKind.Ability, record.FoundationId, KnowledgeSource.OlderSave);
+                    foreach (var ability in record.DivineAbilities ?? new List<string>())
+                        session.Knowledge.Reveal(FactKind.Ability, ability, KnowledgeSource.OlderSave);
+                }
                 if (record.Temperament == Temperament.None)                  // saves made before the Dao Heart
                     record.Temperament = FoundationRules.RandomTemperament(rng);
             }
@@ -180,7 +190,7 @@ namespace MirrorChronicles.Session
                 RestoredFragments = Mirror.RestoredFragments,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
-                KnownTechniqueIds = Techniques.KnownIds.OrderBy(id => id, StringComparer.Ordinal).ToList(),
+                Knowledge = Knowledge.Keys.ToList(), // the known techniques live there since 2.3
                 SpiritualQi = new Dictionary<string, int>(Resources.SpiritualQi),
                 QiHarvestProgress = new Dictionary<string, int>(Resources.QiHarvestProgress),
                 FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),

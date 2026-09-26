@@ -4,6 +4,7 @@ using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Economy;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Characters
 {
@@ -124,7 +125,10 @@ namespace MirrorChronicles.Characters
         public void ApplyStep(CharacterData character, AdvancementStep step)
         {
             if (character.Realm == CultivationRealm.QiRefinement && step.TargetRealm == CultivationRealm.Foundation)
+            {
                 character.FoundationId = techniques.FindQi(character.QiId)?.Foundation; // the chakras fuse into the Qi's foundation (§5.3.1)
+                techniques.Knowledge.Reveal(FactKind.Ability, character.FoundationId, KnowledgeSource.Formed);
+            }
             character.Realm = step.TargetRealm;
             character.RealmStage = step.TargetStage;
             character.MaxLifespan = TechniqueRules.LifespanWithMethod(PowerLadder.LifespanAfterAdvance(character), techniques.MethodOf(character));

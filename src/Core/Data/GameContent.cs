@@ -64,6 +64,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>Portions of spiritual Qi in store at the start, by Qi.</summary>
         public IReadOnlyDictionary<string, int> StartingQi { get; init; } = new Dictionary<string, int>();
+
+        /// <summary>Facts the clan knows at the start (« Kind:Subject »), beyond what its techniques entail.</summary>
+        public IReadOnlyList<string> Knowledge { get; init; } = Array.Empty<string>();
     }
 
     /// <summary>How a founder relates to the patriarch.</summary>
@@ -132,6 +135,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>Condensing the divine abilities of the Purple Mansion (LORE.md §5.4.3).</summary>
         public DivineAbilitySettings DivineAbilities { get; init; }
+
+        /// <summary>Chance a year of study reveals the Dao Partners of the scholar's foundation.</summary>
+        public double StudyRevealsPartnersChance { get; init; }
 
         /// <summary>The technique rules the lore leaves open (L3 interpretations), replaceable when a source speaks.</summary>
         public TechniqueSettings Techniques { get; init; }

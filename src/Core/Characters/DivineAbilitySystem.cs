@@ -4,6 +4,7 @@ using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Economy;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Characters
 {
@@ -13,7 +14,7 @@ namespace MirrorChronicles.Characters
     /// Mansion (the realm's XP and a portion of its Qi), by resources (half the time, shallow foundations), or
     /// by the Dao Graft (a clan member's foundation consumed, completed with spiritual objects). The fourth is
     /// the Threshold of Immortality. The stage follows the count: 1-2 early, 3 middle, 4 late, 5 Grand Perfection.
-    /// Only revealed abilities can be pursued (P3: knowledge is a resource); abilities of other lineages come
+    /// Only abilities the lore names and the clan knows can be pursued (P3); abilities of other lineages come
     /// with the Golden Core's Intercalary (L4b).
     /// </summary>
     public sealed class DivineAbilitySystem
@@ -135,7 +136,8 @@ namespace MirrorChronicles.Characters
             if (lineage == null || lineage != ownLineage) return false;
 
             var definition = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == lineage)?.Abilities.FirstOrDefault(a => a.Id == abilityId);
-            return definition?.Name != null; // unrevealed abilities cannot be pursued
+            return definition?.Name != null                                        // the lore names it,
+                && techniques.Knowledge.Knows(FactKind.Ability, ability);           // and the clan knows it (P3)
         }
 
         /// <summary>The Qi of a known technique aligned on the ability (its Qi builds that foundation), or null.</summary>
@@ -169,6 +171,7 @@ namespace MirrorChronicles.Characters
         private void Condense(CharacterData member, string ability)
         {
             member.DivineAbilities.Add(ability);
+            techniques.Knowledge.Reveal(FactKind.Ability, ability, KnowledgeSource.Condensed);
             member.PursuedAbility = null;
             member.RealmStage = PowerLadder.PurpleMansionStageFromAbilities(member.DivineAbilities.Count);
             ctx.Log.Info($"[Abilities] {member.FullName} condenses a divine ability ({member.DivineAbilities.Count}/{MaxAbilities}).");

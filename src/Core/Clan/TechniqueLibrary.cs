@@ -4,6 +4,7 @@ using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Clan
 {
@@ -15,25 +16,29 @@ namespace MirrorChronicles.Clan
     public sealed class TechniqueLibrary
     {
         private readonly GameContext ctx;
-        private readonly HashSet<string> knownIds = new HashSet<string>();
         private readonly List<TechniqueData> deduced = new List<TechniqueData>();
 
-        public TechniqueLibrary(GameContext ctx)
+        /// <param name="knowledge">What the clan knows; a knowledge base of the world's implications when none is given.</param>
+        public TechniqueLibrary(GameContext ctx, KnowledgeBase knowledge = null)
         {
             this.ctx = ctx;
+            Knowledge = knowledge ?? WorldKnowledge.Create(ctx.Content);
         }
 
+        /// <summary>What the clan knows: techniques, and all they entail (their Qi, their foundations…).</summary>
+        public KnowledgeBase Knowledge { get; }
+
         /// <summary>Catalog techniques the clan has learned.</summary>
-        public IReadOnlyCollection<string> KnownIds => knownIds;
+        public IReadOnlyCollection<string> KnownIds => Knowledge.Subjects(FactKind.Technique);
 
         /// <summary>Techniques the mirror deduced for the clan (saved whole: they exist nowhere else).</summary>
         public IReadOnlyList<TechniqueData> Deduced => deduced;
 
         /// <summary>Every technique the clan knows: learned from the catalog, then deduced.</summary>
         public IEnumerable<TechniqueData> Known =>
-            ctx.Content.Techniques.Where(t => knownIds.Contains(t.ID)).Concat(deduced);
+            ctx.Content.Techniques.Where(t => Knowledge.Knows(FactKind.Technique, t.ID)).Concat(deduced);
 
-        public bool Knows(string id) => id != null && (knownIds.Contains(id) || deduced.Any(t => t.ID == id));
+        public bool Knows(string id) => id != null && (Knowledge.Knows(FactKind.Technique, id) || deduced.Any(t => t.ID == id));
 
         /// <summary>Learns a technique of the world's catalog; false when the catalog lacks it.</summary>
         public bool Learn(string id)
@@ -43,13 +48,17 @@ namespace MirrorChronicles.Clan
                 ctx.Log.Warning($"[Techniques] No technique \"{id}\" exists to be learned.");
                 return false;
             }
-            knownIds.Add(id);
+            Knowledge.Reveal(FactKind.Technique, id, KnowledgeSource.Learned);
             return true;
         }
 
+        /// <summary>A deduced technique joins the clan's knowledge, with its Qi and the foundation it builds.</summary>
         public void AddDeduced(TechniqueData technique)
         {
-            if (technique != null && !Knows(technique.ID)) deduced.Add(technique);
+            if (technique == null || Knows(technique.ID)) return;
+            deduced.Add(technique);
+            Knowledge.Reveal(FactKind.Qi, technique.RequiredQiId, KnowledgeSource.Mirror);
+            Knowledge.Reveal(FactKind.FoundationOfQi, technique.RequiredQiId, KnowledgeSource.Mirror);
         }
 
         /// <summary>Any technique by id: the clan's deductions, then the world's catalog (known or not).</summary>
@@ -93,11 +102,12 @@ namespace MirrorChronicles.Clan
         }
 
         /// <summary>Restores the clan's knowledge from a save; deductions saved before grades get one from their realm.</summary>
+        /// <param name="savedKnownIds">Techniques known by a save made before the knowledge module (null otherwise).</param>
         public void Restore(IEnumerable<string> savedKnownIds, IEnumerable<TechniqueData> savedDeduced)
         {
-            knownIds.Clear();
             foreach (var id in savedKnownIds ?? Enumerable.Empty<string>())
-                if (ctx.Content.Techniques.Any(t => t.ID == id)) knownIds.Add(id); // a technique removed from the data is forgotten
+                if (ctx.Content.Techniques.Any(t => t.ID == id)) // a technique removed from the data is forgotten
+                    Knowledge.Reveal(FactKind.Technique, id, KnowledgeSource.OlderSave);
             deduced.Clear();
             foreach (var technique in savedDeduced ?? Enumerable.Empty<TechniqueData>())
             {

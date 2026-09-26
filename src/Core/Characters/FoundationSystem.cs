@@ -2,6 +2,7 @@ using System.Linq;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Characters
 {
@@ -43,7 +44,7 @@ namespace MirrorChronicles.Characters
             return true;
         }
 
-        private static bool CanConsume(CharacterData consumer, CharacterData donor)
+        private bool CanConsume(CharacterData consumer, CharacterData donor)
         {
             if (consumer == null || donor == null || consumer == donor || !consumer.IsAlive || !donor.IsAlive) return false;
             if (consumer.Realm != CultivationRealm.Foundation || donor.Realm != CultivationRealm.Foundation) return false;
@@ -51,7 +52,8 @@ namespace MirrorChronicles.Characters
 
             var (consumerLineage, consumerFoundation) = FoundationRef.Parse(consumer.FoundationId);
             var (donorLineage, donorFoundation) = FoundationRef.Parse(donor.FoundationId);
-            return consumerLineage != null && consumerLineage == donorLineage && consumerFoundation != donorFoundation;
+            return consumerLineage != null && consumerLineage == donorLineage && consumerFoundation != donorFoundation
+                && techniques.Knowledge.Knows(FactKind.DaoPartners, consumer.FoundationId); // §5.3.3: know one's partners first
         }
 
         /// <summary>Each year, a foundation's holder may take on the temper its lineage favours.</summary>

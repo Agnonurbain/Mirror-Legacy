@@ -2,6 +2,7 @@
   "clanName": "Mo",
   "startingTechniques": [ "clear-spring-sutra", "common-breath-method" ],
   "startingQi": { "clear-spring-qi": 2 },
+  "knowledge": [],
   "founders": [
     { "firstName": "Wei",  "role": "Patriarch", "isMale": true,  "age": 45, "spiritualRoot": 65, "affinity": "Fire",      "realm": "QiRefinement", "realmStage": 3, "mentalStability": 80, "cultivationMethod": "clear-spring-sutra" },
     { "firstName": "Xue",  "role": "Matriarch", "isMale": false, "age": 42, "spiritualRoot": 55, "affinity": "Water",     "realm": "QiRefinement", "realmStage": 2, "mentalStability": 85, "cultivationMethod": "clear-spring-sutra" },

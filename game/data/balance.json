@@ -33,6 +33,7 @@
     "graftDonorMinYearsLeft": 1,
     "graftDonorMaxYearsLeft": 5
   },
+  "studyRevealsPartnersChance": 0.1,
   "techniques": {
     "commonBreathingSpeed": 1.0,
     "qiPortionsToEnter": 1,

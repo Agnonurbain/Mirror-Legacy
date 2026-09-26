@@ -148,6 +148,7 @@ namespace MirrorChronicles.Data
                 && Math.Abs(world.Free + world.Occupied + world.Broken - 1.0) < 1e-6,
                 BalanceFile, "unspecifiedFruitionOdds (free, occupied, broken) must be probabilities summing to 1.");
             Require(balance.HeartAlignedSpeed > 0 && balance.HeartMisalignedSpeed > 0, BalanceFile, "the Dao Heart speeds must be positive.");
+            Require(IsProbability(balance.StudyRevealsPartnersChance), BalanceFile, "studyRevealsPartnersChance must lie between 0 and 1.");
             Require(IsProbability(balance.HeartAlignmentYearlyChance) && IsProbability(balance.TemperamentInheritanceChance),
                 BalanceFile, "the Dao Heart's alignment and inheritance chances must lie between 0 and 1.");
             var mansion = balance.PurpleMansion;
@@ -252,6 +253,9 @@ namespace MirrorChronicles.Data
             var known = clan.StartingTechniques ?? Array.Empty<string>();
             var unknown = known.FirstOrDefault(id => techniques.All(t => t.ID != id));
             Require(unknown == null, ClanFile, $"the starting technique \"{unknown}\" is not in {TechniquesFile}.");
+
+            var badFact = (clan.Knowledge ?? Array.Empty<string>()).FirstOrDefault(key => !World.Fact.TryParse(key, out _));
+            Require(badFact == null, ClanFile, $"the starting fact \"{badFact}\" is not « Kind:Subject » of a known kind ({string.Join(", ", Enum.GetNames(typeof(World.FactKind)))}).");
 
             var unknownQi = (clan.StartingQi ?? new Dictionary<string, int>()).FirstOrDefault(kv => qi.All(q => q.Id != kv.Key) || kv.Value < 0);
             Require(unknownQi.Key == null, ClanFile, $"the starting Qi \"{unknownQi.Key}\" is not in {QiFile} or has a negative amount.");
