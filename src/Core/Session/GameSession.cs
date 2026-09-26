@@ -46,6 +46,7 @@ namespace MirrorChronicles.Session
         public WoundSystem Wounds { get; }
         public FactionManager Factions { get; }
         public FruitionRegistry Fruitions { get; }
+        public GoldenCoreSystem GoldenCore { get; }
         public MirrorSystem Mirror { get; }
         public DeductionEngine Deduction { get; }
         public BuildingSystem Buildings { get; }
@@ -84,6 +85,7 @@ namespace MirrorChronicles.Session
             Mirror = new MirrorSystem(Context, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
+            GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability);
@@ -165,6 +167,7 @@ namespace MirrorChronicles.Session
                     record.Temperament = FoundationRules.RandomTemperament(rng);
             }
             session.Oaths.Restore((data.Pacts ?? new List<PactData>()).Select(p => p.Clone()), data.VeiledOathBreakers);
+            session.GoldenCore.Restore(data.GoldenCorePermissions); // saves made before L4b have none
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameWon, data.GameLost);
@@ -199,6 +202,7 @@ namespace MirrorChronicles.Session
                 SpiritualQi = new Dictionary<string, int>(Resources.SpiritualQi),
                 QiHarvestProgress = new Dictionary<string, int>(Resources.QiHarvestProgress),
                 FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),
+                GoldenCorePermissions = new Dictionary<string, string>(GoldenCore.Permissions),
                 GenerationCount = Karma.GenerationCount,
                 TotalBirths = Karma.TotalBirths,
                 TotalDeaths = Karma.TotalDeaths,
@@ -249,6 +253,7 @@ namespace MirrorChronicles.Session
                     Breakthroughs.ProcessBreakthroughPhase();
                     PurpleMansion.ProcessBreakthroughPhase(); // the ascent's four trials and the retreats under way
                     Abilities.ProcessBreakthroughPhase();     // divine abilities condensed from the Dao Partners
+                    GoldenCore.ProcessBreakthroughPhase();    // the false Left Hands pay their patrons, or fall
                     break;
                 case GamePhase.Inheritance:
                     Clan.ProcessAnnualBirths();

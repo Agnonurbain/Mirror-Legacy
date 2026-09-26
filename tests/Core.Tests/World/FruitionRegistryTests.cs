@@ -67,6 +67,25 @@ namespace MirrorChronicles.Tests.World
         }
 
         [Test]
+        public void Claim_TakesAFreeRealization_ButNeverAHeldOne()
+        {
+            // One Realization per lineage (LORE.md §5.5.1): the registry itself refuses to steal it
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            Assert.IsTrue(s.Fruitions.Claim("orthodox-water", "Mo Test"));
+            Assert.IsFalse(s.Fruitions.Claim("orthodox-water", "Rival"));
+            Assert.IsFalse(s.Fruitions.Claim("nourishing-fire", "Rival")); // broken
+            Assert.AreEqual(new FruitionState(FruitionStatus.Occupied, "Mo Test"), s.Fruitions.State("orthodox-water"));
+        }
+
+        [Test]
+        public void ChangeHolder_PassesAHeldLineageToAnother()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Fruitions.ChangeHolder("mutable-water", "Successeur");
+            Assert.AreEqual(new FruitionState(FruitionStatus.Occupied, "Successeur"), s.Fruitions.State("mutable-water"));
+        }
+
+        [Test]
         public void RoundTrip_KeepsTheWorld()
         {
             var s = GameSession.NewGame(Fixtures.Setup(3));

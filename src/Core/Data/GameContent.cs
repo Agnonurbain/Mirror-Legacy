@@ -139,6 +139,9 @@ namespace MirrorChronicles.Data
         /// <summary>Condensing the divine abilities of the Purple Mansion (LORE.md §5.4.3).</summary>
         public DivineAbilitySettings DivineAbilities { get; init; }
 
+        /// <summary>The breakthrough to the Golden Core and its positions (LORE.md §5.5.1; interpretations).</summary>
+        public GoldenCoreSettings GoldenCore { get; init; }
+
         /// <summary>Chance a year of study reveals the Dao Partners of the scholar's foundation.</summary>
         public double StudyRevealsPartnersChance { get; init; }
 
@@ -223,6 +226,53 @@ namespace MirrorChronicles.Data
         /// <summary>Years a grafted donor has left, stripped of all cultivation (user decision, 2026-09-25: one to five).</summary>
         public int GraftDonorMinYearsLeft { get; init; }
         public int GraftDonorMaxYearsLeft { get; init; }
+    }
+
+    /// <summary>
+    /// The breakthrough to the Golden Core (LORE.md §5.5.1, balance.json). The lore gives the routes and their
+    /// order of difficulty — the Intercalary « not guaranteed », the specialised one « very difficult but safer »,
+    /// the axiom of the positions a danger — but no figure: every value here is an interpretation.
+    /// </summary>
+    public sealed class GoldenCoreSettings
+    {
+        /// <summary>Base chance (%) of forging the five abilities into a metal essence.</summary>
+        public int ForgeBaseChance { get; init; }
+
+        /// <summary>Percent lost per shallow (resources) and per grafted (Dao Graft) ability: « an inevitably perilous path ».</summary>
+        public int ShallowAbilityPenalty { get; init; }
+        public int GraftedAbilityPenalty { get; init; }
+
+        /// <summary>Percent gained when the Life ability came last, embodying the lineage's destiny (§5.4.4).</summary>
+        public int LifeLastBonus { get; init; }
+
+        /// <summary>Base chance (%) of being granted each position.</summary>
+        public int RealizationChance { get; init; }
+        public int SurplusChance { get; init; }
+        public int IntercalaryFourOneChance { get; init; }
+        public int IntercalaryThreeTwoChance { get; init; }
+
+        /// <summary>Percent lost by an Intercalary into an orthodox position or a Surplus of a gathered one.</summary>
+        public int AxiomPenalty { get; init; }
+
+        /// <summary>The tribute offered to a holder for a Surplus or an Intercalary of their lineage, and its chance.</summary>
+        public int PermissionStones { get; init; }
+        public double PermissionChance { get; init; }
+
+        /// <summary>Mirror power to decipher a lineage's gold-seeking method, and its specialised Intercalary method.</summary>
+        public int GoldSeekingMirrorCost { get; init; }
+        public int SpecialisedMirrorCost { get; init; }
+
+        /// <summary>The true Left Hand (R18): base chance (%) of its forging, and the mirror power to decipher its path.</summary>
+        public int TrueLeftHandChance { get; init; }
+        public int LeftHandMirrorCost { get; init; }
+
+        /// <summary>
+        /// The false Left Hand (R19): the abilities a patron's borrowed power needs, its chance (%) once the patron
+        /// agrees, and the tribute paid each year — unpaid, or the patron gone, and the borrowed power falls.
+        /// </summary>
+        public int FalseLeftHandMinAbilities { get; init; }
+        public int FalseLeftHandChance { get; init; }
+        public int FalseLeftHandYearlyStones { get; init; }
     }
 
     /// <summary>Odds and durations of the Purple Mansion's breakthrough (balance.json, tuned by simulation).</summary>

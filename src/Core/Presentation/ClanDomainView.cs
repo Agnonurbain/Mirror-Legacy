@@ -21,7 +21,7 @@ namespace MirrorChronicles.Presentation
     public sealed record MemberRow(string Id, string Name, int Age, string Rank, int Stability,
         TaskType Task, IReadOnlyList<TaskType> AllowedTasks, bool IsPatriarch,
         string MethodId, string Method, IReadOnlyList<MethodChoice> Methods,
-        string Temperament, string Foundation, string Retreat, string Abilities, string HeartDemon = null);
+        string Temperament, string Foundation, string Retreat, string Abilities, string HeartDemon = null, string Position = null);
 
     /// <summary>Portions of one spiritual Qi in the clan's store.</summary>
     public sealed record QiLine(string Name, int Portions);
@@ -53,7 +53,8 @@ namespace MirrorChronicles.Presentation
                     m.CultivationMethodId, PractisedMethod(session, m),
                     session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
                     TemperamentLabel(m.Temperament), FoundationLabel(session, m.FoundationId), RetreatLabel(m), AbilitiesLabel(m),
-                    m.HeartDemonYearsLeft > 0 ? $"Démon du Cœur ({m.HeartDemonYearsLeft} an{(m.HeartDemonYearsLeft > 1 ? "s" : "")})" : null))
+                    m.HeartDemonYearsLeft > 0 ? $"Démon du Cœur ({m.HeartDemonYearsLeft} an{(m.HeartDemonYearsLeft > 1 ? "s" : "")})" : null,
+                    PositionLabel(session, m)))
                 .ToList();
         }
 
@@ -65,6 +66,23 @@ namespace MirrorChronicles.Presentation
             var (_, abilityId) = FoundationRef.Parse(foundationId);
             string name = lineage.Abilities.FirstOrDefault(a => a.Id == abilityId)?.Name ?? "Fondation non révélée";
             return $"{name} ({lineage.Name})";
+        }
+
+        /// <summary>A Golden Core's standing (LORE.md §5.5.1, §6.9): its position, or its Left Hand path; null before.</summary>
+        public static string PositionLabel(GameSession session, CharacterData member)
+        {
+            var lineage = session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == member.FruitionId);
+            if (lineage == null) return null;
+            return member.GoldenCore switch
+            {
+                GoldenCoreState.MetallicEssenceOnly => $"Essence métallique sans position (vise {lineage.Name})",
+                GoldenCoreState.Realization => $"Réalisation — {lineage.Name}",
+                GoldenCoreState.Surplus => $"Surplus — {lineage.Name}",
+                GoldenCoreState.Intercalary => $"Intercalaire — {lineage.Name}",
+                GoldenCoreState.TrueLeftHand => $"Main Gauche vraie — {lineage.LeftHand} ({lineage.Name})",
+                GoldenCoreState.FalseLeftHand => $"Main Gauche fausse — au service de {member.PatronId} ({lineage.Name})",
+                _ => null
+            };
         }
 
         /// <summary>The retreat of the Purple Mansion's breakthrough under way, or null.</summary>
@@ -149,6 +167,7 @@ namespace MirrorChronicles.Presentation
             DeathCause.AscentCollapse => "épuisé(e) avant le Manoir Shenyang",
             DeathCause.FoundationDevoured => "sa fondation dévorée par un Partenaire Dao",
             DeathCause.ManifestationCollapse => "en échouant à manifester son pouvoir divin",
+            DeathCause.MetalEssenceDemon => "en échouant au Noyau d'Or : un Démon d'Essence Métallique est né",
             _ => ""
         };
     }

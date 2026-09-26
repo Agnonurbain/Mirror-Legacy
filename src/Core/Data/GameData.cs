@@ -8,13 +8,14 @@ namespace MirrorChronicles.Data
     /// the clan, the year, the phase and the stones, and load with defaults for everything else.
     /// Version 2.1 adds the techniques of LORE.md §2 (knowledge, Qi); older saves receive the clan's
     /// starting knowledge on load. Version 2.2 adds the state of the Dao lineages (§6.8); 2.3 the
-    /// clan's knowledge (its known techniques now live there). Field names never
+    /// clan's knowledge (its known techniques now live there); 2.4 the oaths; 2.5 the Golden Core's
+    /// permissions. Field names never
     /// change: older saves must keep loading.
     /// </summary>
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.4";
+        public const string CurrentVersion = "2.5";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -53,6 +54,9 @@ namespace MirrorChronicles.Data
         // Oaths of the Dao (2.4; null in older saves)
         public List<PactData> Pacts { get; set; }
         public List<string> VeiledOathBreakers { get; set; } // the mirror's veil bought for their next breach
+
+        // The Golden Core (2.5; null in older saves): lineage → the holder who granted leave to rise there
+        public Dictionary<string, string> GoldenCorePermissions { get; set; }
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

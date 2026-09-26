@@ -88,6 +88,9 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<string> Intercalary { get; init; } = Array.Empty<string>();
         public string Star { get; init; }
 
+        /// <summary>The true Left Hand path founded on the lineage, when one exists (§6.9: Golden Core power without position).</summary>
+        public string LeftHand { get; init; }
+
         /// <summary>The temper the lineage favours (its profile, §6.9): an aligned Dao Heart cultivates it faster.</summary>
         public Temperament Temperament { get; init; }
 

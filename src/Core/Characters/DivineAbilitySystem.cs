@@ -14,13 +14,14 @@ namespace MirrorChronicles.Characters
     /// Mansion (the realm's XP and a portion of its Qi), by resources (half the time, shallow foundations), or
     /// by the Dao Graft (a clan member's foundation consumed, completed with spiritual objects). The fourth is
     /// the Threshold of Immortality. The stage follows the count: 1-2 early, 3 middle, 4 late, 5 Grand Perfection.
-    /// Only abilities the lore names and the clan knows can be pursued (P3); abilities of other lineages come
-    /// with the Golden Core's Intercalary (L4b).
+    /// Only abilities the lore names and the clan knows can be pursued (P3). The fourth and fifth may come from
+    /// a single other lineage, for the Golden Core's Intercalary (four and one, or three and two, §5.5.1).
     /// </summary>
     public sealed class DivineAbilitySystem
     {
         public const int MaxAbilities = 5;
         private const int ThresholdAbility = 4; // the fourth: the Threshold of Immortality
+        private const int OwnLineageBeforeAnother = 3; // an Intercalary keeps at least three of its first lineage
 
         private readonly GameContext ctx;
         private readonly ClanManager clan;
@@ -126,7 +127,10 @@ namespace MirrorChronicles.Characters
             return true;
         }
 
-        /// <summary>A revealed ability of the cultivator's own lineage, not held yet, while fewer than five are.</summary>
+        /// <summary>
+        /// A revealed ability not held yet, while fewer than five are: of the cultivator's own lineage, or — after
+        /// three of it — of a single other lineage (the Intercalary).
+        /// </summary>
         private bool CanTake(CharacterData member, string ability)
         {
             if (member == null || !member.IsAlive || member.Realm != CultivationRealm.PurpleMansion || member.Retreat != Retreat.None) return false;
@@ -134,11 +138,17 @@ namespace MirrorChronicles.Characters
 
             var (lineage, abilityId) = FoundationRef.Parse(ability);
             var (ownLineage, _) = FoundationRef.Parse(member.FoundationId ?? member.DivineAbilities.FirstOrDefault());
-            if (lineage == null || lineage != ownLineage) return false;
+            if (lineage == null || (lineage != ownLineage && !MayTakeAnotherLineage(member, ownLineage, lineage))) return false;
 
             var definition = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == lineage)?.Abilities.FirstOrDefault(a => a.Id == abilityId);
             return definition?.Name != null                                        // the lore names it,
                 && techniques.Knowledge.Knows(FactKind.Ability, ability);           // and the clan knows it (P3)
+        }
+
+        private static bool MayTakeAnotherLineage(CharacterData member, string ownLineage, string lineage)
+        {
+            var others = member.DivineAbilities.Select(a => FoundationRef.Parse(a).FruitionId).Where(l => l != ownLineage).Distinct().ToList();
+            return member.DivineAbilities.Count >= OwnLineageBeforeAnother && others.All(l => l == lineage);
         }
 
         /// <summary>The Qi of a known technique aligned on the ability (its Qi builds that foundation), or null.</summary>

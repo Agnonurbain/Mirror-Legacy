@@ -33,6 +33,26 @@
     "graftDonorMinYearsLeft": 1,
     "graftDonorMaxYearsLeft": 5
   },
+  "goldenCore": {
+    "forgeBaseChance": 50,
+    "shallowAbilityPenalty": 8,
+    "graftedAbilityPenalty": 12,
+    "lifeLastBonus": 10,
+    "realizationChance": 60,
+    "surplusChance": 70,
+    "intercalaryFourOneChance": 35,
+    "intercalaryThreeTwoChance": 55,
+    "axiomPenalty": 30,
+    "permissionStones": 5000,
+    "permissionChance": 0.3,
+    "goldSeekingMirrorCost": 40,
+    "specialisedMirrorCost": 70,
+    "trueLeftHandChance": 55,
+    "leftHandMirrorCost": 40,
+    "falseLeftHandMinAbilities": 3,
+    "falseLeftHandChance": 60,
+    "falseLeftHandYearlyStones": 300
+  },
   "studyRevealsPartnersChance": 0.1,
   "oaths": {
     "interruptChanceBySeverity": [ 0.1, 0.25, 0.5 ],

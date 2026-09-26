@@ -147,10 +147,10 @@ namespace MirrorChronicles.Game
             return line;
         }
 
-        /// <summary>Who the member is: rank and temper, then (when they have them) foundation, abilities and retreat.</summary>
+        /// <summary>Who the member is: rank and temper, then (when they have them) standing, foundation, abilities and retreat.</summary>
         private static string MemberText(MemberRow row)
         {
-            var details = new[] { row.Foundation, row.Abilities, row.Retreat, row.HeartDemon }.Where(d => d != null);
+            var details = new[] { row.Position, row.Foundation, row.Abilities, row.Retreat, row.HeartDemon }.Where(d => d != null);
             string text = $"{(row.IsPatriarch ? "★ " : "")}{row.Name}, {row.Age} ans — {row.Rank} — stabilité {row.Stability} — {row.Temperament}";
             return details.Any() ? $"{text}\n{string.Join(" · ", details)}" : text;
         }
