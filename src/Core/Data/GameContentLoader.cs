@@ -207,9 +207,11 @@ namespace MirrorChronicles.Data
             Require(factions.All(f => !string.IsNullOrWhiteSpace(f.Name)), FactionsFile, "every faction needs a name.");
             var duplicate = factions.GroupBy(f => f.Name).FirstOrDefault(g => g.Count() > 1)?.Key;
             Require(duplicate == null, FactionsFile, $"two factions share the name \"{duplicate}\".");
+            var listless = factions.FirstOrDefault(f => f.Techniques == null || f.InterpretedFields == null);
+            Require(listless == null, FactionsFile, $"{listless?.Name}: techniques and interpretedFields must be lists (empty when none).");
             var lost = factions.FirstOrDefault(f => regions.All(r => r.Id != f.RegionId));
             Require(lost == null, FactionsFile, $"{lost?.Name}: its region \"{lost?.RegionId}\" is not a region of {RegionsFile}.");
-            var unknown = factions.SelectMany(f => (f.Techniques ?? new List<string>()).Select(t => (f.Name, Technique: t)))
+            var unknown = factions.SelectMany(f => f.Techniques.Select(t => (f.Name, Technique: t)))
                 .FirstOrDefault(p => techniques.All(t => t.ID != p.Technique));
             Require(unknown.Technique == null, FactionsFile, $"{unknown.Name}: \"{unknown.Technique}\" is not a technique of {TechniquesFile}.");
         }
@@ -357,6 +359,8 @@ namespace MirrorChronicles.Data
         private static void CheckRegions(List<RegionDefinition> regions)
         {
             Require(regions.All(r => !string.IsNullOrWhiteSpace(r.Id) && !string.IsNullOrWhiteSpace(r.Name)), RegionsFile, "every region needs an id and a name.");
+            var listless = regions.FirstOrDefault(r => r.Neighbours == null || r.InterpretedFields == null);
+            Require(listless == null, RegionsFile, $"{listless?.Id}: neighbours and interpretedFields must be lists (empty when none).");
             var duplicate = regions.GroupBy(r => r.Id).FirstOrDefault(g => g.Count() > 1)?.Key;
             Require(duplicate == null, RegionsFile, $"two regions share the id \"{duplicate}\".");
             var byId = regions.ToDictionary(r => r.Id);
@@ -364,8 +368,10 @@ namespace MirrorChronicles.Data
             {
                 Require(r.X >= 0 && r.X <= 1 && r.Y >= 0 && r.Y <= 1, RegionsFile, $"{r.Id}: its position must lie within the map (0-1).");
                 Require(r.ParentId == null || byId.ContainsKey(r.ParentId), RegionsFile, $"{r.Id}: its parent \"{r.ParentId}\" is not a region.");
-                foreach (var n in r.Neighbours ?? Array.Empty<string>())
+                Require(r.ParentId == null || byId[r.ParentId].ParentId == null, RegionsFile, $"{r.Id}: its parent \"{r.ParentId}\" must be a state or a sea.");
+                foreach (var n in r.Neighbours)
                 {
+                    Require(n != r.Id, RegionsFile, $"{r.Id} cannot border itself.");
                     Require(byId.ContainsKey(n), RegionsFile, $"{r.Id}: its neighbour \"{n}\" is not a region.");
                     Require(byId[n].Neighbours?.Contains(r.Id) == true, RegionsFile, $"{r.Id} borders {n}, but {n} does not border {r.Id}.");
                 }

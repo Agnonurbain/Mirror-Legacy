@@ -120,8 +120,8 @@ namespace MirrorChronicles.Tests.Data
                 RegionJson(f, "shiyuan")["neighbours"] = null;
                 foreach (var region in f) // no border left pointing at it: only the missing list is wrong
                 {
-                    var neighbours = (JArray)region["neighbours"];
-                    var back = neighbours?.FirstOrDefault(n => (string)n == "shiyuan");
+                    if (region["neighbours"] is not JArray neighbours) continue;
+                    var back = neighbours.FirstOrDefault(n => (string)n == "shiyuan");
                     if (back != null) neighbours.Remove(back);
                 }
             }));
