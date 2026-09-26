@@ -66,31 +66,35 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="Margin/Layout/Header"]
+[node name="Nav" type="HBoxContainer" parent="Margin/Layout"]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/separation = 12
 
-[node name="OpenOperations" type="Button" parent="Margin/Layout/Header"]
+[node name="OpenOperations" type="Button" parent="Margin/Layout/Nav"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Opérations secrètes"
 
-[node name="OpenLibrary" type="Button" parent="Margin/Layout/Header"]
+[node name="OpenLibrary" type="Button" parent="Margin/Layout/Nav"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Bibliothèque"
 
-[node name="OpenGenealogy" type="Button" parent="Margin/Layout/Header"]
+[node name="OpenGenealogy" type="Button" parent="Margin/Layout/Nav"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Arbre généalogique"
 
-[node name="OpenMap" type="Button" parent="Margin/Layout/Header"]
+[node name="OpenMap" type="Button" parent="Margin/Layout/Nav"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Carte du monde"
 
-[node name="NextPhase" type="Button" parent="Margin/Layout/Header"]
+[node name="Spacer" type="Control" parent="Margin/Layout/Nav"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextPhase" type="Button" parent="Margin/Layout/Nav"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Phase suivante"
