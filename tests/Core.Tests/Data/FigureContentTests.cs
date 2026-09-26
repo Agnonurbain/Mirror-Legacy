@@ -20,23 +20,23 @@ namespace MirrorChronicles.Tests.Data
         [Test]
         public void ShippedFigures_KeepTheLexiconsNames()
         {
-            Assert.AreEqual("Bai Chengyu", Figure("chi-wei").Name);
-            Assert.AreEqual("Bai Ruozhi", Figure("chi-buzi").Name);
-            Assert.AreEqual("Vénérable Lingxu", Figure("shangyuan").Name);
+            Assert.AreEqual("Bai Chengyu", Figure("bai-chengyu").Name);
+            Assert.AreEqual("Bai Ruozhi", Figure("bai-ruozhi").Name);
+            Assert.AreEqual("Vénérable Lingxu", Figure("venerable-lingxu").Name);
         }
 
         [Test]
         public void ShippedFigures_ServeThePowersOfTheLore()
         {
-            Assert.AreEqual("Secte du Pic des Nuées", Figure("chi-buzi").FactionName);
-            Assert.AreEqual("Secte de la Lune Pâle", Figure("shangyuan").FactionName);
-            Assert.AreEqual(CultivationRealm.GoldenCore, Figure("shangyuan").Realm);
+            Assert.AreEqual("Secte du Pic des Nuées", Figure("bai-ruozhi").FactionName);
+            Assert.AreEqual("Secte de la Lune Pâle", Figure("venerable-lingxu").FactionName);
+            Assert.AreEqual(CultivationRealm.GoldenCore, Figure("venerable-lingxu").Realm);
         }
 
         [Test]
         public void ShippedFigures_BornBeforeTheMirror_CountTheirYearsBeforeIt()
         {
-            Assert.AreEqual(-192, Figure("chi-buzi").BornYear); // « 192 B.M. »
+            Assert.AreEqual(-192, Figure("bai-ruozhi").BornYear); // « 192 B.M. »
         }
 
         [Test]

@@ -26,9 +26,10 @@ namespace MirrorChronicles.Data
         public const string OathsFile = "oaths.json";
         public const string RegionsFile = "regions.json";
         public const string TalismansFile = "talismans.json";
+        public const string FiguresFile = "figures.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -59,6 +60,7 @@ namespace MirrorChronicles.Data
             var oaths = Read<OathCatalog>(readFile, OathsFile);
             var regions = Read<List<RegionDefinition>>(readFile, RegionsFile);
             var talismans = Read<List<TalismanDefinition>>(readFile, TalismansFile);
+            var figures = Read<List<FigureDefinition>>(readFile, FiguresFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -72,11 +74,13 @@ namespace MirrorChronicles.Data
             CheckOaths(oaths);
             CheckRegions(regions);
             CheckTalismans(talismans);
+            CheckFigures(figures, factions);
             CheckFactions(factions, regions, catalog.Techniques);
             Require(regions.Any(r => r.Id == clan.HomeRegion), ClanFile, $"homeRegion \"{clan.HomeRegion}\" is not a region of {RegionsFile}.");
             CheckFoundations(qi, catalog.Techniques, fruitions.Fruitions);
             CheckInterpretedFields(TechniquesFile, catalog.Techniques.Select(t => (t.ID, typeof(TechniqueData), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(FactionsFile, factions.Select(f => (f.Name, typeof(FactionData), (IEnumerable<string>)f.InterpretedFields)));
+            CheckInterpretedFields(FiguresFile, figures.Select(f => (f.Id, typeof(FigureDefinition), (IEnumerable<string>)f.InterpretedFields)));
             CheckInterpretedFields(TalismansFile, talismans.Select(t => (t.Id, typeof(TalismanDefinition), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(RegionsFile, regions.Select(r => (r.Id, typeof(RegionDefinition), (IEnumerable<string>)r.InterpretedFields)));
             CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
@@ -98,7 +102,8 @@ namespace MirrorChronicles.Data
                 AnonymousHolder = fruitions.AnonymousHolder,
                 Oaths = oaths,
                 Regions = regions,
-                Talismans = talismans
+                Talismans = talismans,
+                Figures = figures
             };
         }
 
@@ -373,6 +378,21 @@ namespace MirrorChronicles.Data
                 .Select(t => t.RequiredQiId).Distinct();
             var missing = reachingFoundation.FirstOrDefault(id => qi.First(q => q.Id == id).Foundation == null);
             Require(missing == null, QiFile, $"{missing}: its methods reach the Foundation, so it must name the foundation it builds.");
+        }
+
+        /// <summary>The powers' figures: unique ids, a name, a power of factions.json, never above that power's highest realm.</summary>
+        private static void CheckFigures(List<FigureDefinition> figures, List<FactionData> factions)
+        {
+            Require(figures.All(f => !string.IsNullOrWhiteSpace(f.Id) && !string.IsNullOrWhiteSpace(f.Name) && f.InterpretedFields != null),
+                FiguresFile, "every figure needs an id, a name and a list of interpreted fields.");
+            var duplicate = figures.GroupBy(f => f.Id).FirstOrDefault(g => g.Count() > 1)?.Key;
+            Require(duplicate == null, FiguresFile, $"two figures share the id \"{duplicate}\".");
+            foreach (var figure in figures)
+            {
+                var power = factions.FirstOrDefault(f => f.Name == figure.FactionName);
+                Require(power != null, FiguresFile, $"{figure.Id}: \"{figure.FactionName}\" is not a faction of {FactionsFile}.");
+                Require(figure.Realm <= power.HighestRealm, FiguresFile, $"{figure.Id}: above the highest realm of {power.Name}.");
+            }
         }
 
         /// <summary>The talisman Qi (§11.5): unique ids, a name, a positive speed, no lost years.</summary>

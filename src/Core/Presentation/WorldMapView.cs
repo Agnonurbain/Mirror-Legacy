@@ -9,6 +9,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>A power as the map shows it: name, kind, relation with the clan, strongest realm.</summary>
     public sealed record MapFaction(string Name, string Kind, int Relation, string HighestRealm);
 
+    /// <summary>A named cultivator of a power, as the map shows it.</summary>
+    public sealed record MapFigure(string Name, string Realm);
+
     /// <summary>A place of the map (x west→east, y north→south, 0-1) and the powers living there.</summary>
     public sealed record MapPlace(string Id, string Name, RegionKind Kind, double X, double Y, bool IsState, bool IsHome,
         IReadOnlyList<MapFaction> Factions);
@@ -40,6 +43,14 @@ namespace MirrorChronicles.Presentation
             var regions = session.Context.Content.Regions;
             return session.Factions.Factions.Where(f => regions.All(r => r.Id != f.RegionId)).Select(ToMap).ToList();
         }
+
+        /// <summary>The named cultivators of a power already born this year (the strongest first).</summary>
+        public static IReadOnlyList<MapFigure> FiguresOf(GameSession session, string factionName) =>
+            session.Context.Content.Figures
+                .Where(f => f.FactionName == factionName && (f.BornYear ?? int.MinValue) <= session.Clock.Year)
+                .OrderByDescending(f => f.Realm)
+                .Select(f => new MapFigure(f.Name, RankCatalog.RealmName(f.Realm)))
+                .ToList();
 
         public static string KindLabel(FactionKind kind) => kind switch
         {

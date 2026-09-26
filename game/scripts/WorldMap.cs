@@ -27,7 +27,8 @@ namespace MirrorChronicles.Game
             canvas.PlaceSelected += Select;
             canvas.Resized += Refresh;
 
-            selected = WorldMapView.Places(root.Session).FirstOrDefault(p => p.IsHome)?.Id;
+            // MAP_SELECT=<region id> opens the map on that place (screenshots of a smoke run)
+            selected = OS.GetEnvironment("MAP_SELECT") is { Length: > 0 } picked ? picked : WorldMapView.Places(root.Session).FirstOrDefault(p => p.IsHome)?.Id;
             Refresh();
 
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
@@ -50,7 +51,8 @@ namespace MirrorChronicles.Game
             var factions = place?.Factions ?? System.Array.Empty<MapFaction>();
             placeFactions.Text = factions.Count == 0
                 ? "Aucune puissance connue ici."
-                : string.Join("\n", factions.Select(f => $"{f.Name} ({f.Kind}) — {f.HighestRealm} — relation {f.Relation:+#;-#;0}"));
+                : string.Join("\n\n", factions.Select(f => $"{f.Name} ({f.Kind}) — {f.HighestRealm} — relation {f.Relation:+#;-#;0}"
+                    + string.Concat(WorldMapView.FiguresOf(session, f.Name).Select(p => $"\n   · {p.Name} ({p.Realm})"))));
 
             var unplaced = WorldMapView.Unplaced(session);
             if (unplaced.Count > 0)

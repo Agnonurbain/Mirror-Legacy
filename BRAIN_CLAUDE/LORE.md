@@ -890,6 +890,8 @@ Les personnages cités en exemple par la source deviennent des **figures du mond
 | **Moine Wuyi** | Commentateur de l'essence métallique de Xiaoyun |
 | **Yinjun**, **Taichen** | Immortels Dorés de l'Antiquité |
 
+📚 **Figures des puissances** (fiches de personnages du wiki, 2026-09-26 ; `game/data/figures.json`, noms 🟡 à valider au §13.9) : 20 cultivateurs nommés des sectes, portes et familles, avec leur royaume (celui du wiki, souvent leur apogée) et leur naissance comptée depuis la découverte du miroir (an 0). Au Pic des Nuées : Bai Chengyu, Bai Ruozhi (né 192 ans avant le miroir), Pan Yuanwei (400), Qin Mingzhu (300), Pan Yiqiu, Qin Yuanhe, Lou Wenqing, Bai Zhiqing ; le Vénérable Lingxu (Noyau d'Or, Réalisation du Jade Premier) à la Lune Pâle ; Guan Yunhe aux Mille Lames ; Ruan Chuhe, patriarche des Ruan au Manoir Pourpre ; Zang Tiaoyun et Zang Wanru ; un Manoir Pourpre à la tête de six portes. Les puissances concernées atteignent donc au moins ce royaume. La carte montre les figures déjà nées ; les faire vivre et agir sous les mêmes règles que le clan (P1) : L5b-L6.
+
 ---
 
 ## 10. Ordres et lieux sacrés (renommés)
@@ -1363,6 +1365,9 @@ Fondations et capacités divines (§6.5-6.7) :
 | Source | Jeu |
 |---|---|
 | Famille Ding (丁, rive sud-est du Lac du Regard Lunaire) | Famille Kang |
+| Tang Yuanwu · Si Boxiu · Si Yuanbai · Yu Muxian · Chi Zhiyun (Étang d'Azur) | Pan Yuanwei · Qin Mingzhu · Qin Yuanhe · Lou Wenqing · Bai Zhiqing (famille Si → Qin) |
+| Zhang Yun (Plume d'Or) · Xiao Chuting · Xiao Yuansi · Ning Tiaoxiao · Ning Wan | Guan Yunhe (famille Zhang → Guan) · Ruan Chuhe · Ruan Yuanshi · Zang Tiaoyun · Zang Wanru |
+| Kong Yanxi (Profound Peak) · Lin Wei (Owl Mallow) · Zipei (Purple Smoke) · Chang Xiaozi (Changxiao) · Hengxing (Hengzhu) · Tulong Jian (Slaughter Jun) | Wen Yanqiu (famille Kong → Wen) · Hua Songlan · Daoïste Yanmo · Daoïste Changmu · Daoïste Hengyu · Shi Longhan |
 | Autumn Moon Lake (Yin Suprême) · Gold Feathered Beast (Métal Geng) · Great Li Codex (Feu Li) · White Thorn Heart (Feu Ardent) | Lac de la Lune d'Automne · Bête aux Plumes d'Or · Grand Codex du Feu Li · Cœur d'Épine Blanche (traductions descriptives, D6) |
 
 ### 13.8 Ajouts de la passe complète du wiki (✅ validé)

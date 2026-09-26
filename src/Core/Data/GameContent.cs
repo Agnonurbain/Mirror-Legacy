@@ -38,6 +38,9 @@ namespace MirrorChronicles.Data
         /// <summary>The talisman Qi the mirror can refine (talismans.json, LORE.md §11.5).</summary>
         public IReadOnlyList<TalismanDefinition> Talismans { get; init; } = Array.Empty<TalismanDefinition>();
 
+        /// <summary>The named cultivators of the world's powers (figures.json, from the wiki, renamed).</summary>
+        public IReadOnlyList<FigureDefinition> Figures { get; init; } = Array.Empty<FigureDefinition>();
+
         /// <summary>The world map (regions.json, LORE.md §7).</summary>
         public IReadOnlyList<RegionDefinition> Regions { get; init; } = Array.Empty<RegionDefinition>();
     }
