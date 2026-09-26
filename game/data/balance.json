@@ -54,6 +54,8 @@
     "falseLeftHandChance": 60,
     "falseLeftHandYearlyStones": 300,
     "lightBorrowingYearlyStones": 150,
+    "transferChance": 60,
+    "transformationChance": 35,
     "imagePointsPerYear": 10,
     "imageToNextStage": [ 1000, 3000, 6000 ]
   },

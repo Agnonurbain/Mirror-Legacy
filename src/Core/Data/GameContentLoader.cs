@@ -218,7 +218,7 @@ namespace MirrorChronicles.Data
                 BalanceFile, "a grafted donor's years left need 1 <= min <= max.");
             var core = balance.GoldenCore;
             Require(core != null && new[] { core.ForgeBaseChance, core.RealizationChance, core.SurplusChance, core.IntercalaryFourOneChance, core.IntercalaryThreeTwoChance,
-                        core.TrueLeftHandChance, core.FalseLeftHandChance }
+                        core.TrueLeftHandChance, core.FalseLeftHandChance, core.TransferChance, core.TransformationChance }
                     .All(c => c >= 0 && c <= 100)
                 && core.ShallowAbilityPenalty >= 0 && core.GraftedAbilityPenalty >= 0 && core.LifeLastBonus >= 0 && core.AxiomPenalty >= 0
                 && core.PermissionStones >= 0 && IsProbability(core.PermissionChance) && core.GoldSeekingMirrorCost >= 0 && core.SpecialisedMirrorCost >= 0

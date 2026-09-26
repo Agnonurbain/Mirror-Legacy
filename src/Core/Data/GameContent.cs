@@ -367,6 +367,13 @@ namespace MirrorChronicles.Data
         public int ImagePointsPerYear { get; init; }
         public IReadOnlyList<int> ImageToNextStage { get; init; } = Array.Empty<int>();
 
+        /// <summary>
+        /// Moving between positions (§5.5.1, R8): a Surplus takes the freed Realization (Transfer), an Intercalary seizes
+        /// the sovereign position by a deep plan (Transformation, harder). A failure wounds the Dao (« war of positions »).
+        /// </summary>
+        public int TransferChance { get; init; }
+        public int TransformationChance { get; init; }
+
         /// <summary>Borrowing a Fruition's light (§5.4.2): the tribute its lender takes each year.</summary>
         public int LightBorrowingYearlyStones { get; init; }
     }

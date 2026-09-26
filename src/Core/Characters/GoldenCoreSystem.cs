@@ -200,6 +200,41 @@ namespace MirrorChronicles.Characters
             return true;
         }
 
+        /// <summary>Transfer (R8): a Surplus takes its lineage's Realization once it is free. True once tried.</summary>
+        public bool Transfer(CharacterData member) => MoveToRealization(member, GoldenCoreState.Surplus, Settings.TransferChance, "Transfer");
+
+        /// <summary>Transformation (R8): an Intercalary seizes its lineage's sovereign position by a deep plan. True once tried.</summary>
+        public bool Transform(CharacterData member) => MoveToRealization(member, GoldenCoreState.Intercalary, Settings.TransformationChance, "Transformation");
+
+        /// <summary>
+        /// A position's holder rises to the Realization of their lineage when it is free; a failure wounds their Dao (a
+        /// fifth of their lifespan, LORE.md §5.3) in the war of positions.
+        /// </summary>
+        private bool MoveToRealization(CharacterData member, GoldenCoreState from, int baseChance, string move)
+        {
+            if (member == null || !member.IsAlive || member.GoldenCore != from || member.Retreat != Retreat.None
+                || fruitions.State(member.FruitionId)?.Status != FruitionStatus.Free)
+            {
+                ctx.Log.Warning($"[Golden Core] {member?.FullName} cannot attempt the {move}.");
+                return false;
+            }
+
+            int chance = System.Math.Max(1, System.Math.Min(99, baseChance + (member.SpiritualRoot - ctx.Content.Balance.TrialModifiers.AverageRoot)
+                / ctx.Content.Balance.TrialModifiers.RootPointsPerPercent));
+            if (ctx.Rng.Next(1, 101) > chance)
+            {
+                member.DaoWounds++;
+                member.MaxLifespan = System.Math.Max(member.Age + 1, PowerLadder.WoundedLifespan(member.MaxLifespan, 1));
+                ctx.Log.Info($"[Golden Core] {member.FullName}'s {move} fails ({chance}%): their Dao is wounded.");
+                return true;
+            }
+
+            fruitions.Claim(member.FruitionId, member.FullName);
+            member.GoldenCore = GoldenCoreState.Realization;
+            ctx.Log.Info($"[Golden Core] {member.FullName} rises to the Realization by {move}.");
+            return true;
+        }
+
         /// <summary>
         /// Borrowing a Fruition's light (LORE.md §5.4.2): a Foundation at its peak, lent the light of a lineage by its
         /// holder (who granted the clan leave), becomes a « Merciful » Purple Mansion without abilities of its own.
