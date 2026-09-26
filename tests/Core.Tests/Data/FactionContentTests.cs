@@ -126,6 +126,12 @@ namespace MirrorChronicles.Tests.Data
         }
 
         [Test]
+        public void Load_Refuses_AFactionWithoutAListOfTechniques()
+        {
+            AssertRefused(f => FactionJson(f, "Famille Lou")["techniques"] = null);
+        }
+
+        [Test]
         public void Load_Refuses_TwoFactionsWithTheSameName()
         {
             AssertRefused(f => f.Add(FactionJson(f, "Famille Ruan").DeepClone()));

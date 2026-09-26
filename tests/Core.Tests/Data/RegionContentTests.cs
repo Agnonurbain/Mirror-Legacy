@@ -113,6 +113,34 @@ namespace MirrorChronicles.Tests.Data
         }
 
         [Test]
+        public void Load_Refuses_ARegionWithoutAListOfNeighbours()
+        {
+            AssertRefused(GameContentLoader.RegionsFile, RegionsWith(f =>
+            {
+                RegionJson(f, "shiyuan")["neighbours"] = null;
+                foreach (var region in f) // no border left pointing at it: only the missing list is wrong
+                {
+                    var neighbours = (JArray)region["neighbours"];
+                    var back = neighbours?.FirstOrDefault(n => (string)n == "shiyuan");
+                    if (back != null) neighbours.Remove(back);
+                }
+            }));
+        }
+
+        [Test]
+        public void Load_Refuses_ARegionBorderingItself()
+        {
+            AssertRefused(GameContentLoader.RegionsFile, RegionsWith(f => ((JArray)RegionJson(f, "heshan")["neighbours"]).Add("heshan")));
+        }
+
+        [Test]
+        public void Load_Refuses_AParentThatIsNotAStateOrSea()
+        {
+            // the map has one level: places inside states and seas
+            AssertRefused(GameContentLoader.RegionsFile, RegionsWith(f => RegionJson(f, "heshan")["parentId"] = "jingshui-lake"));
+        }
+
+        [Test]
         public void Load_Refuses_AnUnknownParent()
         {
             AssertRefused(GameContentLoader.RegionsFile, RegionsWith(f => RegionJson(f, "heshan")["parentId"] = "atlantis"));
