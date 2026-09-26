@@ -41,5 +41,32 @@ namespace MirrorChronicles.Tests.Diplomacy
             var result = w.Espionage.AttemptEspionage(spy, target);
             Assert.IsTrue(!result.Success && w.Deduction.Fragments.Count == 0);
         }
+
+        // ---- Stealing a manual the power holds (L5b; LORE.md §2.4, L3b) ----
+
+        [Test]
+        public void AttemptEspionage_MayStealAManualThePowerHolds()
+        {
+            var (w, target, spy) = Mission(new FixedRandom(0.0));
+            target.Techniques.Add("upstream-brook-method");
+
+            var result = w.Espionage.AttemptEspionage(spy, target);
+
+            Assert.AreEqual("upstream-brook-method", result.StolenTechniqueId);
+            Assert.IsTrue(w.Techniques.Knows("upstream-brook-method"));
+            Assert.AreEqual(0, w.Deduction.Fragments.Count, "a manual, not a fragment");
+        }
+
+        [Test]
+        public void AttemptEspionage_TakesAFragment_WhenThePowerHoldsNothingNew()
+        {
+            var (w, target, spy) = Mission(new FixedRandom(0.0));
+            target.Techniques.Add("clear-spring-sutra"); // the clan's own
+
+            var result = w.Espionage.AttemptEspionage(spy, target);
+
+            Assert.IsNull(result.StolenTechniqueId);
+            Assert.AreEqual(1, w.Deduction.Fragments.Count);
+        }
     }
 }
