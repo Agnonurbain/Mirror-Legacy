@@ -55,7 +55,7 @@ namespace MirrorChronicles.Tests.Mirror
         {
             var (w, beast) = World(new FixedRandom(Pass));
             w.Talismans.RestoreCalendar(w.Ctx.Clock.Year + 10);
-            StringAssert.Contains("window", w.Hunts.Validate(Plan(beast, (Hunter(w), HuntRole.Striker))));
+            StringAssert.Contains("fenêtre", w.Hunts.Validate(Plan(beast, (Hunter(w), HuntRole.Striker))));
         }
 
         [Test]

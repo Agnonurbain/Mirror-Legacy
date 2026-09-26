@@ -88,7 +88,7 @@ namespace MirrorChronicles.Tests.Presentation
 
             var preview = OperationsView.HuntPreview(s, plan);
 
-            StringAssert.Contains("window", preview.Refusal, "the first ritual is years away");
+            StringAssert.Contains("fenêtre", preview.Refusal, "the first ritual is years away");
             Assert.That(preview.Approach, Is.InRange(1, 99));
             Assert.That(preview.Capture, Is.InRange(1, 99));
             Assert.AreEqual(Fixtures.Content.Balance.Hunt.CoverStones[(int)CoverStory.Trade], preview.Stones);
