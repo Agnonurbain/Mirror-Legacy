@@ -186,5 +186,29 @@ namespace MirrorChronicles.Tests.World
             ((JObject)file[0])["favouredFruitions"] = new JArray("no-such-lineage");
             AssertRefused(GameContentLoader.AtmospheresFile, file.ToString());
         }
+
+        // ---- Review (L5b) ----
+
+        [Test]
+        public void NoElement_IsFavouredByNobody()
+        {
+            var odd = new AtmosphereDefinition { FavouredSpeed = 0.2, FavouredElements = new[] { Element.None } };
+            Assert.AreEqual(1.0, RegionalQiRules.AtmosphereSpeed(odd, null, Element.None, CultivationPath.Immortal), 1e-9);
+        }
+
+        [Test]
+        public void AFavouringAtmosphere_EasesTheAscentToThePurpleMansion()
+        {
+            var south = GameContentLoader.Load(name => name == GameContentLoader.ClanFile // a clan under the Baleful Storehouse
+                ? Fixtures.ReadDataFile(name).Replace("\"jingshui-lake\"", "\"baishi\"")
+                : Fixtures.ReadDataFile(name));
+            var w = new TestWorld(new System.Random(1), south);
+            var devil = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 9));
+            var immortal = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 9));
+            devil.Path = CultivationPath.Devil;
+
+            Assert.AreEqual(w.PurpleMansion.AscentChanceOf(immortal) + Atmosphere("baleful-spirits-storehouse").FavouredBreakthrough,
+                w.PurpleMansion.AscentChanceOf(devil));
+        }
     }
 }

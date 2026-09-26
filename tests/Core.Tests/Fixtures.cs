@@ -70,9 +70,10 @@ namespace MirrorChronicles.Tests
         public TaskAssignmentSystem Tasks { get; }
         public MarriageSystem Marriages { get; }
 
-        public TestWorld(Random rng)
+        /// <param name="content">Other content than the shipped one (a clan elsewhere, a changed balance).</param>
+        public TestWorld(Random rng, GameContent content = null)
         {
-            Ctx = Fixtures.Context(rng);
+            Ctx = content == null ? Fixtures.Context(rng) : new GameContext(new GameEventBus(), new RecordingGameLog(), rng, new GameClock(), content);
             Clan = new ClanManager(Ctx, "Mo");
             Resources = new ResourceManager(Ctx);
             Stability = new MentalStabilitySystem(Ctx, Clan);
