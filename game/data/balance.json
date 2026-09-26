@@ -84,6 +84,19 @@
     "stonesPerGrade": [ 100, 250, 600, 1500, 4000, 10000, 30000 ],
     "daoPartnersMirrorCost": 30
   },
+  "plots": {
+    "investigateThreshold": 30,
+    "investigationChancePerPoint": 0.01,
+    "investigationBonusPerRealm": 0.25,
+    "evidencePerFinding": 20,
+    "actThreshold": 60,
+    "proofThreshold": 50,
+    "boldnessRealmMargin": 1,
+    "reprisalRelation": -30,
+    "reprisalStonesShare": 0.2,
+    "witnessDistrust": 15,
+    "proofReputation": 10
+  },
   "hunt": {
     "approachBase": 55,
     "lookoutBonus": 10,

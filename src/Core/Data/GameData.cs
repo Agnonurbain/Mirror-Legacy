@@ -66,7 +66,8 @@ namespace MirrorChronicles.Data
         public int? NextRitualYear { get; set; }
         public List<WorldBeast> WorldBeasts { get; set; }
         public Dictionary<string, int> SuspicionOfClan { get; set; } // 2.9, hidden: each power's suspicion of the clan
-        public Dictionary<string, int> Distrust { get; set; }        // 2.9, hidden: « holder→toward »             // 2.8; null in older saves: drawn again from the seed                // 2.7; null in older saves: the next multiple of the cycle
+        public Dictionary<string, int> Distrust { get; set; }        // 2.9, hidden: « holder→toward »
+        public Dictionary<string, int> Evidence { get; set; }        // 2.9, hidden: the proof each power holds against the clan             // 2.8; null in older saves: drawn again from the seed                // 2.7; null in older saves: the next multiple of the cycle
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

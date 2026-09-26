@@ -23,6 +23,25 @@ namespace MirrorChronicles.World
             ofClan[faction] = Math.Clamp(OfClan(faction) + amount, 0, Max);
         }
 
+        private readonly Dictionary<string, int> evidence = new Dictionary<string, int>();
+
+        /// <summary>The proof a power holds against the clan (0-100): enough of it makes striking its right.</summary>
+        public int Evidence(string faction) => faction != null && evidence.TryGetValue(faction, out int v) ? v : 0;
+
+        public void AddEvidence(string faction, int amount)
+        {
+            if (faction == null || amount == 0) return;
+            evidence[faction] = Math.Clamp(Evidence(faction) + amount, 0, Max);
+        }
+
+        public IReadOnlyDictionary<string, int> Evidences => evidence;
+
+        public void RestoreEvidence(IReadOnlyDictionary<string, int> saved)
+        {
+            evidence.Clear();
+            foreach (var pair in saved ?? new Dictionary<string, int>()) evidence[pair.Key] = Math.Clamp(pair.Value, 0, Max);
+        }
+
         public int Distrust(string holder, string toward) => distrust.TryGetValue(Key(holder, toward), out int v) ? v : 0;
 
         public void AddDistrust(string holder, string toward, int amount)

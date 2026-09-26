@@ -195,6 +195,12 @@ namespace MirrorChronicles.Data
             Require(trade != null && trade.StonesPerGrade?.Count == TechniqueRules.MaxGrade && trade.StonesPerGrade.All(p => p >= 0)
                 && trade.DaoPartnersMirrorCost >= 0 && trade.MinRelation >= Diplomacy.FactionManager.MinRelation && trade.MinRelation <= Diplomacy.FactionManager.MaxRelation,
                 BalanceFile, "knowledgeTrade needs a price per grade (7, never negative), a mirror cost and a relation within -100..100.");
+            var plots = balance.Plots;
+            Require(plots != null && plots.InvestigateThreshold >= 0 && plots.ActThreshold >= plots.InvestigateThreshold
+                && plots.ProofThreshold > 0 && plots.EvidencePerFinding > 0 && plots.InvestigationChancePerPoint >= 0
+                && plots.InvestigationBonusPerRealm >= 0 && plots.BoldnessRealmMargin >= 0 && plots.ReprisalRelation <= 0
+                && IsProbability(plots.ReprisalStonesShare) && plots.WitnessDistrust >= 0 && plots.ProofReputation >= 0,
+                BalanceFile, "plots needs thresholds in order (investigate <= act), positive proof, and odds and penalties in range.");
             var hunt = balance.Hunt;
             Require(hunt != null && hunt.TimingApproach?.Count == 3 && hunt.TimingCapture?.Count == 3 && hunt.CoverExposure?.Count == 4
                 && hunt.CoverStones?.Count == 4 && hunt.CoverStones.All(c => c >= 0) && hunt.AidMirrorCost?.Count == 3 && hunt.AidMirrorCost.All(c => c >= 0)
