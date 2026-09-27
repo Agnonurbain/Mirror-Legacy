@@ -15,6 +15,9 @@ namespace MirrorChronicles.Presentation
     public sealed record PowerLine(string Name, string Kind, string HighestRealm, int Relation, IReadOnlyList<TreatyLine> Treaties,
         IReadOnlyList<string> Allies = null, string Suzerain = null, string ClanWatch = null);
 
+    /// <summary>A great partner: what it gives, its tribute, why it would not hear the clan now, and — once bound — a sign of its favour.</summary>
+    public sealed record PatronLine(string Id, string Name, string Kind, string Boon, int Tribute, string Refusal, bool Bound, string Favor);
+
     /// <summary>Powers banded against the clan, for the years left.</summary>
     public sealed record CoalitionLine(IReadOnlyList<string> Members, int YearsLeft);
 
@@ -60,6 +63,21 @@ namespace MirrorChronicles.Presentation
         /// <summary>Why a power would refuse this treaty now; null when it would accept.</summary>
         public static string ProposalRefusal(GameSession session, string faction, TreatyKind kind, bool clanAsSuzerain, bool sealedByOath) =>
             session.Treaties.Refusal(session.Factions.GetFactionByName(faction), kind, sealedByOath, clanAsSuzerain);
+
+        /// <summary>The great partners of the very high level (2026-09-27).</summary>
+        public static IReadOnlyList<PatronLine> Patrons(GameSession session)
+        {
+            var s = session.Context.Content.Balance.Patrons;
+            return session.Context.Content.Patrons.Select(p =>
+            {
+                var pact = session.Patrons.Pacts.FirstOrDefault(x => x.PatronId == p.Id);
+                string favor = pact == null ? null
+                    : pact.Favor < s.SafeEndFavor ? "sa colère gronde" : pact.Favor >= s.MaxFavor ? "elle vous tient en haute estime" : "elle vous est favorable";
+                return new PatronLine(p.Id, p.Name, p.Kind == PatronKind.Beast ? "grande bête" : "figure solitaire",
+                    p.Boon switch { PatronBoon.Protection => "protection", PatronBoon.Insight => "savoir", _ => "regard" },
+                    p.Tribute, pact == null ? session.Patrons.Refusal(p.Id) : null, pact != null, favor);
+            }).ToList();
+        }
 
         /// <summary>The members the clan may offer in marriage.</summary>
         public static IReadOnlyList<MemberChoice> MarriageCandidates(GameSession session) =>
