@@ -38,7 +38,7 @@ namespace MirrorChronicles.Presentation
         public static IReadOnlyList<MarketLine> Market(GameSession session) =>
             session.Factions.Factions
                 .SelectMany(f => session.Exchange.Offers(f.Name).Select(t => new MarketLine(f.Name, t.ID, t.Name, KindLabel(t.Kind), t.Grade,
-                    session.Exchange.PriceOf(t), session.Exchange.PurchaseRefusal(f.Name, t.ID))))
+                    session.Exchange.PriceOf(t, f.Name), session.Exchange.PurchaseRefusal(f.Name, t.ID))))
                 .OrderBy(m => m.Price).ThenBy(m => m.Power, StringComparer.Ordinal).ThenBy(m => m.Name, StringComparer.Ordinal)
                 .ToList();
 

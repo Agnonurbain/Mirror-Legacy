@@ -9,13 +9,13 @@ namespace MirrorChronicles.Data
     /// Version 2.1 adds the techniques of LORE.md §2 (knowledge, Qi); older saves receive the clan's
     /// starting knowledge on load. Version 2.2 adds the state of the Dao lineages (§6.8); 2.3 the
     /// clan's knowledge (its known techniques now live there); 2.4 the oaths; 2.5 the Golden Core's
-    /// permissions; 2.6 the talisman Qi (prayers, an offer awaiting a choice); 2.7 the captured beasts; 2.8 the world's beasts; 2.9 the powers' hidden suspicion and distrust; 2.10 the agents the clan holds (its captives ride on the members). Field names never
+    /// permissions; 2.6 the talisman Qi (prayers, an offer awaiting a choice); 2.7 the captured beasts; 2.8 the world's beasts; 2.9 the powers' hidden suspicion and distrust; 2.10 the agents the clan holds (its captives ride on the members); 2.11 the clan's treaties. Field names never
     /// change: older saves must keep loading.
     /// </summary>
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.10";
+        public const string CurrentVersion = "2.11";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -71,6 +71,7 @@ namespace MirrorChronicles.Data
         public Dictionary<string, int> MirrorClues { get; set; }     // 2.9, hidden: what each power pieced together about the mirror
         public Dictionary<string, int> Evidence { get; set; }        // 2.9, hidden: the proof each power holds against the clan
         public List<Prisoner> Prisoners { get; set; }                // 2.10; null in older saves: none held
+        public List<Treaty> Treaties { get; set; }                   // 2.11; null in older saves: none concluded
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

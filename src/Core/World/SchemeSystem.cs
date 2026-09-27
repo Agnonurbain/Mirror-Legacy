@@ -19,9 +19,12 @@ namespace MirrorChronicles.World
         private readonly FactionManager factions;
         private readonly CaptiveSystem captives;
         private readonly SecretSystem secrets;
+        private readonly TreatySystem treaties;
 
-        public SchemeSystem(GameContext ctx, ClanManager clan, FactionManager factions, CaptiveSystem captives, SecretSystem secrets)
+        public SchemeSystem(GameContext ctx, ClanManager clan, FactionManager factions, CaptiveSystem captives, SecretSystem secrets,
+            TreatySystem treaties = null)
         {
+            this.treaties = treaties;
             this.ctx = ctx;
             this.clan = clan;
             this.factions = factions;
@@ -39,6 +42,7 @@ namespace MirrorChronicles.World
             {
                 if (ambushes >= Settings.MaxAmbushesPerYear) return;
                 if (secrets.Confrontation?.Faction == power.Name) continue; // its move is the confrontation's
+                if (treaties?.Spares(power.Name) == true) continue;           // spared by non-aggression, or as the clan's suzerain (betrayal is the treaty's own path)
                 if (ctx.Rng.Chance(SchemeRules.SchemeChance(power, stones, Settings)) && Ambush(power)) ambushes++;
             }
         }
@@ -50,6 +54,12 @@ namespace MirrorChronicles.World
             if (exposed.Count == 0) return false;
 
             var target = ctx.Rng.Pick(exposed);
+            var guardian = treaties?.Guardians(against: power.Name).FirstOrDefault();
+            if (guardian != null && ctx.Rng.Chance(ctx.Content.Balance.Treaties.DefenceGuardChance))
+            {
+                ctx.Log.Info($"[Schemes] {guardian}'s escort foils {power.Name}'s ambush on {target.FullName}.");
+                return true;
+            }
             if (ctx.Rng.Chance(SchemeRules.CaptureChance(power, target, Settings)))
             {
                 captives.Take(target, power.Name);

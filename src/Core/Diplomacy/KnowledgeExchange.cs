@@ -22,8 +22,12 @@ namespace MirrorChronicles.Diplomacy
         private readonly ResourceManager resources;
         private readonly MirrorSystem mirror;
 
-        public KnowledgeExchange(GameContext ctx, FactionManager factions, TechniqueLibrary techniques, ResourceManager resources, MirrorSystem mirror)
+        private readonly TreatySystem treaties;
+
+        public KnowledgeExchange(GameContext ctx, FactionManager factions, TechniqueLibrary techniques, ResourceManager resources, MirrorSystem mirror,
+            TreatySystem treaties = null)
         {
+            this.treaties = treaties;
             this.ctx = ctx;
             this.factions = factions;
             this.techniques = techniques;
@@ -44,8 +48,14 @@ namespace MirrorChronicles.Diplomacy
                 .ToList();
         }
 
-        /// <summary>A technique's price: by its grade.</summary>
-        public int PriceOf(TechniqueData technique) => Settings.StonesPerGrade[technique.Grade - 1];
+        /// <summary>A technique's price: by its grade; cheaper from a trade partner.</summary>
+        public int PriceOf(TechniqueData technique, string factionName = null)
+        {
+            int price = Settings.StonesPerGrade[technique.Grade - 1];
+            return treaties != null && factionName != null && treaties.Has(factionName, TreatyKind.Trade)
+                ? (int)(price * ctx.Content.Balance.Treaties.TradeDiscount)
+                : price;
+        }
 
         /// <summary>Why a power will not sell this technique now; null when it will.</summary>
         public string PurchaseRefusal(string factionName, string techniqueId) =>
@@ -56,7 +66,7 @@ namespace MirrorChronicles.Diplomacy
             if (power == null) return "puissance inconnue";
             if (technique == null) return "elle ne détient pas cet art, ou le clan le connaît déjà";
             if (power.RelationWithPlayer < Settings.MinRelation) return $"la relation est trop froide ({Settings.MinRelation} requise)";
-            if (resources.SpiritStones < PriceOf(technique)) return $"il faut {PriceOf(technique)} pierres spirituelles";
+            if (resources.SpiritStones < PriceOf(technique, power.Name)) return $"il faut {PriceOf(technique, power.Name)} pierres spirituelles";
             return null;
         }
 
@@ -65,7 +75,7 @@ namespace MirrorChronicles.Diplomacy
         {
             var power = factions.GetFactionByName(factionName);
             var technique = Offers(factionName).FirstOrDefault(t => t.ID == techniqueId);
-            if (Refusal(power, technique) != null || !resources.ConsumeSpiritStones(PriceOf(technique))) // no technique: refused first
+            if (Refusal(power, technique) != null || !resources.ConsumeSpiritStones(PriceOf(technique, power.Name))) // no technique: refused first
             {
                 ctx.Log.Warning($"[Knowledge] {factionName} does not sell « {techniqueId} » to the clan.");
                 return false;

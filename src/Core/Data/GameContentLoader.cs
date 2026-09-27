@@ -221,6 +221,15 @@ namespace MirrorChronicles.Data
                 && schemes.RansomRealmFactor >= 1 && schemes.SilenceMirrorCost >= 0 && schemes.InterrogationFragments >= 0
                 && schemes.FailedRescueSuspicion >= 0 && schemes.DenounceDistrust >= 0,
                 BalanceFile, "schemes needs a factor for every personality, the tasks away from the domain, and odds and costs in range.");
+            var treaty = balance.Treaties;
+            var kinds = Enum.GetValues(typeof(TreatyKind)).Cast<TreatyKind>().ToList();
+            Require(treaty != null && kinds.All(k => treaty.MinRelation.ContainsKey(k) && treaty.AcceptBase.ContainsKey(k))
+                && IsProbability(treaty.BetrayalBase) && treaty.BetrayalTemper.Values.All(t => t >= 0) && treaty.SuspicionBetrayalWeight >= 0
+                && treaty.StrongerBetrayalFactor >= 0 && treaty.SealedFactor >= 0 && treaty.SuzerainRealmMargin >= 0
+                && IsProbability(treaty.BetrayalStonesShare) && IsProbability(treaty.SecretDiscoveryChance) && IsProbability(treaty.DefenceGuardChance)
+                && IsProbability(treaty.VassalTributeShare) && IsProbability(treaty.GripStonesShare) && treaty.GripThreshold > 0
+                && treaty.TradeDiscount > 0 && treaty.SealedHeartDemonYears >= 0,
+                BalanceFile, "treaties needs a relation and a base for every kind, and odds and shares between 0 and 1.");
             var lore = balance.MirrorLore;
             Require(lore != null && lore.KnowChance != null && lore.PerCentury != null && lore.KnowChance.Values.All(IsProbability)
                 && lore.PerCentury.Values.All(p => p >= 0) && IsProbability(lore.MaxChance) && lore.UnknownAge >= 0
