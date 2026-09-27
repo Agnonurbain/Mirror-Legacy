@@ -42,6 +42,7 @@ namespace MirrorChronicles.Presentation
             bus.OnPowerAbsorbed += (vassal, suzerain) => Add($"{suzerain} absorbe {vassal}.");
             bus.OnCoalitionFormed += members => Add($"une coalition se forme contre le clan : {string.Join(", ", members)}.");
             bus.OnCallToArms += (ally, attacker) => Add($"{ally}, attaquée par {attacker}, appelle le clan aux armes.");
+            bus.OnTheft += (what, thief) => Add(thief == null ? $"vol au domaine : {what}, sans que l'on sache qui." : $"vol au domaine : {what} ; le voleur, de {thief}, est pris.");
             bus.OnGameOver += won =>
             {
                 if (won) Add("la lignée devient éternelle.");

@@ -193,6 +193,9 @@ namespace MirrorChronicles.Data
         /// <summary>The powers' own politics: alliances, feuds, vassals, coalitions, calls to arms (2026-09-27; interpretations).</summary>
         public PoliticsSettings Politics { get; init; }
 
+        /// <summary>The powers' intrigues: blackmail, theft, spies (2026-09-27; interpretations).</summary>
+        public IntrigueSettings Intrigues { get; init; }
+
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
 

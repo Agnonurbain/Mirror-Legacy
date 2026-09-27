@@ -57,6 +57,7 @@ namespace MirrorChronicles.Session
         public MirrorLore Lore { get; }
         public TreatySystem Treaties { get; }
         public PowerPoliticsSystem Politics { get; }
+        public IntrigueSystem Intrigues { get; }
         public CaptiveSystem Captives { get; }
         public SchemeSystem Schemes { get; }
         public SecretSystem Secrets { get; }
@@ -115,6 +116,7 @@ namespace MirrorChronicles.Session
             Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
             Captives = new CaptiveSystem(Context, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
+            Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
@@ -206,6 +208,7 @@ namespace MirrorChronicles.Session
             session.Politics.RestoreBonds(data.PowerBonds);    // none in saves before 2.12
             session.Politics.RestoreCoalition(data.Coalition);
             session.Politics.RestoreCalls(data.CallsToArms);
+            session.Intrigues.RestoreDemands(data.Demands, data.QuietUntil); // none in saves before 2.13
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -260,6 +263,8 @@ namespace MirrorChronicles.Session
                 PowerBonds = Politics.Bonds.ToList(),
                 Coalition = Politics.Coalition == null ? null : Politics.Coalition with { Members = Politics.Coalition.Members.ToList() },
                 CallsToArms = Politics.PendingCalls.ToList(),
+                Demands = Intrigues.Demands.ToList(),
+                QuietUntil = new Dictionary<string, int>(Intrigues.QuietUntil),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -313,6 +318,7 @@ namespace MirrorChronicles.Session
                     Captives.ProcessYear();           // the captives are interrogated, and may be executed
                     Treaties.ProcessYear();           // the treaties: tribute, trade, the allies close by — and betrayal (D7)
                     Politics.ProcessYear();           // the powers ally, feud, subjugate, band against the clan (2026-09-27)
+                    Intrigues.ProcessYear();          // blackmail, theft, spies (2026-09-27)
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)

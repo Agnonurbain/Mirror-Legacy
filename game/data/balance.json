@@ -143,6 +143,27 @@
     "executeRelation": -40,
     "executeWitnessRelation": -5
   },
+  "intrigues": {
+    "blackmailEvidence": 30,
+    "blackmailChance": 0.2,
+    "blackmailTemper": { "Manipulative": 2.0, "Merchant": 1.5, "Aggressive": 0.5, "Expansionist": 1.0, "Isolationist": 0.3 },
+    "blackmailStonesShare": 0.2,
+    "quietYears": 5,
+    "refusedSpreadEvidence": 15,
+    "refusedRelation": -20,
+    "theftChance": 0.02,
+    "theftTemper": { "Manipulative": 2.0, "Aggressive": 1.5, "Merchant": 0.8, "Expansionist": 1.0, "Isolationist": 0.3 },
+    "patrolGuard": 0.5,
+    "catchPerPatrol": 0.25,
+    "maxCatchChance": 0.8,
+    "theftStonesShare": 0.15,
+    "spyChance": { "Manipulative": 0.6, "Aggressive": 0.2, "Merchant": 0.3, "Expansionist": 0.4, "Isolationist": 0.1 },
+    "spyEvidence": 5,
+    "spyClues": 5,
+    "unmaskMirrorCost": 20,
+    "doubleAgentRelief": 10,
+    "spyExecutionRelation": -40
+  },
   "politics": {
     "allianceChance": 0.2,
     "allianceAffinity": 25,
