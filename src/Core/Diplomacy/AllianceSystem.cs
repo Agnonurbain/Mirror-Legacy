@@ -5,10 +5,9 @@ using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Diplomacy
 {
-    /// <summary>Diplomatic acts the player initiates: tribute, non-aggression pacts, war.</summary>
+    /// <summary>Diplomatic acts the player initiates: tribute and war (treaties: <see cref="TreatySystem"/>).</summary>
     public sealed class AllianceSystem
     {
-        public const int NonAggressionBonus = 10;
         private const double MerchantTributeMultiplier = 1.5;
 
         private readonly GameContext ctx;
@@ -34,17 +33,6 @@ namespace MirrorChronicles.Diplomacy
 
             factions.ChangeRelation(factionId, boost);
             ctx.Log.Info($"[Alliances] Tribute of {spiritStones} stones to {faction.Name} (+{boost}).");
-            return true;
-        }
-
-        /// <summary>Accepted from neutral or better relations.</summary>
-        public bool ProposeNonAggression(string factionId)
-        {
-            var faction = factions.GetFactionByID(factionId);
-            if (faction == null || faction.RelationWithPlayer < 0) return false;
-
-            factions.ChangeRelation(factionId, NonAggressionBonus);
-            ctx.Log.Info($"[Alliances] {faction.Name} accepts a non-aggression pact.");
             return true;
         }
 
