@@ -168,5 +168,31 @@ namespace MirrorChronicles.Tests.World
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.IsNotNull(reloaded.Dealings.Blackmail(secret.Id), "already spent");
         }
+
+        // ---- Review ----
+
+        [Test]
+        public void ADefiedBlackmail_CostsTheClanOnce()
+        {
+            var w = World(new FixedRandom(0.999), CultivationRealm.QiRefinement);
+            var secret = Known(w, Peak, "internal-feud");
+            w.Dealings.Blackmail(secret.Id);
+            StringAssert.Contains("déjà", w.Dealings.Blackmail(secret.Id));
+            Assert.AreEqual(Settings.ResentmentByRank[0], w.Suspicion.OfClan(Peak), "resented once");
+        }
+
+        [Test]
+        public void ASecretExposedByAPower_IsARumourToTheOthers_NotAFullProof()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Factions.ChangeRelation(w.Factions.GetFactionByName(Ruan).ID, -50);
+            var deed = w.SecretBook.Create("blood-of-anothers-beast", Clan, Ruan);
+            w.SecretBook.Grant(Ruan, deed.Id);
+
+            w.Dealings.ProcessYear();
+
+            int full = Fixtures.Content.Balance.Secrets.KnownEvidenceByRank[2];
+            Assert.AreEqual((int)(full * Settings.ExposedEvidenceShare), w.Suspicion.Evidence(Tao));
+        }
     }
 }

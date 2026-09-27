@@ -104,5 +104,14 @@ namespace MirrorChronicles.Tests.World
             w.Ctx.Events.TriggerPowerAbsorbed(Ruan, "Secte du Pic des Nuées");
             Assert.AreEqual(0, w.Suspicion.ClanDistrust(Ruan));
         }
+
+        [Test]
+        public void AProbeEndingInDisaster_IsRememberedOnce()
+        {
+            var w = World(new SequenceRandom(0.999, 0.0, 0.0)); // it fails, is seen, ends in disaster: an agent caught
+            w.SecretBook.Create("executed-agent", SecretBook.ClanHolder, null);
+            w.Probes.PowerProbe(w.Factions.GetFactionByName(Ruan), SecretBook.ClanHolder, ProbeApproach.Infiltration, new List<string>());
+            Assert.AreEqual(Settings.AgentCaught, w.Suspicion.ClanDistrust(Ruan));
+        }
     }
 }
