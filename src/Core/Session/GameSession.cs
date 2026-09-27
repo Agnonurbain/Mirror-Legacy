@@ -54,6 +54,7 @@ namespace MirrorChronicles.Session
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
+        public MirrorLore Lore { get; }
         public CaptiveSystem Captives { get; }
         public SchemeSystem Schemes { get; }
         public SecretSystem Secrets { get; }
@@ -106,7 +107,8 @@ namespace MirrorChronicles.Session
             Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
             Suspicion = new SuspicionLedger();
             Hunts = new HuntOperations(Context, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
-            Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths, Mirror);
+            Lore = new MirrorLore(Context, Factions, seed);
+            Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
             Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets);
             Captives = new CaptiveSystem(Context, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets);

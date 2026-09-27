@@ -221,6 +221,12 @@ namespace MirrorChronicles.Data
                 && schemes.RansomRealmFactor >= 1 && schemes.SilenceMirrorCost >= 0 && schemes.InterrogationFragments >= 0
                 && schemes.FailedRescueSuspicion >= 0 && schemes.DenounceDistrust >= 0,
                 BalanceFile, "schemes needs a factor for every personality, the tasks away from the domain, and odds and costs in range.");
+            var lore = balance.MirrorLore;
+            Require(lore != null && lore.KnowChance != null && lore.PerCentury != null && lore.KnowChance.Values.All(IsProbability)
+                && lore.PerCentury.Values.All(p => p >= 0) && IsProbability(lore.MaxChance) && lore.UnknownAge >= 0
+                && IsProbability(lore.RumourRiseChance) && lore.TreasureSuspicion >= 0
+                && lore.KnowChance.Keys.All(r => r >= CultivationRealm.GoldenCore),
+                BalanceFile, "mirrorLore needs chances between 0 and 1, only for the Golden Core and above (a handful of elders know the mirror).");
             var place = balance.RegionalQi;
             Require(place != null && place.KindElements != null && place.KindDensity != null && place.LineageStatusFactors != null
                 && Enum.GetValues(typeof(RegionKind)).Cast<RegionKind>().All(k => place.KindElements.ContainsKey(k) && place.KindDensity.TryGetValue(k, out var d) && d > 0)
