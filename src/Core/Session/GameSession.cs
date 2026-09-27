@@ -72,6 +72,7 @@ namespace MirrorChronicles.Session
         public EspionageSystem Espionage { get; }
         public TaskAssignmentSystem Tasks { get; }
         public MarriageSystem Marriages { get; }
+        public MarriageAlliance Matches { get; }
         public EventManager RandomEvents { get; }
         public LegacySystem Legacy { get; }
         public AscensionSystem Ascension { get; }
@@ -127,6 +128,7 @@ namespace MirrorChronicles.Session
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
+            Matches = new MarriageAlliance(Context, Clan, Factions, Treaties, Marriages, Suspicion);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
             Ascension = new AscensionSystem(Context, Clan);

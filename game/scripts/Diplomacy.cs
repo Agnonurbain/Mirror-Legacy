@@ -29,6 +29,7 @@ namespace MirrorChronicles.Game
         private bool secret;
         private bool sealedByOath;
         private bool clanAsSuzerain;
+        private string groom; // the member offered in marriage
         private int term;
 
         public override void _Ready()
@@ -108,8 +109,9 @@ namespace MirrorChronicles.Game
             {
                 Text = $"      ↳ {treaty.Kind}{side}{(treaty.Secret ? " · secret" : "")}{(treaty.Sealed ? " · scellé par serment" : "")}{term}"
             });
-            var breakIt = new Button { Text = "Rompre" };
-            breakIt.Pressed += () => Report(root.Session.Treaties.Break(treaty.Id), $"Le clan rompt le traité ({treaty.Kind}).");
+            var breakIt = treaty.SpouseId != null ? new Button { Text = "Répudier le conjoint" } : new Button { Text = "Rompre" };
+            breakIt.Pressed += () => Report(treaty.SpouseId != null ? root.Session.Matches.Repudiate(treaty.SpouseId) : root.Session.Treaties.Break(treaty.Id),
+                treaty.SpouseId != null ? "Le conjoint retourne auprès des siens." : $"Le clan rompt le traité ({treaty.Kind}).");
             row.AddChild(breakIt);
             powers.AddChild(row);
         }
@@ -140,10 +142,28 @@ namespace MirrorChronicles.Game
             proposal.AddChild(termPicker);
 
             bool suzerain = kind == TreatyKind.Vassalage && clanAsSuzerain;
-            string why = DiplomacyView.ProposalRefusal(session, power, kind, suzerain, sealedByOath);
-            var propose = new Button { Text = "Proposer le traité", Disabled = why != null, SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
-            propose.Pressed += () => Report(session.Treaties.Propose(power, kind, secret, sealedByOath, suzerain, Terms[term]),
-                $"{power} accepte le traité ({DiplomacyView.KindLabel(kind)}).");
+            string why;
+            Button propose;
+            if (kind == TreatyKind.Marriage)
+            {
+                var candidates = DiplomacyView.MarriageCandidates(session);
+                if (candidates.All(c => c.Id != groom)) groom = candidates.FirstOrDefault()?.Id;
+                var picker = new OptionButton();
+                foreach (var c in candidates) picker.AddItem($"{c.Name} ({c.Rank})");
+                if (groom != null) picker.Select(candidates.ToList().FindIndex(c => c.Id == groom));
+                picker.ItemSelected += i => { groom = candidates[(int)i].Id; ShowProposal(); };
+                proposal.AddChild(picker);
+                why = groom == null ? "aucun membre à marier" : session.Matches.Refusal(power, groom);
+                propose = new Button { Text = "Proposer le mariage", Disabled = why != null, SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
+                propose.Pressed += () => Report(session.Matches.Propose(power, groom), $"{power} accepte : un lien de sang unit désormais les deux maisons.");
+            }
+            else
+            {
+                why = DiplomacyView.ProposalRefusal(session, power, kind, suzerain, sealedByOath);
+                propose = new Button { Text = "Proposer le traité", Disabled = why != null, SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
+                propose.Pressed += () => Report(session.Treaties.Propose(power, kind, secret, sealedByOath, suzerain, Terms[term]),
+                    $"{power} accepte le traité ({DiplomacyView.KindLabel(kind)}).");
+            }
             proposal.AddChild(propose);
             if (why != null) Add(proposal, $"Pas encore : {why}.");
 

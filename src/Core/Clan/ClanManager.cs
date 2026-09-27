@@ -48,6 +48,16 @@ namespace MirrorChronicles.Clan
             PatriarchID = member?.ID;
         }
 
+        /// <summary>A member who leaves the clan alive (a spouse sent home): no longer among the living of the clan.</summary>
+        public bool Depart(CharacterData member)
+        {
+            if (member == null || !member.IsAlive || member.Departed) return false;
+            member.Departed = true;
+            LeaveTheLiving(member);
+            ctx.Log.Info($"[ClanManager] {member.FullName} leaves the clan.");
+            return true;
+        }
+
         /// <summary>Returns false when the character was already dead.</summary>
         public bool Kill(CharacterData character, DeathCause cause)
         {

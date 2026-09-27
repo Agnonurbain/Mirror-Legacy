@@ -75,7 +75,8 @@ namespace MirrorChronicles.Presentation
             r.SpouseID != null && byId.TryGetValue(r.SpouseID, out var spouse) ? spouse : null;
 
         private static string Status(CharacterData r) =>
-            !r.IsAlive ? $"† {ClanDomainView.DeathLabel(r.CauseOfDeath)}"
+            r.Departed ? $"{RankCatalog.DisplayName(r)} — retourné(e) auprès des siens"
+            : !r.IsAlive ? $"† {ClanDomainView.DeathLabel(r.CauseOfDeath)}"
             : ClanDomainView.RetreatLabel(r) is { } away ? $"{RankCatalog.DisplayName(r)} — {away}"
             : RankCatalog.DisplayName(r);
     }

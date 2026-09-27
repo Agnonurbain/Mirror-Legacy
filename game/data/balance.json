@@ -267,8 +267,8 @@
     "clanAbsorptionSteps": 3
   },
   "treaties": {
-    "minRelation": { "NonAggression": 0, "Trade": 10, "Defence": 30, "Vassalage": 0 },
-    "acceptBase": { "NonAggression": 20, "Trade": 10, "Defence": 0, "Vassalage": 10 },
+    "minRelation": { "NonAggression": 0, "Trade": 10, "Defence": 30, "Vassalage": 0, "Marriage": 0 },
+    "acceptBase": { "NonAggression": 20, "Trade": 10, "Defence": 0, "Vassalage": 10, "Marriage": 10 },
     "personalityBias": {
       "Merchant": { "Trade": 25 },
       "Aggressive": { "NonAggression": -10, "Defence": 5 },
@@ -300,7 +300,11 @@
     "gripStonesShare": 0.3,
     "breakRelation": -30,
     "breakReputation": 5,
-    "sealedHeartDemonYears": 10
+    "sealedHeartDemonYears": 10,
+    "marriageWorthPerRealm": 8,
+    "marriageWarmthPerYear": 2,
+    "marriageBetrayalFactor": 0.3,
+    "repudiationRelation": -20
   },
   "mirrorLore": {
     "knowChance": { "GoldenCore": 0.15, "DaoEmbryo": 0.5, "GoldenImmortal": 0.85 },
