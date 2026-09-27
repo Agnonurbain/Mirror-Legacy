@@ -57,6 +57,7 @@ namespace MirrorChronicles.Tests
         public SuspicionLedger Suspicion { get; }
         public TreatySystem Treaties { get; }
         public PowerPoliticsSystem Politics { get; }
+        public PatronSystem Patrons { get; }
         public IntrigueSystem Intrigues { get; }
         public SecretBook SecretBook { get; }
         public ClanWatch Watch { get; }
@@ -119,9 +120,10 @@ namespace MirrorChronicles.Tests
             Watch = new ClanWatch(Ctx, Suspicion);
             SecretBook = new SecretBook(Ctx, Suspicion);
             Dealings = new SecretDealings(Ctx, Clan, Resources, Factions, Suspicion, SecretBook);
-            Probes = new ProbeSystem(Ctx, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources);
+            Probes = new ProbeSystem(Ctx, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
-            Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics);
+            Patrons = new PatronSystem(Ctx, Clan, Resources);
+            Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
         }
