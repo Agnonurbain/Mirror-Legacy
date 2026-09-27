@@ -75,7 +75,8 @@ namespace MirrorChronicles.Data
         ManifestationCollapse, // failed to manifest one's divine power at the Shenyang point (user decision)
         MetalEssenceDemon,     // a failed Golden Core: the residual metal essence comes alive (LORE.md §5.5.1)
         Sacrificed,            // offered to the mirror for a talisman Qi (LORE.md §11.5)
-        SoulReplaced           // the Fruition took back its body for its former master (LORE.md §5.5.2)
+        SoulReplaced,          // the Fruition took back its body for its former master (LORE.md §5.5.2)
+        Executed               // put to death by the power holding them captive (L6a)
     }
 
     /// <summary>

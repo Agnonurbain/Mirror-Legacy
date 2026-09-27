@@ -94,9 +94,10 @@ namespace MirrorChronicles.Presentation
             };
         }
 
-        /// <summary>The retreat of the Purple Mansion's breakthrough under way, or null.</summary>
+        /// <summary>Captivity (L6a), or the retreat of the Purple Mansion's breakthrough under way, or null.</summary>
         public static string RetreatLabel(CharacterData member)
         {
+            if (member.CaptorFaction != null) return $"captif de {member.CaptorFaction}";
             if (member.Retreat == Retreat.None) return null;
             if (member.ImprisonedInVoid) return "prisonnier du Grand Vide";
             string stage = member.Retreat == Retreat.Manifestation ? "Manifestation" : "Grand Vide";
@@ -181,6 +182,7 @@ namespace MirrorChronicles.Presentation
             DeathCause.ManifestationCollapse => "en échouant à manifester son pouvoir divin",
             DeathCause.SoulReplaced => "l'âme remplacée par l'ancien maître de sa Fruition",
             DeathCause.Sacrificed => "sacrifié au miroir pour un Qi de talisman",
+            DeathCause.Executed => "exécuté(e) en captivité",
             DeathCause.MetalEssenceDemon => "en échouant au Noyau d'Or : un Démon d'Essence Métallique est né",
             _ => ""
         };

@@ -15,9 +15,18 @@ namespace MirrorChronicles.Presentation
     /// <summary>A beast the clan scouted, as the map shows it: its species, strength and owner (« solitaire » for none).</summary>
     public sealed record MapBeast(string Species, string Strength, string Owner);
 
-    /// <summary>A place of the map (x west→east, y north→south, 0-1) and the powers living there.</summary>
+    /// <summary>
+    /// A place of the map (x west→east, y north→south, 0-1), the powers living there, the density of its Qi and the
+    /// atmosphere over it (harsh when it weighs on every cultivator, L5b).
+    /// </summary>
     public sealed record MapPlace(string Id, string Name, RegionKind Kind, double X, double Y, bool IsState, bool IsHome,
-        IReadOnlyList<MapFaction> Factions);
+        IReadOnlyList<MapFaction> Factions, double QiDensity = 1.0, string Atmosphere = null, bool AtmosphereHarsh = false);
+
+    /// <summary>A Qi a place offers, and how abundant it is there (L5b).</summary>
+    public sealed record MapQi(string Name, string Abundance);
+
+    /// <summary>The Qi of a place: its density, its Qi, the atmosphere over it and what it does (L5b; LORE.md §2.5, §5.8).</summary>
+    public sealed record PlaceQiView(string Density, IReadOnlyList<MapQi> Qi, string Atmosphere, string AtmosphereEffect, string AtmosphereNotes);
 
     /// <summary>A border between two places, named in ordinal order.</summary>
     public sealed record MapBorder(string A, string B);
@@ -30,9 +39,74 @@ namespace MirrorChronicles.Presentation
             var content = session.Context.Content;
             return content.Regions
                 .Select(r => new MapPlace(r.Id, r.Name, r.Kind, r.X, r.Y, r.ParentId == null, r.Id == content.Clan.HomeRegion,
-                    session.Factions.Factions.Where(f => f.RegionId == r.Id).Select(ToMap).ToList()))
+                    session.Factions.Factions.Where(f => f.RegionId == r.Id).Select(ToMap).ToList(),
+                    session.Place.Density(r.Id), session.Place.AtmosphereOf(r.Id)?.Name, session.Place.AtmosphereOf(r.Id)?.GeneralSpeed < 0))
                 .ToList();
         }
+
+        /// <summary>The Qi of a place (the most abundant first) and its atmosphere; null for an unknown place.</summary>
+        public static PlaceQiView QiOf(GameSession session, string regionId)
+        {
+            var place = session.Place;
+            var content = session.Context.Content;
+            if (content.Regions.All(r => r.Id != regionId)) return null;
+            double density = place.Density(regionId);
+            var qi = place.QiOf(regionId)
+                .Select(q => (q.Name, Abundance: place.Abundance(regionId, q)))
+                .OrderByDescending(q => q.Abundance).ThenBy(q => q.Name, System.StringComparer.Ordinal)
+                .Select(q => new MapQi(q.Name, AbundanceLabel(q.Abundance)))
+                .ToList();
+            var atmosphere = place.AtmosphereOf(regionId);
+            return new PlaceQiView(DensityLabel(density), qi, atmosphere?.Name, AtmosphereEffect(atmosphere, content), atmosphere?.Notes);
+        }
+
+        public static string DensityLabel(double density) =>
+            density >= 1.15 ? "Qi dense" : density >= 0.85 ? "Qi ordinaire" : "Qi maigre";
+
+        public static string AbundanceLabel(double abundance) =>
+            abundance >= 1.2 ? "abondant" : abundance >= 0.85 ? "présent" : "rare";
+
+        /// <summary>What an atmosphere does, in words: its weight on all, and whom it favours.</summary>
+        public static string AtmosphereEffect(AtmosphereDefinition atmosphere, GameContent content)
+        {
+            if (atmosphere == null) return null;
+            var parts = new List<string>();
+            if (atmosphere.GeneralSpeed != 0) parts.Add($"cultivation de tous {Percent(atmosphere.GeneralSpeed)}");
+            var favoured = atmosphere.FavouredFruitions.Select(id => content.Fruitions.FirstOrDefault(f => f.Id == id)?.Name ?? id)
+                .Concat(atmosphere.FavouredElements.Select(ElementLabel))
+                .Concat(atmosphere.FavouredPaths.Select(PathLabel))
+                .ToList();
+            if (favoured.Count > 0)
+                parts.Add($"favorise {string.Join(", ", favoured)} (cultivation {Percent(atmosphere.FavouredSpeed)}, percée +{atmosphere.FavouredBreakthrough})");
+            return parts.Count == 0 ? "sans effet connu" : string.Join(" ; ", parts);
+        }
+
+        private static string Percent(double value) =>
+            (value < 0 ? "−" : "+") + (System.Math.Abs(value) * 100).ToString("0.#", System.Globalization.CultureInfo.GetCultureInfo("fr-FR")) + " %";
+
+        public static string PathLabel(CultivationPath path) => path switch
+        {
+            CultivationPath.Immortal => "Dao Immortel",
+            CultivationPath.Devil => "Dao du Diable",
+            CultivationPath.Buddhist => "bouddhisme",
+            CultivationPath.Demonic => "Dao Démoniaque",
+            CultivationPath.Shamanic => "chamanisme",
+            CultivationPath.Divine => "Dao Divin",
+            _ => path.ToString()
+        };
+
+        public static string ElementLabel(Element element) => element switch
+        {
+            Element.Fire => "Feu",
+            Element.Water => "Eau",
+            Element.Wood => "Bois",
+            Element.Metal => "Métal",
+            Element.Earth => "Terre",
+            Element.Lightning => "Foudre",
+            Element.Darkness => "Ténèbres",
+            Element.Light => "Lumière",
+            _ => "aucun élément"
+        };
 
         /// <summary>Every border once.</summary>
         public static IReadOnlyList<MapBorder> Borders(GameSession session) =>

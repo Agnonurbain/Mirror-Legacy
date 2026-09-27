@@ -98,9 +98,13 @@ namespace MirrorChronicles.Characters
             && PowerLadder.Next(member.Realm, member.RealmStage).Trial == TrialKind.PurpleMansionAscension
             && cultivation.IsReadyForTrial(member);
 
+        /// <summary>The ascent's chance: the rules', plus what a favouring atmosphere at home gives (L5b).</summary>
+        public int AscentChanceOf(CharacterData member) =>
+            Math.Min(99, PurpleMansionRules.AscentChance(member, Settings, ctx.Content.Balance.TrialModifiers) + cultivation.PlaceBreakthroughBonus(member));
+
         private void Ascend(CharacterData member)
         {
-            int chance = PurpleMansionRules.AscentChance(member, Settings, ctx.Content.Balance.TrialModifiers);
+            int chance = AscentChanceOf(member);
             if (ctx.Rng.Next(1, 101) > chance)
             {
                 ctx.Log.Info($"[Purple Mansion] {member.FullName} is exhausted before the Shenyang Mansion ({chance}%).");

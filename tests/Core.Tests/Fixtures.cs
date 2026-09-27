@@ -50,12 +50,15 @@ namespace MirrorChronicles.Tests
         public DivineAbilitySystem Abilities { get; }
         public OathSystem Oaths { get; }
         public FruitionRegistry Fruitions { get; }
+        public RegionalQi Place { get; }
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
         public BeastRegistry Bestiary { get; }
         public SuspicionLedger Suspicion { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
+        public CaptiveSystem Captives { get; }
+        public SchemeSystem Schemes { get; }
         public SecretSystem Secrets { get; }
         public KnowledgeExchange Exchange { get; }
         public FactionManager Factions { get; }
@@ -67,16 +70,19 @@ namespace MirrorChronicles.Tests
         public TaskAssignmentSystem Tasks { get; }
         public MarriageSystem Marriages { get; }
 
-        public TestWorld(Random rng)
+        /// <param name="content">Other content than the shipped one (a clan elsewhere, a changed balance).</param>
+        public TestWorld(Random rng, GameContent content = null)
         {
-            Ctx = Fixtures.Context(rng);
+            Ctx = content == null ? Fixtures.Context(rng) : new GameContext(new GameEventBus(), new RecordingGameLog(), rng, new GameClock(), content);
             Clan = new ClanManager(Ctx, "Mo");
             Resources = new ResourceManager(Ctx);
             Stability = new MentalStabilitySystem(Ctx, Clan);
             Karma = new ClanKarmaSystem(Ctx, Clan);
             Knowledge = WorldKnowledge.Create(Ctx.Content);
             Techniques = new TechniqueLibrary(Ctx, Knowledge);
-            Cultivation = new CultivationSystem(Ctx, Karma, Techniques, Resources);
+            Fruitions = new FruitionRegistry(Ctx);
+            Place = new RegionalQi(Ctx, Fruitions, Techniques);
+            Cultivation = new CultivationSystem(Ctx, Karma, Techniques, Resources, Place);
             Breakthroughs = new BreakthroughSystem(Ctx, Clan, Cultivation);
             Foundations = new FoundationSystem(Ctx, Clan, Techniques);
             PurpleMansion = new PurpleMansionSystem(Ctx, Clan, Cultivation, Techniques);
@@ -85,7 +91,6 @@ namespace MirrorChronicles.Tests
             Mirror = new MirrorSystem(Ctx, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Ctx, Mirror, Techniques);
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
-            Fruitions = new FruitionRegistry(Ctx);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions);
             Bestiary = new BeastRegistry(Ctx);
@@ -98,6 +103,8 @@ namespace MirrorChronicles.Tests
             Hunts = new HuntOperations(Ctx, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
             Secrets = new SecretSystem(Ctx, Clan, Factions, Suspicion, Oaths, Mirror);
             Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion, Secrets);
+            Captives = new CaptiveSystem(Ctx, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
+            Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
         }
 

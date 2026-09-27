@@ -23,9 +23,13 @@ namespace MirrorChronicles.Characters
         private readonly ClanKarmaSystem karma;
         private readonly TechniqueLibrary techniques;
         private readonly ResourceManager resources;
+        private readonly RegionalQi place;
 
-        public CultivationSystem(GameContext ctx, ClanKarmaSystem karma, TechniqueLibrary techniques, ResourceManager resources)
+        /// <param name="place">The Qi of the clan's home (L5b); none: every place is alike.</param>
+        public CultivationSystem(GameContext ctx, ClanKarmaSystem karma, TechniqueLibrary techniques, ResourceManager resources,
+            RegionalQi place = null)
         {
+            this.place = place;
             this.ctx = ctx;
             this.karma = karma;
             this.techniques = techniques;
@@ -65,8 +69,12 @@ namespace MirrorChronicles.Characters
             if (character.HeartDemonYearsLeft > 0) multiplier *= ctx.Content.Balance.Oaths.HeartDemonSpeed; // an oath broken (L4d)
             if (character.MentalStability < LowStabilityThreshold)
                 multiplier *= LowStabilityMultiplier;
+            if (place != null) multiplier *= place.SpeedFactor(character); // the Qi of the place, its atmosphere (L5b)
             return multiplier;
         }
+
+        /// <summary>The points of breakthrough chance the home atmosphere gives the member (L5b).</summary>
+        public int PlaceBreakthroughBonus(CharacterData character) => place?.BreakthroughBonus(character) ?? 0;
 
         /// <summary>Adds XP from any source (cultivation, study, teaching, buildings) and climbs free sub-levels.</summary>
         public void GrantXp(CharacterData character, int amount)
@@ -110,6 +118,7 @@ namespace MirrorChronicles.Characters
         {
             var step = PowerLadder.Next(character.Realm, character.RealmStage);
             return character.IsAlive
+                && character.CaptorFaction == null // no trial in a cell (L6a)
                 && SpiritualOrificeRules.CanCultivate(character)
                 && step.IsAvailable
                 && step.Trial != TrialKind.None

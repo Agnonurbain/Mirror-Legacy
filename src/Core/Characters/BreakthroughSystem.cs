@@ -42,7 +42,8 @@ namespace MirrorChronicles.Characters
             return attempts;
         }
 
-        public int CalculateSuccessRate(CharacterData character) => BreakthroughRules.SuccessRate(character, ctx.Content.Balance);
+        public int CalculateSuccessRate(CharacterData character) =>
+            Math.Min(99, BreakthroughRules.SuccessRate(character, ctx.Content.Balance) + cultivation.PlaceBreakthroughBonus(character)); // a favouring atmosphere (L5b)
 
         /// <summary>Returns the outcome, or null when the character has no trial to attempt.</summary>
         public BreakthroughOutcome? AttemptBreakthrough(CharacterData character)

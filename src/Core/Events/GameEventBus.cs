@@ -28,7 +28,10 @@ namespace MirrorChronicles.Events
         public event Action<CharacterData, CultivationRealm> OnBreakthroughSuccess;
         public event Action<CharacterData> OnBreakthroughFailed;
         public event Action<CharacterData> OnMetalEssenceDemon;
-        public event Action<string> OnMirrorSeized;                          // a power seized the mirror: the game is lost (§11.9)             // a failed Golden Core comes alive (regional threat, L6)
+        public event Action<string> OnMirrorSeized;                          // a power seized the mirror: the game is lost (§11.9)
+        public event Action<CharacterData, string> OnMemberCaptured;         // a power holds a member (L6a)
+        public event Action<CharacterData> OnMemberFreed;
+        public event Action<string> OnAgentCaught;                           // an agent of a power in the clan's hands
 
         // Economy
         public event Action<int> OnSpiritStonesChanged;
@@ -46,6 +49,9 @@ namespace MirrorChronicles.Events
         public void TriggerBreakthroughSuccess(CharacterData character, CultivationRealm newRealm) => OnBreakthroughSuccess?.Invoke(character, newRealm);
         public void TriggerMetalEssenceDemon(CharacterData character) => OnMetalEssenceDemon?.Invoke(character);
         public void TriggerMirrorSeized(string faction) => OnMirrorSeized?.Invoke(faction);
+        public void TriggerMemberCaptured(CharacterData member, string faction) => OnMemberCaptured?.Invoke(member, faction);
+        public void TriggerMemberFreed(CharacterData member) => OnMemberFreed?.Invoke(member);
+        public void TriggerAgentCaught(string faction) => OnAgentCaught?.Invoke(faction);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);

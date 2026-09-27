@@ -60,6 +60,8 @@ namespace MirrorChronicles.Game
                 : string.Join("\n\n", factions.Select(f => $"{f.Name} ({f.Kind}) — {f.HighestRealm} — relation {f.Relation:+#;-#;0}"
                     + string.Concat(WorldMapView.FiguresOf(session, f.Name).Select(p => $"\n   · {p.Name} ({p.Realm})"))));
 
+            placeFactions.Text = QiText(session, place) + placeFactions.Text;
+
             var beasts = place == null ? System.Array.Empty<MapBeast>() : WorldMapView.KnownBeastsOf(session, place.Id);
             if (beasts.Count > 0)
                 placeFactions.Text += "\n\nBêtes repérées :" + string.Concat(beasts.Select(b => $"\n   · {b.Species} ({b.Strength}) — {b.Owner}"));
@@ -67,6 +69,18 @@ namespace MirrorChronicles.Game
             var unplaced = WorldMapView.Unplaced(session);
             if (unplaced.Count > 0)
                 placeFactions.Text += $"\n\nSans lieu connu : {string.Join(", ", unplaced.Select(f => f.Name))}";
+        }
+
+        /// <summary>The place's Qi and atmosphere (L5b), the most abundant Qi first.</summary>
+        private static string QiText(Session.GameSession session, MapPlace place)
+        {
+            var qi = place == null ? null : WorldMapView.QiOf(session, place.Id);
+            if (qi == null) return "";
+            const int shown = 6;
+            string text = $"{qi.Density} : {string.Join(", ", qi.Qi.Take(shown).Select(q => $"{q.Name} ({q.Abundance})"))}"
+                + (qi.Qi.Count > shown ? $" et {qi.Qi.Count - shown} autres" : "");
+            if (qi.Atmosphere != null) text += $"\nAtmosphère : {qi.Atmosphere} — {qi.AtmosphereEffect}";
+            return text + "\n\n";
         }
 
         private void RunSmoke()

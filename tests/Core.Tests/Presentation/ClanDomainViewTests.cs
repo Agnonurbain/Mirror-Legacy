@@ -216,5 +216,14 @@ namespace MirrorChronicles.Tests.Presentation
             var causes = Enum.GetValues(typeof(DeathCause)).Cast<DeathCause>().Where(c => c != DeathCause.None);
             Assert.IsTrue(causes.All(c => !string.IsNullOrWhiteSpace(ClanDomainView.DeathLabel(c))));
         }
+
+        [Test]
+        public void Roster_ShowsACaptive_AndWhoHoldsThem()
+        {
+            var s = NewGame();
+            var member = s.Clan.LivingMembers.Last();
+            s.Captives.Take(member, "Famille Ruan");
+            Assert.AreEqual("captif de Famille Ruan", RowOf(s, member).Retreat);
+        }
     }
 }

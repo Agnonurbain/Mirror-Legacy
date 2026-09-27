@@ -35,6 +35,9 @@ namespace MirrorChronicles.Presentation
             bus.OnRandomEventOccurred += e => Add($"{e.Name} — {e.Description}");
             bus.OnStoryEventRaised += e => Add($"{e.Name}.");
             bus.OnMirrorSeized += faction => Add($"{faction} s'empare du miroir : le secret du clan est perdu.");
+            bus.OnMemberCaptured += (c, faction) => Add($"{c.FullName} est enlevé(e) par {faction}.");
+            bus.OnMemberFreed += c => Add($"{c.FullName} est libre.");
+            bus.OnAgentCaught += faction => Add($"un agent de {faction} tombe entre les mains du clan.");
             bus.OnGameOver += won =>
             {
                 if (won) Add("la lignée devient éternelle.");

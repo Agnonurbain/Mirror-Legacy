@@ -23,6 +23,15 @@ namespace MirrorChronicles.Data
         public double X { get; init; }
         public double Y { get; init; }
         public IReadOnlyList<string> Neighbours { get; init; } = Array.Empty<string>();
+
+        /// <summary>The Qi the place offers where a source names them; null: those its kind carries (L5b).</summary>
+        public IReadOnlyList<string> Qi { get; init; }
+
+        /// <summary>How dense its Qi is; null: its kind's density (balance.json « regionalQi »).</summary>
+        public double? QiDensity { get; init; }
+
+        /// <summary>The atmosphere over the place (atmospheres.json); null when none.</summary>
+        public string AtmosphereId { get; init; }
         public string Notes { get; init; }
         public Provenance Provenance { get; init; }
 

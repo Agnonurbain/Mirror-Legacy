@@ -8,8 +8,8 @@ using MirrorChronicles.Presentation;
 namespace MirrorChronicles.Game
 {
     /// <summary>
-    /// The secret operations screen (L2c.5): the mirror's ritual, the hunt's plan with its odds before launching it, and
-    /// the secret. It only binds <see cref="OperationsView"/> and forwards the player's choices to the session.
+    /// The secret operations screen (L2c.5): the mirror's ritual, the hunt's plan with its odds before launching it, the
+    /// secret, and the captives on both sides (L6a). It only binds <see cref="OperationsView"/> and forwards the player's choices to the session.
     /// </summary>
     public partial class Operations : Control
     {
@@ -17,7 +17,7 @@ namespace MirrorChronicles.Game
         private const string None = "—";
 
         private GameRoot root;
-        private VBoxContainer ritual, hunt, secret;
+        private VBoxContainer ritual, hunt, secret, captives;
         private Label status;
 
         // the plan being built
@@ -26,7 +26,9 @@ namespace MirrorChronicles.Game
         private HuntTiming timing;
         private CoverStory cover;
         private MirrorAid aid;
-        private string proofFrom, proofToward;
+        private string proofFrom;
+        private string proofToward;
+        private readonly Dictionary<string, string> rescuers = new Dictionary<string, string>(); // captive → the member sent to free them
 
         public override void _Ready()
         {
@@ -34,9 +36,10 @@ namespace MirrorChronicles.Game
             ritual = GetNode<VBoxContainer>("%Ritual");
             hunt = GetNode<VBoxContainer>("%Hunt");
             secret = GetNode<VBoxContainer>("%Secret");
+            captives = GetNode<VBoxContainer>("%Captives");
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
-            // OPS_TAB=<0-2> opens a tab (screenshots of a smoke run)
+            // OPS_TAB=<0-3> opens a tab (screenshots of a smoke run)
             if (int.TryParse(OS.GetEnvironment("OPS_TAB"), out int tab)) GetNode<TabContainer>("%Tabs").CurrentTab = tab;
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
@@ -47,6 +50,7 @@ namespace MirrorChronicles.Game
             ShowRitual();
             ShowHunt();
             ShowSecret();
+            ShowCaptives();
         }
 
         // ---- The ritual ----
@@ -130,6 +134,7 @@ namespace MirrorChronicles.Game
         private void ShowDiversion(Session.GameSession session)
         {
             var others = OperationsView.HuntCandidates(session).Where(c => !team.ContainsKey(c.Id)).Select(c => (c.Id, c.Name)).ToList();
+            if (others.All(o => o.Item1 != diversionMember)) diversionMember = null; // gone, or now in the team
             others.Insert(0, (None, "aucune"));
             var decoy = Picker(hunt, "Diversion (vu ailleurs)", others, diversionMember ?? None);
             decoy.ItemSelected += _ => { diversionMember = Selected(decoy) == None ? null : Selected(decoy); ShowHunt(); };
@@ -137,7 +142,7 @@ namespace MirrorChronicles.Game
 
             var places = session.Context.Content.Regions.Where(r => r.ParentId != null).Select(r => (r.Id, r.Name)).ToList();
             if (places.Count == 0) return;
-            diversionPlace ??= places[0].Id;
+            if (places.All(p => p.Id != diversionPlace)) diversionPlace = places[0].Id;
             var place = Picker(hunt, "… à", places, diversionPlace);
             place.ItemSelected += _ => { diversionPlace = Selected(place); ShowHunt(); };
         }
@@ -146,6 +151,7 @@ namespace MirrorChronicles.Game
         private void ShowFalseTrail(Session.GameSession session)
         {
             var powers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
+            if (powers.All(p => p.Item1 != framed)) framed = null;
             powers.Insert(0, (None, "aucune"));
             var frame = Picker(hunt, "Fausse piste (accuser)", powers, framed ?? None);
             frame.ItemSelected += _ => { framed = Selected(frame) == None ? null : Selected(frame); ShowHunt(); };
@@ -172,6 +178,25 @@ namespace MirrorChronicles.Game
             });
             launch.Disabled = preview.Refusal != null;
             if (preview.Refusal != null) Add(hunt, $"Pas encore : {preview.Refusal}.");
+        }
+
+        /// <summary>A false proof planted in one power's hands against another (disabled, with its reason, when it cannot be).</summary>
+        private void ShowFalseProof(Session.GameSession session)
+        {
+            var powers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
+            if (powers.Count < 2) return;
+            if (powers.All(p => p.Item1 != proofFrom)) proofFrom = powers[0].Item1;   // a power gone: the first one left
+            if (powers.All(p => p.Item1 != proofToward)) proofToward = powers[1].Item1;
+            var from = Picker(secret, "Fausse preuve : chez", powers, proofFrom);
+            from.ItemSelected += _ => { proofFrom = Selected(from); ShowSecret(); };
+            var toward = Picker(secret, "… contre", powers, proofToward);
+            toward.ItemSelected += _ => { proofToward = Selected(toward); ShowSecret(); };
+
+            string why = OperationsView.FalseProofRefusal(session, proofFrom, proofToward);
+            var plant = AddButton(secret, "Fabriquer une fausse preuve", () => Report(session.Secrets.PlantFalseProof(proofFrom, proofToward)
+                ? $"Une fausse preuve tourne les yeux de {proofFrom} vers {proofToward}." : "La fausse preuve n'a pu être placée."));
+            plant.Disabled = why != null;
+            if (why != null) Add(secret, $"Pas encore : {why}.");
         }
 
         private HuntPlan Plan() => new HuntPlan
@@ -205,23 +230,7 @@ namespace MirrorChronicles.Game
             }
             if (OperationsView.Signs(session).All(p => p.Sign == "calme")) Add(secret, "Tout est calme.");
 
-            var powers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
-            if (powers.Count > 1)
-            {
-                proofFrom ??= powers[0].Item1;
-                proofToward ??= powers[1].Item1;
-                var from = Picker(secret, "Fausse preuve : chez", powers, proofFrom);
-                from.ItemSelected += _ => { proofFrom = Selected(from); ShowSecret(); };
-                var toward = Picker(secret, "… contre", powers, proofToward);
-                toward.ItemSelected += _ => { proofToward = Selected(toward); ShowSecret(); };
-                int cost = session.Context.Content.Balance.Plots.FalseProofMirrorCost;
-                string why = proofFrom == proofToward ? "choisissez deux puissances différentes"
-                    : session.Mirror.MirrorPower < cost ? $"il faut {cost} de puissance du miroir" : null;
-                var plant = AddButton(secret, "Fabriquer une fausse preuve", () => Report(session.Secrets.PlantFalseProof(proofFrom, proofToward)
-                    ? $"Une fausse preuve tourne les yeux de {proofFrom} vers {proofToward}." : "La fausse preuve n'a pu être placée."));
-                plant.Disabled = why != null;
-                if (why != null) Add(secret, $"Pas encore : {why}.");
-            }
+            ShowFalseProof(session);
 
             Add(secret, "Dans la confidence :");
             var patriarch = session.Clan.GetPatriarch();
@@ -238,6 +247,75 @@ namespace MirrorChronicles.Game
                 }
                 secret.AddChild(line);
             }
+        }
+
+        // ---- The captives (L6a) ----
+
+        private void ShowCaptives()
+        {
+            Clear(captives);
+            var session = root.Session;
+            var view = OperationsView.Captives(session);
+            Add(captives, "Nos captifs :");
+            if (view.Held.Count == 0) Add(captives, "Aucun membre n'est retenu.");
+            foreach (var held in view.Held) ShowHeld(session, held, view.Agents);
+
+            Add(captives, "Les agents que nous détenons :");
+            if (view.Agents.Count == 0) Add(captives, "Aucun.");
+            foreach (var agent in view.Agents) ShowAgent(session, agent);
+        }
+
+        /// <summary>A member held: ransom, rescue by a free member, exchange for one of the captor's agents, the mirror's blur.</summary>
+        private void ShowHeld(Session.GameSession session, HeldLine held, IReadOnlyList<AgentLine> agents)
+        {
+            string years = held.Years == 0 ? "cette année" : $"depuis {held.Years} an{(held.Years > 1 ? "s" : "")}";
+            Add(captives, $"{held.Name} ({held.Rank}) — retenu par {held.Captor}, {years}{(held.KnowsSecret ? " · connaît le secret du miroir" : "")}");
+            var line = new HBoxContainer();
+            captives.AddChild(line);
+            Act(line, $"Payer la rançon ({held.Ransom} pierres)", () => session.Captives.PayRansom(held.Id), $"{held.Name} est libéré contre rançon.");
+            if (held.KnowsSecret)
+                Act(line, "Brouiller sa mémoire (miroir)", () => session.Captives.Silence(held.Id), $"Le miroir efface ce que {held.Name} savait.");
+            foreach (var agent in agents.Where(a => a.Power == held.Captor))
+                Act(line, $"Échanger contre l'agent ({agent.Strength})", () => session.Captives.Exchange(held.Id, agent.Id), $"{held.Name} est échangé.");
+
+            var candidates = OperationsView.HuntCandidates(session).Select(c => (c.Id, $"{c.Name} ({c.Rank})")).ToList();
+            if (candidates.Count == 0) return;
+            if (!rescuers.TryGetValue(held.Id, out var rescuer) || candidates.All(c => c.Id != rescuer))
+                rescuer = rescuers[held.Id] = candidates[0].Id;
+            var picker = Picker(captives, "Sauvetage par", candidates, rescuer);
+            picker.ItemSelected += _ => { rescuers[held.Id] = Selected(picker); ShowCaptives(); };
+            Act(captives, "Tenter le sauvetage", () => session.Captives.Rescue(held.Id, new[] { rescuers[held.Id] }), $"{held.Name} est arraché à {held.Captor}.");
+        }
+
+        /// <summary>An agent held: sold back, released, interrogated and denounced once each, or executed.</summary>
+        private void ShowAgent(Session.GameSession session, AgentLine agent)
+        {
+            Add(captives, $"Agent de {agent.Power} ({agent.Strength}){(agent.Interrogated ? " · interrogé" : "")}{(agent.Denounced ? " · montré aux autres" : "")}");
+            var line = new HBoxContainer();
+            captives.AddChild(line);
+            Act(line, $"Le revendre ({agent.Price} pierres)", () => session.Captives.SellBack(agent.Id), $"{agent.Power} rachète son agent.");
+            Act(line, "Le relâcher", () => session.Captives.Release(agent.Id), $"L'agent retourne auprès de {agent.Power}.");
+            if (!agent.Interrogated)
+            {
+                var ask = new Button { Text = "L'interroger" };
+                ask.Pressed += () => Report(session.Captives.Interrogate(agent.Id) ?? "Il n'a plus rien à dire.");
+                line.AddChild(ask);
+            }
+            if (!agent.Denounced)
+                Act(line, "Le montrer aux autres puissances", () => session.Captives.Denounce(agent.Id), $"Les autres puissances savent ce que {agent.Power} a tramé.");
+            Act(line, "L'exécuter", () => session.Captives.Execute(agent.Id), "L'agent est exécuté.");
+        }
+
+        /// <summary>A button for an action that answers with its refusal, or null when done.</summary>
+        private void Act(Container box, string text, Func<string> action, string done)
+        {
+            var button = new Button { Text = text };
+            button.Pressed += () =>
+            {
+                string refusal = action();
+                Report(refusal == null ? done : $"Refusé : {refusal}.");
+            };
+            box.AddChild(button);
         }
 
         // ---- Widgets ----
@@ -298,7 +376,8 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Operations: ritual in year {OperationsView.Ritual(root.Session).Year}, {OperationsView.Signs(root.Session).Count} powers watched.");
-            if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
+            if (root.SmokeEndsOnLibrary) GetTree().ChangeSceneToFile(Library.ScenePath); // the library checks itself
+            else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }
     }

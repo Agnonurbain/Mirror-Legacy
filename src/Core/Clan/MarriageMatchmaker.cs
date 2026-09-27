@@ -43,6 +43,7 @@ namespace MirrorChronicles.Clan
         {
             return character != null
                 && character.IsAlive
+                && character.CaptorFaction == null // a captive marries nobody (L6a)
                 && string.IsNullOrEmpty(character.SpouseID)
                 && character.Age >= MinMarriageAge
                 && character.Age <= MaxSeekingAge;

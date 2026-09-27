@@ -175,5 +175,41 @@ namespace MirrorChronicles.Tests.Presentation
 
             StringAssert.Contains("porteur", OperationsView.Ritual(s).Refusal);
         }
+        [Test]
+        public void FalseProofRefusal_MatchesEveryRefusalOfTheMirror()
+        {
+            var s = NewGame();
+            const string peak = "Secte du Pic des Nuées", ruan = "Famille Ruan";
+
+            Assert.IsNull(OperationsView.FalseProofRefusal(s, peak, ruan));
+            StringAssert.Contains("différentes", OperationsView.FalseProofRefusal(s, ruan, ruan));
+            StringAssert.Contains("inconnue", OperationsView.FalseProofRefusal(s, "Puissance disparue", ruan));
+            StringAssert.Contains("inconnue", OperationsView.FalseProofRefusal(s, peak, null));
+
+            s.Mirror.ConsumePower(s.Mirror.MirrorPower);
+            StringAssert.Contains("puissance du miroir", OperationsView.FalseProofRefusal(s, peak, ruan));
+            Assert.IsFalse(s.Secrets.PlantFalseProof(peak, ruan), "the view says no when the mirror says no");
+        }
+
+        // ---- The captives (L6a) ----
+
+        [Test]
+        public void Captives_ShowOurCaptives_WithTheirRansom_AndTheAgentsWeHold()
+        {
+            var s = NewGame();
+            var member = s.Clan.LivingMembers.Last();
+            member.KnowsMirrorSecret = true;
+            s.Captives.Take(member, "Famille Ruan");
+            s.Captives.RestorePrisoners(new[] { new Prisoner("agent-1", "Famille Lou", CultivationRealm.Foundation, 1) { Interrogated = true } });
+            var schemes = Fixtures.Content.Balance.Schemes;
+
+            var captives = OperationsView.Captives(s);
+
+            var held = captives.Held.Single();
+            Assert.AreEqual((member.ID, "Famille Ruan", 0, true), (held.Id, held.Captor, held.Years, held.KnowsSecret));
+            Assert.AreEqual(SchemeRules.Ransom(member.Realm, schemes), held.Ransom);
+            var agent = captives.Agents.Single();
+            Assert.AreEqual(new AgentLine("agent-1", "Famille Lou", MirrorChronicles.Characters.RankCatalog.RealmName(CultivationRealm.Foundation), SchemeRules.Ransom(CultivationRealm.Foundation, schemes), true, false), agent);
+        }
     }
 }

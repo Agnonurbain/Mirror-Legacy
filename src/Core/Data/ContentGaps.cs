@@ -38,6 +38,12 @@ namespace MirrorChronicles.Data
                 Describe(lines, GameContentLoader.FactionsFile, f.Name, f.Provenance, f.InterpretedFields);
             foreach (var r in content.Regions)
                 Describe(lines, GameContentLoader.RegionsFile, r.Id, r.Provenance, r.InterpretedFields);
+            foreach (var a in content.Atmospheres)
+                Describe(lines, GameContentLoader.AtmospheresFile, a.Id, a.Provenance, a.InterpretedFields);
+            foreach (var f in content.Figures)
+                Describe(lines, GameContentLoader.FiguresFile, f.Id, f.Provenance, f.InterpretedFields);
+            foreach (var t in content.Talismans)
+                Describe(lines, GameContentLoader.TalismansFile, t.Id, t.Provenance, t.InterpretedFields);
             foreach (var c in content.Oaths.Clauses)
                 Describe(lines, GameContentLoader.OathsFile, c.Id, c.Provenance, c.InterpretedFields);
             foreach (var l in content.Oaths.Loopholes)
