@@ -170,6 +170,7 @@ namespace MirrorChronicles.Tests.Diplomacy
 
             Assert.Less(w.Resources.SpiritStones, stones - (int)(stones * Settings.VassalTributeShare));
             CollectionAssert.Contains(Power(w, Peak).Techniques, "clear-spring-sutra");
+            Assert.AreEqual(0, w.Treaties.With(Peak).Single().Grip, "the grip starts over");
         }
 
         [Test]
@@ -294,6 +295,65 @@ namespace MirrorChronicles.Tests.Diplomacy
             s.Treaties.Propose(Tao, TreatyKind.Trade, secret: true);
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.AreEqual(s.Treaties.All.Single(), reloaded.Treaties.All.Single());
+        }
+
+        // ---- Review ----
+
+        [Test]
+        public void BreakingAVassalage_EitherWay_CostsLikeAnyBrokenWord()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Treaties.Propose(Peak, TreatyKind.Vassalage);
+            int relation = Power(w, Peak).RelationWithPlayer;
+
+            Assert.IsNull(w.Treaties.Break(w.Treaties.With(Peak).Single().Id));
+
+            Assert.AreEqual(relation + Settings.BreakRelation, Power(w, Peak).RelationWithPlayer);
+            Assert.IsNull(w.Treaties.Propose(Peak, TreatyKind.Vassalage), "the clan serves no one now");
+
+            var strong = World(new FixedRandom(0.999), CultivationRealm.PurpleMansion);
+            strong.Treaties.Propose(Fang, TreatyKind.Vassalage, clanAsSuzerain: true);
+            Assert.IsNull(strong.Treaties.Break(strong.Treaties.With(Fang).Single().Id));
+            Assert.AreEqual(0, strong.Treaties.All.Count);
+        }
+
+        [Test]
+        public void ACaptivePatriarch_CannotSwear()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Clan.GetPatriarch().CaptorFaction = Ruan; // held, and nobody else to lead
+            StringAssert.Contains("captif", w.Treaties.Propose(Tao, TreatyKind.Trade, sealedByOath: true));
+        }
+
+        [Test]
+        public void TwoTreatiesInOneYear_OneBetrayed_TheOtherServed()
+        {
+            var w = World(new SequenceRandom(0.999, 0.0)); // the first is kept, the second betrayed
+            w.Treaties.Propose(Peak, TreatyKind.Vassalage);
+            w.Treaties.Propose(Tao, TreatyKind.NonAggression);
+
+            w.Treaties.ProcessYear();
+
+            Assert.AreEqual(Settings.GripPerYear, w.Treaties.With(Peak).Single().Grip);
+            Assert.IsFalse(w.Treaties.Has(Tao, TreatyKind.NonAggression));
+        }
+
+        [Test]
+        public void DeclaringWar_OnAnUnknownPower_IsRefused()
+        {
+            var w = World(new FixedRandom(0.999));
+            Assert.IsNotNull(w.Alliances.DeclareWar("no-such-id"));
+            Assert.IsNull(w.Alliances.DeclareWar(Power(w, Lou).ID));
+        }
+
+        [Test]
+        public void Load_RefusesATreatyShareAboveOne()
+        {
+            var file = Newtonsoft.Json.Linq.JObject.Parse(Fixtures.ReadDataFile(GameContentLoader.BalanceFile));
+            file["treaties"]["vassalTributeShare"] = 1.5;
+            var error = Assert.Throws<System.IO.InvalidDataException>(() => GameContentLoader.Load(name =>
+                name == GameContentLoader.BalanceFile ? file.ToString() : Fixtures.ReadDataFile(name)));
+            StringAssert.Contains("treaties", error.Message);
         }
     }
 }
