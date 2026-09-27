@@ -13,6 +13,9 @@ namespace MirrorChronicles.Data
         bool ClanIsSuzerain)
     {
         public int Grip { get; init; }
+
+        /// <summary>How many times the suzerain's grip on the vassal clan has filled; too many, and the clan is absorbed.</summary>
+        public int Absorptions { get; init; }
     }
 
     /// <summary>

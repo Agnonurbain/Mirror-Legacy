@@ -33,6 +33,7 @@ namespace MirrorChronicles.Session
             ctx.Events.OnCharacterDied += (c, cause) => CheckDefeat();
             ctx.Events.OnAncestorAscended += c => CheckDefeat();
             ctx.Events.OnMirrorSeized += MirrorSeized;
+            ctx.Events.OnClanAbsorbed += ClanAbsorbed;
         }
 
         public void Restore(bool won, bool lost)
@@ -57,6 +58,15 @@ namespace MirrorChronicles.Session
             if (IsOver) return;
             GameLost = true;
             ctx.Log.Warning($"[Victory] {faction} seizes the mirror: the clan's secret is lost.");
+            ctx.Events.TriggerGameOver(false);
+        }
+
+        /// <summary>A defeat of vassalage (2026-09-27): the suzerain's grip complete, the clan is absorbed into its power.</summary>
+        private void ClanAbsorbed(string suzerain)
+        {
+            if (IsOver) return;
+            GameLost = true;
+            ctx.Log.Warning($"[Victory] {suzerain} absorbs the clan: it is no longer its own.");
             ctx.Events.TriggerGameOver(false);
         }
 

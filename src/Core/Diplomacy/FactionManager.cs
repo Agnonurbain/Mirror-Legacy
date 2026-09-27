@@ -101,6 +101,17 @@ namespace MirrorChronicles.Diplomacy
             return ctx.Content.Regions.FirstOrDefault(r => r.Id == home)?.Neighbours.Contains(faction.RegionId) == true;
         }
 
+        /// <summary>Whether two powers live on the same place or on bordering places (the map, L5).</summary>
+        public bool AreNeighbours(FactionData a, FactionData b)
+        {
+            if (a?.RegionId == null || b?.RegionId == null || a == b) return false;
+            if (a.RegionId == b.RegionId) return true;
+            return ctx.Content.Regions.FirstOrDefault(r => r.Id == a.RegionId)?.Neighbours.Contains(b.RegionId) == true;
+        }
+
+        /// <summary>A power that is no more (absorbed by another).</summary>
+        public bool RemoveFaction(string name) => factions.RemoveAll(f => f.Name == name) > 0;
+
         /// <summary>A yearly move of a power's mood, stronger for a neighbour.</summary>
         private void Drift(FactionData faction, int amount) =>
             ChangeRelation(faction.ID, IsNeighbour(faction) ? amount * ctx.Content.Balance.Diplomacy.NeighbourIntensity : amount);

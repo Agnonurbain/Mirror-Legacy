@@ -190,6 +190,9 @@ namespace MirrorChronicles.Data
         /// <summary>The clan's treaties with the powers (2026-09-27; interpretations of D7).</summary>
         public TreatySettings Treaties { get; init; }
 
+        /// <summary>The powers' own politics: alliances, feuds, vassals, coalitions, calls to arms (2026-09-27; interpretations).</summary>
+        public PoliticsSettings Politics { get; init; }
+
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
 

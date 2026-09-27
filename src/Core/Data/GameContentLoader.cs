@@ -230,6 +230,13 @@ namespace MirrorChronicles.Data
                 && IsProbability(treaty.VassalTributeShare) && IsProbability(treaty.GripStonesShare) && treaty.GripThreshold > 0
                 && treaty.TradeDiscount > 0 && treaty.SealedHeartDemonYears >= 0,
                 BalanceFile, "treaties needs a relation and a base for every kind, and odds and shares between 0 and 1.");
+            var politics = balance.Politics;
+            Require(politics != null && IsProbability(politics.AllianceChance) && politics.MaxBondsPerYear >= 0 && IsProbability(politics.FeudChance)
+                && IsProbability(politics.FeudWealthShare) && IsProbability(politics.FeudPowerShare) && IsProbability(politics.VassalizeChance)
+                && politics.VassalizePowerRatio >= 1 && IsProbability(politics.VassalTributeShare) && politics.GripThreshold > 0
+                && politics.CoalitionMinMembers >= 1 && politics.CoalitionYears >= 1 && IsProbability(politics.CoalitionStonesShare)
+                && politics.CoalitionSchemeFactor >= 1 && politics.CallStonesCost >= 0 && politics.ClanAbsorptionSteps >= 1,
+                BalanceFile, "politics needs odds and shares between 0 and 1, a positive grip threshold, and at least one member, year and step.");
             var lore = balance.MirrorLore;
             Require(lore != null && lore.KnowChance != null && lore.PerCentury != null && lore.KnowChance.Values.All(IsProbability)
                 && lore.PerCentury.Values.All(p => p >= 0) && IsProbability(lore.MaxChance) && lore.UnknownAge >= 0
