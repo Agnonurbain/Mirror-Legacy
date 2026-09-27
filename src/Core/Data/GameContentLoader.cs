@@ -29,9 +29,10 @@ namespace MirrorChronicles.Data
         public const string FiguresFile = "figures.json";
         public const string BeastsFile = "beasts.json";
         public const string AtmospheresFile = "atmospheres.json";
+        public const string SecretsFile = "secrets.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile, SecretsFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -65,6 +66,7 @@ namespace MirrorChronicles.Data
             var figures = Read<List<FigureDefinition>>(readFile, FiguresFile);
             var beasts = Read<List<BeastSpecies>>(readFile, BeastsFile);
             var atmospheres = Read<List<AtmosphereDefinition>>(readFile, AtmospheresFile);
+            var secretKinds = Read<List<SecretKind>>(readFile, SecretsFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -78,6 +80,11 @@ namespace MirrorChronicles.Data
             CheckOaths(oaths);
             CheckRegions(regions);
             CheckAtmospheres(atmospheres, fruitions.Fruitions);
+            Require(secretKinds.Count > 0 && secretKinds.All(k => !string.IsNullOrWhiteSpace(k.Id) && !string.IsNullOrWhiteSpace(k.Name)
+                    && k.Rank >= 1 && k.Rank <= 4 && k.InterpretedFields != null)
+                && secretKinds.Select(k => k.Id).Distinct().Count() == secretKinds.Count
+                && secretKinds.Any(k => k.Holder != SecretHolder.Clan),
+                SecretsFile, "every secret kind needs a unique id, a name and a rank from 1 to 4 (the supreme rank is the mirror's own), and some for the powers.");
             CheckRegionalQi(regions, qi, atmospheres);
             CheckTalismans(talismans);
             CheckFigures(figures, factions);
@@ -91,6 +98,7 @@ namespace MirrorChronicles.Data
             CheckInterpretedFields(FiguresFile, figures.Select(f => (f.Id, typeof(FigureDefinition), (IEnumerable<string>)f.InterpretedFields)));
             CheckInterpretedFields(TalismansFile, talismans.Select(t => (t.Id, typeof(TalismanDefinition), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(RegionsFile, regions.Select(r => (r.Id, typeof(RegionDefinition), (IEnumerable<string>)r.InterpretedFields)));
+            CheckInterpretedFields(SecretsFile, secretKinds.Select(k => (k.Id, typeof(SecretKind), (IEnumerable<string>)k.InterpretedFields)));
             CheckInterpretedFields(AtmospheresFile, atmospheres.Select(a => (a.Id, typeof(AtmosphereDefinition), (IEnumerable<string>)a.InterpretedFields)));
             CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
             CheckInterpretedFields(FruitionsFile, fruitions.Fruitions.Select(f => (f.Id, typeof(FruitionDefinition), (IEnumerable<string>)f.InterpretedFields))
@@ -114,7 +122,8 @@ namespace MirrorChronicles.Data
                 Talismans = talismans,
                 Figures = figures,
                 BeastSpecies = beasts,
-                Atmospheres = atmospheres
+                Atmospheres = atmospheres,
+                SecretKinds = secretKinds
             };
         }
 
@@ -230,6 +239,15 @@ namespace MirrorChronicles.Data
                 && IsProbability(treaty.VassalTributeShare) && IsProbability(treaty.GripStonesShare) && treaty.GripThreshold > 0
                 && treaty.TradeDiscount > 0 && treaty.SealedHeartDemonYears >= 0,
                 BalanceFile, "treaties needs a relation and a base for every kind, and odds and shares between 0 and 1.");
+            var sec = balance.Secrets;
+            var approaches = Enum.GetValues(typeof(ProbeApproach)).Cast<ProbeApproach>().ToList();
+            Require(sec != null && sec.RankThreshold.Count == 4 && sec.RankThreshold.All(t => t > 0) && sec.KnownEvidenceByRank.Count == 4
+                && approaches.All(a => sec.BaseChance.ContainsKey(a) && sec.Gain.ContainsKey(a) && sec.DetectChance.ContainsKey(a) && sec.DisasterChance.ContainsKey(a))
+                && sec.DetectChance.Values.All(IsProbability) && sec.DisasterChance.Values.All(IsProbability) && IsProbability(sec.PartnerLeakChance)
+                && IsProbability(sec.AllyPromptBase) && IsProbability(sec.LateWitnessShare) && IsProbability(sec.AiProbeChance) && IsProbability(sec.AiPartnerChance)
+                && sec.MinPercent >= 0 && sec.MaxPercent <= 100 && sec.MinPercent <= sec.MaxPercent && sec.BribeUnit > 0
+                && sec.PowerSecretsMin >= 0 && sec.PowerSecretsMax >= sec.PowerSecretsMin,
+                BalanceFile, "secrets needs four rank thresholds and proofs, every approach's odds, gain, detection and disaster, and odds between 0 and 1.");
             var intrigues = balance.Intrigues;
             Require(intrigues != null && IsProbability(intrigues.BlackmailChance) && IsProbability(intrigues.BlackmailStonesShare)
                 && intrigues.QuietYears >= 0 && intrigues.RefusedSpreadEvidence >= 0 && IsProbability(intrigues.TheftChance)
