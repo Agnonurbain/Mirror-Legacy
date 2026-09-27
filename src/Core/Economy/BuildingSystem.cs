@@ -48,14 +48,20 @@ namespace MirrorChronicles.Economy
 
         public BuildingData GetBuilding(BuildingType type) => buildings.Find(b => b.Type == type);
 
-        public bool CanUpgrade(BuildingType type)
+        public bool CanUpgrade(BuildingType type) => UpgradeRefusal(type) == null;
+
+        /// <summary>Why the building cannot rise now, or null when it can: its height, a master at home to raise it, the stones.</summary>
+        public string UpgradeRefusal(BuildingType type)
         {
             var building = GetBuilding(type);
-            if (building.Level >= MaxLevel) return false;
-            if (resources.SpiritStones < building.UpgradeCost) return false;
+            if (building.Level >= MaxLevel) return "niveau maximal";
 
             var requiredRealm = BuildingData.GetRequiredRealm(type);
-            return requiredRealm == CultivationRealm.Embryonic || clan.LivingMembers.Any(m => m.Realm >= requiredRealm);
+            if (requiredRealm != CultivationRealm.Embryonic
+                && !clan.LivingMembers.Any(m => m.CaptorFaction == null && m.Realm >= requiredRealm)) // a captive raises nothing at home
+                return $"demande au domaine un cultivateur de rang {RankCatalog.RealmName(requiredRealm)} ou plus";
+            if (resources.SpiritStones < building.UpgradeCost) return $"pierres insuffisantes ({resources.SpiritStones}/{building.UpgradeCost})";
+            return null;
         }
 
         public bool Upgrade(BuildingType type)

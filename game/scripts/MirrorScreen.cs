@@ -188,7 +188,8 @@ namespace MirrorChronicles.Game
         {
             var header = MirrorView.Header(root.Session);
             GD.Print($"[Smoke] Mirror: power {header.Power}, {MirrorView.SeedCandidates(root.Session).Count} seed candidates, {MirrorView.Fragments(root.Session).Count} fragments.");
-            if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
+            if (root.SmokeEndsOnBuildings) GetTree().ChangeSceneToFile(BuildingsScreen.ScenePath); // the buildings check themselves
+            else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }
     }
