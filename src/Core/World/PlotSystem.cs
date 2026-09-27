@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
@@ -37,8 +38,14 @@ namespace MirrorChronicles.World
 
         private PlotSettings Settings => ctx.Content.Balance.Plots;
 
+        private readonly HashSet<string> struck = new HashSet<string>();
+
+        /// <summary>The powers that struck the clan this year: one blow a year (their blackmail waits).</summary>
+        public IReadOnlyCollection<string> StruckThisYear => struck;
+
         public void ProcessYear()
         {
+            struck.Clear();
             foreach (var power in factions.Factions.ToList())
             {
                 int suspected = suspicion.OfClan(power.Name);
@@ -63,6 +70,7 @@ namespace MirrorChronicles.World
             factions.ChangeRelation(power.ID, Settings.ReprisalRelation);
             resources.ConsumeSpiritStones((int)(resources.SpiritStones * Settings.ReprisalStonesShare));
             suspicion.AddToClan(power.Name, -suspicion.OfClan(power.Name)); // the account is settled
+            struck.Add(power.Name);
 
             foreach (var other in factions.Factions.Where(f => f != power))
             {

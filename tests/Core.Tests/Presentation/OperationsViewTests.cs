@@ -211,5 +211,23 @@ namespace MirrorChronicles.Tests.Presentation
             var agent = captives.Agents.Single();
             Assert.AreEqual(new AgentLine("agent-1", "Famille Lou", MirrorChronicles.Characters.RankCatalog.RealmName(CultivationRealm.Foundation), SchemeRules.Ransom(CultivationRealm.Foundation, schemes), true, false), agent);
         }
+
+        // ---- Spouses from elsewhere (2026-09-27) ----
+
+        [Test]
+        public void Spouses_FromThePowers_AreListed_TheirSecretOnlyOnceSounded()
+        {
+            var s = NewGame();
+            var member = s.Clan.LivingMembers.Last();
+            member.FromFaction = "Porte du Chrysanthème Noir";
+            member.SpyFor = "Porte du Chrysanthème Noir";
+
+            var line = OperationsView.Spouses(s).Single();
+            Assert.AreEqual((member.ID, "Porte du Chrysanthème Noir", false, (string)null), (line.Id, line.From, line.Sounded, (string)line.SpyFor));
+
+            s.Mirror.AddPower(100);
+            s.Intrigues.Unmask(member.ID);
+            Assert.AreEqual("Porte du Chrysanthème Noir", OperationsView.Spouses(s).Single().SpyFor);
+        }
     }
 }

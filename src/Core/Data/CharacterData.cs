@@ -45,6 +45,10 @@ namespace MirrorChronicles.Data
         public bool KnowsMirrorSecret { get; set; }
         public string CaptorFaction { get; set; }       // the power holding them captive; null when free (L6a)
         public int? CapturedYear { get; set; }
+        public string FromFaction { get; set; }         // the power that sent them in an arranged marriage (known)
+        public string SpyFor { get; set; }              // the power they secretly spy for; null for none (hidden, 2026-09-27)
+        public bool SpyUnmasked { get; set; }           // the mirror sounded them
+        public bool DoubleAgent { get; set; }           // turned: they feed their power false reports
         public int? LastOperationYear { get; set; }     // the year of their last hunt or diversion: one operation a year (L2c.5)     // took part in a hunt or bears a talisman: may leak it (L2c.4b)
         public bool TransformedLineage { get; set; }    // a Realization holder's descendant: reaches at least the Purple Mansion (§5.5.2)
         public string ReincarnationOfId { get; set; }   // reincarnated True Monarch (R9)

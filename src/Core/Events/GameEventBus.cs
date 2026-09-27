@@ -36,7 +36,8 @@ namespace MirrorChronicles.Events
         public event Action<string> OnClanAbsorbed;                          // the suzerain's grip complete: the clan is no more (defeat)
         public event Action<string, string> OnPowerAbsorbed;                 // a vassal power absorbed by its suzerain
         public event Action<IReadOnlyList<string>> OnCoalitionFormed;        // powers banded against the clan
-        public event Action<string, string> OnCallToArms;                    // an ally of the clan attacked, and by whom                           // an agent of a power in the clan's hands
+        public event Action<string, string> OnCallToArms;                    // an ally of the clan attacked, and by whom
+        public event Action<string, string> OnTheft;                         // what was stolen, and the thief when caught (else null)                           // an agent of a power in the clan's hands
 
         // Economy
         public event Action<int> OnSpiritStonesChanged;
@@ -61,6 +62,7 @@ namespace MirrorChronicles.Events
         public void TriggerPowerAbsorbed(string vassal, string suzerain) => OnPowerAbsorbed?.Invoke(vassal, suzerain);
         public void TriggerCoalitionFormed(IReadOnlyList<string> members) => OnCoalitionFormed?.Invoke(members);
         public void TriggerCallToArms(string ally, string attacker) => OnCallToArms?.Invoke(ally, attacker);
+        public void TriggerTheft(string what, string thief) => OnTheft?.Invoke(what, thief);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);

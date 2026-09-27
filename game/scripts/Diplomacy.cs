@@ -67,9 +67,21 @@ namespace MirrorChronicles.Game
             }
         }
 
-        /// <summary>A coalition against the clan, and an ally's call to arms awaiting its answer.</summary>
+        /// <summary>A coalition against the clan, the blackmail awaiting an answer, and an ally's call to arms.</summary>
         private void ShowCoalitionAndCall(Session.GameSession session)
         {
+            foreach (var demand in DiplomacyView.Demands(session))
+            {
+                Add(powers, $"✉ {demand.Faction} exige {demand.Stones} pierres pour son silence (sans réponse cette année : un refus).");
+                var demandRow = new HBoxContainer();
+                var pay = new Button { Text = $"Payer ({demand.Stones} pierres)" };
+                pay.Pressed += () => Report(session.Intrigues.Pay(demand.Faction), $"{demand.Faction} se tait, pour un temps.");
+                var defy = new Button { Text = "Refuser (elle répand ses preuves)" };
+                defy.Pressed += () => Report(session.Intrigues.Refuse(demand.Faction), $"{demand.Faction} répand ce qu'elle sait.");
+                demandRow.AddChild(pay);
+                demandRow.AddChild(defy);
+                powers.AddChild(demandRow);
+            }
             if (DiplomacyView.Coalition(session) is { } coalition)
                 Add(powers, $"⚠ Coalition contre le clan : {string.Join(", ", coalition.Members)} — encore {coalition.YearsLeft} an(s).");
             if (DiplomacyView.Call(session) is not { } call) return;

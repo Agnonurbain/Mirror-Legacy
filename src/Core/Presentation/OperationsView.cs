@@ -42,6 +42,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>An agent of a power the clan holds: its price, and what was already done with it (L6a).</summary>
     public sealed record AgentLine(string Id, string Power, string Strength, int Price, bool Interrogated, bool Denounced);
 
+    /// <summary>A spouse a power sent: whether the mirror sounded them, and — only then — whom they spy for.</summary>
+    public sealed record SpouseLine(string Id, string Name, string From, bool Sounded, string SpyFor, bool DoubleAgent);
+
     /// <summary>The captives on both sides.</summary>
     public sealed record CaptivesView(IReadOnlyList<HeldLine> Held, IReadOnlyList<AgentLine> Agents);
 
@@ -166,6 +169,12 @@ namespace MirrorChronicles.Presentation
             MirrorAid.MemoryTheft => "Vol de souvenirs",
             _ => aid.ToString()
         };
+
+        /// <summary>The living spouses the powers sent: their secret shows only once the mirror sounded them (2026-09-27).</summary>
+        public static IReadOnlyList<SpouseLine> Spouses(GameSession session) =>
+            session.Clan.LivingMembers.Where(m => m.FromFaction != null)
+                .Select(m => new SpouseLine(m.ID, m.FullName, m.FromFaction, m.SpyUnmasked, m.SpyUnmasked ? m.SpyFor : null, m.DoubleAgent))
+                .ToList();
 
         /// <summary>Our members held by the powers, and the powers' agents we hold (L6a).</summary>
         public static CaptivesView Captives(GameSession session)

@@ -183,6 +183,7 @@ namespace MirrorChronicles.Presentation
             DeathCause.SoulReplaced => "l'âme remplacée par l'ancien maître de sa Fruition",
             DeathCause.Sacrificed => "sacrifié au miroir pour un Qi de talisman",
             DeathCause.Executed => "exécuté(e) en captivité",
+            DeathCause.ExecutedAsSpy => "exécuté(e) pour espionnage",
             DeathCause.MetalEssenceDemon => "en échouant au Noyau d'Or : un Démon d'Essence Métallique est né",
             _ => ""
         };

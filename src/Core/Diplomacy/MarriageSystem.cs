@@ -91,6 +91,9 @@ namespace MirrorChronicles.Diplomacy
             spouse.HasSpiritualOrifice = true; // a faction only trains those it has examined
             spouse.OrificeKnown = true;
             spouse.MaxLifespan = PowerLadder.MaxLifespan(spouse.Realm, spouse.RealmStage);
+            spouse.FromFaction = faction.Name;
+            if (ctx.Rng.Chance(World.IntrigueRules.SpyChance(faction, ctx.Content.Balance.Intrigues)))
+                spouse.SpyFor = faction.Name; // its eyes inside the clan (hidden, 2026-09-27)
 
             Wed(member, spouse);
             factions.ChangeRelation(factionId, ArrangedRelationBoost);

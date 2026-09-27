@@ -76,7 +76,8 @@ namespace MirrorChronicles.Data
         MetalEssenceDemon,     // a failed Golden Core: the residual metal essence comes alive (LORE.md §5.5.1)
         Sacrificed,            // offered to the mirror for a talisman Qi (LORE.md §11.5)
         SoulReplaced,          // the Fruition took back its body for its former master (LORE.md §5.5.2)
-        Executed               // put to death by the power holding them captive (L6a)
+        Executed,              // put to death by the power holding them captive (L6a)
+        ExecutedAsSpy          // a spy unmasked and put to death by the clan (2026-09-27)
     }
 
     /// <summary>

@@ -230,6 +230,14 @@ namespace MirrorChronicles.Data
                 && IsProbability(treaty.VassalTributeShare) && IsProbability(treaty.GripStonesShare) && treaty.GripThreshold > 0
                 && treaty.TradeDiscount > 0 && treaty.SealedHeartDemonYears >= 0,
                 BalanceFile, "treaties needs a relation and a base for every kind, and odds and shares between 0 and 1.");
+            var intrigues = balance.Intrigues;
+            Require(intrigues != null && IsProbability(intrigues.BlackmailChance) && IsProbability(intrigues.BlackmailStonesShare)
+                && intrigues.QuietYears >= 0 && intrigues.RefusedSpreadEvidence >= 0 && IsProbability(intrigues.TheftChance)
+                && intrigues.PatrolGuard >= 0 && intrigues.CatchPerPatrol >= 0 && IsProbability(intrigues.MaxCatchChance)
+                && IsProbability(intrigues.TheftStonesShare) && intrigues.SpyChance.Values.All(IsProbability)
+                && intrigues.BlackmailTemper.Values.All(t => t >= 0) && intrigues.TheftTemper.Values.All(t => t >= 0)
+                && intrigues.UnmaskMirrorCost >= 0 && intrigues.DoubleAgentRelief >= 0,
+                BalanceFile, "intrigues needs odds and shares between 0 and 1, and costs and tempers never negative.");
             var politics = balance.Politics;
             Require(politics != null && IsProbability(politics.AllianceChance) && politics.MaxBondsPerYear >= 0 && IsProbability(politics.FeudChance)
                 && IsProbability(politics.FeudWealthShare) && IsProbability(politics.FeudPowerShare) && IsProbability(politics.VassalizeChance)

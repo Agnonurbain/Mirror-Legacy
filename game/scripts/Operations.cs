@@ -180,6 +180,36 @@ namespace MirrorChronicles.Game
             if (preview.Refusal != null) Add(hunt, $"Pas encore : {preview.Refusal}.");
         }
 
+        /// <summary>The spouses the powers sent: the mirror sounds them; an unmasked spy is turned or executed.</summary>
+        private void ShowSpouses(Session.GameSession session)
+        {
+            var spouses = OperationsView.Spouses(session);
+            if (spouses.Count == 0) return;
+            Add(secret, "Conjoints venus des puissances :");
+            foreach (var spouse in spouses)
+            {
+                var line = new HBoxContainer();
+                string known = !spouse.Sounded ? "non sondé(e)" : spouse.SpyFor == null ? "loyal(e)" : spouse.DoubleAgent ? $"agent double contre {spouse.SpyFor}" : $"espion(ne) de {spouse.SpyFor}";
+                line.AddChild(new Label { Text = $"{spouse.Name} (de {spouse.From}) — {known}", CustomMinimumSize = new Vector2(420, 0) });
+                if (!spouse.Sounded)
+                    AddAction(line, $"Sonder (miroir, {session.Context.Content.Balance.Intrigues.UnmaskMirrorCost})",
+                        () => Report(session.Intrigues.Unmask(spouse.Id) ?? "Le miroir manque de puissance."));
+                else if (spouse.SpyFor != null && !spouse.DoubleAgent)
+                {
+                    AddAction(line, "Retourner (agent double)", () => Report(session.Intrigues.Turn(spouse.Id) is { } r ? $"Refusé : {r}." : $"{spouse.Name} sert désormais le clan."));
+                    AddAction(line, "Exécuter", () => Report(session.Intrigues.ExecuteSpy(spouse.Id) is { } r ? $"Refusé : {r}." : $"{spouse.Name} est exécuté(e)."));
+                }
+                secret.AddChild(line);
+            }
+        }
+
+        private static void AddAction(Container box, string text, Action onPressed)
+        {
+            var button = new Button { Text = text };
+            button.Pressed += onPressed;
+            box.AddChild(button);
+        }
+
         /// <summary>A false proof planted in one power's hands against another (disabled, with its reason, when it cannot be).</summary>
         private void ShowFalseProof(Session.GameSession session)
         {
@@ -231,6 +261,7 @@ namespace MirrorChronicles.Game
             if (OperationsView.Signs(session).All(p => p.Sign == "calme")) Add(secret, "Tout est calme.");
 
             ShowFalseProof(session);
+            ShowSpouses(session);
 
             Add(secret, "Dans la confidence :");
             var patriarch = session.Clan.GetPatriarch();
