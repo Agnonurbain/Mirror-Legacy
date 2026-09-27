@@ -2700,7 +2700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 78,
+      "community": 218,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -2710,7 +2710,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 78,
+      "community": 218,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -2820,7 +2820,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 82,
+      "community": 215,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -2830,7 +2830,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 82,
+      "community": 215,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -5910,7 +5910,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 218,
+      "community": 223,
       "norm_label": "woundsystem"
     },
     {
@@ -5920,7 +5920,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 218,
+      "community": 223,
       "norm_label": "double"
     },
     {
@@ -5930,7 +5930,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 218,
+      "community": 223,
       "norm_label": "int"
     },
     {
@@ -5940,7 +5940,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 218,
+      "community": 223,
       "norm_label": "gamecontext"
     },
     {
@@ -5950,7 +5950,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 218,
+      "community": 223,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -5960,7 +5960,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 218,
+      "community": 223,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -5970,7 +5970,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 218,
+      "community": 223,
       "norm_label": "characterdata"
     },
     {
@@ -5980,7 +5980,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 218,
+      "community": 223,
       "norm_label": ".applydaowound()"
     },
     {
@@ -5990,7 +5990,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 218,
+      "community": 223,
       "norm_label": ".applywound()"
     },
     {
@@ -6090,7 +6090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 82,
+      "community": 215,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -6100,7 +6100,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 82,
+      "community": 215,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -6110,7 +6110,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 82,
+      "community": 215,
       "norm_label": "clankarmasystem"
     },
     {
@@ -6120,7 +6120,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 82,
+      "community": 215,
       "norm_label": "double"
     },
     {
@@ -6130,7 +6130,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 82,
+      "community": 215,
       "norm_label": "int"
     },
     {
@@ -6140,7 +6140,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 82,
+      "community": 215,
       "norm_label": "gamecontext"
     },
     {
@@ -6150,7 +6150,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 82,
+      "community": 215,
       "norm_label": "clanmanager"
     },
     {
@@ -6160,7 +6160,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 82,
+      "community": 215,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -6170,7 +6170,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 82,
+      "community": 215,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -6180,7 +6180,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 82,
+      "community": 215,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -6190,7 +6190,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 82,
+      "community": 215,
       "norm_label": ".restore()"
     },
     {
@@ -6200,7 +6200,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 82,
+      "community": 215,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -6780,7 +6780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_legacysystem",
-      "community": 212,
+      "community": 78,
       "norm_label": "legacysystem.cs"
     },
     {
@@ -6790,7 +6790,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "clan_legacysystem_mirrorchronicles_clan",
-      "community": 212,
+      "community": 78,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -6800,7 +6800,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "clan_legacysystem_legacysystem",
-      "community": 212,
+      "community": 78,
       "norm_label": "legacysystem"
     },
     {
@@ -6810,7 +6810,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_clan_legacysystem_cs_int",
-      "community": 212,
+      "community": 78,
       "norm_label": "int"
     },
     {
@@ -8440,7 +8440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 78,
+      "community": 218,
       "norm_label": "combatunit.cs"
     },
     {
@@ -8450,7 +8450,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 78,
+      "community": 218,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -8980,7 +8980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 212,
+      "community": 69,
       "norm_label": "enums.cs"
     },
     {
@@ -8990,7 +8990,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 212,
+      "community": 69,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -10460,7 +10460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 193,
+      "community": 158,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -10470,7 +10470,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 193,
+      "community": 158,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -10560,7 +10560,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_espionagesystem_attemptespionage",
-      "community": 228,
+      "community": 193,
       "norm_label": ".attemptespionage()"
     },
     {
@@ -10570,7 +10570,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_characterdata",
-      "community": 228,
+      "community": 193,
       "norm_label": "characterdata"
     },
     {
@@ -10580,7 +10580,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_factiondata",
-      "community": 228,
+      "community": 193,
       "norm_label": "factiondata"
     },
     {
@@ -10590,7 +10590,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "espionageresult",
-      "community": 228,
+      "community": 193,
       "norm_label": "espionageresult"
     },
     {
@@ -10754,10 +10754,20 @@
       "norm_label": ".areneighbours()"
     },
     {
-      "label": ".RemoveFaction()",
+      "label": "Dictionary",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
       "source_location": "L113",
+      "_origin": "ast",
+      "id": "src_core_diplomacy_factionmanager_cs_dictionary",
+      "community": 40,
+      "norm_label": "dictionary"
+    },
+    {
+      "label": ".RemoveFaction()",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/FactionManager.cs",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_factionmanager_removefaction",
       "community": 40,
@@ -10767,7 +10777,7 @@
       "label": ".Drift()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L116",
+      "source_location": "L119",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_factionmanager_drift",
       "community": 40,
@@ -10777,7 +10787,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L124",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_factionmanager_restore",
       "community": 40,
@@ -10787,7 +10797,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L124",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "src_core_diplomacy_factionmanager_cs_ienumerable",
       "community": 40,
@@ -10980,7 +10990,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 192,
+      "community": 69,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -10990,7 +11000,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 192,
+      "community": 69,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -11267,7 +11277,7 @@
       "label": ".SuzerainOf()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L45",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_suzerainof",
       "community": 208,
@@ -11277,7 +11287,7 @@
       "label": ".AlliesOf()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L47",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_alliesof",
       "community": 208,
@@ -11287,7 +11297,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L47",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "src_core_diplomacy_powerpoliticssystem_cs_ireadonlylist",
       "community": 208,
@@ -11297,7 +11307,7 @@
       "label": ".SchemeFactor()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L51",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_schemefactor",
       "community": 208,
@@ -11307,7 +11317,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L51",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "src_core_diplomacy_powerpoliticssystem_cs_factiondata",
       "community": 208,
@@ -11317,7 +11327,7 @@
       "label": ".RestoreBonds()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L54",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorebonds",
       "community": 208,
@@ -11327,7 +11337,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L54",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "src_core_diplomacy_powerpoliticssystem_cs_ienumerable",
       "community": 208,
@@ -11337,7 +11347,7 @@
       "label": "PowerBond",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L54",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "powerbond",
       "community": 208,
@@ -11347,7 +11357,7 @@
       "label": ".RestoreCoalition()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L60",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecoalition",
       "community": 208,
@@ -11357,7 +11367,7 @@
       "label": "Coalition",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L60",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "coalition",
       "community": 208,
@@ -11367,7 +11377,7 @@
       "label": ".RestoreCall()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L61",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecall",
       "community": 208,
@@ -11377,17 +11387,27 @@
       "label": "CallToArms",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L61",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "calltoarms",
       "community": 208,
       "norm_label": "calltoarms"
     },
     {
+      "label": ".RestoreCalls()",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecalls",
+      "community": 208,
+      "norm_label": ".restorecalls()"
+    },
+    {
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L63",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_processyear",
       "community": 208,
@@ -11397,7 +11417,7 @@
       "label": ".FormAlliances()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L75",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_formalliances",
       "community": 208,
@@ -11407,7 +11427,7 @@
       "label": ".Bonded()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L97",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_bonded",
       "community": 208,
@@ -11417,7 +11437,7 @@
       "label": ".StartAFeud()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L101",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_startafeud",
       "community": 208,
@@ -11427,7 +11447,7 @@
       "label": ".Feud()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L114",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_feud",
       "community": 208,
@@ -11437,7 +11457,7 @@
       "label": ".AnswerCall()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L133",
+      "source_location": "L145",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_answercall",
       "community": 208,
@@ -11447,7 +11467,7 @@
       "label": ".RefuseCall()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L146",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_refusecall",
       "community": 208,
@@ -11457,7 +11477,7 @@
       "label": ".SubjugateAWeakNeighbour()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L159",
+      "source_location": "L171",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugateaweakneighbour",
       "community": 208,
@@ -11467,7 +11487,7 @@
       "label": ".Subjugate()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L173",
+      "source_location": "L185",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugate",
       "community": 208,
@@ -11477,7 +11497,7 @@
       "label": ".ServeVassals()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L183",
+      "source_location": "L195",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_servevassals",
       "community": 208,
@@ -11487,7 +11507,7 @@
       "label": ".Absorb()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L210",
+      "source_location": "L222",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_absorb",
       "community": 208,
@@ -11497,7 +11517,7 @@
       "label": ".ProcessCoalition()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L232",
+      "source_location": "L242",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_processcoalition",
       "community": 208,
@@ -11507,7 +11527,7 @@
       "label": ".ChangeRelation()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
-      "source_location": "L258",
+      "source_location": "L268",
       "_origin": "ast",
       "id": "diplomacy_powerpoliticssystem_powerpoliticssystem_changerelation",
       "community": 208,
@@ -12620,7 +12640,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
-      "community": 215,
+      "community": 33,
       "norm_label": ".assigntask()"
     },
     {
@@ -12630,7 +12650,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 215,
+      "community": 33,
       "norm_label": "characterdata"
     },
     {
@@ -12640,7 +12660,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
-      "community": 215,
+      "community": 33,
       "norm_label": "tasktype"
     },
     {
@@ -12650,7 +12670,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 215,
+      "community": 33,
       "norm_label": ".processyearlytasks()"
     },
     {
@@ -12660,7 +12680,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 215,
+      "community": 33,
       "norm_label": "yearlytaskreport"
     },
     {
@@ -12670,7 +12690,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 224,
+      "community": 33,
       "norm_label": ".gatherqi()"
     },
     {
@@ -12680,7 +12700,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 224,
+      "community": 33,
       "norm_label": ".harvestable()"
     },
     {
@@ -12690,7 +12710,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 224,
+      "community": 33,
       "norm_label": "techniquedata"
     },
     {
@@ -12700,7 +12720,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 224,
+      "community": 33,
       "norm_label": "qidefinition"
     },
     {
@@ -12710,7 +12730,7 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 215,
+      "community": 33,
       "norm_label": ".mineyield()"
     },
     {
@@ -12720,7 +12740,7 @@
       "source_location": "L160",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 215,
+      "community": 33,
       "norm_label": ".study()"
     },
     {
@@ -12730,7 +12750,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 215,
+      "community": 33,
       "norm_label": ".diplomacy()"
     },
     {
@@ -12740,7 +12760,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 215,
+      "community": 33,
       "norm_label": ".teach()"
     },
     {
@@ -12750,7 +12770,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 215,
+      "community": 33,
       "norm_label": "ireadonlylist"
     },
     {
@@ -12760,7 +12780,7 @@
       "source_location": "L209",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
-      "community": 215,
+      "community": 33,
       "norm_label": ".scoutbeasts()"
     },
     {
@@ -16270,7 +16290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "session_gamesession",
-      "community": 5,
+      "community": 222,
       "norm_label": "gamesession.cs"
     },
     {
@@ -16280,7 +16300,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "session_gamesession_mirrorchronicles_session",
-      "community": 5,
+      "community": 222,
       "norm_label": "mirrorchronicles.session"
     },
     {
@@ -16290,7 +16310,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "session_gamesession_gamesession",
-      "community": 5,
+      "community": 222,
       "norm_label": "gamesession"
     },
     {
@@ -16300,7 +16320,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_newgame",
-      "community": 5,
+      "community": 222,
       "norm_label": ".newgame()"
     },
     {
@@ -16310,7 +16330,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamesetup",
-      "community": 5,
+      "community": 222,
       "norm_label": "gamesetup"
     },
     {
@@ -16320,7 +16340,7 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_fromsavedata",
-      "community": 5,
+      "community": 222,
       "norm_label": ".fromsavedata()"
     },
     {
@@ -16330,7 +16350,7 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
-      "community": 5,
+      "community": 222,
       "norm_label": "gamedata"
     },
     {
@@ -16340,7 +16360,7 @@
       "source_location": "L224",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
-      "community": 5,
+      "community": 222,
       "norm_label": ".tosavedata()"
     },
     {
@@ -16350,7 +16370,7 @@
       "source_location": "L281",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
-      "community": 5,
+      "community": 222,
       "norm_label": ".requirecontent()"
     },
     {
@@ -16360,7 +16380,7 @@
       "source_location": "L281",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
-      "community": 5,
+      "community": 222,
       "norm_label": "gamecontent"
     },
     {
@@ -16370,7 +16390,7 @@
       "source_location": "L285",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
-      "community": 5,
+      "community": 222,
       "norm_label": ".advancephase()"
     },
     {
@@ -16380,7 +16400,7 @@
       "source_location": "L296",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
-      "community": 5,
+      "community": 222,
       "norm_label": ".advanceyear()"
     },
     {
@@ -16390,7 +16410,7 @@
       "source_location": "L303",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
-      "community": 5,
+      "community": 222,
       "norm_label": ".resolvephase()"
     },
     {
@@ -16400,7 +16420,7 @@
       "source_location": "L303",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
-      "community": 5,
+      "community": 222,
       "norm_label": "gamephase"
     },
     {
@@ -16410,7 +16430,7 @@
       "source_location": "L333",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
-      "community": 5,
+      "community": 222,
       "norm_label": ".beginyear()"
     },
     {
@@ -19204,14 +19224,54 @@
       "norm_label": ".restore()"
     },
     {
+      "label": ".Inherit()",
+      "file_type": "code",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "world_suspicionledger_suspicionledger_inherit",
+      "community": 179,
+      "norm_label": ".inherit()"
+    },
+    {
       "label": ".Key()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L84",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_key",
       "community": 179,
       "norm_label": ".key()"
+    },
+    {
+      "label": ".Split()",
+      "file_type": "code",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "world_suspicionledger_suspicionledger_split",
+      "community": 179,
+      "norm_label": ".split()"
+    },
+    {
+      "label": "Holder",
+      "file_type": "code",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "holder",
+      "community": 179,
+      "norm_label": "holder"
+    },
+    {
+      "label": "Toward",
+      "file_type": "code",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "toward",
+      "community": 179,
+      "norm_label": "toward"
     },
     {
       "label": "AgingSystemTests.cs",
@@ -29934,6 +29994,46 @@
       "norm_label": ".aconfrontation_byanabsorbedpower_ends()"
     },
     {
+      "label": ".TwoAlliesAttacked()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L320",
+      "_origin": "ast",
+      "id": "diplomacy_politicstests_politicstests_twoalliesattacked",
+      "community": 217,
+      "norm_label": ".twoalliesattacked()"
+    },
+    {
+      "label": ".TwoAlliesAttacked_BothCall_OneAfterTheOther()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L333",
+      "_origin": "ast",
+      "id": "diplomacy_politicstests_politicstests_twoalliesattacked_bothcall_oneaftertheother",
+      "community": 217,
+      "norm_label": ".twoalliesattacked_bothcall_oneaftertheother()"
+    },
+    {
+      "label": ".EveryCallLeftUnanswered_IsARefusal()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L342",
+      "_origin": "ast",
+      "id": "diplomacy_politicstests_politicstests_everycallleftunanswered_isarefusal",
+      "community": 217,
+      "norm_label": ".everycallleftunanswered_isarefusal()"
+    },
+    {
+      "label": ".ASuzerain_InheritsWhatItsAbsorbedVassalHeld()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L352",
+      "_origin": "ast",
+      "id": "diplomacy_politicstests_politicstests_asuzerain_inheritswhatitsabsorbedvassalheld",
+      "community": 217,
+      "norm_label": ".asuzerain_inheritswhatitsabsorbedvassalheld()"
+    },
+    {
       "label": "TreatyTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Diplomacy/TreatyTests.cs",
@@ -31280,7 +31380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_storyeventmanagertests",
-      "community": 222,
+      "community": 5,
       "norm_label": "storyeventmanagertests.cs"
     },
     {
@@ -31290,7 +31390,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_mirrorchronicles_tests_events",
-      "community": 222,
+      "community": 5,
       "norm_label": "mirrorchronicles.tests.events"
     },
     {
@@ -31300,7 +31400,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests",
-      "community": 222,
+      "community": 5,
       "norm_label": "storyeventmanagertests"
     },
     {
@@ -31310,7 +31410,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_build",
-      "community": 222,
+      "community": 5,
       "norm_label": ".build()"
     },
     {
@@ -31320,7 +31420,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "tests_core_tests_events_storyeventmanagertests_cs_testworld",
-      "community": 222,
+      "community": 5,
       "norm_label": "testworld"
     },
     {
@@ -31330,7 +31430,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "tests_core_tests_events_storyeventmanagertests_cs_world",
-      "community": 222,
+      "community": 5,
       "norm_label": "world"
     },
     {
@@ -31340,7 +31440,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "storyeventmanager",
-      "community": 222,
+      "community": 5,
       "norm_label": "storyeventmanager"
     },
     {
@@ -31350,7 +31450,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "story",
-      "community": 222,
+      "community": 5,
       "norm_label": "story"
     },
     {
@@ -31360,7 +31460,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_firstfoundation_queuesitsstoryevent",
-      "community": 222,
+      "community": 5,
       "norm_label": ".firstfoundation_queuesitsstoryevent()"
     },
     {
@@ -31370,7 +31470,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_core_tests_events_storyeventmanagertests_cs_test",
-      "community": 222,
+      "community": 5,
       "norm_label": "test"
     },
     {
@@ -31380,7 +31480,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_astoryevent_onlyhappensonce",
-      "community": 222,
+      "community": 5,
       "norm_label": ".astoryevent_onlyhappensonce()"
     },
     {
@@ -31390,7 +31490,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_storyevents_waitinline",
-      "community": 222,
+      "community": 5,
       "norm_label": ".storyevents_waitinline()"
     },
     {
@@ -31400,7 +31500,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_resolvechoice_steadieseveryone_whentheclancelebrates",
-      "community": 222,
+      "community": 5,
       "norm_label": ".resolvechoice_steadieseveryone_whentheclancelebrates()"
     },
     {
@@ -31410,7 +31510,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_resolvechoice_paysthestones_itcosts",
-      "community": 222,
+      "community": 5,
       "norm_label": ".resolvechoice_paysthestones_itcosts()"
     },
     {
@@ -31420,7 +31520,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_resolvechoice_changestherelationofthefactionitnames",
-      "community": 222,
+      "community": 5,
       "norm_label": ".resolvechoice_changestherelationofthefactionitnames()"
     },
     {
@@ -31430,7 +31530,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_lastsurvivor_raisestheextinctionthreat",
-      "community": 222,
+      "community": 5,
       "norm_label": ".lastsurvivor_raisestheextinctionthreat()"
     },
     {
@@ -31440,7 +31540,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "events_storyeventmanagertests_storyeventmanagertests_storyevent_isannouncedonthebus",
-      "community": 222,
+      "community": 5,
       "norm_label": ".storyevent_isannouncedonthebus()"
     },
     {
@@ -38610,7 +38710,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "brain_claude_plan_syst\u00e8mes_du_jeu_d\u00e9tail",
-      "community": 226,
+      "community": 41,
       "norm_label": "\ud83e\udde9 systemes du jeu (detail)"
     },
     {
@@ -38620,7 +38720,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "brain_claude_plan_1_core_boucle_principale",
-      "community": 226,
+      "community": 41,
       "norm_label": "1. core \u2014 boucle principale"
     },
     {
@@ -38630,7 +38730,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "brain_claude_plan_2_mirror_interface_joueur",
-      "community": 226,
+      "community": 41,
       "norm_label": "2. mirror \u2014 interface joueur"
     },
     {
@@ -38640,7 +38740,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "brain_claude_plan_3_clan_lign\u00e9e",
-      "community": 226,
+      "community": 41,
       "norm_label": "3. clan \u2014 lignee"
     },
     {
@@ -38650,7 +38750,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "brain_claude_plan_4_characters_individus",
-      "community": 226,
+      "community": 41,
       "norm_label": "4. characters \u2014 individus"
     },
     {
@@ -38660,7 +38760,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "brain_claude_plan_5_combat_tactique_tour_par_tour",
-      "community": 226,
+      "community": 41,
       "norm_label": "5. combat \u2014 tactique tour par tour"
     },
     {
@@ -38670,7 +38770,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "brain_claude_plan_6_diplomacy_monde_ext\u00e9rieur",
-      "community": 226,
+      "community": 41,
       "norm_label": "6. diplomacy \u2014 monde exterieur"
     },
     {
@@ -38680,7 +38780,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "brain_claude_plan_7_economy_ressources_t\u00e2ches",
-      "community": 226,
+      "community": 41,
       "norm_label": "7. economy \u2014 ressources & taches"
     },
     {
@@ -38690,7 +38790,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "brain_claude_plan_8_events_al\u00e9atoire_sc\u00e9naris\u00e9",
-      "community": 226,
+      "community": 41,
       "norm_label": "8. events \u2014 aleatoire + scenarise"
     },
     {
@@ -38940,7 +39040,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_worked_lesson_md_bugs_identifi\u00e9s_le\u00e7ons_apprises",
-      "community": 45,
+      "community": 224,
       "norm_label": "\ud83d\udcda worked_lesson.md \u2014 bugs identifies & lecons apprises"
     },
     {
@@ -38950,7 +39050,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_comment_utiliser_ce_fichier",
-      "community": 45,
+      "community": 224,
       "norm_label": "\ud83d\udcd6 comment utiliser ce fichier"
     },
     {
@@ -39140,7 +39240,7 @@
       "source_location": "L292",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_le\u00e7ons_d_architecture_design",
-      "community": 45,
+      "community": 224,
       "norm_label": "\ud83d\udcd0 lecons d'architecture & design"
     },
     {
@@ -39150,7 +39250,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_100_pivot_unity_web_unity_cause_de_la_dette",
-      "community": 45,
+      "community": 224,
       "norm_label": "wl-100 \u2014 pivot unity \u2192 web \u2192 unity : cause de la dette"
     },
     {
@@ -39160,7 +39260,7 @@
       "source_location": "L308",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_101_factions_hardcod\u00e9es_au_lieu_de_scriptableobjects",
-      "community": 45,
+      "community": 224,
       "norm_label": "wl-101 \u2014 factions hardcodees au lieu de scriptableobjects"
     },
     {
@@ -39170,7 +39270,7 @@
       "source_location": "L322",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_template_pour_nouvelles_entr\u00e9es",
-      "community": 45,
+      "community": 224,
       "norm_label": "\ud83d\udcdd template pour nouvelles entrees"
     },
     {
@@ -39373,7 +39473,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Strict English code and French docs; mandatory Singleton/Observer/Strategy/Command/State Machine/MVC; no SendMessage, no FindObjectOfType in loops, no StartCoroutine timers (use async/await or GameEvents); ScriptableObjects for all static data; null checks + try/catch on Save/Load; Play Mode tests per heavy system; one system at a time with user validation.",
-      "community": 223,
+      "community": 4,
       "norm_label": "golden rules (en code / fr docs, mandatory patterns)",
       "id": "brain_claude_brainstorming_golden_rules"
     },
@@ -39440,7 +39540,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 78,
+      "community": 218,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -39467,7 +39567,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 223,
+      "community": 4,
       "norm_label": "singleton pattern (manager instance)",
       "id": "brain_claude_memory_singleton_pattern"
     },
@@ -39480,7 +39580,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 223,
+      "community": 4,
       "norm_label": "observer pattern (c# events bus)",
       "id": "brain_claude_memory_observer_pattern"
     },
@@ -39493,7 +39593,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 223,
+      "community": 4,
       "norm_label": "state machine pattern (gamestate, gamephase, combatstate)",
       "id": "brain_claude_memory_state_machine_pattern"
     },
@@ -39506,7 +39606,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 223,
+      "community": 4,
       "norm_label": "strategy pattern (iaistrategy)",
       "id": "brain_claude_memory_strategy_pattern"
     },
@@ -39519,7 +39619,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 223,
+      "community": 4,
       "norm_label": "command pattern (icombataction)",
       "id": "brain_claude_memory_command_pattern"
     },
@@ -39533,7 +39633,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Only theoretical so far: POCO data separated from managers, but UI logic still lives in MonoBehaviours (NOT_DONE #102).",
-      "community": 223,
+      "community": 4,
       "norm_label": "mvc pattern (data pocos vs managers vs ui)",
       "id": "brain_claude_memory_mvc_pattern"
     },
@@ -39547,7 +39647,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Singletons expose static Instance with Awake duplicate-destroy; events subscribed in OnEnable and unsubscribed in OnDisable (never Awake/Start); Debug.Log prefixed with [System]; POCOs [Serializable] with parameterless ctor and Guid IDs.",
-      "community": 223,
+      "community": 4,
       "norm_label": "code conventions (mirrorchronicles.<module> namespaces, xml docs, onenable/ondisable subscriptions)",
       "id": "brain_claude_memory_code_conventions"
     },
@@ -39561,7 +39661,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 192,
+      "community": 69,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -39613,7 +39713,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 192,
+      "community": 194,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -39652,7 +39752,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 223,
+      "community": 4,
       "norm_label": "strict mvc for ui (#102)",
       "id": "brain_claude_not_done_mvc_ui"
     },
@@ -39774,7 +39874,7 @@
       "author": null,
       "contributor": null,
       "rationale": "GameManager(-100) -> TimeManager(-90) -> GameEvents(-80) -> ClanManager(-70) -> BloodRegistry(-60) to guarantee singleton Awake order (WL-009).",
-      "community": 223,
+      "community": 4,
       "norm_label": "script execution order configuration",
       "id": "brain_claude_package_script_execution_order"
     },
@@ -39801,7 +39901,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 192,
+      "community": 69,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -39882,7 +39982,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 223,
+      "community": 4,
       "norm_label": "[systems] dontdestroyonload gameobject hosting all singletons",
       "id": "brain_claude_plan_systems_gameobject"
     },
@@ -39895,7 +39995,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 82,
+      "community": 215,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -39908,7 +40008,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 192,
+      "community": 194,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -39947,7 +40047,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 192,
+      "community": 194,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -40069,7 +40169,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 212,
+      "community": 69,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -40153,7 +40253,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Unity does not order Awake across GameObjects; fix via single [Systems] object, Script Execution Order, or RuntimeInitializeOnLoadMethod bootstrapper; null-check cross-singleton calls.",
-      "community": 223,
+      "community": 4,
       "norm_label": "wl-009: singleton initialization order not guaranteed",
       "id": "brain_claude_worked_lesson_wl_009"
     },
@@ -40276,7 +40376,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Scripts organised by domain folder (Core, Clan, Characters, Combat, Mirror, Diplomacy, Economy, Events, Data) mirroring MirrorChronicles.<Module> namespaces.",
-      "community": 223,
+      "community": 4,
       "norm_label": "assets/_project domain-module architecture",
       "id": "readme_module_architecture"
     }
@@ -41561,9 +41661,9 @@
       "source_file": "game/scripts/Diplomacy.cs",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_diplomacy_diplomacy",
-      "target": "scripts_diplomacy_diplomacy_showcoalitionandcall",
-      "confidence_score": 1.0
+      "target": "scripts_diplomacy_diplomacy_showcoalitionandcall"
     },
     {
       "relation": "method",
@@ -41668,9 +41768,9 @@
       "source_file": "game/scripts/Diplomacy.cs",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_diplomacy_diplomacy_showpowers",
-      "target": "scripts_diplomacy_diplomacy_showcoalitionandcall",
-      "confidence_score": 1.0
+      "target": "scripts_diplomacy_diplomacy_showcoalitionandcall"
     },
     {
       "relation": "calls",
@@ -41690,9 +41790,9 @@
       "source_location": "L71",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_diplomacy_diplomacy_showcoalitionandcall",
-      "target": "game_scripts_diplomacy_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "game_scripts_diplomacy_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -41701,9 +41801,9 @@
       "source_file": "game/scripts/Diplomacy.cs",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_diplomacy_diplomacy_showcoalitionandcall",
-      "target": "scripts_diplomacy_diplomacy_add",
-      "confidence_score": 1.0
+      "target": "scripts_diplomacy_diplomacy_add"
     },
     {
       "relation": "calls",
@@ -41712,9 +41812,9 @@
       "source_file": "game/scripts/Diplomacy.cs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_diplomacy_diplomacy_showcoalitionandcall",
-      "target": "scripts_diplomacy_diplomacy_report",
-      "confidence_score": 1.0
+      "target": "scripts_diplomacy_diplomacy_report"
     },
     {
       "relation": "calls",
@@ -58550,9 +58650,9 @@
       "source_file": "src/Core/Data/PoliticsData.cs",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_politicsdata",
-      "target": "data_politicsdata_mirrorchronicles_data",
-      "confidence_score": 1.0
+      "target": "data_politicsdata_mirrorchronicles_data"
     },
     {
       "relation": "contains",
@@ -59137,9 +59237,9 @@
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_factionmanager_factionmanager",
-      "target": "diplomacy_factionmanager_factionmanager_areneighbours",
-      "confidence_score": 1.0
+      "target": "diplomacy_factionmanager_factionmanager_areneighbours"
     },
     {
       "relation": "method",
@@ -59227,9 +59327,9 @@
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_factionmanager_factionmanager",
-      "target": "diplomacy_factionmanager_factionmanager_removefaction",
-      "confidence_score": 1.0
+      "target": "diplomacy_factionmanager_factionmanager_removefaction"
     },
     {
       "relation": "method",
@@ -59240,6 +59340,17 @@
       "confidence_score": 1.0,
       "source": "diplomacy_factionmanager_factionmanager",
       "target": "diplomacy_factionmanager_factionmanager_restore"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/FactionManager.cs",
+      "source_location": "L113",
+      "weight": 1.0,
+      "context": "field",
+      "source": "diplomacy_factionmanager_factionmanager",
+      "target": "src_core_diplomacy_factionmanager_cs_dictionary",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -59303,9 +59414,9 @@
       "source_location": "L105",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_factionmanager_factionmanager_areneighbours",
-      "target": "src_core_diplomacy_factionmanager_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_factionmanager_cs_factiondata"
     },
     {
       "relation": "references",
@@ -59955,9 +60066,9 @@
       "source_file": "src/Core/Diplomacy/PoliticsRules.cs",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicsrules",
-      "target": "diplomacy_politicsrules_mirrorchronicles_diplomacy",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicsrules_mirrorchronicles_diplomacy"
     },
     {
       "relation": "contains",
@@ -59965,9 +60076,9 @@
       "source_file": "src/Core/Diplomacy/PoliticsRules.cs",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicsrules",
-      "target": "diplomacy_politicsrules_politicsrules",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicsrules_politicsrules"
     },
     {
       "relation": "method",
@@ -59975,9 +60086,9 @@
       "source_file": "src/Core/Diplomacy/PoliticsRules.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicsrules_politicsrules",
-      "target": "diplomacy_politicsrules_politicsrules_affinity",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicsrules_politicsrules_affinity"
     },
     {
       "relation": "references",
@@ -59986,9 +60097,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicsrules_politicsrules_affinity",
-      "target": "politicssettings",
-      "confidence_score": 1.0
+      "target": "politicssettings"
     },
     {
       "relation": "references",
@@ -59997,9 +60108,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicsrules_politicsrules_affinity",
-      "target": "src_core_diplomacy_politicsrules_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_politicsrules_cs_factiondata"
     },
     {
       "relation": "contains",
@@ -60007,9 +60118,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_mirrorchronicles_diplomacy",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_mirrorchronicles_diplomacy"
     },
     {
       "relation": "contains",
@@ -60017,9 +60128,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem"
     },
     {
       "relation": "method",
@@ -60027,9 +60138,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L210",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_absorb",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_absorb"
     },
     {
       "relation": "method",
@@ -60037,9 +60148,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_alliesof",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_alliesof"
     },
     {
       "relation": "method",
@@ -60047,9 +60158,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_answercall",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_answercall"
     },
     {
       "relation": "method",
@@ -60057,9 +60168,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_bonded",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_bonded"
     },
     {
       "relation": "method",
@@ -60067,9 +60178,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L258",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_changerelation",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_changerelation"
     },
     {
       "relation": "method",
@@ -60077,9 +60188,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_feud",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_feud"
     },
     {
       "relation": "method",
@@ -60087,9 +60198,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_formalliances",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_formalliances"
     },
     {
       "relation": "method",
@@ -60097,9 +60208,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L232",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_processcoalition",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_processcoalition"
     },
     {
       "relation": "method",
@@ -60107,9 +60218,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_processyear",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_processyear"
     },
     {
       "relation": "method",
@@ -60117,9 +60228,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_refusecall",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_refusecall"
     },
     {
       "relation": "method",
@@ -60127,9 +60238,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorebonds",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorebonds"
     },
     {
       "relation": "method",
@@ -60137,8 +60248,18 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecall",
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecall"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecalls",
       "confidence_score": 1.0
     },
     {
@@ -60147,9 +60268,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecoalition",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecoalition"
     },
     {
       "relation": "method",
@@ -60157,9 +60278,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_schemefactor",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_schemefactor"
     },
     {
       "relation": "method",
@@ -60167,9 +60288,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L183",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_servevassals",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_servevassals"
     },
     {
       "relation": "method",
@@ -60177,9 +60298,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_startafeud",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_startafeud"
     },
     {
       "relation": "method",
@@ -60187,9 +60308,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L173",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugate",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugate"
     },
     {
       "relation": "method",
@@ -60197,9 +60318,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugateaweakneighbour",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugateaweakneighbour"
     },
     {
       "relation": "method",
@@ -60207,9 +60328,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_suzerainof",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_suzerainof"
     },
     {
       "relation": "references",
@@ -60218,9 +60339,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_factionmanager",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_factionmanager"
     },
     {
       "relation": "references",
@@ -60229,9 +60350,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_gamecontext"
     },
     {
       "relation": "references",
@@ -60240,9 +60361,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_list",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_list"
     },
     {
       "relation": "references",
@@ -60251,9 +60372,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_resourcemanager",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_resourcemanager"
     },
     {
       "relation": "references",
@@ -60262,9 +60383,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_suspicionledger",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_suspicionledger"
     },
     {
       "relation": "references",
@@ -60273,9 +60394,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_treatysystem",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_treatysystem"
     },
     {
       "relation": "calls",
@@ -60284,9 +60405,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L176",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugate",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_suzerainof",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_suzerainof"
     },
     {
       "relation": "references",
@@ -60295,9 +60416,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_alliesof",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_ireadonlylist"
     },
     {
       "relation": "calls",
@@ -60306,9 +60427,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_feud",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_alliesof",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_alliesof"
     },
     {
       "relation": "references",
@@ -60317,9 +60438,9 @@
       "source_location": "L51",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_schemefactor",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -60328,9 +60449,9 @@
       "source_location": "L210",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_absorb",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -60339,9 +60460,9 @@
       "source_location": "L114",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_feud",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -60350,9 +60471,9 @@
       "source_location": "L173",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugate",
-      "target": "src_core_diplomacy_powerpoliticssystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -60361,9 +60482,9 @@
       "source_location": "L54",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorebonds",
-      "target": "powerbond",
-      "confidence_score": 1.0
+      "target": "powerbond"
     },
     {
       "relation": "references",
@@ -60372,7 +60493,18 @@
       "source_location": "L54",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorebonds",
+      "target": "src_core_diplomacy_powerpoliticssystem_cs_ienumerable"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecalls",
       "target": "src_core_diplomacy_powerpoliticssystem_cs_ienumerable",
       "confidence_score": 1.0
     },
@@ -60383,9 +60515,9 @@
       "source_location": "L60",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecoalition",
-      "target": "coalition",
-      "confidence_score": 1.0
+      "target": "coalition"
     },
     {
       "relation": "references",
@@ -60394,7 +60526,29 @@
       "source_location": "L61",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecall",
+      "target": "calltoarms"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecall",
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecalls",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_restorecalls",
       "target": "calltoarms",
       "confidence_score": 1.0
     },
@@ -60405,9 +60559,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_processyear",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_formalliances",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_formalliances"
     },
     {
       "relation": "calls",
@@ -60416,9 +60570,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_processyear",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_processcoalition",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_processcoalition"
     },
     {
       "relation": "calls",
@@ -60427,9 +60581,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_processyear",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_refusecall",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_refusecall"
     },
     {
       "relation": "calls",
@@ -60438,9 +60592,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_processyear",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_servevassals",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_servevassals"
     },
     {
       "relation": "calls",
@@ -60449,9 +60603,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_processyear",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_startafeud",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_startafeud"
     },
     {
       "relation": "calls",
@@ -60460,9 +60614,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_processyear",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugateaweakneighbour",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugateaweakneighbour"
     },
     {
       "relation": "calls",
@@ -60471,9 +60625,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_formalliances",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_bonded",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_bonded"
     },
     {
       "relation": "calls",
@@ -60482,9 +60636,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_startafeud",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_bonded",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_bonded"
     },
     {
       "relation": "calls",
@@ -60493,9 +60647,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_startafeud",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_feud",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_feud"
     },
     {
       "relation": "calls",
@@ -60504,9 +60658,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_answercall",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_changerelation",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_changerelation"
     },
     {
       "relation": "calls",
@@ -60515,9 +60669,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L169",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugateaweakneighbour",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugate",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_subjugate"
     },
     {
       "relation": "calls",
@@ -60526,9 +60680,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L199",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_servevassals",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_absorb",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_absorb"
     },
     {
       "relation": "calls",
@@ -60537,9 +60691,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L251",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_processcoalition",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_changerelation",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_changerelation"
     },
     {
       "relation": "contains",
@@ -60745,9 +60899,9 @@
       "source_file": "src/Core/Diplomacy/TreatySystem.cs",
       "source_location": "L126",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_treatysystem_treatysystem",
-      "target": "diplomacy_treatysystem_treatysystem_dissolve",
-      "confidence_score": 1.0
+      "target": "diplomacy_treatysystem_treatysystem_dissolve"
     },
     {
       "relation": "method",
@@ -62827,9 +62981,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggercalltoarms",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggercalltoarms"
     },
     {
       "relation": "method",
@@ -62857,9 +63011,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggerclanabsorbed",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggerclanabsorbed"
     },
     {
       "relation": "method",
@@ -62867,9 +63021,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggercoalitionformed",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggercoalitionformed"
     },
     {
       "relation": "method",
@@ -62947,9 +63101,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggerpowerabsorbed",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggerpowerabsorbed"
     },
     {
       "relation": "method",
@@ -63130,9 +63284,9 @@
       "source_location": "L62",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus_triggercoalitionformed",
-      "target": "src_core_events_gameeventbus_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_events_gameeventbus_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -65780,9 +65934,9 @@
       "source_file": "src/Core/Presentation/DiplomacyView.cs",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview",
-      "target": "presentation_diplomacyview_diplomacyview_call",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyview_diplomacyview_call"
     },
     {
       "relation": "method",
@@ -65790,9 +65944,9 @@
       "source_file": "src/Core/Presentation/DiplomacyView.cs",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview",
-      "target": "presentation_diplomacyview_diplomacyview_coalition",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyview_diplomacyview_coalition"
     },
     {
       "relation": "method",
@@ -65830,9 +65984,9 @@
       "source_file": "src/Core/Presentation/DiplomacyView.cs",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview",
-      "target": "presentation_diplomacyview_diplomacyview_publicallies",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyview_diplomacyview_publicallies"
     },
     {
       "relation": "method",
@@ -65840,9 +65994,9 @@
       "source_file": "src/Core/Presentation/DiplomacyView.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview",
-      "target": "presentation_diplomacyview_diplomacyview_publicsuzerain",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyview_diplomacyview_publicsuzerain"
     },
     {
       "relation": "references",
@@ -65873,9 +66027,9 @@
       "source_file": "src/Core/Presentation/DiplomacyView.cs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_powers",
-      "target": "presentation_diplomacyview_diplomacyview_publicallies",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyview_diplomacyview_publicallies"
     },
     {
       "relation": "calls",
@@ -65884,9 +66038,9 @@
       "source_file": "src/Core/Presentation/DiplomacyView.cs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_powers",
-      "target": "presentation_diplomacyview_diplomacyview_publicsuzerain",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyview_diplomacyview_publicsuzerain"
     },
     {
       "relation": "references",
@@ -65917,9 +66071,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_call",
-      "target": "src_core_presentation_diplomacyview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_diplomacyview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -65928,9 +66082,9 @@
       "source_location": "L38",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_coalition",
-      "target": "src_core_presentation_diplomacyview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_diplomacyview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -65950,9 +66104,9 @@
       "source_location": "L46",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_publicallies",
-      "target": "src_core_presentation_diplomacyview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_diplomacyview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -65961,9 +66115,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_publicsuzerain",
-      "target": "src_core_presentation_diplomacyview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_diplomacyview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -65972,9 +66126,9 @@
       "source_location": "L46",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_publicallies",
-      "target": "src_core_presentation_diplomacyview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_diplomacyview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -65983,9 +66137,9 @@
       "source_location": "L38",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_coalition",
-      "target": "coalitionline",
-      "confidence_score": 1.0
+      "target": "coalitionline"
     },
     {
       "relation": "references",
@@ -65994,9 +66148,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_call",
-      "target": "callline",
-      "confidence_score": 1.0
+      "target": "callline"
     },
     {
       "relation": "references",
@@ -68375,9 +68529,9 @@
       "source_file": "src/Core/Session/VictoryConditionSystem.cs",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_victoryconditionsystem_victoryconditionsystem",
-      "target": "session_victoryconditionsystem_victoryconditionsystem_clanabsorbed",
-      "confidence_score": 1.0
+      "target": "session_victoryconditionsystem_victoryconditionsystem_clanabsorbed"
     },
     {
       "relation": "method",
@@ -68543,9 +68697,9 @@
       "source_file": "src/Core/World/BeastRegistry.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_beastregistry_beastregistry",
-      "target": "world_beastregistry_beastregistry_reassign",
-      "confidence_score": 1.0
+      "target": "world_beastregistry_beastregistry_reassign"
     },
     {
       "relation": "method",
@@ -71413,9 +71567,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_schemesystem_schemesystem",
-      "target": "powerpoliticssystem",
-      "confidence_score": 1.0
+      "target": "powerpoliticssystem"
     },
     {
       "relation": "references",
@@ -71927,6 +72081,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "world_suspicionledger_suspicionledger",
+      "target": "world_suspicionledger_suspicionledger_inherit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L46",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -71982,6 +72146,16 @@
       "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger",
       "target": "world_suspicionledger_suspicionledger_restoremirrorclues"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "world_suspicionledger_suspicionledger",
+      "target": "world_suspicionledger_suspicionledger_split",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -72076,11 +72250,66 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "world_suspicionledger_suspicionledger_inherit",
+      "target": "world_suspicionledger_suspicionledger_distrust",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L31",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger_adddistrust",
       "target": "world_suspicionledger_suspicionledger_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "world_suspicionledger_suspicionledger_inherit",
+      "target": "world_suspicionledger_suspicionledger_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "world_suspicionledger_suspicionledger_inherit",
+      "target": "world_suspicionledger_suspicionledger_split",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L108",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_suspicionledger_suspicionledger_split",
+      "target": "holder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L108",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_suspicionledger_suspicionledger_split",
+      "target": "toward",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -93591,9 +93820,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests",
-      "target": "diplomacy_politicstests_mirrorchronicles_tests_diplomacy",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_mirrorchronicles_tests_diplomacy"
     },
     {
       "relation": "contains",
@@ -93601,9 +93830,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests",
-      "target": "diplomacy_politicstests_politicstests",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests"
     },
     {
       "relation": "method",
@@ -93611,9 +93840,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L263",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak"
     },
     {
       "relation": "method",
@@ -93621,9 +93850,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L288",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_acall_whoseallyisabsorbed_lapses",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_acall_whoseallyisabsorbed_lapses"
     },
     {
       "relation": "method",
@@ -93631,9 +93860,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_acallleftunanswered_isarefusal",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_acallleftunanswered_isarefusal"
     },
     {
       "relation": "method",
@@ -93641,9 +93870,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L230",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_aclanwhosesuzerainsgripfillsoncetoooften_isabsorbed_andthegamelost",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_aclanwhosesuzerainsgripfillsoncetoooften_isabsorbed_andthegamelost"
     },
     {
       "relation": "method",
@@ -93651,9 +93880,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L308",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_aconfrontation_byanabsorbedpower_ends",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_aconfrontation_byanabsorbedpower_ends"
     },
     {
       "relation": "method",
@@ -93661,9 +93890,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_afeud_takesfromtheweaker_anditsallieswatch",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_afeud_takesfromtheweaker_anditsallieswatch"
     },
     {
       "relation": "method",
@@ -93671,9 +93900,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_affinity_drawsneighboursofonedaotogether_anddistrustpartsthem",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_affinity_drawsneighboursofonedaotogether_anddistrustpartsthem"
     },
     {
       "relation": "method",
@@ -93681,9 +93910,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_afullgrip_absorbsthevassal_intoitssuzerain",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_afullgrip_absorbsthevassal_intoitssuzerain"
     },
     {
       "relation": "method",
@@ -93691,9 +93920,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L298",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_anabsorbedpowersbeasts_belongtoitssuzerain",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_anabsorbedpowersbeasts_belongtoitssuzerain"
     },
     {
       "relation": "method",
@@ -93701,9 +93930,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L266",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_anabsorbedpowersvassals_passtoitssuzerain",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_anabsorbedpowersvassals_passtoitssuzerain"
     },
     {
       "relation": "method",
@@ -93711,9 +93940,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_anallyoftheclan_attacked_callsittoarms",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_anallyoftheclan_attacked_callsittoarms"
     },
     {
       "relation": "method",
@@ -93721,9 +93950,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_answeringthecall_costsstones_andtheattackersfavour",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_answeringthecall_costsstones_andtheattackersfavour"
     },
     {
       "relation": "method",
@@ -93731,9 +93960,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L177",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_apowerboundtotheclan_isnotsubjugated",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_apowerboundtotheclan_isnotsubjugated"
     },
     {
       "relation": "method",
@@ -93741,8 +93970,18 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L200",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_apowerboundtotheclan_staysoutofthecoalition",
+      "target": "diplomacy_politicstests_politicstests_apowerboundtotheclan_staysoutofthecoalition"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L352",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests",
+      "target": "diplomacy_politicstests_politicstests_asuzerain_inheritswhatitsabsorbedvassalheld",
       "confidence_score": 1.0
     },
     {
@@ -93751,9 +93990,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_avassalpower_paysitssuzerain_untilitisabsorbed",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_avassalpower_paysitssuzerain_untilitisabsorbed"
     },
     {
       "relation": "method",
@@ -93761,9 +94000,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_called",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_called"
     },
     {
       "relation": "method",
@@ -93771,8 +94010,18 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L187",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_enoughsuspicion_raisesacoalition_againsttheclan",
+      "target": "diplomacy_politicstests_politicstests_enoughsuspicion_raisesacoalition_againsttheclan"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L342",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests",
+      "target": "diplomacy_politicstests_politicstests_everycallleftunanswered_isarefusal",
       "confidence_score": 1.0
     },
     {
@@ -93781,9 +94030,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "method",
@@ -93791,9 +94040,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_refusingthecall_breaksthetreaty",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_refusingthecall_breaksthetreaty"
     },
     {
       "relation": "method",
@@ -93801,9 +94050,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L245",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_roundtrip_keepsthebonds_thecoalition_andthecall",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_roundtrip_keepsthebonds_thecoalition_andthecall"
     },
     {
       "relation": "method",
@@ -93811,9 +94060,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_thecall_cannotbeanswered_withoutthestones",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_thecall_cannotbeanswered_withoutthestones"
     },
     {
       "relation": "method",
@@ -93821,9 +94070,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L275",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_theclanstreaties_withanabsorbedpower_endatonce",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_theclanstreaties_withanabsorbedpower_endatonce"
     },
     {
       "relation": "method",
@@ -93831,9 +94080,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L213",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_thecoalition_strikeseachyear_thendisbands",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_thecoalition_strikeseachyear_thendisbands"
     },
     {
       "relation": "method",
@@ -93841,8 +94090,28 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_theyear_bindsafewpowers_notall",
+      "target": "diplomacy_politicstests_politicstests_theyear_bindsafewpowers_notall"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L320",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests",
+      "target": "diplomacy_politicstests_politicstests_twoalliesattacked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L333",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests",
+      "target": "diplomacy_politicstests_politicstests_twoalliesattacked_bothcall_oneaftertheother",
       "confidence_score": 1.0
     },
     {
@@ -93851,9 +94120,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "references",
@@ -93862,9 +94131,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_string",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_string"
     },
     {
       "relation": "calls",
@@ -93873,9 +94142,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L291",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_acall_whoseallyisabsorbed_lapses",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93884,9 +94153,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L311",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_aconfrontation_byanabsorbedpower_ends",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93895,9 +94164,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_afeud_takesfromtheweaker_anditsallieswatch",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93906,9 +94175,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_afullgrip_absorbsthevassal_intoitssuzerain",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93917,9 +94186,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L301",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_anabsorbedpowersbeasts_belongtoitssuzerain",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93928,9 +94197,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L269",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_anabsorbedpowersvassals_passtoitssuzerain",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93939,9 +94208,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_anallyoftheclan_attacked_callsittoarms",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93950,9 +94219,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L180",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_apowerboundtotheclan_isnotsubjugated",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93961,7 +94230,18 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L203",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_apowerboundtotheclan_staysoutofthecoalition",
+      "target": "diplomacy_politicstests_politicstests_world"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L355",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests_asuzerain_inheritswhatitsabsorbedvassalheld",
       "target": "diplomacy_politicstests_politicstests_world",
       "confidence_score": 1.0
     },
@@ -93972,9 +94252,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_avassalpower_paysitssuzerain_untilitisabsorbed",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93983,9 +94263,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_called",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -93994,9 +94274,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_enoughsuspicion_raisesacoalition_againsttheclan",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -94005,9 +94285,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L278",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_theclanstreaties_withanabsorbedpower_endatonce",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -94016,9 +94296,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L216",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_thecoalition_strikeseachyear_thendisbands",
-      "target": "diplomacy_politicstests_politicstests_world",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_world"
     },
     {
       "relation": "calls",
@@ -94027,7 +94307,18 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_theyear_bindsafewpowers_notall",
+      "target": "diplomacy_politicstests_politicstests_world"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L322",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests_twoalliesattacked",
       "target": "diplomacy_politicstests_politicstests_world",
       "confidence_score": 1.0
     },
@@ -94038,9 +94329,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_world",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_random",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_random"
     },
     {
       "relation": "references",
@@ -94049,9 +94340,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_world",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_testworld",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_testworld"
     },
     {
       "relation": "references",
@@ -94060,9 +94351,9 @@
       "source_location": "L263",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_absorbfangintopeak",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_testworld",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_testworld"
     },
     {
       "relation": "references",
@@ -94071,9 +94362,9 @@
       "source_location": "L90",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_called",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_testworld",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_testworld"
     },
     {
       "relation": "references",
@@ -94082,7 +94373,18 @@
       "source_location": "L35",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_power",
+      "target": "tests_core_tests_diplomacy_politicstests_cs_testworld"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L320",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "diplomacy_politicstests_politicstests_twoalliesattacked",
       "target": "tests_core_tests_diplomacy_politicstests_cs_testworld",
       "confidence_score": 1.0
     },
@@ -94093,9 +94395,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_afeud_takesfromtheweaker_anditsallieswatch",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "calls",
@@ -94104,9 +94406,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L163",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_afullgrip_absorbsthevassal_intoitssuzerain",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "calls",
@@ -94115,9 +94417,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_anallyoftheclan_attacked_callsittoarms",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "calls",
@@ -94126,9 +94428,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_answeringthecall_costsstones_andtheattackersfavour",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "calls",
@@ -94137,9 +94439,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L182",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_apowerboundtotheclan_isnotsubjugated",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "calls",
@@ -94148,9 +94450,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L204",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_apowerboundtotheclan_staysoutofthecoalition",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "calls",
@@ -94159,9 +94461,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L149",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_avassalpower_paysitssuzerain_untilitisabsorbed",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "calls",
@@ -94170,9 +94472,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_called",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "calls",
@@ -94181,9 +94483,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L196",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_enoughsuspicion_raisesacoalition_againsttheclan",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "references",
@@ -94192,9 +94494,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_power",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_factiondata"
     },
     {
       "relation": "calls",
@@ -94203,9 +94505,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L280",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_theclanstreaties_withanabsorbedpower_endatonce",
-      "target": "diplomacy_politicstests_politicstests_power",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_power"
     },
     {
       "relation": "calls",
@@ -94214,7 +94516,18 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_thecoalition_strikeseachyear_thendisbands",
+      "target": "diplomacy_politicstests_politicstests_power"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L325",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests_twoalliesattacked",
       "target": "diplomacy_politicstests_politicstests_power",
       "confidence_score": 1.0
     },
@@ -94225,9 +94538,9 @@
       "source_location": "L39",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_affinity_drawsneighboursofonedaotogether_anddistrustpartsthem",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94236,9 +94549,9 @@
       "source_location": "L288",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_acall_whoseallyisabsorbed_lapses",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94247,9 +94560,9 @@
       "source_location": "L125",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_acallleftunanswered_isarefusal",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94258,9 +94571,9 @@
       "source_location": "L230",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_aclanwhosesuzerainsgripfillsoncetoooften_isabsorbed_andthegamelost",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94269,9 +94582,9 @@
       "source_location": "L308",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_aconfrontation_byanabsorbedpower_ends",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94280,9 +94593,9 @@
       "source_location": "L60",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_afeud_takesfromtheweaker_anditsallieswatch",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94291,9 +94604,9 @@
       "source_location": "L159",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_afullgrip_absorbsthevassal_intoitssuzerain",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94302,9 +94615,9 @@
       "source_location": "L298",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_anabsorbedpowersbeasts_belongtoitssuzerain",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94313,9 +94626,9 @@
       "source_location": "L266",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_anabsorbedpowersvassals_passtoitssuzerain",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94324,9 +94637,9 @@
       "source_location": "L76",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_anallyoftheclan_attacked_callsittoarms",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94335,9 +94648,9 @@
       "source_location": "L99",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_answeringthecall_costsstones_andtheattackersfavour",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94346,9 +94659,9 @@
       "source_location": "L177",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_apowerboundtotheclan_isnotsubjugated",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94357,7 +94670,18 @@
       "source_location": "L200",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_apowerboundtotheclan_staysoutofthecoalition",
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L352",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "diplomacy_politicstests_politicstests_asuzerain_inheritswhatitsabsorbedvassalheld",
       "target": "tests_core_tests_diplomacy_politicstests_cs_test",
       "confidence_score": 1.0
     },
@@ -94368,9 +94692,9 @@
       "source_location": "L145",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_avassalpower_paysitssuzerain_untilitisabsorbed",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94379,7 +94703,18 @@
       "source_location": "L187",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_enoughsuspicion_raisesacoalition_againsttheclan",
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L342",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "diplomacy_politicstests_politicstests_everycallleftunanswered_isarefusal",
       "target": "tests_core_tests_diplomacy_politicstests_cs_test",
       "confidence_score": 1.0
     },
@@ -94390,9 +94725,9 @@
       "source_location": "L116",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_refusingthecall_breaksthetreaty",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94401,9 +94736,9 @@
       "source_location": "L245",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_roundtrip_keepsthebonds_thecoalition_andthecall",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94412,9 +94747,9 @@
       "source_location": "L134",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_thecall_cannotbeanswered_withoutthestones",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94423,9 +94758,9 @@
       "source_location": "L275",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_theclanstreaties_withanabsorbedpower_endatonce",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94434,9 +94769,9 @@
       "source_location": "L213",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_thecoalition_strikeseachyear_thendisbands",
-      "target": "tests_core_tests_diplomacy_politicstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
     },
     {
       "relation": "references",
@@ -94445,7 +94780,18 @@
       "source_location": "L50",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_theyear_bindsafewpowers_notall",
+      "target": "tests_core_tests_diplomacy_politicstests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L333",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "diplomacy_politicstests_politicstests_twoalliesattacked_bothcall_oneaftertheother",
       "target": "tests_core_tests_diplomacy_politicstests_cs_test",
       "confidence_score": 1.0
     },
@@ -94456,9 +94802,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_acallleftunanswered_isarefusal",
-      "target": "diplomacy_politicstests_politicstests_called",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_called"
     },
     {
       "relation": "calls",
@@ -94467,9 +94813,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_answeringthecall_costsstones_andtheattackersfavour",
-      "target": "diplomacy_politicstests_politicstests_called",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_called"
     },
     {
       "relation": "calls",
@@ -94478,9 +94824,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_refusingthecall_breaksthetreaty",
-      "target": "diplomacy_politicstests_politicstests_called",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_called"
     },
     {
       "relation": "calls",
@@ -94489,9 +94835,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_thecall_cannotbeanswered_withoutthestones",
-      "target": "diplomacy_politicstests_politicstests_called",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_called"
     },
     {
       "relation": "calls",
@@ -94500,9 +94846,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L292",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_acall_whoseallyisabsorbed_lapses",
-      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak"
     },
     {
       "relation": "calls",
@@ -94511,9 +94857,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L312",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_aconfrontation_byanabsorbedpower_ends",
-      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak"
     },
     {
       "relation": "calls",
@@ -94522,9 +94868,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L303",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_anabsorbedpowersbeasts_belongtoitssuzerain",
-      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak",
-      "confidence_score": 1.0
+      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak"
     },
     {
       "relation": "calls",
@@ -94533,7 +94879,18 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L270",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_anabsorbedpowersvassals_passtoitssuzerain",
+      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L362",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests_asuzerain_inheritswhatitsabsorbedvassalheld",
       "target": "diplomacy_politicstests_politicstests_absorbfangintopeak",
       "confidence_score": 1.0
     },
@@ -94544,8 +94901,30 @@
       "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
       "source_location": "L279",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_politicstests_politicstests_theclanstreaties_withanabsorbedpower_endatonce",
-      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak",
+      "target": "diplomacy_politicstests_politicstests_absorbfangintopeak"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L345",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests_everycallleftunanswered_isarefusal",
+      "target": "diplomacy_politicstests_politicstests_twoalliesattacked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/PoliticsTests.cs",
+      "source_location": "L336",
+      "weight": 1.0,
+      "source": "diplomacy_politicstests_politicstests_twoalliesattacked_bothcall_oneaftertheother",
+      "target": "diplomacy_politicstests_politicstests_twoalliesattacked",
       "confidence_score": 1.0
     },
     {
@@ -103215,9 +103594,9 @@
       "source_file": "tests/Core.Tests/Presentation/DiplomacyViewTests.cs",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests",
-      "target": "presentation_diplomacyviewtests_diplomacyviewtests_avassalclan_seeshowcloseitistobeingabsorbed",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyviewtests_diplomacyviewtests_avassalclan_seeshowcloseitistobeingabsorbed"
     },
     {
       "relation": "method",
@@ -103255,9 +103634,9 @@
       "source_file": "tests/Core.Tests/Presentation/DiplomacyViewTests.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests",
-      "target": "presentation_diplomacyviewtests_diplomacyviewtests_powers_showtheirpublicallies_andtheirsuzerain_notthesecretones",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyviewtests_diplomacyviewtests_powers_showtheirpublicallies_andtheirsuzerain_notthesecretones"
     },
     {
       "relation": "method",
@@ -103285,9 +103664,9 @@
       "source_file": "tests/Core.Tests/Presentation/DiplomacyViewTests.cs",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests",
-      "target": "presentation_diplomacyviewtests_diplomacyviewtests_thecoalition_andthecall_areshown",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyviewtests_diplomacyviewtests_thecoalition_andthecall_areshown"
     },
     {
       "relation": "references",
@@ -103307,9 +103686,9 @@
       "source_file": "tests/Core.Tests/Presentation/DiplomacyViewTests.cs",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests_avassalclan_seeshowcloseitistobeingabsorbed",
-      "target": "presentation_diplomacyviewtests_diplomacyviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyviewtests_diplomacyviewtests_newgame"
     },
     {
       "relation": "references",
@@ -103340,9 +103719,9 @@
       "source_file": "tests/Core.Tests/Presentation/DiplomacyViewTests.cs",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests_powers_showtheirpublicallies_andtheirsuzerain_notthesecretones",
-      "target": "presentation_diplomacyviewtests_diplomacyviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyviewtests_diplomacyviewtests_newgame"
     },
     {
       "relation": "calls",
@@ -103373,9 +103752,9 @@
       "source_file": "tests/Core.Tests/Presentation/DiplomacyViewTests.cs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests_thecoalition_andthecall_areshown",
-      "target": "presentation_diplomacyviewtests_diplomacyviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyviewtests_diplomacyviewtests_newgame"
     },
     {
       "relation": "references",
@@ -103395,9 +103774,9 @@
       "source_location": "L90",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests_avassalclan_seeshowcloseitistobeingabsorbed",
-      "target": "tests_core_tests_presentation_diplomacyviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_diplomacyviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -103417,9 +103796,9 @@
       "source_location": "L59",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests_powers_showtheirpublicallies_andtheirsuzerain_notthesecretones",
-      "target": "tests_core_tests_presentation_diplomacyviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_diplomacyviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -103450,9 +103829,9 @@
       "source_location": "L76",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests_thecoalition_andthecall_areshown",
-      "target": "tests_core_tests_presentation_diplomacyviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_diplomacyviewtests_cs_test"
     },
     {
       "relation": "contains",
@@ -114106,5 +114485,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "668254fb31279c88fd06a627cc696318e0ce9dd1"
+  "built_at_commit": "e1bb9922eac6a596a2608c92f4cb85fc039d76ff"
 }
