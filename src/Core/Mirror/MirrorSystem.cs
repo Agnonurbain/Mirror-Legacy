@@ -73,10 +73,10 @@ namespace MirrorChronicles.Mirror
             return true;
         }
 
-        /// <summary>Cost 25: +30% on the next breakthrough attempt.</summary>
+        /// <summary>Cost 25: +30% on the next breakthrough attempt; once until that attempt.</summary>
         public bool UseAncestralShield()
         {
-            if (!ConsumePower(AncestralShieldCost)) return false;
+            if (breakthroughs.AncestralShieldActive || !ConsumePower(AncestralShieldCost)) return false;
             breakthroughs.AncestralShieldActive = true;
             ctx.Log.Info("[Mirror] The Ancestral Shield watches over the next breakthrough.");
             return true;

@@ -35,7 +35,8 @@ namespace MirrorChronicles.Game
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
             // MIR_TAB=<0-3> opens a tab (screenshots of a smoke run)
-            if (int.TryParse(OS.GetEnvironment("MIR_TAB"), out int tab)) GetNode<TabContainer>("%Tabs").CurrentTab = tab;
+            var tabs = GetNode<TabContainer>("%Tabs");
+            if (int.TryParse(OS.GetEnvironment("MIR_TAB"), out int tab) && tab >= 0 && tab < tabs.GetTabCount()) tabs.CurrentTab = tab;
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
         }
@@ -44,16 +45,17 @@ namespace MirrorChronicles.Game
         {
             var header = MirrorView.Header(root.Session);
             power.Text = $"Puissance {header.Power}/{header.MaxPower} · Graines de Sceau {header.Seeds}/{header.SeedCapacity}";
-            ShowInterventions();
+            var all = MirrorView.Interventions(root.Session);
+            ShowInterventions(all);
             ShowSeeds();
-            ShowJudgment();
+            ShowJudgment(all.Single(i => i.Id == MirrorView.Judgment).Refusal);
             ShowDeduction();
         }
 
-        private void ShowInterventions()
+        private void ShowInterventions(IEnumerable<InterventionLine> all)
         {
             Clear(interventions);
-            foreach (var line in MirrorView.Interventions(root.Session))
+            foreach (var line in all)
             {
                 string text = $"{line.Name} — {line.Cost} de puissance — {line.Effect}{(line.Refusal == null ? "" : $" ({line.Refusal})")}";
                 if (line.Id != MirrorView.Shield)
@@ -96,10 +98,9 @@ namespace MirrorChronicles.Game
             }
         }
 
-        private void ShowJudgment()
+        private void ShowJudgment(string refusal)
         {
             Clear(judgment);
-            var refusal = MirrorView.Interventions(root.Session).Single(i => i.Id == MirrorView.Judgment).Refusal;
             if (refusal != null) Add(judgment, $"Le jugement est hors de portée : {refusal}.");
             foreach (var target in MirrorView.JudgmentTargets(root.Session))
             {

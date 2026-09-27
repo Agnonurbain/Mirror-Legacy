@@ -76,7 +76,7 @@ namespace MirrorChronicles.Presentation
         public static IReadOnlyList<JudgmentTarget> JudgmentTargets(GameSession session) =>
             session.Clan.LivingMembers
                 .OrderBy(m => m.FullName, StringComparer.Ordinal)
-                .Select(m => new JudgmentTarget(m.ID, m.FullName, RankCatalog.RealmName(m.Realm),
+                .Select(m => new JudgmentTarget(m.ID, m.FullName, RankCatalog.DisplayName(m), // an unexamined orifice stays unexamined
                     m.FromFaction == null ? null : $"venu de {m.FromFaction}"))
                 .ToList();
 
