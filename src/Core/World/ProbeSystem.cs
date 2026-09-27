@@ -87,6 +87,9 @@ namespace MirrorChronicles.World
             return SuccessProbability(Factors(Clan, TeamStrength(team), plan.Target, plan.Approach, Partners(plan), plan.Stones, allies), plan.Target);
         }
 
+        /// <summary>Why the clan cannot send this probe now; null when it can.</summary>
+        public string RefusalOf(ProbePlan plan) => Refusal(plan, out _);
+
         /// <summary>The partners, each once.</summary>
         private static List<string> Partners(ProbePlan plan) => (plan.Partners ?? new List<string>()).Distinct().ToList();
 

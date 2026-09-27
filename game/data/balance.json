@@ -143,6 +143,18 @@
     "executeRelation": -40,
     "executeWitnessRelation": -5
   },
+  "dealings": {
+    "blackmailPriceByRank": [ 100, 250, 600, 1500 ],
+    "resentmentByRank": [ 5, 10, 20, 35 ],
+    "fearMargin": 0,
+    "exposeDistrustByRank": [ 5, 10, 20, 35 ],
+    "exposeRelation": -40,
+    "sellPriceByRank": [ 80, 200, 500, 1200 ],
+    "sellLeakChance": 0.25,
+    "soldResentment": 20,
+    "aiExposeChance": 0.2,
+    "aiExposeRelation": -30
+  },
   "clanWatch": {
     "struck": 25,
     "memberTaken": 25,

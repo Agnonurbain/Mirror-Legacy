@@ -60,6 +60,7 @@ namespace MirrorChronicles.Session
         public IntrigueSystem Intrigues { get; }
         public SecretBook SecretBook { get; }
         public ClanWatch Watch { get; }
+        public SecretDealings Dealings { get; }
         public ProbeSystem Probes { get; }
         public CaptiveSystem Captives { get; }
         public SchemeSystem Schemes { get; }
@@ -121,6 +122,7 @@ namespace MirrorChronicles.Session
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
+            Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources);
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics);
@@ -220,6 +222,7 @@ namespace MirrorChronicles.Session
             if (data.SecretsHeld == null) session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(data.Seed), session.Factions.Factions); // before 2.14
             session.Probes.RestoreAlertness(data.Alertness);
             session.Suspicion.RestoreClanDistrust(data.ClanDistrust); // none in saves before 2.15
+            session.Dealings.RestoreSpent(data.SpentSecrets);
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -280,6 +283,7 @@ namespace MirrorChronicles.Session
                 SecretProgress = new Dictionary<string, int>(SecretBook.AllProgress),
                 Alertness = new Dictionary<string, int>(Probes.AllAlertness),
                 ClanDistrust = new Dictionary<string, int>(Suspicion.AllClanDistrust),
+                SpentSecrets = Dealings.Spent.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -336,6 +340,7 @@ namespace MirrorChronicles.Session
                     Intrigues.ProcessYear();          // blackmail, theft, spies (2026-09-27)
                     Probes.ProcessYear();             // the powers probe each other and the clan (2026-09-27)
                     Watch.ProcessYear();              // the clan's memory of offences fades a little
+                    Dealings.ProcessYear();           // a power with a pierced secret of the clan may expose it
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)

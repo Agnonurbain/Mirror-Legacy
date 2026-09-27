@@ -81,6 +81,7 @@ namespace MirrorChronicles.Data
         public Dictionary<string, int> SecretProgress { get; set; }  // 2.14, hidden: « watcher→secret » clues
         public Dictionary<string, int> Alertness { get; set; }       // 2.14, hidden: each target's vigilance
         public Dictionary<string, int> ClanDistrust { get; set; }    // 2.15: the clan's own distrust of each power
+        public List<string> SpentSecrets { get; set; }               // 2.15: a blackmail paid, a secret exposed
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

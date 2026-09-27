@@ -239,6 +239,11 @@ namespace MirrorChronicles.Data
                 && IsProbability(treaty.VassalTributeShare) && IsProbability(treaty.GripStonesShare) && treaty.GripThreshold > 0
                 && treaty.TradeDiscount > 0 && treaty.SealedHeartDemonYears >= 0,
                 BalanceFile, "treaties needs a relation and a base for every kind, and odds and shares between 0 and 1.");
+            var deal = balance.Dealings;
+            Require(deal != null && deal.BlackmailPriceByRank.Count == 4 && deal.ResentmentByRank.Count == 4 && deal.ExposeDistrustByRank.Count == 4
+                && deal.SellPriceByRank.Count == 4 && deal.BlackmailPriceByRank.All(p => p >= 0) && deal.SellPriceByRank.All(p => p >= 0)
+                && IsProbability(deal.SellLeakChance) && IsProbability(deal.AiExposeChance),
+                BalanceFile, "dealings needs four prices, resentments and distrusts (one per rank), and odds between 0 and 1.");
             var watch = balance.ClanWatch;
             Require(watch != null && watch.FadePerYear >= 0 && watch.WaryFrom > 0 && watch.DistrustFrom >= watch.WaryFrom
                 && watch.DeepDistrustFrom >= watch.DistrustFrom && watch.DeepDistrustFrom <= 100,

@@ -87,6 +87,18 @@ namespace MirrorChronicles.World
             ctx.Log.Warning($"[Secrets] {watcher} learns a secret of the clan: {secret.KindId}.");
         }
 
+        /// <summary>The watcher comes to know the secret outright (bought, exposed).</summary>
+        public void Grant(string watcher, string secretId)
+        {
+            var secret = secrets.FirstOrDefault(s => s.Id == secretId);
+            if (secret == null || watcher == secret.Holder || Knows(watcher, secretId)) return;
+            progress[Key(watcher, secretId)] = Threshold(secret.Rank);
+            Learned(watcher, secret);
+        }
+
+        /// <summary>The secrets of others a watcher knows.</summary>
+        public IReadOnlyList<Secret> KnownBy(string watcher) => secrets.Where(s => s.Holder != watcher && Knows(watcher, s.Id)).ToList();
+
         public int Threshold(int rank) =>
             Settings.RankThreshold.Count == 0 ? 1 : Settings.RankThreshold[Math.Clamp(rank, 1, Settings.RankThreshold.Count) - 1];
 

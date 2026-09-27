@@ -53,6 +53,26 @@ namespace MirrorChronicles.Data
     }
 
     /// <summary>
+    /// What a pierced secret is worth (balance.json « dealings »; 2026-09-27; interpretations): the blackmail's price and the
+    /// resentment it leaves by rank, how much stronger than the clan a power may be and still fear it, the distrust an
+    /// exposure spreads by rank and the holder's hatred, the sale's price by rank and the chance the holder learns who
+    /// sold it, and how often a power that pierced a secret of the clan exposes it.
+    /// </summary>
+    public sealed record DealingSettings
+    {
+        public List<int> BlackmailPriceByRank { get; init; } = new List<int>();
+        public List<int> ResentmentByRank { get; init; } = new List<int>();
+        public int FearMargin { get; init; }
+        public List<int> ExposeDistrustByRank { get; init; } = new List<int>();
+        public int ExposeRelation { get; init; }
+        public List<int> SellPriceByRank { get; init; } = new List<int>();
+        public double SellLeakChance { get; init; }
+        public int SoldResentment { get; init; }
+        public double AiExposeChance { get; init; }
+        public int AiExposeRelation { get; init; }
+    }
+
+    /// <summary>
     /// Secrets and probes (balance.json « secrets »; user decision 2026-09-27; interpretations of D7): the clues each rank
     /// takes, the proof a pierced secret of the clan gives, each approach's odds, depth, gain, risk of being seen and of
     /// disaster, how strength, vigilance, insiders, neighbours, distrust, bribes and temper weigh, how partners and the
