@@ -175,6 +175,8 @@ namespace MirrorChronicles.Tests.Diplomacy
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.AreEqual(s.Wars.ClanWars.Single(), reloaded.Wars.ClanWars.Single());
             CollectionAssert.AreEqual(s.Wars.Wars.Single().SideA, reloaded.Wars.Wars.Single().SideA);
+            CollectionAssert.AreEqual(s.Wars.Wars.Single().SideB, reloaded.Wars.Wars.Single().SideB);
+            Assert.AreEqual(s.Wars.Wars.Single().InitialB, reloaded.Wars.Wars.Single().InitialB);
         }
 
         [Test]
@@ -191,6 +193,81 @@ namespace MirrorChronicles.Tests.Diplomacy
             Assert.AreEqual((int)(s.Resources.SpiritStones * Settings.PeaceTributeShare), ours.PeaceCost);
             StringAssert.Contains(Ruan, wars.Single(x => !x.ClansWar).Description);
             Assert.IsFalse(wars.Any(x => x.Description.Contains("@")), "the clan is named, never coded");
+        }
+
+        // ---- Review ----
+
+        [Test]
+        public void TheClan_DoesNotMakeWar_OnATreatyPartner()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Treaties.Propose(Tao, TreatyKind.Trade);
+            StringAssert.Contains("traité", w.Wars.DeclareOn(Tao));
+            Assert.AreEqual(0, w.Wars.ClanWars.Count);
+        }
+
+        [Test]
+        public void EveryWar_EndsWithAPeace_ToldInTheChronicle()
+        {
+            var w = World(new FixedRandom(0.999));
+            var war = w.Wars.Start(Power(w, Ruan), Power(w, Fang));
+            string told = null;
+            w.Ctx.Events.OnPeace += (a, b) => told = a + b;
+            w.Ctx.Clock.Restore(war.StartYear + Settings.MaxWarYears, w.Ctx.Clock.Phase);
+
+            w.Wars.ProcessYear();
+
+            Assert.AreEqual(0, w.Wars.Wars.Count(x => x.Id == war.Id));
+            Assert.IsNotNull(told, "a weary peace is a peace too");
+        }
+
+        [Test]
+        public void AnAbsorbedPower_LeavesItsWar()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Politics.RestoreBonds(new[] { new PowerBond("a", BondKind.Alliance, Fang, Tao, 1, false) });
+            var war = w.Wars.Start(Power(w, Ruan), Power(w, Fang));
+            w.Wars.DeclareOn("Famille Lou");
+
+            w.Ctx.Events.TriggerPowerAbsorbed(Fang, Peak);
+            w.Ctx.Events.TriggerPowerAbsorbed("Famille Lou", Peak);
+
+            CollectionAssert.DoesNotContain(w.Wars.Wars.Single().SideB, Fang);
+            Assert.AreEqual(0, w.Wars.ClanWars.Count);
+        }
+
+        [Test]
+        public void TwoAlliesOfTheClan_AtWar_WithEachOther_CallNeither()
+        {
+            var w = World(new FixedRandom(0.0));
+            foreach (var name in new[] { Tao, Fang })
+            {
+                w.Factions.ChangeRelation(Power(w, name).ID, 40);
+                Assert.IsNull(w.Treaties.Propose(name, TreatyKind.Defence));
+            }
+            var war = w.Wars.Start(Power(w, Tao), Power(w, Fang));
+            w.Wars.Battle(war);
+            Assert.IsNull(w.Politics.PendingCall);
+        }
+
+        [Test]
+        public void APowerThatSuspectsTheClan_MayMakeWarOnIt()
+        {
+            var w = World(new FixedRandom(0.0), CultivationRealm.QiRefinement);
+            w.Factions.Restore(new[] { Power(w, Peak) });
+            w.Suspicion.AddToClan(Peak, Settings.DeclareSuspicion);
+            w.Factions.ChangeRelation(Power(w, Peak).ID, -100);
+            w.Wars.ProcessYear();
+            Assert.AreEqual(Peak, w.Wars.ClanWars.Single().Enemy);
+        }
+
+        [Test]
+        public void TheChronicle_SaysWarIsMadeOnTheClan_InGoodFrench()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var chronicle = new MirrorChronicles.Presentation.Chronicle(s);
+            s.Events.TriggerWarBegun(Peak, MirrorChronicles.World.SecretBook.ClanHolder);
+            StringAssert.Contains("fait la guerre au clan", chronicle.Entries.Last());
         }
     }
 }
