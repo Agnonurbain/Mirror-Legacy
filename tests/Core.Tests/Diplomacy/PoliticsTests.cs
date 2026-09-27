@@ -314,5 +314,58 @@ namespace MirrorChronicles.Tests.Diplomacy
             w.Politics.ProcessYear();
             Assert.IsNull(w.Secrets.Confrontation);
         }
+
+        // ---- Review: calls queued, archives inherited ----
+
+        private static TestWorld TwoAlliesAttacked()
+        {
+            var w = World(new FixedRandom(0.999));
+            foreach (var ally in new[] { Tao, "Famille Lü" })
+            {
+                w.Factions.ChangeRelation(Power(w, ally).ID, 30);
+                Assert.IsNull(w.Treaties.Propose(ally, TreatyKind.Defence));
+            }
+            w.Politics.Feud(Power(w, Ruan), Power(w, Tao));
+            w.Politics.Feud(Power(w, Lou), Power(w, "Famille Lü"));
+            return w;
+        }
+
+        [Test]
+        public void TwoAlliesAttacked_BothCall_OneAfterTheOther()
+        {
+            var w = TwoAlliesAttacked();
+            Assert.AreEqual(Tao, w.Politics.PendingCall.Ally);
+            Assert.IsNull(w.Politics.AnswerCall());
+            Assert.AreEqual("Famille Lü", w.Politics.PendingCall.Ally, "the second call waits its turn");
+        }
+
+        [Test]
+        public void EveryCallLeftUnanswered_IsARefusal()
+        {
+            var w = TwoAlliesAttacked();
+            w.Ctx.Clock.Restore(w.Ctx.Clock.Year + 1, w.Ctx.Clock.Phase);
+            w.Politics.ProcessYear();
+            Assert.IsFalse(w.Treaties.Has(Tao, TreatyKind.Defence) || w.Treaties.Has("Famille Lü", TreatyKind.Defence));
+            Assert.IsNull(w.Politics.PendingCall);
+        }
+
+        [Test]
+        public void ASuzerain_InheritsWhatItsAbsorbedVassalHeld()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Suspicion.AddToClan(Fang, 40);
+            w.Suspicion.AddToClan(Peak, 10);
+            w.Suspicion.AddEvidence(Fang, 30);
+            w.Suspicion.AddMirrorClues(Fang, 25);
+            w.Suspicion.AddDistrust(Fang, Ruan, 20);
+            w.Suspicion.AddDistrust(Tao, Fang, 15);
+            AbsorbFangIntoPeak(w);
+
+            w.Politics.ProcessYear();
+
+            Assert.AreEqual((40, 30, 25), (w.Suspicion.OfClan(Peak), w.Suspicion.Evidence(Peak), w.Suspicion.MirrorClues(Peak)), "it seized the archives");
+            Assert.AreEqual(20, w.Suspicion.Distrust(Peak, Ruan));
+            Assert.IsFalse(w.Suspicion.ClanSuspicions.ContainsKey(Fang) || w.Suspicion.Distrusts.Keys.Any(k => k.Contains(Fang)), "nothing left of the vanished");
+        }
     }
 }
