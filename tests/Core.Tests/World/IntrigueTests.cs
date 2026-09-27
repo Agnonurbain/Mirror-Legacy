@@ -242,5 +242,71 @@ namespace MirrorChronicles.Tests.World
             Assert.AreEqual(new Demand(Chrysanthemum, 150, 1), reloaded.Intrigues.Demands.Single());
             Assert.AreEqual(9, reloaded.Intrigues.QuietUntil[Ruan]);
         }
+
+        // ---- Review ----
+
+        [Test]
+        public void AnAbsorbedBlackmailer_LeavesNoDemand()
+        {
+            var w = Blackmailed();
+            w.Ctx.Events.TriggerPowerAbsorbed(Chrysanthemum, Ruan);
+            Assert.AreEqual(0, w.Intrigues.Demands.Count);
+        }
+
+        [Test]
+        public void APowerThatStruckThisYear_DoesNotAlsoBlackmail()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Factions.Restore(new[] { Power(w, Chrysanthemum) });
+            w.Suspicion.AddEvidence(Chrysanthemum, Fixtures.Content.Balance.Plots.ProofThreshold);
+            w.Suspicion.AddToClan(Chrysanthemum, Fixtures.Content.Balance.Plots.ActThreshold);
+
+            w.Plots.ProcessYear(); // it strikes, proof in hand
+            w.Intrigues.ProcessYear();
+
+            Assert.AreEqual(0, w.Intrigues.Demands.Count, "one blow a year");
+        }
+
+        [Test]
+        public void APowerConfrontingTheClan_DoesNotBlackmail()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Factions.Restore(new[] { Power(w, Chrysanthemum) });
+            w.Suspicion.AddEvidence(Chrysanthemum, Settings.BlackmailEvidence);
+            w.Secrets.RestoreConfrontation(new Confrontation(Chrysanthemum, 1));
+            w.Intrigues.ProcessYear();
+            Assert.AreEqual(0, w.Intrigues.Demands.Count);
+        }
+
+        [Test]
+        public void AnUnmaskedSpy_NeverLeadsTheClan()
+        {
+            var w = World(new FixedRandom(0.999));
+            var spy = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation));
+            spy.SpyFor = Chrysanthemum;
+            w.Clan.AppointPatriarch(spy);
+            w.Mirror.AddPower(100);
+
+            w.Intrigues.Unmask(spy.ID);
+
+            Assert.AreNotEqual(spy.ID, w.Clan.PatriarchID, "unmasked, the spy is set aside");
+        }
+
+        [Test]
+        public void AFullLedger_GainsLess_FromARefusal()
+        {
+            var w = Blackmailed();
+            w.Suspicion.AddEvidence(Ruan, 60);
+            w.Intrigues.Refuse(Chrysanthemum);
+            Assert.Less(w.Suspicion.Evidence(Ruan) - 60, Settings.RefusedSpreadEvidence, "diminishing: it knew most of it");
+            Assert.AreEqual(Settings.RefusedSpreadEvidence, w.Suspicion.Evidence(Fang));
+        }
+
+        [Test]
+        public void SoundingNobody_SaysSo()
+        {
+            var w = World(new FixedRandom(0.999));
+            StringAssert.Contains("introuvable", w.Intrigues.Unmask("no-such-member"));
+        }
     }
 }
