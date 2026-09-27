@@ -52,22 +52,44 @@ namespace MirrorChronicles.Game
         {
             Clear(powers);
             var session = root.Session;
+            ShowCoalitionAndCall(session);
             foreach (var line in DiplomacyView.Powers(session))
             {
                 var row = new HBoxContainer();
                 var pick = new Button { Text = line.Name, Flat = line.Name != power, CustomMinimumSize = new Vector2(260, 0) };
                 pick.Pressed += () => { power = line.Name; Refresh(); };
                 row.AddChild(pick);
-                row.AddChild(new Label { Text = $"{line.Kind} · {line.HighestRealm} · relation {line.Relation:+#;-#;0}" });
+                string bonds = (line.Allies?.Count > 0 ? $" · alliée de {string.Join(", ", line.Allies)}" : "")
+                    + (line.Suzerain != null ? $" · vassale de {line.Suzerain}" : "");
+                row.AddChild(new Label { Text = $"{line.Kind} · {line.HighestRealm} · relation {line.Relation:+#;-#;0}{bonds}" });
                 powers.AddChild(row);
                 foreach (var treaty in line.Treaties) ShowTreaty(treaty);
             }
         }
 
+        /// <summary>A coalition against the clan, and an ally's call to arms awaiting its answer.</summary>
+        private void ShowCoalitionAndCall(Session.GameSession session)
+        {
+            if (DiplomacyView.Coalition(session) is { } coalition)
+                Add(powers, $"⚠ Coalition contre le clan : {string.Join(", ", coalition.Members)} — encore {coalition.YearsLeft} an(s).");
+            if (DiplomacyView.Call(session) is not { } call) return;
+            Add(powers, $"⚔ {call.Ally}, attaquée par {call.Attacker}, appelle le clan aux armes (sans réponse cette année : un refus).");
+            var row = new HBoxContainer();
+            var answer = new Button { Text = $"Répondre ({call.Cost} pierres)" };
+            answer.Pressed += () => Report(session.Politics.AnswerCall(), $"Le clan se tient aux côtés de {call.Ally}.");
+            var refuse = new Button { Text = "Refuser (le traité est rompu)" };
+            refuse.Pressed += () => Report(session.Politics.RefuseCall(), $"Le clan laisse {call.Ally} seule.");
+            row.AddChild(answer);
+            row.AddChild(refuse);
+            powers.AddChild(row);
+        }
+
         private void ShowTreaty(TreatyLine treaty)
         {
             var row = new HBoxContainer();
-            string side = treaty.Kind == DiplomacyView.KindLabel(TreatyKind.Vassalage) ? (treaty.ClanIsSuzerain ? " (le clan suzerain)" : $" (le clan vassal, emprise {treaty.Grip})") : "";
+            string side = treaty.Kind == DiplomacyView.KindLabel(TreatyKind.Vassalage)
+                ? (treaty.ClanIsSuzerain ? " (le clan suzerain)" : $" (le clan vassal, emprise {treaty.Grip}, absorption {treaty.Absorptions}/{treaty.AbsorptionSteps})")
+                : "";
             string term = treaty.YearsLeft.HasValue ? $", encore {treaty.YearsLeft} an(s)" : "";
             row.AddChild(new Label
             {
