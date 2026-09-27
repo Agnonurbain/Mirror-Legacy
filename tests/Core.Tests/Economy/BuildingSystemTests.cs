@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using NUnit.Framework;
 using MirrorChronicles.Data;
+using MirrorChronicles.Economy;
 
 namespace MirrorChronicles.Tests.Economy
 {
@@ -81,6 +82,30 @@ namespace MirrorChronicles.Tests.Economy
             var member = w.Join(Fixtures.Cultivator());
             w.Buildings.ApplyPassiveBonuses();
             Assert.AreEqual(72, member.MentalStability);
+        }
+
+        // ---- Why not (G6) ----
+
+        [Test]
+        public void UpgradeRefusal_SaysWhyNot()
+        {
+            var w = new TestWorld();
+            Assert.IsNull(w.Buildings.UpgradeRefusal(BuildingType.Mine));
+            StringAssert.Contains("Manoir Pourpre", w.Buildings.UpgradeRefusal(BuildingType.MeditationPagoda));
+            w.Resources.SetSpiritStones(100);
+            StringAssert.Contains("pierres", w.Buildings.UpgradeRefusal(BuildingType.Mine));
+            StringAssert.Contains("maximal", WithLevel(BuildingType.Mine, BuildingSystem.MaxLevel).Buildings.UpgradeRefusal(BuildingType.Mine));
+        }
+
+        [Test]
+        public void ACaptiveCultivator_CannotRaiseABuildingAtHome()
+        {
+            var w = new TestWorld();
+            var master = w.Join(Fixtures.Cultivator(realm: CultivationRealm.PurpleMansion));
+            master.CaptorFaction = "Famille Ruan";
+            Assert.IsFalse(w.Buildings.Upgrade(BuildingType.MeditationPagoda));
+            master.CaptorFaction = null;
+            Assert.IsTrue(w.Buildings.Upgrade(BuildingType.MeditationPagoda));
         }
     }
 }

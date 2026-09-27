@@ -85,6 +85,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Miroir"
 
+[node name="OpenBuildings" type="Button" parent="Margin/Layout/Nav"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Bâtiments"
+
 [node name="OpenLibrary" type="Button" parent="Margin/Layout/Nav"]
 unique_name_in_owner = true
 layout_mode = 2

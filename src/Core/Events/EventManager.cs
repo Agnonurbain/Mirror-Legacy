@@ -53,7 +53,7 @@ namespace MirrorChronicles.Events
         {
             return eventTable.Where(e => e.Weight > 0
                 && ctx.Clock.Year >= e.MinYear
-                && (e.MinPatriarchRealm == CultivationRealm.Embryonic || clan.LivingMembers.Any(m => m.Realm >= e.MinPatriarchRealm)))
+                && (e.MinPatriarchRealm == CultivationRealm.Embryonic || clan.LivingMembers.Any(m => m.CaptorFaction == null && m.Realm >= e.MinPatriarchRealm))) // a captive is not at home
                 .ToList();
         }
 

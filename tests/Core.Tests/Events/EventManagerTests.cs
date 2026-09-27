@@ -45,6 +45,14 @@ namespace MirrorChronicles.Tests.Events
             Assert.IsEmpty(events.GetEligibleEvents());
         }
 
+        [Test]
+        public void GetEligibleEvents_IgnoresACaptiveMaster()
+        {
+            var (w, events) = With(new Random(1), Entry(RandomEventType.RivalChallenge, minRealm: CultivationRealm.Foundation));
+            w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation)).CaptorFaction = "Famille Ruan";
+            Assert.IsEmpty(events.GetEligibleEvents(), "a captive is not at home to draw the event");
+        }
+
         [TestCase(0.0, RandomEventType.PeacefulYear)]
         [TestCase(0.5, RandomEventType.WanderingMerchant)]
         public void TriggerYearlyEvent_DrawsByWeight(double sample, RandomEventType expected)
