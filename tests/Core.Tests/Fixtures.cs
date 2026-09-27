@@ -56,6 +56,7 @@ namespace MirrorChronicles.Tests
         public BeastRegistry Bestiary { get; }
         public SuspicionLedger Suspicion { get; }
         public TreatySystem Treaties { get; }
+        public PowerPoliticsSystem Politics { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public CaptiveSystem Captives { get; }
@@ -108,7 +109,8 @@ namespace MirrorChronicles.Tests
             Secrets = new SecretSystem(Ctx, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
             Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
             Captives = new CaptiveSystem(Ctx, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
-            Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties);
+            Politics = new PowerPoliticsSystem(Ctx, Resources, Factions, Suspicion, Treaties);
+            Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
         }
 
