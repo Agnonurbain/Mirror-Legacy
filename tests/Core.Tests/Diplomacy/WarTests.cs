@@ -99,14 +99,16 @@ namespace MirrorChronicles.Tests.Diplomacy
         public void AHegemon_SeesItsWaryNeighboursBandAgainstIt()
         {
             var w = World(new FixedRandom(0.0));
-            var peak = Power(w, Peak);
-            peak.PowerLevel = 100000;
-            foreach (var other in w.Factions.Factions.Where(f => f != peak && w.Factions.AreNeighbours(f, peak)))
-                w.Suspicion.AddDistrust(other.Name, Peak, Settings.WarDistrust);
+            const string iron = "Porte du Fer Ardent"; // four neighbouring powers
+            var hegemon = Power(w, iron);
+            hegemon.PowerLevel = 100000;
+            foreach (var other in w.Factions.Factions.Where(f => f != hegemon && w.Factions.AreNeighbours(f, hegemon)))
+                w.Suspicion.AddDistrust(other.Name, iron, Settings.WarDistrust);
 
             w.Wars.ProcessYear();
 
-            Assert.IsTrue(w.Wars.Wars.Any(x => x.SideB.Contains(Peak) || x.SideA.Contains(Peak)));
+            var war = w.Wars.Wars.Single(x => x.SideB.Contains(iron));
+            Assert.Greater(war.SideA.Count, 1, "its wary neighbours band together");
         }
 
         // ---- The clan's own war ----

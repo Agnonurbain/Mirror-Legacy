@@ -133,14 +133,18 @@ namespace MirrorChronicles.Diplomacy
             foreach (var ally in AlliesOf(defender.Name).Where(a => a != attacker.Name))
                 suspicion.AddDistrust(ally, attacker.Name, s.AllyDistrust);
             ctx.Log.Info($"[Politics] {attacker.Name} strikes {defender.Name}.");
-            if (treaties.Has(defender.Name, TreatyKind.Defence) && calls.All(c => c.Ally != defender.Name))
-            {
-                calls.Add(new CallToArms(defender.Name, attacker.Name, ctx.Clock.Year)); // queued behind any other
-                ctx.Events.TriggerCallToArms(defender.Name, attacker.Name);
-            }
+            if (treaties.Has(defender.Name, TreatyKind.Defence)) CallClanToArms(defender.Name, attacker.Name);
         }
 
         // ---- The call to arms ----
+
+        /// <summary>An ally of the clan, attacked, calls it to arms — once, queued behind any other call.</summary>
+        public void CallClanToArms(string ally, string attacker)
+        {
+            if (calls.Any(c => c.Ally == ally)) return;
+            calls.Add(new CallToArms(ally, attacker, ctx.Clock.Year));
+            ctx.Events.TriggerCallToArms(ally, attacker);
+        }
 
         public string AnswerCall()
         {
