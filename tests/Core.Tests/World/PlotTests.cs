@@ -355,6 +355,20 @@ namespace MirrorChronicles.Tests.World
         }
 
         [Test]
+        public void TwoKnowersAtOnce_TheStrongestConfronts_TheOtherWaitsItsTurn()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
+            w.Suspicion.AddMirrorClues(Kun, SuspicionLedger.Max);
+
+            w.Secrets.ProcessYear();
+
+            Assert.AreEqual(Kun, w.Secrets.Confrontation?.Faction, "the strongest who knows");
+            Assert.AreEqual(SuspicionLedger.Max, w.Suspicion.MirrorClues(Peak), "a knower never merely suspects a treasure");
+            Assert.AreEqual(0, w.Suspicion.OfClan(Peak));
+        }
+
+        [Test]
         public void AKnowerTooWeakToSeize_TellsOnlyAPeer()
         {
             var w = World(new FixedRandom(0.999));
