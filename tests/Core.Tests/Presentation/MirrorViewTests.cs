@@ -109,5 +109,41 @@ namespace MirrorChronicles.Tests.Presentation
             s.Mirror.Restore(DeductionEngine.PowerPerFragment, 0);
             StringAssert.Contains("puissance", MirrorView.DeductionPreview(s, ids).Refusal);
         }
+
+        // ---- Review ----
+
+        [Test]
+        public void TheJudgment_NamesAMortal_AsTheOtherScreensDo()
+        {
+            var s = Session();
+            var unexamined = Mortal(s, examined: false);
+            var mortal = Mortal(s, examined: true);
+            var targets = MirrorView.JudgmentTargets(s);
+            Assert.AreEqual("Orifice non examiné", targets.Single(t => t.Id == unexamined.ID).Realm);
+            Assert.AreEqual(MirrorChronicles.Characters.RankCatalog.DisplayName(mortal), targets.Single(t => t.Id == mortal.ID).Realm);
+        }
+
+        [Test]
+        public void TheShield_IsNotInvokedTwice()
+        {
+            var s = Session();
+            s.Mirror.Restore(MirrorSystem.MaxMirrorPower, 0);
+            Assert.IsTrue(s.Mirror.UseAncestralShield());
+            int power = s.Mirror.MirrorPower;
+            Assert.IsFalse(s.Mirror.UseAncestralShield());
+            Assert.AreEqual(power, s.Mirror.MirrorPower, "no power burnt for nothing");
+        }
+
+        [Test]
+        public void TheSeedIntervention_SaysWhyNot()
+        {
+            var s = Session();
+            s.Mirror.Restore(MirrorSystem.TalismanSeedCost - 1, 0);
+            StringAssert.Contains("puissance", MirrorView.Interventions(s).Single(i => i.Id == MirrorView.Seed).Refusal);
+            s.Mirror.Restore(MirrorSystem.MaxMirrorPower, 0);
+            for (int i = s.Clan.LivingMembers.Count(m => m.HasTalismanSeed); i < s.Mirror.TalismanSeedCapacity; i++)
+                Mortal(s, examined: true).HasTalismanSeed = true;
+            StringAssert.Contains("davantage", MirrorView.Interventions(s).Single(i => i.Id == MirrorView.Seed).Refusal);
+        }
     }
 }
