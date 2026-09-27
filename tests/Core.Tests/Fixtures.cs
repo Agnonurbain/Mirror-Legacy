@@ -55,6 +55,7 @@ namespace MirrorChronicles.Tests
         public TalismanSystem Talismans { get; }
         public BeastRegistry Bestiary { get; }
         public SuspicionLedger Suspicion { get; }
+        public TreatySystem Treaties { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public CaptiveSystem Captives { get; }
@@ -95,18 +96,19 @@ namespace MirrorChronicles.Tests
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions);
             Bestiary = new BeastRegistry(Ctx);
-            Exchange = new KnowledgeExchange(Ctx, Factions, Techniques, Resources, Mirror);
+            Suspicion = new SuspicionLedger();
+            Treaties = new TreatySystem(Ctx, Clan, Resources, Factions, Suspicion);
+            Exchange = new KnowledgeExchange(Ctx, Factions, Techniques, Resources, Mirror, Treaties);
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Ctx, Factions, Resources);
             Espionage = new EspionageSystem(Ctx, Factions, Deduction, Stability, Techniques);
             Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
-            Suspicion = new SuspicionLedger();
             Hunts = new HuntOperations(Ctx, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
             Lore = new MirrorLore(Ctx, Factions, worldSeed: 1);
             Secrets = new SecretSystem(Ctx, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
-            Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion, Secrets);
+            Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
             Captives = new CaptiveSystem(Ctx, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
-            Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets);
+            Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
         }
 

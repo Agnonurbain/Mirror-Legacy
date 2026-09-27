@@ -41,21 +41,6 @@ namespace MirrorChronicles.Tests.Diplomacy
         }
 
         [Test]
-        public void ProposeNonAggression_IsAccepted_FromNeutralRelations()
-        {
-            var (w, f) = WithFaction(FactionPersonality.Isolationist, relation: 0);
-            bool accepted = w.Alliances.ProposeNonAggression(f.ID);
-            Assert.IsTrue(accepted && f.RelationWithPlayer == 10);
-        }
-
-        [Test]
-        public void ProposeNonAggression_IsRejected_WhenRelationsAreHostile()
-        {
-            var (w, f) = WithFaction(FactionPersonality.Aggressive, relation: -5);
-            Assert.IsFalse(w.Alliances.ProposeNonAggression(f.ID));
-        }
-
-        [Test]
         public void DeclareWar_SinksRelationsByAHundred()
         {
             var (w, f) = WithFaction(FactionPersonality.Aggressive, relation: 20);
