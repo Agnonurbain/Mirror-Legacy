@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using MirrorChronicles.Data;
 
 namespace MirrorChronicles.Events
@@ -31,7 +32,11 @@ namespace MirrorChronicles.Events
         public event Action<string> OnMirrorSeized;                          // a power seized the mirror: the game is lost (§11.9)
         public event Action<CharacterData, string> OnMemberCaptured;         // a power holds a member (L6a)
         public event Action<CharacterData> OnMemberFreed;
-        public event Action<string> OnAgentCaught;                           // an agent of a power in the clan's hands
+        public event Action<string> OnAgentCaught;
+        public event Action<string> OnClanAbsorbed;                          // the suzerain's grip complete: the clan is no more (defeat)
+        public event Action<string, string> OnPowerAbsorbed;                 // a vassal power absorbed by its suzerain
+        public event Action<IReadOnlyList<string>> OnCoalitionFormed;        // powers banded against the clan
+        public event Action<string, string> OnCallToArms;                    // an ally of the clan attacked, and by whom                           // an agent of a power in the clan's hands
 
         // Economy
         public event Action<int> OnSpiritStonesChanged;
@@ -52,6 +57,10 @@ namespace MirrorChronicles.Events
         public void TriggerMemberCaptured(CharacterData member, string faction) => OnMemberCaptured?.Invoke(member, faction);
         public void TriggerMemberFreed(CharacterData member) => OnMemberFreed?.Invoke(member);
         public void TriggerAgentCaught(string faction) => OnAgentCaught?.Invoke(faction);
+        public void TriggerClanAbsorbed(string suzerain) => OnClanAbsorbed?.Invoke(suzerain);
+        public void TriggerPowerAbsorbed(string vassal, string suzerain) => OnPowerAbsorbed?.Invoke(vassal, suzerain);
+        public void TriggerCoalitionFormed(IReadOnlyList<string> members) => OnCoalitionFormed?.Invoke(members);
+        public void TriggerCallToArms(string ally, string attacker) => OnCallToArms?.Invoke(ally, attacker);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);

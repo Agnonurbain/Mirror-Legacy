@@ -22,6 +22,7 @@ namespace MirrorChronicles.World
         public BeastRegistry(GameContext ctx)
         {
             this.ctx = ctx;
+            ctx.Events.OnPowerAbsorbed += Reassign;
         }
 
         public IReadOnlyList<WorldBeast> Beasts => beasts;
@@ -53,6 +54,13 @@ namespace MirrorChronicles.World
                     beasts.Add(new WorldBeast($"{kind.Id}-{region.Id}-{i + 1}", kind.Id, region.Id, realm, stage, owner));
                 }
             }
+        }
+
+        /// <summary>An absorbed power's beasts belong to its suzerain: hunting them still has a price.</summary>
+        private void Reassign(string vassal, string suzerain)
+        {
+            for (int i = 0; i < beasts.Count; i++)
+                if (beasts[i].OwnerFaction == vassal) beasts[i] = beasts[i] with { OwnerFaction = suzerain };
         }
 
         /// <summary>Restores the beasts of a save.</summary>

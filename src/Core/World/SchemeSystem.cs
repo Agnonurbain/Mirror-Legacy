@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
@@ -20,10 +21,12 @@ namespace MirrorChronicles.World
         private readonly CaptiveSystem captives;
         private readonly SecretSystem secrets;
         private readonly TreatySystem treaties;
+        private readonly PowerPoliticsSystem politics;
 
         public SchemeSystem(GameContext ctx, ClanManager clan, FactionManager factions, CaptiveSystem captives, SecretSystem secrets,
-            TreatySystem treaties = null)
+            TreatySystem treaties = null, PowerPoliticsSystem politics = null)
         {
+            this.politics = politics;
             this.treaties = treaties;
             this.ctx = ctx;
             this.clan = clan;
@@ -43,7 +46,8 @@ namespace MirrorChronicles.World
                 if (ambushes >= Settings.MaxAmbushesPerYear) return;
                 if (secrets.Confrontation?.Faction == power.Name) continue; // its move is the confrontation's
                 if (treaties?.Spares(power.Name) == true) continue;           // spared by non-aggression, or as the clan's suzerain (betrayal is the treaty's own path)
-                if (ctx.Rng.Chance(SchemeRules.SchemeChance(power, stones, Settings)) && Ambush(power)) ambushes++;
+                double factor = politics?.SchemeFactor(power) ?? 1.0; // a coalition's member schemes more
+                if (ctx.Rng.Chance(Math.Min(1.0, SchemeRules.SchemeChance(power, stones, Settings) * factor)) && Ambush(power)) ambushes++;
             }
         }
 

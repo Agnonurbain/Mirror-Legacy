@@ -33,6 +33,7 @@ namespace MirrorChronicles.Diplomacy
             TechniqueLibrary techniques)
         {
             this.techniques = techniques;
+            ctx.Events.OnPowerAbsorbed += (vassal, suzerain) => Dissolve(vassal, suzerain);
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -121,6 +122,13 @@ namespace MirrorChronicles.Diplomacy
             return null;
         }
 
+        /// <summary>A power absorbed by another: its treaties with the clan end at once, without blame.</summary>
+        private void Dissolve(string vassal, string suzerain)
+        {
+            if (treaties.RemoveAll(t => t.Faction == vassal) > 0)
+                ctx.Log.Warning($"[Treaties] {vassal} is absorbed by {suzerain}: its treaties with the clan end.");
+        }
+
         public void ProcessYear()
         {
             foreach (var treaty in treaties.ToList())
@@ -174,6 +182,7 @@ namespace MirrorChronicles.Diplomacy
             suzerain.Wealth += tribute;
             suspicion.AddMirrorClues(suzerain.Name, s.AllyProximityClues);
             int grip = treaty.Grip + s.GripPerYear;
+            int absorptions = treaty.Absorptions;
             if (grip >= s.GripThreshold)
             {
                 int taken = (int)(resources.SpiritStones * s.GripStonesShare);
@@ -184,8 +193,10 @@ namespace MirrorChronicles.Diplomacy
                 if (art != null) suzerain.Techniques.Add(art.ID);
                 ctx.Log.Warning($"[Treaties] {suzerain.Name} tightens its grip: it takes {taken} stones{(art != null ? $" and « {art.Name} »" : "")}.");
                 grip = 0;
+                absorptions++;
+                if (absorptions >= ctx.Content.Balance.Politics.ClanAbsorptionSteps) ctx.Events.TriggerClanAbsorbed(suzerain.Name); // no longer a clan of its own
             }
-            var updated = treaty with { Grip = grip };
+            var updated = treaty with { Grip = grip, Absorptions = absorptions };
             treaties[IndexOf(treaty)] = updated;
             return updated;
         }

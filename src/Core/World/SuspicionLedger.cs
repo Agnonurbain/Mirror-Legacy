@@ -81,6 +81,34 @@ namespace MirrorChronicles.World
             foreach (var pair in between ?? new Dictionary<string, int>()) distrust[pair.Key] = Math.Clamp(pair.Value, 0, Max);
         }
 
+        /// <summary>
+        /// A power absorbed: its suzerain seizes its archives — the stronger of the two for what each held against the clan,
+        /// and the vassal's distrust of others — and nothing is left under the vanished name.
+        /// </summary>
+        public void Inherit(string from, string to)
+        {
+            if (from == null || to == null || from == to) return;
+            foreach (var ledger in new[] { ofClan, evidence, clues })
+            {
+                if (ledger.TryGetValue(from, out int held)) ledger[to] = Math.Max(held, ledger.TryGetValue(to, out int own) ? own : 0);
+                ledger.Remove(from);
+            }
+            foreach (var key in new List<string>(distrust.Keys))
+            {
+                var (holder, toward) = Split(key);
+                if (holder != from && toward != from) continue;
+                int value = distrust[key];
+                distrust.Remove(key);
+                if (holder == from && toward != to) distrust[Key(to, toward)] = Math.Max(value, Distrust(to, toward));
+            }
+        }
+
         private static string Key(string holder, string toward) => $"{holder}→{toward}";
+
+        private static (string Holder, string Toward) Split(string key)
+        {
+            int arrow = key.IndexOf('→');
+            return arrow < 0 ? (key, null) : (key.Substring(0, arrow), key.Substring(arrow + 1));
+        }
     }
 }
