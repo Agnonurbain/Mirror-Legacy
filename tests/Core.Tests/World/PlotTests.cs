@@ -23,7 +23,7 @@ namespace MirrorChronicles.Tests.World
 
         private static TestWorld World(System.Random rng)
         {
-            var w = new TestWorld(rng);
+            var w = new TestWorld(rng, MirrorLoreTests.EveryElderKnows); // the Golden Core powers' elders know the mirror
             w.Factions.InitializeFactions();
             w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5)); // the clan's strongest: Qi Cultivation
             return w;
@@ -289,11 +289,10 @@ namespace MirrorChronicles.Tests.World
             var w = World(new FixedRandom(0.999));
             bool seized = false;
             w.Ctx.Events.OnMirrorSeized += _ => seized = true;
-            w.Suspicion.AddMirrorClues(Ruan, SuspicionLedger.Max);
+            w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
             w.Secrets.ProcessYear();
-            w.Mirror.AddPower(100);
-            w.Secrets.BlurMemories(Ruan);
-            w.Secrets.BlurMemories(Ruan); // below the doubt's threshold
+            w.Mirror.AddPower(200);
+            for (int i = 0; i < 4; i++) w.Secrets.BlurMemories(Peak); // below the doubt's threshold, even for an elder
 
             w.Secrets.ProcessYear();
 
@@ -301,21 +300,72 @@ namespace MirrorChronicles.Tests.World
             Assert.IsNull(w.Secrets.Confrontation);
         }
 
+        private const string Kun = "Empire de Kun"; // the strongest Golden Core power
+
         [Test]
-        public void APowerTooWeakToSeize_SellsTheSecretToTheStrongest()
+        public void AnOrdinaryPower_CannotNameTheMirror_OnlySuspectATreasure()
+        {
+            var w = World(new FixedRandom(0.999)); // no leak, and the rumour does not rise
+            w.Suspicion.AddMirrorClues(Fang, SuspicionLedger.Max);
+
+            w.Secrets.ProcessYear();
+
+            Assert.IsNull(w.Secrets.Confrontation, "a family does not know what the mirror is");
+            Assert.AreEqual(Fixtures.Content.Balance.MirrorLore.TreasureSuspicion, w.Suspicion.OfClan(Fang));
+            Assert.Less(w.Suspicion.MirrorClues(Fang), Settings.DoubtClues, "it has told itself all it could");
+        }
+
+        [Test]
+        public void TheRumour_MayReachAPowerWhereSomeoneKnows()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Suspicion.AddMirrorClues(Fang, SuspicionLedger.Max);
+
+            w.Secrets.ProcessYear();
+
+            Assert.AreEqual(Settings.LeakMirrorClue, w.Suspicion.MirrorClues(Kun), "profit: it sells a rumour of treasure to the strongest who could read it");
+            Assert.AreEqual(0, w.Suspicion.MirrorClues(Ruan), "never to an ordinary power");
+        }
+
+        [Test]
+        public void WhenNobodyKnows_TheRumourGoesNowhere()
+        {
+            var nobody = Fixtures.Content with
+            {
+                Balance = Fixtures.Content.Balance with
+                {
+                    MirrorLore = Fixtures.Content.Balance.MirrorLore with
+                    {
+                        KnowChance = Fixtures.Content.Balance.MirrorLore.KnowChance.ToDictionary(p => p.Key, _ => 0.0),
+                        PerCentury = Fixtures.Content.Balance.MirrorLore.PerCentury.ToDictionary(p => p.Key, _ => 0.0)
+                    }
+                }
+            };
+            var w = new TestWorld(new FixedRandom(0.0), nobody);
+            w.Factions.InitializeFactions();
+            w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
+
+            w.Secrets.ProcessYear();
+
+            Assert.IsNull(w.Secrets.Confrontation);
+            Assert.IsTrue(w.Factions.Factions.Where(f => f.Name != Peak).All(f => w.Suspicion.MirrorClues(f.Name) == 0));
+        }
+
+        [Test]
+        public void AKnowerTooWeakToSeize_TellsOnlyAPeer()
         {
             var w = World(new FixedRandom(0.999));
-            w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 1)); // the clan matches the Fang
+            w.Join(Fixtures.Cultivator(realm: CultivationRealm.GoldenCore, stage: 1)); // the clan matches the Peak
             bool seized = false;
             w.Ctx.Events.OnMirrorSeized += _ => seized = true;
-            w.Suspicion.AddMirrorClues(Fang, SuspicionLedger.Max);
-            w.Secrets.ProcessYear();
+            w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
+            w.Secrets.ProcessYear(); // the investigator comes
 
             w.Secrets.ProcessYear();
 
             Assert.IsFalse(seized);
-            string strongest = w.Factions.Factions.Where(f => f.Name != Fang).OrderByDescending(f => f.PowerLevel).First().Name;
-            Assert.Greater(w.Suspicion.MirrorClues(strongest), 0, "profit: it sells what it cannot use");
+            Assert.Greater(w.Suspicion.MirrorClues(Kun), 0, "a peer who knows");
+            Assert.AreEqual(0, w.Suspicion.MirrorClues(Fang), "never an ordinary power");
         }
 
         [Test]
@@ -341,15 +391,15 @@ namespace MirrorChronicles.Tests.World
         public void ASoldSecret_EndsTheConfrontation_ForGood()
         {
             var w = World(new FixedRandom(0.999));
-            w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 1)); // the Fang cannot dare
-            w.Suspicion.AddMirrorClues(Fang, SuspicionLedger.Max);
+            w.Join(Fixtures.Cultivator(realm: CultivationRealm.GoldenCore, stage: 1)); // the Peak cannot dare
+            w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
             w.Secrets.ProcessYear(); // the investigator comes
-            w.Secrets.ProcessYear(); // it sells
+            w.Secrets.ProcessYear(); // it tells a peer
 
             w.Secrets.ProcessYear(); // and does not come back
 
             Assert.IsNull(w.Secrets.Confrontation);
-            Assert.Less(w.Suspicion.MirrorClues(Fang), Settings.DoubtClues, "it sold what it knew");
+            Assert.Less(w.Suspicion.MirrorClues(Peak), Settings.DoubtClues, "it passed on what it knew");
         }
 
         [Test]

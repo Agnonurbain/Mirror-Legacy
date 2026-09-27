@@ -60,6 +60,7 @@ namespace MirrorChronicles.Tests
         public CaptiveSystem Captives { get; }
         public SchemeSystem Schemes { get; }
         public SecretSystem Secrets { get; }
+        public MirrorLore Lore { get; }
         public KnowledgeExchange Exchange { get; }
         public FactionManager Factions { get; }
         public MirrorSystem Mirror { get; }
@@ -101,7 +102,8 @@ namespace MirrorChronicles.Tests
             Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
             Suspicion = new SuspicionLedger();
             Hunts = new HuntOperations(Ctx, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
-            Secrets = new SecretSystem(Ctx, Clan, Factions, Suspicion, Oaths, Mirror);
+            Lore = new MirrorLore(Ctx, Factions, worldSeed: 1);
+            Secrets = new SecretSystem(Ctx, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
             Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion, Secrets);
             Captives = new CaptiveSystem(Ctx, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets);
