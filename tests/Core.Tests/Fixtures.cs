@@ -57,6 +57,7 @@ namespace MirrorChronicles.Tests
         public SuspicionLedger Suspicion { get; }
         public TreatySystem Treaties { get; }
         public PowerPoliticsSystem Politics { get; }
+        public IntrigueSystem Intrigues { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public CaptiveSystem Captives { get; }
@@ -110,6 +111,7 @@ namespace MirrorChronicles.Tests
             Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
             Captives = new CaptiveSystem(Ctx, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Politics = new PowerPoliticsSystem(Ctx, Resources, Factions, Suspicion, Treaties);
+            Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties);
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
         }
