@@ -129,5 +129,48 @@ namespace MirrorChronicles.Tests.Diplomacy
             s.Patrons.RestorePacts(new[] { new PatronPact(Vixen, 1, 1) });
             StringAssert.Contains("colère", MirrorChronicles.Presentation.DiplomacyView.Patrons(s).Single(p => p.Id == Vixen).Favor);
         }
+
+        // ---- Review ----
+
+        [Test]
+        public void TheWrath_StrikesAFreeMember_NotAHostageElsewhere()
+        {
+            var w = World(new FixedRandom(0.999), CultivationRealm.GoldenCore);
+            var weakest = w.Clan.LivingMembers.OrderBy(m => (int)m.Realm).First();
+            w.Captives.Take(weakest, "Famille Ruan");
+            w.Patrons.RestorePacts(new[] { new PatronPact(Vixen, 1, 1) });
+            int free = w.Clan.LivingMembers.Count(m => m.CaptorFaction == null);
+
+            w.Patrons.End(Vixen);
+
+            Assert.IsTrue(weakest.IsAlive, "the hostage is not the partner's to take");
+            Assert.AreEqual(free - 1, w.Clan.LivingMembers.Count(m => m.CaptorFaction == null), "a free member died");
+        }
+
+        [Test]
+        public void EndingThePact_OutOfFavour_BringsWrath()
+        {
+            var w = World(new FixedRandom(0.999), CultivationRealm.GoldenCore);
+            w.Patrons.RestorePacts(new[] { new PatronPact(Vixen, 1, Settings.SafeEndFavor - 1) });
+            int living = w.Clan.LivingMembers.Count;
+            Assert.IsNull(w.Patrons.End(Vixen));
+            Assert.AreEqual(living - 1, w.Clan.LivingMembers.Count);
+        }
+
+        [Test]
+        public void ASave_HoldsOnePactPerPartner()
+        {
+            var w = World(new FixedRandom(0.999), CultivationRealm.GoldenCore);
+            w.Patrons.RestorePacts(new[] { new PatronPact(Vixen, 1, 4), new PatronPact(Vixen, 1, 4), new PatronPact("gone-partner", 1, 4) });
+            Assert.AreEqual(1, w.Patrons.Pacts.Count);
+        }
+
+        [Test]
+        public void TheScreen_WarnsBeforeEndingAPactOutOfFavour()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            s.Patrons.RestorePacts(new[] { new PatronPact(Vixen, 1, 1) });
+            StringAssert.Contains("colère", MirrorChronicles.Presentation.DiplomacyView.Patrons(s).Single(p => p.Id == Vixen).EndWarning);
+        }
     }
 }
