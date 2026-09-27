@@ -74,7 +74,8 @@ namespace MirrorChronicles.Diplomacy
             var spouse = clan.FindById(spouseId);
             var treaty = treaties.All.FirstOrDefault(t => t.Kind == TreatyKind.Marriage && t.SpouseId == spouseId);
             if (spouse == null || treaty == null) return "ce conjoint ne vient pas d'une alliance";
-            treaties.Break(treaty.Id); // a broken word
+            if (spouse.CaptorFaction != null) return "ce conjoint est captif ailleurs : on ne renvoie pas qui n'est pas là";
+            treaties.BreakBond(treaty.Id); // a broken word
             var power = factions.GetFactionByName(treaty.Faction);
             if (power != null) factions.ChangeRelation(power.ID, Settings.RepudiationRelation); // and an insult
             var partner = clan.FindById(spouse.SpouseID);

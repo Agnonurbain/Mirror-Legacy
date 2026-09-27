@@ -77,7 +77,7 @@ namespace MirrorChronicles.Game
         private void DrawCard(KinNode node)
         {
             var rect = new Rect2(TopLeft(node), new Vector2(CardWidth, CardHeight));
-            var ink = node.Alive ? Ink : Faded;
+            var ink = node.Alive && !node.Departed ? Ink : Faded; // the dead and the departed, faded
             DrawRect(rect, Card);
             DrawRect(rect, node.IsPatriarch ? Seal : ink, false, node.IsPatriarch ? 2.5f : 1f);
             var font = ThemeDB.FallbackFont;

@@ -34,6 +34,7 @@ namespace MirrorChronicles.Diplomacy
         {
             this.techniques = techniques;
             ctx.Events.OnPowerAbsorbed += (vassal, suzerain) => Dissolve(vassal, suzerain);
+            ctx.Events.OnCharacterDied += (dead, _) => treaties.RemoveAll(t => t.Kind == TreatyKind.Marriage && CoupleGone(t)); // at once
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -117,6 +118,19 @@ namespace MirrorChronicles.Diplomacy
         {
             var treaty = treaties.FirstOrDefault(t => t.Id == treatyId);
             if (treaty == null) return "traité inconnu";
+            if (treaty.Kind == TreatyKind.Marriage) return "un lien de sang ne se rompt pas : on répudie le conjoint";
+            return BreakWord(treaty);
+        }
+
+        /// <summary>A bond of blood broken by repudiation (MarriageAlliance): the same broken word.</summary>
+        public string BreakBond(string treatyId)
+        {
+            var treaty = treaties.FirstOrDefault(t => t.Id == treatyId && t.Kind == TreatyKind.Marriage);
+            return treaty == null ? "traité inconnu" : BreakWord(treaty);
+        }
+
+        private string BreakWord(Treaty treaty)
+        {
             treaties.Remove(treaty);
             ChangeRelation(treaty.Faction, Settings.BreakRelation);
             if (!treaty.Secret)
