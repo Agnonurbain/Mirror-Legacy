@@ -34,6 +34,10 @@ namespace MirrorChronicles.World
             MirrorSystem mirror, MirrorLore lore)
         {
             this.lore = lore;
+            ctx.Events.OnPowerAbsorbed += (vassal, _) =>
+            {
+                if (Confrontation?.Faction == vassal) Confrontation = null; // the investigator's master is no more
+            };
             this.mirror = mirror;
             this.ctx = ctx;
             this.clan = clan;

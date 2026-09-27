@@ -183,8 +183,10 @@ namespace MirrorChronicles.Diplomacy
         private void ServeVassals()
         {
             var s = Settings;
-            foreach (var bond in bonds.Where(b => b.Kind == BondKind.Vassalage).ToList())
+            foreach (var id in bonds.Where(b => b.Kind == BondKind.Vassalage).Select(b => b.Id).ToList())
             {
+                var bond = bonds.FirstOrDefault(b => b.Id == id); // as it stands now: an absorption this year may have changed it
+                if (bond == null) continue;
                 var suzerain = factions.GetFactionByName(bond.A);
                 var vassal = factions.GetFactionByName(bond.B);
                 if (suzerain == null || vassal == null)
@@ -210,7 +212,15 @@ namespace MirrorChronicles.Diplomacy
             suzerain.Wealth += Math.Max(0, vassal.Wealth);
             suzerain.PowerLevel += vassal.PowerLevel / 2;
             foreach (var art in vassal.Techniques.Where(t => !suzerain.Techniques.Contains(t)).ToList()) suzerain.Techniques.Add(art);
+            for (int i = 0; i < bonds.Count; i++) // the absorbed power's own vassals now serve its suzerain
+                if (bonds[i].Kind == BondKind.Vassalage && bonds[i].A == vassal.Name && bonds[i].B != suzerain.Name)
+                    bonds[i] = bonds[i] with { A = suzerain.Name };
             bonds.RemoveAll(b => b.A == vassal.Name || b.B == vassal.Name);
+            if (PendingCall != null && (PendingCall.Ally == vassal.Name || PendingCall.Attacker == vassal.Name))
+            {
+                PendingCall = null; // the call lapses: one side is no more
+                ctx.Log.Info($"[Politics] The call to arms lapses: {vassal.Name} is no more.");
+            }
             if (Coalition != null) Coalition = Coalition with { Members = Coalition.Members.Where(m => m != vassal.Name).ToList() };
             factions.RemoveFaction(vassal.Name);
             ctx.Log.Warning($"[Politics] {suzerain.Name} absorbs {vassal.Name}.");

@@ -33,6 +33,7 @@ namespace MirrorChronicles.Diplomacy
             TechniqueLibrary techniques)
         {
             this.techniques = techniques;
+            ctx.Events.OnPowerAbsorbed += (vassal, suzerain) => Dissolve(vassal, suzerain);
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -119,6 +120,13 @@ namespace MirrorChronicles.Diplomacy
                 patriarch.HeartDemonYearsLeft = Math.Max(patriarch.HeartDemonYearsLeft, Settings.SealedHeartDemonYears); // the oath breaks
             ctx.Log.Warning($"[Treaties] The clan breaks its {treaty.Kind} treaty with {treaty.Faction}.");
             return null;
+        }
+
+        /// <summary>A power absorbed by another: its treaties with the clan end at once, without blame.</summary>
+        private void Dissolve(string vassal, string suzerain)
+        {
+            if (treaties.RemoveAll(t => t.Faction == vassal) > 0)
+                ctx.Log.Warning($"[Treaties] {vassal} is absorbed by {suzerain}: its treaties with the clan end.");
         }
 
         public void ProcessYear()
