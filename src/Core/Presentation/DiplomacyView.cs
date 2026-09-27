@@ -19,6 +19,9 @@ namespace MirrorChronicles.Presentation
     public sealed record PatronLine(string Id, string Name, string Kind, string Boon, int Tribute, string Refusal, bool Bound, string Favor,
         string EndWarning = null);
 
+    /// <summary>A war, as the screen tells it; for the clan's, its enemy and the tribute peace would cost.</summary>
+    public sealed record WarLine(string Description, bool ClansWar, string Enemy, int PeaceCost);
+
     /// <summary>Powers banded against the clan, for the years left.</summary>
     public sealed record CoalitionLine(IReadOnlyList<string> Members, int YearsLeft);
 
@@ -64,6 +67,17 @@ namespace MirrorChronicles.Presentation
         /// <summary>Why a power would refuse this treaty now; null when it would accept.</summary>
         public static string ProposalRefusal(GameSession session, string faction, TreatyKind kind, bool clanAsSuzerain, bool sealedByOath) =>
             session.Treaties.Refusal(session.Factions.GetFactionByName(faction), kind, sealedByOath, clanAsSuzerain);
+
+        /// <summary>The wars under way: the clan's first, with the price of peace; then the powers' (each side with its allies).</summary>
+        public static IReadOnlyList<WarLine> Wars(GameSession session)
+        {
+            int peace = (int)(session.Resources.SpiritStones * session.Context.Content.Balance.Wars.PeaceTributeShare);
+            return session.Wars.ClanWars
+                .Select(w => new WarLine($"Le clan en guerre contre {w.Enemy} depuis l'an {w.StartYear}", true, w.Enemy, peace))
+                .Concat(session.Wars.Wars.Select(w => new WarLine(
+                    $"{string.Join(", ", w.SideA)} contre {string.Join(", ", w.SideB)} depuis l'an {w.StartYear}", false, null, 0)))
+                .ToList();
+        }
 
         /// <summary>The great partners of the very high level (2026-09-27).</summary>
         public static IReadOnlyList<PatronLine> Patrons(GameSession session)

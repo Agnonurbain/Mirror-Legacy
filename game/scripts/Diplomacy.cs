@@ -55,6 +55,7 @@ namespace MirrorChronicles.Game
             var session = root.Session;
             ShowCoalitionAndCall(session);
             ShowPatrons(session);
+            ShowWars(session);
             foreach (var line in DiplomacyView.Powers(session))
             {
                 var row = new HBoxContainer();
@@ -67,6 +68,26 @@ namespace MirrorChronicles.Game
                 row.AddChild(new Label { Text = $"{line.Kind} · {line.HighestRealm} · relation {line.Relation:+#;-#;0}{bonds}" });
                 powers.AddChild(row);
                 foreach (var treaty in line.Treaties) ShowTreaty(treaty);
+            }
+        }
+
+        /// <summary>The wars under way; the clan's may end with a tribute.</summary>
+        private void ShowWars(Session.GameSession session)
+        {
+            var wars = DiplomacyView.Wars(session);
+            if (wars.Count == 0) return;
+            Add(powers, "Guerres :");
+            foreach (var war in wars)
+            {
+                var row = new HBoxContainer();
+                row.AddChild(new Label { Text = $"⚔ {war.Description}", CustomMinimumSize = new Vector2(460, 0) });
+                if (war.ClansWar)
+                {
+                    var peace = new Button { Text = $"Demander la paix ({war.PeaceCost} pierres)" };
+                    peace.Pressed += () => Report(session.Wars.SuePeace(war.Enemy), $"La paix est faite avec {war.Enemy}.");
+                    row.AddChild(peace);
+                }
+                powers.AddChild(row);
             }
         }
 
@@ -198,7 +219,7 @@ namespace MirrorChronicles.Game
             tribute.Pressed += () => Report(session.Alliances.OfferTribute(faction.ID, TributeStones) ? null : "pierres insuffisantes", $"{power} reçoit le tribut.");
             proposal.AddChild(tribute);
             var war = new Button { Text = "Déclarer la guerre", SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
-            war.Pressed += () => Report(session.Alliances.DeclareWar(faction.ID), $"Le clan déclare la guerre à {power}.");
+            war.Pressed += () => Report(session.Wars.DeclareOn(power), $"Le clan déclare la guerre à {power}.");
             proposal.AddChild(war);
         }
 
