@@ -75,6 +75,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Opérations secrètes"
 
+[node name="OpenDiplomacy" type="Button" parent="Margin/Layout/Nav"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Diplomatie"
+
 [node name="OpenLibrary" type="Button" parent="Margin/Layout/Nav"]
 unique_name_in_owner = true
 layout_mode = 2

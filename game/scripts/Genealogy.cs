@@ -21,7 +21,8 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Genealogy: {GenealogyView.Tree(root.Session).Count} members recorded.");
-            if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
+            if (root.SmokeEndsOnDiplomacy) GetTree().ChangeSceneToFile(Diplomacy.ScenePath); // diplomacy checks itself
+            else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }
     }
