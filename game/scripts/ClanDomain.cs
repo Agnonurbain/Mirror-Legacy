@@ -49,6 +49,7 @@ namespace MirrorChronicles.Game
             nextPhase.Pressed += AdvancePhase;
             GetNode<Button>("%OpenMap").Pressed += () => GetTree().ChangeSceneToFile(WorldMap.ScenePath);
             GetNode<Button>("%OpenOperations").Pressed += () => GetTree().ChangeSceneToFile(Operations.ScenePath);
+            GetNode<Button>("%OpenMirror").Pressed += () => GetTree().ChangeSceneToFile(MirrorScreen.ScenePath);
             GetNode<Button>("%OpenLibrary").Pressed += () => GetTree().ChangeSceneToFile(Library.ScenePath);
             GetNode<Button>("%OpenDiplomacy").Pressed += () => GetTree().ChangeSceneToFile(Diplomacy.ScenePath);
             GetNode<Button>("%OpenGenealogy").Pressed += () => GetTree().ChangeSceneToFile(Genealogy.ScenePath);

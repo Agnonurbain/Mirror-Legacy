@@ -254,7 +254,8 @@ namespace MirrorChronicles.Game
             power ??= DiplomacyView.Powers(root.Session).FirstOrDefault()?.Name; // shown with a proposal open
             Refresh();
             GD.Print($"[Smoke] Diplomacy: {DiplomacyView.Powers(root.Session).Count} powers, {root.Session.Treaties.All.Count} treaties.");
-            if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
+            if (root.SmokeEndsOnMirror) GetTree().ChangeSceneToFile(MirrorScreen.ScenePath); // the mirror checks itself
+            else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }
     }

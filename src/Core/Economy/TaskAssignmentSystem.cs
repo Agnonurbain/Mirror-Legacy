@@ -174,7 +174,7 @@ namespace MirrorChronicles.Economy
             {
                 int quality = Math.Clamp(scholar.SpiritualRoot / 25, 1, 4);
                 var element = scholar.Affinity != Element.None ? scholar.Affinity : ctx.Rng.NextElement();
-                deduction.AddFragment(element, quality, $"Found by {scholar.FullName}");
+                deduction.AddFragment(element, quality, $"Trouvé par {scholar.FullName}");
                 ctx.Log.Info($"[Tasks] {scholar.FullName} finds a Q{quality} {element} fragment while studying.");
             }
             else

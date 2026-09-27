@@ -155,8 +155,8 @@ namespace MirrorChronicles.Session
             session.Fruitions.DrawWorld(FruitionRegistry.WorldRandom(setup.Seed));
             session.Bestiary.Draw(BeastRegistry.WorldRandom(setup.Seed));
             session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(setup.Seed), session.Factions.Factions);
-            session.Deduction.AddFragment(Element.Fire, 1, "Scorched Scroll");
-            session.Deduction.AddFragment(Element.Wood, 1, "Bamboo Slip");
+            session.Deduction.AddFragment(Element.Fire, 1, "Rouleau calciné");
+            session.Deduction.AddFragment(Element.Wood, 1, "Lamelle de bambou");
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan begins its story (seed {setup.Seed}).");
             return session;

@@ -95,7 +95,7 @@ namespace MirrorChronicles.Events
                     if (visitor != null) factions.ChangeRelation(visitor.ID, VisitRelationBoost);
                     break;
                 case RandomEventType.RuinsDiscovery:
-                    deduction.AddFragment(ctx.Rng.NextElement(), ctx.Rng.Next(1, 4), "Ruin Fragment");
+                    deduction.AddFragment(ctx.Rng.NextElement(), ctx.Rng.Next(1, 4), "Fragment de ruine");
                     break;
                 case RandomEventType.InternalBetrayal:
                     var troubled = clan.LivingMembers.OrderBy(m => m.MentalStability).FirstOrDefault();

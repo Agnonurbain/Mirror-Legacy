@@ -80,6 +80,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Diplomatie"
 
+[node name="OpenMirror" type="Button" parent="Margin/Layout/Nav"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Miroir"
+
 [node name="OpenLibrary" type="Button" parent="Margin/Layout/Nav"]
 unique_name_in_owner = true
 layout_mode = 2

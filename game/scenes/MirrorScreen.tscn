@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/MirrorScreen.cs" id="1_mir"]
+
+[node name="MirrorScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mir")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="Margin/Layout/Header"]
+layout_mode = 2
+text = "Le miroir ancestral"
+
+[node name="Power" type="Label" parent="Margin/Layout/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Margin/Layout/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="Margin/Layout/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Retour au domaine"
+
+[node name="Tabs" type="TabContainer" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Interventions" type="ScrollContainer" parent="Margin/Layout/Tabs"]
+layout_mode = 2
+
+[node name="Interventions" type="VBoxContainer" parent="Margin/Layout/Tabs/Interventions"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Graine de Sceau" type="ScrollContainer" parent="Margin/Layout/Tabs"]
+visible = false
+layout_mode = 2
+
+[node name="Seeds" type="VBoxContainer" parent="Margin/Layout/Tabs/Graine de Sceau"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Jugement" type="ScrollContainer" parent="Margin/Layout/Tabs"]
+visible = false
+layout_mode = 2
+
+[node name="Judgment" type="VBoxContainer" parent="Margin/Layout/Tabs/Jugement"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Déduction" type="ScrollContainer" parent="Margin/Layout/Tabs"]
+visible = false
+layout_mode = 2
+
+[node name="Deduction" type="VBoxContainer" parent="Margin/Layout/Tabs/Déduction"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Status" type="Label" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 3

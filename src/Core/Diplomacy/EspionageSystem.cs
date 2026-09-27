@@ -69,7 +69,7 @@ namespace MirrorChronicles.Diplomacy
 
                 int quality = Math.Clamp(target.PowerLevel / 250, 1, 5);
                 var element = ctx.Rng.NextElement();
-                deduction.AddFragment(element, quality, $"Stolen from {target.Name} by {spy.FullName}");
+                deduction.AddFragment(element, quality, $"Volé à {target.Name} par {spy.FullName}");
                 ctx.Log.Info($"[Espionage] {spy.FullName} steals a Q{quality} {element} fragment from {target.Name}.");
                 return new EspionageResult { Success = true, TargetFaction = target.Name, FragmentQuality = quality, FragmentElement = element };
             }
