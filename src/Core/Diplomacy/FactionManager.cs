@@ -106,8 +106,11 @@ namespace MirrorChronicles.Diplomacy
         {
             if (a?.RegionId == null || b?.RegionId == null || a == b) return false;
             if (a.RegionId == b.RegionId) return true;
-            return ctx.Content.Regions.FirstOrDefault(r => r.Id == a.RegionId)?.Neighbours.Contains(b.RegionId) == true;
+            regionsById ??= ctx.Content.Regions.ToDictionary(r => r.Id); // the map never changes during a game
+            return regionsById.TryGetValue(a.RegionId, out var region) && region.Neighbours.Contains(b.RegionId);
         }
+
+        private Dictionary<string, RegionDefinition> regionsById;
 
         /// <summary>A power that is no more (absorbed by another).</summary>
         public bool RemoveFaction(string name) => factions.RemoveAll(f => f.Name == name) > 0;

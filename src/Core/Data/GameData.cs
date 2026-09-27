@@ -74,7 +74,7 @@ namespace MirrorChronicles.Data
         public List<Treaty> Treaties { get; set; }                   // 2.11; null in older saves: none concluded
         public List<PowerBond> PowerBonds { get; set; }              // 2.12; null in older saves: none
         public Coalition Coalition { get; set; }                     // 2.12: powers banded against the clan
-        public CallToArms CallToArms { get; set; }                   // 2.12: an ally's call awaiting an answer
+        public List<CallToArms> CallsToArms { get; set; }            // 2.12: the allies' calls awaiting an answer
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

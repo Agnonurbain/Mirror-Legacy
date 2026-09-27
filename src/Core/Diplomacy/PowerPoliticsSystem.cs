@@ -40,7 +40,13 @@ namespace MirrorChronicles.Diplomacy
 
         public IReadOnlyList<PowerBond> Bonds => bonds;
         public Coalition Coalition { get; private set; }
-        public CallToArms PendingCall { get; private set; }
+        private readonly List<CallToArms> calls = new List<CallToArms>();
+
+        /// <summary>The first call to arms awaiting the clan's answer (others wait their turn); null when none.</summary>
+        public CallToArms PendingCall => calls.FirstOrDefault();
+
+        /// <summary>Every call awaiting an answer, the oldest first.</summary>
+        public IReadOnlyList<CallToArms> PendingCalls => calls;
 
         public string SuzerainOf(string power) => bonds.FirstOrDefault(b => b.Kind == BondKind.Vassalage && b.B == power)?.A;
 
@@ -58,11 +64,17 @@ namespace MirrorChronicles.Diplomacy
         }
 
         public void RestoreCoalition(Coalition saved) => Coalition = saved;
-        public void RestoreCall(CallToArms saved) => PendingCall = saved;
+        public void RestoreCall(CallToArms saved) => RestoreCalls(saved == null ? null : new[] { saved });
+
+        public void RestoreCalls(IEnumerable<CallToArms> saved)
+        {
+            calls.Clear();
+            if (saved != null) calls.AddRange(saved.Where(c => c != null));
+        }
 
         public void ProcessYear()
         {
-            if (PendingCall != null && PendingCall.Year < ctx.Clock.Year) RefuseCall(); // left unanswered: a refusal
+            while (PendingCall != null && PendingCall.Year < ctx.Clock.Year) RefuseCall(); // every call left unanswered: a refusal
             FormAlliances();
             if (ctx.Rng.Chance(Settings.FeudChance)) StartAFeud();
             if (ctx.Rng.Chance(Settings.VassalizeChance)) SubjugateAWeakNeighbour();
@@ -121,9 +133,9 @@ namespace MirrorChronicles.Diplomacy
             foreach (var ally in AlliesOf(defender.Name).Where(a => a != attacker.Name))
                 suspicion.AddDistrust(ally, attacker.Name, s.AllyDistrust);
             ctx.Log.Info($"[Politics] {attacker.Name} strikes {defender.Name}.");
-            if (PendingCall == null && treaties.Has(defender.Name, TreatyKind.Defence))
+            if (treaties.Has(defender.Name, TreatyKind.Defence) && calls.All(c => c.Ally != defender.Name))
             {
-                PendingCall = new CallToArms(defender.Name, attacker.Name, ctx.Clock.Year);
+                calls.Add(new CallToArms(defender.Name, attacker.Name, ctx.Clock.Year)); // queued behind any other
                 ctx.Events.TriggerCallToArms(defender.Name, attacker.Name);
             }
         }
@@ -138,7 +150,7 @@ namespace MirrorChronicles.Diplomacy
             if (!resources.ConsumeSpiritStones(s.CallStonesCost)) return $"il faut {s.CallStonesCost} pierres spirituelles";
             ChangeRelation(call.Attacker, s.CallAttackerRelation);
             ChangeRelation(call.Ally, s.CallAllyRelation);
-            PendingCall = null;
+            calls.RemoveAt(0);
             ctx.Log.Info($"[Politics] The clan answers {call.Ally}'s call against {call.Attacker}.");
             return null;
         }
@@ -147,7 +159,7 @@ namespace MirrorChronicles.Diplomacy
         {
             var call = PendingCall;
             if (call == null) return "aucun appel aux armes";
-            PendingCall = null;
+            calls.RemoveAt(0);
             var treaty = treaties.With(call.Ally).FirstOrDefault(t => t.Kind == TreatyKind.Defence);
             if (treaty != null) treaties.Break(treaty.Id); // an ally abandoned: the treaty is broken
             ctx.Log.Warning($"[Politics] The clan leaves {call.Ally} alone against {call.Attacker}.");
@@ -216,11 +228,9 @@ namespace MirrorChronicles.Diplomacy
                 if (bonds[i].Kind == BondKind.Vassalage && bonds[i].A == vassal.Name && bonds[i].B != suzerain.Name)
                     bonds[i] = bonds[i] with { A = suzerain.Name };
             bonds.RemoveAll(b => b.A == vassal.Name || b.B == vassal.Name);
-            if (PendingCall != null && (PendingCall.Ally == vassal.Name || PendingCall.Attacker == vassal.Name))
-            {
-                PendingCall = null; // the call lapses: one side is no more
-                ctx.Log.Info($"[Politics] The call to arms lapses: {vassal.Name} is no more.");
-            }
+            if (calls.RemoveAll(c => c.Ally == vassal.Name || c.Attacker == vassal.Name) > 0) // a call lapses: one side is no more
+                ctx.Log.Info($"[Politics] A call to arms lapses: {vassal.Name} is no more.");
+            suspicion.Inherit(vassal.Name, suzerain.Name);
             if (Coalition != null) Coalition = Coalition with { Members = Coalition.Members.Where(m => m != vassal.Name).ToList() };
             factions.RemoveFaction(vassal.Name);
             ctx.Log.Warning($"[Politics] {suzerain.Name} absorbs {vassal.Name}.");

@@ -205,7 +205,7 @@ namespace MirrorChronicles.Session
             session.Treaties.RestoreTreaties(data.Treaties);   // none in saves before 2.11
             session.Politics.RestoreBonds(data.PowerBonds);    // none in saves before 2.12
             session.Politics.RestoreCoalition(data.Coalition);
-            session.Politics.RestoreCall(data.CallToArms);
+            session.Politics.RestoreCalls(data.CallsToArms);
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -259,7 +259,7 @@ namespace MirrorChronicles.Session
                 Treaties = Treaties.All.ToList(),
                 PowerBonds = Politics.Bonds.ToList(),
                 Coalition = Politics.Coalition == null ? null : Politics.Coalition with { Members = Politics.Coalition.Members.ToList() },
-                CallToArms = Politics.PendingCall,
+                CallsToArms = Politics.PendingCalls.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
