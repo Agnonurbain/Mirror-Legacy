@@ -116,7 +116,7 @@ namespace MirrorChronicles.Session
             Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
             Captives = new CaptiveSystem(Context, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
-            Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties);
+            Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);

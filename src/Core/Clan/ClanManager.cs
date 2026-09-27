@@ -174,17 +174,22 @@ namespace MirrorChronicles.Clan
             if (character.ID == PatriarchID) ElectPatriarch();
         }
 
-        /// <summary>A patriarch taken captive (L6a): a free member leads the clan; the captive keeps no title on return.</summary>
+        /// <summary>
+        /// A patriarch taken captive (L6a) or unmasked as a spy (2026-09-27): a free, trusted member leads the clan; the
+        /// one set aside keeps no title.
+        /// </summary>
         public void HandOver(CharacterData taken)
         {
-            if (taken?.ID == PatriarchID && living.Any(m => m.CaptorFaction == null)) ElectPatriarch();
+            if (taken?.ID == PatriarchID && living.Any(m => m != taken && Trusted(m))) ElectPatriarch();
         }
 
-        /// <summary>A free member first, then highest realm, then eldest, then strongest root.</summary>
+        private static bool Trusted(CharacterData m) => m.CaptorFaction == null && !m.SpyUnmasked;
+
+        /// <summary>A free, trusted member first (never a captive or an unmasked spy while another can lead), then highest realm, eldest, strongest root.</summary>
         private void ElectPatriarch()
         {
             var successor = living
-                .OrderBy(m => m.CaptorFaction != null)
+                .OrderBy(m => !Trusted(m))
                 .ThenByDescending(m => (int)m.Realm)
                 .ThenByDescending(m => m.RealmStage)
                 .ThenByDescending(m => m.Age)

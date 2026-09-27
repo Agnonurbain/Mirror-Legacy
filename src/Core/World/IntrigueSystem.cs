@@ -14,7 +14,8 @@ namespace MirrorChronicles.World
     /// The powers' intrigues (LORE.md D7; user decision 2026-09-27). Blackmail: a power holding enough proof may demand
     /// stones instead of striking; paid, it keeps quiet for a while; refused, or left unanswered to the next year, it
     /// spreads its proof among the others. Theft, at most once a year: a beast the clan captured (worst before the
-    /// ritual), a copy of a manual, stones or a portion of Qi; patrols make it rarer and may catch the thief — an agent
+    /// ritual: a thief takes the strongest, the very one kept for the talisman — guard it with patrols), a copy of a
+    /// manual, stones or a portion of Qi; patrols make it rarer and may catch the thief — an agent
     /// held, proof of the theft — otherwise the clan does not know who. Infiltration: a spy sent as a spouse feeds its
     /// power proof and clues each year; the mirror sounds a spouse at its price; an unmasked spy is turned into a double
     /// agent, who wears its power's proof away, or executed. Each action answers with its refusal, or null when done.
@@ -30,12 +31,21 @@ namespace MirrorChronicles.World
         private readonly MirrorSystem mirror;
         private readonly CaptiveSystem captives;
         private readonly TreatySystem treaties;
+        private readonly PlotSystem plots;
+        private readonly SecretSystem secrets;
         private readonly List<Demand> demands = new List<Demand>();
         private readonly Dictionary<string, int> quietUntil = new Dictionary<string, int>();
 
         public IntrigueSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, SuspicionLedger suspicion,
-            TechniqueLibrary techniques, MirrorSystem mirror, CaptiveSystem captives, TreatySystem treaties)
+            TechniqueLibrary techniques, MirrorSystem mirror, CaptiveSystem captives, TreatySystem treaties, PlotSystem plots, SecretSystem secrets)
         {
+            this.plots = plots;
+            this.secrets = secrets;
+            ctx.Events.OnPowerAbsorbed += (vassal, _) => // an absorbed blackmailer: nobody left to pay, nothing left to fear
+            {
+                demands.RemoveAll(d => d.Faction == vassal);
+                quietUntil.Remove(vassal);
+            };
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -81,6 +91,7 @@ namespace MirrorChronicles.World
             {
                 if (suspicion.Evidence(power.Name) < s.BlackmailEvidence || demands.Any(d => d.Faction == power.Name)) continue;
                 if (quietUntil.TryGetValue(power.Name, out int until) && until > ctx.Clock.Year) continue; // it was paid
+                if (plots.StruckThisYear.Contains(power.Name) || secrets.Confrontation?.Faction == power.Name) continue; // one blow a year
                 if (treaties.Spares(power.Name) || !ctx.Rng.Chance(IntrigueRules.BlackmailChance(power, s))) continue;
                 demands.Add(new Demand(power.Name, (int)(resources.SpiritStones * s.BlackmailStonesShare), ctx.Clock.Year));
                 ctx.Log.Warning($"[Intrigues] {power.Name} demands stones for its silence.");
@@ -109,8 +120,10 @@ namespace MirrorChronicles.World
             var s = Settings;
             foreach (var other in factions.Factions.Where(f => f.Name != faction))
             {
-                suspicion.AddEvidence(other.Name, s.RefusedSpreadEvidence); // it spreads what it holds
-                suspicion.AddToClan(other.Name, s.RefusedSpreadEvidence);
+                // it spreads what it holds: news to the ignorant, little to those who already know most of it
+                int spread = (int)Math.Round(s.RefusedSpreadEvidence * (1 - suspicion.Evidence(other.Name) / (double)SuspicionLedger.Max));
+                suspicion.AddEvidence(other.Name, spread);
+                suspicion.AddToClan(other.Name, spread);
             }
             var power = factions.GetFactionByName(faction);
             if (power != null) factions.ChangeRelation(power.ID, s.RefusedRelation);
@@ -173,6 +186,7 @@ namespace MirrorChronicles.World
                     thief.Wealth += stones;
                     return $"{stones} pierres spirituelles";
                 case IntrigueTarget.Qi:
+                    // the first Qi by its id: a thief grabs what lies at hand, not the rarest
                     var qi = resources.SpiritualQi.Where(q => q.Value > 0).OrderBy(q => q.Key, StringComparer.Ordinal).Select(q => q.Key).FirstOrDefault();
                     return qi != null && resources.ConsumeQi(qi, 1) ? "une portion de Qi" : null;
                 default:
@@ -203,10 +217,11 @@ namespace MirrorChronicles.World
         public string Unmask(string memberId)
         {
             var member = clan.FindById(memberId);
-            if (member == null || !member.IsAlive) return null;
-            if (!mirror.ConsumePower(Settings.UnmaskMirrorCost)) return null;
+            if (member == null || !member.IsAlive) return "membre introuvable.";
+            if (!mirror.ConsumePower(Settings.UnmaskMirrorCost)) return null; // null: the mirror lacks the power
             if (member.SpyFor == null) return $"{member.FullName} n'espionne pour personne.";
             member.SpyUnmasked = true;
+            clan.HandOver(member); // an unmasked spy never leads the clan
             return $"{member.FullName} espionne pour {member.SpyFor}.";
         }
 
