@@ -143,6 +143,21 @@
     "executeRelation": -40,
     "executeWitnessRelation": -5
   },
+  "clanWatch": {
+    "struck": 25,
+    "memberTaken": 25,
+    "agentCaught": 15,
+    "treatyBetrayed": 30,
+    "probeSpotted": 15,
+    "blackmail": 15,
+    "thiefCaught": 10,
+    "spyUnmasked": 25,
+    "coalition": 20,
+    "fadePerYear": 2,
+    "waryFrom": 10,
+    "distrustFrom": 30,
+    "deepDistrustFrom": 60
+  },
   "secrets": {
     "rankThreshold": [ 20, 40, 60, 80 ],
     "knownEvidenceByRank": [ 0, 5, 15, 30 ],

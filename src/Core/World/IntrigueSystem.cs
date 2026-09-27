@@ -95,6 +95,7 @@ namespace MirrorChronicles.World
                 if (treaties.Spares(power.Name) || !ctx.Rng.Chance(IntrigueRules.BlackmailChance(power, s))) continue;
                 demands.Add(new Demand(power.Name, (int)(resources.SpiritStones * s.BlackmailStonesShare), ctx.Clock.Year));
                 ctx.Log.Warning($"[Intrigues] {power.Name} demands stones for its silence.");
+                ctx.Events.TriggerBlackmail(power.Name);
                 return; // one demand a year
             }
         }
@@ -221,6 +222,7 @@ namespace MirrorChronicles.World
             if (!mirror.ConsumePower(Settings.UnmaskMirrorCost)) return null; // null: the mirror lacks the power
             if (member.SpyFor == null) return $"{member.FullName} n'espionne pour personne.";
             member.SpyUnmasked = true;
+            ctx.Events.TriggerSpyUnmasked(member.SpyFor);
             clan.HandOver(member); // an unmasked spy never leads the clan
             return $"{member.FullName} espionne pour {member.SpyFor}.";
         }

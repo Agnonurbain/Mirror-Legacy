@@ -39,7 +39,11 @@ namespace MirrorChronicles.Events
         public event Action<string, string> OnCallToArms;                    // an ally of the clan attacked, and by whom
         public event Action<string, string> OnTheft;
         public event Action<string, string> OnDeed;                          // a deed of the clan that leaves a secret (kind, subject)
-        public event Action<string> OnProbeSpotted;                          // a power caught probing the clan                         // what was stolen, and the thief when caught (else null)                           // an agent of a power in the clan's hands
+        public event Action<string> OnProbeSpotted;                          // a power caught probing the clan
+        public event Action<string> OnClanStruck;                            // a power strikes the clan (proof or none)
+        public event Action<string> OnTreatyBetrayed;                        // a power betrays its treaty with the clan
+        public event Action<string> OnBlackmail;                             // a power demands stones for its silence
+        public event Action<string> OnSpyUnmasked;                           // the mirror unmasks a power's spy                         // what was stolen, and the thief when caught (else null)                           // an agent of a power in the clan's hands
 
         // Economy
         public event Action<int> OnSpiritStonesChanged;
@@ -67,6 +71,10 @@ namespace MirrorChronicles.Events
         public void TriggerTheft(string what, string thief) => OnTheft?.Invoke(what, thief);
         public void TriggerDeed(string kind, string subject) => OnDeed?.Invoke(kind, subject);
         public void TriggerProbeSpotted(string prober) => OnProbeSpotted?.Invoke(prober);
+        public void TriggerClanStruck(string power) => OnClanStruck?.Invoke(power);
+        public void TriggerTreatyBetrayed(string power) => OnTreatyBetrayed?.Invoke(power);
+        public void TriggerBlackmail(string power) => OnBlackmail?.Invoke(power);
+        public void TriggerSpyUnmasked(string power) => OnSpyUnmasked?.Invoke(power);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);

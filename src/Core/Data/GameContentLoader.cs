@@ -239,6 +239,10 @@ namespace MirrorChronicles.Data
                 && IsProbability(treaty.VassalTributeShare) && IsProbability(treaty.GripStonesShare) && treaty.GripThreshold > 0
                 && treaty.TradeDiscount > 0 && treaty.SealedHeartDemonYears >= 0,
                 BalanceFile, "treaties needs a relation and a base for every kind, and odds and shares between 0 and 1.");
+            var watch = balance.ClanWatch;
+            Require(watch != null && watch.FadePerYear >= 0 && watch.WaryFrom > 0 && watch.DistrustFrom >= watch.WaryFrom
+                && watch.DeepDistrustFrom >= watch.DistrustFrom && watch.DeepDistrustFrom <= 100,
+                BalanceFile, "clanWatch needs a fading never negative and signs in order (wary <= distrust <= deep distrust <= 100).");
             var sec = balance.Secrets;
             var approaches = Enum.GetValues(typeof(ProbeApproach)).Cast<ProbeApproach>().ToList();
             Require(sec != null && sec.RankThreshold.Count == 4 && sec.RankThreshold.All(t => t > 0) && sec.KnownEvidenceByRank.Count == 4

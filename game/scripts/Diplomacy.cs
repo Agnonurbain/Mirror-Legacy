@@ -60,7 +60,8 @@ namespace MirrorChronicles.Game
                 pick.Pressed += () => { power = line.Name; Refresh(); };
                 row.AddChild(pick);
                 string bonds = (line.Allies?.Count > 0 ? $" · alliée de {string.Join(", ", line.Allies)}" : "")
-                    + (line.Suzerain != null ? $" · vassale de {line.Suzerain}" : "");
+                    + (line.Suzerain != null ? $" · vassale de {line.Suzerain}" : "")
+                    + (line.ClanWatch != null ? $" · {line.ClanWatch}" : "");
                 row.AddChild(new Label { Text = $"{line.Kind} · {line.HighestRealm} · relation {line.Relation:+#;-#;0}{bonds}" });
                 powers.AddChild(row);
                 foreach (var treaty in line.Treaties) ShowTreaty(treaty);

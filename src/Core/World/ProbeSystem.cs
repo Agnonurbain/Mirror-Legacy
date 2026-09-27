@@ -121,6 +121,10 @@ namespace MirrorChronicles.World
                 ? ProbeOutcome.Refused("sondage impossible")
                 : Resolve(prober.Name, Strength(prober), target, approach, (partners ?? new List<string>()).Distinct().ToList(), 0, null);
 
+        /// <summary>A power's odds against a target, before any roll (no partners, the target's allies lingering).</summary>
+        public double PowerChanceAgainst(FactionData prober, string target, ProbeApproach approach) =>
+            SuccessProbability(Factors(prober.Name, Strength(prober), target, approach, new List<string>(), 0, new List<string>()), target, approach);
+
         public void ProcessYear()
         {
             foreach (var key in alertness.Keys.ToList()) alertness[key] = Math.Max(0, alertness[key] - Settings.AlertnessDecay);
@@ -214,7 +218,7 @@ namespace MirrorChronicles.World
                 Alertness = Alertness(target),
                 Insider = Insider(prober, target),
                 Neighbours = Neighbours(prober, target),
-                TargetDistrust = target == Clan ? 0 : prober == Clan ? suspicion.OfClan(target) : suspicion.Distrust(target, prober),
+                TargetDistrust = target == Clan ? suspicion.ClanDistrust(prober) : prober == Clan ? suspicion.OfClan(target) : suspicion.Distrust(target, prober),
                 Stones = stones,
                 TargetTemper = targetPower?.Personality ?? FactionPersonality.Isolationist
             };

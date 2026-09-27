@@ -13,7 +13,7 @@ namespace MirrorChronicles.Presentation
 
     /// <summary>A power as the diplomacy screen shows it: its public allies and its suzerain — never what it hides (D7).</summary>
     public sealed record PowerLine(string Name, string Kind, string HighestRealm, int Relation, IReadOnlyList<TreatyLine> Treaties,
-        IReadOnlyList<string> Allies = null, string Suzerain = null);
+        IReadOnlyList<string> Allies = null, string Suzerain = null, string ClanWatch = null);
 
     /// <summary>Powers banded against the clan, for the years left.</summary>
     public sealed record CoalitionLine(IReadOnlyList<string> Members, int YearsLeft);
@@ -35,7 +35,8 @@ namespace MirrorChronicles.Presentation
                     session.Treaties.With(f.Name).Select(t => new TreatyLine(t.Id, KindLabel(t.Kind), t.Secret, t.Sealed,
                         t.EndYear.HasValue ? t.EndYear.Value - session.Clock.Year : null, t.ClanIsSuzerain, t.Grip,
                         t.Absorptions, session.Context.Content.Balance.Politics.ClanAbsorptionSteps)).ToList(),
-                    PublicAllies(session, f.Name), PublicSuzerain(session, f.Name)))
+                    PublicAllies(session, f.Name), PublicSuzerain(session, f.Name),
+                    World.ClanWatch.Sign(session.Suspicion.ClanDistrust(f.Name), session.Context.Content.Balance.ClanWatch)))
                 .ToList();
 
         public static IReadOnlyList<DemandLine> Demands(GameSession session) =>

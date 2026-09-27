@@ -200,6 +200,9 @@ namespace MirrorChronicles.Data
         /// <summary>Secrets for everyone and the probes that pierce them (2026-09-27; interpretations).</summary>
         public SecretSettings Secrets { get; init; }
 
+        /// <summary>The clan's own distrust of each power (2026-09-27; interpretations).</summary>
+        public ClanWatchSettings ClanWatch { get; init; }
+
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
 
