@@ -32,6 +32,8 @@ namespace MirrorChronicles.Diplomacy
         private readonly AllianceSystem alliances;
         private readonly List<War> wars = new List<War>();
         private readonly List<ClanWar> clanWars = new List<ClanWar>();
+        private readonly Dictionary<string, bool> alliesComing = new Dictionary<string, bool>(); // this year's answer of each ally
+        private int alliesYear = -1;
 
         public WarSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, SuspicionLedger suspicion,
             TreatySystem treaties, PowerPoliticsSystem politics, AllianceSystem alliances)
@@ -44,6 +46,21 @@ namespace MirrorChronicles.Diplomacy
             this.treaties = treaties;
             this.politics = politics;
             this.alliances = alliances;
+            ctx.Events.OnPowerAbsorbed += (vassal, _) => Forget(vassal);
+        }
+
+        /// <summary>An absorbed power leaves its wars: its side fights on under its first member left, or the war ends.</summary>
+        private void Forget(string power)
+        {
+            clanWars.RemoveAll(w => w.Enemy == power);
+            for (int i = wars.Count - 1; i >= 0; i--)
+            {
+                var war = wars[i];
+                if (!war.SideA.Contains(power) && !war.SideB.Contains(power)) continue;
+                var updated = war with { SideA = war.SideA.Where(p => p != power).ToList(), SideB = war.SideB.Where(p => p != power).ToList() };
+                if (updated.SideA.Count == 0 || updated.SideB.Count == 0) wars.RemoveAt(i);
+                else wars[i] = updated;
+            }
         }
 
         private WarSettings Settings => ctx.Content.Balance.Wars;
@@ -100,9 +117,13 @@ namespace MirrorChronicles.Diplomacy
                 loot += lost;
             }
             if (factions.GetFactionByName(winners[0]) is { } leader) leader.Wealth += (int)(loot * s.WinnerLootShare);
-            foreach (var member in war.SideA.Concat(war.SideB).Where(m => treaties.Has(m, TreatyKind.Defence)))
-                politics.CallClanToArms(member, war.SideA.Contains(member) ? war.SideB[0] : war.SideA[0]);
+            bool alliesOnA = war.SideA.Any(IsDefended), alliesOnB = war.SideB.Any(IsDefended);
+            if (alliesOnA == alliesOnB) return; // none, or allies of the clan on both sides: it answers neither
+            foreach (var member in (alliesOnA ? war.SideA : war.SideB).Where(IsDefended))
+                politics.CallClanToArms(member, alliesOnA ? war.SideB[0] : war.SideA[0]);
         }
+
+        private bool IsDefended(string power) => treaties.Has(power, TreatyKind.Defence);
 
         // ---- The clan's war ----
 
@@ -111,6 +132,7 @@ namespace MirrorChronicles.Diplomacy
             var power = factions.GetFactionByName(faction);
             if (power == null) return "puissance inconnue";
             if (clanWars.Any(w => w.Enemy == faction)) return "le clan est déjà en guerre contre elle";
+            if (treaties.With(faction).Count > 0) return "un traité vous lie : rompez-le d'abord";
             alliances.DeclareWar(power.ID);
             clanWars.Add(new ClanWar(faction, ctx.Clock.Year, power.PowerLevel));
             ctx.Events.TriggerWarBegun(SecretBook.ClanHolder, faction);
@@ -143,8 +165,16 @@ namespace MirrorChronicles.Diplomacy
                 .OrderByDescending(p => p).ToList();
             double strength = fighters.Count == 0 ? 0 : fighters[0] + fighters.Skip(1).Sum() * Settings.ClanStrengthPerMember;
             foreach (var ally in treaties.All.Where(t => t.Kind == TreatyKind.Defence && t.Faction != war.Enemy).Select(t => factions.GetFactionByName(t.Faction)))
-                if (ally != null && ctx.Rng.Chance(Settings.AllyJoinChance)) strength += WarRules.Strength(ally, Settings); // it comes, or lingers
+                if (ally != null && Comes(ally.Name)) strength += WarRules.Strength(ally, Settings); // it comes, or lingers
             return strength;
+        }
+
+        /// <summary>An ally answers once a year, whatever the number of the clan's wars.</summary>
+        private bool Comes(string ally)
+        {
+            if (alliesYear != ctx.Clock.Year) { alliesComing.Clear(); alliesYear = ctx.Clock.Year; }
+            if (!alliesComing.TryGetValue(ally, out bool comes)) alliesComing[ally] = comes = ctx.Rng.Chance(Settings.AllyJoinChance);
+            return comes;
         }
 
         private void ClanBattle(ClanWar war, FactionData enemy)
@@ -203,7 +233,10 @@ namespace MirrorChronicles.Diplomacy
                     var (victor, vanquished) = bBeaten ? (war.SideA[0], war.SideB[0]) : (war.SideB[0], war.SideA[0]);
                     politics.Subjugate(factions.GetFactionByName(victor), factions.GetFactionByName(vanquished));
                     ctx.Events.TriggerPeace(victor, vanquished);
+                    return;
                 }
+                ctx.Log.Info($"[Wars] A weary peace between {war.SideA[0]} and {war.SideB[0]}.");
+                ctx.Events.TriggerPeace(war.SideA[0], war.SideB[0]);
                 return;
             }
             Battle(war);
@@ -223,7 +256,8 @@ namespace MirrorChronicles.Diplomacy
                 if (wary.Count > 0)
                 {
                     var war = Start(wary[0], hegemon);
-                    foreach (var other in wary.Skip(1).Where(o => !war.SideA.Contains(o.Name))) war.SideA.Add(other.Name); // they band together
+                    var banded = war.SideA.Concat(wary.Skip(1).Select(o => o.Name).Where(n => !war.SideA.Contains(n) && !war.SideB.Contains(n))).ToList();
+                    wars[wars.IndexOf(war)] = war with { SideA = banded, InitialA = Total(banded) }; // they band together
                 }
             }
             foreach (var power in powers.Where(p => p.Personality == FactionPersonality.Aggressive && !AtWar(p.Name)))
