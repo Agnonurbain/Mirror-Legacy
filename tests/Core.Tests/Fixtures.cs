@@ -97,7 +97,7 @@ namespace MirrorChronicles.Tests
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions);
             Bestiary = new BeastRegistry(Ctx);
             Suspicion = new SuspicionLedger();
-            Treaties = new TreatySystem(Ctx, Clan, Resources, Factions, Suspicion);
+            Treaties = new TreatySystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques);
             Exchange = new KnowledgeExchange(Ctx, Factions, Techniques, Resources, Mirror, Treaties);
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Ctx, Factions, Resources);

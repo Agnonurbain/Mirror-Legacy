@@ -55,6 +55,7 @@ namespace MirrorChronicles.Session
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
         public MirrorLore Lore { get; }
+        public TreatySystem Treaties { get; }
         public CaptiveSystem Captives { get; }
         public SchemeSystem Schemes { get; }
         public SecretSystem Secrets { get; }
@@ -99,19 +100,20 @@ namespace MirrorChronicles.Session
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Context, Clan, Resources, Factions);
-            Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror);
+            Suspicion = new SuspicionLedger();
+            Treaties = new TreatySystem(Context, Clan, Resources, Factions, Suspicion, Techniques);
+            Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror, Treaties);
             Bestiary = new BeastRegistry(Context);
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability, Techniques);
             Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
-            Suspicion = new SuspicionLedger();
             Hunts = new HuntOperations(Context, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
             Lore = new MirrorLore(Context, Factions, seed);
             Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
-            Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets);
+            Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
             Captives = new CaptiveSystem(Context, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
-            Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets);
+            Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
@@ -198,6 +200,7 @@ namespace MirrorChronicles.Session
             session.Suspicion.RestoreMirrorClues(data.MirrorClues);
             session.Secrets.RestoreConfrontation(data.Confrontation);
             session.Captives.RestorePrisoners(data.Prisoners); // none in saves before 2.10
+            session.Treaties.RestoreTreaties(data.Treaties);   // none in saves before 2.11
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -248,6 +251,7 @@ namespace MirrorChronicles.Session
                 MirrorClues = new Dictionary<string, int>(Suspicion.AllMirrorClues),
                 Confrontation = Secrets.Confrontation,
                 Prisoners = Captives.Prisoners.ToList(),
+                Treaties = Treaties.All.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -299,6 +303,7 @@ namespace MirrorChronicles.Session
                     Plots.ProcessYear();              // the powers investigate, and strike what they suspect (D7)
             Schemes.ProcessYear();            // the powers scheme for profit: ambushes on members away (L6a)
             Captives.ProcessYear();           // the captives are interrogated, and may be executed
+            Treaties.ProcessYear();           // the treaties: tribute, trade, the allies close by — and betrayal (D7)
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)

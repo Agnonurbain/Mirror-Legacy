@@ -187,6 +187,9 @@ namespace MirrorChronicles.Data
         /// <summary>Who knows the mirror exists, and what an ordinary power can do with a rumour (2026-09-27; interpretations).</summary>
         public MirrorLoreSettings MirrorLore { get; init; }
 
+        /// <summary>The clan's treaties with the powers (2026-09-27; interpretations of D7).</summary>
+        public TreatySettings Treaties { get; init; }
+
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
 

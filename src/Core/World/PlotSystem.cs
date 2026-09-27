@@ -21,10 +21,12 @@ namespace MirrorChronicles.World
         private readonly FactionManager factions;
         private readonly SuspicionLedger suspicion;
         private readonly SecretSystem secrets;
+        private readonly TreatySystem treaties;
 
         public PlotSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, SuspicionLedger suspicion,
-            SecretSystem secrets)
+            SecretSystem secrets, TreatySystem treaties = null)
         {
+            this.treaties = treaties;
             this.secrets = secrets;
             this.ctx = ctx;
             this.clan = clan;
@@ -56,6 +58,7 @@ namespace MirrorChronicles.World
             bool proven = suspicion.Evidence(power.Name) >= Settings.ProofThreshold;
             var strongest = clan.LivingMembers.Select(m => m.Realm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
             if (!proven && !PlotRules.DaresWithoutProof(power, strongest, ctx.Content)) return; // it waits for proof
+            if (!proven && treaties?.Spares(power.Name) == true) return;                     // its treaty holds it back, short of proof
 
             factions.ChangeRelation(power.ID, Settings.ReprisalRelation);
             resources.ConsumeSpiritStones((int)(resources.SpiritStones * Settings.ReprisalStonesShare));

@@ -161,6 +161,7 @@ namespace MirrorChronicles.Tests.Diplomacy
         public void TheSuzerainsFullGrip_TakesStones_AndTheClansBestArt()
         {
             var w = World(new FixedRandom(0.999));
+            w.Techniques.Learn("clear-spring-sutra");
             w.Treaties.Propose(Peak, TreatyKind.Vassalage);
             w.Treaties.RestoreTreaties(new[] { w.Treaties.With(Peak).Single() with { Grip = Settings.GripThreshold } });
             int stones = w.Resources.SpiritStones;
