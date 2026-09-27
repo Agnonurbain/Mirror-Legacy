@@ -176,5 +176,21 @@ namespace MirrorChronicles.Tests.Diplomacy
             Assert.AreEqual(s.Wars.ClanWars.Single(), reloaded.Wars.ClanWars.Single());
             CollectionAssert.AreEqual(s.Wars.Wars.Single().SideA, reloaded.Wars.Wars.Single().SideA);
         }
+
+        [Test]
+        public void TheDiplomacyScreen_ShowsTheWars_AndThePriceOfPeace()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            s.Wars.DeclareOn(Fang);
+            s.Wars.Start(s.Factions.GetFactionByName(Ruan), s.Factions.GetFactionByName(Tao));
+
+            var wars = MirrorChronicles.Presentation.DiplomacyView.Wars(s);
+
+            var ours = wars.Single(x => x.ClansWar);
+            Assert.AreEqual(Fang, ours.Enemy);
+            Assert.AreEqual((int)(s.Resources.SpiritStones * Settings.PeaceTributeShare), ours.PeaceCost);
+            StringAssert.Contains(Ruan, wars.Single(x => !x.ClansWar).Description);
+            Assert.IsFalse(wars.Any(x => x.Description.Contains("@")), "the clan is named, never coded");
+        }
     }
 }
