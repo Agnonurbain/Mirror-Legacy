@@ -17,7 +17,7 @@ namespace MirrorChronicles.Game
         private const string None = "—";
 
         private GameRoot root;
-        private VBoxContainer ritual, hunt, secret, captives;
+        private VBoxContainer ritual, hunt, secret, captives, probes;
         private Label status;
 
         // the plan being built
@@ -28,6 +28,11 @@ namespace MirrorChronicles.Game
         private MirrorAid aid;
         private string proofFrom;
         private string proofToward;
+        // the probe being planned (2026-09-27)
+        private string probeTarget, probeLeader, probeSecond, probePartner, sellTo;
+        private ProbeApproach probeApproach = ProbeApproach.Infiltration;
+        private int probeStones = 300;
+
         private readonly Dictionary<string, string> rescuers = new Dictionary<string, string>(); // captive → the member sent to free them
 
         public override void _Ready()
@@ -37,9 +42,10 @@ namespace MirrorChronicles.Game
             hunt = GetNode<VBoxContainer>("%Hunt");
             secret = GetNode<VBoxContainer>("%Secret");
             captives = GetNode<VBoxContainer>("%Captives");
+            probes = GetNode<VBoxContainer>("%Probes");
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
-            // OPS_TAB=<0-3> opens a tab (screenshots of a smoke run)
+            // OPS_TAB=<0-4> opens a tab (screenshots of a smoke run)
             if (int.TryParse(OS.GetEnvironment("OPS_TAB"), out int tab)) GetNode<TabContainer>("%Tabs").CurrentTab = tab;
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
@@ -51,6 +57,7 @@ namespace MirrorChronicles.Game
             ShowHunt();
             ShowSecret();
             ShowCaptives();
+            ShowProbes();
         }
 
         // ---- The ritual ----
@@ -335,6 +342,99 @@ namespace MirrorChronicles.Game
             if (!agent.Denounced)
                 Act(line, "Le montrer aux autres puissances", () => session.Captives.Denounce(agent.Id), $"Les autres puissances savent ce que {agent.Power} a tramé.");
             Act(line, "L'exécuter", () => session.Captives.Execute(agent.Id), "L'agent est exécuté.");
+        }
+
+        // ---- Probes and secrets (2026-09-27) ----
+
+        private void ShowProbes()
+        {
+            Clear(probes);
+            var session = root.Session;
+            ShowProbePlan(session);
+            ShowKnownSecrets(session);
+            Add(probes, "Les secrets du clan :");
+            var own = SecretsView.Clans(session);
+            if (own.Count == 0) Add(probes, "Aucun, pour l'instant (outre le miroir).");
+            foreach (var secret in own) Add(probes, $"   · {secret.Name} ({secret.Rank}) — {secret.Sign}");
+        }
+
+        private void ShowProbePlan(Session.GameSession session)
+        {
+            Add(probes, "Préparer un sondage :");
+            var powers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
+            if (powers.All(p => p.Item1 != probeTarget)) probeTarget = powers.FirstOrDefault().Item1;
+            var target = Picker(probes, "Cible", powers, probeTarget);
+            target.ItemSelected += _ => { probeTarget = Selected(target); ShowProbes(); };
+            var approaches = Enum.GetValues(typeof(ProbeApproach)).Cast<ProbeApproach>().Select(a => (a.ToString(), SecretsView.ApproachLabel(a))).ToList();
+            var approach = Picker(probes, "Méthode", approaches, probeApproach.ToString());
+            approach.ItemSelected += _ => { probeApproach = Enum.Parse<ProbeApproach>(Selected(approach)); ShowProbes(); };
+
+            var free = OperationsView.HuntCandidates(session).Select(c => (c.Id, $"{c.Name} ({c.Rank})")).ToList();
+            if (free.All(c => c.Item1 != probeLeader)) probeLeader = free.FirstOrDefault().Item1;
+            var leader = Picker(probes, "Chef", free, probeLeader);
+            leader.ItemSelected += _ => { probeLeader = Selected(leader); ShowProbes(); };
+            var seconds = free.Where(c => c.Item1 != probeLeader).Prepend((None, "personne")).ToList();
+            if (seconds.All(c => c.Item1 != probeSecond)) probeSecond = None;
+            var second = Picker(probes, "Second", seconds, probeSecond);
+            second.ItemSelected += _ => { probeSecond = Selected(second); ShowProbes(); };
+            var partners = powers.Where(p => p.Item1 != probeTarget).Prepend((None, "aucun")).ToList();
+            if (partners.All(p => p.Item1 != probePartner)) probePartner = None;
+            var partner = Picker(probes, "Partenaire", partners, probePartner);
+            partner.ItemSelected += _ => { probePartner = Selected(partner); ShowProbes(); };
+            if (probeApproach == ProbeApproach.Bribery)
+            {
+                var sums = new[] { 100, 300, 600, 1000 }.Select(v => (v.ToString(), $"{v} pierres")).ToList();
+                var stones = Picker(probes, "Pot-de-vin", sums, probeStones.ToString());
+                stones.ItemSelected += _ => { probeStones = int.Parse(Selected(stones)); ShowProbes(); };
+            }
+            LaunchProbe(session);
+        }
+
+        private void LaunchProbe(Session.GameSession session)
+        {
+            var team = new[] { probeLeader, probeSecond }.Where(id => id != null && id != None).ToList();
+            var allies = probePartner != null && probePartner != None ? new List<string> { probePartner } : new List<string>();
+            var plan = new ProbePlan(probeTarget, probeApproach, team, allies, probeApproach == ProbeApproach.Bribery ? probeStones : 0);
+            var preview = SecretsView.Preview(session, plan);
+            Add(probes, preview.Refusal == null ? $"Chances : {preview.Chance} %" : $"Pas encore : {preview.Refusal}.");
+            var send = new Button { Text = "Lancer le sondage", Disabled = preview.Refusal != null, SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
+            send.Pressed += () =>
+            {
+                var outcome = session.Probes.Probe(plan);
+                probeLeader = probeSecond = probePartner = null; // the team is spent for the year: plan anew
+                Report(outcome.Refusal != null ? $"Refusé : {outcome.Refusal}."
+                    : (outcome.Success ? "Le sondage porte ses fruits." : "Le sondage n'apprend rien.")
+                      + (outcome.Revealed.Count > 0 ? " Un secret est percé !" : "")
+                      + (outcome.Detected ? " Il a été éventé." : "")
+                      + (outcome.Disaster ? " Désastre : un des nôtres est pris." : "")
+                      + (outcome.LateAllies.Count > 0 ? $" ({string.Join(", ", outcome.LateAllies)} a tardé à venir en aide.)" : ""));
+            };
+            probes.AddChild(send);
+        }
+
+        private void ShowKnownSecrets(Session.GameSession session)
+        {
+            Add(probes, "Ce que le clan sait des autres :");
+            var known = SecretsView.Known(session);
+            if (known.Count == 0) Add(probes, "Rien encore.");
+            var buyers = session.Factions.Factions.Select(f => (f.Name, f.Name)).ToList();
+            foreach (var secret in known)
+            {
+                var line = new HBoxContainer();
+                line.AddChild(new Label { Text = $"{secret.Holder} : {secret.Name} ({secret.Rank}){(secret.Spent ? " · déjà utilisé" : "")}", CustomMinimumSize = new Vector2(420, 0) });
+                AddAction(line, "Chantage", () => Report(session.Dealings.Blackmail(secret.Id) is { } r ? $"Refusé : {r}." : $"{secret.Holder} paie pour votre silence."));
+                AddAction(line, "Révéler", () => Report(session.Dealings.Expose(secret.Id) is { } r ? $"Refusé : {r}." : "Tous le savent désormais."));
+                var sell = new Button { Text = "Vendre", Disabled = sellTo == secret.Holder, TooltipText = sellTo == secret.Holder ? "on ne vend pas un secret à celui qui le détient" : "" };
+                sell.Pressed += () => Report(session.Dealings.Sell(secret.Id, sellTo) is { } r ? $"Refusé : {r}." : $"Le secret est vendu à {sellTo}.");
+                line.AddChild(sell);
+                probes.AddChild(line);
+            }
+            if (known.Count > 0)
+            {
+                if (buyers.All(b => b.Item1 != sellTo)) sellTo = buyers.FirstOrDefault().Item1;
+                var buyer = Picker(probes, "Vendre à", buyers, sellTo);
+                buyer.ItemSelected += _ => { sellTo = Selected(buyer); ShowProbes(); };
+            }
         }
 
         /// <summary>A button for an action that answers with its refusal, or null when done.</summary>

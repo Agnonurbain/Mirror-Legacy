@@ -103,6 +103,27 @@ namespace MirrorChronicles.World
             }
         }
 
+        private readonly Dictionary<string, int> clanDistrust = new Dictionary<string, int>();
+
+        /// <summary>The clan's own distrust of a power (0-100): its memory of what the power did to it.</summary>
+        public int ClanDistrust(string faction) => faction != null && clanDistrust.TryGetValue(faction, out int v) ? v : 0;
+
+        public void AddClanDistrust(string faction, int amount)
+        {
+            if (faction == null || amount == 0) return;
+            int value = Math.Clamp(ClanDistrust(faction) + amount, 0, Max);
+            if (value == 0) clanDistrust.Remove(faction);
+            else clanDistrust[faction] = value;
+        }
+
+        public IReadOnlyDictionary<string, int> AllClanDistrust => clanDistrust;
+
+        public void RestoreClanDistrust(IReadOnlyDictionary<string, int> saved)
+        {
+            clanDistrust.Clear();
+            foreach (var pair in saved ?? new Dictionary<string, int>()) AddClanDistrust(pair.Key, pair.Value);
+        }
+
         private static string Key(string holder, string toward) => $"{holder}→{toward}";
 
         private static (string Holder, string Toward) Split(string key)

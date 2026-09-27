@@ -222,6 +222,7 @@ namespace MirrorChronicles.Diplomacy
                 foreach (var other in factions.Factions.Where(f => f.Name != power.Name))
                     suspicion.AddDistrust(other.Name, power.Name, s.BetrayalWitnessDistrust);
             ctx.Log.Warning($"[Treaties] {power.Name} betrays its {treaty.Kind} treaty with the clan.");
+            ctx.Events.TriggerTreatyBetrayed(power.Name);
         }
 
         /// <summary>A secret treaty comes to light: everyone doubts both sides.</summary>

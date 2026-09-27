@@ -83,6 +83,7 @@ namespace MirrorChronicles.World
             suspicion.AddEvidence(faction, -moved);
             suspicion.AddDistrust(faction, framed, moved);
             ctx.Log.Info($"[Secrets] A false proof turns {faction}'s eyes toward {framed}.");
+            ctx.Events.TriggerDeed("planted-false-proof", framed); // a secret of the clan now (2026-09-27)
             return true;
         }
 

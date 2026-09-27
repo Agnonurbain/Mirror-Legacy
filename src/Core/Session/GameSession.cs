@@ -58,6 +58,10 @@ namespace MirrorChronicles.Session
         public TreatySystem Treaties { get; }
         public PowerPoliticsSystem Politics { get; }
         public IntrigueSystem Intrigues { get; }
+        public SecretBook SecretBook { get; }
+        public ClanWatch Watch { get; }
+        public SecretDealings Dealings { get; }
+        public ProbeSystem Probes { get; }
         public CaptiveSystem Captives { get; }
         public SchemeSystem Schemes { get; }
         public SecretSystem Secrets { get; }
@@ -116,6 +120,10 @@ namespace MirrorChronicles.Session
             Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
             Captives = new CaptiveSystem(Context, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
+            Watch = new ClanWatch(Context, Suspicion);
+            SecretBook = new SecretBook(Context, Suspicion);
+            Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
+            Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources);
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
@@ -140,6 +148,7 @@ namespace MirrorChronicles.Session
             session.Factions.InitializeFactions();
             session.Fruitions.DrawWorld(FruitionRegistry.WorldRandom(setup.Seed));
             session.Bestiary.Draw(BeastRegistry.WorldRandom(setup.Seed));
+            session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(setup.Seed), session.Factions.Factions);
             session.Deduction.AddFragment(Element.Fire, 1, "Scorched Scroll");
             session.Deduction.AddFragment(Element.Wood, 1, "Bamboo Slip");
 
@@ -209,6 +218,11 @@ namespace MirrorChronicles.Session
             session.Politics.RestoreCoalition(data.Coalition);
             session.Politics.RestoreCalls(data.CallsToArms);
             session.Intrigues.RestoreDemands(data.Demands, data.QuietUntil); // none in saves before 2.13
+            session.SecretBook.Restore(data.SecretsHeld, data.SecretProgress);
+            if (data.SecretsHeld == null) session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(data.Seed), session.Factions.Factions); // before 2.14
+            session.Probes.RestoreAlertness(data.Alertness);
+            session.Suspicion.RestoreClanDistrust(data.ClanDistrust); // none in saves before 2.15
+            session.Dealings.RestoreSpent(data.SpentSecrets);
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -265,6 +279,11 @@ namespace MirrorChronicles.Session
                 CallsToArms = Politics.PendingCalls.ToList(),
                 Demands = Intrigues.Demands.ToList(),
                 QuietUntil = new Dictionary<string, int>(Intrigues.QuietUntil),
+                SecretsHeld = SecretBook.All.ToList(),
+                SecretProgress = new Dictionary<string, int>(SecretBook.AllProgress),
+                Alertness = new Dictionary<string, int>(Probes.AllAlertness),
+                ClanDistrust = new Dictionary<string, int>(Suspicion.AllClanDistrust),
+                SpentSecrets = Dealings.Spent.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -319,6 +338,9 @@ namespace MirrorChronicles.Session
                     Treaties.ProcessYear();           // the treaties: tribute, trade, the allies close by — and betrayal (D7)
                     Politics.ProcessYear();           // the powers ally, feud, subjugate, band against the clan (2026-09-27)
                     Intrigues.ProcessYear();          // blackmail, theft, spies (2026-09-27)
+                    Probes.ProcessYear();             // the powers probe each other and the clan (2026-09-27)
+                    Watch.ProcessYear();              // the clan's memory of offences fades a little
+                    Dealings.ProcessYear();           // a power with a pierced secret of the clan may expose it
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)

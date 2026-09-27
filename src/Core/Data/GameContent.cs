@@ -36,6 +36,7 @@ namespace MirrorChronicles.Data
         public OathCatalog Oaths { get; init; } = new OathCatalog();
 
         /// <summary>The kinds of spirit beasts (beasts.json, L2c.2).</summary>
+        public IReadOnlyList<SecretKind> SecretKinds { get; init; } = Array.Empty<SecretKind>();
         public IReadOnlyList<AtmosphereDefinition> Atmospheres { get; init; } = Array.Empty<AtmosphereDefinition>();
         public IReadOnlyList<BeastSpecies> BeastSpecies { get; init; } = Array.Empty<BeastSpecies>();
 
@@ -195,6 +196,15 @@ namespace MirrorChronicles.Data
 
         /// <summary>The powers' intrigues: blackmail, theft, spies (2026-09-27; interpretations).</summary>
         public IntrigueSettings Intrigues { get; init; }
+
+        /// <summary>Secrets for everyone and the probes that pierce them (2026-09-27; interpretations).</summary>
+        public SecretSettings Secrets { get; init; }
+
+        /// <summary>The clan's own distrust of each power (2026-09-27; interpretations).</summary>
+        public ClanWatchSettings ClanWatch { get; init; }
+
+        /// <summary>What a pierced secret is worth: blackmail, exposure, sale (2026-09-27; interpretations).</summary>
+        public DealingSettings Dealings { get; init; }
 
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }

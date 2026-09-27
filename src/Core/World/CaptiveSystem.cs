@@ -236,6 +236,7 @@ namespace MirrorChronicles.World
                 factions.ChangeRelation(power.ID, power.Name == agent.Faction ? Settings.ExecuteRelation : Settings.ExecuteWitnessRelation);
             prisoners.Remove(agent);
             ctx.Log.Warning($"[Captives] The clan executes an agent of {agent.Faction}.");
+            ctx.Events.TriggerDeed("executed-agent", agent.Faction);
             return null;
         }
 

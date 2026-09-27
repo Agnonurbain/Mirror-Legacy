@@ -130,6 +130,7 @@ namespace MirrorChronicles.Mirror
 
             bestiary.Take(beast);
             resources.AddBeast(new CapturedBeast(beast.Id, beast.Realm, beast.Stage, beast.OwnerFaction));
+            if (beast.OwnerFaction != null) ctx.Events.TriggerDeed("blood-of-anothers-beast", beast.OwnerFaction); // a secret of the clan
             int exposure = HuntRules.CleanExposure(plan, ctx.Content);
             string cleanBlame = Suspect(beast, exposure, plan.FramedFaction);
             ctx.Log.Info($"[Hunt] The team takes the beast ({beast.Realm}, stage {beast.Stage}).");

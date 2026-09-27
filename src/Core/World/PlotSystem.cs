@@ -71,6 +71,7 @@ namespace MirrorChronicles.World
             resources.ConsumeSpiritStones((int)(resources.SpiritStones * Settings.ReprisalStonesShare));
             suspicion.AddToClan(power.Name, -suspicion.OfClan(power.Name)); // the account is settled
             struck.Add(power.Name);
+            ctx.Events.TriggerClanStruck(power.Name);
 
             foreach (var other in factions.Factions.Where(f => f != power))
             {
