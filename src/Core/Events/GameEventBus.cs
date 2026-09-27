@@ -44,7 +44,9 @@ namespace MirrorChronicles.Events
         public event Action<string> OnTreatyBetrayed;                        // a power betrays its treaty with the clan
         public event Action<string> OnBlackmail;                             // a power demands stones for its silence
         public event Action<string> OnSpyUnmasked;
-        public event Action<string> OnPatronWrath;                           // a great partner turns on the clan                           // the mirror unmasks a power's spy                         // what was stolen, and the thief when caught (else null)                           // an agent of a power in the clan's hands
+        public event Action<string> OnPatronWrath;
+        public event Action<string, string> OnWarBegun;                      // attacker, defender (the clan as SecretBook.ClanHolder)
+        public event Action<string, string> OnPeace;                         // victor or party, the other                           // a great partner turns on the clan                           // the mirror unmasks a power's spy                         // what was stolen, and the thief when caught (else null)                           // an agent of a power in the clan's hands
 
         // Economy
         public event Action<int> OnSpiritStonesChanged;
@@ -77,6 +79,8 @@ namespace MirrorChronicles.Events
         public void TriggerBlackmail(string power) => OnBlackmail?.Invoke(power);
         public void TriggerSpyUnmasked(string power) => OnSpyUnmasked?.Invoke(power);
         public void TriggerPatronWrath(string patron) => OnPatronWrath?.Invoke(patron);
+        public void TriggerWarBegun(string attacker, string defender) => OnWarBegun?.Invoke(attacker, defender);
+        public void TriggerPeace(string a, string b) => OnPeace?.Invoke(a, b);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);

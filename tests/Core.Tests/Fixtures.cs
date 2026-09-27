@@ -58,6 +58,7 @@ namespace MirrorChronicles.Tests
         public TreatySystem Treaties { get; }
         public PowerPoliticsSystem Politics { get; }
         public PatronSystem Patrons { get; }
+        public WarSystem Wars { get; }
         public IntrigueSystem Intrigues { get; }
         public SecretBook SecretBook { get; }
         public ClanWatch Watch { get; }
@@ -123,6 +124,7 @@ namespace MirrorChronicles.Tests
             Probes = new ProbeSystem(Ctx, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
             Patrons = new PatronSystem(Ctx, Clan, Resources);
+            Wars = new WarSystem(Ctx, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);

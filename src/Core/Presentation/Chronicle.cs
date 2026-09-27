@@ -45,6 +45,8 @@ namespace MirrorChronicles.Presentation
             bus.OnTheft += (what, thief) => Add(thief == null ? $"vol au domaine : {what}, sans que l'on sache qui." : $"vol au domaine : {what} ; le voleur, de {thief}, est pris.");
             bus.OnProbeSpotted += prober => Add($"des gens de {prober} sont surpris à sonder le clan.");
             bus.OnPatronWrath += patron => Add($"{patron} tourne sa colère contre le clan.");
+            bus.OnWarBegun += (attacker, defender) => Add($"{Who(attacker)} fait la guerre {(defender == World.SecretBook.ClanHolder ? "au clan" : "à " + defender)}.");
+            bus.OnPeace += (a, b) => Add($"paix entre {Who(a, object_: true)} et {Who(b, object_: true)}.");
             bus.OnGameOver += won =>
             {
                 if (won) Add("la lignée devient éternelle.");
@@ -67,5 +69,9 @@ namespace MirrorChronicles.Presentation
             if (entries.Count > capacity) entries.RemoveAt(0);
             OnEntryAdded?.Invoke(entry);
         }
+
+        /// <summary>A party as the chronicle names it: the clan by its name, never by the book's code.</summary>
+        private static string Who(string party, bool object_ = false) =>
+            party == World.SecretBook.ClanHolder ? (object_ ? "le clan" : "Le clan") : party;
     }
 }

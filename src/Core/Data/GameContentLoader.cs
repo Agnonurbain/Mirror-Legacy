@@ -247,6 +247,13 @@ namespace MirrorChronicles.Data
                 && IsProbability(treaty.VassalTributeShare) && IsProbability(treaty.GripStonesShare) && treaty.GripThreshold > 0
                 && treaty.TradeDiscount > 0 && treaty.SealedHeartDemonYears >= 0,
                 BalanceFile, "treaties needs a relation and a base for every kind, and odds and shares between 0 and 1.");
+            var war = balance.Wars;
+            Require(war != null && war.StrengthPerPowerLevel >= 0 && IsProbability(war.BattleLossShare) && IsProbability(war.WinnerLootShare)
+                && war.SurrenderRatio > 0 && war.SurrenderRatio < 1 && war.MaxWarYears >= 1 && IsProbability(war.WarChance)
+                && war.HegemonRatio >= 1 && IsProbability(war.HegemonChance) && IsProbability(war.AllyJoinChance)
+                && IsProbability(war.ClanWarStonesLoss) && IsProbability(war.ClanWarDeathChance) && IsProbability(war.ClanLootShare)
+                && IsProbability(war.PeaceTributeShare) && IsProbability(war.PowerDeclareChance),
+                BalanceFile, "wars needs shares and odds between 0 and 1, a surrender ratio under 1, and at least one year of war.");
             var pat = balance.Patrons;
             Require(pat != null && pat.StartFavor > 0 && pat.MaxFavor >= pat.StartFavor && pat.UnpaidFavorLoss > 0 && pat.SafeEndFavor >= 0,
                 BalanceFile, "patrons needs a starting favour, a ceiling above it, a loss for an unpaid tribute, and a safe favour to leave.");

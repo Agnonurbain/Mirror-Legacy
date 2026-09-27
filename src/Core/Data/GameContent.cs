@@ -210,6 +210,9 @@ namespace MirrorChronicles.Data
         /// <summary>The favour of the great partners (2026-09-27; interpretations).</summary>
         public PatronSettings Patrons { get; init; }
 
+        /// <summary>Open wars (2026-09-27; interpretations).</summary>
+        public WarSettings Wars { get; init; }
+
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
 

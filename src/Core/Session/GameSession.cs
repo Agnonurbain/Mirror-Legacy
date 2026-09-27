@@ -58,6 +58,7 @@ namespace MirrorChronicles.Session
         public TreatySystem Treaties { get; }
         public PowerPoliticsSystem Politics { get; }
         public PatronSystem Patrons { get; }
+        public WarSystem Wars { get; }
         public IntrigueSystem Intrigues { get; }
         public SecretBook SecretBook { get; }
         public ClanWatch Watch { get; }
@@ -128,6 +129,7 @@ namespace MirrorChronicles.Session
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
             Patrons = new PatronSystem(Context, Clan, Resources);
+            Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             Matches = new MarriageAlliance(Context, Clan, Factions, Treaties, Marriages, Suspicion);
@@ -228,6 +230,7 @@ namespace MirrorChronicles.Session
             session.Suspicion.RestoreClanDistrust(data.ClanDistrust); // none in saves before 2.15
             session.Dealings.RestoreSpent(data.SpentSecrets);
             session.Patrons.RestorePacts(data.PatronPacts);
+            session.Wars.Restore(data.Wars, data.ClanWars); // none in saves before 2.17
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -290,6 +293,8 @@ namespace MirrorChronicles.Session
                 ClanDistrust = new Dictionary<string, int>(Suspicion.AllClanDistrust),
                 SpentSecrets = Dealings.Spent.ToList(),
                 PatronPacts = Patrons.Pacts.ToList(),
+                Wars = Wars.Wars.Select(w => w with { SideA = w.SideA.ToList(), SideB = w.SideB.ToList() }).ToList(),
+                ClanWars = Wars.ClanWars.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -348,6 +353,7 @@ namespace MirrorChronicles.Session
                     Watch.ProcessYear();              // the clan's memory of offences fades a little
                     Dealings.ProcessYear();           // a power with a pierced secret of the clan may expose it
                     Patrons.ProcessYear();            // the great partners' tribute, boons, and wrath
+                    Wars.ProcessYear();               // open wars: battles, surrenders, coalitions against a hegemon, the clan's war
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)

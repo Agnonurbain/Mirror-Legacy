@@ -240,6 +240,27 @@
     "doubleAgentRelief": 10,
     "spyExecutionRelation": -40
   },
+  "wars": {
+    "strengthPerPowerLevel": 0.01,
+    "battleLossShare": 0.1,
+    "winnerLootShare": 0.5,
+    "surrenderRatio": 0.6,
+    "maxWarYears": 10,
+    "warChance": 0.05,
+    "warDistrust": 40,
+    "hegemonRatio": 3.0,
+    "hegemonChance": 0.1,
+    "clanStrengthPerMember": 0.2,
+    "allyJoinChance": 0.5,
+    "clanWarStonesLoss": 0.1,
+    "clanWarDeathChance": 0.2,
+    "clanLootShare": 0.1,
+    "peaceTributeShare": 0.3,
+    "peaceRelation": -30,
+    "powerDeclareChance": 0.05,
+    "declareSuspicion": 70,
+    "declareRelation": -40
+  },
   "patrons": {
     "startFavor": 5,
     "maxFavor": 10,
