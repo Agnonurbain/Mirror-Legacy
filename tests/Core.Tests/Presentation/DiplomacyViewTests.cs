@@ -99,5 +99,13 @@ namespace MirrorChronicles.Tests.Presentation
 
             Assert.AreEqual((1, Fixtures.Content.Balance.Politics.ClanAbsorptionSteps), (line.Absorptions, line.AbsorptionSteps));
         }
+
+        [Test]
+        public void TheBlackmailDemands_AreShown()
+        {
+            var s = NewGame();
+            s.Intrigues.RestoreDemands(new[] { new Demand("Porte du Chrysanthème Noir", 150, 1) }, null);
+            Assert.AreEqual(new DemandLine("Porte du Chrysanthème Noir", 150), DiplomacyView.Demands(s).Single());
+        }
     }
 }
