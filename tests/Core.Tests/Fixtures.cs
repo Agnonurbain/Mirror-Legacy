@@ -59,6 +59,7 @@ namespace MirrorChronicles.Tests
         public PowerPoliticsSystem Politics { get; }
         public IntrigueSystem Intrigues { get; }
         public SecretBook SecretBook { get; }
+        public ClanWatch Watch { get; }
         public ProbeSystem Probes { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
@@ -113,6 +114,7 @@ namespace MirrorChronicles.Tests
             Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
             Captives = new CaptiveSystem(Ctx, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Politics = new PowerPoliticsSystem(Ctx, Resources, Factions, Suspicion, Treaties);
+            Watch = new ClanWatch(Ctx, Suspicion);
             SecretBook = new SecretBook(Ctx, Suspicion);
             Probes = new ProbeSystem(Ctx, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources);
             Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
