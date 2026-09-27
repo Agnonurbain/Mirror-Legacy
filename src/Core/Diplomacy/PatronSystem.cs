@@ -35,7 +35,8 @@ namespace MirrorChronicles.Diplomacy
         public void RestorePacts(IEnumerable<PatronPact> saved)
         {
             pacts.Clear();
-            if (saved != null) pacts.AddRange(saved.Where(p => p != null && Patron(p.PatronId) != null));
+            if (saved != null)
+                pacts.AddRange(saved.Where(p => p != null && Patron(p.PatronId) != null).GroupBy(p => p.PatronId).Select(g => g.First())); // one per partner
         }
 
         private PatronDefinition Patron(string id) => ctx.Content.Patrons.FirstOrDefault(p => p.Id == id);
@@ -83,18 +84,19 @@ namespace MirrorChronicles.Diplomacy
         public void ProcessYear()
         {
             var s = Settings;
-            foreach (var pact in pacts.ToList())
+            for (int i = pacts.Count - 1; i >= 0; i--) // by position: a pact removed never shifts one still to come
             {
+                var pact = pacts[i];
                 var patron = Patron(pact.PatronId);
                 bool paid = resources.ConsumeSpiritStones(patron.Tribute);
                 int favor = System.Math.Min(s.MaxFavor, pact.Favor + (paid ? s.PaidFavor : -s.UnpaidFavorLoss));
                 if (favor <= 0)
                 {
-                    pacts.Remove(pact);
+                    pacts.RemoveAt(i);
                     Wrath(patron);
                     continue;
                 }
-                pacts[pacts.IndexOf(pact)] = pact with { Favor = favor };
+                pacts[i] = pact with { Favor = favor };
                 if (paid && patron.Boon == PatronBoon.Insight) resources.AddTechniqueFragments(patron.BoonStrength);
             }
         }
@@ -102,7 +104,9 @@ namespace MirrorChronicles.Diplomacy
         /// <summary>The partner's wrath: the clan's weakest member dies.</summary>
         private void Wrath(PatronDefinition patron)
         {
-            var victim = clan.LivingMembers.OrderBy(m => (int)m.Realm).ThenBy(m => m.RealmStage).ThenBy(m => m.Age).FirstOrDefault();
+            var free = clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList(); // a hostage elsewhere is not the partner's to take
+            var victim = (free.Count > 0 ? free : clan.LivingMembers.ToList())
+                .OrderBy(m => (int)m.Realm).ThenBy(m => m.RealmStage).ThenBy(m => m.Age).FirstOrDefault();
             if (victim != null) clan.Kill(victim, DeathCause.Combat);
             ctx.Log.Warning($"[Patrons] {patron?.Name ?? "A great partner"} turns its wrath on the clan.");
             ctx.Events.TriggerPatronWrath(patron?.Name);

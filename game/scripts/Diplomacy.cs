@@ -79,7 +79,7 @@ namespace MirrorChronicles.Game
                 var row = new HBoxContainer();
                 row.AddChild(new Label { Text = $"{patron.Name} ({patron.Kind}, {patron.Boon}, tribut {patron.Tribute}){(patron.Bound ? $" · {patron.Favor}" : "")}", CustomMinimumSize = new Vector2(460, 0) });
                 var act = patron.Bound
-                    ? new Button { Text = "Mettre fin au pacte" }
+                    ? new Button { Text = "Mettre fin au pacte", TooltipText = patron.EndWarning ?? "sans danger : elle vous est favorable" }
                     : new Button { Text = "Proposer un pacte", Disabled = patron.Refusal != null, TooltipText = patron.Refusal ?? "" };
                 act.Pressed += () => Report(patron.Bound ? session.Patrons.End(patron.Id) : session.Patrons.Propose(patron.Id),
                     patron.Bound ? $"Le pacte avec {patron.Name} prend fin." : $"{patron.Name} accepte le pacte.");

@@ -16,7 +16,8 @@ namespace MirrorChronicles.Presentation
         IReadOnlyList<string> Allies = null, string Suzerain = null, string ClanWatch = null);
 
     /// <summary>A great partner: what it gives, its tribute, why it would not hear the clan now, and — once bound — a sign of its favour.</summary>
-    public sealed record PatronLine(string Id, string Name, string Kind, string Boon, int Tribute, string Refusal, bool Bound, string Favor);
+    public sealed record PatronLine(string Id, string Name, string Kind, string Boon, int Tribute, string Refusal, bool Bound, string Favor,
+        string EndWarning = null);
 
     /// <summary>Powers banded against the clan, for the years left.</summary>
     public sealed record CoalitionLine(IReadOnlyList<string> Members, int YearsLeft);
@@ -75,7 +76,8 @@ namespace MirrorChronicles.Presentation
                     : pact.Favor < s.SafeEndFavor ? "sa colère gronde" : pact.Favor >= s.MaxFavor ? "elle vous tient en haute estime" : "elle vous est favorable";
                 return new PatronLine(p.Id, p.Name, p.Kind == PatronKind.Beast ? "grande bête" : "figure solitaire",
                     p.Boon switch { PatronBoon.Protection => "protection", PatronBoon.Insight => "savoir", _ => "regard" },
-                    p.Tribute, pact == null ? session.Patrons.Refusal(p.Id) : null, pact != null, favor);
+                    p.Tribute, pact == null ? session.Patrons.Refusal(p.Id) : null, pact != null, favor,
+                    pact != null && pact.Favor < s.SafeEndFavor ? "partir maintenant attirerait sa colère : un membre en mourrait" : null);
             }).ToList();
         }
 

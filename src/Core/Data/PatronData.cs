@@ -18,7 +18,7 @@ namespace MirrorChronicles.Data
         public string Id { get; init; }
         public string Name { get; init; }
         public PatronKind Kind { get; init; }
-        public string RegionId { get; init; }
+        public string RegionId { get; init; } // where it dwells (for the map and the screens; no rule weighs it yet)
         public CultivationRealm MinClanRealm { get; init; }
         public int Tribute { get; init; }
         public PatronBoon Boon { get; init; }
