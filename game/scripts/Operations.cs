@@ -401,6 +401,7 @@ namespace MirrorChronicles.Game
             send.Pressed += () =>
             {
                 var outcome = session.Probes.Probe(plan);
+                probeLeader = probeSecond = probePartner = null; // the team is spent for the year: plan anew
                 Report(outcome.Refusal != null ? $"Refusé : {outcome.Refusal}."
                     : (outcome.Success ? "Le sondage porte ses fruits." : "Le sondage n'apprend rien.")
                       + (outcome.Revealed.Count > 0 ? " Un secret est percé !" : "")
@@ -423,7 +424,9 @@ namespace MirrorChronicles.Game
                 line.AddChild(new Label { Text = $"{secret.Holder} : {secret.Name} ({secret.Rank}){(secret.Spent ? " · déjà utilisé" : "")}", CustomMinimumSize = new Vector2(420, 0) });
                 AddAction(line, "Chantage", () => Report(session.Dealings.Blackmail(secret.Id) is { } r ? $"Refusé : {r}." : $"{secret.Holder} paie pour votre silence."));
                 AddAction(line, "Révéler", () => Report(session.Dealings.Expose(secret.Id) is { } r ? $"Refusé : {r}." : "Tous le savent désormais."));
-                AddAction(line, "Vendre", () => Report(session.Dealings.Sell(secret.Id, sellTo) is { } r ? $"Refusé : {r}." : $"Le secret est vendu à {sellTo}."));
+                var sell = new Button { Text = "Vendre", Disabled = sellTo == secret.Holder, TooltipText = sellTo == secret.Holder ? "on ne vend pas un secret à celui qui le détient" : "" };
+                sell.Pressed += () => Report(session.Dealings.Sell(secret.Id, sellTo) is { } r ? $"Refusé : {r}." : $"Le secret est vendu à {sellTo}.");
+                line.AddChild(sell);
                 probes.AddChild(line);
             }
             if (known.Count > 0)

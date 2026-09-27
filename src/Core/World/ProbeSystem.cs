@@ -177,7 +177,7 @@ namespace MirrorChronicles.World
 
             var revealed = success ? Spoils(prober, target, approach, partners, late) : new List<string>();
             alertness[target] = Math.Min(SuspicionLedger.Max, Alertness(target) + s.AlertnessPerProbe + (detected ? s.AlertnessDetectedExtra : 0));
-            if (detected) Spotted(prober, target);
+            if (detected) Spotted(prober, target, disaster);
             if (disaster) Disaster(prober, target, team);
             ctx.Log.Info($"[Probes] {prober} probes {target}: {(success ? "success" : "failure")}{(detected ? ", seen" : "")}{(disaster ? ", disaster" : "")}.");
             return new ProbeOutcome(null, success, detected, disaster, revealed, late);
@@ -247,7 +247,8 @@ namespace MirrorChronicles.World
             return revealed;
         }
 
-        private void Spotted(string prober, string target)
+        /// <summary>A probe seen: the target knows who (a disaster against the clan is told once, by the agent caught).</summary>
+        private void Spotted(string prober, string target, bool disaster)
         {
             var s = Settings;
             if (prober == Clan)
@@ -256,7 +257,7 @@ namespace MirrorChronicles.World
                 var power = factions.GetFactionByName(target);
                 if (power != null) factions.ChangeRelation(power.ID, s.DetectedRelation);
             }
-            else if (target == Clan) ctx.Events.TriggerProbeSpotted(prober);
+            else if (target == Clan) { if (!disaster) ctx.Events.TriggerProbeSpotted(prober); }
             else suspicion.AddDistrust(target, prober, s.DetectedDistrust);
         }
 

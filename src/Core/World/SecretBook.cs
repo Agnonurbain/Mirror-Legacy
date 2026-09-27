@@ -21,6 +21,7 @@ namespace MirrorChronicles.World
         private readonly GameContext ctx;
         private readonly SuspicionLedger suspicion;
         private readonly List<Secret> secrets = new List<Secret>();
+        private readonly Dictionary<string, Secret> byId = new Dictionary<string, Secret>(); // secrets found at once, however many
         private readonly Dictionary<string, int> progress = new Dictionary<string, int>();
         private int nextSeq; // never goes back: two secrets never share an id, even after an absorption
 
@@ -43,8 +44,7 @@ namespace MirrorChronicles.World
 
         public bool Knows(string watcher, string secretId)
         {
-            var secret = secrets.FirstOrDefault(s => s.Id == secretId);
-            return secret != null && Progress(watcher, secretId) >= Threshold(secret.Rank);
+            return secretId != null && byId.TryGetValue(secretId, out var secret) && Progress(watcher, secretId) >= Threshold(secret.Rank);
         }
 
         /// <summary>The least grave secret of a holder the watcher does not know yet; null when it knows them all.</summary>
@@ -56,7 +56,7 @@ namespace MirrorChronicles.World
             var kind = ctx.Content.SecretKinds.FirstOrDefault(k => k.Id == kindId);
             if (kind == null || holder == null) return null;
             var secret = new Secret($"{kindId}:{holder}:{ctx.Clock.Year}:{nextSeq++}", kindId, holder, kind.Rank, ctx.Clock.Year, subject);
-            secrets.Add(secret);
+            Add(secret);
             return secret;
         }
 
@@ -78,22 +78,31 @@ namespace MirrorChronicles.World
         }
 
         /// <summary>A power that learns a secret of the clan holds proof: the graver, the more.</summary>
-        private void Learned(string watcher, Secret secret)
+        private void Learned(string watcher, Secret secret, double proofShare = 1.0)
         {
             if (secret.Holder != ClanHolder || watcher == ClanHolder) return;
-            int proof = secret.Rank - 1 < Settings.KnownEvidenceByRank.Count ? Settings.KnownEvidenceByRank[secret.Rank - 1] : 0;
+            int full = secret.Rank - 1 < Settings.KnownEvidenceByRank.Count ? Settings.KnownEvidenceByRank[secret.Rank - 1] : 0;
+            int proof = (int)(full * proofShare);
             suspicion.AddEvidence(watcher, proof);
             suspicion.AddToClan(watcher, proof);
             ctx.Log.Warning($"[Secrets] {watcher} learns a secret of the clan: {secret.KindId}.");
         }
 
-        /// <summary>The watcher comes to know the secret outright (bought, exposed).</summary>
-        public void Grant(string watcher, string secretId)
+        /// <summary>
+        /// The watcher comes to know the secret outright (bought, exposed); a rumour spread by another carries only a
+        /// share of the proof a probe would give.
+        /// </summary>
+        public void Grant(string watcher, string secretId, double proofShare = 1.0)
         {
-            var secret = secrets.FirstOrDefault(s => s.Id == secretId);
-            if (secret == null || watcher == secret.Holder || Knows(watcher, secretId)) return;
+            if (secretId == null || !byId.TryGetValue(secretId, out var secret) || watcher == secret.Holder || Knows(watcher, secretId)) return;
             progress[Key(watcher, secretId)] = Threshold(secret.Rank);
-            Learned(watcher, secret);
+            Learned(watcher, secret, proofShare);
+        }
+
+        private void Add(Secret secret)
+        {
+            secrets.Add(secret);
+            byId[secret.Id] = secret;
         }
 
         /// <summary>The secrets of others a watcher knows.</summary>
@@ -114,14 +123,15 @@ namespace MirrorChronicles.World
             {
                 int count = worldRng.Next(Settings.PowerSecretsMin, Settings.PowerSecretsMax + 1);
                 foreach (var kind in kinds.OrderBy(_ => worldRng.Next()).Take(count).ToList())
-                    secrets.Add(new Secret($"{kind.Id}:{power.Name}:0", kind.Id, power.Name, kind.Rank, 0, null));
+                    Add(new Secret($"{kind.Id}:{power.Name}:0", kind.Id, power.Name, kind.Rank, 0, null));
             }
         }
 
         public void Restore(IEnumerable<Secret> saved, IReadOnlyDictionary<string, int> savedProgress)
         {
             secrets.Clear();
-            if (saved != null) secrets.AddRange(saved.Where(s => s != null));
+            byId.Clear();
+            foreach (var secret in saved ?? Enumerable.Empty<Secret>()) if (secret != null) Add(secret);
             nextSeq = secrets.Select(s => s.Id.Split(':')).Where(p => p.Length == 4 && int.TryParse(p[3], out _))
                 .Select(p => int.Parse(p[3]) + 1).DefaultIfEmpty(0).Max();
             progress.Clear();
@@ -133,6 +143,7 @@ namespace MirrorChronicles.World
         {
             var gone = secrets.Where(s => s.Holder == vassal).Select(s => s.Id).ToHashSet();
             secrets.RemoveAll(s => s.Holder == vassal);
+            foreach (var id in gone) byId.Remove(id);
             foreach (var key in progress.Keys.ToList())
             {
                 var (watcher, secretId) = Split(key);

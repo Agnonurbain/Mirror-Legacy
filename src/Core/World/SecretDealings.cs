@@ -71,6 +71,7 @@ namespace MirrorChronicles.World
             if ((int)holder.HighestRealm > (int)strongest + s.FearMargin)
             {
                 suspicion.AddToClan(holder.Name, ByRank(s.ResentmentByRank, secret.Rank));
+                spent.Add($"blackmail:{secretId}"); // it defied the clan once: the threat is spent
                 return $"{holder.Name} vous défie de parler";
             }
             int price = ByRank(s.BlackmailPriceByRank, secret.Rank);
@@ -123,11 +124,13 @@ namespace MirrorChronicles.World
             var s = Settings;
             foreach (var secret in book.Of(Clan).Where(x => !spent.Contains($"exposed:{x.Id}")).ToList())
             {
-                var teller = factions.Factions.FirstOrDefault(f => f.RelationWithPlayer <= s.AiExposeRelation && book.Knows(f.Name, secret.Id));
-                if (teller == null || !ctx.Rng.Chance(s.AiExposeChance)) continue;
+                var tellers = factions.Factions.Where(f => f.RelationWithPlayer <= s.AiExposeRelation && book.Knows(f.Name, secret.Id)).ToList();
+                if (tellers.Count == 0) continue;
+                var teller = ctx.Rng.Pick(tellers); // any of those who know and bear ill will
+                if (!ctx.Rng.Chance(s.AiExposeChance)) continue;
                 foreach (var other in factions.Factions.Where(f => f != teller))
                 {
-                    book.Grant(other.Name, secret.Id);
+                    book.Grant(other.Name, secret.Id, s.ExposedEvidenceShare); // a rumour, not the teller's own proof
                     suspicion.AddToClan(other.Name, ByRank(s.ExposeDistrustByRank, secret.Rank));
                 }
                 spent.Add($"exposed:{secret.Id}");

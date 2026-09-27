@@ -153,7 +153,8 @@
     "sellLeakChance": 0.25,
     "soldResentment": 20,
     "aiExposeChance": 0.2,
-    "aiExposeRelation": -30
+    "aiExposeRelation": -30,
+    "exposedEvidenceShare": 0.5
   },
   "clanWatch": {
     "struck": 25,

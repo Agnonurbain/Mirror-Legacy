@@ -69,6 +69,9 @@ namespace MirrorChronicles.Data
         public double SellLeakChance { get; init; }
         public int SoldResentment { get; init; }
         public double AiExposeChance { get; init; }
+
+        /// <summary>A secret exposed by a power reaches the others as a rumour: this share of the proof a probe would give.</summary>
+        public double ExposedEvidenceShare { get; init; } = 1;
         public int AiExposeRelation { get; init; }
     }
 

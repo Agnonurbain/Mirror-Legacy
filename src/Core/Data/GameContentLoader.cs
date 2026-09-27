@@ -242,7 +242,7 @@ namespace MirrorChronicles.Data
             var deal = balance.Dealings;
             Require(deal != null && deal.BlackmailPriceByRank.Count == 4 && deal.ResentmentByRank.Count == 4 && deal.ExposeDistrustByRank.Count == 4
                 && deal.SellPriceByRank.Count == 4 && deal.BlackmailPriceByRank.All(p => p >= 0) && deal.SellPriceByRank.All(p => p >= 0)
-                && IsProbability(deal.SellLeakChance) && IsProbability(deal.AiExposeChance),
+                && IsProbability(deal.SellLeakChance) && IsProbability(deal.AiExposeChance) && IsProbability(deal.ExposedEvidenceShare),
                 BalanceFile, "dealings needs four prices, resentments and distrusts (one per rank), and odds between 0 and 1.");
             var watch = balance.ClanWatch;
             Require(watch != null && watch.FadePerYear >= 0 && watch.WaryFrom > 0 && watch.DistrustFrom >= watch.WaryFrom
