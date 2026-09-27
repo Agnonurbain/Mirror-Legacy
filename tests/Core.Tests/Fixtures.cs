@@ -77,6 +77,7 @@ namespace MirrorChronicles.Tests
         public EspionageSystem Espionage { get; }
         public TaskAssignmentSystem Tasks { get; }
         public MarriageSystem Marriages { get; }
+        public MarriageAlliance Matches { get; }
 
         /// <param name="content">Other content than the shipped one (a clan elsewhere, a changed balance).</param>
         public TestWorld(Random rng, GameContent content = null)
@@ -122,6 +123,7 @@ namespace MirrorChronicles.Tests
             Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
+            Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
         }
 
         public TestWorld(int seed = 1) : this(new Random(seed)) { }
