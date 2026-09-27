@@ -117,5 +117,17 @@ namespace MirrorChronicles.Tests.Diplomacy
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.AreEqual(new PatronPact(Vixen, 1, 4), reloaded.Patrons.Pacts.Single());
         }
+
+        [Test]
+        public void TheDiplomacyScreen_ShowsTheGreatPartners_WithASignOfFavour()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var vixen = MirrorChronicles.Presentation.DiplomacyView.Patrons(s).Single(p => p.Id == Vixen);
+            Assert.AreEqual("La Renarde des Monts Qingyan", vixen.Name);
+            StringAssert.Contains("forts", vixen.Refusal, "a young clan is not heard");
+            Assert.IsNull(vixen.Favor);
+            s.Patrons.RestorePacts(new[] { new PatronPact(Vixen, 1, 1) });
+            StringAssert.Contains("colère", MirrorChronicles.Presentation.DiplomacyView.Patrons(s).Single(p => p.Id == Vixen).Favor);
+        }
     }
 }
