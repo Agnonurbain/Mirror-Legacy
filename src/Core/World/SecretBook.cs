@@ -22,6 +22,7 @@ namespace MirrorChronicles.World
         private readonly SuspicionLedger suspicion;
         private readonly List<Secret> secrets = new List<Secret>();
         private readonly Dictionary<string, int> progress = new Dictionary<string, int>();
+        private int nextSeq; // never goes back: two secrets never share an id, even after an absorption
 
         public SecretBook(GameContext ctx, SuspicionLedger suspicion)
         {
@@ -48,13 +49,13 @@ namespace MirrorChronicles.World
 
         /// <summary>The least grave secret of a holder the watcher does not know yet; null when it knows them all.</summary>
         public Secret NextUnknown(string watcher, string holder) =>
-            Of(holder).Where(s => !Knows(watcher, s.Id)).OrderBy(s => s.Rank).ThenBy(s => s.Id, StringComparer.Ordinal).FirstOrDefault();
+            secrets.Where(s => s.Holder == holder && Progress(watcher, s.Id) < Threshold(s.Rank)).OrderBy(s => s.Rank).ThenBy(s => s.Id, StringComparer.Ordinal).FirstOrDefault();
 
         public Secret Create(string kindId, string holder, string subject)
         {
             var kind = ctx.Content.SecretKinds.FirstOrDefault(k => k.Id == kindId);
             if (kind == null || holder == null) return null;
-            var secret = new Secret($"{kindId}:{holder}:{ctx.Clock.Year}:{secrets.Count}", kindId, holder, kind.Rank, ctx.Clock.Year, subject);
+            var secret = new Secret($"{kindId}:{holder}:{ctx.Clock.Year}:{nextSeq++}", kindId, holder, kind.Rank, ctx.Clock.Year, subject);
             secrets.Add(secret);
             return secret;
         }
@@ -109,6 +110,8 @@ namespace MirrorChronicles.World
         {
             secrets.Clear();
             if (saved != null) secrets.AddRange(saved.Where(s => s != null));
+            nextSeq = secrets.Select(s => s.Id.Split(':')).Where(p => p.Length == 4 && int.TryParse(p[3], out _))
+                .Select(p => int.Parse(p[3]) + 1).DefaultIfEmpty(0).Max();
             progress.Clear();
             foreach (var pair in savedProgress ?? new Dictionary<string, int>()) progress[pair.Key] = pair.Value;
         }

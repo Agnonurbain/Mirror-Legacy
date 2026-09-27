@@ -76,7 +76,7 @@ namespace MirrorChronicles.World
             var target = factions.GetFactionByName(plan.Target);
             if (plan.Approach == ProbeApproach.Bribery && resources.ConsumeSpiritStones(plan.Stones)) target.Wealth += plan.Stones;
             if (plan.Approach == ProbeApproach.MirrorSight) mirror.ConsumePower(MirrorSightCost(plan.Target));
-            return Resolve(Clan, TeamStrength(team), plan.Target, plan.Approach, plan.Partners ?? new List<string>(), plan.Stones, team);
+            return Resolve(Clan, TeamStrength(team), plan.Target, plan.Approach, Partners(plan), plan.Stones, team);
         }
 
         /// <summary>The clan's odds against a target, before any roll (the allies either all prompt or all lingering).</summary>
@@ -84,19 +84,22 @@ namespace MirrorChronicles.World
         {
             var team = (plan.TeamIds ?? new List<string>()).Select(clan.FindById).Where(m => m != null).ToList();
             var allies = alliesPrompt ? AlliesOf(plan.Target).Where(a => a != Clan).ToList() : new List<string>();
-            return Chance(Factors(Clan, TeamStrength(team), plan.Target, plan.Approach, plan.Partners ?? new List<string>(), plan.Stones, allies),
-                plan.Target);
+            return SuccessProbability(Factors(Clan, TeamStrength(team), plan.Target, plan.Approach, Partners(plan), plan.Stones, allies), plan.Target);
         }
+
+        /// <summary>The partners, each once.</summary>
+        private static List<string> Partners(ProbePlan plan) => (plan.Partners ?? new List<string>()).Distinct().ToList();
 
         private string Refusal(ProbePlan plan, out List<CharacterData> team)
         {
             team = (plan.TeamIds ?? new List<string>()).Distinct().Select(clan.FindById).ToList();
             var target = factions.GetFactionByName(plan.Target);
             if (target == null) return "puissance inconnue";
+            if (book.NextUnknown(Clan, plan.Target) == null) return "il n'y a rien à apprendre là, du moins que le clan sache chercher";
             if (team.Count == 0) return "il faut une équipe";
             var unfit = team.FirstOrDefault(m => !hunts.IsFree(m));
             if (unfit != null || team.Contains(null)) return $"{unfit?.FullName ?? "un membre"} ne peut pas partir";
-            foreach (var partner in plan.Partners ?? new List<string>())
+            foreach (var partner in Partners(plan))
             {
                 var power = factions.GetFactionByName(partner);
                 if (power == null || partner == plan.Target) return $"{partner} ne peut se joindre à ce sondage";
@@ -114,9 +117,9 @@ namespace MirrorChronicles.World
         // ---- The powers probe ----
 
         public ProbeOutcome PowerProbe(FactionData prober, string target, ProbeApproach approach, List<string> partners) =>
-            prober == null || target == prober.Name || approach == ProbeApproach.MirrorSight
+            prober == null || target == prober.Name || approach == ProbeApproach.MirrorSight || book.NextUnknown(prober.Name, target) == null
                 ? ProbeOutcome.Refused("sondage impossible")
-                : Resolve(prober.Name, Strength(prober), target, approach, partners ?? new List<string>(), 0, null);
+                : Resolve(prober.Name, Strength(prober), target, approach, (partners ?? new List<string>()).Distinct().ToList(), 0, null);
 
         public void ProcessYear()
         {
@@ -136,8 +139,8 @@ namespace MirrorChronicles.World
         /// <summary>Whom a power would probe: the clan it suspects, else the power it distrusts most.</summary>
         private string Motive(FactionData power)
         {
-            if (suspicion.OfClan(power.Name) >= Settings.AiProbeSuspicion) return Clan;
-            var distrusted = factions.Factions.Where(f => f != power)
+            if (suspicion.OfClan(power.Name) >= Settings.AiProbeSuspicion && book.NextUnknown(power.Name, Clan) != null) return Clan;
+            var distrusted = factions.Factions.Where(f => f != power && book.NextUnknown(power.Name, f.Name) != null)
                 .Select(f => (f.Name, d: suspicion.Distrust(power.Name, f.Name)))
                 .Where(p => p.d >= Settings.AiProbeDistrust)
                 .OrderByDescending(p => p.d).ThenBy(p => p.Name, StringComparer.Ordinal).FirstOrDefault();
@@ -161,7 +164,7 @@ namespace MirrorChronicles.World
             var (prompt, late) = CallAllies(prober, target, partners);
             bool leaked = partners.Aggregate(false, (seen, partner) =>
                 ctx.Rng.Chance(Math.Clamp(s.PartnerLeakChance * (1 + suspicion.Distrust(partner, prober) / 100.0), 0, 1)) || seen);
-            bool success = ctx.Rng.Chance(Chance(Factors(prober, strength, target, approach, partners, stones, prompt), target, approach));
+            bool success = ctx.Rng.Chance(SuccessProbability(Factors(prober, strength, target, approach, partners, stones, prompt), target, approach));
             bool detected = ctx.Rng.Chance(ProbeRules.DetectChance(approach, Alertness(target), s)) || leaked;
             bool disaster = !success && detected && ctx.Rng.Chance(s.DisasterChance.TryGetValue(approach, out var d) ? d : 0);
 
@@ -217,7 +220,8 @@ namespace MirrorChronicles.World
             };
         }
 
-        private double Chance(ProbeFactors f, string target, ProbeApproach? approach = null)
+        /// <summary>A probe's odds of success (a probability; the roll is the caller's).</summary>
+        private double SuccessProbability(ProbeFactors f, string target, ProbeApproach? approach = null)
         {
             if ((approach ?? f.Approach) != ProbeApproach.MirrorSight) return ProbeRules.SuccessChance(f, Settings);
             double sight = (Settings.BaseChance.TryGetValue(ProbeApproach.MirrorSight, out var b) ? b : 0) - (lore.Knows(target) ? Settings.KnowerSightPenalty : 0);
