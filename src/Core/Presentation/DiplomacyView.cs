@@ -9,7 +9,7 @@ namespace MirrorChronicles.Presentation
 {
     /// <summary>A treaty as the diplomacy screen shows it (the years left: null for an open treaty).</summary>
     public sealed record TreatyLine(string Id, string Kind, bool Secret, bool Sealed, int? YearsLeft, bool ClanIsSuzerain, int Grip,
-        int Absorptions = 0, int AbsorptionSteps = 0);
+        int Absorptions = 0, int AbsorptionSteps = 0, string SpouseId = null);
 
     /// <summary>A power as the diplomacy screen shows it: its public allies and its suzerain — never what it hides (D7).</summary>
     public sealed record PowerLine(string Name, string Kind, string HighestRealm, int Relation, IReadOnlyList<TreatyLine> Treaties,
@@ -34,7 +34,7 @@ namespace MirrorChronicles.Presentation
                 .Select(f => new PowerLine(f.Name, WorldMapView.KindLabel(f.Kind), RankCatalog.RealmName(f.HighestRealm), f.RelationWithPlayer,
                     session.Treaties.With(f.Name).Select(t => new TreatyLine(t.Id, KindLabel(t.Kind), t.Secret, t.Sealed,
                         t.EndYear.HasValue ? t.EndYear.Value - session.Clock.Year : null, t.ClanIsSuzerain, t.Grip,
-                        t.Absorptions, session.Context.Content.Balance.Politics.ClanAbsorptionSteps)).ToList(),
+                        t.Absorptions, session.Context.Content.Balance.Politics.ClanAbsorptionSteps, t.SpouseId)).ToList(),
                     PublicAllies(session, f.Name), PublicSuzerain(session, f.Name),
                     World.ClanWatch.Sign(session.Suspicion.ClanDistrust(f.Name), session.Context.Content.Balance.ClanWatch)))
                 .ToList();
@@ -61,12 +61,18 @@ namespace MirrorChronicles.Presentation
         public static string ProposalRefusal(GameSession session, string faction, TreatyKind kind, bool clanAsSuzerain, bool sealedByOath) =>
             session.Treaties.Refusal(session.Factions.GetFactionByName(faction), kind, sealedByOath, clanAsSuzerain);
 
+        /// <summary>The members the clan may offer in marriage.</summary>
+        public static IReadOnlyList<MemberChoice> MarriageCandidates(GameSession session) =>
+            session.Clan.LivingMembers.Where(Clan.MarriageMatchmaker.IsEligible)
+                .Select(m => new MemberChoice(m.ID, m.FullName, RankCatalog.DisplayName(m))).ToList();
+
         public static string KindLabel(TreatyKind kind) => kind switch
         {
             TreatyKind.NonAggression => "non-agression",
             TreatyKind.Trade => "commerce",
             TreatyKind.Defence => "défense mutuelle",
             TreatyKind.Vassalage => "vassalité",
+            TreatyKind.Marriage => "alliance matrimoniale",
             _ => kind.ToString()
         };
     }

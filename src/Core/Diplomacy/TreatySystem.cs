@@ -34,6 +34,7 @@ namespace MirrorChronicles.Diplomacy
         {
             this.techniques = techniques;
             ctx.Events.OnPowerAbsorbed += (vassal, suzerain) => Dissolve(vassal, suzerain);
+            ctx.Events.OnCharacterDied += (dead, _) => treaties.RemoveAll(t => t.Kind == TreatyKind.Marriage && CoupleGone(t)); // at once
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -56,7 +57,13 @@ namespace MirrorChronicles.Diplomacy
 
         /// <summary>Whether a power has bound itself not to strike the clan: non-aggression, or its suzerainty over it.</summary>
         public bool Spares(string faction) =>
-            Has(faction, TreatyKind.NonAggression) || treaties.Any(t => t.Faction == faction && t.Kind == TreatyKind.Vassalage && !t.ClanIsSuzerain);
+            Has(faction, TreatyKind.NonAggression) || Has(faction, TreatyKind.Marriage) || treaties.Any(t => t.Faction == faction && t.Kind == TreatyKind.Vassalage && !t.ClanIsSuzerain);
+
+        /// <summary>A treaty concluded elsewhere (a wedding).</summary>
+        public void Conclude(Treaty treaty) => treaties.Add(treaty);
+
+        /// <summary>A treaty ended without blame (a bond of blood whose couple is no more).</summary>
+        public void End(string treatyId) => treaties.RemoveAll(t => t.Id == treatyId);
 
         public void RestoreTreaties(IEnumerable<Treaty> saved)
         {
@@ -85,6 +92,7 @@ namespace MirrorChronicles.Diplomacy
         {
             var s = Settings;
             if (power == null) return "puissance inconnue";
+            if (kind == TreatyKind.Marriage) return "une alliance matrimoniale se conclut par un mariage";
             if (Has(power.Name, kind)) return "un traité de ce genre les lie déjà";
             var strongest = ClanStrongest;
             if (kind == TreatyKind.Vassalage && !clanAsSuzerain)
@@ -110,6 +118,19 @@ namespace MirrorChronicles.Diplomacy
         {
             var treaty = treaties.FirstOrDefault(t => t.Id == treatyId);
             if (treaty == null) return "traité inconnu";
+            if (treaty.Kind == TreatyKind.Marriage) return "un lien de sang ne se rompt pas : on répudie le conjoint";
+            return BreakWord(treaty);
+        }
+
+        /// <summary>A bond of blood broken by repudiation (MarriageAlliance): the same broken word.</summary>
+        public string BreakBond(string treatyId)
+        {
+            var treaty = treaties.FirstOrDefault(t => t.Id == treatyId && t.Kind == TreatyKind.Marriage);
+            return treaty == null ? "traité inconnu" : BreakWord(treaty);
+        }
+
+        private string BreakWord(Treaty treaty)
+        {
             treaties.Remove(treaty);
             ChangeRelation(treaty.Faction, Settings.BreakRelation);
             if (!treaty.Secret)
@@ -134,7 +155,7 @@ namespace MirrorChronicles.Diplomacy
             foreach (var treaty in treaties.ToList())
             {
                 var power = factions.GetFactionByName(treaty.Faction);
-                if (power == null || (treaty.EndYear.HasValue && ctx.Clock.Year >= treaty.EndYear))
+                if (power == null || (treaty.EndYear.HasValue && ctx.Clock.Year >= treaty.EndYear) || CoupleGone(treaty))
                 {
                     treaties.Remove(treaty); // its power is gone, or its term is reached
                     continue;
@@ -147,6 +168,14 @@ namespace MirrorChronicles.Diplomacy
                 }
                 if (current.Secret && ctx.Rng.Chance(Settings.SecretDiscoveryChance)) ComeToLight(current, power);
             }
+        }
+
+        /// <summary>A bond of blood whose spouse is dead, gone home, or no longer wed.</summary>
+        private bool CoupleGone(Treaty treaty)
+        {
+            if (treaty.Kind != TreatyKind.Marriage) return false;
+            var spouse = clan.FindById(treaty.SpouseId);
+            return spouse == null || !spouse.IsAlive || spouse.Departed || clan.FindById(spouse.SpouseID) is not { IsAlive: true };
         }
 
         /// <summary>What a treaty does each year; returns it as it stands after.</summary>
@@ -168,6 +197,9 @@ namespace MirrorChronicles.Diplomacy
                     return treaty;
                 case TreatyKind.Vassalage:
                     return Serve(treaty, power);
+                case TreatyKind.Marriage:
+                    factions.ChangeRelation(power.ID, s.MarriageWarmthPerYear); // kin grows closer
+                    return treaty;
                 default:
                     return treaty;
             }
@@ -211,7 +243,7 @@ namespace MirrorChronicles.Diplomacy
             var s = Settings;
             treaties.RemoveAt(IndexOf(treaty));
             ChangeRelation(power.Name, s.BetrayalRelation);
-            bool seizes = treaty.Kind != TreatyKind.Defence && !(treaty.Kind == TreatyKind.Vassalage && treaty.ClanIsSuzerain);
+            bool seizes = treaty.Kind != TreatyKind.Defence && treaty.Kind != TreatyKind.Marriage && !(treaty.Kind == TreatyKind.Vassalage && treaty.ClanIsSuzerain);
             if (seizes)
             {
                 int seized = (int)(resources.SpiritStones * s.BetrayalStonesShare);

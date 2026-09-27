@@ -30,7 +30,7 @@ namespace MirrorChronicles.Diplomacy
         {
             double temper = s.BetrayalTemper.TryGetValue(power.Personality, out var t) ? t : 1.0;
             double stronger = (int)power.HighestRealm >= (int)clanStrongest + s.SuzerainRealmMargin ? s.StrongerBetrayalFactor : 1.0;
-            double sworn = treaty.Sealed ? s.SealedFactor : 1.0;
+            double sworn = (treaty.Sealed ? s.SealedFactor : 1.0) * (treaty.Kind == TreatyKind.Marriage ? s.MarriageBetrayalFactor : 1.0); // kin betrays less
             return Math.Clamp(s.BetrayalBase * temper * (1 + suspicion / 100.0 * s.SuspicionBetrayalWeight) * stronger * sworn, 0, 1);
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace MirrorChronicles.Data
 {
     /// <summary>What a treaty binds (LORE.md D7; user decision 2026-09-27).</summary>
-    public enum TreatyKind { NonAggression, Trade, Defence, Vassalage }
+    public enum TreatyKind { NonAggression, Trade, Defence, Vassalage, Marriage }
 
     /// <summary>
     /// A treaty between the clan and a power (saved): its kind, when it began and ends (null: open), whether it is secret
@@ -16,6 +16,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>How many times the suzerain's grip on the vassal clan has filled; too many, and the clan is absorbed.</summary>
         public int Absorptions { get; init; }
+
+        /// <summary>A marriage alliance: the spouse the power sent (the bond lives while the couple does).</summary>
+        public string SpouseId { get; init; }
     }
 
     /// <summary>
@@ -69,5 +72,14 @@ namespace MirrorChronicles.Data
         public int BreakRelation { get; init; }
         public int BreakReputation { get; init; }
         public int SealedHeartDemonYears { get; init; }
+
+        /// <summary>
+        /// The marriage alliance (2026-09-27): what a member's realm is worth to the power, the yearly warmth of the bond,
+        /// how much rarer a kin's betrayal is, and what a repudiation costs besides a broken word.
+        /// </summary>
+        public int MarriageWorthPerRealm { get; init; }
+        public int MarriageWarmthPerYear { get; init; }
+        public double MarriageBetrayalFactor { get; init; } = 1;
+        public int RepudiationRelation { get; init; }
     }
 }

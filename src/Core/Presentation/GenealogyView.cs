@@ -8,7 +8,7 @@ namespace MirrorChronicles.Presentation
 {
     /// <summary>A member in the family tree: their generation and column, alive or not, what became of them, their kin.</summary>
     public sealed record KinNode(string Id, string Name, int Generation, int Column, bool Alive, bool IsMale, string Status,
-        string FatherId, string MotherId, string SpouseId, bool IsPatriarch);
+        string FatherId, string MotherId, string SpouseId, bool IsPatriarch, bool Departed = false);
 
     /// <summary>
     /// The clan's family tree (G6): every member ever recorded. The founders stand at generation 0, a child one below its
@@ -30,7 +30,7 @@ namespace MirrorChronicles.Presentation
                 PlaceGeneration(generation.ToList(), byId, generations, columns, index);
 
             return records.Select(r => new KinNode(r.ID, r.FullName, generations[r.ID], columns[r.ID], r.IsAlive, r.IsMale, Status(r),
-                    r.FatherID, r.MotherID, r.SpouseID, r.ID == session.Clan.PatriarchID))
+                    r.FatherID, r.MotherID, r.SpouseID, r.ID == session.Clan.PatriarchID, r.Departed))
                 .OrderBy(n => n.Generation).ThenBy(n => n.Column)
                 .ToList();
         }
@@ -75,7 +75,8 @@ namespace MirrorChronicles.Presentation
             r.SpouseID != null && byId.TryGetValue(r.SpouseID, out var spouse) ? spouse : null;
 
         private static string Status(CharacterData r) =>
-            !r.IsAlive ? $"† {ClanDomainView.DeathLabel(r.CauseOfDeath)}"
+            r.Departed ? $"{RankCatalog.DisplayName(r)} — retourné(e) auprès des siens"
+            : !r.IsAlive ? $"† {ClanDomainView.DeathLabel(r.CauseOfDeath)}"
             : ClanDomainView.RetreatLabel(r) is { } away ? $"{RankCatalog.DisplayName(r)} — {away}"
             : RankCatalog.DisplayName(r);
     }
