@@ -44,7 +44,7 @@ namespace MirrorChronicles.Presentation
         public static string Effect(BuildingType type, int level) => type switch
         {
             BuildingType.TrainingHall => $"+{level * BuildingSystem.TrainingHallXpPerLevel} d'expérience par an aux membres en cultivation",
-            BuildingType.Forge => $"+{Percent(level * BuildingSystem.ForgeYieldBonusPerLevel)} % au rendement des mineurs",
+            BuildingType.Forge => $"+{Percent(level * BuildingSystem.ForgeYieldBonusPerLevel)} % au rendement des membres affectés à la mine",
             BuildingType.Library => $"+{Percent(level * BuildingSystem.LibraryDiscoveryBonusPerLevel)} % de chances de trouver un fragment à l'étude",
             BuildingType.HerbGarden => $"+{level} de stabilité mentale par an aux membres au repos",
             BuildingType.Mine => $"+{level * BuildingSystem.MineStonesPerLevel} pierres par an",
