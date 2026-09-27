@@ -24,7 +24,7 @@ namespace MirrorChronicles.Clan
                 if (deceased.Realm < CultivationRealm.GoldenCore) return;
 
                 var element = deceased.Affinity != Element.None ? deceased.Affinity : ctx.Rng.NextElement();
-                deduction.AddFragment(element, DaoFragmentQuality, $"Dao legacy of {deceased.FullName}");
+                deduction.AddFragment(element, DaoFragmentQuality, $"Héritage du Dao de {deceased.FullName}");
                 ctx.Log.Info($"[Legacy] {deceased.FullName} leaves a profound {element} Dao fragment.");
             };
         }

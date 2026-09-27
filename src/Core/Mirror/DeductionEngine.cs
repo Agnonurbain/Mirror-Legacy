@@ -40,7 +40,7 @@ namespace MirrorChronicles.Mirror
             this.library = library;
         }
 
-        public void AddFragment(Element element, int quality, string name = "Unknown Fragment")
+        public void AddFragment(Element element, int quality, string name = "Fragment inconnu")
         {
             fragments.Add(new FragmentData { ID = ctx.Rng.NextId(), Element = element, Quality = quality, Name = name });
         }

@@ -2,7 +2,7 @@
 # Build, test and smoke-run Reflets de Lignée (Godot 4 .NET) from the command line.
 #   ./Scripts/dev.sh build   compile Core, its tests and the Godot game assembly
 #   ./Scripts/dev.sh test    run the engine-free Core tests (dotnet test, no Godot needed)
-#   ./Scripts/dev.sh smoke   run the game headless with --smoke --map --ops --lib --tree --dip (domain years, the world map, the secret operations, the library, the family tree, diplomacy); fails on any engine or script error
+#   ./Scripts/dev.sh smoke   run the game headless with --smoke --map --ops --lib --tree --dip --mir (domain years, the world map, the secret operations, the library, the family tree, diplomacy, the mirror); fails on any engine or script error
 #   ./Scripts/dev.sh screenshot <file.png> [map]   play the smoke years in a window and save the domain (or the map) as PNG
 #   ./Scripts/dev.sh gaps    list what the lore leaves open: interpretations, unrevealed abilities (ContentGaps)
 #   ./Scripts/dev.sh all     build + test + smoke
@@ -35,7 +35,7 @@ smoke() {
 
   local log
   log="$(mktemp)"
-  if ! timeout 120 "$GODOT_BIN" --headless --path "$ROOT/game" -- --smoke --map --ops --lib --tree --dip >"$log" 2>&1; then
+  if ! timeout 120 "$GODOT_BIN" --headless --path "$ROOT/game" -- --smoke --map --ops --lib --tree --dip --mir >"$log" 2>&1; then
     cat "$log"; rm -f "$log"
     echo "SMOKE FAILED: Godot exited with an error" >&2; exit 1
   fi
@@ -48,9 +48,9 @@ smoke() {
   echo "SMOKE OK"
 }
 
-# Plays the smoke years in a real window (needs a display) and saves it as PNG; "map", "ops", "lib", "tree" or "dip" captures that screen.
+# Plays the smoke years in a real window (needs a display) and saves it as PNG; "map", "ops", "lib", "tree", "dip" or "mir" captures that screen.
 screenshot() {
-  local out="${1:?usage: $0 screenshot <file.png> [map|ops|lib|tree|dip]}"
+  local out="${1:?usage: $0 screenshot <file.png> [map|ops|lib|tree|dip|mir]}"
   [ -x "$GODOT_BIN" ] || { echo "ERROR: Godot not found at $GODOT_BIN (set GODOT_BIN)" >&2; exit 1; }
   build
   local screen=()
@@ -59,6 +59,7 @@ screenshot() {
   [ "${2:-}" = lib ] && screen=(--map --ops --lib)
   [ "${2:-}" = tree ] && screen=(--map --ops --lib --tree)
   [ "${2:-}" = dip ] && screen=(--map --ops --lib --tree --dip)
+  [ "${2:-}" = mir ] && screen=(--map --ops --lib --tree --dip --mir)
   timeout 120 "$GODOT_BIN" --path "$ROOT/game" -- --smoke "${screen[@]}" --screenshot="$(realpath -m "$out")"
   [ -f "$out" ] || { echo "SCREENSHOT FAILED: $out was not written" >&2; exit 1; }
   echo "SCREENSHOT $out"
@@ -71,5 +72,5 @@ gaps)       gaps ;;
   smoke)      smoke ;;
   screenshot) screenshot "${2:-}" "${3:-}" ;;
   all)        build && run_tests && smoke ;;
-  *)          echo "usage: $0 build|test|gaps|smoke|screenshot <file.png> [map|ops|lib|tree|dip]|all" >&2; exit 2 ;;
+  *)          echo "usage: $0 build|test|gaps|smoke|screenshot <file.png> [map|ops|lib|tree|dip|mir]|all" >&2; exit 2 ;;
 esac
