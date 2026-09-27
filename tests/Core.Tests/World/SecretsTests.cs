@@ -163,6 +163,7 @@ namespace MirrorChronicles.Tests.World
         public void ASpottedProbe_IsKnownToItsTarget()
         {
             var w = World(new SequenceRandom(0.0, 0.0)); // it succeeds, but is seen
+            Hold(w, Fang, "internal-feud");
             int relation = w.Factions.GetFactionByName(Fang).RelationWithPlayer;
 
             var outcome = w.Probes.Probe(Plan(w, Fang));
@@ -177,6 +178,7 @@ namespace MirrorChronicles.Tests.World
         public void AFailedProbe_Seen_MayEndInDisaster_AMemberTaken()
         {
             var w = World(new SequenceRandom(0.999, 0.0, 0.0)); // it fails, is seen, and ends in disaster
+            Hold(w, Ruan, "internal-feud");
             var outcome = w.Probes.Probe(Plan(w, Ruan));
             Assert.IsTrue(outcome.Disaster);
             Assert.IsTrue(w.Clan.LivingMembers.Any(m => m.CaptorFaction == Ruan));
@@ -186,6 +188,7 @@ namespace MirrorChronicles.Tests.World
         public void RepeatedProbes_MakeTheTargetWatchful()
         {
             var w = World(new SequenceRandom(0.0, 0.0));
+            Hold(w, Fang, "betrayed-ally");
             double before = w.Probes.ChanceAgainst(Plan(w, Fang));
             w.Probes.Probe(Plan(w, Fang));
             w.Clan.GetPatriarch().LastOperationYear = null;
@@ -213,6 +216,7 @@ namespace MirrorChronicles.Tests.World
             Assert.IsTrue(w.SecretBook.Knows(Tao, feud.Id), "the partner learns it too");
 
             var leaky = World(new SequenceRandom(0.0, 0.0, 0.999)); // the partner talks: the probe is seen
+            Hold(leaky, Fang, "internal-feud");
             Assert.IsTrue(leaky.Probes.Probe(Plan(leaky, Fang) with { Partners = new List<string> { Tao } }).Detected);
         }
 
@@ -286,6 +290,47 @@ namespace MirrorChronicles.Tests.World
             Assert.IsTrue(reloaded.SecretBook.All.Contains(secret));
             Assert.AreEqual(s.SecretBook.Progress(Ruan, secret.Id), reloaded.SecretBook.Progress(Ruan, secret.Id));
             Assert.AreEqual(25, reloaded.Probes.Alertness(Fang));
+        }
+
+        // ---- Review ----
+
+        [Test]
+        public void EverySecret_KeepsItsOwnId_EvenAfterAnAbsorption()
+        {
+            var w = World(new FixedRandom(0.999));
+            Hold(w, Ruan, "internal-feud");
+            var first = Hold(w, Clan, "executed-agent");
+            w.Ctx.Events.TriggerPowerAbsorbed(Ruan, Peak); // one secret fewer in the book
+            var second = Hold(w, Clan, "executed-agent");
+            Assert.AreNotEqual(first.Id, second.Id);
+        }
+
+        [Test]
+        public void APartnerNamedTwice_CountsOnce()
+        {
+            var w = World(new FixedRandom(0.999));
+            Hold(w, Fang, "internal-feud");
+            var once = Plan(w, Fang) with { Partners = new List<string> { Tao } };
+            var twice = Plan(w, Fang) with { Partners = new List<string> { Tao, Tao } };
+            Assert.AreEqual(w.Probes.ChanceAgainst(once), w.Probes.ChanceAgainst(twice));
+        }
+
+        [Test]
+        public void ATargetWithNothingLeftToLearn_IsNotProbed()
+        {
+            var w = World(new FixedRandom(0.0));
+            StringAssert.Contains("rien", w.Probes.Probe(Plan(w, Fang)).Refusal);
+            Assert.IsNull(w.Clan.GetPatriarch().LastOperationYear, "the team keeps its year");
+        }
+
+        [Test]
+        public void APower_DoesNotProbeAClanWithoutSecrets()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Factions.Restore(new[] { w.Factions.GetFactionByName(Ruan) });
+            w.Suspicion.AddToClan(Ruan, Settings.AiProbeSuspicion);
+            w.Probes.ProcessYear();
+            Assert.AreEqual(0, w.Probes.Alertness(Clan));
         }
     }
 }
