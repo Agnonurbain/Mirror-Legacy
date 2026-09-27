@@ -184,6 +184,9 @@ namespace MirrorChronicles.Data
         /// <summary>The Qi of the places (L5b; interpretations).</summary>
         public RegionalQiSettings RegionalQi { get; init; }
 
+        /// <summary>Who knows the mirror exists, and what an ordinary power can do with a rumour (2026-09-27; interpretations).</summary>
+        public MirrorLoreSettings MirrorLore { get; init; }
+
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
 

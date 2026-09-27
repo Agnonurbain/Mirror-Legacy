@@ -13,9 +13,12 @@ namespace MirrorChronicles.World
     /// member in the secret may talk — more when their mind is unsteady, far less when sworn to secrecy, whose oath then
     /// breaks. A leak reaches the power asking most (the most suspicious), or any: proof against the clan, and clues about
     /// a hidden treasure behind it. The mirror answers (L2c.4c): it blurs a power's memories or plants a false proof. When
-    /// a power pieces the secret together, the consequences are immediate — an investigator comes — but the clan has a
-    /// little time to sow doubt: a power made to doubt cannot act; one that still knows seizes the mirror if it dares,
-    /// and otherwise sells the secret to the strongest (profit, D7).
+    /// a power pieces the secret together, it matters only if one of its elders knows what the mirror is — a handful of
+    /// old, very high-level beings (<see cref="MirrorLore"/>, user decision 2026-09-27). An ordinary power can only
+    /// suspect a treasure: its suspicion of the clan grows, and it may sell the rumour to the strongest power where
+    /// someone knows — the real danger. With a knower the consequences are immediate — an investigator comes — but the
+    /// clan has a little time to sow doubt: a power made to doubt cannot act; one that still knows seizes the mirror if
+    /// it dares, and otherwise tells only a peer who knows too, never an ordinary power.
     /// </summary>
     public sealed class SecretSystem
     {
@@ -25,10 +28,12 @@ namespace MirrorChronicles.World
         private readonly SuspicionLedger suspicion;
         private readonly OathSystem oaths;
         private readonly MirrorSystem mirror;
+        private readonly MirrorLore lore;
 
         public SecretSystem(GameContext ctx, ClanManager clan, FactionManager factions, SuspicionLedger suspicion, OathSystem oaths,
-            MirrorSystem mirror)
+            MirrorSystem mirror, MirrorLore lore)
         {
+            this.lore = lore;
             this.mirror = mirror;
             this.ctx = ctx;
             this.clan = clan;
@@ -49,7 +54,7 @@ namespace MirrorChronicles.World
         {
             var power = factions.GetFactionByName(faction);
             if (power == null || !mirror.ConsumePower(Settings.BlurMirrorCost)) return false;
-            double hold = power.HighestRealm >= CultivationRealm.GoldenCore ? Settings.BlurStrongFactor : 1.0;
+            double hold = power.HighestRealm >= CultivationRealm.GoldenCore || lore.Knows(faction) ? Settings.BlurStrongFactor : 1.0; // an elder's mind holds
             suspicion.AddMirrorClues(faction, -(int)(Settings.BlurClues * hold));
             suspicion.AddEvidence(faction, -(int)(Settings.BlurEvidence * hold));
             ctx.Log.Info($"[Secrets] The mirror blurs what {faction} remembers.");
@@ -105,7 +110,9 @@ namespace MirrorChronicles.World
         {
             if (Confrontation == null)
             {
-                var knowing = factions.Factions.FirstOrDefault(f => suspicion.MirrorClues(f.Name) >= SuspicionLedger.Max);
+                var complete = factions.Factions.Where(f => suspicion.MirrorClues(f.Name) >= SuspicionLedger.Max).ToList();
+                var knowing = complete.FirstOrDefault(f => lore.Knows(f.Name));
+                foreach (var ordinary in complete.Where(f => f != knowing)) SuspectATreasure(ordinary);
                 if (knowing == null) return;
                 Confrontation = new Confrontation(knowing.Name, Settings.ConfrontationYears);
                 suspicion.AddToClan(knowing.Name, SuspicionLedger.Max); // the consequences are immediate
@@ -135,11 +142,31 @@ namespace MirrorChronicles.World
                 ctx.Events.TriggerMirrorSeized(faction);
                 return;
             }
-            var buyer = factions.Factions.Where(f => f.Name != faction).OrderByDescending(f => f.PowerLevel).FirstOrDefault();
-            if (buyer == null) return;
-            suspicion.AddMirrorClues(buyer.Name, Settings.LeakMirrorClue); // too weak to seize: it sells the secret (profit)
-            suspicion.AddMirrorClues(faction, Settings.DoubtClues - 1 - suspicion.MirrorClues(faction)); // sold: it moves on
-            ctx.Log.Warning($"[Secrets] {faction}, too weak to act, sells what it knows to {buyer.Name}.");
+            suspicion.AddMirrorClues(faction, Settings.DoubtClues - 1 - suspicion.MirrorClues(faction)); // it moves on
+            var peer = StrongestKnower(except: faction);
+            if (peer == null) return;
+            suspicion.AddMirrorClues(peer.Name, Settings.LeakMirrorClue); // too weak to seize: it tells only a peer who knows
+            ctx.Log.Warning($"[Secrets] {faction}, too weak to act, tells {peer.Name}, whose elder knows too.");
         }
+
+        /// <summary>
+        /// An ordinary power at the end of its suspicion cannot name the mirror: it suspects a treasure, and may sell the
+        /// rumour to the strongest power where someone knows (profit, D7) — never to another ordinary power.
+        /// </summary>
+        private void SuspectATreasure(FactionData power)
+        {
+            var s = ctx.Content.Balance.MirrorLore;
+            suspicion.AddToClan(power.Name, s.TreasureSuspicion);
+            suspicion.AddMirrorClues(power.Name, Settings.DoubtClues - 1 - suspicion.MirrorClues(power.Name)); // all it could tell itself
+            ctx.Log.Info($"[Secrets] {power.Name} is sure the clan hides a treasure, without knowing what.");
+            if (!ctx.Rng.Chance(s.RumourRiseChance)) return;
+            var buyer = StrongestKnower(except: power.Name);
+            if (buyer == null) return;
+            suspicion.AddMirrorClues(buyer.Name, Settings.LeakMirrorClue);
+            ctx.Log.Warning($"[Secrets] {power.Name} sells the rumour of a treasure to {buyer.Name}.");
+        }
+
+        private FactionData StrongestKnower(string except) =>
+            factions.Factions.Where(f => f.Name != except && lore.Knows(f.Name)).OrderByDescending(f => f.PowerLevel).FirstOrDefault();
     }
 }

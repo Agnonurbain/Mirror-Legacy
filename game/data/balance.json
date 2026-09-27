@@ -143,6 +143,14 @@
     "executeRelation": -40,
     "executeWitnessRelation": -5
   },
+  "mirrorLore": {
+    "knowChance": { "GoldenCore": 0.15, "DaoEmbryo": 0.5, "GoldenImmortal": 0.85 },
+    "perCentury": { "GoldenCore": 0.1, "DaoEmbryo": 0.1, "GoldenImmortal": 0.05 },
+    "maxChance": 0.95,
+    "unknownAge": 200,
+    "rumourRiseChance": 0.3,
+    "treasureSuspicion": 20
+  },
   "regionalQi": {
     "kindElements": {
       "State": [ "Earth", "Wood", "Water", "Fire", "Metal" ],

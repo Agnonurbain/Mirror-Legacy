@@ -291,8 +291,11 @@ namespace MirrorChronicles.Tests.World
             w.Ctx.Events.OnMirrorSeized += _ => seized = true;
             w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
             w.Secrets.ProcessYear();
-            w.Mirror.AddPower(200);
-            for (int i = 0; i < 4; i++) w.Secrets.BlurMemories(Peak); // below the doubt's threshold, even for an elder
+            for (int i = 0; i < 4; i++) // below the doubt's threshold, even for an elder: the mirror spends itself over and over
+            {
+                w.Mirror.AddPower(100);
+                w.Secrets.BlurMemories(Peak);
+            }
 
             w.Secrets.ProcessYear();
 
