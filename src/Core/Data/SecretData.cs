@@ -50,6 +50,9 @@ namespace MirrorChronicles.Data
         public int TargetDistrust { get; init; }
         public int Stones { get; init; }
         public FactionPersonality TargetTemper { get; init; }
+
+        /// <summary>Points of chance lent from elsewhere (a great partner's sight).</summary>
+        public int Bonus { get; init; }
     }
 
     /// <summary>

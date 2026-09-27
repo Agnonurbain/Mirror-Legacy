@@ -30,9 +30,10 @@ namespace MirrorChronicles.Data
         public const string BeastsFile = "beasts.json";
         public const string AtmospheresFile = "atmospheres.json";
         public const string SecretsFile = "secrets.json";
+        public const string PatronsFile = "patrons.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile, SecretsFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile, SecretsFile, PatronsFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -67,6 +68,7 @@ namespace MirrorChronicles.Data
             var beasts = Read<List<BeastSpecies>>(readFile, BeastsFile);
             var atmospheres = Read<List<AtmosphereDefinition>>(readFile, AtmospheresFile);
             var secretKinds = Read<List<SecretKind>>(readFile, SecretsFile);
+            var patrons = Read<List<PatronDefinition>>(readFile, PatronsFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -98,6 +100,11 @@ namespace MirrorChronicles.Data
             CheckInterpretedFields(FiguresFile, figures.Select(f => (f.Id, typeof(FigureDefinition), (IEnumerable<string>)f.InterpretedFields)));
             CheckInterpretedFields(TalismansFile, talismans.Select(t => (t.Id, typeof(TalismanDefinition), (IEnumerable<string>)t.InterpretedFields)));
             CheckInterpretedFields(RegionsFile, regions.Select(r => (r.Id, typeof(RegionDefinition), (IEnumerable<string>)r.InterpretedFields)));
+            Require(patrons.All(p => !string.IsNullOrWhiteSpace(p.Id) && !string.IsNullOrWhiteSpace(p.Name) && p.Tribute >= 0 && p.BoonStrength >= 0
+                    && p.MinClanRealm >= CultivationRealm.PurpleMansion && regions.Any(r => r.Id == p.RegionId) && p.InterpretedFields != null)
+                && patrons.Select(p => p.Id).Distinct().Count() == patrons.Count,
+                PatronsFile, "every great partner needs a unique id, a name, a place of the map, a tribute and a boon, and deals only with a clan of the Purple Mansion or above.");
+            CheckInterpretedFields(PatronsFile, patrons.Select(p => (p.Id, typeof(PatronDefinition), (IEnumerable<string>)p.InterpretedFields)));
             CheckInterpretedFields(SecretsFile, secretKinds.Select(k => (k.Id, typeof(SecretKind), (IEnumerable<string>)k.InterpretedFields)));
             CheckInterpretedFields(AtmospheresFile, atmospheres.Select(a => (a.Id, typeof(AtmosphereDefinition), (IEnumerable<string>)a.InterpretedFields)));
             CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
@@ -123,7 +130,8 @@ namespace MirrorChronicles.Data
                 Figures = figures,
                 BeastSpecies = beasts,
                 Atmospheres = atmospheres,
-                SecretKinds = secretKinds
+                SecretKinds = secretKinds,
+                Patrons = patrons
             };
         }
 
@@ -239,6 +247,9 @@ namespace MirrorChronicles.Data
                 && IsProbability(treaty.VassalTributeShare) && IsProbability(treaty.GripStonesShare) && treaty.GripThreshold > 0
                 && treaty.TradeDiscount > 0 && treaty.SealedHeartDemonYears >= 0,
                 BalanceFile, "treaties needs a relation and a base for every kind, and odds and shares between 0 and 1.");
+            var pat = balance.Patrons;
+            Require(pat != null && pat.StartFavor > 0 && pat.MaxFavor >= pat.StartFavor && pat.UnpaidFavorLoss > 0 && pat.SafeEndFavor >= 0,
+                BalanceFile, "patrons needs a starting favour, a ceiling above it, a loss for an unpaid tribute, and a safe favour to leave.");
             var deal = balance.Dealings;
             Require(deal != null && deal.BlackmailPriceByRank.Count == 4 && deal.ResentmentByRank.Count == 4 && deal.ExposeDistrustByRank.Count == 4
                 && deal.SellPriceByRank.Count == 4 && deal.BlackmailPriceByRank.All(p => p >= 0) && deal.SellPriceByRank.All(p => p >= 0)

@@ -22,10 +22,12 @@ namespace MirrorChronicles.World
         private readonly SecretSystem secrets;
         private readonly TreatySystem treaties;
         private readonly PowerPoliticsSystem politics;
+        private readonly PatronSystem patrons;
 
         public SchemeSystem(GameContext ctx, ClanManager clan, FactionManager factions, CaptiveSystem captives, SecretSystem secrets,
-            TreatySystem treaties = null, PowerPoliticsSystem politics = null)
+            TreatySystem treaties = null, PowerPoliticsSystem politics = null, PatronSystem patrons = null)
         {
+            this.patrons = patrons;
             this.politics = politics;
             this.treaties = treaties;
             this.ctx = ctx;
@@ -62,6 +64,11 @@ namespace MirrorChronicles.World
             if (guardian != null && ctx.Rng.Chance(ctx.Content.Balance.Treaties.DefenceGuardChance))
             {
                 ctx.Log.Info($"[Schemes] {guardian}'s escort foils {power.Name}'s ambush on {target.FullName}.");
+                return true;
+            }
+            if (patrons != null && patrons.GuardChance > 0 && ctx.Rng.Chance(patrons.GuardChance))
+            {
+                ctx.Log.Info($"[Schemes] A great partner's shadow foils {power.Name}'s ambush on {target.FullName}.");
                 return true;
             }
             if (ctx.Rng.Chance(SchemeRules.CaptureChance(power, target, Settings)))

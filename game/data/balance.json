@@ -240,6 +240,13 @@
     "doubleAgentRelief": 10,
     "spyExecutionRelation": -40
   },
+  "patrons": {
+    "startFavor": 5,
+    "maxFavor": 10,
+    "paidFavor": 1,
+    "unpaidFavorLoss": 2,
+    "safeEndFavor": 3
+  },
   "politics": {
     "allianceChance": 0.2,
     "allianceAffinity": 25,
