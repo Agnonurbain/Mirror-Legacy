@@ -54,6 +54,7 @@ namespace MirrorChronicles.Game
             Clear(powers);
             var session = root.Session;
             ShowCoalitionAndCall(session);
+            ShowPatrons(session);
             foreach (var line in DiplomacyView.Powers(session))
             {
                 var row = new HBoxContainer();
@@ -66,6 +67,25 @@ namespace MirrorChronicles.Game
                 row.AddChild(new Label { Text = $"{line.Kind} · {line.HighestRealm} · relation {line.Relation:+#;-#;0}{bonds}" });
                 powers.AddChild(row);
                 foreach (var treaty in line.Treaties) ShowTreaty(treaty);
+            }
+        }
+
+        /// <summary>The great partners of the very high level: a pact, its favour, its end.</summary>
+        private void ShowPatrons(Session.GameSession session)
+        {
+            Add(powers, "Grands partenaires :");
+            foreach (var patron in DiplomacyView.Patrons(session))
+            {
+                var row = new HBoxContainer();
+                row.AddChild(new Label { Text = $"{patron.Name} ({patron.Kind}, {patron.Boon}, tribut {patron.Tribute}){(patron.Bound ? $" · {patron.Favor}" : "")}", CustomMinimumSize = new Vector2(460, 0) });
+                var act = patron.Bound
+                    ? new Button { Text = "Mettre fin au pacte", TooltipText = patron.EndWarning ?? "sans danger : elle vous est favorable" }
+                    : new Button { Text = "Proposer un pacte", Disabled = patron.Refusal != null, TooltipText = patron.Refusal ?? "" };
+                act.Pressed += () => Report(patron.Bound ? session.Patrons.End(patron.Id) : session.Patrons.Propose(patron.Id),
+                    patron.Bound ? $"Le pacte avec {patron.Name} prend fin." : $"{patron.Name} accepte le pacte.");
+                row.AddChild(act);
+                if (!patron.Bound && patron.Refusal != null) row.AddChild(new Label { Text = $"({patron.Refusal})" });
+                powers.AddChild(row);
             }
         }
 

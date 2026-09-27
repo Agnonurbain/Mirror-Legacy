@@ -37,6 +37,7 @@ namespace MirrorChronicles.Data
 
         /// <summary>The kinds of spirit beasts (beasts.json, L2c.2).</summary>
         public IReadOnlyList<SecretKind> SecretKinds { get; init; } = Array.Empty<SecretKind>();
+        public IReadOnlyList<PatronDefinition> Patrons { get; init; } = Array.Empty<PatronDefinition>();
         public IReadOnlyList<AtmosphereDefinition> Atmospheres { get; init; } = Array.Empty<AtmosphereDefinition>();
         public IReadOnlyList<BeastSpecies> BeastSpecies { get; init; } = Array.Empty<BeastSpecies>();
 
@@ -205,6 +206,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>What a pierced secret is worth: blackmail, exposure, sale (2026-09-27; interpretations).</summary>
         public DealingSettings Dealings { get; init; }
+
+        /// <summary>The favour of the great partners (2026-09-27; interpretations).</summary>
+        public PatronSettings Patrons { get; init; }
 
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }

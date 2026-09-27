@@ -38,6 +38,8 @@ namespace MirrorChronicles.Data
                 Describe(lines, GameContentLoader.FactionsFile, f.Name, f.Provenance, f.InterpretedFields);
             foreach (var r in content.Regions)
                 Describe(lines, GameContentLoader.RegionsFile, r.Id, r.Provenance, r.InterpretedFields);
+            foreach (var p in content.Patrons)
+                Describe(lines, GameContentLoader.PatronsFile, p.Id, p.Provenance, p.InterpretedFields);
             foreach (var k in content.SecretKinds)
                 Describe(lines, GameContentLoader.SecretsFile, k.Id, k.Provenance, k.InterpretedFields);
             foreach (var a in content.Atmospheres)

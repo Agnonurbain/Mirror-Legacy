@@ -34,12 +34,14 @@ namespace MirrorChronicles.World
         private readonly SecretBook book;
         private readonly HuntOperations hunts;
         private readonly ResourceManager resources;
+        private readonly PatronSystem patrons;
         private readonly Dictionary<string, int> alertness = new Dictionary<string, int>();
 
         public ProbeSystem(GameContext ctx, ClanManager clan, FactionManager factions, SuspicionLedger suspicion, TreatySystem treaties,
             PowerPoliticsSystem politics, MirrorSystem mirror, MirrorLore lore, CaptiveSystem captives, SecretBook book, HuntOperations hunts,
-            ResourceManager resources)
+            ResourceManager resources, PatronSystem patrons = null)
         {
+            this.patrons = patrons;
             this.ctx = ctx;
             this.clan = clan;
             this.factions = factions;
@@ -223,6 +225,7 @@ namespace MirrorChronicles.World
                 Neighbours = Neighbours(prober, target),
                 TargetDistrust = target == Clan ? suspicion.ClanDistrust(prober) : prober == Clan ? suspicion.OfClan(target) : suspicion.Distrust(target, prober),
                 Stones = stones,
+                Bonus = prober == Clan ? patrons?.SightBonus ?? 0 : 0, // a great partner's sight
                 TargetTemper = targetPower?.Personality ?? FactionPersonality.Isolationist
             };
         }

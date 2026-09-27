@@ -19,7 +19,8 @@ namespace MirrorChronicles.World
                 - f.Alertness * s.AlertnessWeight
                 - f.TargetDistrust * s.DistrustWeight
                 + (f.Insider ? s.InsiderBonus : 0)
-                + (f.Neighbours ? s.NeighbourBonus : 0);
+                + (f.Neighbours ? s.NeighbourBonus : 0)
+                + f.Bonus;
             if (f.Approach == ProbeApproach.Bribery)
                 percent += f.Stones / (double)Math.Max(1, s.BribeUnit) * (s.BribeTemper.TryGetValue(f.TargetTemper, out var t) ? t : 1.0);
             if (s.TemperMod.TryGetValue(f.TargetTemper, out var mods) && mods.TryGetValue(f.Approach, out var mod)) percent += mod;
