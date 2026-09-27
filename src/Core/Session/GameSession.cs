@@ -301,9 +301,9 @@ namespace MirrorChronicles.Session
                     Factions.ProcessYearlyFactionAI();
                     Secrets.ProcessYear();            // those who know may talk (L2c.4b)
                     Plots.ProcessYear();              // the powers investigate, and strike what they suspect (D7)
-            Schemes.ProcessYear();            // the powers scheme for profit: ambushes on members away (L6a)
-            Captives.ProcessYear();           // the captives are interrogated, and may be executed
-            Treaties.ProcessYear();           // the treaties: tribute, trade, the allies close by — and betrayal (D7)
+                    Schemes.ProcessYear();            // the powers scheme for profit: ambushes on members away (L6a)
+                    Captives.ProcessYear();           // the captives are interrogated, and may be executed
+                    Treaties.ProcessYear();           // the treaties: tribute, trade, the allies close by — and betrayal (D7)
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)

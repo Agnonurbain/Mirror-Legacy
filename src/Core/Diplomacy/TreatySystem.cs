@@ -94,13 +94,17 @@ namespace MirrorChronicles.Diplomacy
             if (kind == TreatyKind.Vassalage && clanAsSuzerain && (int)strongest < (int)power.HighestRealm + s.SuzerainRealmMargin)
                 return "le clan n'a pas l'ascendant sur elle";
             if (sealedByOath && clan.GetPatriarch() == null) return "il faut un patriarche pour jurer";
+            if (sealedByOath && clan.GetPatriarch().CaptorFaction != null) return "le patriarche est captif : il ne peut jurer";
             int min = s.MinRelation.TryGetValue(kind, out var m) ? m : 0;
             if (power.RelationWithPlayer < min) return $"la relation est trop froide ({min} requise)";
             int willing = TreatyRules.Willingness(power, kind, clanAsSuzerain, strongest, suspicion.OfClan(power.Name), s);
             return willing < s.AcceptThreshold ? "elle n'y trouve pas son compte" : null;
         }
 
-        /// <summary>The clan breaks its word: the relation, the clan's name when it was public, a Heart Demon when sworn.</summary>
+        /// <summary>
+        /// The clan breaks its word: the relation, the clan's name when it was public, a Heart Demon when sworn — whatever the
+        /// kind, a vassalage too (the suzerain's reprisal, if any, is its own affair: its schemes and strikes).
+        /// </summary>
         public string Break(string treatyId)
         {
             var treaty = treaties.FirstOrDefault(t => t.Id == treatyId);
@@ -150,8 +154,8 @@ namespace MirrorChronicles.Diplomacy
                     suspicion.AddMirrorClues(power.Name, s.AllyProximityClues); // an ally comes close
                     return treaty;
                 case TreatyKind.Vassalage when treaty.ClanIsSuzerain:
-                    int owed = (int)(power.Wealth * s.VassalTributeShare);
-                    power.Wealth -= owed;
+                    int owed = (int)(Math.Max(0, power.Wealth) * s.VassalTributeShare);
+                    power.Wealth = Math.Max(0, power.Wealth - owed);
                     resources.AddSpiritStones(owed);
                     return treaty;
                 case TreatyKind.Vassalage:
@@ -182,15 +186,19 @@ namespace MirrorChronicles.Diplomacy
                 grip = 0;
             }
             var updated = treaty with { Grip = grip };
-            treaties[treaties.IndexOf(treaty)] = updated;
+            treaties[IndexOf(treaty)] = updated;
             return updated;
         }
 
-        /// <summary>A power betrays: the treaty ends, the relation sours; what it seizes; the witnesses of a public treaty distrust it.</summary>
+        /// <summary>
+        /// A power betrays: the treaty ends, the relation sours; what it seizes; the witnesses of a public treaty distrust it.
+        /// A sworn power betrays far less often (<see cref="TreatyRules.BetrayalChance"/>) but pays no Heart Demon of its own:
+        /// a power is no single cultivator whose path the oath could interrupt (the clan's patriarch is).
+        /// </summary>
         private void Betray(Treaty treaty, FactionData power)
         {
             var s = Settings;
-            treaties.Remove(treaty);
+            treaties.RemoveAt(IndexOf(treaty));
             ChangeRelation(power.Name, s.BetrayalRelation);
             bool seizes = treaty.Kind != TreatyKind.Defence && !(treaty.Kind == TreatyKind.Vassalage && treaty.ClanIsSuzerain);
             if (seizes)
@@ -208,7 +216,7 @@ namespace MirrorChronicles.Diplomacy
         /// <summary>A secret treaty comes to light: everyone doubts both sides.</summary>
         private void ComeToLight(Treaty treaty, FactionData power)
         {
-            treaties[treaties.IndexOf(treaty)] = treaty with { Secret = false };
+            treaties[IndexOf(treaty)] = treaty with { Secret = false };
             foreach (var other in factions.Factions.Where(f => f.Name != power.Name))
             {
                 suspicion.AddDistrust(other.Name, power.Name, Settings.SecretDiscoveryDistrust);
@@ -216,6 +224,9 @@ namespace MirrorChronicles.Diplomacy
             }
             ctx.Log.Warning($"[Treaties] The secret treaty between the clan and {power.Name} comes to light.");
         }
+
+        /// <summary>A treaty's place by its id (unique), never by its value.</summary>
+        private int IndexOf(Treaty treaty) => treaties.FindIndex(t => t.Id == treaty.Id);
 
         private void ChangeRelation(string faction, int amount)
         {

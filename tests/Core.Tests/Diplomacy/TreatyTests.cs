@@ -309,7 +309,7 @@ namespace MirrorChronicles.Tests.Diplomacy
             Assert.IsNull(w.Treaties.Break(w.Treaties.With(Peak).Single().Id));
 
             Assert.AreEqual(relation + Settings.BreakRelation, Power(w, Peak).RelationWithPlayer);
-            Assert.IsNull(w.Treaties.Propose(Peak, TreatyKind.Vassalage), "the clan serves no one now");
+            StringAssert.DoesNotContain("suzerain", w.Treaties.Propose(Peak, TreatyKind.Vassalage), "the clan serves no one now — only the relation is spoiled");
 
             var strong = World(new FixedRandom(0.999), CultivationRealm.PurpleMansion);
             strong.Treaties.Propose(Fang, TreatyKind.Vassalage, clanAsSuzerain: true);

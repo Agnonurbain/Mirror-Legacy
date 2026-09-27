@@ -42,7 +42,7 @@ namespace MirrorChronicles.World
             {
                 if (ambushes >= Settings.MaxAmbushesPerYear) return;
                 if (secrets.Confrontation?.Faction == power.Name) continue; // its move is the confrontation's
-                if (treaties?.Spares(power.Name) == true) continue;           // bound by a treaty (betrayal is the treaty's own path)
+                if (treaties?.Spares(power.Name) == true) continue;           // spared by non-aggression, or as the clan's suzerain (betrayal is the treaty's own path)
                 if (ctx.Rng.Chance(SchemeRules.SchemeChance(power, stones, Settings)) && Ambush(power)) ambushes++;
             }
         }

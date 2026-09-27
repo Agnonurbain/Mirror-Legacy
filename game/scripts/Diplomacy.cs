@@ -114,11 +114,16 @@ namespace MirrorChronicles.Game
 
             Add(proposal, "Autres actes :");
             var faction = session.Factions.GetFactionByName(power);
+            if (faction == null)
+            {
+                Add(proposal, "Cette puissance a disparu.");
+                return;
+            }
             var tribute = new Button { Text = $"Offrir un tribut ({TributeStones} pierres)", SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
             tribute.Pressed += () => Report(session.Alliances.OfferTribute(faction.ID, TributeStones) ? null : "pierres insuffisantes", $"{power} reçoit le tribut.");
             proposal.AddChild(tribute);
             var war = new Button { Text = "Déclarer la guerre", SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
-            war.Pressed += () => { session.Alliances.DeclareWar(faction.ID); Report(null, $"Le clan déclare la guerre à {power}."); };
+            war.Pressed += () => Report(session.Alliances.DeclareWar(faction.ID), $"Le clan déclare la guerre à {power}.");
             proposal.AddChild(war);
         }
 

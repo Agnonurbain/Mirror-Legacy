@@ -36,13 +36,15 @@ namespace MirrorChronicles.Diplomacy
             return true;
         }
 
-        public void DeclareWar(string factionId)
+        /// <summary>War: the relation sinks by a hundred. Answers with its refusal, or null when done.</summary>
+        public string DeclareWar(string factionId)
         {
             var faction = factions.GetFactionByID(factionId);
-            if (faction == null) return;
+            if (faction == null) return "puissance inconnue";
 
             factions.ChangeRelation(factionId, -100);
             ctx.Log.Warning($"[Alliances] The clan declares war on {faction.Name}!");
+            return null;
         }
     }
 }
