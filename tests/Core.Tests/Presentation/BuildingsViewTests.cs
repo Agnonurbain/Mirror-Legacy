@@ -47,6 +47,7 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.IsNull(forge.Cost);
             Assert.IsNull(forge.NextEffect);
             StringAssert.Contains("25 %", forge.Effect);
+            StringAssert.Contains("affectés à la mine", forge.Effect, "not to be mistaken for the Mine building");
         }
     }
 }
