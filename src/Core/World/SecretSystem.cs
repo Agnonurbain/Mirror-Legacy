@@ -54,7 +54,8 @@ namespace MirrorChronicles.World
         {
             var power = factions.GetFactionByName(faction);
             if (power == null || !mirror.ConsumePower(Settings.BlurMirrorCost)) return false;
-            double hold = power.HighestRealm >= CultivationRealm.GoldenCore || lore.Knows(faction) ? Settings.BlurStrongFactor : 1.0; // an elder's mind holds
+            // an elder's mind holds (today only Golden Core powers can know: mirrorLore lists no lower realm)
+            double hold = power.HighestRealm >= CultivationRealm.GoldenCore || lore.Knows(faction) ? Settings.BlurStrongFactor : 1.0;
             suspicion.AddMirrorClues(faction, -(int)(Settings.BlurClues * hold));
             suspicion.AddEvidence(faction, -(int)(Settings.BlurEvidence * hold));
             ctx.Log.Info($"[Secrets] The mirror blurs what {faction} remembers.");
@@ -111,8 +112,9 @@ namespace MirrorChronicles.World
             if (Confrontation == null)
             {
                 var complete = factions.Factions.Where(f => suspicion.MirrorClues(f.Name) >= SuspicionLedger.Max).ToList();
-                var knowing = complete.FirstOrDefault(f => lore.Knows(f.Name));
-                foreach (var ordinary in complete.Where(f => f != knowing)) SuspectATreasure(ordinary);
+                var knowers = complete.Where(f => lore.Knows(f.Name)).ToList();
+                var knowing = knowers.OrderByDescending(f => f.PowerLevel).FirstOrDefault(); // the others wait their turn, clues kept
+                foreach (var ordinary in complete.Except(knowers)) SuspectATreasure(ordinary);
                 if (knowing == null) return;
                 Confrontation = new Confrontation(knowing.Name, Settings.ConfrontationYears);
                 suspicion.AddToClan(knowing.Name, SuspicionLedger.Max); // the consequences are immediate

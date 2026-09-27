@@ -27,7 +27,7 @@ namespace MirrorChronicles.World
         {
             uint hash = 2166136261;
             foreach (char c in $"{worldSeed}:{id}") hash = (hash ^ c) * 16777619;
-            hash ^= hash >> 13;
+            hash ^= hash >> 13; // FNV-1a, then the MurmurHash2 finaliser to spread the bits
             hash *= 0x5bd1e995;
             hash ^= hash >> 15;
             return (hash & 0xFFFFFF) / (double)0x1000000;
