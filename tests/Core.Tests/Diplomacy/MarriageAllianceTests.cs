@@ -135,5 +135,53 @@ namespace MirrorChronicles.Tests.Diplomacy
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.AreEqual(s.Treaties.With(Tao).Single(), reloaded.Treaties.With(Tao).Single());
         }
+
+        // ---- Review ----
+
+        [Test]
+        public void ABondOfBlood_IsNotBroken_ButRepudiated()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Matches.Propose(Tao, Bride(w).ID);
+            StringAssert.Contains("répudi", w.Treaties.Break(w.Treaties.With(Tao).Single().Id));
+            Assert.IsTrue(w.Treaties.Has(Tao, TreatyKind.Marriage));
+        }
+
+        [Test]
+        public void TheSpousesDeath_EndsTheAlliance_AtOnce()
+        {
+            var w = World(new FixedRandom(0.999));
+            var bride = Bride(w);
+            w.Matches.Propose(Tao, bride.ID);
+            var spouse = w.Clan.FindById(bride.SpouseID);
+
+            w.Clan.Kill(spouse, DeathCause.ExecutedAsSpy);
+
+            Assert.IsFalse(w.Treaties.Has(Tao, TreatyKind.Marriage), "no need to wait for the year");
+            Assert.IsFalse(w.Treaties.Spares(Tao));
+        }
+
+        [Test]
+        public void ACaptiveSpouse_CannotBeSentHome()
+        {
+            var w = World(new FixedRandom(0.999));
+            var bride = Bride(w);
+            w.Matches.Propose(Tao, bride.ID);
+            var spouse = w.Clan.FindById(bride.SpouseID);
+            w.Captives.Take(spouse, Lou);
+            StringAssert.Contains("captif", w.Matches.Repudiate(spouse.ID));
+            Assert.IsFalse(spouse.Departed);
+        }
+
+        [Test]
+        public void TheTree_TellsTheDeparted_FromTheLivingAndTheDead()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var single = DiplomacyView.MarriageCandidates(s).First();
+            s.Matches.Propose(Tao, single.Id);
+            var spouseId = s.Clan.FindById(single.Id).SpouseID;
+            s.Matches.Repudiate(spouseId);
+            Assert.IsTrue(GenealogyView.Tree(s).Single(n => n.Id == spouseId).Departed);
+        }
     }
 }
