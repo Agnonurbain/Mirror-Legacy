@@ -257,5 +257,62 @@ namespace MirrorChronicles.Tests.Diplomacy
             Assert.AreEqual(3, reloaded.Politics.Coalition.YearsLeft);
             Assert.AreEqual(new CallToArms(Tao, Ruan, 1), reloaded.Politics.PendingCall);
         }
+
+        // ---- Review: what an absorption carries with it ----
+
+        private static void AbsorbFangIntoPeak(TestWorld w, params PowerBond[] others) =>
+            w.Politics.RestoreBonds(new[] { new PowerBond("v", BondKind.Vassalage, Peak, Fang, 1, false) { Grip = Settings.GripThreshold } }.Concat(others));
+
+        [Test]
+        public void AnAbsorbedPowersVassals_PassToItsSuzerain()
+        {
+            var w = World(new FixedRandom(0.999));
+            AbsorbFangIntoPeak(w, new PowerBond("c", BondKind.Vassalage, Fang, "Famille Kang", 1, false));
+            w.Politics.ProcessYear();
+            Assert.AreEqual(Peak, w.Politics.SuzerainOf("Famille Kang"));
+        }
+
+        [Test]
+        public void TheClansTreaties_WithAnAbsorbedPower_EndAtOnce()
+        {
+            var w = World(new FixedRandom(0.999));
+            AbsorbFangIntoPeak(w);
+            w.Factions.ChangeRelation(Power(w, Fang).ID, 30);
+            Assert.IsNull(w.Treaties.Propose(Fang, TreatyKind.NonAggression));
+
+            w.Politics.ProcessYear();
+
+            Assert.IsFalse(w.Treaties.Has(Fang, TreatyKind.NonAggression));
+        }
+
+        [Test]
+        public void ACall_WhoseAllyIsAbsorbed_Lapses()
+        {
+            var w = World(new FixedRandom(0.999));
+            AbsorbFangIntoPeak(w);
+            w.Politics.RestoreCall(new CallToArms(Fang, Ruan, w.Ctx.Clock.Year));
+            w.Politics.ProcessYear();
+            Assert.IsNull(w.Politics.PendingCall);
+        }
+
+        [Test]
+        public void AnAbsorbedPowersBeasts_BelongToItsSuzerain()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Bestiary.Restore(new[] { new WorldBeast("b", "fox", "heshan", CultivationRealm.QiRefinement, 1, Fang) });
+            AbsorbFangIntoPeak(w);
+            w.Politics.ProcessYear();
+            Assert.AreEqual(Peak, w.Bestiary.Beasts.Single().OwnerFaction);
+        }
+
+        [Test]
+        public void AConfrontation_ByAnAbsorbedPower_Ends()
+        {
+            var w = World(new FixedRandom(0.999));
+            AbsorbFangIntoPeak(w);
+            w.Secrets.RestoreConfrontation(new Confrontation(Fang, 1));
+            w.Politics.ProcessYear();
+            Assert.IsNull(w.Secrets.Confrontation);
+        }
     }
 }
