@@ -18,6 +18,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>Powers banded against the clan, for the years left.</summary>
     public sealed record CoalitionLine(IReadOnlyList<string> Members, int YearsLeft);
 
+    /// <summary>A power's blackmail awaiting the clan's answer.</summary>
+    public sealed record DemandLine(string Faction, int Stones);
+
     /// <summary>An ally of the clan attacked, calling it to arms, and what answering costs.</summary>
     public sealed record CallLine(string Ally, string Attacker, int Cost);
 
@@ -34,6 +37,9 @@ namespace MirrorChronicles.Presentation
                         t.Absorptions, session.Context.Content.Balance.Politics.ClanAbsorptionSteps)).ToList(),
                     PublicAllies(session, f.Name), PublicSuzerain(session, f.Name)))
                 .ToList();
+
+        public static IReadOnlyList<DemandLine> Demands(GameSession session) =>
+            session.Intrigues.Demands.Select(d => new DemandLine(d.Faction, d.Stones)).ToList();
 
         public static CoalitionLine Coalition(GameSession session) =>
             session.Politics.Coalition is { } c ? new CoalitionLine(c.Members.ToList(), c.YearsLeft) : null;

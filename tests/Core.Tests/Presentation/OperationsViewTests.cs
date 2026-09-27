@@ -223,7 +223,7 @@ namespace MirrorChronicles.Tests.Presentation
             member.SpyFor = "Porte du Chrysanthème Noir";
 
             var line = OperationsView.Spouses(s).Single();
-            Assert.AreEqual((member.ID, "Porte du Chrysanthème Noir", false, null), (line.Id, line.From, line.Sounded, line.SpyFor));
+            Assert.AreEqual((member.ID, "Porte du Chrysanthème Noir", false, (string)null), (line.Id, line.From, line.Sounded, (string)line.SpyFor));
 
             s.Mirror.AddPower(100);
             s.Intrigues.Unmask(member.ID);
