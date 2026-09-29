@@ -71,6 +71,11 @@ namespace MirrorChronicles.Economy
         public bool AssignTask(CharacterData character, TaskType task)
         {
             if (!character.IsAlive) return false;
+            if (character.CurrentTask == TaskType.HuntBeast || character.CurrentTask == TaskType.Diversion)
+            {
+                ctx.Log.Warning($"[Tasks] {character.FullName} is away on an operation until the year ends.");
+                return false; // the hunt keeps them the whole year (HuntOperations): back at the next year's start
+            }
             if (!TaskRules.IsAllowed(character, task, talismans.HuntWindowOpen))
             {
                 ctx.Log.Warning($"[Tasks] {character.FullName} cannot take {task} ({RankCatalog.DisplayName(character)}).");

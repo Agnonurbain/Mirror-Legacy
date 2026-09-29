@@ -15,7 +15,7 @@ namespace MirrorChronicles.Session
         int Seed, int Years, bool Won, bool Lost, int Members, int Powers, int Stones, CultivationRealm BestRealm,
         int Strikes, int Captures, int Coalitions, int ClanWars, int PowerWars, int Peaces, int Absorptions,
         int Betrayals, int Blackmails, int Thefts, int ProbesSpotted, int Challenges, int Deaths, int CombatDeaths, int PoorYears,
-        int Cultivators, int Devoured, int Extortions, int Foiled);
+        int Cultivators, int Devoured, int Extortions, int Foiled, int Hunts, int BeastsTaken);
 
     /// <summary>
     /// Long automatic games (balance, 2026-09-29): a passive clan — no orders given, or only the idle set to work — lives through the years while the
@@ -41,6 +41,7 @@ namespace MirrorChronicles.Session
             bus.OnBlackmail += _ => Count("blackmail");
             bus.OnExtortion += _ => Count("extortion");
             bus.OnDaoHuntFoiled += _ => Count("foiled");
+            bus.OnHunt += (_, captured) => { Count("hunt"); if (captured) Count("capture-beast"); };
             bus.OnTheft += (_, _) => Count("theft");
             bus.OnProbeSpotted += _ => Count("probe");
             bus.OnChallengeSettled += (_, _) => Count("challenge");
@@ -71,7 +72,7 @@ namespace MirrorChronicles.Session
                 living.Count == 0 ? CultivationRealm.Embryonic : living.Max(m => m.Realm),
                 Get("strike"), Get("capture"), Get("coalition"), Get("clanWar"), Get("powerWar"), Get("peace"), Get("absorption"),
                 Get("betrayal"), Get("blackmail"), Get("theft"), Get("probe"), Get("challenge"), Get("death"), Get("combatDeath"), Get("poor"),
-                living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"), Get("extortion"), Get("foiled"));
+                living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"), Get("extortion"), Get("foiled"), Get("hunt"), Get("capture-beast"));
         }
 
         private const int ReserveYears = 2;      // the pilot pays a demand only if it keeps two years of upkeep
@@ -87,7 +88,8 @@ namespace MirrorChronicles.Session
         /// The active pilot (user decision 2026-09-29): what a prudent clan does each year before its tasks — it pays a
         /// demand it can afford and refuses the rest, answers a challenge of its own rank with its best fighters (who
         /// then fight on their own) and flees the others, sues for peace after two years of war, plants a Talisman Seed
-        /// in a young examined mortal when the mirror can spare it, hides its ripe Daos in seclusion, weds its cultivators to cultivators (sought abroad when none is free), and seeks a non-aggression pact now and then (a few at most).
+        /// in a young examined mortal when the mirror can spare it, hides its ripe Daos in seclusion, weds its cultivators to cultivators (sought abroad when none is free), scouts and
+        /// hunts in the window and offers its beast to the mirror, and seeks a non-aggression pact now and then (a few at most).
         /// </summary>
         public static void Act(GameSession session)
         {
@@ -97,6 +99,8 @@ namespace MirrorChronicles.Session
                 session.Wars.SuePeace(war.Enemy);
             PlantASeed(session);
             WedTheLine(session);
+            Hunt(session);
+            OfferToTheMirror(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content)).ToList())
                 session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao hides
@@ -167,6 +171,53 @@ namespace MirrorChronicles.Session
             }
         }
 
+        /// <summary>
+        /// In the hunt window: without a known beast, a scout goes out; with one it can take, the best free fighter
+        /// strikes (a lookout beside), the solitary beasts first, a cover story when the beast has a master and the clan
+        /// can pay. A ripe Dao is never sent out.
+        /// </summary>
+        private static void Hunt(GameSession session)
+        {
+            if (!session.Talismans.HuntWindowOpen) return;
+            var content = session.Context.Content;
+            var hunters = session.Clan.LivingMembers.Where(m => session.Hunts.IsFree(m) && !FoundationRules.IsPrey(m, content))
+                .OrderByDescending(m => Mirror.HuntRules.Power(m.Realm, m.RealmStage)).ToList();
+            if (hunters.Count == 0) return;
+            int strength = Mirror.HuntRules.Power(hunters[0].Realm, hunters[0].RealmStage);
+            var known = session.Bestiary.Beasts.Where(b => session.Knowledge.Knows(World.FactKind.Beast, b.Id)).ToList();
+            var target = known.Where(b => Mirror.HuntRules.Power(b.Realm, b.Stage) < strength)
+                .OrderBy(b => b.OwnerFaction != null).ThenBy(b => Mirror.HuntRules.Power(b.Realm, b.Stage)).FirstOrDefault();
+            if (target == null)
+            {
+                var scout = hunters.LastOrDefault(m => m.CurrentTask != TaskType.ScoutBeasts);
+                if (scout != null && !hunters.Any(m => m.CurrentTask == TaskType.ScoutBeasts))
+                    session.Tasks.AssignTask(scout, TaskType.ScoutBeasts);
+                return;
+            }
+            var team = new Dictionary<string, HuntRole> { [hunters[0].ID] = HuntRole.Striker };
+            if (hunters.Count > 1) team[hunters[1].ID] = HuntRole.Lookout;
+            int coverCost = content.Balance.Hunt.CoverStones[(int)CoverStory.Trade];
+            bool cover = target.OwnerFaction != null && session.Resources.SpiritStones - coverCost >= session.Upkeep.YearlyUpkeep * ReserveYears;
+            var plan = new HuntPlan { TargetBeastId = target.Id, Team = team, Cover = cover ? CoverStory.Trade : CoverStory.None };
+            if (session.Hunts.Validate(plan) == null) session.Hunts.Execute(plan);
+        }
+
+        /// <summary>The ritual's year: a beast of rank is offered for the best cultivator without a talisman, who takes the first offered.</summary>
+        private static void OfferToTheMirror(GameSession session)
+        {
+            var talismans = session.Talismans;
+            if (talismans.PendingOffer == null)
+            {
+                var beast = session.Resources.Beasts.Where(b => Mirror.TalismanRules.RankOf(b) != null)
+                    .OrderByDescending(b => Mirror.HuntRules.Power(b.Realm, b.Stage)).FirstOrDefault();
+                var bearer = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.TalismanQiId == null && SpiritualOrificeRules.CanCultivate(m))
+                    .OrderByDescending(m => (int)m.Realm).ThenByDescending(m => m.RealmStage).FirstOrDefault();
+                if (beast == null || bearer == null || session.Clock.Year != talismans.NextRitualYear) return;
+                if (!talismans.PerformRitual(bearer, beast)) return;
+            }
+            if (talismans.PendingOffer?.Choices.Count > 0) talismans.Choose(talismans.PendingOffer.Choices[0]);
+        }
+
         private static void SeekATreaty(GameSession session)
         {
             var friend = session.Factions.Factions.Where(f => session.Treaties.With(f.Name).Count == 0)
@@ -226,6 +277,7 @@ namespace MirrorChronicles.Session
                 ("combatDeaths", r => r.CombatDeaths), ("poorYears", r => r.PoorYears),
                 ("cultivators", r => r.Cultivators), ("devoured", r => r.Devoured),
                 ("extortions", r => r.Extortions), ("foiled", r => r.Foiled),
+                ("hunts", r => r.Hunts), ("beasts", r => r.BeastsTaken),
             };
             var text = new StringBuilder();
             text.AppendLine(string.Join(" ", columns.Select(c => c.Name.PadLeft(Math.Max(6, c.Name.Length)))));
