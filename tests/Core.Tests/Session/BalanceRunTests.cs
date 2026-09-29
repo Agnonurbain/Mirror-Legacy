@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using NUnit.Framework;
+using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Tests.Session
@@ -25,13 +26,13 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
-        public void AnAutopilot_SetsTheIdleToWork()
+        public void TheAutopilot_SetsTheIdleToWork()
         {
-            BalanceRun.Play(Fixtures.Content, seed: 3, years: 3, out var session, autopilot: true);
+            var session = GameSession.NewGame(Fixtures.Setup(3));
+            BalanceRun.SetTheIdleToWork(session);
             var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
-            Assert.IsTrue(free.Any(m => m.CurrentTask == MirrorChronicles.Data.TaskType.Cultivation), "those who can, cultivate");
-            Assert.IsTrue(free.All(m => m.CurrentTask != MirrorChronicles.Data.TaskType.None
-                || !session.Tasks.AssignTask(m, MirrorChronicles.Data.TaskType.Mine)), "nobody idle who could work");
+            Assert.IsTrue(free.Any(m => m.CurrentTask == TaskType.Cultivation), "those who can, cultivate");
+            Assert.IsTrue(free.All(m => m.CurrentTask != TaskType.None || !session.Tasks.AssignTask(m, TaskType.Mine)), "nobody idle who could work");
         }
 
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>
