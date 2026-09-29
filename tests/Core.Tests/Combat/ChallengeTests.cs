@@ -170,5 +170,68 @@ namespace MirrorChronicles.Tests.Combat
             Assert.AreEqual((year, phase), (s.Clock.Year, s.Clock.Phase), "a battle is fought to its end first");
             Assert.IsNotNull(s.Challenges.Current);
         }
+
+        // ---- A challenge to the death (2026-09-29) ----
+
+        [Test]
+        public void APowerThatHatesTheClan_ChallengesItToTheDeath()
+        {
+            var (w, _) = World(new FixedRandom(0.0));
+            Assert.IsFalse(w.Challenges.Issue(Power(w)).ToTheDeath, "no grudge, a challenge by the rules");
+            w.Challenges.Decline();
+            w.Factions.ChangeRelation(Power(w).ID, -200);
+            Assert.IsTrue(w.Challenges.Issue(Power(w)).ToTheDeath);
+        }
+
+        [Test]
+        public void InAChallengeToTheDeath_TheFallenDie()
+        {
+            var (w, champion) = World(new FixedRandom(0.999)); // by the rules, the blow would be held back
+            w.Challenges.Restore(new Challenge(Ruan, w.Ctx.Clock.Year, champion.Realm, champion.RealmStage, 1, 7, ToTheDeath: true));
+            w.Challenges.Accept(new[] { champion.ID });
+            w.Challenges.Current.Allies.Single().TakeDamage(10000);
+            w.Challenges.Current.EndTurn();
+            w.Challenges.Conclude();
+            Assert.IsFalse(champion.IsAlive);
+        }
+
+        [Test]
+        public void FleeingAChallengeToTheDeath_CostsMoreFace()
+        {
+            var (w, champion) = World(new FixedRandom(0.0));
+            int relation = Power(w).RelationWithPlayer;
+            w.Challenges.Restore(new Challenge(Ruan, w.Ctx.Clock.Year, champion.Realm, champion.RealmStage, 1, 7, ToTheDeath: true));
+            w.Challenges.Decline();
+            Assert.AreEqual(relation + (int)(Settings.DeclineRelation * Settings.DeathDeclineFactor), Power(w).RelationWithPlayer);
+        }
+
+        [Test]
+        public void TheScreen_SaysItIsToTheDeath()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            s.Challenges.Restore(new Challenge(Ruan, s.Clock.Year, CultivationRealm.QiRefinement, 1, 1, 7, ToTheDeath: true));
+            Assert.IsTrue(MirrorChronicles.Presentation.BattleView.Pending(s).ToTheDeath);
+        }
+
+        [Test]
+        public void ThePilot_FightsToTheDeath_OnlyWhenStronger()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var best = s.Clan.LivingMembers.Where(m => s.Challenges.FighterRefusal(m) == null).OrderByDescending(m => (int)m.Realm).First();
+            s.Challenges.Restore(new Challenge(Ruan, s.Clock.Year, best.Realm, best.RealmStage, 1, 7, ToTheDeath: true));
+            ChallengeOutcome? outcome = null;
+            s.Events.OnChallengeSettled += (_, o) => outcome = o;
+            BalanceRun.Act(s);
+            Assert.AreEqual(ChallengeOutcome.Declined, outcome, "an even fight to the death is not worth a life");
+        }
+
+        [Test]
+        public void RoundTrip_KeepsAChallengeToTheDeath()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Challenges.Restore(new Challenge(Ruan, 1, CultivationRealm.QiRefinement, 1, 1, 7, ToTheDeath: true));
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            Assert.IsTrue(reloaded.Challenges.Pending.ToTheDeath);
+        }
     }
 }
