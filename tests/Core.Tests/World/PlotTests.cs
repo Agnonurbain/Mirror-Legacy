@@ -448,5 +448,42 @@ namespace MirrorChronicles.Tests.World
             Assert.AreEqual(Settings.LeakMirrorClue, w.Suspicion.MirrorClues(Fang));
             Assert.AreEqual(0, w.Suspicion.MirrorClues(Ruan));
         }
+
+        // ---- No chain reaction (the long games, 2026-09-29) ----
+
+        [Test]
+        public void AProvenStrike_SpendsItsProof()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Suspicion.AddEvidence(Ruan, Settings.ProofThreshold);
+            w.Suspicion.AddToClan(Ruan, Settings.ActThreshold);
+            w.Plots.ProcessYear();
+            Assert.IsTrue(w.Plots.StruckThisYear.Contains(Ruan));
+            Assert.AreEqual(0, w.Suspicion.Evidence(Ruan), "the proof is spent by the blow");
+        }
+
+        [Test]
+        public void ARumour_MakesThePowersWary_NotReadyToStrike()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Suspicion.AddEvidence(Ruan, Settings.ProofThreshold);
+            w.Suspicion.AddToClan(Ruan, Settings.ActThreshold);
+            w.Suspicion.AddToClan(Fang, Settings.ActThreshold - 2);
+            w.Suspicion.AddToClan(Peak, 0);
+            w.Plots.ProcessYear();
+            Assert.Less(w.Suspicion.OfClan(Fang), Settings.ActThreshold, "a rumour makes them investigate, not strike");
+            Assert.AreEqual(Settings.ProofReputation, w.Suspicion.OfClan(Peak), "the clan's name suffers all the same");
+        }
+
+        [Test]
+        public void SuspicionAndProof_FadeWithTheYears()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Suspicion.AddToClan(Ruan, 40);
+            w.Suspicion.AddEvidence(Ruan, 20);
+            w.Ctx.Events.TriggerYearStarted(2);
+            Assert.AreEqual(40 - Settings.SuspicionFadePerYear, w.Suspicion.OfClan(Ruan));
+            Assert.AreEqual(20 - Settings.EvidenceFadePerYear, w.Suspicion.Evidence(Ruan));
+        }
     }
 }

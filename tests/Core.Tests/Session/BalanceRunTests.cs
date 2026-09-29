@@ -122,6 +122,8 @@ namespace MirrorChronicles.Tests.Session
             Assert.That(run.Betrayals, Is.LessThanOrEqualTo(12), "a treaty is betrayed for a reason, not as a matter of course");
             Assert.That(run.CombatDeaths, Is.LessThanOrEqualTo(run.Challenges + run.ClanWars), "a challenge by the rules seldom kills");
             Assert.That(run.Devoured, Is.LessThanOrEqualTo(3), "a prudent clan keeps most of its ripe Daos");
+            Assert.That(run.Strikes, Is.LessThanOrEqualTo(40), "no chain reaction of blows");
+            Assert.That(run.ClanWars, Is.LessThanOrEqualTo(10), "no endless wars against the clan");
         }
 
         // ---- The pilot hunts (2026-09-29) ----
