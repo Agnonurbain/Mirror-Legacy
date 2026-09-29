@@ -143,5 +143,37 @@ namespace MirrorChronicles.Tests.Clan
             Assert.IsFalse(OperationsView.Unwed(s).Any(u => u.Partners.Any(p => Cultivates(p.Id))),
                 "no two unwed cultivators left who could wed each other");
         }
+
+        // ---- Review ----
+
+        [Test]
+        public void OneRule_SaysWhoMayWed()
+        {
+            var w = new TestWorld(new FixedRandom(0.999));
+            var a = Cultivator(w, true);
+            var b = Cultivator(w, true);
+            Assert.IsFalse(w.Marriages.CanMarry(a, b), "the same rule as MarriageRefusal");
+        }
+
+        [Test]
+        public void TheMinesYield_IsEstimatedAsTheMineGivesIt()
+        {
+            var w = new TestWorld();
+            w.Buildings.Restore(new[] { new BuildingData(BuildingType.Forge) { Level = 3 } });
+            var miners = Enumerable.Range(0, Fixtures.Content.Balance.Upkeep.VeinMiners + 4)
+                .Select(_ => w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement))).ToList();
+            foreach (var m in miners) w.Tasks.AssignTask(m, TaskType.Mine);
+            int estimate = w.Tasks.MiningYield(miners);
+            Assert.AreEqual(w.Tasks.ProcessYearlyTasks().StonesMined, estimate);
+        }
+
+        [Test]
+        public void ARecord_IsFound_EvenWhenNamedAfterItJoined()
+        {
+            var w = new TestWorld();
+            var member = w.Join(Fixtures.Cultivator());
+            member.ID = "named-late";
+            Assert.AreSame(member, w.Clan.FindById("named-late"));
+        }
     }
 }
