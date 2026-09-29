@@ -215,7 +215,7 @@ namespace MirrorChronicles.Session
                 if (beast == null || bearer == null || session.Clock.Year != talismans.NextRitualYear) return;
                 if (!talismans.PerformRitual(bearer, beast)) return;
             }
-            talismans.Choose(talismans.PendingOffer.Choices[0]);
+            if (talismans.PendingOffer?.Choices.Count > 0) talismans.Choose(talismans.PendingOffer.Choices[0]);
         }
 
         private static void SeekATreaty(GameSession session)

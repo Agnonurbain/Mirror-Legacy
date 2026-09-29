@@ -57,6 +57,7 @@ namespace MirrorChronicles.Presentation
             });
             bus.OnExtortion += power => Add($"{power} convoite le trésor du clan et exige le prix de sa protection.");
             bus.OnDaoHuntFoiled += power => Add($"des gens de {power} fondent sur un Dao mûr du clan ; ils sont repoussés.");
+            bus.OnHunt += (_, captured) => Add(captured ? "une chasse du clan ramène une bête spirituelle." : "une chasse du clan revient les mains vides.");
             bus.OnGameOver += won =>
             {
                 if (won) Add("la lignée devient éternelle.");
