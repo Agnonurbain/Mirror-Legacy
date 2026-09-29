@@ -161,6 +161,9 @@ namespace MirrorChronicles.Economy
             }
         }
 
+        /// <summary>What these miners would bring in a year (the Forge, the veins and the share beyond them).</summary>
+        public int MiningYield(IEnumerable<CharacterData> miners) => VeinYield(miners.Select(MineYield).ToList());
+
         /// <summary>The best miners work the veins fully; those beyond them yield only a share (2026-09-29).</summary>
         private int VeinYield(List<int> yields)
         {

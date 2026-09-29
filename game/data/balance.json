@@ -246,6 +246,11 @@
     "doubleAgentRelief": 10,
     "spyExecutionRelation": -40
   },
+  "lineage": {
+    "seekStones": 300,
+    "seekChance": 0.3,
+    "seekChancePerRealm": 0.1
+  },
   "daoHunts": {
     "hunterMinRealm": "PurpleMansion",
     "learnChance": 0.1,

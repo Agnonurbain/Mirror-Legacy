@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Characters;
+using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Mirror;
 using MirrorChronicles.Session;
@@ -43,6 +45,12 @@ namespace MirrorChronicles.Presentation
     public sealed record AgentLine(string Id, string Power, string Strength, int Price, bool Interrogated, bool Denounced);
 
     /// <summary>A spouse a power sent: whether the mirror sounded them, and — only then — whom they spy for.</summary>
+    /// <summary>A member of the clan the unwed cultivator may be wed to.</summary>
+    public sealed record PartnerLine(string Id, string Name, string Rank);
+
+    /// <summary>An unwed cultivator: whom the clan may wed them to, and the search abroad (its cost, or why not).</summary>
+    public sealed record UnwedLine(string Id, string Name, string Rank, IReadOnlyList<PartnerLine> Partners, int SeekCost, string SeekRefusal);
+
     public sealed record SpouseLine(string Id, string Name, string From, bool Sounded, string SpyFor, bool DoubleAgent);
 
     /// <summary>The captives on both sides.</summary>
@@ -171,6 +179,23 @@ namespace MirrorChronicles.Presentation
         };
 
         /// <summary>The living spouses the powers sent: their secret shows only once the mirror sounded them (2026-09-27).</summary>
+        /// <summary>The unwed adult cultivators, the highest first, and whom each may wed in the clan (cultivators first).</summary>
+        public static IReadOnlyList<UnwedLine> Unwed(GameSession session)
+        {
+            var living = session.Clan.LivingMembers.ToList();
+            int cost = session.Context.Content.Balance.Lineage.SeekStones;
+            return living
+                .Where(m => m.OrificeKnown && SpiritualOrificeRules.CanCultivate(m) && m.SpouseID == null && m.CaptorFaction == null
+                    && m.Age >= MarriageMatchmaker.MinMarriageAge)
+                .OrderByDescending(m => (int)m.Realm).ThenByDescending(m => m.RealmStage).ThenBy(m => m.FullName, StringComparer.Ordinal)
+                .Select(m => new UnwedLine(m.ID, m.FullName, RankCatalog.DisplayName(m),
+                    living.Where(p => session.Marriages.MarriageRefusal(m, p) == null)
+                        .OrderByDescending(p => p.OrificeKnown && SpiritualOrificeRules.CanCultivate(p)).ThenBy(p => Math.Abs(p.Age - m.Age))
+                        .Select(p => new PartnerLine(p.ID, p.FullName, RankCatalog.DisplayName(p))).ToList(),
+                    cost, session.Marriages.SeekRefusal(m)))
+                .ToList();
+        }
+
         public static IReadOnlyList<SpouseLine> Spouses(GameSession session) =>
             session.Clan.LivingMembers.Where(m => m.FromFaction != null)
                 .Select(m => new SpouseLine(m.ID, m.FullName, m.FromFaction, m.SpyUnmasked, m.SpyUnmasked ? m.SpyFor : null, m.DoubleAgent))

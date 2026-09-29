@@ -8,7 +8,7 @@ namespace MirrorChronicles.Clan
 {
     /// <summary>
     /// Founds the clan of a new game from clan.json: the patriarch and the matriarch are married, the
-    /// children are theirs, kin have no recorded parents. Every founder cultivates, so their orifices
+    /// children are theirs, kin are the patriarch's brothers and sisters (their forebears remembered, not recorded). Every founder cultivates, so their orifices
     /// are known; each practises the method clan.json names, and a Qi cultivator holds its Qi.
     /// </summary>
     public static class FoundingClan
@@ -39,6 +39,19 @@ namespace MirrorChronicles.Clan
             {
                 child.FatherID = father?.ID;
                 child.MotherID = mother?.ID;
+            }
+
+            // A kinsman is the patriarch's brother (interpretation of clan.json « Kin »): they share forebears whom the clan
+            // remembers without records — enough for the rules of kinship, never drawn in the tree.
+            var kin = founders.Where(f => f.definition.Role == FounderRole.Kin).Select(f => f.member).ToList();
+            if (kin.Count > 0)
+            {
+                string forefather = $"{patriarch.ID}-forefather", foremother = $"{patriarch.ID}-foremother";
+                foreach (var sibling in kin.Append(patriarch))
+                {
+                    sibling.FatherID = forefather;
+                    sibling.MotherID = foremother;
+                }
             }
 
             foreach (var (_, member) in founders)

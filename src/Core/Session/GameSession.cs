@@ -138,7 +138,7 @@ namespace MirrorChronicles.Session
             Upkeep = new UpkeepSystem(Context, Clan, Resources, Stability);
             DaoHunts = new DaoHuntSystem(Context, Clan, Factions, Treaties, Buildings);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
-            Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
+            Marriages = new MarriageSystem(Context, Clan, Factions, Stability, Resources);
             Matches = new MarriageAlliance(Context, Clan, Factions, Treaties, Marriages, Suspicion);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);

@@ -59,7 +59,8 @@ namespace MirrorChronicles.Clan
                     && c.IsMale != seeker.IsMale
                     && IsEligible(c)
                     && !KinshipRules.AreCloseKin(seeker, c, KinshipRules.MarriageForbiddenGenerations, findById))
-                .OrderBy(c => Math.Abs(c.Age - seeker.Age))
+                .OrderByDescending(c => SpiritualOrificeRules.CanCultivate(seeker) && SpiritualOrificeRules.CanCultivate(c)) // the line first
+                .ThenBy(c => Math.Abs(c.Age - seeker.Age))
                 .FirstOrDefault();
         }
 

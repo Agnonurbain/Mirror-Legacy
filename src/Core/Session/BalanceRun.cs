@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MirrorChronicles.Characters;
+using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
+using MirrorChronicles.Economy;
 using MirrorChronicles.World;
 
 namespace MirrorChronicles.Session
@@ -77,6 +79,7 @@ namespace MirrorChronicles.Session
         private const int TreatyEveryYears = 5;  // it seeks a treaty every five years
         private const int MostTreaties = 3;      // and keeps a few, not a web of them
         private const int SeedReserve = 20;      // it keeps some of the mirror's power
+        private const double RebuildMargin = 1.5; // a thin reserve is rebuilt, not merely kept
         private const int SeedMinAge = 10;       // a seed for the young: old enough to be examined,
         private const int SeedMaxAge = 30;       // young enough to cultivate long
 
@@ -84,7 +87,7 @@ namespace MirrorChronicles.Session
         /// The active pilot (user decision 2026-09-29): what a prudent clan does each year before its tasks — it pays a
         /// demand it can afford and refuses the rest, answers a challenge of its own rank with its best fighters (who
         /// then fight on their own) and flees the others, sues for peace after two years of war, plants a Talisman Seed
-        /// in a young examined mortal when the mirror can spare it, hides its ripe Daos in seclusion, and seeks a non-aggression pact now and then (a few at most).
+        /// in a young examined mortal when the mirror can spare it, hides its ripe Daos in seclusion, weds its cultivators to cultivators (sought abroad when none is free), and seeks a non-aggression pact now and then (a few at most).
         /// </summary>
         public static void Act(GameSession session)
         {
@@ -93,6 +96,7 @@ namespace MirrorChronicles.Session
             foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
                 session.Wars.SuePeace(war.Enemy);
             PlantASeed(session);
+            WedTheLine(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content)).ToList())
                 session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao hides
@@ -140,6 +144,27 @@ namespace MirrorChronicles.Session
             if (mortal != null) session.Mirror.GrantTalismanSeed(mortal);
         }
 
+        /// <summary>Each unwed adult cultivator is wed to a cultivator of the clan, or else one is sought abroad when affordable.</summary>
+        private static void WedTheLine(GameSession session)
+        {
+            var seekers = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.OrificeKnown && m.SpouseID == null
+                && SpiritualOrificeRules.CanCultivate(m) && m.Age >= MarriageMatchmaker.MinMarriageAge && m.Age <= MarriageMatchmaker.MaxSeekingAge)
+                .ToList();
+            foreach (var seeker in seekers.Where(m => m.SpouseID == null))
+            {
+                var partner = session.Clan.LivingMembers.FirstOrDefault(p => p.OrificeKnown && SpiritualOrificeRules.CanCultivate(p)
+                    && session.Marriages.MarriageRefusal(seeker, p) == null);
+                if (partner != null)
+                {
+                    session.Marriages.Arrange(seeker.ID, partner.ID);
+                    continue;
+                }
+                int cost = session.Context.Content.Balance.Lineage.SeekStones;
+                if (session.Resources.SpiritStones - cost >= session.Upkeep.YearlyUpkeep * ReserveYears)
+                    session.Marriages.SeekCultivatorSpouse(seeker.ID);
+            }
+        }
+
         private static void SeekATreaty(GameSession session)
         {
             var friend = session.Factions.Factions.Where(f => session.Treaties.With(f.Name).Count == 0)
@@ -163,6 +188,25 @@ namespace MirrorChronicles.Session
                     : member.CurrentTask;
                 if (!TaskRules.IsAllowed(member, wanted, huntOpen)) wanted = TaskType.Mine;
                 if (wanted != member.CurrentTask && TaskRules.IsAllowed(member, wanted, huntOpen)) session.Tasks.AssignTask(member, wanted);
+            }
+            FeedTheClan(session, huntOpen);
+        }
+
+        /// <summary>
+        /// When the reserve runs thin, the lowest cultivators go down the mine (never a secluded Dao) until the veins'
+        /// yield would cover the upkeep and rebuild the reserve.
+        /// </summary>
+        private static void FeedTheClan(GameSession session, bool huntOpen)
+        {
+            if (session.Upkeep.BirthFactor >= 1.0) return;
+            int due = (int)(session.Upkeep.YearlyUpkeep * RebuildMargin);
+            var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
+            int Income() => session.Tasks.MiningYield(free.Where(m => m.CurrentTask == TaskType.Mine));
+            foreach (var cultivator in free.Where(m => m.CurrentTask == TaskType.Cultivation && TaskRules.IsAllowed(m, TaskType.Mine, huntOpen))
+                .OrderBy(m => (int)m.Realm).ThenBy(m => m.RealmStage).ToList())
+            {
+                if (Income() >= due) return;
+                session.Tasks.AssignTask(cultivator, TaskType.Mine);
             }
         }
 

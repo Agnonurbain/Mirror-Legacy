@@ -97,7 +97,7 @@ namespace MirrorChronicles.Data
         Patriarch,
         Matriarch,  // the patriarch's wife
         Child,      // of the patriarch and the matriarch
-        Kin         // a relative with no recorded parents (a brother, a cousin)
+        Kin         // the patriarch's brother or sister: their forebears are remembered for kinship, not recorded
     }
 
     public sealed class FounderDefinition
@@ -220,6 +220,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>The hunt of a ripe Dao as a plot (2026-09-29; interpretations).</summary>
         public DaoHuntSettings DaoHunts { get; init; }
+
+        /// <summary>Keeping the cultivating line: seeking a cultivator spouse abroad (2026-09-29; interpretations).</summary>
+        public LineageSettings Lineage { get; init; }
 
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
