@@ -26,7 +26,8 @@ namespace MirrorChronicles.Presentation
     public sealed record CoalitionLine(IReadOnlyList<string> Members, int YearsLeft);
 
     /// <summary>A power's blackmail awaiting the clan's answer.</summary>
-    public sealed record DemandLine(string Faction, int Stones);
+    /// <summary>A demand awaiting an answer: what it is for, and what a refusal brings.</summary>
+    public sealed record DemandLine(string Faction, int Stones, string Reason, string Refusal);
 
     /// <summary>An ally of the clan attacked, calling it to arms, and what answering costs.</summary>
     public sealed record CallLine(string Ally, string Attacker, int Cost);
@@ -47,7 +48,9 @@ namespace MirrorChronicles.Presentation
                 .ToList();
 
         public static IReadOnlyList<DemandLine> Demands(GameSession session) =>
-            session.Intrigues.Demands.Select(d => new DemandLine(d.Faction, d.Stones)).ToList();
+            session.Intrigues.Demands.Select(d => d.Kind == DemandKind.Protection
+                ? new DemandLine(d.Faction, d.Stones, "pour sa protection", "elle prendra par la guerre")
+                : new DemandLine(d.Faction, d.Stones, "pour son silence", "elle répand ses preuves")).ToList();
 
         public static CoalitionLine Coalition(GameSession session) =>
             session.Politics.Coalition is { } c ? new CoalitionLine(c.Members.ToList(), c.YearsLeft) : null;

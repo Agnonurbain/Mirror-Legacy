@@ -130,9 +130,9 @@ namespace MirrorChronicles.Session
             SecretBook = new SecretBook(Context, Suspicion);
             Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
-            Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
-            Patrons = new PatronSystem(Context, Clan, Resources);
             Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
+            Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars);
+            Patrons = new PatronSystem(Context, Clan, Resources);
             Challenges = new ChallengeSystem(Context, Clan, Resources, Factions, Techniques, Wounds);
             Upkeep = new UpkeepSystem(Context, Clan, Resources, Stability);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);

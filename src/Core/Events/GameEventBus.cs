@@ -48,6 +48,8 @@ namespace MirrorChronicles.Events
         public event Action<string, string> OnWarBegun;                      // attacker, defender (the clan as SecretBook.ClanHolder)
         public event Action<string, string> OnPeace;                         // victor or party, the other
         public event Action<string, ChallengeOutcome> OnChallengeSettled;    // a rival's challenge answered (or not)
+        public event Action<string> OnExtortion;                             // a greedy power demands the clan pay for its « protection »
+        public event Action<string> OnExtortionRefused;                      // refused (or unanswered): it makes war on the clan
 
         // Economy
         public event Action<int> OnSpiritStonesChanged;
@@ -83,6 +85,8 @@ namespace MirrorChronicles.Events
         public void TriggerWarBegun(string attacker, string defender) => OnWarBegun?.Invoke(attacker, defender);
         public void TriggerPeace(string a, string b) => OnPeace?.Invoke(a, b);
         public void TriggerChallengeSettled(string faction, ChallengeOutcome outcome) => OnChallengeSettled?.Invoke(faction, outcome);
+        public void TriggerExtortion(string power) => OnExtortion?.Invoke(power);
+        public void TriggerExtortionRefused(string power) => OnExtortionRefused?.Invoke(power);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);

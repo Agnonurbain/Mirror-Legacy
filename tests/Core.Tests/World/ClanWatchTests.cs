@@ -113,5 +113,13 @@ namespace MirrorChronicles.Tests.World
             w.Probes.PowerProbe(w.Factions.GetFactionByName(Ruan), SecretBook.ClanHolder, ProbeApproach.Infiltration, new List<string>());
             Assert.AreEqual(Settings.AgentCaught, w.Suspicion.ClanDistrust(Ruan));
         }
+
+        [Test]
+        public void AnExtortion_IsRemembered()
+        {
+            var w = World(new FixedRandom(0.999));
+            w.Ctx.Events.TriggerExtortion(Ruan);
+            Assert.AreEqual(Settings.Extortion, w.Suspicion.ClanDistrust(Ruan));
+        }
     }
 }

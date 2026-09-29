@@ -105,7 +105,7 @@ namespace MirrorChronicles.Tests.Presentation
         {
             var s = NewGame();
             s.Intrigues.RestoreDemands(new[] { new Demand("Porte du Chrysanthème Noir", 150, 1) }, null);
-            Assert.AreEqual(new DemandLine("Porte du Chrysanthème Noir", 150), DiplomacyView.Demands(s).Single());
+            Assert.AreEqual(new DemandLine("Porte du Chrysanthème Noir", 150, "pour son silence", "elle répand ses preuves"), DiplomacyView.Demands(s).Single());
         }
     }
 }

@@ -33,14 +33,17 @@ namespace MirrorChronicles.World
         private readonly TreatySystem treaties;
         private readonly PlotSystem plots;
         private readonly SecretSystem secrets;
+        private readonly WarSystem wars;
         private readonly List<Demand> demands = new List<Demand>();
         private readonly Dictionary<string, int> quietUntil = new Dictionary<string, int>();
 
         public IntrigueSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, SuspicionLedger suspicion,
-            TechniqueLibrary techniques, MirrorSystem mirror, CaptiveSystem captives, TreatySystem treaties, PlotSystem plots, SecretSystem secrets)
+            TechniqueLibrary techniques, MirrorSystem mirror, CaptiveSystem captives, TreatySystem treaties, PlotSystem plots, SecretSystem secrets,
+            WarSystem wars)
         {
             this.plots = plots;
             this.secrets = secrets;
+            this.wars = wars;
             ctx.Events.OnPowerAbsorbed += (vassal, _) => // an absorbed blackmailer: nobody left to pay, nothing left to fear
             {
                 demands.RemoveAll(d => d.Faction == vassal);
@@ -78,16 +81,17 @@ namespace MirrorChronicles.World
         {
             foreach (var late in demands.Where(d => d.Year < ctx.Clock.Year).ToList()) Refuse(late.Faction); // unanswered: refused
             StealOnce();
-            Blackmail();
+            if (!Blackmail()) Covet(); // one demand a year
             Spies();
         }
 
         // ---- Blackmail ----
 
-        private void Blackmail()
+        /// <summary>A power with enough proof may demand stones for its silence; true when one did this year.</summary>
+        private bool Blackmail()
         {
             var s = Settings;
-            foreach (var power in factions.Factions.ToList())
+            foreach (var power in factions.Factions.OrderBy(_ => ctx.Rng.Next()).ToList()) // none always first
             {
                 if (suspicion.Evidence(power.Name) < s.BlackmailEvidence || demands.Any(d => d.Faction == power.Name)) continue;
                 if (quietUntil.TryGetValue(power.Name, out int until) && until > ctx.Clock.Year) continue; // it was paid
@@ -96,7 +100,33 @@ namespace MirrorChronicles.World
                 demands.Add(new Demand(power.Name, (int)(resources.SpiritStones * s.BlackmailStonesShare), ctx.Clock.Year));
                 ctx.Log.Warning($"[Intrigues] {power.Name} demands stones for its silence.");
                 ctx.Events.TriggerBlackmail(power.Name);
-                return; // one demand a year
+                return true; // one demand a year
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Greed (2026-09-29): a rich clan too weak to defend its hoard tempts a greedy power stronger than it, which
+        /// demands a share of it « for its protection ».
+        /// </summary>
+        private void Covet()
+        {
+            var s = Settings;
+            int stones = resources.SpiritStones;
+            if (stones < s.GreedStones) return;
+            int clanStrength = WarRules.ClanStrength(clan.LivingMembers);
+            foreach (var power in factions.Factions.OrderBy(_ => ctx.Rng.Next()).ToList()) // none always first
+            {
+                if (demands.Any(d => d.Faction == power.Name)) continue;
+                if (quietUntil.TryGetValue(power.Name, out int until) && until > ctx.Clock.Year) continue;
+                if (plots.StruckThisYear.Contains(power.Name) || secrets.Confrontation?.Faction == power.Name) continue; // one blow a year
+                if (treaties.Spares(power.Name) || wars.AtWar(power.Name)) continue; // bound, or busy with a war
+                if (WarRules.Strength(power, ctx.Content.Balance.Wars) <= clanStrength) continue; // it fears the clan
+                if (!ctx.Rng.Chance(IntrigueRules.GreedChance(power, stones, s))) continue;
+                demands.Add(new Demand(power.Name, (int)(stones * s.ExtortionShare), ctx.Clock.Year, DemandKind.Protection));
+                ctx.Log.Warning($"[Intrigues] {power.Name} covets the clan's hoard and demands the price of its protection.");
+                ctx.Events.TriggerExtortion(power.Name);
+                return;
             }
         }
 
@@ -109,7 +139,7 @@ namespace MirrorChronicles.World
             if (power != null) power.Wealth += demand.Stones;
             demands.Remove(demand);
             quietUntil[faction] = ctx.Clock.Year + Settings.QuietYears;
-            ctx.Log.Info($"[Intrigues] The clan buys {faction}'s silence.");
+            ctx.Log.Info($"[Intrigues] The clan pays {faction} ({demand.Kind}).");
             return null;
         }
 
@@ -119,6 +149,14 @@ namespace MirrorChronicles.World
             if (demand == null) return "aucune exigence de cette puissance";
             demands.Remove(demand);
             var s = Settings;
+            if (demand.Kind == DemandKind.Protection)
+            {
+                if (factions.GetFactionByName(faction) is { } greedy) factions.ChangeRelation(greedy.ID, s.RefusedRelation);
+                quietUntil[faction] = ctx.Clock.Year + s.QuietYears;
+                ctx.Log.Warning($"[Intrigues] Refused, {faction} will take the clan's hoard by force.");
+                ctx.Events.TriggerExtortionRefused(faction);
+                return null;
+            }
             foreach (var other in factions.Factions.Where(f => f.Name != faction))
             {
                 // it spreads what it holds: news to the ignorant, little to those who already know most of it

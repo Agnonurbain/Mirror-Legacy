@@ -10,6 +10,11 @@ namespace MirrorChronicles.World
         public static double BlackmailChance(FactionData power, IntrigueSettings s) =>
             Math.Clamp(s.BlackmailChance * (s.BlackmailTemper.TryGetValue(power.Personality, out var t) ? t : 1.0), 0, 1);
 
+        /// <summary>A power's yearly chance of coveting the clan's hoard: its greed, and how rich the clan is.</summary>
+        public static double GreedChance(FactionData power, int clanStones, IntrigueSettings s) =>
+            Math.Clamp(s.GreedChance * (s.GreedTemper.TryGetValue(power.Personality, out var t) ? t : 0.0)
+                * Math.Min(1.0, clanStones / (double)s.GreedStonesScale), 0, 1);
+
         /// <summary>A power's yearly chance of stealing from the clan: its temper, hindered by the clan's patrols.</summary>
         public static double TheftChance(FactionData power, int patrols, IntrigueSettings s) =>
             Math.Clamp(s.TheftChance * (s.TheftTemper.TryGetValue(power.Personality, out var t) ? t : 1.0) / (1 + patrols * s.PatrolGuard), 0, 1);
