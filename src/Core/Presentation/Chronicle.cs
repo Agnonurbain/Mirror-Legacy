@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MirrorChronicles.Characters;
+using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 using MirrorChronicles.World;
 
@@ -47,6 +48,13 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronWrath += patron => Add($"{patron} tourne sa colère contre le clan.");
             bus.OnWarBegun += (attacker, defender) => Add($"{Who(attacker)} fait la guerre {(defender == World.SecretBook.ClanHolder ? "au clan" : "à " + defender)}.");
             bus.OnPeace += (a, b) => Add($"paix entre {Who(a, object_: true)} et {Who(b, object_: true)}.");
+            bus.OnChallengeSettled += (faction, outcome) => Add(outcome switch
+            {
+                ChallengeOutcome.Won => $"le clan relève le défi de {faction} et l'emporte.",
+                ChallengeOutcome.Lost => $"le clan relève le défi de {faction} et le perd.",
+                ChallengeOutcome.Withdrawn => $"le défi de {faction} s'achève sans vainqueur.",
+                _ => $"le clan se dérobe au défi de {faction}."
+            });
             bus.OnGameOver += won =>
             {
                 if (won) Add("la lignée devient éternelle.");

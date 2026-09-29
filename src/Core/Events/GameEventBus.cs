@@ -32,21 +32,22 @@ namespace MirrorChronicles.Events
         public event Action<string> OnMirrorSeized;                          // a power seized the mirror: the game is lost (§11.9)
         public event Action<CharacterData, string> OnMemberCaptured;         // a power holds a member (L6a)
         public event Action<CharacterData> OnMemberFreed;
-        public event Action<string> OnAgentCaught;
+        public event Action<string> OnAgentCaught;                           // an agent of a power in the clan's hands
         public event Action<string> OnClanAbsorbed;                          // the suzerain's grip complete: the clan is no more (defeat)
         public event Action<string, string> OnPowerAbsorbed;                 // a vassal power absorbed by its suzerain
         public event Action<IReadOnlyList<string>> OnCoalitionFormed;        // powers banded against the clan
         public event Action<string, string> OnCallToArms;                    // an ally of the clan attacked, and by whom
-        public event Action<string, string> OnTheft;
+        public event Action<string, string> OnTheft;                         // what was stolen, and the thief when caught (else null)
         public event Action<string, string> OnDeed;                          // a deed of the clan that leaves a secret (kind, subject)
         public event Action<string> OnProbeSpotted;                          // a power caught probing the clan
         public event Action<string> OnClanStruck;                            // a power strikes the clan (proof or none)
         public event Action<string> OnTreatyBetrayed;                        // a power betrays its treaty with the clan
         public event Action<string> OnBlackmail;                             // a power demands stones for its silence
-        public event Action<string> OnSpyUnmasked;
-        public event Action<string> OnPatronWrath;
+        public event Action<string> OnSpyUnmasked;                           // the mirror unmasks a power's spy
+        public event Action<string> OnPatronWrath;                           // a great partner turns on the clan
         public event Action<string, string> OnWarBegun;                      // attacker, defender (the clan as SecretBook.ClanHolder)
-        public event Action<string, string> OnPeace;                         // victor or party, the other                           // a great partner turns on the clan                           // the mirror unmasks a power's spy                         // what was stolen, and the thief when caught (else null)                           // an agent of a power in the clan's hands
+        public event Action<string, string> OnPeace;                         // victor or party, the other
+        public event Action<string, ChallengeOutcome> OnChallengeSettled;    // a rival's challenge answered (or not)
 
         // Economy
         public event Action<int> OnSpiritStonesChanged;
@@ -81,6 +82,7 @@ namespace MirrorChronicles.Events
         public void TriggerPatronWrath(string patron) => OnPatronWrath?.Invoke(patron);
         public void TriggerWarBegun(string attacker, string defender) => OnWarBegun?.Invoke(attacker, defender);
         public void TriggerPeace(string a, string b) => OnPeace?.Invoke(a, b);
+        public void TriggerChallengeSettled(string faction, ChallengeOutcome outcome) => OnChallengeSettled?.Invoke(faction, outcome);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);

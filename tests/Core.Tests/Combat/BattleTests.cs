@@ -96,5 +96,17 @@ namespace MirrorChronicles.Tests.Combat
 
             Assert.IsTrue(!fallen.IsAlive && fallen.CauseOfDeath == DeathCause.Combat && wounded.MentalStability < before);
         }
+
+        [Test]
+        public void MoveTargets_AreExactlyTheCellsAMoveMayReach([Range(1, 20)] int seed)
+        {
+            var rng = new Random(seed);
+            var b = Battle.Start(new[] { Fighter(CultivationRealm.Foundation), Fighter(CultivationRealm.QiRefinement) },
+                new[] { Fighter(CultivationRealm.QiRefinement) }, rng, new RecordingGameLog(), CombatGrid.Generate(10, 10, rng));
+            var unit = b.CurrentUnit;
+            var move = new MoveAction();
+            var expected = b.Field.Grid.Cells.Where(c => move.IsValid(unit, c, b.Field)).ToList();
+            CollectionAssert.AreEquivalent(expected, MoveAction.Targets(unit, b.Field));
+        }
     }
 }

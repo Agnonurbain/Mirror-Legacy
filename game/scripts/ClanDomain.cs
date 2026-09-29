@@ -51,6 +51,7 @@ namespace MirrorChronicles.Game
             GetNode<Button>("%OpenOperations").Pressed += () => GetTree().ChangeSceneToFile(Operations.ScenePath);
             GetNode<Button>("%OpenMirror").Pressed += () => GetTree().ChangeSceneToFile(MirrorScreen.ScenePath);
             GetNode<Button>("%OpenBuildings").Pressed += () => GetTree().ChangeSceneToFile(BuildingsScreen.ScenePath);
+            GetNode<Button>("%OpenBattle").Pressed += () => GetTree().ChangeSceneToFile(BattleScreen.ScenePath);
             GetNode<Button>("%OpenLibrary").Pressed += () => GetTree().ChangeSceneToFile(Library.ScenePath);
             GetNode<Button>("%OpenDiplomacy").Pressed += () => GetTree().ChangeSceneToFile(Diplomacy.ScenePath);
             GetNode<Button>("%OpenGenealogy").Pressed += () => GetTree().ChangeSceneToFile(Genealogy.ScenePath);
@@ -111,6 +112,7 @@ namespace MirrorChronicles.Game
             stones.Text = $"{header.SpiritStones} pierres spirituelles";
             mirror.Text = $"Miroir {header.MirrorPower}/100";
             generation.Text = $"Génération {header.Generation}";
+            GetNode<Button>("%OpenBattle").Visible = session.Challenges.Pending != null || session.Challenges.Current != null;
             var stock = ClanDomainView.QiStock(session);
             qi.Text = stock.Count == 0 ? "Aucun Qi en réserve"
                 : string.Join(" · ", stock.Select(line => $"{line.Name} ×{line.Portions}"));

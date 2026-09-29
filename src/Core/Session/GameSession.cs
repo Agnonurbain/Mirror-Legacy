@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
+using MirrorChronicles.Combat;
 using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Economy;
@@ -59,6 +60,7 @@ namespace MirrorChronicles.Session
         public PowerPoliticsSystem Politics { get; }
         public PatronSystem Patrons { get; }
         public WarSystem Wars { get; }
+        public ChallengeSystem Challenges { get; }
         public IntrigueSystem Intrigues { get; }
         public SecretBook SecretBook { get; }
         public ClanWatch Watch { get; }
@@ -130,6 +132,7 @@ namespace MirrorChronicles.Session
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets);
             Patrons = new PatronSystem(Context, Clan, Resources);
             Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
+            Challenges = new ChallengeSystem(Context, Clan, Resources, Factions, Techniques, Wounds);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             Matches = new MarriageAlliance(Context, Clan, Factions, Treaties, Marriages, Suspicion);
@@ -231,6 +234,7 @@ namespace MirrorChronicles.Session
             session.Dealings.RestoreSpent(data.SpentSecrets);
             session.Patrons.RestorePacts(data.PatronPacts);
             session.Wars.Restore(data.Wars, data.ClanWars); // none in saves before 2.17
+            session.Challenges.Restore(data.PendingChallenge); // none in saves before 2.18
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -295,6 +299,7 @@ namespace MirrorChronicles.Session
                 PatronPacts = Patrons.Pacts.ToList(),
                 Wars = Wars.Wars.Select(w => w with { SideA = w.SideA.ToList(), SideB = w.SideB.ToList() }).ToList(),
                 ClanWars = Wars.ClanWars.ToList(),
+                PendingChallenge = Challenges.Pending,
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -319,7 +324,7 @@ namespace MirrorChronicles.Session
         /// <summary>Moves to the next phase and resolves it. Does nothing once the game is over.</summary>
         public void AdvancePhase()
         {
-            if (Victory.IsOver) return;
+            if (Victory.IsOver || Challenges.Current != null) return; // a battle under way is fought to its end first
 
             if (Clock.Advance()) BeginYear();
             else ResolvePhase(Clock.Phase);
@@ -354,6 +359,7 @@ namespace MirrorChronicles.Session
                     Dealings.ProcessYear();           // a power with a pierced secret of the clan may expose it
                     Patrons.ProcessYear();            // the great partners' tribute, boons, and wrath
                     Wars.ProcessYear();               // open wars: battles, surrenders, coalitions against a hegemon, the clan's war
+                    Challenges.ProcessYear();         // a rival's challenge left unanswered lapses: silence is a refusal
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)

@@ -3,6 +3,7 @@ using System.IO;
 using NUnit.Framework;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
+using MirrorChronicles.Combat;
 using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Economy;
@@ -64,6 +65,8 @@ namespace MirrorChronicles.Tests
         public ClanWatch Watch { get; }
         public SecretDealings Dealings { get; }
         public ProbeSystem Probes { get; }
+        public WoundSystem Wounds { get; }
+        public ChallengeSystem Challenges { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public CaptiveSystem Captives { get; }
@@ -128,6 +131,8 @@ namespace MirrorChronicles.Tests
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
+            Wounds = new WoundSystem(Ctx, Stability);
+            Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds);
         }
 
         public TestWorld(int seed = 1) : this(new Random(seed)) { }
