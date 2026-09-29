@@ -255,7 +255,7 @@ namespace MirrorChronicles.Data
                 && IsProbability(war.PeaceTributeShare) && IsProbability(war.PowerDeclareChance),
                 BalanceFile, "wars needs shares and odds between 0 and 1, a surrender ratio under 1, and at least one year of war.");
             var duel = balance.Challenges;
-            Require(duel != null && duel.MaxFighters >= 1 && duel.MaxRivals >= 1 && duel.Wager >= 0 && duel.DeclineRelation <= 0,
+            Require(duel != null && duel.MaxFighters >= 1 && duel.MaxRivals >= 1 && duel.Wager >= 0 && duel.DeclineRelation <= 0 && IsProbability(duel.DeathChance),
                 BalanceFile, "challenges needs at least one fighter and one rival, a wager, and a refusal that costs face (zero or less).");
             var upkeep = balance.Upkeep;
             Require(upkeep != null && upkeep.MortalStones >= 0 && upkeep.CultivatorStones >= 0 && upkeep.StonesPerRealm >= 0

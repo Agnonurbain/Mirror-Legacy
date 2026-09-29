@@ -13,7 +13,8 @@ namespace MirrorChronicles.Combat
     /// <summary>
     /// A rival's challenge (G6; the random event « Défi d'un rival »): a power sends rivals of the rank of the clan's best
     /// free fighter. The clan picks who fights — free cultivators it knows — and the battle is played on the grid; the
-    /// victor takes the wager, the clan's fallen die and its survivors carry their wounds. A refusal, or silence until the
+    /// victor takes the wager; a challenge by the rules, the clan's fallen yield gravely wounded, unless a blow was not
+    /// held back; its survivors carry their wounds. A refusal, or silence until the
     /// next year, costs face with the challenger. Each action answers with its refusal, or null when done.
     /// </summary>
     public sealed class ChallengeSystem
@@ -122,7 +123,7 @@ namespace MirrorChronicles.Combat
         {
             if (Current == null) return "aucune bataille en cours";
             if (!Current.IsOver) return "la bataille n'est pas finie";
-            Current.ResolveAftermath(clan, wounds);
+            Current.ResolveAftermath(clan, wounds, () => ctx.Rng.Chance(Settings.DeathChance)); // by the rules, the fallen yield
             var outcome = Current.State switch
             {
                 CombatState.Victory => ChallengeOutcome.Won,
