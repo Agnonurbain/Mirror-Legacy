@@ -8,7 +8,8 @@ using MirrorChronicles.Session;
 namespace MirrorChronicles.Economy
 {
     /// <summary>
-    /// The clan's upkeep (user decision 2026-09-29, after the long games): at the start of each year every living member
+    /// The clan's upkeep (user decision 2026-09-29, after the long games): once the year's income is in (the end of the
+    /// Events phase, before the births) every living member
     /// costs stones — a mortal little, a cultivator more by its realm. A clan that cannot pay spends what it has and is
     /// impoverished for the year: its members are shaken and few children are born; a thin reserve already means fewer.
     /// So the clan grows only as far as it can feed itself.
@@ -30,7 +31,7 @@ namespace MirrorChronicles.Economy
 
         private UpkeepSettings Settings => ctx.Content.Balance.Upkeep;
 
-        /// <summary>This year's payment fell short (saved: the births come later in the year).</summary>
+        /// <summary>This year's payment fell short (saved: shown until the next payment).</summary>
         public bool Impoverished { get; private set; }
 
         /// <summary>
@@ -68,7 +69,7 @@ namespace MirrorChronicles.Economy
             resources.ConsumeSpiritStones(resources.SpiritStones);
             foreach (var member in clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList())
                 stability.ApplyModifier(member, Settings.PovertyStability);
-            ctx.Log.Warning($"[Upkeep] The clan cannot feed its {clan.LivingMembers.Count} members ({due} stones due): a poor year.");
+            ctx.Log.Warning($"[Upkeep] The clan cannot feed its {clan.LivingMembers.Count(m => m.CaptorFaction == null)} members ({due} stones due): a poor year.");
         }
 
         public void Restore(bool impoverished) => Impoverished = impoverished;

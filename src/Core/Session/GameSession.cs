@@ -367,6 +367,7 @@ namespace MirrorChronicles.Session
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)
+                    Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:
                     Breakthroughs.ProcessBreakthroughPhase();
@@ -385,7 +386,6 @@ namespace MirrorChronicles.Session
         {
             Aging.AgeOneYear();
             Buildings.ApplyPassiveBonuses();
-            Upkeep.PayUpkeep();                // every member costs its upkeep; a clan that cannot pay has a poor year
             Events.TriggerYearStarted(Clock.Year);
         }
     }
