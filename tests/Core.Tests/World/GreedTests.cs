@@ -107,5 +107,44 @@ namespace MirrorChronicles.Tests.World
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.AreEqual(DemandKind.Protection, reloaded.Intrigues.Demands.Single().Kind);
         }
+
+        // ---- Review ----
+
+        private static string FirstCovetous()
+        {
+            var w = World(new FixedRandom(0.0), CultivationRealm.QiRefinement, Settings.GreedStones * 4);
+            w.Intrigues.ProcessYear();
+            return Protection(w).Faction;
+        }
+
+        [Test]
+        public void APowerInConfrontation_MakesThatItsOnlyMove()
+        {
+            string covetous = FirstCovetous();
+            var w = World(new FixedRandom(0.0), CultivationRealm.QiRefinement, Settings.GreedStones * 4);
+            w.Secrets.RestoreConfrontation(new Confrontation(covetous, 1));
+            w.Intrigues.ProcessYear();
+            Assert.AreNotEqual(covetous, Protection(w)?.Faction);
+        }
+
+        [Test]
+        public void APowerAtWar_DemandsNoProtection()
+        {
+            string covetous = FirstCovetous();
+            var w = World(new FixedRandom(0.0), CultivationRealm.QiRefinement, Settings.GreedStones * 4);
+            Assert.IsNull(w.Wars.DeclareOn(covetous));
+            w.Intrigues.ProcessYear();
+            Assert.AreNotEqual(covetous, Protection(w)?.Faction);
+        }
+
+        [Test]
+        public void ARefusal_OpensNoSecondFront_ForAPowerAtWarElsewhere()
+        {
+            var w = World(new FixedRandom(0.0), CultivationRealm.QiRefinement, 0);
+            var greedy = w.Factions.GetFactionByName("Famille Ruan");
+            w.Wars.Start(greedy, w.Factions.GetFactionByName("Famille Fang"));
+            w.Ctx.Events.TriggerExtortionRefused(greedy.Name);
+            Assert.IsEmpty(w.Wars.ClanWars);
+        }
     }
 }
