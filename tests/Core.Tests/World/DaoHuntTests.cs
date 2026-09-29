@@ -66,7 +66,8 @@ namespace MirrorChronicles.Tests.World
             Assert.IsTrue(w.DaoHunts.Known.All(k => w.Factions.GetFactionByName(k.Faction).HighestRealm >= Settings.HunterMinRealm));
             w.DaoHunts.ProcessYear();
             Assert.IsFalse(prey.IsAlive);
-            Assert.AreEqual(DeathCause.FoundationDevoured, prey.CauseOfDeath);
+            Assert.AreEqual(DeathCause.RipeDaoHarvested, prey.CauseOfDeath, "harvested by a hunter, not consumed by a Dao Partner");
+            StringAssert.Contains("moissonné", ClanDomainView.DeathLabel(DeathCause.RipeDaoHarvested));
             Assert.IsFalse(w.DaoHunts.Known.Any(k => k.MemberId == prey.ID));
         }
 
