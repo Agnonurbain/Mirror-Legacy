@@ -95,7 +95,9 @@ namespace MirrorChronicles.Presentation
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)
         {
             var unit = battle.CurrentUnit;
-            var targets = SelfTargeted(id)
+            var targets = id == Move
+                ? MoveAction.Targets(unit, battle.Field).Select(c => (c.X, c.Y)).ToArray()
+                : SelfTargeted(id)
                 ? (action.IsValid(unit, unit.CurrentCell, battle.Field) ? new[] { (unit.CurrentCell.X, unit.CurrentCell.Y) } : Array.Empty<(int, int)>())
                 : battle.Field.Grid.Cells.Where(c => action.IsValid(unit, c, battle.Field)).Select(c => (c.X, c.Y)).ToArray();
             return new BattleAction(id, label, action.QiCost, targets);

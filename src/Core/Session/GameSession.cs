@@ -324,7 +324,7 @@ namespace MirrorChronicles.Session
         /// <summary>Moves to the next phase and resolves it. Does nothing once the game is over.</summary>
         public void AdvancePhase()
         {
-            if (Victory.IsOver) return;
+            if (Victory.IsOver || Challenges.Current != null) return; // a battle under way is fought to its end first
 
             if (Clock.Advance()) BeginYear();
             else ResolvePhase(Clock.Phase);

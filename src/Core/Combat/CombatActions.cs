@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
@@ -64,6 +65,35 @@ namespace MirrorChronicles.Combat
             if (!IsValid(user, target, field)) return;
             user.SetCell(target);
             user.HasMovedThisTurn = true;
+        }
+
+        /// <summary>
+        /// Every cell <see cref="IsValid"/> accepts, from one search bounded by the reach (not one path per cell): the free
+        /// neighbours (a single step is always allowed), and the free cells whose cheapest way costs no more than the reach.
+        /// </summary>
+        public static IReadOnlyList<GridCell> Targets(CombatUnit user, BattleField field)
+        {
+            var start = user.CurrentCell;
+            if (!user.IsActive || user.HasMovedThisTurn || start == null) return Array.Empty<GridCell>();
+            int reach = field.MovementRangeOf(user);
+            var grid = field.Grid;
+            var cost = new Dictionary<GridCell, int> { [start] = 0 };
+            var frontier = new List<GridCell> { start };
+            while (frontier.Count > 0)
+            {
+                var current = frontier.OrderBy(c => cost[c]).First();
+                frontier.Remove(current);
+                foreach (var next in grid.GetAdjacentCells(current).Where(c => !c.IsOccupied))
+                {
+                    int total = cost[current] + next.GetMovementCost();
+                    if (total > reach || (cost.TryGetValue(next, out int known) && total >= known)) continue;
+                    cost[next] = total;
+                    frontier.Add(next);
+                }
+            }
+            return cost.Keys.Where(c => c != start)
+                .Union(grid.GetAdjacentCells(start).Where(c => !c.IsOccupied))
+                .ToList();
         }
     }
 
