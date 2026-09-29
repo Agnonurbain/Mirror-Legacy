@@ -40,10 +40,11 @@ namespace MirrorChronicles.Diplomacy
         {
             if (a == null || b == null || !a.IsAlive || !b.IsAlive || a == b) return "introuvable";
             if (a.IsMale == b.IsMale) return "il faut un homme et une femme";
+            if (KinshipRules.AreCloseKin(a, b, KinshipRules.MarriageForbiddenGenerations, clan.FindById)) return "trop proche parenté"; // for ever
             if (a.CaptorFaction != null || b.CaptorFaction != null) return "captif ailleurs";
             if (a.Age < MarriageMatchmaker.MinMarriageAge || b.Age < MarriageMatchmaker.MinMarriageAge) return "trop jeune";
             if (!string.IsNullOrEmpty(a.SpouseID) || !string.IsNullOrEmpty(b.SpouseID)) return "déjà marié";
-            return KinshipRules.AreCloseKin(a, b, KinshipRules.MarriageForbiddenGenerations, clan.FindById) ? "trop proche parenté" : null;
+            return null;
         }
 
         /// <summary>The clan arranges a marriage between two of its members (2026-09-29): to keep the cultivating line.</summary>

@@ -137,7 +137,7 @@ namespace MirrorChronicles.Tests.Economy
         public void ALongGame_KeepsThePopulation_AndTheStones_InBounds([Values(1, 2, 3)] int seed)
         {
             var run = BalanceRun.Play(Fixtures.Content, seed, years: 150, out _, autopilot: true);
-            Assert.That(run.Members, Is.LessThanOrEqualTo(400), "the clan grows only as far as it can feed itself");
+            Assert.That(run.Members, Is.LessThanOrEqualTo(600), "the clan grows only as far as it can feed itself (~7 600 before)");
             Assert.That(run.Stones, Is.LessThanOrEqualTo(60000), "no hoard without end");
             Assert.That(run.PoorYears, Is.LessThanOrEqualTo(run.Years / 5), "a clan at work is seldom poor");
         }

@@ -97,7 +97,7 @@ namespace MirrorChronicles.Data
         Patriarch,
         Matriarch,  // the patriarch's wife
         Child,      // of the patriarch and the matriarch
-        Kin         // a relative with no recorded parents (a brother, a cousin)
+        Kin         // the patriarch's brother or sister: their forebears are remembered for kinship, not recorded
     }
 
     public sealed class FounderDefinition
