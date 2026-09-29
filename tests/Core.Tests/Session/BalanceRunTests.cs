@@ -62,11 +62,12 @@ namespace MirrorChronicles.Tests.Session
             Assert.IsEmpty(s.Intrigues.Demands);
             Assert.AreEqual(100000 - 500, s.Resources.SpiritStones);
 
-            s.Resources.SetSpiritStones(600);
+            int short_ = 500 + 2 * s.Upkeep.YearlyUpkeep - 1; // paying would leave less than two years of upkeep
+            s.Resources.SetSpiritStones(short_);
             s.Intrigues.RestoreDemands(new[] { new Demand("Famille Fang", 500, s.Clock.Year, DemandKind.Protection) }, null);
             BalanceRun.Act(s);
             Assert.IsEmpty(s.Intrigues.Demands);
-            Assert.AreEqual(600, s.Resources.SpiritStones, "it could not keep its reserve: it refused");
+            Assert.AreEqual(short_, s.Resources.SpiritStones, "it could not keep its reserve: it refused");
         }
 
         [Test]
@@ -101,6 +102,14 @@ namespace MirrorChronicles.Tests.Session
             s.Clan.AddMember(mortal);
             BalanceRun.Act(s);
             Assert.IsTrue(s.Clan.LivingMembers.Any(m => m.HasTalismanSeed));
+        }
+
+        [Test]
+        public void ALongGame_WithTheActivePilot_StaysSane([Values(1, 2, 3)] int seed)
+        {
+            var run = BalanceRun.Play(Fixtures.Content, seed, years: 150, out _, autopilot: true);
+            Assert.That(run.Betrayals, Is.LessThanOrEqualTo(12), "a treaty is betrayed for a reason, not as a matter of course");
+            Assert.That(run.CombatDeaths, Is.LessThanOrEqualTo(run.Challenges + run.ClanWars), "a challenge by the rules seldom kills");
         }
 
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>

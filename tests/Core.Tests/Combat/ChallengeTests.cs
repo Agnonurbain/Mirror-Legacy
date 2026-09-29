@@ -111,6 +111,18 @@ namespace MirrorChronicles.Tests.Combat
         }
 
         [Test]
+        public void AFallenFighter_YieldsInARulesBoundChallenge_UnlessABlowIsNotHeldBack()
+        {
+            var (w, champion) = World(new FixedRandom(0.999)); // the blow is held back
+            w.Challenges.Issue(Power(w));
+            w.Challenges.Accept(new[] { champion.ID });
+            w.Challenges.Current.Allies.Single().TakeDamage(10000);
+            w.Challenges.Current.EndTurn();
+            Assert.IsNull(w.Challenges.Conclude());
+            Assert.IsTrue(champion.IsAlive, "fallen in a challenge by the rules, the fighter yields");
+        }
+
+        [Test]
         public void ABattleUnfinished_CannotBeConcluded()
         {
             var (w, champion) = World(new FixedRandom(0.0));
