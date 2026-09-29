@@ -21,7 +21,8 @@ namespace MirrorChronicles.Presentation
     public sealed record ChallengeCandidate(string Id, string Name, string Rank, string Refusal);
 
     /// <summary>A rival's challenge awaiting its answer: who sends it, the rivals' rank and number, who may answer.</summary>
-    public sealed record PendingChallenge(string Faction, string Rank, int Rivals, int MaxFighters, IReadOnlyList<ChallengeCandidate> Candidates);
+    public sealed record PendingChallenge(string Faction, string Rank, int Rivals, int MaxFighters, IReadOnlyList<ChallengeCandidate> Candidates,
+        bool ToTheDeath = false);
 
     /// <summary>The battle screen (G6): the grid, the fighters, the actions of the clan's fighter whose turn it is, the outcome.</summary>
     public static class BattleView
@@ -89,7 +90,7 @@ namespace MirrorChronicles.Presentation
                 .Select(m => new ChallengeCandidate(m.ID, m.FullName, RankCatalog.DisplayName(m), session.Challenges.FighterRefusal(m)))
                 .ToList();
             return new PendingChallenge(challenge.Faction, RankCatalog.RealmName(challenge.Realm), challenge.Rivals,
-                session.Context.Content.Balance.Challenges.MaxFighters, candidates);
+                session.Context.Content.Balance.Challenges.MaxFighters, candidates, challenge.ToTheDeath);
         }
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)

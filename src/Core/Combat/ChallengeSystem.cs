@@ -7,6 +7,7 @@ using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Economy;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Combat
 {
@@ -14,7 +15,8 @@ namespace MirrorChronicles.Combat
     /// A rival's challenge (G6; the random event « Défi d'un rival »): a power sends rivals of the rank of the clan's best
     /// free fighter. The clan picks who fights — free cultivators it knows — and the battle is played on the grid; the
     /// victor takes the wager; a challenge by the rules, the clan's fallen yield gravely wounded, unless a blow was not
-    /// held back; its survivors carry their wounds. A refusal, or silence until the
+    /// held back; its survivors carry their wounds. A power that hates the clan may challenge it to the death: its fallen
+    /// always die, and fleeing costs far more face. A refusal, or silence until the
     /// next year, costs face with the challenger. Each action answers with its refusal, or null when done.
     /// </summary>
     public sealed class ChallengeSystem
@@ -28,11 +30,13 @@ namespace MirrorChronicles.Combat
         private readonly FactionManager factions;
         private readonly TechniqueLibrary techniques;
         private readonly WoundSystem wounds;
+        private readonly SuspicionLedger suspicion;
         private Challenge fought; // the challenge whose battle is under way
 
         public ChallengeSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions,
-            TechniqueLibrary techniques, WoundSystem wounds)
+            TechniqueLibrary techniques, WoundSystem wounds, SuspicionLedger suspicion)
         {
+            this.suspicion = suspicion;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -70,7 +74,11 @@ namespace MirrorChronicles.Combat
             var best = clan.LivingMembers.Where(m => FighterRefusal(m) == null)
                 .OrderByDescending(m => (int)m.Realm).ThenByDescending(m => m.RealmStage).FirstOrDefault();
             if (power == null || best == null) return null;
-            Pending = new Challenge(power.Name, ctx.Clock.Year, best.Realm, best.RealmStage, ctx.Rng.Next(1, Settings.MaxRivals + 1), ctx.Rng.Next());
+            var s = Settings;
+            bool grudge = power.RelationWithPlayer <= s.DeathGrudgeRelation || suspicion.OfClan(power.Name) >= s.DeathGrudgeSuspicion;
+            bool toTheDeath = grudge && ctx.Rng.Chance(s.DeathChallengeChance); // hatred wants blood
+            Pending = new Challenge(power.Name, ctx.Clock.Year, best.Realm, best.RealmStage, ctx.Rng.Next(1, s.MaxRivals + 1), ctx.Rng.Next(),
+                toTheDeath);
             ctx.Log.Info($"[Challenge] {power.Name} challenges the clan: {Pending.Rivals} rival(s).");
             return Pending;
         }
@@ -123,7 +131,7 @@ namespace MirrorChronicles.Combat
         {
             if (Current == null) return "aucune bataille en cours";
             if (!Current.IsOver) return "la bataille n'est pas finie";
-            Current.ResolveAftermath(clan, wounds, () => ctx.Rng.Chance(Settings.DeathChance)); // by the rules, the fallen yield
+            Current.ResolveAftermath(clan, wounds, fought.ToTheDeath ? null : () => ctx.Rng.Chance(Settings.DeathChance)); // by the rules, the fallen yield
             var outcome = Current.State switch
             {
                 CombatState.Victory => ChallengeOutcome.Won,
@@ -153,7 +161,8 @@ namespace MirrorChronicles.Combat
 
         private void LoseFace(Challenge challenge)
         {
-            if (factions.GetFactionByName(challenge.Faction) is { } power) factions.ChangeRelation(power.ID, Settings.DeclineRelation);
+            int lost = (int)(Settings.DeclineRelation * (challenge.ToTheDeath ? Settings.DeathDeclineFactor : 1)); // fleeing a death duel shames more
+            if (factions.GetFactionByName(challenge.Faction) is { } power) factions.ChangeRelation(power.ID, lost);
             ctx.Events.TriggerChallengeSettled(challenge.Faction, ChallengeOutcome.Declined);
             Pending = null;
         }

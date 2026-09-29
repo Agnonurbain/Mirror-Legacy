@@ -134,7 +134,7 @@ namespace MirrorChronicles.Tests
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability, Resources);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
             Wounds = new WoundSystem(Ctx, Stability);
-            Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds);
+            Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds, Suspicion);
             Upkeep = new UpkeepSystem(Ctx, Clan, Resources, Stability);
             DaoHunts = new DaoHuntSystem(Ctx, Clan, Factions, Treaties, Buildings);
         }
