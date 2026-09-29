@@ -194,6 +194,7 @@ namespace MirrorChronicles.Presentation
             DeathCause.SpiritualDissolution => "d'une dissolution spirituelle",
             DeathCause.AscentCollapse => "épuisé(e) avant le Manoir Shenyang",
             DeathCause.FoundationDevoured => "sa fondation dévorée par un Partenaire Dao",
+            DeathCause.RipeDaoHarvested => "son Dao mûr moissonné par un cultivateur plus puissant",
             DeathCause.ManifestationCollapse => "en échouant à manifester son pouvoir divin",
             DeathCause.SoulReplaced => "l'âme remplacée par l'ancien maître de sa Fruition",
             DeathCause.Sacrificed => "sacrifié au miroir pour un Qi de talisman",

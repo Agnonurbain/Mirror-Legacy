@@ -150,8 +150,8 @@ namespace MirrorChronicles.Data
         public double HeartAlignmentYearlyChance { get; init; }
 
         /// <summary>
-        /// A ripe Dao is prey (LORE.md §5.3.3): each year, the chance a Foundation at its peak whose Dao Partners the
-        /// world knows is harvested by a stronger cultivator, and the share of it left when the clan has a Purple Mansion.
+        /// A ripe Dao is prey (LORE.md §5.3.3): the share of a hunter's blow left when the clan has a Purple Mansion to
+        /// guard it; the rest of the hunt is <see cref="DaoHuntSettings"/>.
         /// </summary>
         public double RipeDaoGuardedFactor { get; init; }
 

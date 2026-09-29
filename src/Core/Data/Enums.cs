@@ -78,7 +78,8 @@ namespace MirrorChronicles.Data
         Sacrificed,            // offered to the mirror for a talisman Qi (LORE.md §11.5)
         SoulReplaced,          // the Fruition took back its body for its former master (LORE.md §5.5.2)
         Executed,              // put to death by the power holding them captive (L6a)
-        ExecutedAsSpy          // a spy unmasked and put to death by the clan (2026-09-27)
+        ExecutedAsSpy,         // a spy unmasked and put to death by the clan (2026-09-27)
+        RipeDaoHarvested       // a ripe Dao harvested by a hunter of a higher realm (LORE.md §5.3.3; 2026-09-29)
     }
 
     /// <summary>

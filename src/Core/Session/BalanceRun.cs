@@ -46,7 +46,7 @@ namespace MirrorChronicles.Session
             {
                 Count("death");
                 if (cause == DeathCause.Combat) Count("combatDeath");
-                if (cause == DeathCause.FoundationDevoured) Count("devoured");
+                if (cause == DeathCause.RipeDaoHarvested) Count("devoured");
             };
 
             int start = s.Clock.Year;
@@ -93,7 +93,8 @@ namespace MirrorChronicles.Session
             foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
                 session.Wars.SuePeace(war.Enemy);
             PlantASeed(session);
-            foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && FoundationRules.IsPrey(m, session.Context.Content)).ToList())
+            foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
+                && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content)).ToList())
                 session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao hides
             if (session.Clock.Year % TreatyEveryYears == 0 && session.Treaties.All.Count < MostTreaties) SeekATreaty(session);
         }

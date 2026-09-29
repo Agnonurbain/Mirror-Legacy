@@ -85,7 +85,7 @@ namespace MirrorChronicles.World
                 {
                     ctx.Log.Info($"[DaoHunt] {prey.FullName}'s ripe Dao is harvested by a stronger cultivator.");
                     known.RemoveAll(k => k.MemberId == prey.ID);
-                    clan.Kill(prey, DeathCause.FoundationDevoured);
+                    clan.Kill(prey, DeathCause.RipeDaoHarvested);
                     continue;
                 }
                 ctx.Log.Warning($"[DaoHunt] {hunter.Name} strikes at {prey.FullName}'s ripe Dao, and is driven off.");
