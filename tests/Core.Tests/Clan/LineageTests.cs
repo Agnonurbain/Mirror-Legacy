@@ -59,6 +59,16 @@ namespace MirrorChronicles.Tests.Clan
         }
 
         [Test]
+        public void AFoundingKinsman_IsKin_ToTheFoundingFamily()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var kinsman = s.Clan.LivingMembers.Single(m => m.FirstName == "Shan");   // clan.json: role « Kin »
+            var niece = s.Clan.LivingMembers.Single(m => m.FirstName == "Mei");      // a child of the patriarch
+            StringAssert.Contains("parenté", s.Marriages.MarriageRefusal(kinsman, niece));
+            Assert.IsFalse(GenealogyView.Tree(s).Any(n => n.Id == kinsman.FatherID), "the forebears are only remembered, not drawn");
+        }
+
+        [Test]
         public void ACultivatorSpouse_IsSoughtAbroad_AtAPrice()
         {
             var w = new TestWorld(new FixedRandom(0.0));
@@ -124,9 +134,14 @@ namespace MirrorChronicles.Tests.Clan
             var s = GameSession.NewGame(new GameSetup { Seed = 3, Content = Fixtures.Content });
             s.Resources.SetSpiritStones(100000);
             var a = Fixtures.Cultivator(isMale: true, age: 25);
+            var b = Fixtures.Cultivator(isMale: false, age: 24);
+            (a.ID, b.ID) = ("line-a", "line-b");
             s.Clan.AddMember(a);
+            s.Clan.AddMember(b);
             BalanceRun.Act(s);
-            Assert.IsNotNull(a.SpouseID);
+            bool Cultivates(string id) => MirrorChronicles.Characters.SpiritualOrificeRules.CanCultivate(s.Clan.FindById(id));
+            Assert.IsFalse(OperationsView.Unwed(s).Any(u => u.Partners.Any(p => Cultivates(p.Id))),
+                "no two unwed cultivators left who could wed each other");
         }
     }
 }

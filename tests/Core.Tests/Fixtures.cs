@@ -131,7 +131,7 @@ namespace MirrorChronicles.Tests
             Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars);
             Patrons = new PatronSystem(Ctx, Clan, Resources);
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
-            Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability);
+            Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability, Resources);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
             Wounds = new WoundSystem(Ctx, Stability);
             Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds);
