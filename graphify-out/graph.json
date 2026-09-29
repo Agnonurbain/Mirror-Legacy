@@ -1601,7 +1601,7 @@
       "label": "Genealogy",
       "file_type": "code",
       "source_file": "game/scripts/Genealogy.cs",
-      "source_location": "L7",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "scripts_genealogy_genealogy",
       "community": 211,
@@ -1611,7 +1611,7 @@
       "label": "string",
       "file_type": "code",
       "source_file": "game/scripts/Genealogy.cs",
-      "source_location": "L9",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "game_scripts_genealogy_cs_string",
       "community": 211,
@@ -1621,27 +1621,77 @@
       "label": "GameRoot",
       "file_type": "code",
       "source_file": "game/scripts/Genealogy.cs",
-      "source_location": "L11",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "game_scripts_genealogy_cs_gameroot",
       "community": 211,
       "norm_label": "gameroot"
     },
     {
+      "label": "VBoxContainer",
+      "file_type": "code",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "game_scripts_genealogy_cs_vboxcontainer",
+      "community": 211,
+      "norm_label": "vboxcontainer"
+    },
+    {
+      "label": "Label",
+      "file_type": "code",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "game_scripts_genealogy_cs_label",
+      "community": 211,
+      "norm_label": "label"
+    },
+    {
       "label": "._Ready()",
       "file_type": "code",
       "source_file": "game/scripts/Genealogy.cs",
-      "source_location": "L13",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "scripts_genealogy_genealogy_ready",
       "community": 211,
       "norm_label": "._ready()"
     },
     {
+      "label": ".Refresh()",
+      "file_type": "code",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "scripts_genealogy_genealogy_refresh",
+      "community": 211,
+      "norm_label": ".refresh()"
+    },
+    {
+      "label": ".ShowLineage()",
+      "file_type": "code",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "scripts_genealogy_genealogy_showlineage",
+      "community": 211,
+      "norm_label": ".showlineage()"
+    },
+    {
+      "label": ".Text()",
+      "file_type": "code",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "scripts_genealogy_genealogy_text",
+      "community": 211,
+      "norm_label": ".text()"
+    },
+    {
       "label": ".RunSmoke()",
       "file_type": "code",
       "source_file": "game/scripts/Genealogy.cs",
-      "source_location": "L21",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "scripts_genealogy_genealogy_runsmoke",
       "community": 211,
@@ -3684,7 +3734,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 82,
+      "community": 277,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -3694,7 +3744,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 82,
+      "community": 277,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -6888,10 +6938,30 @@
       "norm_label": "list"
     },
     {
+      "label": "HashSet",
+      "file_type": "code",
+      "source_file": "src/Core/Clan/BloodRegistry.cs",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "src_core_clan_bloodregistry_cs_hashset",
+      "community": 31,
+      "norm_label": "hashset"
+    },
+    {
+      "label": "Dictionary",
+      "file_type": "code",
+      "source_file": "src/Core/Clan/BloodRegistry.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_core_clan_bloodregistry_cs_dictionary",
+      "community": 31,
+      "norm_label": "dictionary"
+    },
+    {
       "label": ".Register()",
       "file_type": "code",
       "source_file": "src/Core/Clan/BloodRegistry.cs",
-      "source_location": "L15",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "clan_bloodregistry_bloodregistry_register",
       "community": 31,
@@ -6901,7 +6971,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Clan/BloodRegistry.cs",
-      "source_location": "L15",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_bloodregistry_cs_characterdata",
       "community": 31,
@@ -6911,7 +6981,7 @@
       "label": ".FindById()",
       "file_type": "code",
       "source_file": "src/Core/Clan/BloodRegistry.cs",
-      "source_location": "L21",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "clan_bloodregistry_bloodregistry_findbyid",
       "community": 31,
@@ -6921,7 +6991,7 @@
       "label": ".ChildrenOf()",
       "file_type": "code",
       "source_file": "src/Core/Clan/BloodRegistry.cs",
-      "source_location": "L27",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "clan_bloodregistry_bloodregistry_childrenof",
       "community": 31,
@@ -6931,7 +7001,7 @@
       "label": ".Clear()",
       "file_type": "code",
       "source_file": "src/Core/Clan/BloodRegistry.cs",
-      "source_location": "L32",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "clan_bloodregistry_bloodregistry_clear",
       "community": 31,
@@ -6944,7 +7014,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 82,
+      "community": 277,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -6954,7 +7024,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 82,
+      "community": 277,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -6964,7 +7034,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 82,
+      "community": 277,
       "norm_label": "clankarmasystem"
     },
     {
@@ -6974,7 +7044,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 82,
+      "community": 277,
       "norm_label": "double"
     },
     {
@@ -6984,7 +7054,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 82,
+      "community": 277,
       "norm_label": "int"
     },
     {
@@ -6994,7 +7064,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 82,
+      "community": 277,
       "norm_label": "gamecontext"
     },
     {
@@ -7004,7 +7074,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 82,
+      "community": 277,
       "norm_label": "clanmanager"
     },
     {
@@ -7014,7 +7084,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 82,
+      "community": 277,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -7024,7 +7094,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 82,
+      "community": 277,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -7034,7 +7104,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 82,
+      "community": 277,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -7044,7 +7114,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 82,
+      "community": 277,
       "norm_label": ".restore()"
     },
     {
@@ -7054,7 +7124,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 82,
+      "community": 277,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -7391,7 +7461,7 @@
       "label": ".Create()",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L49",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "clan_foundingclan_foundingclan_create",
       "community": 113,
@@ -7401,7 +7471,7 @@
       "label": "FounderDefinition",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L49",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "founderdefinition",
       "community": 113,
@@ -7411,7 +7481,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L49",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "src_core_clan_foundingclan_cs_characterdata",
       "community": 113,
@@ -7424,7 +7494,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 212,
+      "community": 69,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -7434,7 +7504,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 212,
+      "community": 69,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -7688,6 +7758,66 @@
       "norm_label": "int"
     },
     {
+      "label": "LineageRules.cs",
+      "file_type": "code",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "clan_lineagerules",
+      "community": 280,
+      "norm_label": "lineagerules.cs"
+    },
+    {
+      "label": "MirrorChronicles.Clan",
+      "file_type": "code",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "clan_lineagerules_mirrorchronicles_clan",
+      "community": 280,
+      "norm_label": "mirrorchronicles.clan"
+    },
+    {
+      "label": "LineageRules",
+      "file_type": "code",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "clan_lineagerules_lineagerules",
+      "community": 280,
+      "norm_label": "lineagerules"
+    },
+    {
+      "label": ".SeekChance()",
+      "file_type": "code",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "clan_lineagerules_lineagerules_seekchance",
+      "community": 280,
+      "norm_label": ".seekchance()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "src_core_clan_lineagerules_cs_characterdata",
+      "community": 280,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": "LineageSettings",
+      "file_type": "code",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "lineagesettings",
+      "community": 280,
+      "norm_label": "lineagesettings"
+    },
+    {
       "label": "MarriageMatchmaker.cs",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
@@ -7781,7 +7911,7 @@
       "label": ".CreateOutsiderSpouse()",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
-      "source_location": "L70",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "clan_marriagematchmaker_marriagematchmaker_createoutsiderspouse",
       "community": 22,
@@ -7791,7 +7921,7 @@
       "label": "NamePools",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
-      "source_location": "L70",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "src_core_clan_marriagematchmaker_cs_namepools",
       "community": 22,
@@ -7801,7 +7931,7 @@
       "label": "OrificeOdds",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
-      "source_location": "L70",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "src_core_clan_marriagematchmaker_cs_orificeodds",
       "community": 22,
@@ -7811,7 +7941,7 @@
       "label": "Random",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
-      "source_location": "L70",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "src_core_clan_marriagematchmaker_cs_random",
       "community": 22,
@@ -7821,7 +7951,7 @@
       "label": ".PlanAnnualMarriages()",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "clan_marriagematchmaker_marriagematchmaker_planannualmarriages",
       "community": 22,
@@ -7831,7 +7961,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "src_core_clan_marriagematchmaker_cs_ireadonlylist",
       "community": 22,
@@ -7841,7 +7971,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "src_core_clan_marriagematchmaker_cs_list",
       "community": 22,
@@ -7851,7 +7981,7 @@
       "label": "MarriagePlan",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "marriageplan",
       "community": 22,
@@ -7861,7 +7991,7 @@
       "label": ".PickFamilyName()",
       "file_type": "code",
       "source_file": "src/Core/Clan/MarriageMatchmaker.cs",
-      "source_location": "L118",
+      "source_location": "L119",
       "_origin": "ast",
       "id": "clan_marriagematchmaker_marriagematchmaker_pickfamilyname",
       "community": 22,
@@ -10164,7 +10294,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 192,
+      "community": 69,
       "norm_label": "enums.cs"
     },
     {
@@ -10174,7 +10304,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 192,
+      "community": 69,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -10421,7 +10551,7 @@
       "label": "TrialModifiers",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L313",
+      "source_location": "L316",
       "_origin": "ast",
       "id": "data_gamecontent_trialmodifiers",
       "community": 121,
@@ -10431,7 +10561,7 @@
       "label": "TechniqueSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L335",
+      "source_location": "L338",
       "_origin": "ast",
       "id": "data_gamecontent_techniquesettings",
       "community": 121,
@@ -10441,7 +10571,7 @@
       "label": "DivineAbilitySettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L364",
+      "source_location": "L367",
       "_origin": "ast",
       "id": "data_gamecontent_divineabilitysettings",
       "community": 121,
@@ -10451,7 +10581,7 @@
       "label": "GoldenCoreSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L390",
+      "source_location": "L393",
       "_origin": "ast",
       "id": "data_gamecontent_goldencoresettings",
       "community": 121,
@@ -10461,7 +10591,7 @@
       "label": "PurpleMansionSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L454",
+      "source_location": "L457",
       "_origin": "ast",
       "id": "data_gamecontent_purplemansionsettings",
       "community": 121,
@@ -10471,7 +10601,7 @@
       "label": "VoidBand",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L481",
+      "source_location": "L484",
       "_origin": "ast",
       "id": "data_gamecontent_voidband",
       "community": 121,
@@ -10481,7 +10611,7 @@
       "label": "OrificeOdds",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L489",
+      "source_location": "L492",
       "_origin": "ast",
       "id": "data_gamecontent_orificeodds",
       "community": 121,
@@ -10671,7 +10801,7 @@
       "label": ".CheckFactions()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L384",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfactions",
       "community": 18,
@@ -10681,7 +10811,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L384",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_list",
       "community": 18,
@@ -10691,7 +10821,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L384",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_factiondata",
       "community": 18,
@@ -10701,7 +10831,7 @@
       "label": "RegionDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L384",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_regiondefinition",
       "community": 18,
@@ -10711,7 +10841,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L384",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_ireadonlylist",
       "community": 18,
@@ -10721,7 +10851,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L384",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_techniquedata",
       "community": 18,
@@ -10731,7 +10861,7 @@
       "label": ".CheckEvents()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L398",
+      "source_location": "L401",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkevents",
       "community": 18,
@@ -10741,7 +10871,7 @@
       "label": "RandomEventData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L398",
+      "source_location": "L401",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_randomeventdata",
       "community": 18,
@@ -10751,7 +10881,7 @@
       "label": ".CheckStory()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L404",
+      "source_location": "L407",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkstory",
       "community": 18,
@@ -10761,7 +10891,7 @@
       "label": "StoryEventData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L404",
+      "source_location": "L407",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_storyeventdata",
       "community": 18,
@@ -10771,7 +10901,7 @@
       "label": ".CheckQi()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L416",
+      "source_location": "L419",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkqi",
       "community": 18,
@@ -10781,7 +10911,7 @@
       "label": "QiDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L416",
+      "source_location": "L419",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_qidefinition",
       "community": 18,
@@ -10791,7 +10921,7 @@
       "label": ".CheckTechniques()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L424",
+      "source_location": "L427",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checktechniques",
       "community": 18,
@@ -10801,7 +10931,7 @@
       "label": "TechniqueCatalog",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L424",
+      "source_location": "L427",
       "_origin": "ast",
       "id": "techniquecatalog",
       "community": 18,
@@ -10811,7 +10941,7 @@
       "label": ".CheckClanKnowledge()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L472",
+      "source_location": "L475",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkclanknowledge",
       "community": 18,
@@ -10821,7 +10951,7 @@
       "label": ".CheckFruitions()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L497",
+      "source_location": "L500",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfruitions",
       "community": 18,
@@ -10831,7 +10961,7 @@
       "label": "FruitionCatalog",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L497",
+      "source_location": "L500",
       "_origin": "ast",
       "id": "fruitioncatalog",
       "community": 18,
@@ -10841,7 +10971,7 @@
       "label": ".CheckFoundations()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L521",
+      "source_location": "L524",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfoundations",
       "community": 18,
@@ -10851,7 +10981,7 @@
       "label": "FruitionDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L521",
+      "source_location": "L524",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_fruitiondefinition",
       "community": 18,
@@ -10861,7 +10991,7 @@
       "label": ".CheckFigures()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L538",
+      "source_location": "L541",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfigures",
       "community": 18,
@@ -10871,7 +11001,7 @@
       "label": "FigureDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L538",
+      "source_location": "L541",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_figuredefinition",
       "community": 18,
@@ -10881,7 +11011,7 @@
       "label": ".CheckTalismans()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L553",
+      "source_location": "L556",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checktalismans",
       "community": 18,
@@ -10891,7 +11021,7 @@
       "label": "TalismanDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L553",
+      "source_location": "L556",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_talismandefinition",
       "community": 18,
@@ -10901,7 +11031,7 @@
       "label": ".CheckRegions()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L564",
+      "source_location": "L567",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkregions",
       "community": 18,
@@ -10911,7 +11041,7 @@
       "label": ".CheckAtmospheres()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L587",
+      "source_location": "L590",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkatmospheres",
       "community": 18,
@@ -10921,7 +11051,7 @@
       "label": "AtmosphereDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L587",
+      "source_location": "L590",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_atmospheredefinition",
       "community": 18,
@@ -10931,7 +11061,7 @@
       "label": ".CheckRegionalQi()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L598",
+      "source_location": "L601",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkregionalqi",
       "community": 18,
@@ -10941,7 +11071,7 @@
       "label": ".CheckOaths()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L611",
+      "source_location": "L614",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkoaths",
       "community": 18,
@@ -10951,7 +11081,7 @@
       "label": "OathCatalog",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L611",
+      "source_location": "L614",
       "_origin": "ast",
       "id": "oathcatalog",
       "community": 18,
@@ -10961,7 +11091,7 @@
       "label": ".CheckInterpretedFields()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L625",
+      "source_location": "L628",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkinterpretedfields",
       "community": 18,
@@ -10971,7 +11101,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L625",
+      "source_location": "L628",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_ienumerable",
       "community": 18,
@@ -10981,7 +11111,7 @@
       "label": "Id",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L625",
+      "source_location": "L628",
       "_origin": "ast",
       "id": "id",
       "community": 18,
@@ -10991,7 +11121,7 @@
       "label": "Type",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L625",
+      "source_location": "L628",
       "_origin": "ast",
       "id": "type",
       "community": 18,
@@ -11001,7 +11131,7 @@
       "label": "Fields",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L625",
+      "source_location": "L628",
       "_origin": "ast",
       "id": "fields",
       "community": 18,
@@ -11011,7 +11141,7 @@
       "label": ".IsProbability()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L635",
+      "source_location": "L638",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_isprobability",
       "community": 18,
@@ -11021,7 +11151,7 @@
       "label": ".Require()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L637",
+      "source_location": "L640",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_require",
       "community": 18,
@@ -11136,6 +11266,26 @@
       "id": "data_itemdata_itemdata",
       "community": 2,
       "norm_label": "itemdata"
+    },
+    {
+      "label": "LineageData.cs",
+      "file_type": "code",
+      "source_file": "src/Core/Data/LineageData.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_lineagedata",
+      "community": 283,
+      "norm_label": "lineagedata.cs"
+    },
+    {
+      "label": "MirrorChronicles.Data",
+      "file_type": "code",
+      "source_file": "src/Core/Data/LineageData.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_lineagedata_mirrorchronicles_data",
+      "community": 283,
+      "norm_label": "mirrorchronicles.data"
     },
     {
       "label": "MirrorLoreData.cs",
@@ -12464,24 +12614,24 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 194,
+      "community": 192,
       "norm_label": "marriagesystem.cs"
     },
     {
       "label": "MirrorChronicles.Diplomacy",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 194,
+      "community": 192,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
       "label": "MarriageSystem",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem",
       "community": 235,
@@ -12491,7 +12641,7 @@
       "label": "int",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_int",
       "community": 235,
@@ -12501,7 +12651,7 @@
       "label": "GameContext",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_gamecontext",
       "community": 235,
@@ -12511,7 +12661,7 @@
       "label": "ClanManager",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_clanmanager",
       "community": 235,
@@ -12521,7 +12671,7 @@
       "label": "FactionManager",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_factionmanager",
       "community": 235,
@@ -12531,17 +12681,77 @@
       "label": "MentalStabilitySystem",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_mentalstabilitysystem",
       "community": 235,
       "norm_label": "mentalstabilitysystem"
     },
     {
+      "label": "ResourceManager",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "src_core_diplomacy_marriagesystem_cs_resourcemanager",
+      "community": 235,
+      "norm_label": "resourcemanager"
+    },
+    {
+      "label": ".MarriageRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "diplomacy_marriagesystem_marriagesystem_marriagerefusal",
+      "community": 235,
+      "norm_label": ".marriagerefusal()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "src_core_diplomacy_marriagesystem_cs_characterdata",
+      "community": 235,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".Arrange()",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "diplomacy_marriagesystem_marriagesystem_arrange",
+      "community": 235,
+      "norm_label": ".arrange()"
+    },
+    {
+      "label": ".SeekRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "diplomacy_marriagesystem_marriagesystem_seekrefusal",
+      "community": 235,
+      "norm_label": ".seekrefusal()"
+    },
+    {
+      "label": ".SeekCultivatorSpouse()",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "diplomacy_marriagesystem_marriagesystem_seekcultivatorspouse",
+      "community": 235,
+      "norm_label": ".seekcultivatorspouse()"
+    },
+    {
       "label": ".ProcessAnnualMarriages()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L37",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_processannualmarriages",
       "community": 235,
@@ -12551,27 +12761,17 @@
       "label": ".CanMarry()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L53",
+      "source_location": "L121",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_canmarry",
       "community": 235,
       "norm_label": ".canmarry()"
     },
     {
-      "label": "CharacterData",
-      "file_type": "code",
-      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "src_core_diplomacy_marriagesystem_cs_characterdata",
-      "community": 235,
-      "norm_label": "characterdata"
-    },
-    {
       "label": ".HandleLoveMarriage()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L62",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_handlelovemarriage",
       "community": 235,
@@ -12581,7 +12781,7 @@
       "label": ".HandleArrangedMarriage()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L77",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_handlearrangedmarriage",
       "community": 235,
@@ -12591,7 +12791,7 @@
       "label": ".Wed()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
-      "source_location": "L105",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_wed",
       "community": 235,
@@ -14844,7 +15044,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
-      "community": 33,
+      "community": 278,
       "norm_label": ".assigntask()"
     },
     {
@@ -14854,7 +15054,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 33,
+      "community": 278,
       "norm_label": "characterdata"
     },
     {
@@ -14864,7 +15064,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
-      "community": 33,
+      "community": 278,
       "norm_label": "tasktype"
     },
     {
@@ -14874,7 +15074,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 33,
+      "community": 278,
       "norm_label": ".processyearlytasks()"
     },
     {
@@ -14884,7 +15084,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 33,
+      "community": 278,
       "norm_label": "yearlytaskreport"
     },
     {
@@ -14894,7 +15094,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 33,
+      "community": 281,
       "norm_label": ".gatherqi()"
     },
     {
@@ -14904,7 +15104,7 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 33,
+      "community": 281,
       "norm_label": ".harvestable()"
     },
     {
@@ -14914,7 +15114,7 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 33,
+      "community": 281,
       "norm_label": "techniquedata"
     },
     {
@@ -14924,94 +15124,114 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 33,
+      "community": 281,
       "norm_label": "qidefinition"
+    },
+    {
+      "label": ".MiningYield()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L165",
+      "_origin": "ast",
+      "id": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
+      "community": 282,
+      "norm_label": ".miningyield()"
+    },
+    {
+      "label": "IEnumerable",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L165",
+      "_origin": "ast",
+      "id": "src_core_economy_taskassignmentsystem_cs_ienumerable",
+      "community": 282,
+      "norm_label": "ienumerable"
     },
     {
       "label": ".VeinYield()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L165",
+      "source_location": "L168",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_veinyield",
-      "community": 33,
+      "community": 282,
       "norm_label": ".veinyield()"
     },
     {
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L165",
+      "source_location": "L168",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_list",
-      "community": 33,
+      "community": 282,
       "norm_label": "list"
     },
     {
       "label": ".MineYield()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L173",
+      "source_location": "L176",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 33,
+      "community": 278,
       "norm_label": ".mineyield()"
     },
     {
       "label": ".Study()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L180",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 33,
+      "community": 278,
       "norm_label": ".study()"
     },
     {
       "label": ".Diplomacy()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L207",
+      "source_location": "L210",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 33,
+      "community": 278,
       "norm_label": ".diplomacy()"
     },
     {
       "label": ".Teach()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L215",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 33,
+      "community": 278,
       "norm_label": ".teach()"
     },
     {
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L215",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 33,
+      "community": 278,
       "norm_label": "ireadonlylist"
     },
     {
       "label": ".ScoutBeasts()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L229",
+      "source_location": "L232",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
-      "community": 33,
+      "community": 278,
       "norm_label": ".scoutbeasts()"
     },
     {
       "label": ".SetHuntingGround()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L243",
+      "source_location": "L246",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_sethuntingground",
       "community": 33,
@@ -15954,7 +16174,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionengine",
-      "community": 192,
+      "community": 69,
       "norm_label": "deductionengine.cs"
     },
     {
@@ -15964,7 +16184,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_deductionengine_mirrorchronicles_mirror",
-      "community": 192,
+      "community": 69,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -18701,7 +18921,7 @@
       "label": "MirrorChronicles.Presentation",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "presentation_operationsview_mirrorchronicles_presentation",
       "community": 152,
@@ -18711,7 +18931,7 @@
       "label": "OperationsView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L55",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview",
       "community": 152,
@@ -18721,7 +18941,7 @@
       "label": ".Ritual()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L57",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_ritual",
       "community": 152,
@@ -18731,7 +18951,7 @@
       "label": "GameSession",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L57",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_gamesession",
       "community": 152,
@@ -18741,7 +18961,7 @@
       "label": "RitualView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L57",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "ritualview",
       "community": 152,
@@ -18751,7 +18971,7 @@
       "label": ".HuntTargets()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L88",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_hunttargets",
       "community": 152,
@@ -18761,7 +18981,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L88",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_ireadonlylist",
       "community": 152,
@@ -18771,7 +18991,7 @@
       "label": "HuntTarget",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L88",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "hunttarget",
       "community": 152,
@@ -18781,7 +19001,7 @@
       "label": ".HuntCandidates()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L101",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_huntcandidates",
       "community": 152,
@@ -18791,7 +19011,7 @@
       "label": "MemberChoice",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L101",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_memberchoice",
       "community": 152,
@@ -18801,7 +19021,7 @@
       "label": ".HuntPreview()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L105",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_huntpreview",
       "community": 152,
@@ -18811,7 +19031,7 @@
       "label": "HuntPlan",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L105",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_huntplan",
       "community": 152,
@@ -18821,7 +19041,7 @@
       "label": "HuntPreviewView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L105",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "huntpreviewview",
       "community": 152,
@@ -18831,7 +19051,7 @@
       "label": ".Signs()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L117",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_signs",
       "community": 152,
@@ -18841,7 +19061,7 @@
       "label": "PowerSign",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L117",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "powersign",
       "community": 152,
@@ -18851,7 +19071,7 @@
       "label": ".FalseProofRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L132",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_falseproofrefusal",
       "community": 152,
@@ -18861,7 +19081,7 @@
       "label": ".Keepers()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L135",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_keepers",
       "community": 152,
@@ -18871,7 +19091,7 @@
       "label": "KeeperLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L135",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "keeperline",
       "community": 152,
@@ -18881,7 +19101,7 @@
       "label": ".RoleLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L139",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_rolelabel",
       "community": 152,
@@ -18891,7 +19111,7 @@
       "label": "HuntRole",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L139",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "huntrole",
       "community": 152,
@@ -18901,7 +19121,7 @@
       "label": ".TimingLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L148",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_timinglabel",
       "community": 152,
@@ -18911,7 +19131,7 @@
       "label": "HuntTiming",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L148",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_hunttiming",
       "community": 152,
@@ -18921,7 +19141,7 @@
       "label": ".CoverLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L156",
+      "source_location": "L164",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_coverlabel",
       "community": 152,
@@ -18931,7 +19151,7 @@
       "label": "CoverStory",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L156",
+      "source_location": "L164",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_coverstory",
       "community": 152,
@@ -18941,7 +19161,7 @@
       "label": ".AidLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L165",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_aidlabel",
       "community": 152,
@@ -18951,17 +19171,37 @@
       "label": "MirrorAid",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L165",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_mirroraid",
       "community": 152,
       "norm_label": "mirroraid"
     },
     {
+      "label": ".Unwed()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "presentation_operationsview_operationsview_unwed",
+      "community": 152,
+      "norm_label": ".unwed()"
+    },
+    {
+      "label": "UnwedLine",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "unwedline",
+      "community": 152,
+      "norm_label": "unwedline"
+    },
+    {
       "label": ".Spouses()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L174",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_spouses",
       "community": 152,
@@ -18971,7 +19211,7 @@
       "label": "SpouseLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L174",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "spouseline",
       "community": 152,
@@ -18981,7 +19221,7 @@
       "label": ".Captives()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L180",
+      "source_location": "L205",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_captives",
       "community": 152,
@@ -18991,7 +19231,7 @@
       "label": "CaptivesView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L180",
+      "source_location": "L205",
       "_origin": "ast",
       "id": "captivesview",
       "community": 152,
@@ -19001,7 +19241,7 @@
       "label": ".Choice()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L193",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_choice",
       "community": 152,
@@ -19011,7 +19251,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L193",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_characterdata",
       "community": 152,
@@ -19021,7 +19261,7 @@
       "label": ".Strength()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L195",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_strength",
       "community": 152,
@@ -19031,7 +19271,7 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L195",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_cultivationrealm",
       "community": 152,
@@ -19531,7 +19771,7 @@
       "label": "MirrorChronicles.Session",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "session_balancerun_mirrorchronicles_session",
       "community": 259,
@@ -19541,7 +19781,7 @@
       "label": "BalanceRun",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "session_balancerun_balancerun",
       "community": 259,
@@ -19551,7 +19791,7 @@
       "label": ".Play()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L26",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_play",
       "community": 259,
@@ -19561,7 +19801,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L26",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_gamecontent",
       "community": 259,
@@ -19571,7 +19811,7 @@
       "label": "GameSession",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L26",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_gamesession",
       "community": 259,
@@ -19581,7 +19821,7 @@
       "label": "BalanceReport",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L26",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "balancereport",
       "community": 259,
@@ -19591,17 +19831,27 @@
       "label": "int",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L75",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_int",
       "community": 259,
       "norm_label": "int"
     },
     {
+      "label": "double",
+      "file_type": "code",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "src_core_session_balancerun_cs_double",
+      "community": 259,
+      "norm_label": "double"
+    },
+    {
       "label": ".Act()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L89",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_act",
       "community": 259,
@@ -19611,7 +19861,7 @@
       "label": ".AnswerDemands()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L102",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_answerdemands",
       "community": 259,
@@ -19621,7 +19871,7 @@
       "label": ".AnswerChallenge()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L112",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_answerchallenge",
       "community": 259,
@@ -19631,17 +19881,27 @@
       "label": ".PlantASeed()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L133",
+      "source_location": "L137",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_plantaseed",
       "community": 259,
       "norm_label": ".plantaseed()"
     },
     {
+      "label": ".WedTheLine()",
+      "file_type": "code",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L148",
+      "_origin": "ast",
+      "id": "session_balancerun_balancerun_wedtheline",
+      "community": 259,
+      "norm_label": ".wedtheline()"
+    },
+    {
       "label": ".SeekATreaty()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L143",
+      "source_location": "L168",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_seekatreaty",
       "community": 259,
@@ -19651,17 +19911,27 @@
       "label": ".SetTheIdleToWork()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L154",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_settheidletowork",
       "community": 259,
       "norm_label": ".settheidletowork()"
     },
     {
+      "label": ".FeedTheClan()",
+      "file_type": "code",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L199",
+      "_origin": "ast",
+      "id": "session_balancerun_balancerun_feedtheclan",
+      "community": 259,
+      "norm_label": ".feedtheclan()"
+    },
+    {
       "label": ".Table()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L170",
+      "source_location": "L214",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_table",
       "community": 259,
@@ -19671,7 +19941,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L170",
+      "source_location": "L214",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_ireadonlylist",
       "community": 259,
@@ -30798,6 +31068,216 @@
       "norm_label": ".strangerdeath_leavesnothingtotheclan()"
     },
     {
+      "label": "LineageTests.cs",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "clan_lineagetests",
+      "community": 276,
+      "norm_label": "lineagetests.cs"
+    },
+    {
+      "label": "MirrorChronicles.Tests.Clan",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "clan_lineagetests_mirrorchronicles_tests_clan",
+      "community": 276,
+      "norm_label": "mirrorchronicles.tests.clan"
+    },
+    {
+      "label": "LineageTests",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests",
+      "community": 276,
+      "norm_label": "lineagetests"
+    },
+    {
+      "label": ".Cultivator()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_cultivator",
+      "community": 276,
+      "norm_label": ".cultivator()"
+    },
+    {
+      "label": "TestWorld",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "tests_core_tests_clan_lineagetests_cs_testworld",
+      "community": 276,
+      "norm_label": "testworld"
+    },
+    {
+      "label": "CultivationRealm",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "tests_core_tests_clan_lineagetests_cs_cultivationrealm",
+      "community": 276,
+      "norm_label": "cultivationrealm"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "tests_core_tests_clan_lineagetests_cs_characterdata",
+      "community": 276,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".ACultivator_SeeksACultivator_First()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_acultivator_seeksacultivator_first",
+      "community": 276,
+      "norm_label": ".acultivator_seeksacultivator_first()"
+    },
+    {
+      "label": "Test",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "tests_core_tests_clan_lineagetests_cs_test",
+      "community": 276,
+      "norm_label": "test"
+    },
+    {
+      "label": ".TheClan_ArrangesAMarriage_BetweenTwoOfItsOwn()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_theclan_arrangesamarriage_betweentwoofitsown",
+      "community": 276,
+      "norm_label": ".theclan_arrangesamarriage_betweentwoofitsown()"
+    },
+    {
+      "label": ".KinDoesNotWed()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_kindoesnotwed",
+      "community": 276,
+      "norm_label": ".kindoesnotwed()"
+    },
+    {
+      "label": ".AFoundingKinsman_IsKin_ToTheFoundingFamily()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_afoundingkinsman_iskin_tothefoundingfamily",
+      "community": 276,
+      "norm_label": ".afoundingkinsman_iskin_tothefoundingfamily()"
+    },
+    {
+      "label": ".ACultivatorSpouse_IsSoughtAbroad_AtAPrice()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_acultivatorspouse_issoughtabroad_ataprice",
+      "community": 276,
+      "norm_label": ".acultivatorspouse_issoughtabroad_ataprice()"
+    },
+    {
+      "label": ".TheSearch_MayFail_AndStillCosts()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_thesearch_mayfail_andstillcosts",
+      "community": 276,
+      "norm_label": ".thesearch_mayfail_andstillcosts()"
+    },
+    {
+      "label": ".TheSearch_IsRefused_WithoutTheStones_OrForTheWed()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_thesearch_isrefused_withoutthestones_orforthewed",
+      "community": 276,
+      "norm_label": ".thesearch_isrefused_withoutthestones_orforthewed()"
+    },
+    {
+      "label": ".AHigherRealm_DrawsABetterMatch()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L110",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_ahigherrealm_drawsabettermatch",
+      "community": 276,
+      "norm_label": ".ahigherrealm_drawsabettermatch()"
+    },
+    {
+      "label": ".TheScreen_ListsTheUnwedCultivators_AndWhomTheyMayWed()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L118",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_thescreen_liststheunwedcultivators_andwhomtheymaywed",
+      "community": 276,
+      "norm_label": ".thescreen_liststheunwedcultivators_andwhomtheymaywed()"
+    },
+    {
+      "label": ".ThePilot_MarriesItsCultivators()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L131",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_thepilot_marriesitscultivators",
+      "community": 276,
+      "norm_label": ".thepilot_marriesitscultivators()"
+    },
+    {
+      "label": ".OneRule_SaysWhoMayWed()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_onerule_sayswhomaywed",
+      "community": 276,
+      "norm_label": ".onerule_sayswhomaywed()"
+    },
+    {
+      "label": ".TheMinesYield_IsEstimatedAsTheMineGivesIt()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_theminesyield_isestimatedastheminegivesit",
+      "community": 276,
+      "norm_label": ".theminesyield_isestimatedastheminegivesit()"
+    },
+    {
+      "label": ".ARecord_IsFound_EvenWhenNamedAfterItJoined()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L170",
+      "_origin": "ast",
+      "id": "clan_lineagetests_lineagetests_arecord_isfound_evenwhennamedafteritjoined",
+      "community": 276,
+      "norm_label": ".arecord_isfound_evenwhennamedafteritjoined()"
+    },
+    {
       "label": "MarriageMatchmakerTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Clan/MarriageMatchmakerTests.cs",
@@ -41818,10 +42298,20 @@
       "norm_label": ".theautopilot_setstheidletowork()"
     },
     {
-      "label": ".TheAutopilot_GathersTheQi_TheFoundationWallAbsorbs()",
+      "label": ".ThePilot_SendsCultivatorsToTheMine_WhenTheCoffersRunLow()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L39",
+      "_origin": "ast",
+      "id": "session_balanceruntests_balanceruntests_thepilot_sendscultivatorstothemine_whenthecoffersrunlow",
+      "community": 264,
+      "norm_label": ".thepilot_sendscultivatorstothemine_whenthecoffersrunlow()"
+    },
+    {
+      "label": ".TheAutopilot_GathersTheQi_TheFoundationWallAbsorbs()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_theautopilot_gatherstheqi_thefoundationwallabsorbs",
       "community": 264,
@@ -41831,7 +42321,7 @@
       "label": ".ThePilot_PaysADemandItCanAfford_AndRefusesOneItCannot()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L55",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_paysademanditcanafford_andrefusesoneitcannot",
       "community": 264,
@@ -41841,7 +42331,7 @@
       "label": ".ThePilot_AnswersAChallenge_AndFightsItOut()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L73",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_answersachallenge_andfightsitout",
       "community": 264,
@@ -41851,7 +42341,7 @@
       "label": ".ThePilot_SuesForPeace_InALongWar()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L86",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_suesforpeace_inalongwar",
       "community": 264,
@@ -41861,7 +42351,7 @@
       "label": ".ThePilot_PlantsATalismanSeed_WhenTheMirrorCan()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L96",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_plantsatalismanseed_whenthemirrorcan",
       "community": 264,
@@ -41871,7 +42361,7 @@
       "label": ".ALongGame_WithTheActivePilot_StaysSane()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L107",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_alonggame_withtheactivepilot_stayssane",
       "community": 264,
@@ -41881,7 +42371,7 @@
       "label": ".Report()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L117",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_report",
       "community": 264,
@@ -41891,7 +42381,7 @@
       "label": "Explicit",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L117",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "tests_core_tests_session_balanceruntests_cs_explicit",
       "community": 264,
@@ -41901,7 +42391,7 @@
       "label": "Category",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L117",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "category",
       "community": 264,
@@ -46391,7 +46881,7 @@
       "label": "\ud83d\udcca M\u00e9triques",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/DONE.md",
-      "source_location": "L172",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "brain_claude_done_m\u00e9triques",
       "community": 49,
@@ -47604,7 +48094,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "brain_claude_plan_syst\u00e8mes_du_jeu_d\u00e9tail",
-      "community": 41,
+      "community": 279,
       "norm_label": "\ud83e\udde9 systemes du jeu (detail)"
     },
     {
@@ -47614,7 +48104,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "brain_claude_plan_1_core_boucle_principale",
-      "community": 41,
+      "community": 279,
       "norm_label": "1. core \u2014 boucle principale"
     },
     {
@@ -47624,7 +48114,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "brain_claude_plan_2_mirror_interface_joueur",
-      "community": 41,
+      "community": 279,
       "norm_label": "2. mirror \u2014 interface joueur"
     },
     {
@@ -47634,7 +48124,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "brain_claude_plan_3_clan_lign\u00e9e",
-      "community": 41,
+      "community": 279,
       "norm_label": "3. clan \u2014 lignee"
     },
     {
@@ -47644,7 +48134,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "brain_claude_plan_4_characters_individus",
-      "community": 41,
+      "community": 279,
       "norm_label": "4. characters \u2014 individus"
     },
     {
@@ -47654,7 +48144,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "brain_claude_plan_5_combat_tactique_tour_par_tour",
-      "community": 41,
+      "community": 279,
       "norm_label": "5. combat \u2014 tactique tour par tour"
     },
     {
@@ -47664,7 +48154,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "brain_claude_plan_6_diplomacy_monde_ext\u00e9rieur",
-      "community": 41,
+      "community": 279,
       "norm_label": "6. diplomacy \u2014 monde exterieur"
     },
     {
@@ -47674,7 +48164,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "brain_claude_plan_7_economy_ressources_t\u00e2ches",
-      "community": 41,
+      "community": 279,
       "norm_label": "7. economy \u2014 ressources & taches"
     },
     {
@@ -47684,7 +48174,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "brain_claude_plan_8_events_al\u00e9atoire_sc\u00e9naris\u00e9",
-      "community": 41,
+      "community": 279,
       "norm_label": "8. events \u2014 aleatoire + scenarise"
     },
     {
@@ -48568,7 +49058,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 212,
+      "community": 69,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -48607,7 +49097,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 194,
+      "community": 192,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -48889,7 +49379,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 82,
+      "community": 277,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -48902,7 +49392,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 194,
+      "community": 192,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -48941,7 +49431,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 194,
+      "community": 192,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -49035,7 +49525,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Inconsistent AI-generated renames; prevention: IDE Refactor->Rename, treat CS0103 as error.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-001: deceased.rootelement does not exist (use affinity)",
       "id": "brain_claude_worked_lesson_wl_001"
     },
@@ -49049,7 +49539,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Avoid repeating the type prefix in method names.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-002: mirrorsystem.consumemirrorpower does not exist (consumepower)",
       "id": "brain_claude_worked_lesson_wl_002"
     },
@@ -49063,7 +49553,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 192,
+      "community": 69,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -49077,7 +49567,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Write real NUnit tests so signature drift is caught immediately.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-004: eventmanager.generateyearlyevent missing / triggeryearlyevent private",
       "id": "brain_claude_worked_lesson_wl_004"
     },
@@ -49091,7 +49581,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Separate test assembly + InternalsVisibleTo strategy from the start.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-005: private factionmanager.processyearlyfactionai called from test",
       "id": "brain_claude_worked_lesson_wl_005"
     },
@@ -49175,7 +49665,7 @@
       "author": null,
       "contributor": null,
       "rationale": "AI Studio forced a web format and C# was generated alongside without ever being compiled, causing WL-001..005; pick one framework and execute after every AI prompt.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-100: unity -> web -> unity pivot debt",
       "id": "brain_claude_worked_lesson_wl_100"
     },
@@ -52002,12 +52492,34 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_genealogy_genealogy",
+      "target": "game_scripts_genealogy_cs_label",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Genealogy.cs",
       "source_location": "L9",
       "weight": 1.0,
       "context": "field",
       "confidence_score": 1.0,
       "source": "scripts_genealogy_genealogy",
       "target": "game_scripts_genealogy_cs_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_genealogy_genealogy",
+      "target": "game_scripts_genealogy_cs_vboxcontainer",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -52023,11 +52535,85 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "scripts_genealogy_genealogy",
+      "target": "scripts_genealogy_genealogy_refresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Genealogy.cs",
       "source_location": "L21",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "scripts_genealogy_genealogy",
       "target": "scripts_genealogy_genealogy_runsmoke"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_genealogy_genealogy",
+      "target": "scripts_genealogy_genealogy_showlineage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "scripts_genealogy_genealogy",
+      "target": "scripts_genealogy_genealogy_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L80",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "scripts_genealogy_genealogy_text",
+      "target": "game_scripts_genealogy_cs_label",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "scripts_genealogy_genealogy_ready",
+      "target": "scripts_genealogy_genealogy_refresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "scripts_genealogy_genealogy_refresh",
+      "target": "scripts_genealogy_genealogy_showlineage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Genealogy.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "scripts_genealogy_genealogy_showlineage",
+      "target": "scripts_genealogy_genealogy_text",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -57242,9 +57828,9 @@
       "source_file": "src/Core/Characters/FoundationRules.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_foundationrules_foundationrules",
-      "target": "characters_foundationrules_foundationrules_isprey",
-      "confidence_score": 1.0
+      "target": "characters_foundationrules_foundationrules_isprey"
     },
     {
       "relation": "method",
@@ -57339,9 +57925,9 @@
       "source_file": "src/Core/Characters/FoundationRules.cs",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_foundationrules_foundationrules_isprey",
-      "target": "characters_foundationrules_foundationrules_fruitionof",
-      "confidence_score": 1.0
+      "target": "characters_foundationrules_foundationrules_fruitionof"
     },
     {
       "relation": "references",
@@ -57438,9 +58024,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_foundationrules_foundationrules_isprey",
-      "target": "src_core_characters_foundationrules_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_foundationrules_cs_characterdata"
     },
     {
       "relation": "references",
@@ -57449,9 +58035,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_foundationrules_foundationrules_isprey",
-      "target": "src_core_characters_foundationrules_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_characters_foundationrules_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -62251,6 +62837,28 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Clan/BloodRegistry.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "field",
+      "source": "clan_bloodregistry_bloodregistry",
+      "target": "src_core_clan_bloodregistry_cs_dictionary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Clan/BloodRegistry.cs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "field",
+      "source": "clan_bloodregistry_bloodregistry",
+      "target": "src_core_clan_bloodregistry_cs_hashset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Clan/BloodRegistry.cs",
       "source_location": "L11",
       "weight": 1.0,
       "context": "field",
@@ -63550,6 +64158,58 @@
       "confidence_score": 1.0,
       "source": "clan_legacysystem_legacysystem",
       "target": "src_core_clan_legacysystem_cs_int"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "clan_lineagerules",
+      "target": "clan_lineagerules_lineagerules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "clan_lineagerules",
+      "target": "clan_lineagerules_mirrorchronicles_clan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "clan_lineagerules_lineagerules",
+      "target": "clan_lineagerules_lineagerules_seekchance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "clan_lineagerules_lineagerules_seekchance",
+      "target": "lineagesettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Clan/LineageRules.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "clan_lineagerules_lineagerules_seekchance",
+      "target": "src_core_clan_lineagerules_cs_characterdata",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -68006,9 +68666,9 @@
       "source_file": "src/Core/Data/DaoHuntData.cs",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_daohuntdata",
-      "target": "data_daohuntdata_mirrorchronicles_data",
-      "confidence_score": 1.0
+      "target": "data_daohuntdata_mirrorchronicles_data"
     },
     {
       "relation": "references",
@@ -69704,6 +70364,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Data/LineageData.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "data_lineagedata",
+      "target": "data_lineagedata_mirrorchronicles_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/Core/Data/MirrorLoreData.cs",
       "source_location": "L3",
       "weight": 1.0,
@@ -71269,6 +71939,16 @@
     {
       "relation": "method",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem",
+      "target": "diplomacy_marriagesystem_marriagesystem_arrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
       "source_file": "Assets/_Project/Scripts/Diplomacy/MarriageSystem.cs",
       "source_location": "L27",
       "weight": 1.0,
@@ -71299,12 +71979,42 @@
     {
       "relation": "method",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem",
+      "target": "diplomacy_marriagesystem_marriagesystem_marriagerefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
       "source_file": "Assets/_Project/Scripts/Diplomacy/MarriageSystem.cs",
       "source_location": "L53",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "diplomacy_marriagesystem_marriagesystem",
       "target": "diplomacy_marriagesystem_marriagesystem_processannualmarriages"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem",
+      "target": "diplomacy_marriagesystem_marriagesystem_seekcultivatorspouse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem",
+      "target": "diplomacy_marriagesystem_marriagesystem_seekrefusal",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -71372,15 +72082,48 @@
       "target": "src_core_diplomacy_marriagesystem_cs_mentalstabilitysystem"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "field",
+      "source": "diplomacy_marriagesystem_marriagesystem",
+      "target": "src_core_diplomacy_marriagesystem_cs_resourcemanager",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "Assets/_Project/Scripts/Diplomacy/MarriageSystem.cs",
-      "source_location": "L63",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L55",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "diplomacy_marriagesystem_marriagesystem_processannualmarriages",
-      "target": "diplomacy_marriagesystem_marriagesystem_handlelovemarriage"
+      "source": "diplomacy_marriagesystem_marriagesystem_arrange",
+      "target": "diplomacy_marriagesystem_marriagesystem_marriagerefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem_canmarry",
+      "target": "diplomacy_marriagesystem_marriagesystem_marriagerefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "diplomacy_marriagesystem_marriagesystem_marriagerefusal",
+      "target": "src_core_diplomacy_marriagesystem_cs_characterdata",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -71392,17 +72135,6 @@
       "confidence_score": 1.0,
       "source": "diplomacy_marriagesystem_marriagesystem_canmarry",
       "target": "src_core_diplomacy_marriagesystem_cs_characterdata"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "Assets/_Project/Scripts/Diplomacy/MarriageSystem.cs",
-      "source_location": "L53",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "diplomacy_marriagesystem_marriagesystem_handlelovemarriage",
-      "target": "diplomacy_marriagesystem_marriagesystem_canmarry"
     },
     {
       "relation": "references",
@@ -71430,12 +72162,78 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L65",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "diplomacy_marriagesystem_marriagesystem_seekrefusal",
+      "target": "src_core_diplomacy_marriagesystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
       "source_location": "L101",
       "weight": 1.0,
       "context": "parameter_type",
       "confidence_score": 1.0,
       "source": "diplomacy_marriagesystem_marriagesystem_wed",
       "target": "src_core_diplomacy_marriagesystem_cs_characterdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem_arrange",
+      "target": "diplomacy_marriagesystem_marriagesystem_wed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem_seekcultivatorspouse",
+      "target": "diplomacy_marriagesystem_marriagesystem_seekrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/MarriageSystem.cs",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem_seekcultivatorspouse",
+      "target": "diplomacy_marriagesystem_marriagesystem_wed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Assets/_Project/Scripts/Diplomacy/MarriageSystem.cs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem_processannualmarriages",
+      "target": "diplomacy_marriagesystem_marriagesystem_handlelovemarriage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Assets/_Project/Scripts/Diplomacy/MarriageSystem.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "diplomacy_marriagesystem_marriagesystem_handlelovemarriage",
+      "target": "diplomacy_marriagesystem_marriagesystem_canmarry"
     },
     {
       "relation": "calls",
@@ -74948,6 +75746,16 @@
     {
       "relation": "method",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L165",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystem_taskassignmentsystem",
+      "target": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
       "source_file": "Assets/_Project/Scripts/Economy/TaskAssignmentSystem.cs",
       "source_location": "L69",
       "weight": 1.0,
@@ -75207,6 +76015,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L165",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
+      "target": "src_core_economy_taskassignmentsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
       "source_location": "L230",
       "weight": 1.0,
       "context": "parameter_type",
@@ -75356,6 +76175,28 @@
       "confidence_score": 1.0,
       "source": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
       "target": "src_core_economy_taskassignmentsystem_cs_techniquedata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L165",
+      "weight": 1.0,
+      "source": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
+      "target": "economy_taskassignmentsystem_taskassignmentsystem_veinyield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
+      "source_location": "L165",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
+      "target": "src_core_economy_taskassignmentsystem_cs_ienumerable",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -75929,9 +76770,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggerdaohuntfoiled",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggerdaohuntfoiled"
     },
     {
       "relation": "method",
@@ -79150,9 +79991,9 @@
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_clandomainview_clandomainview",
-      "target": "presentation_clandomainview_clandomainview_ripelabel",
-      "confidence_score": 1.0
+      "target": "presentation_clandomainview_clandomainview_ripelabel"
     },
     {
       "relation": "method",
@@ -79288,9 +80129,9 @@
       "source_location": "L78",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_clandomainview_clandomainview_ripelabel",
-      "target": "src_core_presentation_clandomainview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_clandomainview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -79409,9 +80250,9 @@
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_clandomainview_clandomainview_roster",
-      "target": "presentation_clandomainview_clandomainview_ripelabel",
-      "confidence_score": 1.0
+      "target": "presentation_clandomainview_clandomainview_ripelabel"
     },
     {
       "relation": "calls",
@@ -79464,9 +80305,9 @@
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_clandomainview_clandomainview_ripelabel",
-      "target": "presentation_clandomainview_clandomainview_foundationlabel",
-      "confidence_score": 1.0
+      "target": "presentation_clandomainview_clandomainview_foundationlabel"
     },
     {
       "relation": "references",
@@ -79475,9 +80316,9 @@
       "source_location": "L78",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_clandomainview_clandomainview_ripelabel",
-      "target": "src_core_presentation_clandomainview_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_clandomainview_cs_characterdata"
     },
     {
       "relation": "references",
@@ -81203,6 +82044,16 @@
       "target": "presentation_operationsview_operationsview_timinglabel"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "presentation_operationsview_operationsview",
+      "target": "presentation_operationsview_operationsview_unwed",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -81327,6 +82178,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L183",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_operationsview_operationsview_unwed",
+      "target": "src_core_presentation_operationsview_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L75",
       "weight": 1.0,
       "context": "generic_arg",
@@ -81399,6 +82261,17 @@
       "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_spouses",
       "target": "src_core_presentation_operationsview_cs_ireadonlylist"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L183",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "presentation_operationsview_operationsview_unwed",
+      "target": "src_core_presentation_operationsview_cs_ireadonlylist",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -81509,6 +82382,17 @@
       "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_aidlabel",
       "target": "src_core_presentation_operationsview_cs_mirroraid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L183",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "presentation_operationsview_operationsview_unwed",
+      "target": "unwedline",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -82343,6 +83227,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun",
+      "target": "session_balancerun_balancerun_feedtheclan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L129",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -82388,6 +83282,27 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun",
       "target": "session_balancerun_balancerun_table"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun",
+      "target": "session_balancerun_balancerun_wedtheline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "context": "field",
+      "source": "session_balancerun_balancerun",
+      "target": "src_core_session_balancerun_cs_double",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -82492,6 +83407,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L199",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "session_balancerun_balancerun_feedtheclan",
+      "target": "src_core_session_balancerun_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L129",
       "weight": 1.0,
       "context": "parameter_type",
@@ -82520,6 +83446,17 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_settheidletowork",
       "target": "src_core_session_balancerun_cs_gamesession"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L148",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "session_balancerun_balancerun_wedtheline",
+      "target": "src_core_session_balancerun_cs_gamesession",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -82575,6 +83512,28 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_act",
       "target": "session_balancerun_balancerun_seekatreaty"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_act",
+      "target": "session_balancerun_balancerun_wedtheline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L192",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_settheidletowork",
+      "target": "session_balancerun_balancerun_feedtheclan",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -84407,9 +85366,9 @@
       "source_file": "src/Core/World/DaoHuntRules.cs",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntrules",
-      "target": "world_daohuntrules_daohuntrules",
-      "confidence_score": 1.0
+      "target": "world_daohuntrules_daohuntrules"
     },
     {
       "relation": "contains",
@@ -84417,9 +85376,9 @@
       "source_file": "src/Core/World/DaoHuntRules.cs",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntrules",
-      "target": "world_daohuntrules_mirrorchronicles_world",
-      "confidence_score": 1.0
+      "target": "world_daohuntrules_mirrorchronicles_world"
     },
     {
       "relation": "method",
@@ -84427,9 +85386,9 @@
       "source_file": "src/Core/World/DaoHuntRules.cs",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntrules_daohuntrules",
-      "target": "world_daohuntrules_daohuntrules_exposure",
-      "confidence_score": 1.0
+      "target": "world_daohuntrules_daohuntrules_exposure"
     },
     {
       "relation": "method",
@@ -84437,9 +85396,9 @@
       "source_file": "src/Core/World/DaoHuntRules.cs",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntrules_daohuntrules",
-      "target": "world_daohuntrules_daohuntrules_learnchance",
-      "confidence_score": 1.0
+      "target": "world_daohuntrules_daohuntrules_learnchance"
     },
     {
       "relation": "method",
@@ -84447,9 +85406,9 @@
       "source_file": "src/Core/World/DaoHuntRules.cs",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntrules_daohuntrules",
-      "target": "world_daohuntrules_daohuntrules_strikesuccess",
-      "confidence_score": 1.0
+      "target": "world_daohuntrules_daohuntrules_strikesuccess"
     },
     {
       "relation": "references",
@@ -84458,9 +85417,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohuntrules_daohuntrules_learnchance",
-      "target": "daohuntsettings",
-      "confidence_score": 1.0
+      "target": "daohuntsettings"
     },
     {
       "relation": "references",
@@ -84469,9 +85428,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohuntrules_daohuntrules_learnchance",
-      "target": "src_core_world_daohuntrules_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntrules_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -84480,9 +85439,9 @@
       "source_file": "src/Core/World/DaoHuntRules.cs",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntrules_daohuntrules_learnchance",
-      "target": "world_daohuntrules_daohuntrules_exposure",
-      "confidence_score": 1.0
+      "target": "world_daohuntrules_daohuntrules_exposure"
     },
     {
       "relation": "references",
@@ -84491,9 +85450,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohuntrules_daohuntrules_exposure",
-      "target": "daohuntsettings",
-      "confidence_score": 1.0
+      "target": "daohuntsettings"
     },
     {
       "relation": "references",
@@ -84502,9 +85461,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohuntrules_daohuntrules_strikesuccess",
-      "target": "daohuntsettings",
-      "confidence_score": 1.0
+      "target": "daohuntsettings"
     },
     {
       "relation": "references",
@@ -84513,9 +85472,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohuntrules_daohuntrules_exposure",
-      "target": "src_core_world_daohuntrules_cs_tasktype",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntrules_cs_tasktype"
     },
     {
       "relation": "contains",
@@ -84523,9 +85482,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem",
-      "target": "world_daohuntsystem_daohuntsystem",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_daohuntsystem"
     },
     {
       "relation": "contains",
@@ -84533,9 +85492,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem",
-      "target": "world_daohuntsystem_mirrorchronicles_world",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_mirrorchronicles_world"
     },
     {
       "relation": "references",
@@ -84544,9 +85503,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "src_core_world_daohuntsystem_cs_buildingsystem",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_buildingsystem"
     },
     {
       "relation": "references",
@@ -84555,9 +85514,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "src_core_world_daohuntsystem_cs_clanmanager",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_clanmanager"
     },
     {
       "relation": "references",
@@ -84566,9 +85525,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "src_core_world_daohuntsystem_cs_factionmanager",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_factionmanager"
     },
     {
       "relation": "references",
@@ -84577,9 +85536,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "src_core_world_daohuntsystem_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_gamecontext"
     },
     {
       "relation": "references",
@@ -84588,9 +85547,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "src_core_world_daohuntsystem_cs_list",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_list"
     },
     {
       "relation": "references",
@@ -84599,9 +85558,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "src_core_world_daohuntsystem_cs_treatysystem",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_treatysystem"
     },
     {
       "relation": "method",
@@ -84609,9 +85568,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "world_daohuntsystem_daohuntsystem_hunters",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_daohuntsystem_hunters"
     },
     {
       "relation": "method",
@@ -84619,9 +85578,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "world_daohuntsystem_daohuntsystem_learn",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_daohuntsystem_learn"
     },
     {
       "relation": "method",
@@ -84629,9 +85588,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "world_daohuntsystem_daohuntsystem_processyear",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_daohuntsystem_processyear"
     },
     {
       "relation": "method",
@@ -84639,9 +85598,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "world_daohuntsystem_daohuntsystem_restore",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_daohuntsystem_restore"
     },
     {
       "relation": "method",
@@ -84649,9 +85608,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem",
-      "target": "world_daohuntsystem_daohuntsystem_strike",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_daohuntsystem_strike"
     },
     {
       "relation": "references",
@@ -84660,9 +85619,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_restore",
-      "target": "daoprey",
-      "confidence_score": 1.0
+      "target": "daoprey"
     },
     {
       "relation": "references",
@@ -84671,9 +85630,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_restore",
-      "target": "src_core_world_daohuntsystem_cs_ienumerable",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_ienumerable"
     },
     {
       "relation": "references",
@@ -84682,9 +85641,9 @@
       "source_location": "L57",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_hunters",
-      "target": "src_core_world_daohuntsystem_cs_ienumerable",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_ienumerable"
     },
     {
       "relation": "calls",
@@ -84693,9 +85652,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_processyear",
-      "target": "world_daohuntsystem_daohuntsystem_learn",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_daohuntsystem_learn"
     },
     {
       "relation": "calls",
@@ -84704,9 +85663,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_processyear",
-      "target": "world_daohuntsystem_daohuntsystem_strike",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_daohuntsystem_strike"
     },
     {
       "relation": "references",
@@ -84715,9 +85674,9 @@
       "source_location": "L57",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_hunters",
-      "target": "src_core_world_daohuntsystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_factiondata"
     },
     {
       "relation": "calls",
@@ -84726,9 +85685,9 @@
       "source_file": "src/Core/World/DaoHuntSystem.cs",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_learn",
-      "target": "world_daohuntsystem_daohuntsystem_hunters",
-      "confidence_score": 1.0
+      "target": "world_daohuntsystem_daohuntsystem_hunters"
     },
     {
       "relation": "references",
@@ -84737,9 +85696,9 @@
       "source_location": "L61",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_learn",
-      "target": "src_core_world_daohuntsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -84748,9 +85707,9 @@
       "source_location": "L61",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_learn",
-      "target": "src_core_world_daohuntsystem_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -84759,9 +85718,9 @@
       "source_location": "L71",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_strike",
-      "target": "src_core_world_daohuntsystem_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -84770,9 +85729,9 @@
       "source_location": "L71",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_daohuntsystem_daohuntsystem_strike",
-      "target": "src_core_world_daohuntsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_daohuntsystem_cs_characterdata"
     },
     {
       "relation": "contains",
@@ -103262,6 +104221,474 @@
       "confidence_score": 1.0,
       "source": "clan_legacysystemtests_legacysystemtests_strangerdeath_leavesnothingtotheclan",
       "target": "tests_core_tests_clan_legacysystemtests_cs_test"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "clan_lineagetests",
+      "target": "clan_lineagetests_lineagetests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "clan_lineagetests",
+      "target": "clan_lineagetests_mirrorchronicles_tests_clan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_acultivator_seeksacultivator_first",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_acultivatorspouse_issoughtabroad_ataprice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_afoundingkinsman_iskin_tothefoundingfamily",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_ahigherrealm_drawsabettermatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_arecord_isfound_evenwhennamedafteritjoined",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_kindoesnotwed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_onerule_sayswhomaywed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_theclan_arrangesamarriage_betweentwoofitsown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_theminesyield_isestimatedastheminegivesit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_thepilot_marriesitscultivators",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_thescreen_liststheunwedcultivators_andwhomtheymaywed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_thesearch_isrefused_withoutthestones_orforthewed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests",
+      "target": "clan_lineagetests_lineagetests_thesearch_mayfail_andstillcosts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_acultivator_seeksacultivator_first",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_acultivatorspouse_issoughtabroad_ataprice",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_ahigherrealm_drawsabettermatch",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_arecord_isfound_evenwhennamedafteritjoined",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "clan_lineagetests_lineagetests_cultivator",
+      "target": "tests_core_tests_clan_lineagetests_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "clan_lineagetests_lineagetests_cultivator",
+      "target": "tests_core_tests_clan_lineagetests_cs_cultivationrealm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "clan_lineagetests_lineagetests_cultivator",
+      "target": "tests_core_tests_clan_lineagetests_cs_testworld",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_kindoesnotwed",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_onerule_sayswhomaywed",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_theclan_arrangesamarriage_betweentwoofitsown",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_theminesyield_isestimatedastheminegivesit",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_thepilot_marriesitscultivators",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_thescreen_liststheunwedcultivators_andwhomtheymaywed",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_thesearch_isrefused_withoutthestones_orforthewed",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "clan_lineagetests_lineagetests_thesearch_mayfail_andstillcosts",
+      "target": "clan_lineagetests_lineagetests_cultivator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_acultivator_seeksacultivator_first",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L71",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_acultivatorspouse_issoughtabroad_ataprice",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_afoundingkinsman_iskin_tothefoundingfamily",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L110",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_ahigherrealm_drawsabettermatch",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L170",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_arecord_isfound_evenwhennamedafteritjoined",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L48",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_kindoesnotwed",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L149",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_onerule_sayswhomaywed",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_theclan_arrangesamarriage_betweentwoofitsown",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_theminesyield_isestimatedastheminegivesit",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L131",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_thepilot_marriesitscultivators",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L118",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_thescreen_liststheunwedcultivators_andwhomtheymaywed",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L98",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_thesearch_isrefused_withoutthestones_orforthewed",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Clan/LineageTests.cs",
+      "source_location": "L87",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "clan_lineagetests_lineagetests_thesearch_mayfail_andstillcosts",
+      "target": "tests_core_tests_clan_lineagetests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -127552,6 +128979,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests",
+      "target": "session_balanceruntests_balanceruntests_thepilot_sendscultivatorstothemine_whenthecoffersrunlow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L86",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -127645,6 +129082,17 @@
       "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_plantsatalismanseed_whenthemirrorcan",
       "target": "tests_core_tests_session_balanceruntests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "session_balanceruntests_balanceruntests_thepilot_sendscultivatorstothemine_whenthecoffersrunlow",
+      "target": "tests_core_tests_session_balanceruntests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -131511,9 +132959,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests",
-      "target": "world_daohunttests_daohunttests",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests"
     },
     {
       "relation": "contains",
@@ -131521,9 +132969,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests",
-      "target": "world_daohunttests_mirrorchronicles_tests_world",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_mirrorchronicles_tests_world"
     },
     {
       "relation": "method",
@@ -131531,9 +132979,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_adaoaway_isseen_oneinseclusion_hardly",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_adaoaway_isseen_oneinseclusion_hardly"
     },
     {
       "relation": "method",
@@ -131541,9 +132989,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_afoiledhunter_istold_andremembered",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_afoiledhunter_istold_andremembered"
     },
     {
       "relation": "method",
@@ -131551,9 +132999,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_ahunter_mustfirstlearn_thatadaoisripe",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ahunter_mustfirstlearn_thatadaoisripe"
     },
     {
       "relation": "method",
@@ -131561,9 +133009,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_ahunterwhoknows_strikes_andanunguardeddaoisdevoured",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ahunterwhoknows_strikes_andanunguardeddaoisdevoured"
     },
     {
       "relation": "method",
@@ -131571,9 +133019,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_everydefence_lowerstheblow",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_everydefence_lowerstheblow"
     },
     {
       "relation": "method",
@@ -131581,9 +133029,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_onlyaripedao_whosepartnerstheworldknows_isprey",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_onlyaripedao_whosepartnerstheworldknows_isprey"
     },
     {
       "relation": "method",
@@ -131591,9 +133039,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_onlythepowersofahigherrealm_hunt",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_onlythepowersofahigherrealm_hunt"
     },
     {
       "relation": "method",
@@ -131601,9 +133049,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_ripe",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ripe"
     },
     {
       "relation": "method",
@@ -131611,9 +133059,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_roundtrip_keepswhatthehuntersknow",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_roundtrip_keepswhatthehuntersknow"
     },
     {
       "relation": "method",
@@ -131621,9 +133069,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_seclusion_isataskofthecultivators_thatdoesnothingelse",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_seclusion_isataskofthecultivators_thatdoesnothingelse"
     },
     {
       "relation": "method",
@@ -131631,9 +133079,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_thedomain_tellsaripedao",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_thedomain_tellsaripedao"
     },
     {
       "relation": "method",
@@ -131641,9 +133089,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests",
-      "target": "world_daohunttests_daohunttests_world",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_world"
     },
     {
       "relation": "calls",
@@ -131652,9 +133100,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_adaoaway_isseen_oneinseclusion_hardly",
-      "target": "world_daohunttests_daohunttests_world",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_world"
     },
     {
       "relation": "calls",
@@ -131663,9 +133111,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_afoiledhunter_istold_andremembered",
-      "target": "world_daohunttests_daohunttests_world",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_world"
     },
     {
       "relation": "calls",
@@ -131674,9 +133122,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_ahunter_mustfirstlearn_thatadaoisripe",
-      "target": "world_daohunttests_daohunttests_world",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_world"
     },
     {
       "relation": "calls",
@@ -131685,9 +133133,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_ahunterwhoknows_strikes_andanunguardeddaoisdevoured",
-      "target": "world_daohunttests_daohunttests_world",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_world"
     },
     {
       "relation": "calls",
@@ -131696,9 +133144,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_onlyaripedao_whosepartnerstheworldknows_isprey",
-      "target": "world_daohunttests_daohunttests_world",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_world"
     },
     {
       "relation": "calls",
@@ -131707,9 +133155,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_onlythepowersofahigherrealm_hunt",
-      "target": "world_daohunttests_daohunttests_world",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_world"
     },
     {
       "relation": "calls",
@@ -131718,9 +133166,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_seclusion_isataskofthecultivators_thatdoesnothingelse",
-      "target": "world_daohunttests_daohunttests_world",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_world"
     },
     {
       "relation": "references",
@@ -131729,9 +133177,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_world",
-      "target": "tests_core_tests_world_daohunttests_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -131740,9 +133188,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_world",
-      "target": "tests_core_tests_world_daohunttests_cs_random",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_random"
     },
     {
       "relation": "references",
@@ -131751,9 +133199,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_world",
-      "target": "tests_core_tests_world_daohunttests_cs_testworld",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_testworld"
     },
     {
       "relation": "references",
@@ -131762,9 +133210,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_ripe",
-      "target": "tests_core_tests_world_daohunttests_cs_testworld",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_testworld"
     },
     {
       "relation": "calls",
@@ -131773,9 +133221,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_adaoaway_isseen_oneinseclusion_hardly",
-      "target": "world_daohunttests_daohunttests_ripe",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ripe"
     },
     {
       "relation": "calls",
@@ -131784,9 +133232,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_afoiledhunter_istold_andremembered",
-      "target": "world_daohunttests_daohunttests_ripe",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ripe"
     },
     {
       "relation": "calls",
@@ -131795,9 +133243,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_ahunter_mustfirstlearn_thatadaoisripe",
-      "target": "world_daohunttests_daohunttests_ripe",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ripe"
     },
     {
       "relation": "calls",
@@ -131806,9 +133254,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_ahunterwhoknows_strikes_andanunguardeddaoisdevoured",
-      "target": "world_daohunttests_daohunttests_ripe",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ripe"
     },
     {
       "relation": "calls",
@@ -131817,9 +133265,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_onlyaripedao_whosepartnerstheworldknows_isprey",
-      "target": "world_daohunttests_daohunttests_ripe",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ripe"
     },
     {
       "relation": "calls",
@@ -131828,9 +133276,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_onlythepowersofahigherrealm_hunt",
-      "target": "world_daohunttests_daohunttests_ripe",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ripe"
     },
     {
       "relation": "references",
@@ -131839,9 +133287,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_ripe",
-      "target": "tests_core_tests_world_daohunttests_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -131850,9 +133298,9 @@
       "source_file": "tests/Core.Tests/World/DaoHuntTests.cs",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_seclusion_isataskofthecultivators_thatdoesnothingelse",
-      "target": "world_daohunttests_daohunttests_ripe",
-      "confidence_score": 1.0
+      "target": "world_daohunttests_daohunttests_ripe"
     },
     {
       "relation": "references",
@@ -131861,9 +133309,9 @@
       "source_location": "L36",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_onlyaripedao_whosepartnerstheworldknows_isprey",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "references",
@@ -131872,9 +133320,9 @@
       "source_location": "L84",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_adaoaway_isseen_oneinseclusion_hardly",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "references",
@@ -131883,9 +133331,9 @@
       "source_location": "L110",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_afoiledhunter_istold_andremembered",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "references",
@@ -131894,9 +133342,9 @@
       "source_location": "L49",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_ahunter_mustfirstlearn_thatadaoisripe",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "references",
@@ -131905,9 +133353,9 @@
       "source_location": "L59",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_ahunterwhoknows_strikes_andanunguardeddaoisdevoured",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "references",
@@ -131916,9 +133364,9 @@
       "source_location": "L98",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_everydefence_lowerstheblow",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "references",
@@ -131927,9 +133375,9 @@
       "source_location": "L74",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_onlythepowersofahigherrealm_hunt",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "references",
@@ -131938,9 +133386,9 @@
       "source_location": "L148",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_roundtrip_keepswhatthehuntersknow",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "references",
@@ -131949,9 +133397,9 @@
       "source_location": "L125",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_seclusion_isataskofthecultivators_thatdoesnothingelse",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "references",
@@ -131960,9 +133408,9 @@
       "source_location": "L138",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_daohunttests_daohunttests_thedomain_tellsaripedao",
-      "target": "tests_core_tests_world_daohunttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_daohunttests_cs_test"
     },
     {
       "relation": "contains",
@@ -140690,5 +142138,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "d048fbf902d55756fe024db9556f5f1e81c4a5e1"
+  "built_at_commit": "24670683ca795662708bc71f2093fbaf6895d6aa"
 }
