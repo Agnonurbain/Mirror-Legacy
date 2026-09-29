@@ -221,6 +221,9 @@ namespace MirrorChronicles.Data
         /// <summary>The hunt of a ripe Dao as a plot (2026-09-29; interpretations).</summary>
         public DaoHuntSettings DaoHunts { get; init; }
 
+        /// <summary>Keeping the cultivating line: seeking a cultivator spouse abroad (2026-09-29; interpretations).</summary>
+        public LineageSettings Lineage { get; init; }
+
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
 

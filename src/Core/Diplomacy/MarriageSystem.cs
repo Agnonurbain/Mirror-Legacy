@@ -2,6 +2,7 @@ using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
+using MirrorChronicles.Economy;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Diplomacy
@@ -21,13 +22,79 @@ namespace MirrorChronicles.Diplomacy
         private readonly ClanManager clan;
         private readonly FactionManager factions;
         private readonly MentalStabilitySystem stability;
+        private readonly ResourceManager resources;
 
-        public MarriageSystem(GameContext ctx, ClanManager clan, FactionManager factions, MentalStabilitySystem stability)
+        public MarriageSystem(GameContext ctx, ClanManager clan, FactionManager factions, MentalStabilitySystem stability, ResourceManager resources)
         {
             this.ctx = ctx;
             this.clan = clan;
             this.factions = factions;
             this.stability = stability;
+            this.resources = resources;
+        }
+
+        private LineageSettings Lineage => ctx.Content.Balance.Lineage;
+
+        /// <summary>Why these two members may not be wed, or null when they may.</summary>
+        public string MarriageRefusal(CharacterData a, CharacterData b)
+        {
+            if (a == null || b == null || !a.IsAlive || !b.IsAlive || a == b) return "introuvable";
+            if (a.IsMale == b.IsMale) return "il faut un homme et une femme";
+            if (a.CaptorFaction != null || b.CaptorFaction != null) return "captif ailleurs";
+            if (a.Age < MarriageMatchmaker.MinMarriageAge || b.Age < MarriageMatchmaker.MinMarriageAge) return "trop jeune";
+            if (!string.IsNullOrEmpty(a.SpouseID) || !string.IsNullOrEmpty(b.SpouseID)) return "déjà marié";
+            return KinshipRules.AreCloseKin(a, b, KinshipRules.MarriageForbiddenGenerations, clan.FindById) ? "trop proche parenté" : null;
+        }
+
+        /// <summary>The clan arranges a marriage between two of its members (2026-09-29): to keep the cultivating line.</summary>
+        public string Arrange(string aId, string bId)
+        {
+            var a = clan.FindById(aId);
+            var b = clan.FindById(bId);
+            var refusal = MarriageRefusal(a, b);
+            if (refusal != null) return refusal;
+            Wed(a, b);
+            stability.ApplyModifier(a, WillingStability);
+            stability.ApplyModifier(b, WillingStability);
+            ctx.Log.Info($"[Marriage] The clan weds {a.FullName} and {b.FullName}.");
+            return null;
+        }
+
+        /// <summary>Why the clan cannot seek a cultivator spouse abroad for this member now, or null when it can.</summary>
+        public string SeekRefusal(CharacterData member)
+        {
+            if (member == null || !member.IsAlive) return "introuvable";
+            if (member.CaptorFaction != null) return "captif ailleurs";
+            if (member.Age < MarriageMatchmaker.MinMarriageAge) return "trop jeune";
+            if (!string.IsNullOrEmpty(member.SpouseID)) return "déjà marié";
+            if (resources.SpiritStones < Lineage.SeekStones) return $"il faut {Lineage.SeekStones} pierres spirituelles";
+            return null;
+        }
+
+        /// <summary>
+        /// The clan seeks abroad a cultivator willing to wed this member (2026-09-29): it pays whatever the outcome; a
+        /// wandering cultivator of Qi Refinement, examined, bound to no power, may be found.
+        /// </summary>
+        public string SeekCultivatorSpouse(string memberId)
+        {
+            var member = clan.FindById(memberId);
+            var refusal = SeekRefusal(member);
+            if (refusal != null) return refusal;
+            resources.ConsumeSpiritStones(Lineage.SeekStones);
+            if (!ctx.Rng.Chance(LineageRules.SeekChance(member, Lineage))) return "on n'a trouvé personne de convenable";
+
+            var names = ctx.Content.Names;
+            var spouse = MarriageMatchmaker.CreateOutsiderSpouse(member, MarriageMatchmaker.PickFamilyName(names, ctx.Rng), names,
+                ctx.Content.Balance.OrificeOdds, ctx.Rng);
+            spouse.Realm = CultivationRealm.QiRefinement;
+            spouse.RealmStage = 1;
+            spouse.HasSpiritualOrifice = true; // the one sought was examined
+            spouse.OrificeKnown = true;
+            spouse.MaxLifespan = PowerLadder.MaxLifespan(spouse.Realm, spouse.RealmStage);
+            Wed(member, spouse);
+            stability.ApplyModifier(member, WillingStability);
+            ctx.Log.Info($"[Marriage] A wandering cultivator weds {member.FullName}.");
+            return null;
         }
 
         /// <summary>

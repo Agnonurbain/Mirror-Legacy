@@ -37,6 +37,17 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_SendsCultivatorsToTheMine_WhenTheCoffersRunLow()
+        {
+            var session = GameSession.NewGame(Fixtures.Setup(3));
+            foreach (var m in session.Clan.LivingMembers.Where(m => !SpiritualOrificeRules.CanCultivate(m)).ToList())
+                session.Clan.Kill(m, DeathCause.Illness); // a clan of cultivators only
+            session.Resources.SetSpiritStones(0);
+            BalanceRun.SetTheIdleToWork(session);
+            Assert.IsTrue(session.Clan.LivingMembers.Any(m => m.CurrentTask == TaskType.Mine), "someone must feed the clan");
+        }
+
+        [Test]
         public void TheAutopilot_GathersTheQi_TheFoundationWallAbsorbs()
         {
             var session = GameSession.NewGame(Fixtures.Setup(3));
@@ -60,14 +71,14 @@ namespace MirrorChronicles.Tests.Session
             s.Intrigues.RestoreDemands(new[] { new Demand("Famille Ruan", 500, s.Clock.Year, DemandKind.Protection) }, null);
             BalanceRun.Act(s);
             Assert.IsEmpty(s.Intrigues.Demands);
-            Assert.AreEqual(100000 - 500, s.Resources.SpiritStones);
+            Assert.IsFalse(s.Wars.ClanWars.Any(w => w.Enemy == "Famille Ruan"), "paid: no war");
 
             int short_ = 500 + 2 * s.Upkeep.YearlyUpkeep - 1; // paying would leave less than two years of upkeep
             s.Resources.SetSpiritStones(short_);
             s.Intrigues.RestoreDemands(new[] { new Demand("Famille Fang", 500, s.Clock.Year, DemandKind.Protection) }, null);
             BalanceRun.Act(s);
             Assert.IsEmpty(s.Intrigues.Demands);
-            Assert.AreEqual(short_, s.Resources.SpiritStones, "it could not keep its reserve: it refused");
+            Assert.IsTrue(s.Wars.ClanWars.Any(w => w.Enemy == "Famille Fang"), "it could not keep its reserve: it refused, and war came");
         }
 
         [Test]

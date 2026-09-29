@@ -262,6 +262,9 @@ namespace MirrorChronicles.Data
                 && IsProbability(upkeep.PovertyBirthFactor) && upkeep.ProsperityYears >= 1 && upkeep.PovertyStability <= 0 && upkeep.VeinMiners >= 1
                 && upkeep.VeinMinersPerMineLevel >= 0 && IsProbability(upkeep.ExtraMinerShare),
                 BalanceFile, "upkeep needs costs of zero or more, a poor year that shakes (zero or less), at least one vein, and shares between 0 and 1.");
+            var lineage = balance.Lineage;
+            Require(lineage != null && lineage.SeekStones >= 0 && IsProbability(lineage.SeekChance) && lineage.SeekChancePerRealm >= 0,
+                BalanceFile, "lineage needs a cost never negative, a chance between 0 and 1, and a bonus per realm never negative.");
             var pat = balance.Patrons;
             Require(pat != null && pat.StartFavor > 0 && pat.MaxFavor >= pat.StartFavor && pat.UnpaidFavorLoss > 0 && pat.SafeEndFavor >= 0,
                 BalanceFile, "patrons needs a starting favour, a ceiling above it, a loss for an unpaid tribute, and a safe favour to leave.");
