@@ -186,6 +186,58 @@ namespace MirrorChronicles.Tests.Session
             Assert.IsTrue(s.Clan.LivingMembers.Any(m => m.TalismanQiId != null), "the ritual performed, a talisman chosen");
         }
 
+        // ---- The pilot answers for its captives and its secret (2026-09-29) ----
+
+        private static (GameSession s, CharacterData captive) Captive(bool knowsTheMirror = false)
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var captive = s.Clan.LivingMembers.First(m => SpiritualOrificeRules.CanCultivate(m) && m.ID != s.Clan.PatriarchID);
+            captive.KnowsMirrorSecret = knowsTheMirror;
+            s.Captives.Take(captive, "Famille Ruan");
+            return (s, captive);
+        }
+
+        [Test]
+        public void ThePilot_TradesAnAgent_ForItsCaptive()
+        {
+            var (s, captive) = Captive();
+            s.Captives.Imprison(new Prisoner("agent", "Famille Ruan", CultivationRealm.QiRefinement, s.Clock.Year));
+            int stones = s.Resources.SpiritStones;
+            BalanceRun.Act(s);
+            Assert.IsNull(captive.CaptorFaction);
+            Assert.IsEmpty(s.Captives.Prisoners);
+        }
+
+        [Test]
+        public void ThePilot_BuysBackACaptive_WhenItCan()
+        {
+            var (s, captive) = Captive();
+            s.Resources.SetSpiritStones(100000);
+            BalanceRun.Act(s);
+            Assert.IsNull(captive.CaptorFaction);
+        }
+
+        [Test]
+        public void ThePilot_SilencesACaptive_ItCannotBuy()
+        {
+            var (s, captive) = Captive(knowsTheMirror: true);
+            s.Resources.SetSpiritStones(0);
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
+            BalanceRun.Act(s);
+            Assert.IsFalse(captive.KnowsMirrorSecret, "nothing left to tell");
+        }
+
+        [Test]
+        public void ThePilot_MakesAnInvestigatorDoubt()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
+            s.Suspicion.AddMirrorClues("Secte du Pic des Nuées", 100);
+            s.Secrets.RestoreConfrontation(new Confrontation("Secte du Pic des Nuées", 1));
+            BalanceRun.Act(s);
+            Assert.Less(s.Suspicion.MirrorClues("Secte du Pic des Nuées"), 100);
+        }
+
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>
         [Test, Explicit, Category("Balance")]
         public void Report()
