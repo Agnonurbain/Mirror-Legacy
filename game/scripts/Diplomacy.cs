@@ -115,12 +115,12 @@ namespace MirrorChronicles.Game
         {
             foreach (var demand in DiplomacyView.Demands(session))
             {
-                Add(powers, $"✉ {demand.Faction} exige {demand.Stones} pierres pour son silence (sans réponse cette année : un refus).");
+                Add(powers, $"✉ {demand.Faction} exige {demand.Stones} pierres {demand.Reason} (sans réponse cette année : un refus).");
                 var demandRow = new HBoxContainer();
                 var pay = new Button { Text = $"Payer ({demand.Stones} pierres)" };
-                pay.Pressed += () => Report(session.Intrigues.Pay(demand.Faction), $"{demand.Faction} se tait, pour un temps.");
-                var defy = new Button { Text = "Refuser (elle répand ses preuves)" };
-                defy.Pressed += () => Report(session.Intrigues.Refuse(demand.Faction), $"{demand.Faction} répand ce qu'elle sait.");
+                pay.Pressed += () => Report(session.Intrigues.Pay(demand.Faction), $"{demand.Faction} est payée : elle se tient tranquille, pour un temps.");
+                var defy = new Button { Text = $"Refuser ({demand.Refusal})" };
+                defy.Pressed += () => Report(session.Intrigues.Refuse(demand.Faction), $"Refusé : {demand.Faction} {demand.Refusal}.");
                 demandRow.AddChild(pay);
                 demandRow.AddChild(defy);
                 powers.AddChild(demandRow);

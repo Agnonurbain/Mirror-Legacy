@@ -16,7 +16,7 @@ namespace MirrorChronicles.Diplomacy
     /// under its surrender ratio yields, its leader becoming the victor's vassal when it can; after long years, a
     /// weary peace. An aggressive power at odds with a neighbour it distrusts declares war; a power towering over the rest
     /// sees its wary neighbours band against it. An ally of the clan caught in a war calls it to arms. The clan's own war:
-    /// declared by the clan, or by a hostile, stronger power that suspects it; a battle a year, its defensive allies
+    /// declared by the clan, or by a hostile, stronger power that suspects it, or by a greedy one refused its « protection »; a battle a year, its defensive allies
     /// perhaps joining; loot, or stones lost and a life; it may sue for peace with a tribute, and an exhausted enemy
     /// yields and pays. Each action answers with its refusal, or null when done.
     /// </summary>
@@ -47,6 +47,7 @@ namespace MirrorChronicles.Diplomacy
             this.politics = politics;
             this.alliances = alliances;
             ctx.Events.OnPowerAbsorbed += (vassal, _) => Forget(vassal);
+            ctx.Events.OnExtortionRefused += power => { if (factions.GetFactionByName(power) is { } greedy) MakeWarOnClan(greedy); };
         }
 
         /// <summary>An absorbed power leaves its wars: its side fights on under its first member left, or the war ends.</summary>
@@ -271,10 +272,17 @@ namespace MirrorChronicles.Diplomacy
                 && p.RelationWithPlayer <= s.DeclareRelation && WarRules.Strength(p, s) > clanStrength && !treaties.Spares(p.Name)))
             {
                 if (!ctx.Rng.Chance(s.PowerDeclareChance)) continue;
-                clanWars.Add(new ClanWar(power.Name, ctx.Clock.Year, power.PowerLevel));
-                ctx.Log.Warning($"[Wars] {power.Name} makes war on the clan.");
-                ctx.Events.TriggerWarBegun(power.Name, SecretBook.ClanHolder);
+                MakeWarOnClan(power);
             }
+        }
+
+        /// <summary>A power makes war on the clan (suspicion, or greed refused); once at a time.</summary>
+        private void MakeWarOnClan(FactionData power)
+        {
+            if (clanWars.Any(w => w.Enemy == power.Name)) return;
+            clanWars.Add(new ClanWar(power.Name, ctx.Clock.Year, power.PowerLevel));
+            ctx.Log.Warning($"[Wars] {power.Name} makes war on the clan.");
+            ctx.Events.TriggerWarBegun(power.Name, SecretBook.ClanHolder);
         }
     }
 }

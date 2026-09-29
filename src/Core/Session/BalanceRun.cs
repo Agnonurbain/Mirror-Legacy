@@ -13,7 +13,7 @@ namespace MirrorChronicles.Session
         int Seed, int Years, bool Won, bool Lost, int Members, int Powers, int Stones, CultivationRealm BestRealm,
         int Strikes, int Captures, int Coalitions, int ClanWars, int PowerWars, int Peaces, int Absorptions,
         int Betrayals, int Blackmails, int Thefts, int ProbesSpotted, int Challenges, int Deaths, int CombatDeaths, int PoorYears,
-        int Cultivators, int Devoured);
+        int Cultivators, int Devoured, int Extortions);
 
     /// <summary>
     /// Long automatic games (balance, 2026-09-29): a passive clan — no orders given, or only the idle set to work — lives through the years while the
@@ -37,6 +37,7 @@ namespace MirrorChronicles.Session
             bus.OnPowerAbsorbed += (_, _) => Count("absorption");
             bus.OnTreatyBetrayed += _ => Count("betrayal");
             bus.OnBlackmail += _ => Count("blackmail");
+            bus.OnExtortion += _ => Count("extortion");
             bus.OnTheft += (_, _) => Count("theft");
             bus.OnProbeSpotted += _ => Count("probe");
             bus.OnChallengeSettled += (_, _) => Count("challenge");
@@ -63,7 +64,7 @@ namespace MirrorChronicles.Session
                 living.Count == 0 ? CultivationRealm.Embryonic : living.Max(m => m.Realm),
                 Get("strike"), Get("capture"), Get("coalition"), Get("clanWar"), Get("powerWar"), Get("peace"), Get("absorption"),
                 Get("betrayal"), Get("blackmail"), Get("theft"), Get("probe"), Get("challenge"), Get("death"), Get("combatDeath"), Get("poor"),
-                living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"));
+                living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"), Get("extortion"));
         }
 
         /// <summary>
@@ -98,6 +99,7 @@ namespace MirrorChronicles.Session
                 ("probes", r => r.ProbesSpotted), ("challenges", r => r.Challenges), ("deaths", r => r.Deaths),
                 ("combatDeaths", r => r.CombatDeaths), ("poorYears", r => r.PoorYears),
                 ("cultivators", r => r.Cultivators), ("devoured", r => r.Devoured),
+                ("extortions", r => r.Extortions),
             };
             var text = new StringBuilder();
             text.AppendLine(string.Join(" ", columns.Select(c => c.Name.PadLeft(Math.Max(6, c.Name.Length)))));

@@ -17,9 +17,15 @@ namespace MirrorChronicles.Tests.World
     {
         private static IntrigueSettings Settings => Fixtures.Content.Balance.Intrigues;
 
+        /// <summary>No theft: the hoard is only coveted here.</summary>
+        private static GameContent NoThieves => Fixtures.Content with
+        {
+            Balance = Fixtures.Content.Balance with { Intrigues = Settings with { TheftChance = 0 } }
+        };
+
         private static TestWorld World(System.Random rng, CultivationRealm strongest, int stones)
         {
-            var w = new TestWorld(rng);
+            var w = new TestWorld(rng, NoThieves);
             w.Factions.InitializeFactions();
             w.Clan.AppointPatriarch(w.Join(Fixtures.Cultivator(realm: strongest, stage: 1)));
             w.Resources.SetSpiritStones(stones);
@@ -54,7 +60,11 @@ namespace MirrorChronicles.Tests.World
         {
             var w = World(new FixedRandom(0.0), CultivationRealm.GoldenCore, Settings.GreedStones * 4);
             var greedy = w.Factions.Factions.Where(f => Settings.GreedTemper.TryGetValue(f.Personality, out var t) && t > 0).ToList();
-            foreach (var power in greedy) power.HighestRealm = CultivationRealm.QiRefinement;
+            foreach (var power in greedy)
+            {
+                power.HighestRealm = CultivationRealm.QiRefinement;
+                power.PowerLevel = 0;
+            }
             w.Intrigues.ProcessYear();
             Assert.IsNull(Protection(w));
         }

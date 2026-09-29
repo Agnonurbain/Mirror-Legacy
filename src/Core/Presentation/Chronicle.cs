@@ -55,6 +55,7 @@ namespace MirrorChronicles.Presentation
                 ChallengeOutcome.Withdrawn => $"le défi de {faction} s'achève sans vainqueur.",
                 _ => $"le clan se dérobe au défi de {faction}."
             });
+            bus.OnExtortion += power => Add($"{power} convoite le trésor du clan et exige le prix de sa protection.");
             bus.OnGameOver += won =>
             {
                 if (won) Add("la lignée devient éternelle.");

@@ -289,7 +289,9 @@ namespace MirrorChronicles.Data
                 && intrigues.PatrolGuard >= 0 && intrigues.CatchPerPatrol >= 0 && IsProbability(intrigues.MaxCatchChance)
                 && IsProbability(intrigues.TheftStonesShare) && intrigues.SpyChance.Values.All(IsProbability)
                 && intrigues.BlackmailTemper.Values.All(t => t >= 0) && intrigues.TheftTemper.Values.All(t => t >= 0)
-                && intrigues.UnmaskMirrorCost >= 0 && intrigues.DoubleAgentRelief >= 0,
+                && intrigues.UnmaskMirrorCost >= 0 && intrigues.DoubleAgentRelief >= 0
+                && intrigues.GreedStones >= 0 && IsProbability(intrigues.GreedChance) && intrigues.GreedStonesScale >= 1
+                && intrigues.GreedTemper.Values.All(t => t >= 0) && IsProbability(intrigues.ExtortionShare),
                 BalanceFile, "intrigues needs odds and shares between 0 and 1, and costs and tempers never negative.");
             var politics = balance.Politics;
             Require(politics != null && IsProbability(politics.AllianceChance) && politics.MaxBondsPerYear >= 0 && IsProbability(politics.FeudChance)
