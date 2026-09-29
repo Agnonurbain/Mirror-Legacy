@@ -22,7 +22,7 @@ namespace MirrorChronicles.Session
     /// </summary>
     public static class BalanceRun
     {
-        /// <param name="autopilot">Each year, the free members are set to work (<see cref="SetTheIdleToWork"/>).</param>
+        /// <param name="autopilot">Each year the pilot acts (<see cref="Act"/>) and sets the free members to work (<see cref="SetTheIdleToWork"/>).</param>
         public static BalanceReport Play(GameContent content, int seed, int years, out GameSession session, bool autopilot = false)
         {
             var s = GameSession.NewGame(new GameSetup { Seed = seed, Content = content });
@@ -51,7 +51,11 @@ namespace MirrorChronicles.Session
             int start = s.Clock.Year;
             while (s.Clock.Year - start < years && !s.Victory.IsOver)
             {
-                if (autopilot) SetTheIdleToWork(s);
+                if (autopilot)
+                {
+                    Act(s);
+                    SetTheIdleToWork(s);
+                }
                 s.AdvanceYear();
                 if (s.Upkeep.Impoverished) Count("poor");
             }
@@ -65,6 +69,73 @@ namespace MirrorChronicles.Session
                 Get("strike"), Get("capture"), Get("coalition"), Get("clanWar"), Get("powerWar"), Get("peace"), Get("absorption"),
                 Get("betrayal"), Get("blackmail"), Get("theft"), Get("probe"), Get("challenge"), Get("death"), Get("combatDeath"), Get("poor"),
                 living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"), Get("extortion"));
+        }
+
+        private const int ReserveYears = 2;      // the pilot pays a demand only if it keeps two years of upkeep
+        private const int PeaceAfterYears = 2;   // it sues for peace after two years of war
+        private const int TreatyEveryYears = 5;  // it seeks a treaty every five years
+        private const int SeedReserve = 20;      // it keeps some of the mirror's power
+        private const int SeedMinAge = 10;
+        private const int SeedMaxAge = 30;
+
+        /// <summary>
+        /// The active pilot (user decision 2026-09-29): what a prudent clan does each year before its tasks — it pays a
+        /// demand it can afford and refuses the rest, answers a challenge of its own rank with its best fighters (who
+        /// then fight on their own) and flees the others, sues for peace after two years of war, plants a Talisman Seed
+        /// in a young examined mortal when the mirror can spare it, and seeks a non-aggression pact now and then.
+        /// </summary>
+        public static void Act(GameSession session)
+        {
+            AnswerDemands(session);
+            AnswerChallenge(session);
+            foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
+                session.Wars.SuePeace(war.Enemy);
+            PlantASeed(session);
+            if (session.Clock.Year % TreatyEveryYears == 0) SeekATreaty(session);
+        }
+
+        private static void AnswerDemands(GameSession session)
+        {
+            foreach (var demand in session.Intrigues.Demands.ToList())
+            {
+                bool affordable = session.Resources.SpiritStones - demand.Stones >= session.Upkeep.YearlyUpkeep * ReserveYears;
+                if (affordable) session.Intrigues.Pay(demand.Faction);
+                else session.Intrigues.Refuse(demand.Faction);
+            }
+        }
+
+        private static void AnswerChallenge(GameSession session)
+        {
+            var challenge = session.Challenges.Pending;
+            if (challenge == null) return;
+            int most = session.Context.Content.Balance.Challenges.MaxFighters;
+            var fighters = session.Clan.LivingMembers.Where(m => session.Challenges.FighterRefusal(m) == null)
+                .OrderByDescending(m => (int)m.Realm).ThenByDescending(m => m.RealmStage).Take(most).ToList();
+            if (fighters.Count == 0 || fighters[0].Realm < challenge.Realm)
+            {
+                session.Challenges.Decline();
+                return;
+            }
+            session.Challenges.Accept(fighters.Select(m => m.ID).ToList());
+            session.Challenges.Current?.AutoPlay();
+            session.Challenges.Conclude();
+        }
+
+        private static void PlantASeed(GameSession session)
+        {
+            if (session.Mirror.MirrorPower < Mirror.MirrorSystem.TalismanSeedCost + SeedReserve) return;
+            var mortal = session.Clan.LivingMembers
+                .Where(m => m.CaptorFaction == null && m.OrificeKnown && !m.HasTalismanSeed && !SpiritualOrificeRules.CanCultivate(m)
+                    && m.Age >= SeedMinAge && m.Age <= SeedMaxAge)
+                .OrderBy(m => m.Age).FirstOrDefault();
+            if (mortal != null) session.Mirror.GrantTalismanSeed(mortal);
+        }
+
+        private static void SeekATreaty(GameSession session)
+        {
+            var friend = session.Factions.Factions.Where(f => session.Treaties.With(f.Name).Count == 0)
+                .OrderByDescending(f => f.RelationWithPlayer).FirstOrDefault();
+            if (friend != null) session.Treaties.Propose(friend.Name, TreatyKind.NonAggression);
         }
 
         /// <summary>
