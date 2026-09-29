@@ -104,6 +104,26 @@ namespace MirrorChronicles.Tests.Economy
         }
 
         [Test]
+        public void TheYearsIncome_PaysTheYearsUpkeep()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            for (int i = 0; i < Settings.VeinMiners; i++)
+            {
+                var miner = Fixtures.Mortal();
+                s.Clan.AddMember(miner);
+                s.Tasks.AssignTask(miner, TaskType.Mine);
+            }
+            while (s.Clock.Phase != GamePhase.Inheritance) s.AdvancePhase();
+            s.Resources.SetSpiritStones(0); // the coffers empty as the year ends
+            Assume.That(Settings.VeinMiners * TaskAssignmentSystem.MineBaseYield, Is.GreaterThan(s.Upkeep.YearlyUpkeep));
+
+            int year = s.Clock.Year;
+            while (s.Clock.Year == year || s.Clock.Phase != GamePhase.Breakthrough) s.AdvancePhase(); // next year's tasks are done
+
+            Assert.IsFalse(s.Upkeep.Impoverished, "the mine of the year feeds the clan of the year");
+        }
+
+        [Test]
         public void RoundTrip_KeepsAPoorYear()
         {
             var s = GameSession.NewGame(Fixtures.Setup(1));
