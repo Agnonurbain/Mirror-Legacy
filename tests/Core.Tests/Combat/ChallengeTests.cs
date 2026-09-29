@@ -143,5 +143,20 @@ namespace MirrorChronicles.Tests.Combat
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
             Assert.AreEqual(challenge, reloaded.Challenges.Pending);
         }
+
+        [Test]
+        public void TheYear_WaitsForTheBattleUnderWay()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Challenges.Issue(s.Factions.GetFactionByName(Ruan));
+            var fighter = MirrorChronicles.Presentation.BattleView.Pending(s).Candidates.First(c => c.Refusal == null);
+            Assert.IsNull(s.Challenges.Accept(new[] { fighter.Id }));
+            var (year, phase) = (s.Clock.Year, s.Clock.Phase);
+
+            s.AdvancePhase();
+
+            Assert.AreEqual((year, phase), (s.Clock.Year, s.Clock.Phase), "a battle is fought to its end first");
+            Assert.IsNotNull(s.Challenges.Current);
+        }
     }
 }
