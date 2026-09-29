@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Clan;
@@ -12,7 +13,8 @@ namespace MirrorChronicles.World
     /// The powers' answer to what they suspect (L2c.4a; LORE.md D7 « everything is a plot »), each year: a suspicious
     /// power investigates and may find proof; past the threshold it strikes the clan (relation, stones). With proof, it
     /// is its right, and the others think worse of the clan; without proof, it strikes only when clearly stronger — and
-    /// every other power, allies included, silently distrusts it. Either way the account is settled.
+    /// every other power, allies included, silently distrusts it. Either way the account is settled, and a proof is spent
+    /// by its blow; a rumour of it makes the others wary, never ready to strike on hearsay. Suspicion and proof fade.
     /// </summary>
     public sealed class PlotSystem
     {
@@ -34,6 +36,17 @@ namespace MirrorChronicles.World
             this.resources = resources;
             this.factions = factions;
             this.suspicion = suspicion;
+            ctx.Events.OnYearStarted += _ => Fade();
+        }
+
+        /// <summary>Memory fades: each year a power's suspicion of the clan and its proof lessen a little.</summary>
+        private void Fade()
+        {
+            foreach (var power in factions.Factions)
+            {
+                suspicion.AddToClan(power.Name, -Settings.SuspicionFadePerYear);
+                suspicion.AddEvidence(power.Name, -Settings.EvidenceFadePerYear);
+            }
         }
 
         private PlotSettings Settings => ctx.Content.Balance.Plots;
@@ -60,6 +73,10 @@ namespace MirrorChronicles.World
             }
         }
 
+        /// <summary>A rumour makes a power wary — to investigate, never to strike on hearsay alone.</summary>
+        private int Rumour(string power) =>
+            Math.Max(0, Math.Min(Settings.ProofReputation, Settings.ActThreshold - 1 - suspicion.OfClan(power)));
+
         private void Decide(FactionData power)
         {
             bool proven = suspicion.Evidence(power.Name) >= Settings.ProofThreshold;
@@ -70,12 +87,13 @@ namespace MirrorChronicles.World
             factions.ChangeRelation(power.ID, Settings.ReprisalRelation);
             resources.ConsumeSpiritStones((int)(resources.SpiritStones * Settings.ReprisalStonesShare));
             suspicion.AddToClan(power.Name, -suspicion.OfClan(power.Name)); // the account is settled
+            if (proven) suspicion.AddEvidence(power.Name, -suspicion.Evidence(power.Name)); // the proof is spent by the blow
             struck.Add(power.Name);
             ctx.Events.TriggerClanStruck(power.Name);
 
             foreach (var other in factions.Factions.Where(f => f != power))
             {
-                if (proven) suspicion.AddToClan(other.Name, Settings.ProofReputation);        // the clan's name suffers
+                if (proven) suspicion.AddToClan(other.Name, Rumour(other.Name));             // the clan's name suffers
                 else suspicion.AddDistrust(other.Name, power.Name, Settings.WitnessDistrust); // they saw it strike without proof
             }
             ctx.Log.Warning(proven

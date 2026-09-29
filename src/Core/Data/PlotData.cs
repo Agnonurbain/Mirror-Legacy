@@ -9,6 +9,10 @@ namespace MirrorChronicles.Data
     /// </summary>
     public sealed record PlotSettings
     {
+        /// <summary>What a power's suspicion of the clan and its proof lose each year (memory fades; 2026-09-29).</summary>
+        public int SuspicionFadePerYear { get; init; }
+        public int EvidenceFadePerYear { get; init; }
+
         /// <summary>A power investigates from this suspicion; its yearly chance grows per point of suspicion and per realm of its strongest.</summary>
         public int InvestigateThreshold { get; init; }
         public double InvestigationChancePerPoint { get; init; }

@@ -120,7 +120,7 @@ namespace MirrorChronicles.Tests.Session
         {
             var run = BalanceRun.Play(Fixtures.Content, seed, years: 150, out _, autopilot: true);
             Assert.That(run.Betrayals, Is.LessThanOrEqualTo(12), "a treaty is betrayed for a reason, not as a matter of course");
-            Assert.That(run.CombatDeaths, Is.LessThanOrEqualTo(run.Challenges + run.ClanWars), "a challenge by the rules seldom kills");
+            Assert.That(run.CombatDeaths, Is.LessThanOrEqualTo(run.Challenges + run.ClanWars + run.Hunts), "a challenge by the rules seldom kills (a failed hunt may)");
             Assert.That(run.Devoured, Is.LessThanOrEqualTo(3), "a prudent clan keeps most of its ripe Daos");
             Assert.That(run.Strikes, Is.LessThanOrEqualTo(40), "no chain reaction of blows");
             Assert.That(run.ClanWars, Is.LessThanOrEqualTo(10), "no endless wars against the clan");

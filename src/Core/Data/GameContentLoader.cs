@@ -221,6 +221,7 @@ namespace MirrorChronicles.Data
             var plots = balance.Plots;
             Require(plots != null && plots.InvestigateThreshold >= 0 && plots.ActThreshold >= plots.InvestigateThreshold
                 && plots.ProofThreshold > 0 && plots.EvidencePerFinding > 0 && plots.InvestigationChancePerPoint >= 0
+                && plots.SuspicionFadePerYear >= 0 && plots.EvidenceFadePerYear >= 0
                 && plots.InvestigationBonusPerRealm >= 0 && plots.BoldnessRealmMargin >= 0 && plots.ReprisalRelation <= 0
                 && IsProbability(plots.ReprisalStonesShare) && plots.WitnessDistrust >= 0 && plots.ProofReputation >= 0
                 && IsProbability(plots.LeakBaseChance) && plots.LeakStabilityScale > 0 && IsProbability(plots.SwornLeakFactor)

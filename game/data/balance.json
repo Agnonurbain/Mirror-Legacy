@@ -84,6 +84,8 @@
     "daoPartnersMirrorCost": 30
   },
   "plots": {
+    "suspicionFadePerYear": 2,
+    "evidenceFadePerYear": 1,
     "investigateThreshold": 30,
     "investigationChancePerPoint": 0.01,
     "investigationBonusPerRealm": 0.25,
