@@ -158,6 +158,25 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void AMemberAwayOnAnOperation_TakesNoOtherTask()
+        {
+            var s = InTheHuntWindow();
+            var hunter = s.Clan.LivingMembers.First(s.Hunts.IsFree);
+            hunter.CurrentTask = TaskType.HuntBeast; // sent out this year
+            Assert.IsFalse(s.Tasks.AssignTask(hunter, TaskType.Mine), "away for the year");
+            Assert.AreEqual(TaskType.HuntBeast, hunter.CurrentTask);
+        }
+
+        [Test]
+        public void TheChronicle_TellsAHunt()
+        {
+            var s = InTheHuntWindow();
+            var chronicle = new MirrorChronicles.Presentation.Chronicle(s);
+            s.Events.TriggerHunt("a-beast", true);
+            StringAssert.Contains("bête", chronicle.Entries.Last());
+        }
+
+        [Test]
         public void ThePilot_OffersItsBeast_AndTakesATalisman()
         {
             var s = InTheHuntWindow();
