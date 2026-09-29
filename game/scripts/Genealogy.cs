@@ -50,6 +50,7 @@ namespace MirrorChronicles.Game
                 {
                     var partners = new OptionButton { SizeFlagsHorizontal = SizeFlags.ExpandFill };
                     foreach (var partner in line.Partners) partners.AddItem($"{partner.Name} ({partner.Rank})");
+                    partners.Select(0); // the closest match, until another is chosen
                     row.AddChild(partners);
                     var wed = new Button { Text = "Unir" };
                     wed.Pressed += () =>

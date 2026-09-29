@@ -79,6 +79,7 @@ namespace MirrorChronicles.Session
         private const int TreatyEveryYears = 5;  // it seeks a treaty every five years
         private const int MostTreaties = 3;      // and keeps a few, not a web of them
         private const int SeedReserve = 20;      // it keeps some of the mirror's power
+        private const double RebuildMargin = 1.5; // a thin reserve is rebuilt, not merely kept
         private const int SeedMinAge = 10;       // a seed for the young: old enough to be examined,
         private const int SeedMaxAge = 30;       // young enough to cultivate long
 
@@ -193,15 +194,14 @@ namespace MirrorChronicles.Session
 
         /// <summary>
         /// When the reserve runs thin, the lowest cultivators go down the mine (never a secluded Dao) until the veins'
-        /// yield would cover the upkeep.
+        /// yield would cover the upkeep and rebuild the reserve.
         /// </summary>
         private static void FeedTheClan(GameSession session, bool huntOpen)
         {
             if (session.Upkeep.BirthFactor >= 1.0) return;
-            int due = session.Upkeep.YearlyUpkeep;
+            int due = (int)(session.Upkeep.YearlyUpkeep * RebuildMargin);
             var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
-            int Income() => free.Where(m => m.CurrentTask == TaskType.Mine).Select(m => TaskAssignmentSystem.MineBaseYield + (int)m.Realm * TaskAssignmentSystem.MineYieldPerRealm)
-                .OrderByDescending(y => y).Take(session.Tasks.VeinSlots).Sum();
+            int Income() => session.Tasks.MiningYield(free.Where(m => m.CurrentTask == TaskType.Mine));
             foreach (var cultivator in free.Where(m => m.CurrentTask == TaskType.Cultivation && TaskRules.IsAllowed(m, TaskType.Mine, huntOpen))
                 .OrderBy(m => (int)m.Realm).ThenBy(m => m.RealmStage).ToList())
             {

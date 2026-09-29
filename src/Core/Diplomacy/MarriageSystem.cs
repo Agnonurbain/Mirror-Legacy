@@ -117,15 +117,8 @@ namespace MirrorChronicles.Diplomacy
             return married;
         }
 
-        /// <summary>Both alive, adult, unmarried, and no common ancestor within three generations.</summary>
-        public bool CanMarry(CharacterData a, CharacterData b)
-        {
-            if (a == null || b == null || !a.IsAlive || !b.IsAlive) return false;
-            if (a.CaptorFaction != null || b.CaptorFaction != null) return false; // a captive marries nobody (L6a)
-            if (a.Age < MarriageMatchmaker.MinMarriageAge || b.Age < MarriageMatchmaker.MinMarriageAge) return false;
-            if (!string.IsNullOrEmpty(a.SpouseID) || !string.IsNullOrEmpty(b.SpouseID)) return false;
-            return !KinshipRules.AreCloseKin(a, b, KinshipRules.MarriageForbiddenGenerations, clan.FindById);
-        }
+        /// <summary>Whether these two may wed: the one rule of <see cref="MarriageRefusal"/>.</summary>
+        public bool CanMarry(CharacterData a, CharacterData b) => MarriageRefusal(a, b) == null;
 
         public bool HandleLoveMarriage(CharacterData member, CharacterData spouse)
         {
