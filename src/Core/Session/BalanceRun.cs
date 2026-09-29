@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.World;
 
@@ -20,7 +21,7 @@ namespace MirrorChronicles.Session
     /// </summary>
     public static class BalanceRun
     {
-        /// <param name="autopilot">Each year, every free member without a task is set to cultivate, or else to mine.</param>
+        /// <param name="autopilot">Each year, the free members are set to work (<see cref="SetTheIdleToWork"/>).</param>
         public static BalanceReport Play(GameContent content, int seed, int years, out GameSession session, bool autopilot = false)
         {
             var s = GameSession.NewGame(new GameSetup { Seed = seed, Content = content });
@@ -57,11 +58,23 @@ namespace MirrorChronicles.Session
                 Get("betrayal"), Get("blackmail"), Get("theft"), Get("probe"), Get("challenge"), Get("death"), Get("combatDeath"));
         }
 
-        /// <summary>Every free member without a task is set to cultivate, or else to mine.</summary>
+        /// <summary>
+        /// Every free member is set to work: a cultivator at the Foundation wall without the portion of Qi it absorbs
+        /// gathers it (LORE.md §2.5), then cultivates again; the idle cultivate, or else mine.
+        /// </summary>
         public static void SetTheIdleToWork(GameSession session)
         {
-            foreach (var member in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.CurrentTask == TaskType.None).ToList())
-                if (!session.Tasks.AssignTask(member, TaskType.Cultivation)) session.Tasks.AssignTask(member, TaskType.Mine);
+            bool huntOpen = session.Talismans.HuntWindowOpen;
+            foreach (var member in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList())
+            {
+                var trial = PowerLadder.Next(member.Realm, member.RealmStage).Trial;
+                bool lacksQi = trial == TrialKind.FoundationWall && !session.Cultivation.HasTrialQi(member, trial);
+                TaskType wanted = lacksQi && TaskRules.IsAllowed(member, TaskType.GatherQi, huntOpen) ? TaskType.GatherQi
+                    : member.CurrentTask == TaskType.GatherQi || member.CurrentTask == TaskType.None ? TaskType.Cultivation
+                    : member.CurrentTask;
+                if (!TaskRules.IsAllowed(member, wanted, huntOpen)) wanted = TaskType.Mine;
+                if (wanted != member.CurrentTask && TaskRules.IsAllowed(member, wanted, huntOpen)) session.Tasks.AssignTask(member, wanted);
+            }
         }
 
         /// <summary>One line per run, then the means: what to read when tuning.</summary>
