@@ -254,6 +254,9 @@ namespace MirrorChronicles.Data
                 && IsProbability(war.ClanWarStonesLoss) && IsProbability(war.ClanWarDeathChance) && IsProbability(war.ClanLootShare)
                 && IsProbability(war.PeaceTributeShare) && IsProbability(war.PowerDeclareChance),
                 BalanceFile, "wars needs shares and odds between 0 and 1, a surrender ratio under 1, and at least one year of war.");
+            var duel = balance.Challenges;
+            Require(duel != null && duel.MaxFighters >= 1 && duel.MaxRivals >= 1 && duel.Wager >= 0 && duel.DeclineRelation <= 0,
+                BalanceFile, "challenges needs at least one fighter and one rival, a wager, and a refusal that costs face (zero or less).");
             var pat = balance.Patrons;
             Require(pat != null && pat.StartFavor > 0 && pat.MaxFavor >= pat.StartFavor && pat.UnpaidFavorLoss > 0 && pat.SafeEndFavor >= 0,
                 BalanceFile, "patrons needs a starting favour, a ceiling above it, a loss for an unpaid tribute, and a safe favour to leave.");
