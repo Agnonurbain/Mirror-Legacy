@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using NUnit.Framework;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
@@ -33,6 +34,20 @@ namespace MirrorChronicles.Tests.Session
             var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
             Assert.IsTrue(free.Any(m => m.CurrentTask == TaskType.Cultivation), "those who can, cultivate");
             Assert.IsTrue(free.All(m => m.CurrentTask != TaskType.None || !session.Tasks.AssignTask(m, TaskType.Mine)), "nobody idle who could work");
+        }
+
+        [Test]
+        public void TheAutopilot_GathersTheQi_TheFoundationWallAbsorbs()
+        {
+            var session = GameSession.NewGame(Fixtures.Setup(3));
+            var peak = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 9);
+            session.Clan.AddMember(peak);
+            session.Resources.ConsumeQi(peak.QiId, session.Resources.QiPortions(peak.QiId));
+            Assume.That(session.Cultivation.HasTrialQi(peak, TrialKind.FoundationWall), Is.False);
+
+            BalanceRun.SetTheIdleToWork(session);
+
+            Assert.AreEqual(TaskType.GatherQi, peak.CurrentTask, "the wall absorbs a portion of their Qi: they gather it");
         }
 
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>
