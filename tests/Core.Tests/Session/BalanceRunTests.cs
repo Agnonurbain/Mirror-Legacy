@@ -124,6 +124,7 @@ namespace MirrorChronicles.Tests.Session
             Assert.That(run.Devoured, Is.LessThanOrEqualTo(3), "a prudent clan keeps most of its ripe Daos");
             Assert.That(run.Strikes, Is.LessThanOrEqualTo(40), "no chain reaction of blows");
             Assert.That(run.ClanWars, Is.LessThanOrEqualTo(10), "no endless wars against the clan");
+            Assert.IsFalse(run.Lost, "a prudent clan answers its threats and endures");
         }
 
         // ---- The pilot hunts (2026-09-29) ----

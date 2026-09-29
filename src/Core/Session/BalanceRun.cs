@@ -89,7 +89,7 @@ namespace MirrorChronicles.Session
         /// demand it can afford and refuses the rest, answers a challenge of its own rank with its best fighters (who
         /// then fight on their own) and flees the others, sues for peace after two years of war, plants a Talisman Seed
         /// in a young examined mortal when the mirror can spare it, hides its ripe Daos in seclusion, weds its cultivators to cultivators (sought abroad when none is free), scouts and
-        /// hunts in the window and offers its beast to the mirror, and seeks a non-aggression pact now and then (a few at most).
+        /// hunts in the window and offers its beast to the mirror, answers for its captives and makes an investigator doubt, and seeks a non-aggression pact now and then (a few at most).
         /// </summary>
         public static void Act(GameSession session)
         {
@@ -101,6 +101,8 @@ namespace MirrorChronicles.Session
             WedTheLine(session);
             Hunt(session);
             OfferToTheMirror(session);
+            AnswerForTheCaptives(session);
+            if (session.Secrets.Confrontation is { } investigator) session.Secrets.BlurMemories(investigator.Faction); // make it doubt
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content)).ToList())
                 session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao hides
@@ -216,6 +218,24 @@ namespace MirrorChronicles.Session
                 if (!talismans.PerformRitual(bearer, beast)) return;
             }
             if (talismans.PendingOffer?.Choices.Count > 0) talismans.Choose(talismans.PendingOffer.Choices[0]);
+        }
+
+        /// <summary>
+        /// Each captive: traded for an agent of its captor the clan holds, else bought back when the reserve allows, else —
+        /// when it knows the mirror — silenced by the mirror, so nothing is left to tell.
+        /// </summary>
+        private static void AnswerForTheCaptives(GameSession session)
+        {
+            var captives = session.Captives;
+            foreach (var captive in captives.Held.ToList())
+            {
+                var agent = captives.Prisoners.FirstOrDefault(p => p.Faction == captive.CaptorFaction);
+                if (agent != null && captives.Exchange(captive.ID, agent.Id) == null) continue;
+                int ransom = SchemeRules.Ransom(captive.Realm, session.Context.Content.Balance.Schemes);
+                if (session.Resources.SpiritStones - ransom >= session.Upkeep.YearlyUpkeep * ReserveYears
+                    && captives.PayRansom(captive.ID) == null) continue;
+                if (captive.KnowsMirrorSecret) captives.Silence(captive.ID);
+            }
         }
 
         private static void SeekATreaty(GameSession session)
