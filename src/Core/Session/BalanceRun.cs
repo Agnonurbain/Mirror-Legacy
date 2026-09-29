@@ -76,8 +76,8 @@ namespace MirrorChronicles.Session
         private const int TreatyEveryYears = 5;  // it seeks a treaty every five years
         private const int MostTreaties = 3;      // and keeps a few, not a web of them
         private const int SeedReserve = 20;      // it keeps some of the mirror's power
-        private const int SeedMinAge = 10;
-        private const int SeedMaxAge = 30;
+        private const int SeedMinAge = 10;       // a seed for the young: old enough to be examined,
+        private const int SeedMaxAge = 30;       // young enough to cultivate long
 
         /// <summary>
         /// The active pilot (user decision 2026-09-29): what a prudent clan does each year before its tasks — it pays a
@@ -117,7 +117,11 @@ namespace MirrorChronicles.Session
                 session.Challenges.Decline();
                 return;
             }
-            session.Challenges.Accept(fighters.Select(m => m.ID).ToList());
+            if (session.Challenges.Accept(fighters.Select(m => m.ID).ToList()) != null)
+            {
+                session.Challenges.Decline(); // it could not answer: better to flee than to leave it hanging
+                return;
+            }
             session.Challenges.Current?.AutoPlay();
             session.Challenges.Conclude();
         }
