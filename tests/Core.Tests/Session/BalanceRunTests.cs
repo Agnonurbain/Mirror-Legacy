@@ -235,8 +235,14 @@ namespace MirrorChronicles.Tests.Session
             s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
             s.Suspicion.AddMirrorClues("Secte du Pic des Nuées", 100);
             s.Secrets.RestoreConfrontation(new Confrontation("Secte du Pic des Nuées", 1));
+            s.Mirror.Restore(65, 0); // enough for one blur — or for a seed first
+            s.Clan.AddMember(Fixtures.Mortal(age: 14)); // a seed candidate, tempting the mirror's power
+            bool seized = false;
+            s.Events.OnMirrorSeized += _ => seized = true;
             BalanceRun.Act(s);
-            Assert.Less(s.Suspicion.MirrorClues("Secte du Pic des Nuées"), 100);
+            s.Secrets.ProcessYear();
+            Assert.IsFalse(seized, "the confrontation is answered before anything else");
+            Assert.IsNull(s.Secrets.Confrontation, "the investigator doubts");
         }
 
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>
