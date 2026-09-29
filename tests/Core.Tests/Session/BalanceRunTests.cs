@@ -124,6 +124,47 @@ namespace MirrorChronicles.Tests.Session
             Assert.That(run.Devoured, Is.LessThanOrEqualTo(3), "a prudent clan keeps most of its ripe Daos");
         }
 
+        // ---- The pilot hunts (2026-09-29) ----
+
+        private static GameSession InTheHuntWindow()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            s.Talismans.RestoreCalendar(s.Clock.Year); // the ritual's year: the window is open
+            return s;
+        }
+
+        [Test]
+        public void ThePilot_Scouts_WhenItKnowsNoBeast()
+        {
+            var s = InTheHuntWindow();
+            Assume.That(s.Bestiary.Beasts.Any(b => s.Knowledge.Knows(MirrorChronicles.World.FactKind.Beast, b.Id)), Is.False);
+            BalanceRun.Act(s);
+            Assert.IsTrue(s.Clan.LivingMembers.Any(m => m.CurrentTask == TaskType.ScoutBeasts));
+        }
+
+        [Test]
+        public void ThePilot_HuntsABeastItCanTake()
+        {
+            var s = InTheHuntWindow();
+            int strongest = s.Clan.LivingMembers.Where(s.Hunts.IsFree).Max(m => MirrorChronicles.Mirror.HuntRules.Power(m.Realm, m.RealmStage));
+            var prey = s.Bestiary.Beasts.First(b => MirrorChronicles.Mirror.HuntRules.Power(b.Realm, b.Stage) < strongest);
+            s.Knowledge.Reveal(MirrorChronicles.World.FactKind.Beast, prey.Id, MirrorChronicles.World.KnowledgeSource.Studied);
+            bool? taken = null;
+            s.Events.OnHunt += (_, captured) => taken = captured;
+            BalanceRun.Act(s);
+            Assert.IsNotNull(taken, "a hunt was carried out");
+        }
+
+        [Test]
+        public void ThePilot_OffersItsBeast_AndTakesATalisman()
+        {
+            var s = InTheHuntWindow();
+            s.Resources.AddPrayers(s.Context.Content.Balance.Talismans.PrayersPerRitual);
+            s.Resources.AddBeast(new CapturedBeast("taken", CultivationRealm.QiRefinement, 5, null));
+            BalanceRun.Act(s);
+            Assert.IsTrue(s.Clan.LivingMembers.Any(m => m.TalismanQiId != null), "the ritual performed, a talisman chosen");
+        }
+
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>
         [Test, Explicit, Category("Balance")]
         public void Report()
