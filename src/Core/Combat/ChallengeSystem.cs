@@ -76,7 +76,9 @@ namespace MirrorChronicles.Combat
             if (power == null || best == null) return null;
             var s = Settings;
             bool grudge = power.RelationWithPlayer <= s.DeathGrudgeRelation || suspicion.OfClan(power.Name) >= s.DeathGrudgeSuspicion;
-            bool toTheDeath = grudge && ctx.Rng.Chance(s.DeathChallengeChance); // hatred wants blood
+            // hatred wants blood — shown by the deed, never by a figure (D7): like a war declared on suspicion, it may let the
+            // player guess a hidden grudge
+            bool toTheDeath = grudge && ctx.Rng.Chance(s.DeathChallengeChance);
             Pending = new Challenge(power.Name, ctx.Clock.Year, best.Realm, best.RealmStage, ctx.Rng.Next(1, s.MaxRivals + 1), ctx.Rng.Next(),
                 toTheDeath);
             ctx.Log.Info($"[Challenge] {power.Name} challenges the clan: {Pending.Rivals} rival(s).");
@@ -161,7 +163,7 @@ namespace MirrorChronicles.Combat
 
         private void LoseFace(Challenge challenge)
         {
-            int lost = (int)(Settings.DeclineRelation * (challenge.ToTheDeath ? Settings.DeathDeclineFactor : 1)); // fleeing a death duel shames more
+            int lost = (int)Math.Round(Settings.DeclineRelation * (challenge.ToTheDeath ? Settings.DeathDeclineFactor : 1)); // fleeing a death duel shames more
             if (factions.GetFactionByName(challenge.Faction) is { } power) factions.ChangeRelation(power.ID, lost);
             ctx.Events.TriggerChallengeSettled(challenge.Faction, ChallengeOutcome.Declined);
             Pending = null;
