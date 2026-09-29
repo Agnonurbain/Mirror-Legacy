@@ -33,14 +33,17 @@ namespace MirrorChronicles.World
         private readonly TreatySystem treaties;
         private readonly PlotSystem plots;
         private readonly SecretSystem secrets;
+        private readonly WarSystem wars;
         private readonly List<Demand> demands = new List<Demand>();
         private readonly Dictionary<string, int> quietUntil = new Dictionary<string, int>();
 
         public IntrigueSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, SuspicionLedger suspicion,
-            TechniqueLibrary techniques, MirrorSystem mirror, CaptiveSystem captives, TreatySystem treaties, PlotSystem plots, SecretSystem secrets)
+            TechniqueLibrary techniques, MirrorSystem mirror, CaptiveSystem captives, TreatySystem treaties, PlotSystem plots, SecretSystem secrets,
+            WarSystem wars)
         {
             this.plots = plots;
             this.secrets = secrets;
+            this.wars = wars;
             ctx.Events.OnPowerAbsorbed += (vassal, _) => // an absorbed blackmailer: nobody left to pay, nothing left to fear
             {
                 demands.RemoveAll(d => d.Faction == vassal);
@@ -88,7 +91,7 @@ namespace MirrorChronicles.World
         private bool Blackmail()
         {
             var s = Settings;
-            foreach (var power in factions.Factions.ToList())
+            foreach (var power in factions.Factions.OrderBy(_ => ctx.Rng.Next()).ToList()) // none always first
             {
                 if (suspicion.Evidence(power.Name) < s.BlackmailEvidence || demands.Any(d => d.Faction == power.Name)) continue;
                 if (quietUntil.TryGetValue(power.Name, out int until) && until > ctx.Clock.Year) continue; // it was paid
@@ -111,13 +114,13 @@ namespace MirrorChronicles.World
             var s = Settings;
             int stones = resources.SpiritStones;
             if (stones < s.GreedStones) return;
-            int clanStrength = clan.LivingMembers.Where(m => m.CaptorFaction == null)
-                .Select(m => HuntRules.Power(m.Realm, m.RealmStage)).DefaultIfEmpty(0).Max();
-            foreach (var power in factions.Factions.ToList())
+            int clanStrength = WarRules.ClanStrength(clan.LivingMembers);
+            foreach (var power in factions.Factions.OrderBy(_ => ctx.Rng.Next()).ToList()) // none always first
             {
                 if (demands.Any(d => d.Faction == power.Name)) continue;
                 if (quietUntil.TryGetValue(power.Name, out int until) && until > ctx.Clock.Year) continue;
-                if (plots.StruckThisYear.Contains(power.Name) || treaties.Spares(power.Name)) continue;
+                if (plots.StruckThisYear.Contains(power.Name) || secrets.Confrontation?.Faction == power.Name) continue; // one blow a year
+                if (treaties.Spares(power.Name) || wars.AtWar(power.Name)) continue; // bound, or busy with a war
                 if (WarRules.Strength(power, ctx.Content.Balance.Wars) <= clanStrength) continue; // it fears the clan
                 if (!ctx.Rng.Chance(IntrigueRules.GreedChance(power, stones, s))) continue;
                 demands.Add(new Demand(power.Name, (int)(stones * s.ExtortionShare), ctx.Clock.Year, DemandKind.Protection));

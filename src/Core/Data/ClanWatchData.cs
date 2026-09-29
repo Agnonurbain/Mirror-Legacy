@@ -12,6 +12,7 @@ namespace MirrorChronicles.Data
         public int TreatyBetrayed { get; init; }
         public int ProbeSpotted { get; init; }
         public int Blackmail { get; init; }
+        public int Extortion { get; init; }
         public int ThiefCaught { get; init; }
         public int SpyUnmasked { get; init; }
         public int Coalition { get; init; }

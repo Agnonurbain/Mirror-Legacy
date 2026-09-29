@@ -163,6 +163,7 @@
     "treatyBetrayed": 30,
     "probeSpotted": 15,
     "blackmail": 15,
+    "extortion": 20,
     "thiefCaught": 10,
     "spyUnmasked": 25,
     "coalition": 20,
