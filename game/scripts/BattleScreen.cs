@@ -85,7 +85,8 @@ namespace MirrorChronicles.Game
                 summons.Text = "Aucun défi n'attend le clan.";
                 return;
             }
-            summons.Text = $"{pending.Faction} défie le clan : {pending.Rivals} rival(aux) de rang {pending.Rank}. "
+            summons.Text = $"{pending.Faction} défie le clan{(pending.ToTheDeath ? " À MORT — qui tombe meurt, et fuir coûte cher" : " dans les règles")} : "
+                + $"{pending.Rivals} rival(aux) de rang {pending.Rank}. "
                 + $"Choisissez jusqu'à {pending.MaxFighters} combattant(s).";
             chosen.IntersectWith(pending.Candidates.Where(c => c.Refusal == null).Select(c => c.Id));
             foreach (var candidate in pending.Candidates)

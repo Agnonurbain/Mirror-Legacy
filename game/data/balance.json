@@ -279,7 +279,11 @@
     "maxRivals": 3,
     "wager": 150,
     "declineRelation": -8,
-    "deathChance": 0.25
+    "deathChance": 0.25,
+    "deathGrudgeRelation": -50,
+    "deathGrudgeSuspicion": 70,
+    "deathChallengeChance": 0.5,
+    "deathDeclineFactor": 3
   },
   "wars": {
     "strengthPerPowerLevel": 0.01,

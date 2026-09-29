@@ -120,7 +120,9 @@ namespace MirrorChronicles.Session
             int most = session.Context.Content.Balance.Challenges.MaxFighters;
             var fighters = session.Clan.LivingMembers.Where(m => session.Challenges.FighterRefusal(m) == null)
                 .OrderByDescending(m => (int)m.Realm).ThenByDescending(m => m.RealmStage).Take(most).ToList();
-            if (fighters.Count == 0 || fighters[0].Realm < challenge.Realm)
+            bool stronger = fighters.Count > 0 && (fighters[0].Realm > challenge.Realm
+                || fighters[0].Realm == challenge.Realm && fighters[0].RealmStage > challenge.Stage);
+            if (fighters.Count == 0 || fighters[0].Realm < challenge.Realm || challenge.ToTheDeath && !stronger) // a life only for an edge
             {
                 session.Challenges.Decline();
                 return;

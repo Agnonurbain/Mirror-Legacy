@@ -134,7 +134,7 @@ namespace MirrorChronicles.Session
             Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars);
             Patrons = new PatronSystem(Context, Clan, Resources);
-            Challenges = new ChallengeSystem(Context, Clan, Resources, Factions, Techniques, Wounds);
+            Challenges = new ChallengeSystem(Context, Clan, Resources, Factions, Techniques, Wounds, Suspicion);
             Upkeep = new UpkeepSystem(Context, Clan, Resources, Stability);
             DaoHunts = new DaoHuntSystem(Context, Clan, Factions, Treaties, Buildings);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
