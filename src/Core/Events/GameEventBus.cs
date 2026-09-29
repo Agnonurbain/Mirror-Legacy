@@ -51,6 +51,7 @@ namespace MirrorChronicles.Events
         public event Action<string> OnExtortion;                             // a greedy power demands the clan pay for its « protection »
         public event Action<string> OnExtortionRefused;                      // refused (or unanswered): it makes war on the clan
         public event Action<string> OnDaoHuntFoiled;                         // a power struck at a ripe Dao of the clan, and was driven off
+        public event Action<string, bool> OnHunt;                            // a hunt carried out: the beast, and whether it was taken
 
         // Economy
         public event Action<int> OnSpiritStonesChanged;
@@ -89,6 +90,7 @@ namespace MirrorChronicles.Events
         public void TriggerExtortion(string power) => OnExtortion?.Invoke(power);
         public void TriggerExtortionRefused(string power) => OnExtortionRefused?.Invoke(power);
         public void TriggerDaoHuntFoiled(string power) => OnDaoHuntFoiled?.Invoke(power);
+        public void TriggerHunt(string beastId, bool captured) => OnHunt?.Invoke(beastId, captured);
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);

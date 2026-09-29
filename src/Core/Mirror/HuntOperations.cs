@@ -116,6 +116,7 @@ namespace MirrorChronicles.Mirror
             {
                 Suspect(beast, Settings.SeenExposure, framed: null); // seen: no false trail holds
                 ctx.Log.Info($"[Hunt] The team is seen before it gets close ({approach}%) and flees.");
+                ctx.Events.TriggerHunt(beast.Id, false);
                 return new HuntOutcome(false, false, Settings.SeenExposure, null, null, new List<string>());
             }
 
@@ -125,6 +126,7 @@ namespace MirrorChronicles.Mirror
                 var fallen = Hurt(plan, beast);
                 string blamed = Suspect(beast, Settings.FailedCaptureExposure, plan.FramedFaction);
                 ctx.Log.Info($"[Hunt] The beast breaks free ({capture}%).");
+                ctx.Events.TriggerHunt(beast.Id, false);
                 return new HuntOutcome(true, false, Settings.FailedCaptureExposure, blamed, null, fallen);
             }
 
@@ -134,6 +136,7 @@ namespace MirrorChronicles.Mirror
             int exposure = HuntRules.CleanExposure(plan, ctx.Content);
             string cleanBlame = Suspect(beast, exposure, plan.FramedFaction);
             ctx.Log.Info($"[Hunt] The team takes the beast ({beast.Realm}, stage {beast.Stage}).");
+            ctx.Events.TriggerHunt(beast.Id, true);
             return new HuntOutcome(true, true, exposure, cleanBlame, null, new List<string>());
         }
 
