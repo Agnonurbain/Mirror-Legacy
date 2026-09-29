@@ -216,6 +216,9 @@ namespace MirrorChronicles.Data
         /// <summary>A rival's challenge played on the grid (G6; interpretations).</summary>
         public ChallengeSettings Challenges { get; init; }
 
+        /// <summary>What the members cost each year, and the veins of the mine (2026-09-29; interpretations).</summary>
+        public UpkeepSettings Upkeep { get; init; }
+
         /// <summary>The hunt as an operation: odds, traces, costs (L2c.3; interpretations).</summary>
         public HuntSettings Hunt { get; init; }
 

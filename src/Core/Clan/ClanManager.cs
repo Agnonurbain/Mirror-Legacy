@@ -136,7 +136,8 @@ namespace MirrorChronicles.Clan
         /// Each living couple whose mother is within the motherhood window may have a child
         /// (balance.json: 16-45, 25% a year). Returns the births.
         /// </summary>
-        public int ProcessAnnualBirths()
+        /// <param name="birthFactor">What becomes of each couple's chance this year (a poor year: few children).</param>
+        public int ProcessAnnualBirths(double birthFactor = 1.0)
         {
             var balance = ctx.Content.Balance;
             int births = 0;
@@ -145,7 +146,7 @@ namespace MirrorChronicles.Clan
                 var mother = living.Find(m => m.ID == father.SpouseID);
                 if (mother == null || mother.Age < balance.MinMotherAge || mother.Age > balance.MaxMotherAge) continue;
 
-                if (ctx.Rng.NextDouble() < balance.AnnualBirthChance)
+                if (ctx.Rng.NextDouble() < balance.AnnualBirthChance * birthFactor)
                 {
                     GenerateChild(father, mother);
                     births++;

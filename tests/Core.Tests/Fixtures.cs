@@ -67,6 +67,7 @@ namespace MirrorChronicles.Tests
         public ProbeSystem Probes { get; }
         public WoundSystem Wounds { get; }
         public ChallengeSystem Challenges { get; }
+        public UpkeepSystem Upkeep { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public CaptiveSystem Captives { get; }
@@ -133,6 +134,7 @@ namespace MirrorChronicles.Tests
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
             Wounds = new WoundSystem(Ctx, Stability);
             Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds);
+            Upkeep = new UpkeepSystem(Ctx, Clan, Resources, Stability);
         }
 
         public TestWorld(int seed = 1) : this(new Random(seed)) { }

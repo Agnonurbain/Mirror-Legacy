@@ -225,5 +225,17 @@ namespace MirrorChronicles.Tests.Presentation
             s.Captives.Take(member, "Famille Ruan");
             Assert.AreEqual("captif de Famille Ruan", RowOf(s, member).Retreat);
         }
+
+        [Test]
+        public void TheDomain_ShowsTheUpkeep_AndAPoorYear()
+        {
+            var s = NewGame();
+            var line = ClanDomainView.Upkeep(s);
+            Assert.AreEqual(s.Upkeep.YearlyUpkeep, line.Yearly);
+            Assert.IsNull(line.Warning);
+            s.Resources.SetSpiritStones(0);
+            s.Upkeep.PayUpkeep();
+            StringAssert.Contains("misère", ClanDomainView.Upkeep(s).Warning);
+        }
     }
 }
