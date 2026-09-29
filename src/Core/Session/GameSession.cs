@@ -61,6 +61,7 @@ namespace MirrorChronicles.Session
         public PatronSystem Patrons { get; }
         public WarSystem Wars { get; }
         public ChallengeSystem Challenges { get; }
+        public UpkeepSystem Upkeep { get; }
         public IntrigueSystem Intrigues { get; }
         public SecretBook SecretBook { get; }
         public ClanWatch Watch { get; }
@@ -133,6 +134,7 @@ namespace MirrorChronicles.Session
             Patrons = new PatronSystem(Context, Clan, Resources);
             Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
             Challenges = new ChallengeSystem(Context, Clan, Resources, Factions, Techniques, Wounds);
+            Upkeep = new UpkeepSystem(Context, Clan, Resources, Stability);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             Matches = new MarriageAlliance(Context, Clan, Factions, Treaties, Marriages, Suspicion);
@@ -235,6 +237,7 @@ namespace MirrorChronicles.Session
             session.Patrons.RestorePacts(data.PatronPacts);
             session.Wars.Restore(data.Wars, data.ClanWars); // none in saves before 2.17
             session.Challenges.Restore(data.PendingChallenge); // none in saves before 2.18
+            session.Upkeep.Restore(data.Impoverished);          // false in saves before 2.19
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -300,6 +303,7 @@ namespace MirrorChronicles.Session
                 Wars = Wars.Wars.Select(w => w with { SideA = w.SideA.ToList(), SideB = w.SideB.ToList() }).ToList(),
                 ClanWars = Wars.ClanWars.ToList(),
                 PendingChallenge = Challenges.Pending,
+                Impoverished = Upkeep.Impoverished,
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -371,7 +375,7 @@ namespace MirrorChronicles.Session
                     GoldenCore.ProcessBreakthroughPhase();    // the false Left Hands pay their patrons, or fall
                     break;
                 case GamePhase.Inheritance:
-                    Clan.ProcessAnnualBirths();
+                    Clan.ProcessAnnualBirths(Upkeep.BirthFactor);
                     Clan.ExamineOrifices();
                     break;
             }
@@ -381,6 +385,7 @@ namespace MirrorChronicles.Session
         {
             Aging.AgeOneYear();
             Buildings.ApplyPassiveBonuses();
+            Upkeep.PayUpkeep();                // every member costs its upkeep; a clan that cannot pay has a poor year
             Events.TriggerYearStarted(Clock.Year);
         }
     }

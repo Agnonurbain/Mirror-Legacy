@@ -84,7 +84,7 @@ namespace MirrorChronicles.Economy
         public YearlyTaskReport ProcessYearlyTasks()
         {
             var members = clan.LivingMembers.ToList(); // tasks may kill or add members
-            int stonesMined = 0;
+            var minersYield = new List<int>();
             int patrols = 0;
             int qiGathered = 0;
 
@@ -100,7 +100,7 @@ namespace MirrorChronicles.Economy
                 switch (member.CurrentTask)
                 {
                     case TaskType.Cultivation: cultivation.ProcessYearlyCultivation(member); break;
-                    case TaskType.Mine: stonesMined += MineYield(member); break;
+                    case TaskType.Mine: minersYield.Add(MineYield(member)); break;
                     case TaskType.Patrol: patrols++; break;
                     case TaskType.Rest: stability.ApplyModifier(member, RestStability); break;
                     case TaskType.Study: Study(member); break;
@@ -114,6 +114,7 @@ namespace MirrorChronicles.Economy
                 }
             }
 
+            int stonesMined = VeinYield(minersYield);
             resources.AddSpiritStones(stonesMined);
             Teach(members);
             return new YearlyTaskReport { StonesMined = stonesMined, Patrols = patrols, QiPortionsGathered = qiGathered };
@@ -147,6 +148,24 @@ namespace MirrorChronicles.Economy
         {
             var qi = techniques.FindQi(method?.RequiredQiId);
             return qi != null && !qi.Vanished && !qi.Ubiquitous ? qi : null;
+        }
+
+        /// <summary>The miners who work the veins fully: a few, more with each level of the Mine building.</summary>
+        public int VeinSlots
+        {
+            get
+            {
+                var upkeep = ctx.Content.Balance.Upkeep;
+                return upkeep.VeinMiners + buildings.GetBuilding(BuildingType.Mine).Level * upkeep.VeinMinersPerMineLevel;
+            }
+        }
+
+        /// <summary>The best miners work the veins fully; those beyond them yield only a share (2026-09-29).</summary>
+        private int VeinYield(List<int> yields)
+        {
+            double share = ctx.Content.Balance.Upkeep.ExtraMinerShare;
+            var ordered = yields.OrderByDescending(y => y).ToList();
+            return ordered.Take(VeinSlots).Sum() + ordered.Skip(VeinSlots).Sum(y => (int)Math.Round(y * share));
         }
 
         /// <summary>50 + 25 per realm, +5% per Forge level.</summary>

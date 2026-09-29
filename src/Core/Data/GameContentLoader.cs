@@ -257,6 +257,11 @@ namespace MirrorChronicles.Data
             var duel = balance.Challenges;
             Require(duel != null && duel.MaxFighters >= 1 && duel.MaxRivals >= 1 && duel.Wager >= 0 && duel.DeclineRelation <= 0,
                 BalanceFile, "challenges needs at least one fighter and one rival, a wager, and a refusal that costs face (zero or less).");
+            var upkeep = balance.Upkeep;
+            Require(upkeep != null && upkeep.MortalStones >= 0 && upkeep.CultivatorStones >= 0 && upkeep.StonesPerRealm >= 0
+                && IsProbability(upkeep.PovertyBirthFactor) && upkeep.ProsperityYears >= 1 && upkeep.PovertyStability <= 0 && upkeep.VeinMiners >= 1
+                && upkeep.VeinMinersPerMineLevel >= 0 && IsProbability(upkeep.ExtraMinerShare),
+                BalanceFile, "upkeep needs costs of zero or more, a poor year that shakes (zero or less), at least one vein, and shares between 0 and 1.");
             var pat = balance.Patrons;
             Require(pat != null && pat.StartFavor > 0 && pat.MaxFavor >= pat.StartFavor && pat.UnpaidFavorLoss > 0 && pat.SafeEndFavor >= 0,
                 BalanceFile, "patrons needs a starting favour, a ceiling above it, a loss for an unpaid tribute, and a safe favour to leave.");

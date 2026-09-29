@@ -12,7 +12,8 @@ namespace MirrorChronicles.Session
     public sealed record BalanceReport(
         int Seed, int Years, bool Won, bool Lost, int Members, int Powers, int Stones, CultivationRealm BestRealm,
         int Strikes, int Captures, int Coalitions, int ClanWars, int PowerWars, int Peaces, int Absorptions,
-        int Betrayals, int Blackmails, int Thefts, int ProbesSpotted, int Challenges, int Deaths, int CombatDeaths);
+        int Betrayals, int Blackmails, int Thefts, int ProbesSpotted, int Challenges, int Deaths, int CombatDeaths, int PoorYears,
+        int Cultivators, int Devoured);
 
     /// <summary>
     /// Long automatic games (balance, 2026-09-29): a passive clan — no orders given, or only the idle set to work — lives through the years while the
@@ -39,13 +40,19 @@ namespace MirrorChronicles.Session
             bus.OnTheft += (_, _) => Count("theft");
             bus.OnProbeSpotted += _ => Count("probe");
             bus.OnChallengeSettled += (_, _) => Count("challenge");
-            bus.OnCharacterDied += (_, cause) => { Count("death"); if (cause == DeathCause.Combat) Count("combatDeath"); };
+            bus.OnCharacterDied += (_, cause) =>
+            {
+                Count("death");
+                if (cause == DeathCause.Combat) Count("combatDeath");
+                if (cause == DeathCause.FoundationDevoured) Count("devoured");
+            };
 
             int start = s.Clock.Year;
             while (s.Clock.Year - start < years && !s.Victory.IsOver)
             {
                 if (autopilot) SetTheIdleToWork(s);
                 s.AdvanceYear();
+                if (s.Upkeep.Impoverished) Count("poor");
             }
 
             session = s;
@@ -55,7 +62,8 @@ namespace MirrorChronicles.Session
                 s.Factions.Factions.Count, s.Resources.SpiritStones,
                 living.Count == 0 ? CultivationRealm.Embryonic : living.Max(m => m.Realm),
                 Get("strike"), Get("capture"), Get("coalition"), Get("clanWar"), Get("powerWar"), Get("peace"), Get("absorption"),
-                Get("betrayal"), Get("blackmail"), Get("theft"), Get("probe"), Get("challenge"), Get("death"), Get("combatDeath"));
+                Get("betrayal"), Get("blackmail"), Get("theft"), Get("probe"), Get("challenge"), Get("death"), Get("combatDeath"), Get("poor"),
+                living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"));
         }
 
         /// <summary>
@@ -88,7 +96,8 @@ namespace MirrorChronicles.Session
                 ("powerWars", r => r.PowerWars), ("peaces", r => r.Peaces), ("absorbed", r => r.Absorptions),
                 ("betrayals", r => r.Betrayals), ("blackmail", r => r.Blackmails), ("thefts", r => r.Thefts),
                 ("probes", r => r.ProbesSpotted), ("challenges", r => r.Challenges), ("deaths", r => r.Deaths),
-                ("combatDeaths", r => r.CombatDeaths),
+                ("combatDeaths", r => r.CombatDeaths), ("poorYears", r => r.PoorYears),
+                ("cultivators", r => r.Cultivators), ("devoured", r => r.Devoured),
             };
             var text = new StringBuilder();
             text.AppendLine(string.Join(" ", columns.Select(c => c.Name.PadLeft(Math.Max(6, c.Name.Length)))));

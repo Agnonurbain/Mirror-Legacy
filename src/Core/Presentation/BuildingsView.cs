@@ -14,18 +14,21 @@ namespace MirrorChronicles.Presentation
     /// <summary>The clan's buildings (G6): eight of them, five levels each; the refusal is the upgrade's own.</summary>
     public static class BuildingsView
     {
-        public static IReadOnlyList<BuildingLine> Buildings(GameSession session) =>
-            session.Buildings.Buildings
+        public static IReadOnlyList<BuildingLine> Buildings(GameSession session)
+        {
+            int veins = session.Context.Content.Balance.Upkeep.VeinMinersPerMineLevel;
+            return session.Buildings.Buildings
                 .Select(b =>
                 {
                     bool atHeight = b.Level >= BuildingSystem.MaxLevel;
                     return new BuildingLine(b.Type, Name(b.Type), b.Level, BuildingSystem.MaxLevel,
-                        b.Level == 0 ? null : Effect(b.Type, b.Level),
-                        atHeight ? null : Effect(b.Type, b.Level + 1),
+                        b.Level == 0 ? null : Effect(b.Type, b.Level, veins),
+                        atHeight ? null : Effect(b.Type, b.Level + 1, veins),
                         atHeight ? null : b.UpgradeCost,
                         session.Buildings.UpgradeRefusal(b.Type));
                 })
                 .ToList();
+        }
 
         public static string Name(BuildingType type) => type switch
         {
@@ -41,13 +44,14 @@ namespace MirrorChronicles.Presentation
         };
 
         /// <summary>What the building gives at this level, from the same constants its systems apply.</summary>
-        public static string Effect(BuildingType type, int level) => type switch
+        /// <param name="veinsPerLevel">The veins each level of the Mine opens (balance.json « upkeep »).</param>
+        public static string Effect(BuildingType type, int level, int veinsPerLevel) => type switch
         {
             BuildingType.TrainingHall => $"+{level * BuildingSystem.TrainingHallXpPerLevel} d'expérience par an aux membres en cultivation",
             BuildingType.Forge => $"+{Percent(level * BuildingSystem.ForgeYieldBonusPerLevel)} % au rendement des membres affectés à la mine",
             BuildingType.Library => $"+{Percent(level * BuildingSystem.LibraryDiscoveryBonusPerLevel)} % de chances de trouver un fragment à l'étude",
             BuildingType.HerbGarden => $"+{level} de stabilité mentale par an aux membres au repos",
-            BuildingType.Mine => $"+{level * BuildingSystem.MineStonesPerLevel} pierres par an",
+            BuildingType.Mine => $"+{level * BuildingSystem.MineStonesPerLevel} pierres par an et {level * veinsPerLevel} filon(s) de plus pour les mineurs",
             BuildingType.CouncilRoom => $"+{level * BuildingSystem.CouncilRelationBonusPerLevel} de relation par mission diplomatique",
             BuildingType.MeditationPagoda => $"+{level} de stabilité mentale par an à tous les membres",
             BuildingType.ProtectiveFormation => $"−{Percent(Math.Min(1.0, level * EventManager.FormationReliefPerLevel))} % des pertes d'une calamité naturelle",
