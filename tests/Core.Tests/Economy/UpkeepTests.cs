@@ -37,7 +37,7 @@ namespace MirrorChronicles.Tests.Economy
             w.Upkeep.PayUpkeep();
             Assert.AreEqual(stones - due, w.Resources.SpiritStones);
             Assert.IsFalse(w.Upkeep.Impoverished);
-            Assert.AreEqual(1.0, w.Upkeep.BirthFactor);
+            Assert.Greater(w.Upkeep.BirthFactor, Settings.PovertyBirthFactor);
         }
 
         [Test]
@@ -66,6 +66,22 @@ namespace MirrorChronicles.Tests.Economy
             mother.SpouseID = father.ID;
             Assert.AreEqual(0, w.Clan.ProcessAnnualBirths(birthFactor: 0));
             Assert.AreEqual(1, w.Clan.ProcessAnnualBirths(birthFactor: 1));
+        }
+
+        [Test]
+        public void AThinReserve_BringsFewerChildren_BeforeAnyPoorYear()
+        {
+            var w = new TestWorld();
+            w.Join(Fixtures.Cultivator());
+            int due = w.Upkeep.YearlyUpkeep;
+            w.Resources.SetSpiritStones(due * Settings.ProsperityYears * 10);
+            w.Upkeep.PayUpkeep();
+            Assert.AreEqual(1.0, w.Upkeep.BirthFactor, "a prosperous clan");
+
+            w.Resources.SetSpiritStones(due + due * Settings.ProsperityYears / 2);
+            w.Upkeep.PayUpkeep();
+            Assert.IsFalse(w.Upkeep.Impoverished);
+            Assert.AreEqual(0.5, w.Upkeep.BirthFactor, 0.05, "half the reserve, half the children");
         }
 
         [Test]
@@ -103,6 +119,7 @@ namespace MirrorChronicles.Tests.Economy
             var run = BalanceRun.Play(Fixtures.Content, seed, years: 150, out _, autopilot: true);
             Assert.That(run.Members, Is.LessThanOrEqualTo(400), "the clan grows only as far as it can feed itself");
             Assert.That(run.Stones, Is.LessThanOrEqualTo(60000), "no hoard without end");
+            Assert.That(run.PoorYears, Is.LessThanOrEqualTo(run.Years / 5), "a clan at work is seldom poor");
         }
     }
 }
