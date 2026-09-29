@@ -56,6 +56,7 @@ namespace MirrorChronicles.Presentation
                 _ => $"le clan se dérobe au défi de {faction}."
             });
             bus.OnExtortion += power => Add($"{power} convoite le trésor du clan et exige le prix de sa protection.");
+            bus.OnDaoHuntFoiled += power => Add($"des gens de {power} fondent sur un Dao mûr du clan ; ils sont repoussés.");
             bus.OnGameOver += won =>
             {
                 if (won) Add("la lignée devient éternelle.");

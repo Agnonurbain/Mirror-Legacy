@@ -68,6 +68,7 @@ namespace MirrorChronicles.Tests
         public WoundSystem Wounds { get; }
         public ChallengeSystem Challenges { get; }
         public UpkeepSystem Upkeep { get; }
+        public DaoHuntSystem DaoHunts { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public CaptiveSystem Captives { get; }
@@ -135,6 +136,7 @@ namespace MirrorChronicles.Tests
             Wounds = new WoundSystem(Ctx, Stability);
             Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds);
             Upkeep = new UpkeepSystem(Ctx, Clan, Resources, Stability);
+            DaoHunts = new DaoHuntSystem(Ctx, Clan, Factions, Treaties, Buildings);
         }
 
         public TestWorld(int seed = 1) : this(new Random(seed)) { }

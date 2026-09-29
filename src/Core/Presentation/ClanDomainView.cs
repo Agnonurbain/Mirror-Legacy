@@ -59,7 +59,7 @@ namespace MirrorChronicles.Presentation
                     m.CurrentTask, TaskRules.AllowedTasks(m, session.Talismans.HuntWindowOpen), m.ID == patriarchId,
                     m.CultivationMethodId, PractisedMethod(session, m),
                     session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
-                    TemperamentLabel(m.Temperament), FoundationLabel(session, m.FoundationId), RetreatLabel(m), AbilitiesLabel(m),
+                    TemperamentLabel(m.Temperament), RipeLabel(session, m), RetreatLabel(m), AbilitiesLabel(m),
                     m.HeartDemonYearsLeft > 0 ? $"Démon du Cœur ({m.HeartDemonYearsLeft} an{(m.HeartDemonYearsLeft > 1 ? "s" : "")})" : null,
                     PositionLabel(session, m)))
                 .ToList();
@@ -72,6 +72,13 @@ namespace MirrorChronicles.Presentation
             string hunt = t.HuntWindowOpen ? "chasse ouverte"
                 : $"chasse dès l'an {t.NextRitualYear - session.Context.Content.Balance.Talismans.HuntWindowYears}";
             return $"Rituel du miroir : an {t.NextRitualYear} — {hunt}";
+        }
+
+        /// <summary>The foundation, and whether it is a ripe Dao — prey for the higher realms (LORE.md §5.3.3).</summary>
+        private static string RipeLabel(GameSession session, CharacterData member)
+        {
+            string foundation = FoundationLabel(session, member.FoundationId);
+            return foundation != null && FoundationRules.IsPrey(member, session.Context.Content) ? $"{foundation} — Dao mûr : une proie" : foundation;
         }
 
         /// <summary>« Mer sans Rivage (Eau Orthodoxe) », or null without a foundation.</summary>
@@ -172,6 +179,7 @@ namespace MirrorChronicles.Presentation
             TaskType.ScoutBeasts => "Repérage des bêtes",
             TaskType.Diversion => "Diversion",
             TaskType.GatherQi => "Récolte de Qi",
+            TaskType.Seclusion => "Réclusion",
             _ => task.ToString()
         };
 
@@ -186,6 +194,7 @@ namespace MirrorChronicles.Presentation
             DeathCause.SpiritualDissolution => "d'une dissolution spirituelle",
             DeathCause.AscentCollapse => "épuisé(e) avant le Manoir Shenyang",
             DeathCause.FoundationDevoured => "sa fondation dévorée par un Partenaire Dao",
+            DeathCause.RipeDaoHarvested => "son Dao mûr moissonné par un cultivateur plus puissant",
             DeathCause.ManifestationCollapse => "en échouant à manifester son pouvoir divin",
             DeathCause.SoulReplaced => "l'âme remplacée par l'ancien maître de sa Fruition",
             DeathCause.Sacrificed => "sacrifié au miroir pour un Qi de talisman",

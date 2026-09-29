@@ -45,7 +45,8 @@ namespace MirrorChronicles.Data
         GatherQi, // harvest spiritual Qi in wisps (LORE.md §2.5); appended last, like every new member
         HuntBeast,  // capture a spirit beast for the mirror's talisman ritual (user decision, 2026-09-26)
         ScoutBeasts, // find the beasts of the hunting ground before the hunt (L2c.2)
-        Diversion    // seen elsewhere while the hunt strikes (L2c.3: « seen going left while going right »)
+        Diversion,   // seen elsewhere while the hunt strikes (L2c.3: « seen going left while going right »)
+        Seclusion    // hidden away: a ripe Dao is hardly seen, and does nothing else (2026-09-29)
     }
 
     public enum Element 
@@ -77,7 +78,8 @@ namespace MirrorChronicles.Data
         Sacrificed,            // offered to the mirror for a talisman Qi (LORE.md §11.5)
         SoulReplaced,          // the Fruition took back its body for its former master (LORE.md §5.5.2)
         Executed,              // put to death by the power holding them captive (L6a)
-        ExecutedAsSpy          // a spy unmasked and put to death by the clan (2026-09-27)
+        ExecutedAsSpy,         // a spy unmasked and put to death by the clan (2026-09-27)
+        RipeDaoHarvested       // a ripe Dao harvested by a hunter of a higher realm (LORE.md §5.3.3; 2026-09-29)
     }
 
     /// <summary>

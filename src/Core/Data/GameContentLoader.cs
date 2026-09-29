@@ -351,8 +351,12 @@ namespace MirrorChronicles.Data
             var abilities = balance.DivineAbilities;
             Require(abilities != null && abilities.ResourceStones >= 0 && abilities.ResourceHerbs >= 0 && abilities.ResourceOres >= 0 && abilities.GraftOres >= 0,
                 BalanceFile, "divineAbilities needs its costs (never negative).");
-            Require(IsProbability(balance.RipeDaoHuntChance) && IsProbability(balance.RipeDaoGuardedFactor),
-                BalanceFile, "ripeDaoHuntChance and ripeDaoGuardedFactor lie between 0 and 1.");
+            Require(IsProbability(balance.RipeDaoGuardedFactor), BalanceFile, "ripeDaoGuardedFactor lies between 0 and 1.");
+            var hunts = balance.DaoHunts;
+            Require(hunts != null && IsProbability(hunts.LearnChance) && hunts.AwayExposure >= 0 && hunts.SecludedExposure >= 0
+                && IsProbability(hunts.StrikeChance) && IsProbability(hunts.StrikeSuccess) && hunts.PatrolGuard >= 0
+                && hunts.FormationGuard >= 0 && IsProbability(hunts.AllyGuard) && IsProbability(hunts.SecludedGuard),
+                BalanceFile, "daoHunts needs odds between 0 and 1, exposures never negative, and guards that lower the blow (0 to 1).");
             Require(abilities.ImageryXpFactor > 0 && abilities.ImageryXpFactor <= 1 && IsProbability(balance.BodyTraitInheritanceChance),
                 BalanceFile, "the imagery factor lies in ]0, 1] and bodyTraitInheritanceChance between 0 and 1.");
             Require(abilities.GraftDonorMinYearsLeft >= 1 && abilities.GraftDonorMinYearsLeft <= abilities.GraftDonorMaxYearsLeft,
