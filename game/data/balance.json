@@ -63,7 +63,6 @@
   },
   "studyRevealsPartnersChance": 0.1,
   "bodyTraitInheritanceChance": 0.5,
-  "ripeDaoHuntChance": 0.02,
   "ripeDaoGuardedFactor": 0.5,
   "oaths": {
     "interruptChanceBySeverity": [ 0.1, 0.25, 0.5 ],
@@ -164,6 +163,7 @@
     "probeSpotted": 15,
     "blackmail": 15,
     "extortion": 20,
+    "daoHuntFoiled": 25,
     "thiefCaught": 10,
     "spyUnmasked": 25,
     "coalition": 20,
@@ -245,6 +245,18 @@
     "unmaskMirrorCost": 20,
     "doubleAgentRelief": 10,
     "spyExecutionRelation": -40
+  },
+  "daoHunts": {
+    "hunterMinRealm": "PurpleMansion",
+    "learnChance": 0.1,
+    "awayExposure": 2.0,
+    "secludedExposure": 0.2,
+    "strikeChance": 0.5,
+    "strikeSuccess": 0.8,
+    "patrolGuard": 0.3,
+    "formationGuard": 0.12,
+    "allyGuard": 0.6,
+    "secludedGuard": 0.5
   },
   "upkeep": {
     "mortalStones": 5,

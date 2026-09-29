@@ -13,7 +13,7 @@ namespace MirrorChronicles.Session
         int Seed, int Years, bool Won, bool Lost, int Members, int Powers, int Stones, CultivationRealm BestRealm,
         int Strikes, int Captures, int Coalitions, int ClanWars, int PowerWars, int Peaces, int Absorptions,
         int Betrayals, int Blackmails, int Thefts, int ProbesSpotted, int Challenges, int Deaths, int CombatDeaths, int PoorYears,
-        int Cultivators, int Devoured, int Extortions);
+        int Cultivators, int Devoured, int Extortions, int Foiled);
 
     /// <summary>
     /// Long automatic games (balance, 2026-09-29): a passive clan — no orders given, or only the idle set to work — lives through the years while the
@@ -38,6 +38,7 @@ namespace MirrorChronicles.Session
             bus.OnTreatyBetrayed += _ => Count("betrayal");
             bus.OnBlackmail += _ => Count("blackmail");
             bus.OnExtortion += _ => Count("extortion");
+            bus.OnDaoHuntFoiled += _ => Count("foiled");
             bus.OnTheft += (_, _) => Count("theft");
             bus.OnProbeSpotted += _ => Count("probe");
             bus.OnChallengeSettled += (_, _) => Count("challenge");
@@ -68,7 +69,7 @@ namespace MirrorChronicles.Session
                 living.Count == 0 ? CultivationRealm.Embryonic : living.Max(m => m.Realm),
                 Get("strike"), Get("capture"), Get("coalition"), Get("clanWar"), Get("powerWar"), Get("peace"), Get("absorption"),
                 Get("betrayal"), Get("blackmail"), Get("theft"), Get("probe"), Get("challenge"), Get("death"), Get("combatDeath"), Get("poor"),
-                living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"), Get("extortion"));
+                living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"), Get("extortion"), Get("foiled"));
         }
 
         private const int ReserveYears = 2;      // the pilot pays a demand only if it keeps two years of upkeep
@@ -83,7 +84,7 @@ namespace MirrorChronicles.Session
         /// The active pilot (user decision 2026-09-29): what a prudent clan does each year before its tasks — it pays a
         /// demand it can afford and refuses the rest, answers a challenge of its own rank with its best fighters (who
         /// then fight on their own) and flees the others, sues for peace after two years of war, plants a Talisman Seed
-        /// in a young examined mortal when the mirror can spare it, and seeks a non-aggression pact now and then (a few at most).
+        /// in a young examined mortal when the mirror can spare it, hides its ripe Daos in seclusion, and seeks a non-aggression pact now and then (a few at most).
         /// </summary>
         public static void Act(GameSession session)
         {
@@ -92,6 +93,8 @@ namespace MirrorChronicles.Session
             foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
                 session.Wars.SuePeace(war.Enemy);
             PlantASeed(session);
+            foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && FoundationRules.IsPrey(m, session.Context.Content)).ToList())
+                session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao hides
             if (session.Clock.Year % TreatyEveryYears == 0 && session.Treaties.All.Count < MostTreaties) SeekATreaty(session);
         }
 
@@ -175,7 +178,7 @@ namespace MirrorChronicles.Session
                 ("probes", r => r.ProbesSpotted), ("challenges", r => r.Challenges), ("deaths", r => r.Deaths),
                 ("combatDeaths", r => r.CombatDeaths), ("poorYears", r => r.PoorYears),
                 ("cultivators", r => r.Cultivators), ("devoured", r => r.Devoured),
-                ("extortions", r => r.Extortions),
+                ("extortions", r => r.Extortions), ("foiled", r => r.Foiled),
             };
             var text = new StringBuilder();
             text.AppendLine(string.Join(" ", columns.Select(c => c.Name.PadLeft(Math.Max(6, c.Name.Length)))));

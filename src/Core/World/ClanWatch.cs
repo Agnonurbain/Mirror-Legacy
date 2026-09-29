@@ -26,6 +26,7 @@ namespace MirrorChronicles.World
             bus.OnProbeSpotted += power => Remember(power, Settings.ProbeSpotted);
             bus.OnBlackmail += power => Remember(power, Settings.Blackmail);
             bus.OnExtortion += power => Remember(power, Settings.Extortion);
+            bus.OnDaoHuntFoiled += power => Remember(power, Settings.DaoHuntFoiled);
             bus.OnTheft += (_, thief) => Remember(thief, Settings.ThiefCaught); // an unknown thief: nobody to blame
             bus.OnSpyUnmasked += power => Remember(power, Settings.SpyUnmasked);
             bus.OnCoalitionFormed += members => { foreach (var power in members) Remember(power, Settings.Coalition); };

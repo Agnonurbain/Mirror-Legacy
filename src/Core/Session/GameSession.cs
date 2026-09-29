@@ -62,6 +62,7 @@ namespace MirrorChronicles.Session
         public WarSystem Wars { get; }
         public ChallengeSystem Challenges { get; }
         public UpkeepSystem Upkeep { get; }
+        public DaoHuntSystem DaoHunts { get; }
         public IntrigueSystem Intrigues { get; }
         public SecretBook SecretBook { get; }
         public ClanWatch Watch { get; }
@@ -135,6 +136,7 @@ namespace MirrorChronicles.Session
             Patrons = new PatronSystem(Context, Clan, Resources);
             Challenges = new ChallengeSystem(Context, Clan, Resources, Factions, Techniques, Wounds);
             Upkeep = new UpkeepSystem(Context, Clan, Resources, Stability);
+            DaoHunts = new DaoHuntSystem(Context, Clan, Factions, Treaties, Buildings);
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Context, Clan, Factions, Stability);
             Matches = new MarriageAlliance(Context, Clan, Factions, Treaties, Marriages, Suspicion);
@@ -238,6 +240,7 @@ namespace MirrorChronicles.Session
             session.Wars.Restore(data.Wars, data.ClanWars); // none in saves before 2.17
             session.Challenges.Restore(data.PendingChallenge); // none in saves before 2.18
             session.Upkeep.Restore(data.Impoverished);          // false in saves before 2.19
+            session.DaoHunts.Restore(data.DaoPreys);            // none in saves before 2.20
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
             else session.Bestiary.Draw(BeastRegistry.WorldRandom(data.Seed)); // saved before 2.8: the world's beasts from its seed
             if (data.HuntingGround != null) session.Tasks.SetHuntingGround(data.HuntingGround); // a place gone from the map: home
@@ -304,6 +307,7 @@ namespace MirrorChronicles.Session
                 ClanWars = Wars.ClanWars.ToList(),
                 PendingChallenge = Challenges.Pending,
                 Impoverished = Upkeep.Impoverished,
+                DaoPreys = DaoHunts.Known.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -366,7 +370,7 @@ namespace MirrorChronicles.Session
                     Challenges.ProcessYear();         // a rival's challenge left unanswered lapses: silence is a refusal
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
-                    Foundations.ProcessRipeDaoHunts();  // a ripe Dao is prey (LORE.md §5.3.3)
+                    DaoHunts.ProcessYear();             // a ripe Dao is prey (LORE.md §5.3.3): learnt, then struck, maybe foiled
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

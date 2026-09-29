@@ -109,6 +109,7 @@ namespace MirrorChronicles.Economy
                     case TaskType.GatherQi: qiGathered += GatherQi(member); break;
                     case TaskType.HuntBeast:
                     case TaskType.Diversion: break; // engaged in a hunt operation this year (HuntOperations)
+                    case TaskType.Seclusion: break; // hidden away (DaoHuntSystem): nothing else
                     case TaskType.ScoutBeasts: ScoutBeasts(member); break;
                         // Teaching needs this year's students: resolved below
                 }
