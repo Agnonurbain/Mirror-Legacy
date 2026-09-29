@@ -84,11 +84,12 @@ namespace MirrorChronicles.Combat
         }
 
         /// <summary>The fallen of the clan die in combat; the survivors carry their wounds home.</summary>
-        public void ResolveAftermath(ClanManager clan, WoundSystem wounds)
+        /// <param name="fallenDies">Whether a fallen fighter dies (null: always); one who does not yields, gravely wounded.</param>
+        public void ResolveAftermath(ClanManager clan, WoundSystem wounds, Func<bool> fallenDies = null)
         {
             foreach (var ally in allies)
             {
-                if (ally.IsDown) clan.Kill(ally.BaseData, DeathCause.Combat);
+                if (ally.IsDown && (fallenDies?.Invoke() ?? true)) clan.Kill(ally.BaseData, DeathCause.Combat);
                 else wounds.EvaluatePostCombatWounds(ally.BaseData, ally.MaxVitality, ally.CurrentVitality);
             }
         }

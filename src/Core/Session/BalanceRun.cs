@@ -74,6 +74,7 @@ namespace MirrorChronicles.Session
         private const int ReserveYears = 2;      // the pilot pays a demand only if it keeps two years of upkeep
         private const int PeaceAfterYears = 2;   // it sues for peace after two years of war
         private const int TreatyEveryYears = 5;  // it seeks a treaty every five years
+        private const int MostTreaties = 3;      // and keeps a few, not a web of them
         private const int SeedReserve = 20;      // it keeps some of the mirror's power
         private const int SeedMinAge = 10;
         private const int SeedMaxAge = 30;
@@ -82,7 +83,7 @@ namespace MirrorChronicles.Session
         /// The active pilot (user decision 2026-09-29): what a prudent clan does each year before its tasks — it pays a
         /// demand it can afford and refuses the rest, answers a challenge of its own rank with its best fighters (who
         /// then fight on their own) and flees the others, sues for peace after two years of war, plants a Talisman Seed
-        /// in a young examined mortal when the mirror can spare it, and seeks a non-aggression pact now and then.
+        /// in a young examined mortal when the mirror can spare it, and seeks a non-aggression pact now and then (a few at most).
         /// </summary>
         public static void Act(GameSession session)
         {
@@ -91,7 +92,7 @@ namespace MirrorChronicles.Session
             foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
                 session.Wars.SuePeace(war.Enemy);
             PlantASeed(session);
-            if (session.Clock.Year % TreatyEveryYears == 0) SeekATreaty(session);
+            if (session.Clock.Year % TreatyEveryYears == 0 && session.Treaties.All.Count < MostTreaties) SeekATreaty(session);
         }
 
         private static void AnswerDemands(GameSession session)
