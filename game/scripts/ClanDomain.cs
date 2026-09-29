@@ -109,7 +109,10 @@ namespace MirrorChronicles.Game
             clanName.Text = $"Clan {session.Clan.ClanName}";
             year.Text = $"An {header.Year}";
             phase.Text = header.Phase;
-            stones.Text = $"{header.SpiritStones} pierres spirituelles";
+            var upkeep = ClanDomainView.Upkeep(session);
+            stones.Text = $"{header.SpiritStones} pierres spirituelles (entretien {upkeep.Yearly}/an)";
+            stones.TooltipText = upkeep.Warning ?? "";
+            if (upkeep.Warning != null) stones.Text += " — misère";
             mirror.Text = $"Miroir {header.MirrorPower}/100";
             generation.Text = $"Génération {header.Generation}";
             GetNode<Button>("%OpenBattle").Visible = session.Challenges.Pending != null || session.Challenges.Current != null;

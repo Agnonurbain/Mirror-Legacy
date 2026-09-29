@@ -10,6 +10,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>The top of the clan domain screen.</summary>
     public sealed record DomainHeader(int Year, string Phase, int SpiritStones, int MirrorPower, int Generation);
 
+    /// <summary>What the members cost each year, and the warning of a poor year (null in a year the clan could pay).</summary>
+    public sealed record UpkeepLine(int Yearly, string Warning);
+
     /// <summary>A cultivation method a member may take up.</summary>
     public sealed record MethodChoice(string Id, string Label);
 
@@ -38,6 +41,10 @@ namespace MirrorChronicles.Presentation
             session.Resources.SpiritStones,
             session.Mirror.MirrorPower,
             session.Karma.GenerationCount);
+
+        public static UpkeepLine Upkeep(GameSession session) => new UpkeepLine(
+            session.Upkeep.YearlyUpkeep,
+            session.Upkeep.Impoverished ? "Année de misère : le clan n'a pu nourrir tous ses membres ; peu d'enfants naîtront." : null);
 
         /// <summary>The living, patriarch first, then by realm, stage and age.</summary>
         public static IReadOnlyList<MemberRow> Roster(GameSession session)
