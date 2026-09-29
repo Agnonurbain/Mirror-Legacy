@@ -93,6 +93,8 @@ namespace MirrorChronicles.Session
         /// </summary>
         public static void Act(GameSession session)
         {
+            // the mirror's power goes first to an investigator: made to doubt, it cannot act (a seed can wait a year)
+            if (session.Secrets.Confrontation is { } investigator) session.Secrets.BlurMemories(investigator.Faction);
             AnswerDemands(session);
             AnswerChallenge(session);
             foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
@@ -102,7 +104,6 @@ namespace MirrorChronicles.Session
             Hunt(session);
             OfferToTheMirror(session);
             AnswerForTheCaptives(session);
-            if (session.Secrets.Confrontation is { } investigator) session.Secrets.BlurMemories(investigator.Faction); // make it doubt
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content)).ToList())
                 session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao hides

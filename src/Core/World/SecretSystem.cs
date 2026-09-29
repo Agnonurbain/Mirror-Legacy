@@ -53,13 +53,15 @@ namespace MirrorChronicles.World
 
         public void RestoreConfrontation(Confrontation saved) => Confrontation = saved;
 
-        /// <summary>The mirror blurs a power's memories: its clues and proof dim (less against a Golden Core).</summary>
+        /// <summary>The mirror blurs a power's memories: its clues and proof dim (less against a Golden Core, in full against its investigator).</summary>
         public bool BlurMemories(string faction)
         {
             var power = factions.GetFactionByName(faction);
             if (power == null || !mirror.ConsumePower(Settings.BlurMirrorCost)) return false;
-            // an elder's mind holds (today only Golden Core powers can know: mirrorLore lists no lower realm)
-            double hold = power.HighestRealm >= CultivationRealm.GoldenCore || lore.Knows(faction) ? Settings.BlurStrongFactor : 1.0;
+            // an elder's mind holds (today only Golden Core powers can know: mirrorLore lists no lower realm) — but the
+            // investigator it sends is an envoy, whose mind the mirror blurs in full (2026-09-29)
+            bool envoy = Confrontation?.Faction == faction;
+            double hold = !envoy && (power.HighestRealm >= CultivationRealm.GoldenCore || lore.Knows(faction)) ? Settings.BlurStrongFactor : 1.0;
             suspicion.AddMirrorClues(faction, -(int)(Settings.BlurClues * hold));
             suspicion.AddEvidence(faction, -(int)(Settings.BlurEvidence * hold));
             ctx.Log.Info($"[Secrets] The mirror blurs what {faction} remembers.");
