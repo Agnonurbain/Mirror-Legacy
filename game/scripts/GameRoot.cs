@@ -48,6 +48,9 @@ namespace MirrorChronicles.Game
         /// <summary>With <c>--bld</c> (implies <c>--mir</c>), the smoke run goes on from the mirror's screen to the buildings.</summary>
         public bool SmokeEndsOnBuildings { get; private set; }
 
+        /// <summary>With <c>--bat</c> (implies <c>--bld</c>), the smoke run goes on from the buildings to a rival's challenge.</summary>
+        public bool SmokeEndsOnBattle { get; private set; }
+
         /// <summary>Raised when a new game starts or a save is loaded: views bind to the new session.</summary>
         public event Action SessionChanged;
 
@@ -57,7 +60,8 @@ namespace MirrorChronicles.Game
         {
             var args = OS.GetCmdlineUserArgs();
             IsSmokeRun = args.Contains("--smoke");
-            SmokeEndsOnBuildings = args.Contains("--bld");
+            SmokeEndsOnBattle = args.Contains("--bat");
+            SmokeEndsOnBuildings = args.Contains("--bld") || SmokeEndsOnBattle; // the battle is reached through the buildings
             SmokeEndsOnMirror = args.Contains("--mir") || SmokeEndsOnBuildings; // the buildings are reached through the mirror
             SmokeEndsOnDiplomacy = args.Contains("--dip") || SmokeEndsOnMirror; // the mirror is reached through diplomacy
             SmokeEndsOnGenealogy = args.Contains("--tree") || SmokeEndsOnDiplomacy; // diplomacy is reached through the tree

@@ -1,0 +1,137 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/BattleScreen.cs" id="1_bat"]
+[ext_resource type="Script" path="res://scripts/BattleCanvas.cs" id="2_can"]
+
+[node name="BattleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bat")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="Margin/Layout/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Défi d'un rival"
+
+[node name="Spacer" type="Control" parent="Margin/Layout/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="Margin/Layout/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Retour au domaine"
+
+[node name="Prep" type="VBoxContainer" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Summons" type="Label" parent="Margin/Layout/Prep"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Layout/Prep"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Candidates" type="VBoxContainer" parent="Margin/Layout/Prep/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Answer" type="HBoxContainer" parent="Margin/Layout/Prep"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Accept" type="Button" parent="Margin/Layout/Prep/Answer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Relever le défi"
+
+[node name="Decline" type="Button" parent="Margin/Layout/Prep/Answer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Se dérober"
+
+[node name="Field" type="HBoxContainer" parent="Margin/Layout"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Canvas" type="Control" parent="Margin/Layout/Field"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_can")
+
+[node name="Side" type="VBoxContainer" parent="Margin/Layout/Field"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Units" type="VBoxContainer" parent="Margin/Layout/Field/Side"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Actions" type="VBoxContainer" parent="Margin/Layout/Field/Side"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Turn" type="HBoxContainer" parent="Margin/Layout/Field/Side"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EndTurn" type="Button" parent="Margin/Layout/Field/Side/Turn"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fin du tour"
+
+[node name="Auto" type="Button" parent="Margin/Layout/Field/Side/Turn"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Laisser combattre"
+
+[node name="Pulse" type="Button" parent="Margin/Layout/Field/Side/Turn"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pulsation de Qi"
+
+[node name="Conclude" type="Button" parent="Margin/Layout/Field/Side"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Conclure le défi"
+
+[node name="Status" type="Label" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 3

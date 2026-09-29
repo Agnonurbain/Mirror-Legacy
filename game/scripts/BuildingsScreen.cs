@@ -74,7 +74,8 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Buildings: {BuildingsView.Buildings(root.Session).Count} buildings, {root.Session.Resources.SpiritStones} stones.");
-            if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
+            if (root.SmokeEndsOnBattle) GetTree().ChangeSceneToFile(BattleScreen.ScenePath); // the battle checks itself
+            else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }
     }
