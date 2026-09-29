@@ -50,6 +50,59 @@ namespace MirrorChronicles.Tests.Session
             Assert.AreEqual(TaskType.GatherQi, peak.CurrentTask, "the wall absorbs a portion of their Qi: they gather it");
         }
 
+        // ---- The active pilot ----
+
+        [Test]
+        public void ThePilot_PaysADemandItCanAfford_AndRefusesOneItCannot()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            s.Resources.SetSpiritStones(100000);
+            s.Intrigues.RestoreDemands(new[] { new Demand("Famille Ruan", 500, s.Clock.Year, DemandKind.Protection) }, null);
+            BalanceRun.Act(s);
+            Assert.IsEmpty(s.Intrigues.Demands);
+            Assert.AreEqual(100000 - 500, s.Resources.SpiritStones);
+
+            s.Resources.SetSpiritStones(600);
+            s.Intrigues.RestoreDemands(new[] { new Demand("Famille Fang", 500, s.Clock.Year, DemandKind.Protection) }, null);
+            BalanceRun.Act(s);
+            Assert.IsEmpty(s.Intrigues.Demands);
+            Assert.AreEqual(600, s.Resources.SpiritStones, "it could not keep its reserve: it refused");
+        }
+
+        [Test]
+        public void ThePilot_AnswersAChallenge_AndFightsItOut()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            s.Challenges.Issue(s.Factions.GetFactionByName("Famille Ruan"));
+            ChallengeOutcome? outcome = null;
+            s.Events.OnChallengeSettled += (_, o) => outcome = o;
+            BalanceRun.Act(s);
+            Assert.IsNull(s.Challenges.Pending);
+            Assert.IsNull(s.Challenges.Current);
+            Assert.AreNotEqual(ChallengeOutcome.Declined, outcome, "a challenge of its own rank is fought");
+        }
+
+        [Test]
+        public void ThePilot_SuesForPeace_InALongWar()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            Assert.IsNull(s.Wars.DeclareOn("Famille Ruan"));
+            s.Context.Clock.Restore(s.Clock.Year + 3, s.Clock.Phase);
+            BalanceRun.Act(s);
+            Assert.IsEmpty(s.Wars.ClanWars);
+        }
+
+        [Test]
+        public void ThePilot_PlantsATalismanSeed_WhenTheMirrorCan()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
+            var mortal = Fixtures.Mortal(age: 14);
+            s.Clan.AddMember(mortal);
+            BalanceRun.Act(s);
+            Assert.IsTrue(s.Clan.LivingMembers.Any(m => m.HasTalismanSeed));
+        }
+
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>
         [Test, Explicit, Category("Balance")]
         public void Report()
