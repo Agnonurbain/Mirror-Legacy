@@ -485,5 +485,26 @@ namespace MirrorChronicles.Tests.World
             Assert.AreEqual(40 - Settings.SuspicionFadePerYear, w.Suspicion.OfClan(Ruan));
             Assert.AreEqual(20 - Settings.EvidenceFadePerYear, w.Suspicion.Evidence(Ruan));
         }
+
+        // ---- The investigator, not the elder (2026-09-29) ----
+
+        [Test]
+        public void TheInvestigator_IsBlurredAtFullStrength_AndOneBlurMakesItDoubt()
+        {
+            var w = World(new FixedRandom(0.999));
+            bool seized = false;
+            w.Ctx.Events.OnMirrorSeized += _ => seized = true;
+            w.Suspicion.AddMirrorClues(Peak, SuspicionLedger.Max);
+            w.Secrets.ProcessYear(); // the investigator comes
+            Assume.That(w.Secrets.Confrontation?.Faction, Is.EqualTo(Peak));
+            w.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
+
+            Assert.IsTrue(w.Secrets.BlurMemories(Peak));
+            Assert.AreEqual(SuspicionLedger.Max - Settings.BlurClues, w.Suspicion.MirrorClues(Peak), "an envoy's mind, not an elder's");
+
+            w.Secrets.ProcessYear();
+            Assert.IsFalse(seized);
+            Assert.IsNull(w.Secrets.Confrontation, "made to doubt");
+        }
     }
 }

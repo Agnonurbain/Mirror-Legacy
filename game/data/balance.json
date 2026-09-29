@@ -110,7 +110,7 @@
     "falseProofMirrorCost": 30,
     "falseProofAmount": 30,
     "confrontationYears": 1,
-    "doubtClues": 60
+    "doubtClues": 70
   },
   "schemes": {
     "baseChance": 0.015,
