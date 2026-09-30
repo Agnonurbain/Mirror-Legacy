@@ -31,6 +31,8 @@ namespace MirrorChronicles.Game
             if (root.IsSmokeRun && root.SmokeStaysOnTitle)
             {
                 Refresh();
+                if (float.TryParse(OS.GetEnvironment("CURTAIN"), System.Globalization.NumberStyles.Float,
+                    System.Globalization.CultureInfo.InvariantCulture, out float closure)) root.HoldCurtain(closure);
                 if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
                 else GetTree().Quit();
                 return;
