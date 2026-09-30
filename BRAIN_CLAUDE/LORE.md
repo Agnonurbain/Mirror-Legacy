@@ -1155,7 +1155,9 @@ La victoire « 10 générations + 1 ascension » disparaît : les générations 
 
 **Ceux qui empêchent** (les parrains ont des rivaux) : une puissance qui apprend l'offre peut **saboter** l'ascension (embuscade pendant la retraite de manifestation, poison, faux présage), **surenchérir** (un autre parrain, un autre dessein), **dénoncer** l'accord pour le rompre, ou **acheter** le disciple.
 
-🎮 Mécanique proposée (à valider avant le code) : une **offre** arrive comme un événement (le parrain, la méthode, ce qu'il demande) ; le **dessein** est un secret du parrain (rang 3 ou 4), que les sondages percent ; il se **déclenche** à un jalon (Manoir Pourpre atteint, tentative au Noyau d'Or, N années, un héritier né). Les méthodes d'ascension ne sont plus vendues en pierres (`KnowledgeExchange`) ; la déduction volontaire du miroir s'ouvre à 3 éclats.
+🎮 ✅ **Premier lot fait (2026-09-30)** : les méthodes d'ascension ne se vendent plus en pierres (`KnowledgeExchange`) ; le miroir en **déduit** une de lui-même dès 3 éclats, 4 fragments de qualité 3 et une lignée connue (`DeductionEngine.DeduceAscentMethod`, 🔎 60 de puissance ; bâtie sur un Qi que le clan récolte, souvent le sien : ses cultivateurs s'y convertissent) ; les **accords** (`KnowledgeAccords` : technique, secret, bête, Qi, dette, disciple ; 🔎 valeurs dans « knowledgeTrade ») ; les **parrains** (`Sponsorships`, `designs.json` : les 23 desseins, cachés dans un secret « patron-design », échéance à leur jalon, manuel nettoyé par le miroir). **Reste** : les conséquences propres à chaque dessein à son échéance (aujourd'hui : l'événement et la chronique), l'écran des accords, ceux qui empêchent, les chemins C2-C8.
+
+🎮 Mécanique d'origine : une **offre** arrive comme un événement (le parrain, la méthode, ce qu'il demande) ; le **dessein** est un secret du parrain (rang 3 ou 4), que les sondages percent ; il se **déclenche** à un jalon (Manoir Pourpre atteint, tentative au Noyau d'Or, N années, un héritier né). Les méthodes d'ascension ne sont plus vendues en pierres (`KnowledgeExchange`) ; la déduction volontaire du miroir s'ouvre à 3 éclats.
 
 ---
 
