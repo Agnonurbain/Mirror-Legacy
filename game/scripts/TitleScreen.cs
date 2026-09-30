@@ -12,11 +12,14 @@ namespace MirrorChronicles.Game
     {
         public const string ScenePath = "res://scenes/TitleScreen.tscn";
 
+        private enum Pending { None, Erase, BeginOver }
+
         private GameRoot root;
         private VBoxContainer slots;
         private LineEdit seed;
         private Label status;
-        private int eraseArmed; // the slot whose erasure awaits its confirmation (0: none)
+        private Pending pending;
+        private int pendingSlot; // the slot whose erasure, or new game over a lineage, awaits its confirmation
 
         public override void _Ready()
         {
@@ -24,6 +27,7 @@ namespace MirrorChronicles.Game
             slots = GetNode<VBoxContainer>("%Slots");
             seed = GetNode<LineEdit>("%Seed");
             status = GetNode<Label>("%Status");
+            seed.TextChanged += _ => Disarm();
             if (root.IsSmokeRun && root.SmokeStaysOnTitle)
             {
                 Refresh();
@@ -40,6 +44,22 @@ namespace MirrorChronicles.Game
             Refresh();
         }
 
+        private bool Armed(Pending what, int slot) => pending == what && pendingSlot == slot;
+
+        private void Arm(Pending what, int slot, string warning)
+        {
+            (pending, pendingSlot) = (what, slot);
+            status.Text = warning;
+            Refresh();
+        }
+
+        private void Disarm()
+        {
+            if (pending == Pending.None) return;
+            (pending, pendingSlot) = (Pending.None, 0);
+            Refresh();
+        }
+
         private void Refresh()
         {
             foreach (var child in slots.GetChildren())
@@ -52,18 +72,17 @@ namespace MirrorChronicles.Game
                 var row = new HBoxContainer();
                 row.AddChild(new Label { Text = slot.Label, CustomMinimumSize = new Vector2(620, 0), AutowrapMode = TextServer.AutowrapMode.WordSmart });
                 var play = new Button { Text = "Continuer", Disabled = !slot.CanContinue };
-                play.Pressed += () =>
-                {
-                    if (root.Continue(slot.Index)) GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
-                    else status.Text = "Cette sauvegarde ne peut être lue.";
-                };
+                play.Pressed += () => Continue(slot.Index);
                 row.AddChild(play);
-                var begin = new Button { Text = slot.IsEmpty ? "Nouvelle partie" : "Recommencer ici" };
+                var begin = new Button
+                {
+                    Text = slot.IsEmpty ? "Nouvelle partie" : Armed(Pending.BeginOver, slot.Index) ? "Confirmer : recommencer ici" : "Recommencer ici"
+                };
                 begin.Pressed += () => Begin(slot);
                 row.AddChild(begin);
                 if (!slot.IsEmpty)
                 {
-                    var erase = new Button { Text = eraseArmed == slot.Index ? "Confirmer l'effacement" : "Effacer" };
+                    var erase = new Button { Text = Armed(Pending.Erase, slot.Index) ? "Confirmer l'effacement" : "Effacer" };
                     erase.Pressed += () => Erase(slot.Index);
                     row.AddChild(erase);
                 }
@@ -71,32 +90,46 @@ namespace MirrorChronicles.Game
             }
         }
 
+        private void Continue(int index)
+        {
+            Disarm();
+            string refusal = root.Continue(index);
+            if (refusal == null) GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            else status.Text = $"Impossible : {refusal}.";
+        }
+
         private void Begin(SlotLine slot)
         {
-            if (!slot.IsEmpty && eraseArmed != -slot.Index) // a game already there: confirm first
+            if (!slot.IsEmpty && !Armed(Pending.BeginOver, slot.Index)) // a lineage is there (or an unreadable file): confirm first
             {
-                eraseArmed = -slot.Index;
-                status.Text = $"L'emplacement {slot.Index} contient une partie : elle sera perdue. Appuyez encore pour recommencer.";
+                Arm(Pending.BeginOver, slot.Index, $"L'emplacement {slot.Index} n'est pas vide : ce qu'il contient sera perdu. Confirmez.");
                 return;
             }
-            int? worldSeed = int.TryParse(seed.Text, out int s) ? s : null;
-            root.NewGame(slot.Index, worldSeed);
+            int? worldSeed = null;
+            if (!string.IsNullOrWhiteSpace(seed.Text))
+            {
+                if (!int.TryParse(seed.Text.Trim(), out int parsed))
+                {
+                    status.Text = "La graine doit être un nombre entier (ou rien, pour le hasard).";
+                    return;
+                }
+                worldSeed = parsed;
+            }
+            Disarm();
+            if (!root.NewGame(slot.Index, worldSeed)) status.Text = "La partie a commencé, mais n'a pu être sauvegardée.";
             GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
         }
 
         private void Erase(int index)
         {
-            if (eraseArmed != index)
+            if (!Armed(Pending.Erase, index))
             {
-                eraseArmed = index;
-                status.Text = $"Effacer l'emplacement {index} ? La lignée sera perdue. Confirmez.";
+                Arm(Pending.Erase, index, $"Effacer l'emplacement {index} ? La lignée sera perdue. Confirmez.");
+                return;
             }
-            else
-            {
-                eraseArmed = 0;
-                root.Erase(index);
-                status.Text = $"L'emplacement {index} est effacé.";
-            }
+            string refusal = root.Erase(index);
+            (pending, pendingSlot) = (Pending.None, 0);
+            status.Text = refusal == null ? $"L'emplacement {index} est effacé." : $"Impossible : {refusal}.";
             Refresh();
         }
     }

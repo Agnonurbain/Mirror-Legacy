@@ -83,62 +83,102 @@ namespace MirrorChronicles.Game
         /// <summary>The slot being played (1-based), or 0 when nothing is saved (a smoke run).</summary>
         public int CurrentSlot { get; private set; }
 
-        public static string SlotPath(int slot) => $"user://slot-{slot}.json";
+        public static string SlotPath(int slot)
+        {
+            if (slot < 1 || slot > TitleView.SlotCount) throw new ArgumentOutOfRangeException(nameof(slot));
+            return $"user://slot-{slot}.json";
+        }
 
-        /// <summary>The text saved in a slot, or null when the slot is empty.</summary>
-        public string ReadSlot(int slot) =>
-            Godot.FileAccess.FileExists(SlotPath(slot)) ? Godot.FileAccess.GetFileAsString(SlotPath(slot)) : null;
+        /// <summary>The text saved in a slot; null when the slot is empty, "" when its file cannot be read.</summary>
+        public string ReadSlot(int slot)
+        {
+            string path = SlotPath(slot);
+            if (!Godot.FileAccess.FileExists(path)) return null;
+            using var file = Godot.FileAccess.Open(path, Godot.FileAccess.ModeFlags.Read);
+            return file == null ? "" : file.GetAsText();
+        }
 
-        /// <summary>Continues the game of a slot; false when it cannot be read.</summary>
-        public bool Continue(int slot)
+        /// <summary>Continues the game of a slot; the reason when it cannot (never a crash).</summary>
+        public string Continue(int slot)
         {
             string json = ReadSlot(slot);
-            if (json == null) return false;
-            try
+            if (string.IsNullOrEmpty(json)) return "cette sauvegarde ne peut être lue";
+            var session = GameSession.TryLoad(json, Setup(null), out string error);
+            if (session == null)
             {
-                Start(GameSession.FromSaveData(SaveSerializer.Deserialize(json), Setup(null)), slot);
-                return true;
+                GD.PushWarning($"[GameRoot] Slot {slot} cannot be loaded: {error}");
+                return "cette sauvegarde ne peut être chargée";
             }
-            catch (System.IO.InvalidDataException e)
-            {
-                GD.PushWarning($"[GameRoot] Slot {slot} cannot be read: {e.Message}");
-                return false;
-            }
+            Start(session, slot);
+            return null;
         }
 
-        /// <summary>A new game in a slot (its former game is lost: ironman), saved at once.</summary>
-        public void NewGame(int slot, int? seed = null)
+        /// <summary>A new game in a slot — its former game is lost (ironman) — saved at once; false when it could not be saved.</summary>
+        public bool NewGame(int slot, int? seed = null)
         {
             Start(GameSession.NewGame(Setup(seed)), slot);
-            Save();
+            return Save();
         }
 
-        public void Erase(int slot)
+        /// <summary>Erases a slot; the reason when the file could not be removed. The game on screen, if it was this one, ends.</summary>
+        public string Erase(int slot)
         {
-            if (Godot.FileAccess.FileExists(SlotPath(slot))) DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(SlotPath(slot)));
-            if (CurrentSlot == slot) CurrentSlot = 0; // the game on screen is no longer saved
+            string path = SlotPath(slot);
+            if (Godot.FileAccess.FileExists(path))
+            {
+                var error = DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(path));
+                if (error != Error.Ok) return $"l'effacement a échoué ({error})";
+            }
+            if (CurrentSlot == slot) Stop(); // no stale game played unsaved
+            return null;
         }
 
-        /// <summary>The single save of the first versions moves into slot 1 when that slot is empty.</summary>
+        /// <summary>
+        /// The single save of the first versions moves into slot 1 when that slot is empty; the old file is removed only
+        /// once the copy is written and read back the same.
+        /// </summary>
         private void AdoptLegacySave()
         {
             if (!Godot.FileAccess.FileExists(LegacySavePath) || Godot.FileAccess.FileExists(SlotPath(1))) return;
             string json = Godot.FileAccess.GetFileAsString(LegacySavePath);
-            using (var file = Godot.FileAccess.Open(SlotPath(1), Godot.FileAccess.ModeFlags.Write)) file?.StoreString(json);
+            if (string.IsNullOrWhiteSpace(json)) return; // nothing sure to move: leave it where it is
+            if (!WriteSafely(SlotPath(1), json))
+            {
+                GD.PushWarning("[GameRoot] The old save could not be moved into slot 1; it is kept.");
+                return;
+            }
             DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(LegacySavePath));
         }
 
-        public void Save()
+        /// <summary>Saves the game into its slot, never leaving a half-written file; false when it could not.</summary>
+        public bool Save()
         {
-            if (IsSmokeRun || Session == null || CurrentSlot == 0) return;
+            if (IsSmokeRun || Session == null || CurrentSlot == 0) return false;
+            string json = SaveSerializer.Serialize(Session.ToSaveData()); // before any file is touched
+            if (WriteSafely(SlotPath(CurrentSlot), json)) return true;
+            GD.PushError($"[GameRoot] The game could not be saved into slot {CurrentSlot}.");
+            return false;
+        }
 
-            using var file = Godot.FileAccess.Open(SlotPath(CurrentSlot), Godot.FileAccess.ModeFlags.Write);
-            if (file == null)
+        /// <summary>Writes a temporary file, reads it back, then puts it in place: the old file survives any failure.</summary>
+        private static bool WriteSafely(string path, string text)
+        {
+            string temp = path + ".tmp";
+            using (var file = Godot.FileAccess.Open(temp, Godot.FileAccess.ModeFlags.Write))
             {
-                GD.PushError($"[GameRoot] Cannot write the save ({Godot.FileAccess.GetOpenError()}).");
-                return;
+                if (file == null) return false;
+                file.StoreString(text);
             }
-            file.StoreString(SaveSerializer.Serialize(Session.ToSaveData()));
+            if (Godot.FileAccess.GetFileAsString(temp) != text) return false;
+            return DirAccess.RenameAbsolute(ProjectSettings.GlobalizePath(temp), ProjectSettings.GlobalizePath(path)) == Error.Ok;
+        }
+
+        /// <summary>A screen reached without a game (a direct launch, an erased slot) goes back to the title; true when it did.</summary>
+        public bool RedirectWithoutSession(Node screen)
+        {
+            if (Session != null) return false;
+            screen.GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, TitleScreen.ScenePath);
+            return true;
         }
 
         private GameSetup Setup(int? seed)
@@ -149,12 +189,23 @@ namespace MirrorChronicles.Game
 
         private void Start(GameSession session, int slot)
         {
+            Stop();
             Session = session;
             CurrentSlot = slot;
             Chronicle = new Chronicle(session);
-            session.Events.OnYearStarted += year => Save();
+            session.Events.OnYearStarted += SaveAtYearStart;
             SessionChanged?.Invoke();
         }
+
+        /// <summary>The game on screen ends (another begins, or its slot was erased): it no longer saves anywhere.</summary>
+        private void Stop()
+        {
+            if (Session != null) Session.Events.OnYearStarted -= SaveAtYearStart;
+            Session = null;
+            CurrentSlot = 0;
+        }
+
+        private void SaveAtYearStart(int year) => Save();
 
         private static string ReadDataFile(string name)
         {

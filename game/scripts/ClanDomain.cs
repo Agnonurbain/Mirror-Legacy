@@ -30,6 +30,7 @@ namespace MirrorChronicles.Game
         public override void _Ready()
         {
             root = GetNode<GameRoot>("/root/GameRoot");
+            if (root.RedirectWithoutSession(this)) return; // reached without a game
             clanName = GetNode<Label>("%ClanName");
             year = GetNode<Label>("%Year");
             phase = GetNode<Label>("%Phase");

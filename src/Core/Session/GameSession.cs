@@ -173,6 +173,27 @@ namespace MirrorChronicles.Session
         /// Rebuilds a game from a save, bringing older saves up to date (stages, orifices, lifespans).
         /// The random stream restarts from the seed, year and phase: reproducible, not a continuation.
         /// </summary>
+        /// <summary>
+        /// A save's text loaded, or null with the reason when it cannot be (unreadable, or read but inconsistent): the
+        /// boundary with the player's files, where nothing may crash.
+        /// </summary>
+        public static GameSession TryLoad(string json, GameSetup setup, out string error)
+        {
+            error = null;
+            try
+            {
+                var data = SaveSerializer.Deserialize(json);
+                if (data.HistoricalRecords?.Any(r => r == null) == true) throw new System.IO.InvalidDataException("a record of the clan is empty");
+                return FromSaveData(data, setup);
+            }
+            catch (Exception e) when (e is System.IO.InvalidDataException || e is ArgumentException || e is InvalidOperationException
+                || e is KeyNotFoundException || e is NullReferenceException || e is InvalidCastException || e is FormatException)
+            {
+                error = e.Message;
+                return null;
+            }
+        }
+
         public static GameSession FromSaveData(GameData data, GameSetup setup)
         {
             if (data == null) throw new ArgumentNullException(nameof(data));

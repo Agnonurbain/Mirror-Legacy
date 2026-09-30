@@ -13,7 +13,7 @@ namespace MirrorChronicles.Session
             try
             {
                 var data = SaveSerializer.Deserialize(json);
-                var records = data.HistoricalRecords ?? new System.Collections.Generic.List<Data.CharacterData>();
+                var records = (data.HistoricalRecords ?? new System.Collections.Generic.List<Data.CharacterData>()).Where(r => r != null).ToList();
                 string patriarch = records.FirstOrDefault(r => r.ID == data.PatriarchID)?.FullName;
                 return new SaveSummary(data.ClanName, data.CurrentYear, data.GenerationCount,
                     records.Count(r => r.IsAlive && !r.Departed), patriarch, data.SaveVersion);

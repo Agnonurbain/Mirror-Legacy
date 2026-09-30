@@ -13,12 +13,13 @@ namespace MirrorChronicles.Presentation
     {
         public const int SlotCount = 3;
 
-        /// <param name="readSlot">The text saved in a slot (1-based), or null when the slot is empty.</param>
+        /// <param name="readSlot">The text saved in a slot (1-based), or null when the slot is empty; a file that reads
+        /// empty is unreadable, never an empty slot (it must not be overwritten unasked).</param>
         public static IReadOnlyList<SlotLine> Slots(Func<int, string> readSlot) =>
             Enumerable.Range(1, SlotCount).Select(i =>
             {
                 string json = readSlot(i);
-                if (string.IsNullOrWhiteSpace(json)) return new SlotLine(i, $"Emplacement {i} — vide", false, true);
+                if (json == null) return new SlotLine(i, $"Emplacement {i} — vide", false, true);
                 var summary = SaveSummary.Read(json);
                 if (summary == null) return new SlotLine(i, $"Emplacement {i} — sauvegarde illisible", false, false);
                 string patriarch = summary.Patriarch == null ? "sans patriarche" : $"patriarche {summary.Patriarch}";

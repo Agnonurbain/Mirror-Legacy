@@ -21,6 +21,7 @@ namespace MirrorChronicles.Game
         public override void _Ready()
         {
             root = GetNode<GameRoot>("/root/GameRoot");
+            if (root.RedirectWithoutSession(this)) return; // reached without a game
             canvas = GetNode<MapCanvas>("%Canvas");
             placeName = GetNode<Label>("%PlaceName");
             placeFactions = GetNode<Label>("%PlaceFactions");
