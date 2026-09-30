@@ -59,6 +59,7 @@ namespace MirrorChronicles.Events
         // Events & outcome
         public event Action<RandomEventData> OnRandomEventOccurred;
         public event Action<StoryEventData> OnStoryEventRaised;
+        public event Action<EndingDefinition, string> OnEndingReached;      // a dynastic ending (§11.9), and who reached it (null: the clan)
         public event Action OnGameOver;                                    // a defeat (§11.9): the dynastic endings never end the game
 
         public void TriggerYearStarted(int year) => OnYearStarted?.Invoke(year);
@@ -95,6 +96,7 @@ namespace MirrorChronicles.Events
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);
         public void TriggerStoryEventRaised(StoryEventData evt) => OnStoryEventRaised?.Invoke(evt);
+        public void TriggerEndingReached(EndingDefinition ending, string subject) => OnEndingReached?.Invoke(ending, subject);
         public void TriggerGameOver() => OnGameOver?.Invoke();
     }
 }

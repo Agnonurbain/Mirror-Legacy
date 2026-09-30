@@ -38,6 +38,9 @@ namespace MirrorChronicles.Data
         /// <summary>The kinds of spirit beasts (beasts.json, L2c.2).</summary>
         public IReadOnlyList<SecretKind> SecretKinds { get; init; } = Array.Empty<SecretKind>();
         public IReadOnlyList<PatronDefinition> Patrons { get; init; } = Array.Empty<PatronDefinition>();
+
+        /// <summary>The dynastic endings (endings.json, LORE.md §11.9).</summary>
+        public IReadOnlyList<EndingDefinition> Endings { get; init; } = Array.Empty<EndingDefinition>();
         public IReadOnlyList<AtmosphereDefinition> Atmospheres { get; init; } = Array.Empty<AtmosphereDefinition>();
         public IReadOnlyList<BeastSpecies> BeastSpecies { get; init; } = Array.Empty<BeastSpecies>();
 

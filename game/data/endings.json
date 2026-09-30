@@ -1,0 +1,113 @@
+[
+  {
+    "id": "mirror-awakened", "name": "Le Miroir Éveillé",
+    "narrative": "Les sept éclats se sont rejoints dans leur cadre de fer, et le bronze fêlé ne l'est plus. L'esprit du miroir se souvient enfin de ce qu'il était. Au même moment, un fils du lac a pris sa place au Ciel. Le secret que le clan a gardé des siècles durant n'était pas une arme : c'était une promesse, et elle est tenue.",
+    "conditions": [
+      { "kind": "MirrorShards", "count": 7 },
+      { "kind": "AnyOf", "anyOf": [ { "kind": "MemberPosition", "position": "Realization" }, { "kind": "MemberRealm", "realm": "DaoEmbryo" } ] }
+    ],
+    "source": "LORE.md §11.9 (grande fin validée le 2026-09-24)", "provenance": "Lore", "interpretedFields": []
+  },
+  {
+    "id": "ascension", "name": "L'Ascension",
+    "narrative": "Un membre du clan a touché l'Embryon du Dao. Les autres sont partis vers le Ciel Extérieur et ne sont jamais revenus ; celui-ci reste, et veille sur le lac. Là où ne restaient que deux Immortels, il y en a désormais trois.",
+    "conditions": [ { "kind": "MemberRealm", "realm": "DaoEmbryo" } ],
+    "source": "LORE.md §5.6, §11.9 ; l'Embryon du Dao reste dans le monde (décision du 2026-09-30)", "provenance": "Lore", "interpretedFields": []
+  },
+  {
+    "id": "fruition-throne", "name": "Le Trône d'une Fruition",
+    "narrative": "Le Ciel a accordé sa position : un membre du clan tient la Réalisation d'une Fruition. Sa volonté se substitue à celle du Ciel sur tout ce que sa lignée gouverne, et ses descendants monteront au moins jusqu'au Manoir Pourpre. Le clan n'est plus une famille du lac : il est une part du ciel.",
+    "conditions": [ { "kind": "MemberPosition", "position": "Realization" } ],
+    "source": "LORE.md §5.5.1, §5.5.2", "provenance": "Lore", "interpretedFields": []
+  },
+  {
+    "id": "mirror-restored", "name": "Le Miroir Restauré",
+    "narrative": "Le dernier éclat a trouvé sa place. Le miroir, entier, livre son dernier souvenir : d'où il vient, et pourquoi il est tombé dans ce lac. Le grand mystère est levé ; ce que le clan en fera reste à écrire.",
+    "conditions": [ { "kind": "MirrorShards", "count": 7 } ],
+    "source": "LORE.md §11.5 (sept éclats, un par royaume : décision du 2026-09-30)", "provenance": "Lore", "interpretedFields": []
+  },
+  {
+    "id": "river-bed", "name": "Le Lit du Fleuve Déplacé",
+    "narrative": "Ils ne forcent pas le fleuve, ils déplacent son lit. Un Vrai Monarque du clan, venu d'un Surplus ou d'un Intercalaire, s'est hissé jusqu'à la position souveraine de sa lignée. La guerre des positions a un vainqueur, et il porte le nom du clan.",
+    "conditions": [ { "kind": "PositionMove", "position": "Realization", "from": [ "Surplus", "Intercalary" ] } ],
+    "source": "LORE.md §5.5.1 (Transfert, Transformation), §6.9", "provenance": "Lore", "interpretedFields": []
+  },
+  {
+    "id": "house-of-monarchs", "name": "La Maison des Vrais Monarques",
+    "narrative": "Chaque grande secte s'appuie sur au moins un Vrai Monarque. Le clan en compte trois, vivants ensemble sous le même toit. Aucune secte de Linxi ne peut plus le regarder de haut.",
+    "conditions": [ { "kind": "TrueMonarchs", "count": 3 } ],
+    "source": "LORE.md §5.5", "provenance": "Interpretation", "interpretedFields": [ "Conditions" ]
+  },
+  {
+    "id": "golden-line", "name": "La Lignée d'Or",
+    "narrative": "Un Vrai Monarque, puis son enfant, puis l'enfant de son enfant : trois générations de suite ont forgé leur noyau d'or. Le sang du clan porte l'essence ; ce n'est plus un hasard, c'est un héritage.",
+    "conditions": [ { "kind": "GoldenLine", "count": 3 } ],
+    "source": "LORE.md §5.5.2 (lignée transformée), §11.6", "provenance": "Interpretation", "interpretedFields": [ "Conditions" ]
+  },
+  {
+    "id": "grand-culmination", "name": "La Grande Culmination",
+    "narrative": "Un membre du clan a atteint ce qu'on appelait jadis la Grande Culmination : Immortel Doré, invulnérable aux Trois Calamités du Dao Céleste, l'égal des immortels de l'Antiquité qui reçurent l'enseignement des Trois Profondeurs.",
+    "conditions": [ { "kind": "MemberRealm", "realm": "GoldenImmortal" } ],
+    "awaits": "la progression de l'Embryon du Dao à l'Immortel Doré, que ni la source ni le wiki ne décrivent (LORE.md §5.7, §11.8) : à décider par l'utilisateur",
+    "source": "LORE.md §5.7", "provenance": "Lore", "interpretedFields": []
+  },
+  {
+    "id": "lake-unified", "name": "L'Unification du Lac",
+    "narrative": "Les familles du lac ont toutes plié le genou. Le Lac Jingshui n'a plus qu'une seule maîtresse, et son autorité rayonne depuis l'île de Cuidao. On l'appellera bientôt le Lac Immortel.",
+    "conditions": [ { "kind": "Vassals", "regionId": "jingshui-lake", "factionKinds": [ "Family" ], "count": 0 } ],
+    "source": "Wiki : le lac unifié sous l'autorité de son île centrale (LORE.md §7.3)", "provenance": "Wiki", "interpretedFields": [ "Conditions" ]
+  },
+  {
+    "id": "twelve-gates-debt", "name": "La Dette des Douze Portes",
+    "narrative": "Il y a quatre siècles, les Douze Portes tendirent une embuscade à Mo Qianshui. De leurs héritiers, trois sectes et huit portes, la plupart servent désormais le clan. La dette est payée.",
+    "conditions": [ { "kind": "Vassals", "regionId": "linxi", "factionKinds": [ "Sect", "Gate" ], "count": 6 } ],
+    "source": "LORE.md §12 (~400 ans : Mo Qianshui tué par les Douze Portes)", "provenance": "Interpretation", "interpretedFields": [ "Conditions" ]
+  },
+  {
+    "id": "linxi-hegemony", "name": "L'Hégémonie de Linxi",
+    "narrative": "Dix ans durant, aucune puissance de Linxi n'a pesé autant que le clan à la guerre, et ses vassaux ont payé tribut sans faillir. Le royaume ne le dit pas encore tout haut, mais il sait qui le tient.",
+    "conditions": [ { "kind": "Hegemony", "regionId": "linxi", "vassals": 3, "years": 10 } ],
+    "source": "LORE.md §11.9 (domination de Linxi)", "provenance": "Interpretation", "interpretedFields": [ "Conditions" ]
+  },
+  {
+    "id": "millennial-line", "name": "La Lignée Millénaire",
+    "narrative": "Mille ans depuis que Mo Jian a repêché le miroir. Des sectes sont nées et tombées, des Vrais Monarques ont péri ; la lignée, elle, est toujours là.",
+    "conditions": [ { "kind": "Year", "year": 1000 } ],
+    "source": "LORE.md §11.9 (durée)", "provenance": "Interpretation", "interpretedFields": [ "Conditions" ]
+  },
+  {
+    "id": "double-house", "name": "La Double Maison",
+    "narrative": "Le clan est devenu une secte. Les cultivateurs montent vers les pics, les mortels descendent vers la ville ; chaque pic a son maître, et le clan ne dépend plus du talent d'un seul patriarche.",
+    "conditions": [ { "kind": "Awaits" } ],
+    "awaits": "la secte du clan (B3d)",
+    "source": "Wiki : le système du Pic et de la Ville de la famille du roman", "provenance": "Wiki", "interpretedFields": []
+  },
+  {
+    "id": "ancestor-return", "name": "Le Retour de l'Ancêtre",
+    "narrative": "Un Vrai Monarque du clan est mort, mais son essence est restée intacte. Il renaît dans un enfant du clan, et en quelques décennies il a retrouvé le Noyau d'Or. Le clan ne perd pas ses ancêtres : il les attend.",
+    "conditions": [ { "kind": "Awaits" } ],
+    "awaits": "la réincarnation d'un Vrai Monarque (R9, L6)",
+    "source": "LORE.md §5.5.2, §5.9 R9", "provenance": "Lore", "interpretedFields": []
+  },
+  {
+    "id": "core-legacy", "name": "Le Legs du Noyau",
+    "narrative": "Comme le Vrai Serpent-Dragon céleste avant lui, un Embryon du Dao du clan a partagé son noyau d'or entre ses héritiers. Chacun est devenu un Vrai Monarque. Le clan a des fils du dragon.",
+    "conditions": [ { "kind": "Awaits" } ],
+    "awaits": "le partage du noyau d'un Embryon du Dao (R22, L6)",
+    "source": "LORE.md §5.9 R22, §12 (les Neuf Fils)", "provenance": "Lore", "interpretedFields": []
+  },
+  {
+    "id": "imperial-way", "name": "La Voie Impériale",
+    "narrative": "Le clan a fondé un État, et il cultive en gouvernant. Comme les empereurs de jadis, il tire sa puissance du Dao même de régner.",
+    "conditions": [ { "kind": "Awaits" } ],
+    "awaits": "la fondation d'un État et la Voie Impériale (R20, L7)",
+    "source": "LORE.md §3.6, §5.9 R20", "provenance": "Lore", "interpretedFields": []
+  },
+  {
+    "id": "other-daos", "name": "Les Autres Daos",
+    "narrative": "Un membre du clan a gravi jusqu'au sommet un autre Dao que celui des siens : Vénérable bouddhiste, Noyau Divin, ou Dao du Diable accompli. Le clan n'a pas une seule voie, il les a toutes.",
+    "conditions": [ { "kind": "Awaits" } ],
+    "awaits": "les rangs et les conversions des autres Dao (L7)",
+    "source": "LORE.md §3.3-3.7, §5.9 B", "provenance": "Lore", "interpretedFields": []
+  }
+]

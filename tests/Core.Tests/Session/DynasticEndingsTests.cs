@@ -36,6 +36,16 @@ namespace MirrorChronicles.Tests.Session
 
         private static void NextYear(GameSession s) => s.Events.TriggerYearStarted(s.Clock.Year);
 
+        /// <summary>
+        /// A clan that outweighs every power of Linxi at war: war strength counts the strongest member and a fifth of the
+        /// others (balance.json « wars »), and the Cloud Peak Sect weighs 145 — one Immortal alone does not.
+        /// </summary>
+        private static void Mighty(GameSession s)
+        {
+            Member(s, CultivationRealm.DaoEmbryo);
+            for (int i = 0; i < 12; i++) Member(s, CultivationRealm.GoldenCore);
+        }
+
         // ---- The content ----
 
         [Test]
@@ -198,7 +208,7 @@ namespace MirrorChronicles.Tests.Session
         public void TheHegemonyOfLinxi_IsHeldTenYearsInARow()
         {
             var s = Quiet();
-            Member(s, CultivationRealm.DaoEmbryo); // no power of Linxi weighs as much
+            Mighty(s);
             foreach (var family in new[] { "Famille Lü", "Famille Tao", "Famille Lou" }) Vassal(s, family);
 
             for (int y = 0; y < 9; y++) NextYear(s);
@@ -211,7 +221,7 @@ namespace MirrorChronicles.Tests.Session
         public void TheHegemonyOfLinxi_StartsOver_WhenItSlips()
         {
             var s = Quiet();
-            Member(s, CultivationRealm.DaoEmbryo);
+            Mighty(s);
             foreach (var family in new[] { "Famille Lü", "Famille Tao", "Famille Lou" }) Vassal(s, family);
             for (int y = 0; y < 9; y++) NextYear(s);
 
@@ -280,7 +290,7 @@ namespace MirrorChronicles.Tests.Session
             var s = Quiet();
             var c = Member(s, CultivationRealm.GoldenCore, GoldenCoreState.Realization);
             s.Events.TriggerPositionTaken(c, GoldenCoreState.Realization, GoldenCoreState.Surplus);
-            Member(s, CultivationRealm.DaoEmbryo);
+            Mighty(s);
             foreach (var family in new[] { "Famille Lü", "Famille Tao", "Famille Lou" }) Vassal(s, family);
             for (int y = 0; y < 4; y++) NextYear(s);
 

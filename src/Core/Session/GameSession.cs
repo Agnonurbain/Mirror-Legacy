@@ -84,6 +84,7 @@ namespace MirrorChronicles.Session
         public StoryEventManager Story { get; }
         public VictoryConditionSystem Victory { get; }
         public ClanAnnals Annals { get; }
+        public DynasticEndings Endings { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -145,6 +146,7 @@ namespace MirrorChronicles.Session
             Story = new StoryEventManager(Context, Clan, Resources, Stability, Factions);
             Victory = new VictoryConditionSystem(Context, Clan);
             Annals = new ClanAnnals(Context, Clan, Karma);
+            Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory); // judged last
         }
 
         /// <summary>A new game: the clan's knowledge and Qi, the founders, the known world and its lineages, the mirror's first two fragments.</summary>
@@ -272,6 +274,7 @@ namespace MirrorChronicles.Session
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
             session.Victory.Restore(data.GameLost); // a game « won » under the old rule goes on: there is no forced victory now
             session.Annals.Restore(data.Annals, session.Karma.GenerationCount, records); // none before 2.21
+            session.Endings.Restore(data.PositionMoves, data.EndingStreaks);
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan resumes in year {session.Clock.Year}.");
             return session;
@@ -331,6 +334,8 @@ namespace MirrorChronicles.Session
                 Impoverished = Upkeep.Impoverished,
                 DaoPreys = DaoHunts.Known.ToList(),
                 Annals = Annals.Entries.ToList(),
+                PositionMoves = new Dictionary<string, string>(Endings.Moves),
+                EndingStreaks = new Dictionary<string, int>(Endings.Streaks),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null

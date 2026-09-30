@@ -46,6 +46,10 @@ namespace MirrorChronicles.Session
             foreach (var e in entries.Where(e => e.Kind == AnnalKind.RealmReached)) realmsKnown.Add((CultivationRealm)e.Value);
         }
 
+        /// <summary>A dynastic ending reached (B3b), and who reached it — none when the clan as a whole did.</summary>
+        public void RecordEnding(string endingId, string subject) =>
+            entries.Add(new AnnalEntry(AnnalKind.EndingReached, ctx.Clock.Year, 0, subject, endingId));
+
         private void RealmReached(CharacterData member, CultivationRealm realm)
         {
             if (!realmsKnown.Add(realm)) return;

@@ -10,15 +10,23 @@ namespace MirrorChronicles.Presentation
     public static class AnnalsView
     {
         public static IReadOnlyList<string> Lines(GameSession session) =>
-            session.Annals.Entries.Select(e => $"An {e.Year} : {Describe(e)}").ToList();
+            session.Annals.Entries.Select(e => $"An {e.Year} : {Describe(e, session.Context.Content)}").ToList();
 
-        public static string Describe(AnnalEntry entry) => entry.Kind switch
+        public static string Describe(AnnalEntry entry, GameContent content) => entry.Kind switch
         {
+            AnnalKind.EndingReached => EndingLine(entry, content),
             AnnalKind.RealmReached => $"{entry.Subject} atteint {WithArticle((CultivationRealm)entry.Value)}, une première pour le clan.",
             AnnalKind.PositionTaken => $"{entry.Subject} obtient {FirstPosition((GoldenCoreState)entry.Value)}.",
             AnnalKind.Generation => $"la {entry.Value}e génération commence sous {entry.Subject ?? "un patriarche oublié"}.",
             _ => entry.Subject
         };
+
+        /// <summary>« fin dynastique : L'Ascension (Mo Jian). »</summary>
+        private static string EndingLine(AnnalEntry entry, GameContent content)
+        {
+            string name = content.Endings.FirstOrDefault(e => e.Id == entry.Ref)?.Name ?? entry.Ref;
+            return entry.Subject == null ? $"fin dynastique : {name}." : $"fin dynastique : {name} ({entry.Subject}).";
+        }
 
         /// <summary>A realm's name with its article: « la Culture du Qi », « l'Embryon du Dao », « le Manoir Pourpre ».</summary>
         private static string WithArticle(CultivationRealm realm)

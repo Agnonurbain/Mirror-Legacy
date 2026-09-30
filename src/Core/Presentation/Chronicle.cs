@@ -57,6 +57,7 @@ namespace MirrorChronicles.Presentation
             bus.OnExtortion += power => Add($"{power} convoite le trésor du clan et exige le prix de sa protection.");
             bus.OnDaoHuntFoiled += power => Add($"des gens de {power} fondent sur un Dao mûr du clan ; ils sont repoussés.");
             bus.OnHunt += (_, captured) => Add(captured ? "une chasse du clan ramène une bête spirituelle." : "une chasse du clan revient les mains vides.");
+            bus.OnEndingReached += (ending, subject) => Add($"fin dynastique : {ending.Name}. La partie continue.");
             bus.OnGameOver += () =>
             {
                 if (session.Clan.LivingMembers.Count == 0) Add("la lignée s'éteint."); // a seized mirror and an absorbed clan are told above
