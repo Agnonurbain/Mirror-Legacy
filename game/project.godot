@@ -29,7 +29,12 @@ window/stretch/mode="canvas_items"
 project/assembly_name="MirrorLegacy"
 project/solution_directory="../"
 
+[gui]
+
+theme/custom="res://theme/shuimo.tres"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.93, 0.9, 0.82, 1)
