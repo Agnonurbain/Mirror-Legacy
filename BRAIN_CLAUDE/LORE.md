@@ -1074,6 +1074,20 @@ Aujourd'hui : 10 générations + 1 ascension (DaoEmbryo).
   2. le **miroir est découvert et saisi** par plus puissant — la peur qui justifie tout le secret du roman ;
 - les autres pistes (durée, domination de Linxi, voie alternative) deviennent des **jalons des Annales** plutôt que des fins.
 
+✅ **Fins dynastiques (décision de l'utilisateur, 2026-09-30, B3)** : « 10 générations » était hors de portée (1 à 3 générations par siècle). Le jeu garde le bac à sable, mais **plusieurs fins**, chacune racontée : optionnelle, atteinte **au plus une fois**, un écran la raconte, puis le joueur **continue** ; les Annales la gardent. Les quatre fins :
+1. **Le Miroir Éveillé** (la grande fin ci-dessus) : le miroir entièrement restauré **et** un membre à la Réalisation ou à l'Embryon du Dao ;
+2. **L'Ascension** : un membre du clan atteint l'**Embryon du Dao** ;
+3. **Le Trône d'une Fruition** : un membre devient Vrai Monarque en **Réalisation** ;
+4. **Le Miroir Restauré** : les **7 éclats** retrouvés (un par royaume, §11.5), l'origine du miroir révélée.
+
+✅ **Toutes les fins que le lore et le wiki permettent** (demande de l'utilisateur, 2026-09-30 : « le plus de fins possible ») — treize de plus, soit **dix-sept** :
+- *Sommets de la cultivation* : **Le Lit du Fleuve Déplacé** (un Surplus du clan monte à la Réalisation par Transfert, ou un Intercalaire s'empare de la position souveraine par Transformation, §5.5.1, §6.9) ; **La Maison des Vrais Monarques** (🔎 trois Vrais Monarques du clan vivants en même temps, §5.5) ; **La Lignée d'Or** (🔎 trois générations de suite comptent chacune un Vrai Monarque, §5.5.2, §11.6) ; **La Grande Culmination** (un membre à l'Immortel Doré, §5.7 — définie, mais atteignable seulement quand l'utilisateur aura décidé la progression de ce royaume, §11.8).
+- *Le clan et le monde* : **L'Unification du Lac** (📚 wiki : le lac unifié autour de son île centrale, Cuidao ; les cinq autres familles du lac — Lou, Fang, Lü, Tao, Kang — absorbées ou vassales) ; **La Dette des Douze Portes** (venger Mo Qianshui, §12 : 🔎 au moins six des onze sectes et portes vassales ou détruites) ; **L'Hégémonie de Linxi** (🔎 première force de guerre de Linxi et au moins trois vassaux pendant dix ans) ; **La Lignée Millénaire** (la lignée tient mille ans) ; **La Double Maison** (📚 wiki : le clan fonde sa secte, les cultivateurs dans les pics, les mortels dans la ville).
+- *Suites du lore* (définies maintenant, atteignables avec leur phase) : **Le Retour de l'Ancêtre** (R9, L6) ; **Le Legs du Noyau** (R22, L6) ; **La Voie Impériale** (R20, L7 : le clan fonde un État) ; **Les Autres Daos** (L7 : un Vénérable bouddhiste, un Noyau Divin ou un Dao du Diable accompli dans le clan).
+
+La victoire « 10 générations + 1 ascension » disparaît : les générations deviennent des jalons des Annales. Les autres hauts faits (Grand Vide traversé, démon d'essence métallique soumis, pacte avec un grand partenaire, avant-poste en Mer Orientale…) restent des jalons, pas des fins. Les défaites ne changent pas (lignée éteinte, miroir saisi, clan absorbé par son suzerain).
+- **Un Embryon du Dao ne quitte pas le monde** (décision de l'utilisateur, 2026-09-30) : le membre qui l'atteint reste vivant, dans le clan et dans le monde. Le départ des Embryons du Dao vers le Ciel Extérieur (§5.8, §12) reste un fait de l'histoire du monde, pas une règle du clan.
+
 ---
 
 ## 12. Chronologie (renommée)
