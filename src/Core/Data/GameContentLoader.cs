@@ -196,7 +196,8 @@ namespace MirrorChronicles.Data
             var shards = balance.Shards;
             Require(shards != null && new[] { shards.LakeSearchChance, shards.RuinsRevealChance, shards.ExpeditionBaseChance, shards.ExpeditionMinChance,
                     shards.ExpeditionMaxChance, shards.ExpeditionDeathChance, shards.ExpeditionWoundChance, shards.TheftBaseChance,
-                    shards.TheftMinChance, shards.TheftMaxChance, shards.TheftCaughtChance, shards.TradePriceShare }.All(IsProbability)
+                    shards.TheftMinChance, shards.TheftMaxChance, shards.TheftCaughtChance, shards.TradePriceShare, shards.VoidSearchChance,
+                    shards.VoidDeathChance }.All(IsProbability)
                 && shards.TheftMinChance <= shards.TheftMaxChance
                 && new[] { shards.TheftEvidence, shards.CaughtClues, shards.WarClues, shards.VassalClues, shards.TradeClues,
                     shards.VassalRelationLoss, shards.TradeMinPrice }.All(n => n >= 0)

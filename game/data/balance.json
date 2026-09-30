@@ -464,7 +464,9 @@
     "vassalRelationLoss": 20,
     "tradeMinRelation": 30,
     "tradePriceShare": 0.2,
-    "tradeMinPrice": 500
+    "tradeMinPrice": 500,
+    "voidSearchChance": 0.25,
+    "voidDeathChance": 0.1
   },
   "talismans": {
     "ritualPeriodYears": 20,

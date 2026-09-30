@@ -13,7 +13,8 @@ namespace MirrorChronicles.Mirror
     /// two in ruins, three held by powers, one in the Great Void. Each one recovered restores the mirror, gives back its
     /// memory (a technique, facts, a clue to the mirror's origin), and puts the spirit to sleep while it integrates it.
     /// The lake's shard is dredged up by the clan's searchers (B3c1); a discovery of ruins may reveal ruins holding one,
-    /// which an expedition brings back (B3c2).
+    /// which an expedition brings back (B3c2); the powers' shards are <see cref="PowerShards"/> (B3c3); the last lies in the
+    /// Great Void, sought once the six others are integrated (B3c4).
     /// </summary>
     public sealed class ShardSystem
     {
@@ -145,6 +146,42 @@ namespace MirrorChronicles.Mirror
             double strength = powers[0] + powers.Skip(1).Sum() * s.ExpeditionHelpShare;
             double guardian = HuntRules.Power(shard.GuardRealm, 5);
             return System.Math.Clamp(s.ExpeditionBaseChance + (strength - guardian) * s.ExpeditionChancePerPower, s.ExpeditionMinChance, s.ExpeditionMaxChance);
+        }
+
+        // ---- The Great Void (B3c4) ----
+
+        /// <summary>📚 The mirror dwells in the Great Void again once a shard that opens it is integrated (the Jade Buckle).</summary>
+        public bool CanTraverseVoid => ctx.Content.Shards.Any(s => s.OpensGreatVoid && IsRecovered(s.Id));
+
+        private ShardDefinition VoidShard => ctx.Content.Shards.FirstOrDefault(s => s.Source == ShardSource.GreatVoid);
+
+        /// <summary>
+        /// A year's search of the Great Void for the last shard (LORE.md §5.8): once the six others are integrated, by a member
+        /// of the Purple Mansion or above, guided by the waking mirror; the Void's demons may take the seeker.
+        /// </summary>
+        public ExpeditionOutcome VoidSearch(string memberId)
+        {
+            var seeker = clan.FindById(memberId);
+            var shard = VoidShard;
+            string refusal = shard == null || IsRecovered(shard.Id) ? "le Grand Vide ne cache plus d'éclat"
+                : ctx.Content.Shards.Any(s => s.Id != shard.Id && !IsRecovered(s.Id)) ? "le miroir ne sent le dernier éclat qu'une fois les six autres intégrés"
+                : !CanTraverseVoid ? "le miroir ne sait plus traverser le Grand Vide"
+                : mirror.IsAsleep ? "le miroir dort : il intègre un éclat"
+                : seeker == null || !seeker.IsAlive || seeker.CaptorFaction != null ? "ce membre n'est pas libre"
+                : seeker.Realm < CultivationRealm.PurpleMansion ? "le Grand Vide ne s'ouvre qu'à partir du Manoir Pourpre"
+                : seeker.LastOperationYear == ctx.Clock.Year ? "ce membre a déjà mené une opération cette année"
+                : null;
+            if (refusal != null) return new ExpeditionOutcome(false, false, refusal);
+
+            seeker.LastOperationYear = ctx.Clock.Year;
+            if (ctx.Rng.Chance(Settings.VoidSearchChance))
+            {
+                Recover(shard.Id);
+                return new ExpeditionOutcome(true, true, null);
+            }
+            if (ctx.Rng.Chance(Settings.VoidDeathChance)) clan.Kill(seeker, DeathCause.Combat);
+            ctx.Log.Info($"[Shards] {seeker.FullName} searches the Great Void in vain.");
+            return new ExpeditionOutcome(true, false, null);
         }
 
         public void RestoreRuins(IEnumerable<string> saved)

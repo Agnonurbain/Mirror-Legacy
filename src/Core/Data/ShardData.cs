@@ -25,6 +25,7 @@ namespace MirrorChronicles.Data
         public ShardSource Source { get; init; }
         public int SleepYears { get; init; }
         public CultivationRealm GuardRealm { get; init; } // what guards ruins (the realm an expedition measures itself against)
+        public bool OpensGreatVoid { get; init; }          // 📚 the Jade Buckle gives the mirror back the Great Void
         public ShardMemory Memory { get; init; } = new ShardMemory();
         public string Notes { get; init; }
         public Provenance Provenance { get; init; }
@@ -73,5 +74,9 @@ namespace MirrorChronicles.Data
         public int TradeMinRelation { get; init; }
         public double TradePriceShare { get; init; }
         public int TradeMinPrice { get; init; }
+
+        /// <summary>A year's search of the Great Void for the last shard: the chance to find it, and to be lost among its demons (🔎).</summary>
+        public double VoidSearchChance { get; init; }
+        public double VoidDeathChance { get; init; }
     }
 }

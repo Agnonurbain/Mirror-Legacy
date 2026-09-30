@@ -28,7 +28,7 @@
     "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears", "GuardRealm" ]
   },
   {
-    "id": "jade-buckle", "name": "la Boucle de Jade", "source": "Power", "sleepYears": 2,
+    "id": "jade-buckle", "name": "la Boucle de Jade", "source": "Power", "sleepYears": 2, "opensGreatVoid": true,
     "memory": {
       "facts": [],
       "clue": "Le miroir se souvient du Grand Vide : il y a déjà demeuré, relié à un autel, et voyageait d'une ombre à l'autre."
