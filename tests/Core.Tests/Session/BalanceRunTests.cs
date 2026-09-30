@@ -23,7 +23,7 @@ namespace MirrorChronicles.Tests.Session
             Assert.AreEqual(first, again, "the same seed, the same story");
             Assert.AreEqual(session.Clan.LivingMembers.Count, first.Members);
             Assert.AreEqual(session.Factions.Factions.Count, first.Powers);
-            Assert.IsTrue(first.Years == 15 || first.Lost || first.Won, "every year played, unless the game ended");
+            Assert.IsTrue(first.Years == 15 || first.Lost, "every year played, unless the line fell");
         }
 
         [Test]

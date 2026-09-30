@@ -81,9 +81,9 @@ namespace MirrorChronicles.Session
         public MarriageAlliance Matches { get; }
         public EventManager RandomEvents { get; }
         public LegacySystem Legacy { get; }
-        public AscensionSystem Ascension { get; }
         public StoryEventManager Story { get; }
         public VictoryConditionSystem Victory { get; }
+        public ClanAnnals Annals { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -142,9 +142,9 @@ namespace MirrorChronicles.Session
             Matches = new MarriageAlliance(Context, Clan, Factions, Treaties, Marriages, Suspicion);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
-            Ascension = new AscensionSystem(Context, Clan);
             Story = new StoryEventManager(Context, Clan, Resources, Stability, Factions);
-            Victory = new VictoryConditionSystem(Context, Clan, Karma, Ascension);
+            Victory = new VictoryConditionSystem(Context, Clan);
+            Annals = new ClanAnnals(Context, Clan, Karma);
         }
 
         /// <summary>A new game: the clan's knowledge and Qi, the founders, the known world and its lineages, the mirror's first two fragments.</summary>
@@ -158,6 +158,7 @@ namespace MirrorChronicles.Session
             foreach (var (qi, portions) in content.Clan.StartingQi) session.Resources.AddQi(qi, portions);
             FoundingClan.Found(session.Clan, content.Clan, session.Techniques, session.Context.Rng);
             session.Karma.Restore(1, 0, 0, session.Clan.PatriarchID);
+            session.Annals.Restore(null, 1, session.Clan.Registry.Records); // the founders' realms are no milestone
             session.Factions.InitializeFactions();
             session.Fruitions.DrawWorld(FruitionRegistry.WorldRandom(setup.Seed));
             session.Bestiary.Draw(BeastRegistry.WorldRandom(setup.Seed));
@@ -216,7 +217,6 @@ namespace MirrorChronicles.Session
             session.Resources.Restore(data.SpiritStones, data.MedicinalHerbs, data.SpiritualOres, data.Prestige, data.TechniqueFragments);
             session.Mirror.Restore(data.MirrorPower, data.RestoredFragments);
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
-            session.Ascension.Restore(data.AscendedAncestors);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
             else session.Factions.InitializeFactions();
@@ -270,7 +270,8 @@ namespace MirrorChronicles.Session
             session.Talismans.RestoreCalendar(data.NextRitualYear ?? (data.CurrentYear + period - 1) / period * period);
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
-            session.Victory.Restore(data.GameWon, data.GameLost);
+            session.Victory.Restore(data.GameLost); // a game « won » under the old rule goes on: there is no forced victory now
+            session.Annals.Restore(data.Annals, session.Karma.GenerationCount, records); // none before 2.21
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan resumes in year {session.Clock.Year}.");
             return session;
@@ -329,6 +330,7 @@ namespace MirrorChronicles.Session
                 PendingChallenge = Challenges.Pending,
                 Impoverished = Upkeep.Impoverished,
                 DaoPreys = DaoHunts.Known.ToList(),
+                Annals = Annals.Entries.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -337,12 +339,10 @@ namespace MirrorChronicles.Session
                 TotalBirths = Karma.TotalBirths,
                 TotalDeaths = Karma.TotalDeaths,
                 LastPatriarchId = Karma.LastPatriarchId,
-                AscendedAncestors = Ascension.AscendedAncestorsCount,
                 Buildings = Buildings.Buildings.Select(b => new BuildingData(b.Type) { Level = b.Level }).ToList(),
                 Factions = Factions.Factions.Select(f => f.Clone()).ToList(),
                 TriggeredStoryEvents = Story.TriggeredEvents.ToList(),
                 PendingStoryEvents = Story.PendingTriggers.ToList(),
-                GameWon = Victory.GameWon,
                 GameLost = Victory.GameLost
             };
         }

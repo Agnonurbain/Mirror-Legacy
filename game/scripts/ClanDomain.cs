@@ -132,8 +132,7 @@ namespace MirrorChronicles.Game
             ShowChronicle();
 
             bool over = session.Victory.IsOver;
-            status.Text = session.Victory.GameWon ? "La lignée est devenue éternelle."
-                : session.Victory.GameLost ? "La lignée s'est éteinte." : "";
+            status.Text = over ? "La lignée s'est éteinte." : "";
             nextPhase.Disabled = over || session.Story.PendingEvent != null; // a story event waits for a choice
         }
 

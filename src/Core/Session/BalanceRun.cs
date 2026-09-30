@@ -12,7 +12,7 @@ namespace MirrorChronicles.Session
 {
     /// <summary>What befell the clan and the powers in one automatic game (counts for the whole run, and the final state).</summary>
     public sealed record BalanceReport(
-        int Seed, int Years, bool Won, bool Lost, int Members, int Powers, int Stones, CultivationRealm BestRealm,
+        int Seed, int Years, bool Lost, int Members, int Powers, int Stones, CultivationRealm BestRealm,
         int Strikes, int Captures, int Coalitions, int ClanWars, int PowerWars, int Peaces, int Absorptions,
         int Betrayals, int Blackmails, int Thefts, int ProbesSpotted, int Challenges, int Deaths, int CombatDeaths, int PoorYears,
         int Cultivators, int Devoured, int Extortions, int Foiled, int Hunts, int BeastsTaken);
@@ -67,7 +67,7 @@ namespace MirrorChronicles.Session
             session = s;
             int Get(string key) => counts.TryGetValue(key, out int n) ? n : 0;
             var living = s.Clan.LivingMembers.ToList();
-            return new BalanceReport(seed, s.Clock.Year - start, s.Victory.GameWon, s.Victory.GameLost, living.Count,
+            return new BalanceReport(seed, s.Clock.Year - start, s.Victory.GameLost, living.Count,
                 s.Factions.Factions.Count, s.Resources.SpiritStones,
                 living.Count == 0 ? CultivationRealm.Embryonic : living.Max(m => m.Realm),
                 Get("strike"), Get("capture"), Get("coalition"), Get("clanWar"), Get("powerWar"), Get("peace"), Get("absorption"),

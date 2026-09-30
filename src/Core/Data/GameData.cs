@@ -9,13 +9,13 @@ namespace MirrorChronicles.Data
     /// Version 2.1 adds the techniques of LORE.md §2 (knowledge, Qi); older saves receive the clan's
     /// starting knowledge on load. Version 2.2 adds the state of the Dao lineages (§6.8); 2.3 the
     /// clan's knowledge (its known techniques now live there); 2.4 the oaths; 2.5 the Golden Core's
-    /// permissions; 2.6 the talisman Qi (prayers, an offer awaiting a choice); 2.7 the captured beasts; 2.8 the world's beasts; 2.9 the powers' hidden suspicion and distrust; 2.10 the agents the clan holds (its captives ride on the members); 2.11 the clan's treaties; 2.12 the powers' bonds, a coalition, a call to arms; 2.13 blackmail (spies ride on the members); 2.14 the secrets, the clues gathered, the targets' vigilance; 2.15 the clan's own distrust; 2.16 the pacts with great partners; 2.17 open wars; 2.18 a rival's challenge awaiting its answer; 2.19 a poor year; 2.20 what the hunters know of the clan's ripe Daos. Field names never
+    /// permissions; 2.6 the talisman Qi (prayers, an offer awaiting a choice); 2.7 the captured beasts; 2.8 the world's beasts; 2.9 the powers' hidden suspicion and distrust; 2.10 the agents the clan holds (its captives ride on the members); 2.11 the clan's treaties; 2.12 the powers' bonds, a coalition, a call to arms; 2.13 blackmail (spies ride on the members); 2.14 the secrets, the clues gathered, the targets' vigilance; 2.15 the clan's own distrust; 2.16 the pacts with great partners; 2.17 open wars; 2.18 a rival's challenge awaiting its answer; 2.19 a poor year; 2.20 what the hunters know of the clan's ripe Daos; 2.21 the clan's Annals (B3: the old victory and the ascended ancestors are read no more). Field names never
     /// change: older saves must keep loading.
     /// </summary>
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.20";
+        public const string CurrentVersion = "2.21";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -88,13 +88,14 @@ namespace MirrorChronicles.Data
         public Challenge PendingChallenge { get; set; }              // 2.18: a rival's challenge awaiting the clan's answer
         public bool Impoverished { get; set; }                       // 2.19: this year's upkeep fell short
         public List<DaoPrey> DaoPreys { get; set; }                  // 2.20: the hunters that learnt a Dao of the clan is ripe
+        public List<AnnalEntry> Annals { get; set; }                 // 2.21: the clan's milestones (LORE.md §11.9)
 
         // Lineage
         public int GenerationCount { get; set; } = 1;
         public int TotalBirths { get; set; }
         public int TotalDeaths { get; set; }
         public string LastPatriarchId { get; set; }
-        public int AscendedAncestors { get; set; }
+        public int AscendedAncestors { get; set; }  // before 2.21, read no more: a Dao Embryo now stays in the world
 
         // World
         public List<BuildingData> Buildings { get; set; }
@@ -103,7 +104,7 @@ namespace MirrorChronicles.Data
         public List<StoryTriggerType> PendingStoryEvents { get; set; }
 
         // Outcome
-        public bool GameWon { get; set; }
+        public bool GameWon { get; set; }           // before 2.21, read no more: there is no forced victory
         public bool GameLost { get; set; }
     }
 }

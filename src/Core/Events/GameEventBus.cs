@@ -23,12 +23,12 @@ namespace MirrorChronicles.Events
         // Character lifecycle
         public event Action<CharacterData> OnCharacterBorn;               // newborns and members joining the clan
         public event Action<CharacterData, DeathCause> OnCharacterDied;
-        public event Action<CharacterData> OnAncestorAscended;
 
         // Cultivation
         public event Action<CharacterData, CultivationRealm> OnBreakthroughSuccess;
         public event Action<CharacterData> OnBreakthroughFailed;
         public event Action<CharacterData> OnMetalEssenceDemon;
+        public event Action<CharacterData, GoldenCoreState, GoldenCoreState> OnPositionTaken; // member, position, the standing it rose from
         public event Action<string> OnMirrorSeized;                          // a power seized the mirror: the game is lost (§11.9)
         public event Action<CharacterData, string> OnMemberCaptured;         // a power holds a member (L6a)
         public event Action<CharacterData> OnMemberFreed;
@@ -59,15 +59,15 @@ namespace MirrorChronicles.Events
         // Events & outcome
         public event Action<RandomEventData> OnRandomEventOccurred;
         public event Action<StoryEventData> OnStoryEventRaised;
-        public event Action<bool> OnGameOver;                              // true: victory, false: defeat
+        public event Action OnGameOver;                                    // a defeat (§11.9): the dynastic endings never end the game
 
         public void TriggerYearStarted(int year) => OnYearStarted?.Invoke(year);
         public void TriggerPhaseChanged(GamePhase phase) => OnPhaseChanged?.Invoke(phase);
         public void TriggerCharacterBorn(CharacterData character) => OnCharacterBorn?.Invoke(character);
         public void TriggerCharacterDied(CharacterData character, DeathCause cause) => OnCharacterDied?.Invoke(character, cause);
-        public void TriggerAncestorAscended(CharacterData character) => OnAncestorAscended?.Invoke(character);
         public void TriggerBreakthroughSuccess(CharacterData character, CultivationRealm newRealm) => OnBreakthroughSuccess?.Invoke(character, newRealm);
         public void TriggerMetalEssenceDemon(CharacterData character) => OnMetalEssenceDemon?.Invoke(character);
+        public void TriggerPositionTaken(CharacterData member, GoldenCoreState position, GoldenCoreState from) => OnPositionTaken?.Invoke(member, position, from);
         public void TriggerMirrorSeized(string faction) => OnMirrorSeized?.Invoke(faction);
         public void TriggerMemberCaptured(CharacterData member, string faction) => OnMemberCaptured?.Invoke(member, faction);
         public void TriggerMemberFreed(CharacterData member) => OnMemberFreed?.Invoke(member);
@@ -95,6 +95,6 @@ namespace MirrorChronicles.Events
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);
         public void TriggerStoryEventRaised(StoryEventData evt) => OnStoryEventRaised?.Invoke(evt);
-        public void TriggerGameOver(bool victory) => OnGameOver?.Invoke(victory);
+        public void TriggerGameOver() => OnGameOver?.Invoke();
     }
 }
