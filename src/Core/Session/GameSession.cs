@@ -86,6 +86,7 @@ namespace MirrorChronicles.Session
         public ClanAnnals Annals { get; }
         public DynasticEndings Endings { get; }
         public ShardSystem Shards { get; }
+        public PowerShards PowerShards { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -132,6 +133,7 @@ namespace MirrorChronicles.Session
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
+            PowerShards = new PowerShards(Context, Clan, Factions, SecretBook, Suspicion, Lore, Treaties, Resources, Shards);
             Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
@@ -167,6 +169,7 @@ namespace MirrorChronicles.Session
             session.Fruitions.DrawWorld(FruitionRegistry.WorldRandom(setup.Seed));
             session.Bestiary.Draw(BeastRegistry.WorldRandom(setup.Seed));
             session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(setup.Seed), session.Factions.Factions);
+            session.PowerShards.Place(PowerShards.WorldRandom(setup.Seed)); // three shards lie with three powers (B3c3)
             session.Deduction.AddFragment(Element.Fire, 1, "Rouleau calciné");
             session.Deduction.AddFragment(Element.Wood, 1, "Lamelle de bambou");
 
@@ -260,6 +263,7 @@ namespace MirrorChronicles.Session
             session.Intrigues.RestoreDemands(data.Demands, data.QuietUntil); // none in saves before 2.13
             session.SecretBook.Restore(data.SecretsHeld, data.SecretProgress);
             if (data.SecretsHeld == null) session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(data.Seed), session.Factions.Factions); // before 2.14
+            session.PowerShards.Place(PowerShards.WorldRandom(data.Seed)); // saves before 2.21: the powers' shards placed now
             session.Probes.RestoreAlertness(data.Alertness);
             session.Suspicion.RestoreClanDistrust(data.ClanDistrust); // none in saves before 2.15
             session.Dealings.RestoreSpent(data.SpentSecrets);

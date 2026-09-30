@@ -53,5 +53,25 @@ namespace MirrorChronicles.Data
         /// <summary>A failed expedition: the chance the weakest dies, and each other member's chance of a Dao wound (🔎).</summary>
         public double ExpeditionDeathChance { get; init; }
         public double ExpeditionWoundChance { get; init; }
+
+        /// <summary>A theft's odds against the holder's guard, and on failure the chance the thief is caught and the proof left (🔎).</summary>
+        public double TheftBaseChance { get; init; }
+        public double TheftChancePerPower { get; init; }
+        public double TheftMinChance { get; init; }
+        public double TheftMaxChance { get; init; }
+        public double TheftCaughtChance { get; init; }
+        public int TheftEvidence { get; init; }
+
+        /// <summary>The clues on the mirror each taking leaves its holder (🔎): a thief caught, loot of war, a vassal's due, a trade.</summary>
+        public int CaughtClues { get; init; }
+        public int WarClues { get; init; }
+        public int VassalClues { get; init; }
+        public int TradeClues { get; init; }
+
+        /// <summary>A vassal made to hand a shard over resents it; a holder sells to a clan it likes enough, for a share of its wealth (🔎).</summary>
+        public int VassalRelationLoss { get; init; }
+        public int TradeMinRelation { get; init; }
+        public double TradePriceShare { get; init; }
+        public int TradeMinPrice { get; init; }
     }
 }

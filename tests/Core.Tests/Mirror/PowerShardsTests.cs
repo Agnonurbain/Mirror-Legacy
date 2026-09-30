@@ -169,12 +169,13 @@ namespace MirrorChronicles.Tests.Mirror
         [Test]
         public void AHolderThatKnowsTheMirror_UnderstandsAtOnce()
         {
-            var probe = new TestWorld();
-            var knower = Fixtures.Content.Factions.Select(f => f.Name).FirstOrDefault(name => { probe.Factions.AddFaction(Fixtures.Content.Factions.First(f => f.Name == name).Clone()); return probe.Lore.Knows(name); });
-            Assume.That(knower, Is.Not.Null, "the fixture's world seed must hold a power that knows the mirror");
-
+            // A Golden Immortal's power most likely has an elder who knows the mirror (MirrorLore): the first such name drawn
             var w = new TestWorld(new FixedRandom(Pass));
-            foreach (var f in Fixtures.Content.Factions) w.Factions.AddFaction(f.Clone());
+            string knower = Enumerable.Range(0, 50).Select(i => $"Palais Céleste {i}").First(name =>
+            {
+                w.Factions.AddFaction(new FactionData { Name = name, Kind = FactionKind.Order, RegionId = "linxi", HighestRealm = CultivationRealm.GoldenImmortal });
+                return w.Lore.Knows(name);
+            });
             w.SecretBook.Grant(SecretBook.ClanHolder, w.PowerShards.Hide(AShard, knower).Id);
             w.Treaties.Conclude(new Treaty("v", TreatyKind.Vassalage, knower, 1, null, false, false, true));
 

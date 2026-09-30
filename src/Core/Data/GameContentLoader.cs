@@ -195,7 +195,11 @@ namespace MirrorChronicles.Data
             Require(odds != null, BalanceFile, "orificeOdds is missing.");
             var shards = balance.Shards;
             Require(shards != null && new[] { shards.LakeSearchChance, shards.RuinsRevealChance, shards.ExpeditionBaseChance, shards.ExpeditionMinChance,
-                    shards.ExpeditionMaxChance, shards.ExpeditionDeathChance, shards.ExpeditionWoundChance }.All(IsProbability)
+                    shards.ExpeditionMaxChance, shards.ExpeditionDeathChance, shards.ExpeditionWoundChance, shards.TheftBaseChance,
+                    shards.TheftMinChance, shards.TheftMaxChance, shards.TheftCaughtChance, shards.TradePriceShare }.All(IsProbability)
+                && shards.TheftMinChance <= shards.TheftMaxChance
+                && new[] { shards.TheftEvidence, shards.CaughtClues, shards.WarClues, shards.VassalClues, shards.TradeClues,
+                    shards.VassalRelationLoss, shards.TradeMinPrice }.All(n => n >= 0)
                 && shards.ExpeditionMinChance <= shards.ExpeditionMaxChance && shards.ExpeditionMaxTeam >= 1,
                 BalanceFile, "shards: its chances lie between 0 and 1, the least below the most, and an expedition takes someone.");
             Require(IsProbability(odds.Commoner) && IsProbability(odds.OneParent) && IsProbability(odds.TwoParents),

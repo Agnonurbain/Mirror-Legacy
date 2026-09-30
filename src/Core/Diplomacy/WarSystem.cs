@@ -226,6 +226,7 @@ namespace MirrorChronicles.Diplomacy
                 enemy.Wealth -= tribute;
                 resources.AddSpiritStones(tribute);
                 MakePeace(war);
+                ctx.Events.TriggerClanWarWon(enemy.Name);
                 return;
             }
             ClanBattle(war, enemy);
