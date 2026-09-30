@@ -51,5 +51,39 @@ namespace MirrorChronicles.Tests.Session
             StringAssert.Contains("vide", slots[2].Label);
             Assert.IsFalse(slots[2].CanContinue);
         }
+
+        // ---- Review: nothing on the title screen may crash, nothing may be lost ----
+
+        [Test]
+        public void ASaveWithHolesInItsRecords_IsStillSummedUp()
+        {
+            var summary = SaveSummary.Read("{ \"ClanName\": \"Mo\", \"CurrentYear\": 4, \"HistoricalRecords\": [null] }");
+            Assert.IsNotNull(summary);
+            Assert.AreEqual(0, summary.Living);
+        }
+
+        [Test]
+        public void AnEmptyFile_IsUnreadable_NotAnEmptySlot()
+        {
+            var slot = TitleView.Slots(i => i == 1 ? "" : null)[0];
+            StringAssert.Contains("illisible", slot.Label, "a file that reads empty is not an empty slot: never overwrite it unasked");
+            Assert.IsFalse(slot.IsEmpty);
+        }
+
+        [Test]
+        public void AnInconsistentSave_IsRefused_WithAReason_NotACrash()
+        {
+            var session = GameSession.TryLoad("{ \"SaveVersion\": \"2.20\", \"HistoricalRecords\": [null] }", Fixtures.Setup(), out string error);
+            Assert.IsNull(session);
+            Assert.IsNotNull(error);
+        }
+
+        [Test]
+        public void AGoodSave_Loads()
+        {
+            var session = GameSession.TryLoad(SavedGame(1), Fixtures.Setup(), out string error);
+            Assert.IsNotNull(session, error);
+            Assert.IsNull(error);
+        }
     }
 }
