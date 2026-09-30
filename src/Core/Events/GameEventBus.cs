@@ -59,6 +59,7 @@ namespace MirrorChronicles.Events
         // Events & outcome
         public event Action<RandomEventData> OnRandomEventOccurred;
         public event Action<StoryEventData> OnStoryEventRaised;
+        public event Action OnSectFounded;                                 // the clan founds its sect (B3d)
         public event Action<string> OnClanWarWon;                          // an enemy of the clan yields (B3c3: its loot)
         public event Action<ShardDefinition> OnRuinsRevealed;               // ruins found to hold a shard (B3c2)
         public event Action<ShardDefinition> OnShardRecovered;              // a shard of the mirror comes back (§11.5)
@@ -99,6 +100,7 @@ namespace MirrorChronicles.Events
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);
         public void TriggerStoryEventRaised(StoryEventData evt) => OnStoryEventRaised?.Invoke(evt);
+        public void TriggerSectFounded() => OnSectFounded?.Invoke();
         public void TriggerClanWarWon(string enemy) => OnClanWarWon?.Invoke(enemy);
         public void TriggerRuinsRevealed(ShardDefinition shard) => OnRuinsRevealed?.Invoke(shard);
         public void TriggerShardRecovered(ShardDefinition shard) => OnShardRecovered?.Invoke(shard);

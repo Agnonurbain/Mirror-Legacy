@@ -193,6 +193,7 @@ namespace MirrorChronicles.Data
         {
             var odds = balance.OrificeOdds;
             Require(odds != null, BalanceFile, "orificeOdds is missing.");
+            Require(balance.Sect != null && balance.Sect.MinCultivators >= 0 && balance.Sect.FoundingStones >= 0, BalanceFile, "sect: its needs are counts of zero or more.");
             var shards = balance.Shards;
             Require(shards != null && new[] { shards.LakeSearchChance, shards.RuinsRevealChance, shards.ExpeditionBaseChance, shards.ExpeditionMinChance,
                     shards.ExpeditionMaxChance, shards.ExpeditionDeathChance, shards.ExpeditionWoundChance, shards.TheftBaseChance,

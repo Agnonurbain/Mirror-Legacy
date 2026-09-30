@@ -19,6 +19,7 @@ namespace MirrorChronicles.Data
         Year,            // the line endures to Year
         MirrorShards,    // Count shards of the mirror restored
         AnyOf,           // one of AnyOf holds
+        SectFounded,     // the clan has founded its sect (B3d)
         Awaits           // a system still to come (the ending's Awaits says which): never holds meanwhile
     }
 

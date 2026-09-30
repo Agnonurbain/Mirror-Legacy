@@ -78,8 +78,7 @@
   {
     "id": "double-house", "name": "La Double Maison",
     "narrative": "Le clan est devenu une secte. Les cultivateurs montent vers les pics, les mortels descendent vers la ville ; chaque pic a son maître, et le clan ne dépend plus du talent d'un seul patriarche.",
-    "conditions": [ { "kind": "Awaits" } ],
-    "awaits": "la secte du clan (B3d)",
+    "conditions": [ { "kind": "SectFounded" } ],
     "source": "Wiki : le système du Pic et de la Ville de la famille du roman", "provenance": "Wiki", "interpretedFields": []
   },
   {

@@ -85,6 +85,7 @@ namespace MirrorChronicles.Session
         public VictoryConditionSystem Victory { get; }
         public ClanAnnals Annals { get; }
         public DynasticEndings Endings { get; }
+        public SectSystem Sect { get; }
         public ShardSystem Shards { get; }
         public PowerShards PowerShards { get; }
 
@@ -150,7 +151,8 @@ namespace MirrorChronicles.Session
             Story = new StoryEventManager(Context, Clan, Resources, Stability, Factions);
             Victory = new VictoryConditionSystem(Context, Clan);
             Annals = new ClanAnnals(Context, Clan, Karma);
-            Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory); // judged last
+            Sect = new SectSystem(Context, Clan, Resources);
+            Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory, Sect); // judged last
         }
 
         /// <summary>A new game: the clan's knowledge and Qi, the founders, the known world and its lineages, the mirror's first two fragments.</summary>
@@ -283,6 +285,7 @@ namespace MirrorChronicles.Session
             session.Victory.Restore(data.GameLost); // a game « won » under the old rule goes on: there is no forced victory now
             session.Annals.Restore(data.Annals, session.Karma.GenerationCount, records); // none before 2.21
             session.Endings.Restore(data.PositionMoves, data.EndingStreaks);
+            session.Sect.Restore(data.SectFoundedYear); // none before 2.21
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan resumes in year {session.Clock.Year}.");
             return session;
@@ -347,6 +350,7 @@ namespace MirrorChronicles.Session
                 Annals = Annals.Entries.ToList(),
                 PositionMoves = new Dictionary<string, string>(Endings.Moves),
                 EndingStreaks = new Dictionary<string, int>(Endings.Streaks),
+                SectFoundedYear = Sect.FoundedYear,
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null

@@ -245,6 +245,9 @@ namespace MirrorChronicles.Data
         /// <summary>The ritual of the talisman Qi: prayers, offers, leaps (§11.5; the ten thousand prayers are the lore's).</summary>
         public TalismanSettings Talismans { get; init; }
 
+        /// <summary>What founding the clan's sect asks (B3d; interpretations).</summary>
+        public SectSettings Sect { get; init; }
+
         /// <summary>How the mirror's shards are found (B3c; interpretations).</summary>
         public ShardSettings Shards { get; init; }
 

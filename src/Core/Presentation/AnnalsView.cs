@@ -16,6 +16,7 @@ namespace MirrorChronicles.Presentation
         {
             AnnalKind.EndingReached => EndingLine(entry, content),
             AnnalKind.ShardRecovered => ShardLine(entry, content),
+            AnnalKind.SectFounded => $"le clan fonde sa secte{(entry.Subject == null ? "" : " sous " + entry.Subject)} : les cultivateurs aux pics, les mortels à la ville.",
             AnnalKind.RealmReached => $"{entry.Subject} atteint {WithArticle((CultivationRealm)entry.Value)}, une première pour le clan.",
             AnnalKind.PositionTaken => $"{entry.Subject} obtient {FirstPosition((GoldenCoreState)entry.Value)}.",
             AnnalKind.Generation => $"la {entry.Value}e génération commence sous {entry.Subject ?? "un patriarche oublié"}.",

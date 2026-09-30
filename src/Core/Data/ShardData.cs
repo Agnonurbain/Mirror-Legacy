@@ -32,6 +32,14 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<string> InterpretedFields { get; init; } = Array.Empty<string>();
     }
 
+    /// <summary>What founding the clan's sect asks (balance.json « sect »; B3d; interpretations).</summary>
+    public sealed record SectSettings
+    {
+        public CultivationRealm MinRealm { get; init; }  // a member able to hold a peak
+        public int MinCultivators { get; init; }         // at the Qi Cultivation or above
+        public int FoundingStones { get; init; }         // the peaks' price
+    }
+
     /// <summary>How the shards are found (balance.json « shards »; interpretations).</summary>
     public sealed record ShardSettings
     {

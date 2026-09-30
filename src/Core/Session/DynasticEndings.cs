@@ -23,6 +23,7 @@ namespace MirrorChronicles.Session
         private readonly MirrorSystem mirror;
         private readonly ClanAnnals annals;
         private readonly VictoryConditionSystem victory;
+        private readonly Clan.SectSystem sect;
         private readonly Dictionary<string, string> moves = new Dictionary<string, string>(); // « from>to » → who first made it
         private readonly Dictionary<string, int> streaks = new Dictionary<string, int>();     // ending id → years a hegemony held in a row
 
@@ -30,7 +31,7 @@ namespace MirrorChronicles.Session
         public IReadOnlyDictionary<string, int> Streaks => streaks;
 
         public DynasticEndings(GameContext ctx, ClanManager clan, TreatySystem treaties, FactionManager factions, WarSystem wars,
-            MirrorSystem mirror, ClanAnnals annals, VictoryConditionSystem victory)
+            MirrorSystem mirror, ClanAnnals annals, VictoryConditionSystem victory, Clan.SectSystem sect)
         {
             this.ctx = ctx;
             this.clan = clan;
@@ -40,10 +41,12 @@ namespace MirrorChronicles.Session
             this.mirror = mirror;
             this.annals = annals;
             this.victory = victory;
+            this.sect = sect;
 
             ctx.Events.OnYearStarted += year => { CountHegemonies(); Check(); };
             ctx.Events.OnBreakthroughSuccess += (member, realm) => Check();
             ctx.Events.OnPositionTaken += PositionTaken;
+            ctx.Events.OnSectFounded += Check;
         }
 
         public bool IsReached(string endingId) =>
@@ -102,6 +105,7 @@ namespace MirrorChronicles.Session
                 EndingConditionKind.Year => ctx.Clock.Year >= c.Year,
                 EndingConditionKind.MirrorShards => mirror.RestoredFragments >= c.Count,
                 EndingConditionKind.AnyOf => AnyHolds(ending, c, ref who),
+                EndingConditionKind.SectFounded => sect.Founded,
                 _ => false // Awaits: a system still to come
             };
             if (holds && subject == null) subject = who;
