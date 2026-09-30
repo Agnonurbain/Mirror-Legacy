@@ -38,6 +38,7 @@ namespace MirrorChronicles.Game
         public override void _Ready()
         {
             root = GetNode<GameRoot>("/root/GameRoot");
+            if (root.RedirectWithoutSession(this)) return; // reached without a game
             ritual = GetNode<VBoxContainer>("%Ritual");
             hunt = GetNode<VBoxContainer>("%Hunt");
             secret = GetNode<VBoxContainer>("%Secret");

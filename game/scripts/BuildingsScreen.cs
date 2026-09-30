@@ -19,6 +19,7 @@ namespace MirrorChronicles.Game
         public override void _Ready()
         {
             root = GetNode<GameRoot>("/root/GameRoot");
+            if (root.RedirectWithoutSession(this)) return; // reached without a game
             stones = GetNode<Label>("%Stones");
             list = GetNode<VBoxContainer>("%List");
             status = GetNode<Label>("%Status");

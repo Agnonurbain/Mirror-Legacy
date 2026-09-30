@@ -35,6 +35,7 @@ namespace MirrorChronicles.Game
         public override void _Ready()
         {
             root = GetNode<GameRoot>("/root/GameRoot");
+            if (root.RedirectWithoutSession(this)) return; // reached without a game
             back = GetNode<Button>("%Back");
             prep = GetNode<Control>("%Prep");
             summons = GetNode<Label>("%Summons");
