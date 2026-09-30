@@ -29,13 +29,14 @@ namespace MirrorChronicles.Presentation
         }
 
         public static Portrait For(GameSession session, string memberId) =>
-            session.Clan.FindById(memberId) is { } member ? Of(member) : null;
+            session?.Clan.FindById(memberId) is { } member ? Of(member) : null;
 
         private static AgeBracket AgeOf(CharacterData member)
         {
             if (member.Age < ChildUntil) return AgeBracket.Child;
             if (member.Age < YouthUntil) return AgeBracket.Youth;
-            double lived = member.MaxLifespan <= 0 ? 1 : member.Age / (double)member.MaxLifespan;
+            if (member.MaxLifespan <= 0) return AgeBracket.Adult; // a lifespan unknown: not ancient
+            double lived = member.Age / (double)member.MaxLifespan;
             return lived < AdultUntil ? AgeBracket.Adult : lived < MatureUntil ? AgeBracket.Mature : AgeBracket.Elder;
         }
 

@@ -41,16 +41,18 @@ namespace MirrorChronicles.Game
             ContentMarginLeft = 10, ContentMarginRight = 10, ContentMarginTop = 5, ContentMarginBottom = 5
         };
 
-        /// <summary>Lays worn bronze over the project theme's buttons and dropdowns (normal and hover).</summary>
+        /// <summary>Lays worn bronze over the project theme's buttons and dropdowns (normal, hover, disabled).</summary>
         public static void Apply(Theme theme)
         {
             if (theme == null) return;
             var normal = Style(Build(new Color(0.80f, 0.69f, 0.50f), 11));
             var hover = Style(Build(new Color(0.72f, 0.60f, 0.40f), 12));
+            var disabled = Style(Build(new Color(0.84f, 0.80f, 0.71f), 13)); // dulled, the patina all but gone
             foreach (var type in new[] { "Button", "OptionButton" })
             {
                 theme.SetStylebox("normal", type, normal);
                 theme.SetStylebox("hover", type, hover);
+                theme.SetStylebox("disabled", type, disabled); // pressed stays the seal's red (shuimo.tres)
             }
         }
     }

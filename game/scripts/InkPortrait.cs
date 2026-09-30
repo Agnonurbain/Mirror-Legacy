@@ -92,25 +92,4 @@ namespace MirrorChronicles.Game
                 canvas.DrawArc(head + new Vector2(0, -r * 0.35f), r * 0.35f, Mathf.Pi * 1.2f, Mathf.Pi * 1.8f, 8, Alpha(Ink, 0.45f), 0.8f, true);
         }
     }
-
-    /// <summary>A portrait as a control, for the roster.</summary>
-    public partial class PortraitIcon : Control
-    {
-        private Portrait portrait;
-
-        public PortraitIcon(Portrait portrait)
-        {
-            this.portrait = portrait;
-            CustomMinimumSize = new Vector2(40, 48);
-            MouseFilter = MouseFilterEnum.Ignore;
-            SizeFlagsVertical = SizeFlags.ShrinkCenter;
-        }
-
-        public PortraitIcon() { }
-
-        public override void _Draw()
-        {
-            if (portrait != null) InkPortrait.Draw(this, new Rect2(Vector2.Zero, Size), portrait);
-        }
-    }
 }

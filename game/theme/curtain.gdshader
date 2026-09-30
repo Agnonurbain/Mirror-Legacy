@@ -28,7 +28,8 @@ void fragment()
 
     // a red seal on each panel's inner edge, at mid-height
     float edge = left ? reach : 1.0 - reach;
-    vec2 local = vec2((UV.x - edge) * 1.78 * (left ? -1.0 : 1.0), UV.y - 0.5);
+    float aspect = SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;   // width over height, whatever the window
+    vec2 local = vec2((UV.x - edge) * aspect * (left ? -1.0 : 1.0), UV.y - 0.5);
     vec2 box = abs(local - vec2(0.045, 0.0));
     if (box.x < 0.04 && box.y < 0.075)
     {
