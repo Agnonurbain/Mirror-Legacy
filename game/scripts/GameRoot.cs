@@ -75,6 +75,7 @@ namespace MirrorChronicles.Game
             SmokeEndsOnMap = args.Contains("--map") || SmokeEndsOnOperations; // the operations are reached through the map
             ScreenshotPath = args.Where(a => a.StartsWith(ScreenshotArgument)).Select(a => a.Substring(ScreenshotArgument.Length)).FirstOrDefault();
             content = GameContentLoader.Load(ReadDataFile); // unplayable content stops the game at startup, naming the file
+            AddChild(new PaperBackdrop()); // rice paper behind every screen (Shuimo)
 
             if (IsSmokeRun) Start(GameSession.NewGame(Setup(SmokeSeed)), slot: 0); // never saved
             else AdoptLegacySave();
