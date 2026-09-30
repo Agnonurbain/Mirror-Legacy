@@ -255,6 +255,7 @@
   },
   "daoHunts": {
     "hunterMinRealm": "PurpleMansion",
+    "covetChance": 0.03,
     "learnChance": 0.1,
     "awayExposure": 2.0,
     "secludedExposure": 0.2,

@@ -13,6 +13,7 @@ namespace MirrorChronicles.Data
     public sealed record DaoHuntSettings
     {
         public CultivationRealm HunterMinRealm { get; init; } = CultivationRealm.PurpleMansion;
+        public double CovetChance { get; init; }   // the chance a hunter covets a given lineage, drawn with the world (2026-09-30)
         public double LearnChance { get; init; }
         public double AwayExposure { get; init; } = 1;
         public double SecludedExposure { get; init; } = 1;
