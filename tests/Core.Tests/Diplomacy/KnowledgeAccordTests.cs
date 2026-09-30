@@ -27,6 +27,8 @@ namespace MirrorChronicles.Tests.Diplomacy
             w.Factions.AddFaction(new FactionData { Name = Holder, Kind = FactionKind.Family, RegionId = "linxi", RelationWithPlayer = relation,
                 HighestRealm = CultivationRealm.PurpleMansion, Techniques = { Ascent, Ordinary } });
             w.Factions.AddFaction(new FactionData { Name = "Famille Tao", Kind = FactionKind.Family, RegionId = "jingshui-lake" });
+            w.Techniques.Learn("clear-spring-sutra"); // the clan's own method, to give
+            w.Resources.AddQi("clear-spring-qi", 1);
             return w;
         }
 

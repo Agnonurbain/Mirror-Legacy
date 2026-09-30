@@ -274,6 +274,14 @@ namespace MirrorChronicles.Data
     /// <summary>What knowledge costs (balance.json, L4c; the lore gives no price).</summary>
     public sealed record KnowledgeTradeSettings
     {
+        /// <summary>Accords of knowledge (LORE.md §11.10; 🔎): the relation an ascent method asks, and what each thing given is worth.</summary>
+        public int AscentAccordMinRelation { get; init; }
+        public int SecretWorthPerRank { get; init; }
+        public int BeastWorthPerRealm { get; init; }
+        public int QiWorthPerPortion { get; init; }
+        public double DebtWorthShare { get; init; }
+        public int DiscipleWorthPerRealm { get; init; }
+
         /// <summary>The relation a power needs with the clan before it sells a technique.</summary>
         public int MinRelation { get; init; }
 

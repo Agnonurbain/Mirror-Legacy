@@ -87,6 +87,7 @@ namespace MirrorChronicles.Session
         public DynasticEndings Endings { get; }
         public SectSystem Sect { get; }
         public ClanAbsorption Absorption { get; }
+        public KnowledgeAccords Accords { get; }
         public ShardSystem Shards { get; }
         public PowerShards PowerShards { get; }
 
@@ -136,6 +137,7 @@ namespace MirrorChronicles.Session
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
+            Accords = new KnowledgeAccords(Context, Clan, Factions, Techniques, Resources, SecretBook);
             PowerShards = new PowerShards(Context, Clan, Factions, SecretBook, Suspicion, Lore, Treaties, Resources, Shards);
             Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
@@ -290,6 +292,7 @@ namespace MirrorChronicles.Session
             session.Endings.Restore(data.PositionMoves, data.EndingStreaks);
             session.Sect.Restore(data.SectFoundedYear, session.Karma.GenerationCount); // none before 2.21
             session.Absorption.Restore(data.AbsorbedPowers);
+            session.Accords.RestoreDebts(data.KnowledgeDebts);
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan resumes in year {session.Clock.Year}.");
             return session;
@@ -356,6 +359,7 @@ namespace MirrorChronicles.Session
                 EndingStreaks = new Dictionary<string, int>(Endings.Streaks),
                 SectFoundedYear = Sect.FoundedYear,
                 AbsorbedPowers = Absorption.Absorbed.ToList(),
+                KnowledgeDebts = Accords.Debts.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null

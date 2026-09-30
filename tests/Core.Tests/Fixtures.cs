@@ -56,6 +56,7 @@ namespace MirrorChronicles.Tests
         public TalismanSystem Talismans { get; }
         public ShardSystem Shards { get; }
         public SectSystem Sect { get; }
+        public KnowledgeAccords Accords { get; }
         public PowerShards PowerShards { get; }
         public BeastRegistry Bestiary { get; }
         public SuspicionLedger Suspicion { get; }
@@ -131,6 +132,7 @@ namespace MirrorChronicles.Tests
             Politics = new PowerPoliticsSystem(Ctx, Resources, Factions, Suspicion, Treaties);
             Watch = new ClanWatch(Ctx, Suspicion);
             SecretBook = new SecretBook(Ctx, Suspicion);
+            Accords = new KnowledgeAccords(Ctx, Clan, Factions, Techniques, Resources, SecretBook);
             PowerShards = new PowerShards(Ctx, Clan, Factions, SecretBook, Suspicion, Lore, Treaties, Resources, Shards);
             Dealings = new SecretDealings(Ctx, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Ctx, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
