@@ -75,6 +75,22 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void AnOlderSave_KnowsThePositionsItsMembersAlreadyHeld()
+        {
+            var old = Quiet();
+            var holder = old.Clan.LivingMembers[0];
+            holder.Realm = CultivationRealm.GoldenCore;
+            holder.GoldenCore = GoldenCoreState.Realization;
+            var data = old.ToSaveData();
+            data.Annals = null;
+
+            var s = GameSession.FromSaveData(data, Fixtures.Setup());
+            s.Events.TriggerPositionTaken(s.Clan.LivingMembers[1], GoldenCoreState.Realization, GoldenCoreState.MetallicEssenceOnly);
+
+            Assert.IsFalse(s.Annals.Entries.Any(e => e.Kind == AnnalKind.PositionTaken), "the clan held a Realization before this save's Annals");
+        }
+
+        [Test]
         public void AnOlderSave_StartsWithEmptyAnnals()
         {
             var data = Quiet().ToSaveData();

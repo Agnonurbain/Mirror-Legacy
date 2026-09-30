@@ -97,6 +97,24 @@ namespace MirrorChronicles.Tests.Mirror
             Assert.IsTrue(w.Suspicion.Evidence(Holder) > 0 && w.Suspicion.MirrorClues(Holder) > 0);
         }
 
+        [Test]
+        public void AThief_CountsOnce_InATeam()
+        {
+            var w = Known(new FixedRandom(Pass));
+            var thief = w.Join(Fixtures.Cultivator(stage: 9));
+            Assert.IsFalse(w.PowerShards.Steal(AShard, new[] { thief.ID, thief.ID }).Launched);
+        }
+
+        [Test]
+        public void TheLoader_Refuses_PowersShardsWithoutAHiddenTreasureKind()
+        {
+            var secrets = Newtonsoft.Json.Linq.JArray.Parse(Fixtures.ReadDataFile(GameContentLoader.SecretsFile));
+            foreach (var kind in secrets.Where(k => (string)k["id"] == "hidden-treasure").ToList()) kind.Remove();
+            var ex = Assert.Throws<System.IO.InvalidDataException>(() => GameContentLoader.Load(file =>
+                file == GameContentLoader.SecretsFile ? secrets.ToString() : Fixtures.ReadDataFile(file)));
+            StringAssert.Contains("hidden-treasure", ex.Message);
+        }
+
         // ---- Demanding it of a vassal ----
 
         [Test]

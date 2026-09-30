@@ -93,6 +93,15 @@ namespace MirrorChronicles.Tests.Mirror
         }
 
         [Test]
+        public void AMember_CountsOnce_InATeam()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            w.Shards.RestoreRuins(new[] { FirstRuins });
+            var member = w.Join(Fixtures.Cultivator(stage: 9));
+            Assert.IsFalse(w.Shards.Expedition(FirstRuins, new[] { member.ID, member.ID }).Launched);
+        }
+
+        [Test]
         public void AMember_GoesOnOneOperationAYear()
         {
             var w = new TestWorld(new FixedRandom(Pass));

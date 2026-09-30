@@ -72,6 +72,28 @@ namespace MirrorChronicles.Tests.Session
             StringAssert.Contains(GameContentLoader.EndingsFile, ex.Message);
         }
 
+        [Test]
+        public void TheLoader_RefusesAHegemonyWithinAnAlternative()
+        {
+            var ex = Assert.Throws<System.IO.InvalidDataException>(() => GameContentLoader.Load(file =>
+                file == GameContentLoader.EndingsFile
+                    ? "[ { \"id\": \"x\", \"name\": \"X\", \"narrative\": \"…\", \"provenance\": \"Lore\", \"interpretedFields\": [], \"conditions\": [ { \"kind\": \"AnyOf\", \"anyOf\": [ { \"kind\": \"Year\", \"year\": 5 }, { \"kind\": \"Hegemony\", \"regionId\": \"linxi\", \"vassals\": 0, \"years\": 2 } ] } ] } ]"
+                    : Fixtures.ReadDataFile(file)));
+            StringAssert.Contains("Hegemony", ex.Message);
+        }
+
+        [Test]
+        public void AHegemony_OverAPlaceWithoutPowers_NeverHolds()
+        {
+            var hegemony = new EndingDefinition { Id = "empty-hegemony", Name = "X", Narrative = "…",
+                Conditions = new[] { new EndingCondition { Kind = EndingConditionKind.Hegemony, RegionId = "tiger-frontier", Vassals = 0, Years = 1 } } };
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent with { Endings = new[] { hegemony } } });
+            Assert.IsFalse(s.Factions.Factions.Any(f => f.RegionId == "tiger-frontier"), "a place without powers");
+            NextYear(s);
+            NextYear(s);
+            Assert.IsFalse(s.Endings.IsReached("empty-hegemony"));
+        }
+
         // ---- Summits of cultivation ----
 
         [Test]
