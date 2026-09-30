@@ -26,6 +26,8 @@ namespace MirrorChronicles.Game
         private Label clanName, year, phase, stones, mirror, generation, qi, ritual, storyTitle, storyText, chronicle, status;
         private Button nextPhase;
         private VBoxContainer roster, storyChoices;
+        private Button foundSect;
+        private AcceptDialog ending; // the dynastic ending told on screen, if any
 
         public override void _Ready()
         {
@@ -61,6 +63,13 @@ namespace MirrorChronicles.Game
             GetNode<Button>("%OpenLibrary").Pressed += () => root.GoTo(Library.ScenePath);
             GetNode<Button>("%OpenDiplomacy").Pressed += () => root.GoTo(Diplomacy.ScenePath);
             GetNode<Button>("%OpenGenealogy").Pressed += () => root.GoTo(Genealogy.ScenePath);
+            var nav = GetNode<Button>("%OpenGenealogy").GetParent();
+            var annals = new Button { Text = "Annales" };
+            annals.Pressed += ShowAnnals;
+            nav.AddChild(annals);
+            foundSect = new Button { Text = "Fonder la secte" };
+            foundSect.Pressed += FoundSect;
+            nav.AddChild(foundSect);
             root.SessionChanged += Bind;
             Bind();
 
@@ -131,9 +140,63 @@ namespace MirrorChronicles.Game
             ShowStory(session.Story.PendingEvent);
             ShowChronicle();
 
+            string sectRefusal = session.Sect.FoundingRefusal();
+            foundSect.Visible = !session.Sect.Founded;
+            foundSect.Disabled = sectRefusal != null;
+            foundSect.TooltipText = sectRefusal ?? "Les cultivateurs aux pics, les mortels à la ville (La Double Maison).";
+
             bool over = session.Victory.IsOver;
-            status.Text = over ? "La lignée s'est éteinte." : "";
+            status.Text = EndingView.Defeat(session);
+            TellNextEnding();
             nextPhase.Disabled = over || session.Story.PendingEvent != null; // a story event waits for a choice
+        }
+
+        private void FoundSect()
+        {
+            status.Text = root.Session.Sect.Found() ?? "Le clan fonde sa secte : les pics en haut, la ville en bas.";
+            Refresh();
+        }
+
+        /// <summary>A dynastic ending waits to be told: its story, then the game goes on.</summary>
+        private void TellNextEnding()
+        {
+            if (ending != null || root.PendingEndings.Count == 0) return;
+            var screen = root.PendingEndings.Dequeue();
+            ending = new AcceptDialog
+            {
+                Title = screen.Title,
+                DialogText = $"{screen.Byline}\n\n{screen.Story}",
+                OkButtonText = screen.Continue,
+                DialogAutowrap = true,
+                MinSize = new Vector2I(640, 0)
+            };
+            ending.Confirmed += EndingClosed;
+            ending.Canceled += EndingClosed;
+            AddChild(ending);
+            ending.PopupCentered();
+        }
+
+        private void EndingClosed()
+        {
+            ending?.QueueFree();
+            ending = null;
+            TellNextEnding();
+        }
+
+        private void ShowAnnals()
+        {
+            var lines = AnnalsView.Lines(root.Session);
+            var dialog = new AcceptDialog
+            {
+                Title = "Annales du clan",
+                DialogText = lines.Count == 0 ? "Aucun jalon encore : l'histoire du clan reste à écrire." : string.Join("\n", lines),
+                DialogAutowrap = true,
+                MinSize = new Vector2I(720, 0)
+            };
+            dialog.Confirmed += dialog.QueueFree;
+            dialog.Canceled += dialog.QueueFree;
+            AddChild(dialog);
+            dialog.PopupCentered();
         }
 
         private void ShowRoster(IReadOnlyList<MemberRow> rows)

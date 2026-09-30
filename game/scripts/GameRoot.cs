@@ -21,6 +21,9 @@ namespace MirrorChronicles.Game
 
         public GameSession Session { get; private set; }
         public Chronicle Chronicle { get; private set; }
+
+        /// <summary>The dynastic endings reached and not yet told on screen (B3e): the domain tells them one by one.</summary>
+        public System.Collections.Generic.Queue<EndingScreen> PendingEndings { get; } = new System.Collections.Generic.Queue<EndingScreen>();
         public bool IsSmokeRun { get; private set; }
 
         /// <summary>With <c>-- --smoke --screenshot=file.png</c>, the smoke run saves the window instead of quitting at once.</summary>
@@ -267,19 +270,28 @@ namespace MirrorChronicles.Game
             Session = session;
             CurrentSlot = slot;
             Chronicle = new Chronicle(session);
+            PendingEndings.Clear();
             session.Events.OnYearStarted += SaveAtYearStart;
+            session.Events.OnEndingReached += QueueEnding;
             SessionChanged?.Invoke();
         }
 
         /// <summary>The game on screen ends (another begins, or its slot was erased): it no longer saves anywhere.</summary>
         private void Stop()
         {
-            if (Session != null) Session.Events.OnYearStarted -= SaveAtYearStart;
+            if (Session != null)
+            {
+                Session.Events.OnYearStarted -= SaveAtYearStart;
+                Session.Events.OnEndingReached -= QueueEnding;
+            }
             Session = null;
             CurrentSlot = 0;
         }
 
         private void SaveAtYearStart(int year) => Save();
+
+        private void QueueEnding(EndingDefinition ending, string subject) =>
+            PendingEndings.Enqueue(EndingView.Of(ending, subject, Session.Clock.Year));
 
         private static string ReadDataFile(string name)
         {

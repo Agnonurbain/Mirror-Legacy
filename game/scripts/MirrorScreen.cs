@@ -20,6 +20,7 @@ namespace MirrorChronicles.Game
         private VBoxContainer seeds;
         private VBoxContainer judgment;
         private VBoxContainer deduction;
+        private VBoxContainer shards;
         private Label status;
         private readonly HashSet<string> chosenFragments = new HashSet<string>();
         private string judgmentArmed; // the member whose judgment awaits its confirmation
@@ -37,6 +38,10 @@ namespace MirrorChronicles.Game
             GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             // MIR_TAB=<0-3> opens a tab (screenshots of a smoke run)
             var tabs = GetNode<TabContainer>("%Tabs");
+            var shardsTab = new ScrollContainer { Name = "Éclats" }; // B3e: the seven shards and the ways to bring them back
+            shards = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
+            shardsTab.AddChild(shards);
+            tabs.AddChild(shardsTab);
             if (int.TryParse(OS.GetEnvironment("MIR_TAB"), out int tab) && tab >= 0 && tab < tabs.GetTabCount()) tabs.CurrentTab = tab;
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
@@ -51,7 +56,45 @@ namespace MirrorChronicles.Game
             ShowSeeds();
             ShowJudgment(all.Single(i => i.Id == MirrorView.Judgment).Refusal);
             ShowDeduction();
+            ShowShards();
         }
+
+        /// <summary>The seven shards: where each lies as far as the clan knows, and the ways at hand to bring it back.</summary>
+        private void ShowShards()
+        {
+            Clear(shards);
+            Add(shards, ShardsView.Header(root.Session));
+            foreach (var line in ShardsView.Lines(root.Session))
+            {
+                Add(shards, $"{char.ToUpper(line.Name[0])}{line.Name[1..]} — {line.State}"); // « le Jade du Lac » opens a line
+                foreach (var action in line.Actions)
+                {
+                    var button = new Button { Text = action.Label, Disabled = action.Refusal != null, TooltipText = action.Refusal ?? "" };
+                    button.Pressed += () => Take(line.Id, action);
+                    shards.AddChild(button);
+                }
+            }
+        }
+
+        private void Take(string shardId, ShardActionLine action)
+        {
+            var s = root.Session;
+            status.Text = action.Kind switch
+            {
+                ShardAction.Expedition => Told(s.Shards.Expedition(shardId, action.TeamIds), "L'expédition revient avec l'éclat.", "L'expédition revient les mains vides."),
+                ShardAction.VoidSearch => Told(s.Shards.VoidSearch(action.TeamIds.FirstOrDefault()), "Le dernier éclat sort du Grand Vide.", "Le Grand Vide garde son éclat cette année."),
+                ShardAction.Steal => s.PowerShards.Steal(shardId, action.TeamIds) is var theft && theft.Refusal != null ? theft.Refusal
+                    : theft.Taken ? "L'éclat est volé sans que personne ne sache par qui."
+                    : theft.Caught ? "Le voleur est pris : la puissance se demande ce que le clan cherchait." : "Le vol échoue, sans être vu.",
+                ShardAction.Demand => s.PowerShards.DemandOfVassal(shardId) ?? "Le vassal livre l'éclat, non sans s'interroger.",
+                ShardAction.Trade => s.PowerShards.Trade(shardId) ?? "L'éclat est échangé contre des pierres.",
+                _ => ""
+            };
+            Refresh();
+        }
+
+        private static string Told(Mirror.ExpeditionOutcome outcome, string found, string missed) =>
+            outcome.Refusal ?? (outcome.Found ? found : missed);
 
         private void ShowInterventions(IEnumerable<InterventionLine> all)
         {
