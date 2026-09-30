@@ -293,7 +293,8 @@ namespace MirrorChronicles.Session
                 var trial = PowerLadder.Next(member.Realm, member.RealmStage).Trial;
                 bool lacksQi = trial == TrialKind.FoundationWall && !session.Cultivation.HasTrialQi(member, trial);
                 TaskType wanted = lacksQi && TaskRules.IsAllowed(member, TaskType.GatherQi, huntOpen) ? TaskType.GatherQi
-                    : member.CurrentTask == TaskType.GatherQi || member.CurrentTask == TaskType.None ? TaskType.Cultivation
+                    : member.CurrentTask == TaskType.GatherQi || member.CurrentTask == TaskType.None
+                      || (member.CurrentTask == TaskType.Mine && SpiritualOrificeRules.CanCultivate(member)) ? TaskType.Cultivation // back from the mine
                     : member.CurrentTask;
                 if (!TaskRules.IsAllowed(member, wanted, huntOpen, lakeOpen)) wanted = TaskType.Mine;
                 if (wanted != member.CurrentTask && TaskRules.IsAllowed(member, wanted, huntOpen, lakeOpen)) session.Tasks.AssignTask(member, wanted);
@@ -316,11 +317,14 @@ namespace MirrorChronicles.Session
 
         /// <summary>
         /// When the reserve runs thin, the lowest cultivators go down the mine (never a secluded Dao) until the veins'
-        /// yield would cover the upkeep and rebuild the reserve.
+        /// yield would cover the upkeep and rebuild the reserve — but never past the veins' full slots: beyond them a miner
+        /// yields little, and the pilot rather bears the poverty than stop the clan's cultivation (2026-09-30: a clan of three
+        /// hundred had every cultivator at the mine, none at the Foundation wall).
         /// </summary>
         private static void FeedTheClan(GameSession session, bool huntOpen)
         {
             if (session.Upkeep.BirthFactor >= 1.0) return;
+            if (session.Clan.LivingMembers.Count(m => m.CaptorFaction == null && m.CurrentTask == TaskType.Mine) >= session.Tasks.VeinSlots) return;
             int due = (int)(session.Upkeep.YearlyUpkeep * RebuildMargin);
             var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
             int Income() => session.Tasks.MiningYield(free.Where(m => m.CurrentTask == TaskType.Mine));
