@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 [autoload]
 
 GameRoot="*res://scripts/GameRoot.cs"
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 
 [display]
 
