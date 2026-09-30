@@ -22,11 +22,13 @@ namespace MirrorChronicles.Mirror
         private readonly ResourceManager resources;
         private readonly FactionManager factions;
         private readonly MirrorSystem mirror;
+        private readonly SectSystem sect;
 
-        public TalismanSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, MirrorSystem mirror)
+        public TalismanSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, MirrorSystem mirror, SectSystem sect)
         {
             this.factions = factions;
             this.mirror = mirror;
+            this.sect = sect;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -129,7 +131,7 @@ namespace MirrorChronicles.Mirror
         private void GatherPrayers()
         {
             int mortals = clan.LivingMembers.Count(m => !SpiritualOrificeRules.CanCultivate(m));
-            resources.AddPrayers(mortals * Settings.PrayersPerMortalPerYear + System.Math.Max(0, resources.Prestige) * Settings.PrayersPerPrestigePerYear);
+            resources.AddPrayers((int)System.Math.Round(mortals * Settings.PrayersPerMortalPerYear * sect.PrayerFactor) + System.Math.Max(0, resources.Prestige) * Settings.PrayersPerPrestigePerYear);
         }
     }
 }

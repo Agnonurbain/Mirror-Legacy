@@ -443,7 +443,14 @@
   "sect": {
     "minRealm": "PurpleMansion",
     "minCultivators": 20,
-    "foundingStones": 10000
+    "foundingStones": 10000,
+    "peaksUpkeep": 300,
+    "teachingBonus": 0.5,
+    "prayerBonus": 0.3,
+    "successionUnrest": 8,
+    "sectSuccessionUnrest": 2,
+    "greatSectRelationLoss": 20,
+    "greedFactor": 1.5
   },
   "shards": {
     "lakeSearchChance": 0.06,

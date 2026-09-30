@@ -22,6 +22,7 @@ namespace MirrorChronicles.World
     /// </summary>
     public sealed class IntrigueSystem
     {
+        private readonly Clan.SectSystem sect;
         private readonly GameContext ctx;
         private readonly ClanManager clan;
         private readonly ResourceManager resources;
@@ -39,8 +40,9 @@ namespace MirrorChronicles.World
 
         public IntrigueSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, SuspicionLedger suspicion,
             TechniqueLibrary techniques, MirrorSystem mirror, CaptiveSystem captives, TreatySystem treaties, PlotSystem plots, SecretSystem secrets,
-            WarSystem wars)
+            WarSystem wars, Clan.SectSystem sect)
         {
+            this.sect = sect;
             this.plots = plots;
             this.secrets = secrets;
             this.wars = wars;
@@ -122,7 +124,7 @@ namespace MirrorChronicles.World
                 if (plots.StruckThisYear.Contains(power.Name) || secrets.Confrontation?.Faction == power.Name) continue; // one blow a year
                 if (treaties.Spares(power.Name) || wars.AtWar(power.Name)) continue; // bound, or busy with a war
                 if (WarRules.Strength(power, ctx.Content.Balance.Wars) <= clanStrength) continue; // it fears the clan
-                if (!ctx.Rng.Chance(IntrigueRules.GreedChance(power, stones, s))) continue;
+                if (!ctx.Rng.Chance(System.Math.Min(1, IntrigueRules.GreedChance(power, stones, s) * sect.GreedFactor))) continue; // a sect is seen
                 demands.Add(new Demand(power.Name, (int)(stones * s.ExtortionShare), ctx.Clock.Year, DemandKind.Protection));
                 ctx.Log.Warning($"[Intrigues] {power.Name} covets the clan's hoard and demands the price of its protection.");
                 ctx.Events.TriggerExtortion(power.Name);

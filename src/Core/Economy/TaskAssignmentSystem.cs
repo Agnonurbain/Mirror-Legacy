@@ -48,12 +48,14 @@ namespace MirrorChronicles.Economy
         private readonly BuildingSystem buildings;
         private readonly TechniqueLibrary techniques;
         private readonly Mirror.ShardSystem shards;
+        private readonly SectSystem sect;
 
         public TaskAssignmentSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation,
             ResourceManager resources, MentalStabilitySystem stability, FactionManager factions,
             DeductionEngine deduction, EspionageSystem espionage, BuildingSystem buildings, TechniqueLibrary techniques,
-            Mirror.TalismanSystem talismans, World.BeastRegistry bestiary, Mirror.ShardSystem shards)
+            Mirror.TalismanSystem talismans, World.BeastRegistry bestiary, Mirror.ShardSystem shards, SectSystem sect)
         {
+            this.sect = sect;
             this.shards = shards;
             this.talismans = talismans;
             this.bestiary = bestiary;
@@ -232,7 +234,7 @@ namespace MirrorChronicles.Economy
 
             for (int i = 0; i < teachers.Count && i < students.Count; i++)
             {
-                int bonus = TeachingBaseXp + (int)teachers[i].Realm * TeachingXpPerRealm;
+                int bonus = (int)System.Math.Round((TeachingBaseXp + (int)teachers[i].Realm * TeachingXpPerRealm) * sect.TeachingFactor); // the peaks teach better
                 cultivation.GrantXp(students[i], bonus);
                 ctx.Log.Info($"[Tasks] {teachers[i].FullName} teaches {students[i].FullName} (+{bonus} XP).");
             }

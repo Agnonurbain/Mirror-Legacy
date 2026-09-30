@@ -38,6 +38,13 @@ namespace MirrorChronicles.Data
         public CultivationRealm MinRealm { get; init; }  // a member able to hold a peak
         public int MinCultivators { get; init; }         // at the Qi Cultivation or above
         public int FoundingStones { get; init; }         // the peaks' price
+        public int PeaksUpkeep { get; init; }            // the peaks' yearly upkeep
+        public double TeachingBonus { get; init; }       // the peak masters teach better
+        public double PrayerBonus { get; init; }         // the town prays more
+        public int SuccessionUnrest { get; init; }       // the stability every member loses to a new patriarch…
+        public int SectSuccessionUnrest { get; init; }   // …and in a sect, which no longer hangs on one leader
+        public int GreatSectRelationLoss { get; init; }  // the great sects look on a new sect with a cold eye
+        public double GreedFactor { get; init; }         // the greedy covet a sect more
     }
 
     /// <summary>How the shards are found (balance.json « shards »; interpretations).</summary>

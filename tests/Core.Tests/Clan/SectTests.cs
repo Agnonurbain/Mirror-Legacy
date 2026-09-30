@@ -105,6 +105,7 @@ namespace MirrorChronicles.Tests.Clan
             int Prayers(bool sect)
             {
                 var s = Quiet();
+                for (int i = 0; i < 10; i++) s.Clan.AddMember(Fixtures.Mortal()); // the town's mortals
                 if (sect) s.Sect.Restore(s.Clock.Year);
                 int before = s.Resources.Prayers;
                 s.Events.TriggerYearStarted(s.Clock.Year);
