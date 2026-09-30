@@ -153,6 +153,8 @@ namespace MirrorChronicles.Session
         private static void SeekAMethodToTheAscent(GameSession session)
         {
             if (AscentMethod(session) == null && session.Deduction.AscentRefusal() == null) session.Deduction.DeduceAscentMethod();
+            if (session.Sponsorships.Pending != null) session.Sponsorships.Accept(); // a patron's gift, whatever it hides (§11.10)
+            foreach (var s in session.Sponsorships.Active.Where(x => !x.Cleansed).ToList()) session.Sponsorships.Cleanse(s.Id); // when the mirror can
             var method = AscentMethod(session);
             if (method == null) return;
             foreach (var member in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.QiId == method.RequiredQiId

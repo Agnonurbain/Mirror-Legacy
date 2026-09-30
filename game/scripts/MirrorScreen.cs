@@ -185,6 +185,13 @@ namespace MirrorChronicles.Game
                 Refresh();
             };
             deduction.AddChild(ascent);
+            foreach (var s in root.Session.Sponsorships.Active.Where(x => !x.Cleansed))
+            {
+                string method = root.Session.Context.Content.Techniques.FirstOrDefault(t => t.ID == s.TechniqueId)?.Name ?? s.TechniqueId;
+                var cleanse = new Button { Text = $"Nettoyer le {method}, don de {s.Power}" };
+                cleanse.Pressed += () => { status.Text = root.Session.Sponsorships.Cleanse(s.Id) ?? "Le miroir lave le manuel de ce qu'y avait laissé son donateur."; Refresh(); };
+                deduction.AddChild(cleanse);
+            }
             var fragments = MirrorView.Fragments(root.Session);
             chosenFragments.IntersectWith(fragments.Select(f => f.Id)); // those spent are gone
             if (fragments.Count == 0)

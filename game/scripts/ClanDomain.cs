@@ -148,6 +148,7 @@ namespace MirrorChronicles.Game
             bool over = session.Victory.IsOver;
             status.Text = EndingView.Defeat(session);
             TellNextEnding();
+            OfferFromAPatron();
             nextPhase.Disabled = over || session.Story.PendingEvent != null; // a story event waits for a choice
         }
 
@@ -174,6 +175,36 @@ namespace MirrorChronicles.Game
             ending.Canceled += EndingClosed;
             AddChild(ending);
             ending.PopupCentered();
+        }
+
+        private ConfirmationDialog patronOffer; // a patron's offer awaiting the player's answer
+
+        /// <summary>A patron offers an ascent method (LORE.md §11.10): the player sees the offer, never the design.</summary>
+        private void OfferFromAPatron()
+        {
+            var offer = root.Session.Sponsorships.Pending;
+            if (offer == null || patronOffer != null || ending != null) return;
+            string method = root.Session.Context.Content.Techniques.FirstOrDefault(t => t.ID == offer.TechniqueId)?.Name ?? offer.TechniqueId;
+            patronOffer = new ConfirmationDialog
+            {
+                Title = $"Une offre de {offer.Power}",
+                DialogText = $"{offer.Power} offre au clan le {method}, une méthode qui mène au Manoir Pourpre. En échange, le clan lui devra une faveur. Nul ne donne un tel trésor sans raison.",
+                OkButtonText = "Accepter",
+                CancelButtonText = "Refuser",
+                DialogAutowrap = true,
+                MinSize = new Vector2I(640, 0)
+            };
+            patronOffer.Confirmed += () => { status.Text = root.Session.Sponsorships.Accept() ?? $"Le clan accepte le don de {offer.Power}."; PatronOfferClosed(); };
+            patronOffer.Canceled += () => { root.Session.Sponsorships.Refuse(); status.Text = $"Le clan décline l'offre de {offer.Power}."; PatronOfferClosed(); };
+            AddChild(patronOffer);
+            patronOffer.PopupCentered();
+        }
+
+        private void PatronOfferClosed()
+        {
+            patronOffer?.QueueFree();
+            patronOffer = null;
+            Refresh();
         }
 
         private void EndingClosed()
