@@ -47,27 +47,43 @@ namespace MirrorChronicles.Tests.Session
             return session;
         }
 
+        /// <summary>A mirror ready to deduce an ascent method: three shards, good fragments, a lineage known.</summary>
+        private static GameSession Knowing(int seed = 3)
+        {
+            var session = Rich(seed);
+            var rules = Fixtures.Content.Balance.Techniques;
+            session.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, rules.AscentDeductionShards);
+            for (int i = 0; i < rules.AscentDeductionFragments; i++) session.Deduction.AddFragment(Element.Water, rules.AscentDeductionQuality);
+            session.Knowledge.Reveal(new Fact(FactKind.Lineage, "orthodox-water"), KnowledgeSource.Mirror);
+            return session;
+        }
+
         private static bool KnowsTheAscent(GameSession s) =>
             s.Techniques.Known.Any(t => t.Kind == TechniqueKind.Cultivation && TechniqueRules.HasPurpleMansionSecret(t) && t.RequiredQiId != null);
 
         [Test]
-        public void ThePilot_BuysAMethodThatLeadsToThePurpleMansion()
+        public void ThePilot_HasTheMirrorDeduceAMethodToThePurpleMansion()
         {
-            var session = Rich();
+            var session = Knowing();
             Assert.IsFalse(KnowsTheAscent(session));
             BalanceRun.Act(session);
             Assert.IsTrue(KnowsTheAscent(session));
+            var method = session.Techniques.Known.First(t => t.Kind == TechniqueKind.Cultivation && TechniqueRules.HasPurpleMansionSecret(t) && t.RequiredQiId != null);
+            Assert.IsTrue(session.Clan.LivingMembers.Where(m => m.QiId == method.RequiredQiId && m.CaptorFaction == null).All(m => m.CultivationMethodId == method.ID),
+                "the cultivators of its Qi take up the ascent method");
         }
 
         [Test]
         public void ThePilot_GathersTheQiOfItsBestMethod()
         {
-            var session = Rich();
+            var session = Knowing();
             BalanceRun.Act(session);
-            var young = Fixtures.Cultivator(age: 16, realm: CultivationRealm.Embryonic, stage: 5);
-            session.Clan.AddMember(young);
+            var method = session.Techniques.Known.First(t => t.Kind == TechniqueKind.Cultivation && TechniqueRules.HasPurpleMansionSecret(t) && t.RequiredQiId != null);
+            session.Resources.ConsumeQi(method.RequiredQiId, session.Resources.QiPortions(method.RequiredQiId)); // the stock is spent
+            session.Clan.AddMember(Fixtures.Cultivator(age: 16, realm: CultivationRealm.Embryonic, stage: 5));
             BalanceRun.SetTheIdleToWork(session);
-            Assert.AreEqual(TaskType.GatherQi, young.CurrentTask);
+            Assert.IsTrue(session.Clan.LivingMembers.Any(m => m.Realm == CultivationRealm.Embryonic && m.CurrentTask == TaskType.GatherQi),
+                "breathing cultivators who perceive Qi gather the ascent method's");
         }
 
         [Test]

@@ -373,6 +373,12 @@ namespace MirrorChronicles.Data
         /// <summary>A deduction's grade: the fragments' average, +1 from this many fragments, at most this grade (7+ only from five divine ones).</summary>
         public int DeductionCompleteFragments { get; init; }
         public int DeductionMaxGrade { get; init; }
+
+        /// <summary>The mirror deduces an ascent method of its own will (LORE.md §11.10; 🔎): shards restored, good fragments, their quality, its power.</summary>
+        public int AscentDeductionShards { get; init; }
+        public int AscentDeductionFragments { get; init; }
+        public int AscentDeductionQuality { get; init; }
+        public int AscentDeductionPower { get; init; }
     }
 
     /// <summary>What condensing a divine ability costs (balance.json, tuned by simulation).</summary>

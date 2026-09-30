@@ -176,6 +176,15 @@ namespace MirrorChronicles.Game
         private void ShowDeduction()
         {
             Clear(deduction);
+            string ascentRefusal = root.Session.Deduction.AscentRefusal(); // LORE.md §11.10: from three shards, of its own will
+            var ascent = new Button { Text = "Déduire une méthode du Manoir Pourpre", Disabled = ascentRefusal != null, TooltipText = ascentRefusal ?? "" };
+            ascent.Pressed += () =>
+            {
+                var method = root.Session.Deduction.DeduceAscentMethod();
+                status.Text = method == null ? "Le miroir n'a pu déduire la méthode." : $"Le miroir déduit le {method.Name} : une méthode qui mène au Manoir Pourpre.";
+                Refresh();
+            };
+            deduction.AddChild(ascent);
             var fragments = MirrorView.Fragments(root.Session);
             chosenFragments.IntersectWith(fragments.Select(f => f.Id)); // those spent are gone
             if (fragments.Count == 0)

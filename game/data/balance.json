@@ -533,6 +533,10 @@
     "artRequiredRealmByGrade": [ "Embryonic", "Embryonic", "QiRefinement", "QiRefinement", "Foundation", "Foundation", "PurpleMansion" ],
     "movementArtStepsByGrade": [ 1, 1, 1, 1, 2, 2, 2 ],
     "deductionCompleteFragments": 4,
-    "deductionMaxGrade": 6
+    "deductionMaxGrade": 6,
+    "ascentDeductionShards": 3,
+    "ascentDeductionFragments": 4,
+    "ascentDeductionQuality": 3,
+    "ascentDeductionPower": 60
   }
 }

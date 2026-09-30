@@ -64,6 +64,62 @@ namespace MirrorChronicles.Mirror
             return technique;
         }
 
+        // ---- An ascent method, of the mirror's own will (LORE.md §11.10; the user's decision, 2026-09-30) ----
+
+        private TechniqueSettings Rules => ctx.Content.Balance.Techniques;
+
+        /// <summary>The fragments good enough for an ascent method, best first.</summary>
+        private List<FragmentData> AscentFragments() =>
+            fragments.Where(f => f.Quality >= Rules.AscentDeductionQuality).OrderByDescending(f => f.Quality).Take(Rules.AscentDeductionFragments).ToList();
+
+        /// <summary>A harvestable Qi that builds the foundation of a lineage the clan knows: the method will stand on it.</summary>
+        private QiDefinition AscentQi() =>
+            HarvestableQi().Where(q => q.Foundation != null
+                    && library.Knowledge.Knows(World.FactKind.Lineage, FoundationRef.Parse(q.Foundation).FruitionId))
+                .OrderBy(q => q.Id, StringComparer.Ordinal).FirstOrDefault();
+
+        /// <summary>Why the mirror cannot deduce an ascent method now (French, for the screens), or null.</summary>
+        public string AscentRefusal()
+        {
+            var s = Rules;
+            if (mirror.RestoredFragments < s.AscentDeductionShards)
+                return $"le miroir n'a pas encore assez de savoir : il lui faut {s.AscentDeductionShards} éclats restaurés";
+            if (mirror.IsAsleep) return "le miroir dort : il intègre un éclat";
+            if (AscentFragments().Count < s.AscentDeductionFragments)
+                return $"il faut {s.AscentDeductionFragments} fragments de qualité {s.AscentDeductionQuality} ou plus";
+            if (AscentQi() == null) return "le clan ne connaît aucune lignée sur laquelle bâtir la méthode";
+            return mirror.PayRefusal(s.AscentDeductionPower);
+        }
+
+        /// <summary>
+        /// The mirror deduces a method that leads to the Purple Mansion — clean, secret, on the Qi of a lineage the clan knows —
+        /// from its best fragments. Null when it cannot (<see cref="AscentRefusal"/>).
+        /// </summary>
+        public TechniqueData DeduceAscentMethod()
+        {
+            if (AscentRefusal() != null || !mirror.ConsumePower(Rules.AscentDeductionPower)) return null;
+            var inputs = AscentFragments();
+            foreach (var fragment in inputs) fragments.Remove(fragment);
+            var qi = AscentQi();
+            int grade = Math.Max(5, TechniqueRules.DeductionGrade(inputs.Select(f => f.Quality).ToList(), Rules));
+            var method = new TechniqueData
+            {
+                ID = ctx.Rng.NextId(),
+                Name = Name(TechniqueKind.Cultivation, grade, qi.Element),
+                Kind = TechniqueKind.Cultivation,
+                Grade = grade,
+                Category = TechniqueCategory.Secret,
+                DominantElement = qi.Element,
+                RequiredRealm = CultivationRealm.QiRefinement,
+                RequiredQiId = qi.Id,
+                HasPurpleMansionSecret = true,
+                RiskFactor = BaseRisk
+            };
+            library.AddDeduced(method);
+            ctx.Log.Info($"[Deduction] The mirror deduces an ascent method: [{method.Name}] on the {qi.Name}.");
+            return method;
+        }
+
         public void Restore(IEnumerable<FragmentData> savedFragments)
         {
             fragments.Clear();

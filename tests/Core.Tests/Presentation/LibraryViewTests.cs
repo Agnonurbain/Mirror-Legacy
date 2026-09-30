@@ -55,10 +55,12 @@ namespace MirrorChronicles.Tests.Presentation
             var s = NewGame();
             var trade = Fixtures.Content.Balance.KnowledgeTrade;
 
+            var method = LibraryView.Market(s).Single(m => m.Power == Peak && m.TechniqueId == "measured-rain-method");
             var canon = LibraryView.Market(s).Single(m => m.Power == Peak && m.TechniqueId == "night-frost-canon");
 
-            Assert.AreEqual(trade.StonesPerGrade[canon.Grade - 1], canon.Price);
-            StringAssert.Contains("relation", canon.Refusal, "the Peak is not yet friendly enough");
+            Assert.AreEqual(trade.StonesPerGrade[method.Grade - 1], method.Price);
+            StringAssert.Contains("relation", method.Refusal, "the Peak is not yet friendly enough");
+            StringAssert.Contains("ne s'achète pas", canon.Refusal, "an ascent method is never sold (LORE.md §11.10)");
             Assert.IsFalse(LibraryView.Market(s).Any(m => m.TechniqueId == "clear-spring-sutra"), "nothing the clan knows");
         }
 
