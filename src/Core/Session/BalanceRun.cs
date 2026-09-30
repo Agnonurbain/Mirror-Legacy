@@ -171,12 +171,15 @@ namespace MirrorChronicles.Session
             session.Techniques.Known.Where(t => LeadsToTheAscent(session, t)).OrderByDescending(t => t.Grade).FirstOrDefault();
 
         /// <summary>
-        /// While the clan lacks the portions its youth needs to enter the ascent's method, two breathing cultivators who perceive
-        /// Qi gather it (they harvest the best method's Qi, TaskAssignmentSystem.GatherQi).
+        /// While the clan lacks the portions its youth needs to enter its best method (the ascent's, once bought), two breathing
+        /// cultivators who perceive Qi gather it (they harvest the best method's Qi, TaskAssignmentSystem.GatherQi): without them,
+        /// the youth waits at the sixth chakra for ever (2026-09-30).
         /// </summary>
         private static void GatherTheQiOfTheAscent(GameSession session, bool huntOpen)
         {
-            var method = AscentMethod(session);
+            var method = AscentMethod(session) ?? session.Techniques.Known
+                .Where(t => t.Kind == TechniqueKind.Cultivation && t.RequiredQiId != null && session.Techniques.FindQi(t.RequiredQiId) is { Vanished: false, Ubiquitous: false })
+                .OrderByDescending(t => t.Grade).FirstOrDefault();
             if (method == null || session.Resources.QiPortions(method.RequiredQiId) >= AscentQiReserve) return;
             var harvesters = session.Clan.LivingMembers
                 .Where(m => m.CaptorFaction == null && m.Realm == CultivationRealm.Embryonic && TaskRules.IsAllowed(m, TaskType.GatherQi, huntOpen))
@@ -191,9 +194,12 @@ namespace MirrorChronicles.Session
         /// </summary>
         private static void ProbeAPower(GameSession session)
         {
-            var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, 1).ToList();
+            if (session.Clock.Year % ProbeEveryYears != 0) return;
+            var cultivators = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm >= CultivationRealm.QiRefinement).ToList();
+            if (cultivators.Count < ProbeMinCultivators) return; // a small clan does not risk its few cultivators outside
+            var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, 2).Where(id => id != session.Clan.PatriarchID).Take(1).ToList();
             if (team.Count == 0) return;
-            bool canBribe = session.Resources.SpiritStones - ProbeBribe >= session.Upkeep.YearlyUpkeep * ReserveYears;
+            bool canBribe = session.Resources.SpiritStones - ProbeBribe >= session.Upkeep.YearlyUpkeep * ProbeReserveYears;
             var best = session.Factions.Factions
                 .SelectMany(f => new[]
                 {
@@ -211,6 +217,9 @@ namespace MirrorChronicles.Session
         private const int AscentHarvesters = 2;  // breathing cultivators gathering it
         private const double FairOdds = 0.3;     // the pilot probes from these odds
         private const int ProbeBribe = 500;      // the stones of a bribe
+        private const int ProbeEveryYears = 3;   // a probe every few years, not every year
+        private const int ProbeMinCultivators = 4;
+        private const int ProbeReserveYears = 5; // a bribe only from a well-filled treasury
 
         private const double GoodOdds = 0.6; // the pilot risks an expedition or a theft from these odds
         private const int LowTalentRoot = 40; // a cultivator of a lesser root may be sent to the mine; a gifted one never

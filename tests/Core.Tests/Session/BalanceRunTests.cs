@@ -74,9 +74,11 @@ namespace MirrorChronicles.Tests.Session
         public void ThePilot_ProbesThePowers()
         {
             var session = Rich();
-            var prober = session.Clan.FindById(session.Shards.BestTeam(CultivationRealm.QiRefinement, 1).Single());
+            while (session.Clan.LivingMembers.Count(m => m.Realm >= CultivationRealm.QiRefinement) < 4) session.Clan.AddMember(Fixtures.Cultivator(stage: 5));
+            session.Clock.Restore(3, GamePhase.Management); // a year of probes
+            var prober = session.Clan.FindById(session.Shards.BestTeam(CultivationRealm.QiRefinement, 2).First(id => id != session.Clan.PatriarchID));
             BalanceRun.Act(session);
-            Assert.AreEqual(session.Clock.Year, prober.LastOperationYear, "the best free member goes out to probe (whatever comes of it)");
+            Assert.AreEqual(session.Clock.Year, prober.LastOperationYear, "the best free member but the patriarch goes out to probe (whatever comes of it)");
         }
 
         [Test]
