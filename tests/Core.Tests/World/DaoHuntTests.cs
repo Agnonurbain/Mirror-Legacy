@@ -19,11 +19,46 @@ namespace MirrorChronicles.Tests.World
     {
         private static DaoHuntSettings Settings => Fixtures.Content.Balance.DaoHunts;
 
+        /// <summary>Every hunter covets every lineage here, unless the test says otherwise (2026-09-30: only a coveter hunts).</summary>
+        private static GameContent Coveted(double chance = 1.0) =>
+            Fixtures.Content with { Balance = Fixtures.Content.Balance with { DaoHunts = Fixtures.Content.Balance.DaoHunts with { CovetChance = chance } } };
+
         private static TestWorld World(System.Random rng, GameContent content = null)
         {
-            var w = new TestWorld(rng, content);
+            var w = new TestWorld(rng, content ?? Coveted());
             w.Factions.InitializeFactions();
             return w;
+        }
+
+        // ---- Who covets a ripe Dao (the user's decision, 2026-09-30; LORE.md §5.3.3) ----
+
+        [Test]
+        public void ARipeDao_NobodyCovets_IsNeverHunted()
+        {
+            var w = World(new FixedRandom(0.0), Coveted(0.0));
+            var prey = Ripe(w);
+            for (int y = 0; y < 50; y++) w.DaoHunts.ProcessYear();
+            Assert.IsTrue(prey.IsAlive && w.DaoHunts.Known.Count == 0 && !w.DaoHunts.IsCoveted(prey));
+        }
+
+        [Test]
+        public void OnlyAPowerThatCovetsTheLineage_LearnsOfIt()
+        {
+            var w = World(new FixedRandom(0.0), Coveted(0.3));
+            var prey = Ripe(w);
+            w.DaoHunts.ProcessYear();
+            string lineage = FoundationRules.FruitionOf(prey.FoundationId, Fixtures.Content.Fruitions).Id;
+            Assert.IsTrue(w.DaoHunts.Known.All(k => w.DaoHunts.Covets(k.Faction, lineage)));
+            Assert.AreEqual(w.DaoHunts.Known.Any(), w.DaoHunts.IsCoveted(prey));
+        }
+
+        [Test]
+        public void WhatEachPowerCovets_IsDrawnWithTheWorld()
+        {
+            var a = World(new FixedRandom(0.0), Coveted(0.3));
+            var b = World(new FixedRandom(0.0), Coveted(0.3));
+            var powers = a.Factions.Factions.Select(f => f.Name).ToList();
+            CollectionAssert.AreEqual(powers.Select(p => a.DaoHunts.Covets(p, "orthodox-water")), powers.Select(p => b.DaoHunts.Covets(p, "orthodox-water")));
         }
 
         private static CharacterData Ripe(TestWorld w, string foundation = "orthodox-water:boundless-sea")

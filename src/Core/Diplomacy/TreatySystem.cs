@@ -194,7 +194,7 @@ namespace MirrorChronicles.Diplomacy
                     int owed = (int)(Math.Max(0, power.Wealth) * s.VassalTributeShare);
                     power.Wealth = Math.Max(0, power.Wealth - owed);
                     resources.AddSpiritStones(owed);
-                    return treaty;
+                    return Grip(treaty, power);
                 case TreatyKind.Vassalage:
                     return Serve(treaty, power);
                 case TreatyKind.Marriage:
@@ -203,6 +203,32 @@ namespace MirrorChronicles.Diplomacy
                 default:
                     return treaty;
             }
+        }
+
+        /// <summary>
+        /// The clan as suzerain (2026-09-30, P1): its grip on the vassal grows each year; at the threshold it takes a share of
+        /// the vassal's wealth and an art, and counts a step towards absorbing it (<see cref="ClanAbsorption"/>).
+        /// </summary>
+        private Treaty Grip(Treaty treaty, FactionData vassal)
+        {
+            var s = Settings;
+            int grip = treaty.Grip + s.GripPerYear;
+            int absorptions = treaty.Absorptions;
+            if (grip >= s.GripThreshold)
+            {
+                int taken = (int)(Math.Max(0, vassal.Wealth) * s.GripStonesShare);
+                vassal.Wealth -= taken;
+                resources.AddSpiritStones(taken);
+                var art = vassal.Techniques.Where(id => ctx.Content.Techniques.Any(t => t.ID == id) && !techniques.Knows(id))
+                    .OrderBy(id => id, StringComparer.Ordinal).FirstOrDefault();
+                if (art != null) techniques.Learn(art);
+                ctx.Log.Info($"[Treaties] The clan tightens its grip on {vassal.Name}: {taken} stones{(art != null ? $" and « {art} »" : "")}.");
+                grip = 0;
+                absorptions++;
+            }
+            var updated = treaty with { Grip = grip, Absorptions = absorptions };
+            treaties[IndexOf(treaty)] = updated;
+            return updated;
         }
 
         /// <summary>The clan as vassal: its tribute, the suzerain's closeness, and its grip — at the threshold, stones and the best art.</summary>

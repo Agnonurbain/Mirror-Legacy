@@ -60,7 +60,7 @@ namespace MirrorChronicles.World
         private void Reassign(string vassal, string suzerain)
         {
             for (int i = 0; i < beasts.Count; i++)
-                if (beasts[i].OwnerFaction == vassal) beasts[i] = beasts[i] with { OwnerFaction = suzerain };
+                if (beasts[i].OwnerFaction == vassal) beasts[i] = beasts[i] with { OwnerFaction = suzerain == SecretBook.ClanHolder ? null : suzerain }; // the clan owns no beast of the world
         }
 
         /// <summary>Restores the beasts of a save.</summary>

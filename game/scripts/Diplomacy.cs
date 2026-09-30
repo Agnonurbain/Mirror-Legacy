@@ -144,7 +144,8 @@ namespace MirrorChronicles.Game
         {
             var row = new HBoxContainer();
             string side = treaty.Kind == DiplomacyView.KindLabel(TreatyKind.Vassalage)
-                ? (treaty.ClanIsSuzerain ? " (le clan suzerain)" : $" (le clan vassal, emprise {treaty.Grip}, absorption {treaty.Absorptions}/{treaty.AbsorptionSteps})")
+                ? (treaty.ClanIsSuzerain ? $" (le clan suzerain, emprise {treaty.Grip}, absorption {treaty.Absorptions}/{treaty.AbsorptionSteps})"
+                    : $" (le clan vassal, emprise {treaty.Grip}, absorption {treaty.Absorptions}/{treaty.AbsorptionSteps})")
                 : "";
             string term = treaty.YearsLeft.HasValue ? $", encore {treaty.YearsLeft} an(s)" : "";
             row.AddChild(new Label
@@ -155,6 +156,13 @@ namespace MirrorChronicles.Game
             breakIt.Pressed += () => Report(treaty.SpouseId != null ? root.Session.Matches.Repudiate(treaty.SpouseId) : root.Session.Treaties.Break(treaty.Id),
                 treaty.SpouseId != null ? "Le conjoint retourne auprès des siens." : $"Le clan rompt le traité ({treaty.Kind}).");
             row.AddChild(breakIt);
+            if (treaty.ClanIsSuzerain && root.Session.Treaties.All.FirstOrDefault(t => t.Id == treaty.Id)?.Faction is { } vassal)
+            {
+                string refusal = root.Session.Absorption.Refusal(vassal);
+                var absorb = new Button { Text = "Absorber", Disabled = refusal != null, TooltipText = refusal ?? $"{vassal} rejoint le clan ; les autres puissances s'en méfieront." };
+                absorb.Pressed += () => Report(root.Session.Absorption.Absorb(vassal), $"Le clan absorbe {vassal} : ses cultivateurs prennent son nom.");
+                row.AddChild(absorb);
+            }
             powers.AddChild(row);
         }
 

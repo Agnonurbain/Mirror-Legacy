@@ -25,13 +25,15 @@ namespace MirrorChronicles.World
         private readonly TreatySystem treaties;
         private readonly BuildingSystem buildings;
         private readonly List<DaoPrey> known = new List<DaoPrey>();
+        private readonly int worldSeed;
 
-        public DaoHuntSystem(GameContext ctx, ClanManager clan, FactionManager factions, TreatySystem treaties, BuildingSystem buildings)
+        public DaoHuntSystem(GameContext ctx, ClanManager clan, FactionManager factions, TreatySystem treaties, BuildingSystem buildings, int worldSeed = 1)
         {
             this.ctx = ctx;
             this.clan = clan;
             this.factions = factions;
             this.treaties = treaties;
+            this.worldSeed = worldSeed;
             this.buildings = buildings;
             ctx.Events.OnPowerAbsorbed += (vassal, _) => known.RemoveAll(k => k.Faction == vassal);
         }
@@ -57,12 +59,25 @@ namespace MirrorChronicles.World
         private IEnumerable<FactionData> Hunters() =>
             factions.Factions.Where(f => f.HighestRealm >= Settings.HunterMinRealm && !treaties.Spares(f.Name));
 
+        /// <summary>
+        /// Whether a power's elders covet a lineage (the user's decision, 2026-09-30; LORE.md §5.3.3): a ripe Dao is prey only to
+        /// those whose own path it serves — drawn with the world (🔎 balance.json « daoHunts.covetChance »).
+        /// </summary>
+        public bool Covets(string power, string lineageId) =>
+            lineageId != null && MirrorLoreRules.Draw(worldSeed, $"covet:{power}:{lineageId}") < Settings.CovetChance;
+
+        /// <summary>Whether some hunter of the world covets this member's lineage at all: nobody does, and the ripe Dao is safe from them.</summary>
+        public bool IsCoveted(CharacterData member) => Hunters().Any(h => Covets(h.Name, LineageOf(member)));
+
+        private string LineageOf(CharacterData member) => FoundationRules.FruitionOf(member.FoundationId, ctx.Content.Fruitions)?.Id;
+
         /// <summary>A year's rumour of a ripe Dao reaches one hunter at most.</summary>
         private void Learn(IReadOnlyList<CharacterData> preys)
         {
             foreach (var prey in preys)
             {
-                var ignorant = Hunters().Where(h => !known.Any(k => k.Faction == h.Name && k.MemberId == prey.ID)).ToList();
+                string lineage = LineageOf(prey);
+                var ignorant = Hunters().Where(h => Covets(h.Name, lineage) && !known.Any(k => k.Faction == h.Name && k.MemberId == prey.ID)).ToList();
                 if (ignorant.Count == 0 || !ctx.Rng.Chance(DaoHuntRules.LearnChance(prey, Settings))) continue;
                 known.Add(new DaoPrey(ctx.Rng.Pick(ignorant).Name, prey.ID));
             }

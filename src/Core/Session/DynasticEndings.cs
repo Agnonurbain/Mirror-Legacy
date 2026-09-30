@@ -24,6 +24,7 @@ namespace MirrorChronicles.Session
         private readonly ClanAnnals annals;
         private readonly VictoryConditionSystem victory;
         private readonly Clan.SectSystem sect;
+        private readonly ClanAbsorption absorption;
         private readonly Dictionary<string, string> moves = new Dictionary<string, string>(); // « from>to » → who first made it
         private readonly Dictionary<string, int> streaks = new Dictionary<string, int>();     // ending id → years a hegemony held in a row
 
@@ -31,7 +32,7 @@ namespace MirrorChronicles.Session
         public IReadOnlyDictionary<string, int> Streaks => streaks;
 
         public DynasticEndings(GameContext ctx, ClanManager clan, TreatySystem treaties, FactionManager factions, WarSystem wars,
-            MirrorSystem mirror, ClanAnnals annals, VictoryConditionSystem victory, Clan.SectSystem sect)
+            MirrorSystem mirror, ClanAnnals annals, VictoryConditionSystem victory, Clan.SectSystem sect, ClanAbsorption absorption)
         {
             this.ctx = ctx;
             this.clan = clan;
@@ -42,6 +43,7 @@ namespace MirrorChronicles.Session
             this.annals = annals;
             this.victory = victory;
             this.sect = sect;
+            this.absorption = absorption;
 
             ctx.Events.OnYearStarted += year => { CountHegemonies(); Check(); };
             ctx.Events.OnBreakthroughSuccess += (member, realm) => Check();
@@ -166,8 +168,9 @@ namespace MirrorChronicles.Session
         {
             var powers = PowersOf(c.RegionId).Where(f => c.FactionKinds.Contains(f.Kind)).ToList();
             var vassals = ClanVassals();
-            int bowed = powers.Count(p => vassals.Contains(p.Name));
-            return c.Count == 0 ? powers.Count > 0 && bowed == powers.Count : bowed >= c.Count;
+            int absorbed = absorption.Absorbed.Count(a => c.FactionKinds.Contains(a.Kind) && Within(a.RegionId, c.RegionId)); // absorbed: bowed for good
+            int bowed = powers.Count(p => vassals.Contains(p.Name)) + absorbed;
+            return c.Count == 0 ? powers.Count + absorbed > 0 && bowed == powers.Count + absorbed : bowed >= c.Count;
         }
 
         /// <summary>The clan outweighs in war every power of the region, and holds enough vassals.</summary>

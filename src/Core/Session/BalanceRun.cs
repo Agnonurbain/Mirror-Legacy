@@ -109,8 +109,8 @@ namespace MirrorChronicles.Session
             OfferToTheMirror(session);
             AnswerForTheCaptives(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
-                && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content)).ToList())
-                session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao hides
+                && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content) && session.DaoHunts.IsCoveted(m)).ToList())
+                session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao someone covets hides
             if (session.Clock.Year % TreatyEveryYears == 0 && session.Treaties.All.Count < MostTreaties) SeekATreaty(session);
         }
 
@@ -142,6 +142,7 @@ namespace MirrorChronicles.Session
         }
 
         private const double GoodOdds = 0.6; // the pilot risks an expedition or a theft from these odds
+        private const int LowTalentRoot = 40; // a cultivator of a lesser root may be sent to the mine; a gifted one never
 
         private static void AnswerDemands(GameSession session)
         {
@@ -294,7 +295,8 @@ namespace MirrorChronicles.Session
                 bool lacksQi = trial == TrialKind.FoundationWall && !session.Cultivation.HasTrialQi(member, trial);
                 TaskType wanted = lacksQi && TaskRules.IsAllowed(member, TaskType.GatherQi, huntOpen) ? TaskType.GatherQi
                     : member.CurrentTask == TaskType.GatherQi || member.CurrentTask == TaskType.None
-                      || (member.CurrentTask == TaskType.Mine && SpiritualOrificeRules.CanCultivate(member)) ? TaskType.Cultivation // back from the mine
+                      || (member.CurrentTask == TaskType.Mine && SpiritualOrificeRules.CanCultivate(member) && member.SpiritualRoot >= LowTalentRoot)
+                      || (member.CurrentTask == TaskType.Seclusion && !session.DaoHunts.IsCoveted(member)) ? TaskType.Cultivation // back to cultivation
                     : member.CurrentTask;
                 if (!TaskRules.IsAllowed(member, wanted, huntOpen, lakeOpen)) wanted = TaskType.Mine;
                 if (wanted != member.CurrentTask && TaskRules.IsAllowed(member, wanted, huntOpen, lakeOpen)) session.Tasks.AssignTask(member, wanted);
@@ -328,8 +330,9 @@ namespace MirrorChronicles.Session
             int due = (int)(session.Upkeep.YearlyUpkeep * RebuildMargin);
             var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
             int Income() => session.Tasks.MiningYield(free.Where(m => m.CurrentTask == TaskType.Mine));
-            foreach (var cultivator in free.Where(m => m.CurrentTask == TaskType.Cultivation && TaskRules.IsAllowed(m, TaskType.Mine, huntOpen))
-                .OrderBy(m => (int)m.Realm).ThenBy(m => m.RealmStage).ToList())
+            foreach (var cultivator in free.Where(m => m.CurrentTask == TaskType.Cultivation && m.SpiritualRoot < LowTalentRoot
+                    && TaskRules.IsAllowed(m, TaskType.Mine, huntOpen))
+                .OrderBy(m => m.SpiritualRoot).ToList()) // the least gifted first; the gifted never (the user's rule, 2026-09-30)
             {
                 if (Income() >= due) return;
                 session.Tasks.AssignTask(cultivator, TaskType.Mine);
