@@ -30,7 +30,6 @@ namespace MirrorChronicles.Presentation
             var bus = session.Events;
             bus.OnCharacterBorn += c => Add(c.Age == 0 ? $"naissance de {c.FullName}." : $"{c.FullName} rejoint le clan.");
             bus.OnCharacterDied += (c, cause) => Add($"{c.FullName} meurt {ClanDomainView.DeathLabel(cause)}.");
-            bus.OnAncestorAscended += c => Add($"{c.FullName} s'élève au-delà du monde mortel.");
             bus.OnBreakthroughSuccess += (c, realm) => Add($"{c.FullName} atteint {RankCatalog.DisplayName(c)}.");
             bus.OnBreakthroughFailed += c => Add($"{c.FullName} échoue à sa percée.");
             bus.OnRandomEventOccurred += e => Add($"{e.Name} — {e.Description}");
@@ -58,10 +57,13 @@ namespace MirrorChronicles.Presentation
             bus.OnExtortion += power => Add($"{power} convoite le trésor du clan et exige le prix de sa protection.");
             bus.OnDaoHuntFoiled += power => Add($"des gens de {power} fondent sur un Dao mûr du clan ; ils sont repoussés.");
             bus.OnHunt += (_, captured) => Add(captured ? "une chasse du clan ramène une bête spirituelle." : "une chasse du clan revient les mains vides.");
-            bus.OnGameOver += won =>
+            bus.OnSectFounded += () => Add("le clan fonde sa secte : les pics en haut, la ville en bas.");
+            bus.OnRuinsRevealed += shard => Add($"des ruines anciennes sont découvertes ; le miroir y sent {shard.Name}.");
+            bus.OnShardRecovered += shard => Add($"un éclat du miroir revient : {shard.Name}. Le miroir s'endort pour l'intégrer.");
+            bus.OnEndingReached += (ending, subject) => Add($"fin dynastique : {ending.Name}. La partie continue.");
+            bus.OnGameOver += () =>
             {
-                if (won) Add("la lignée devient éternelle.");
-                else if (session.Clan.LivingMembers.Count == 0) Add("la lignée s'éteint."); // a seized mirror is told above
+                if (session.Clan.LivingMembers.Count == 0) Add("la lignée s'éteint."); // a seized mirror and an absorbed clan are told above
             };
             session.Knowledge.Revealed += OnRevealed;
         }

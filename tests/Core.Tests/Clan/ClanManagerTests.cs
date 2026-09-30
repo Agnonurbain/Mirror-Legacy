@@ -115,18 +115,6 @@ namespace MirrorChronicles.Tests.Clan
         }
 
         [Test]
-        public void Ascend_ElectsASuccessor_WhenThePatriarchAscends()
-        {
-            var patriarch = Fixtures.Cultivator(realm: CultivationRealm.DaoEmbryo);
-            var heir = Fixtures.Cultivator();
-            clan.AddMember(patriarch);
-            clan.AddMember(heir);
-            clan.AppointPatriarch(patriarch);
-            clan.Ascend(patriarch);
-            Assert.AreEqual(heir.ID, clan.PatriarchID);
-        }
-
-        [Test]
         public void Kill_LeavesNoPatriarch_WhenTheLastMemberDies()
         {
             var last = Fixtures.Cultivator();
@@ -134,22 +122,6 @@ namespace MirrorChronicles.Tests.Clan
             clan.AppointPatriarch(last);
             clan.Kill(last, DeathCause.OldAge);
             Assert.IsNull(clan.PatriarchID);
-        }
-
-        [Test]
-        public void Ascend_LeavesTheMortalPlaneWithoutDying()
-        {
-            var ancestor = Fixtures.Cultivator(realm: CultivationRealm.DaoEmbryo);
-            clan.AddMember(ancestor);
-            int deaths = 0;
-            CharacterData ascended = null;
-            ctx.Events.OnCharacterDied += (c, cause) => deaths++;
-            ctx.Events.OnAncestorAscended += c => ascended = c;
-
-            clan.Ascend(ancestor);
-
-            Assert.IsTrue(!ancestor.IsAlive && ancestor.CauseOfDeath == DeathCause.None && deaths == 0
-                && ascended == ancestor && !clan.LivingMembers.Contains(ancestor));
         }
 
         [Test]

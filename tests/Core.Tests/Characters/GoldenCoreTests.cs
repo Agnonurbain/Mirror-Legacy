@@ -263,6 +263,19 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void ClaimPosition_TellsTheWorld_WhichPositionWasTaken()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Forged(w, OrthodoxWater);
+            (CharacterData who, GoldenCoreState position, GoldenCoreState from)? taken = null;
+            w.Ctx.Events.OnPositionTaken += (m, position, from) => taken = (m, position, from);
+
+            w.GoldenCore.ClaimPosition(c);
+
+            Assert.AreEqual((c, GoldenCoreState.Realization, GoldenCoreState.MetallicEssenceOnly), taken);
+        }
+
+        [Test]
         public void ClaimPosition_Refuses_AnOccupiedRealization_AndTheEssenceWaits()
         {
             // One Realization per lineage; the essence may try again later (R7)
@@ -545,6 +558,19 @@ namespace MirrorChronicles.Tests.Characters
 
             Assert.AreEqual(GoldenCoreState.Realization, c.GoldenCore);
             Assert.AreEqual(new FruitionState(FruitionStatus.Occupied, c.FullName), w.Fruitions.State(OrthodoxWater));
+        }
+
+        [Test]
+        public void Transfer_TellsTheWorld_TheSurplusRoseToTheRealization()
+        {
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Holder(w, GoldenCoreState.Surplus);
+            (CharacterData who, GoldenCoreState position, GoldenCoreState from)? taken = null;
+            w.Ctx.Events.OnPositionTaken += (m, position, from) => taken = (m, position, from);
+
+            w.GoldenCore.Transfer(c);
+
+            Assert.AreEqual((c, GoldenCoreState.Realization, GoldenCoreState.Surplus), taken);
         }
 
         [Test]

@@ -54,6 +54,8 @@ namespace MirrorChronicles.Tests
         public RegionalQi Place { get; }
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
+        public ShardSystem Shards { get; }
+        public PowerShards PowerShards { get; }
         public BeastRegistry Bestiary { get; }
         public SuspicionLedger Suspicion { get; }
         public TreatySystem Treaties { get; }
@@ -108,7 +110,9 @@ namespace MirrorChronicles.Tests
             Deduction = new DeductionEngine(Ctx, Mirror, Techniques);
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
-            Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions);
+            Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions, Mirror);
+            Wounds = new WoundSystem(Ctx, Stability);
+            Shards = new ShardSystem(Ctx, Clan, Mirror, Techniques, Knowledge, Wounds);
             Bestiary = new BeastRegistry(Ctx);
             Suspicion = new SuspicionLedger();
             Treaties = new TreatySystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques);
@@ -116,7 +120,7 @@ namespace MirrorChronicles.Tests
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Ctx, Factions, Resources);
             Espionage = new EspionageSystem(Ctx, Factions, Deduction, Stability, Techniques);
-            Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
+            Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary, Shards);
             Hunts = new HuntOperations(Ctx, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
             Lore = new MirrorLore(Ctx, Factions, worldSeed: 1);
             Secrets = new SecretSystem(Ctx, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
@@ -125,6 +129,7 @@ namespace MirrorChronicles.Tests
             Politics = new PowerPoliticsSystem(Ctx, Resources, Factions, Suspicion, Treaties);
             Watch = new ClanWatch(Ctx, Suspicion);
             SecretBook = new SecretBook(Ctx, Suspicion);
+            PowerShards = new PowerShards(Ctx, Clan, Factions, SecretBook, Suspicion, Lore, Treaties, Resources, Shards);
             Dealings = new SecretDealings(Ctx, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Ctx, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Wars = new WarSystem(Ctx, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
@@ -133,7 +138,6 @@ namespace MirrorChronicles.Tests
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability, Resources);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
-            Wounds = new WoundSystem(Ctx, Stability);
             Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds, Suspicion);
             Upkeep = new UpkeepSystem(Ctx, Clan, Resources, Stability);
             DaoHunts = new DaoHuntSystem(Ctx, Clan, Factions, Treaties, Buildings);

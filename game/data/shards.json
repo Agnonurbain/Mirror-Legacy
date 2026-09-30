@@ -1,0 +1,66 @@
+[
+  {
+    "id": "lake-jade", "name": "le Jade du Lac", "source": "Lake", "sleepYears": 1,
+    "memory": {
+      "techniqueId": "supreme-yin-sutra",
+      "facts": [],
+      "clue": "Le jade porte aussi la méthode de Respiration Embryonnaire du Manoir de l'Aube d'Argent, un grand ordre détruit il y a six siècles. Qu'avait à faire ce manoir d'un miroir fêlé ?"
+    },
+    "notes": "📚 Le premier morceau de jade, repêché dans le lac : il contenait le Sutra de la respiration du Yin Suprême et une méthode du Manoir de l'Aube d'Argent (dans le roman, trois ans pour le digérer ; un an ici, décision du 2026-09-30).",
+    "provenance": "Wiki", "interpretedFields": [ "SleepYears" ]
+  },
+  {
+    "id": "sunken-terraces-jade", "name": "le Jade des Terrasses Englouties", "source": "Ruins", "sleepYears": 1, "guardRealm": "QiRefinement",
+    "memory": {
+      "facts": [ "Lineage:supreme-yin", "Lineage:lesser-yin" ],
+      "clue": "Le miroir revoit un autel de l'Aube d'Argent où la lune ne se couchait jamais, et des disciples qui s'y inclinaient en silence."
+    },
+    "notes": "Des ruines d'un avant-poste de l'Aube d'Argent.",
+    "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears", "GuardRealm" ]
+  },
+  {
+    "id": "western-mound-jade", "name": "le Jade du Tertre de l'Ouest", "source": "Ruins", "sleepYears": 2, "guardRealm": "Foundation",
+    "memory": {
+      "facts": [ "Lineage:veiled-yin" ],
+      "clue": "Au Gué de Lingjin, quand le monde fut réduit au dixième, le miroir tomba avec les étoiles en désordre. Il n'était pas seul : quelqu'un le tenait."
+    },
+    "notes": "Des ruines d'avant le Grand Renversement.",
+    "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears", "GuardRealm" ]
+  },
+  {
+    "id": "jade-buckle", "name": "la Boucle de Jade", "source": "Power", "sleepYears": 2, "opensGreatVoid": true,
+    "memory": {
+      "facts": [],
+      "clue": "Le miroir se souvient du Grand Vide : il y a déjà demeuré, relié à un autel, et voyageait d'une ombre à l'autre."
+    },
+    "notes": "📚 Dans le roman, un ennemi du clan porte un morceau du miroir serti dans une boucle de jade ; repris, il rend au miroir le Grand Vide et une Lumière qui tue un Manoir Pourpre.",
+    "provenance": "Wiki", "interpretedFields": [ "Memory", "SleepYears" ]
+  },
+  {
+    "id": "pale-seal-jade", "name": "le Sceau de Jade Pâle", "source": "Power", "sleepYears": 2,
+    "memory": {
+      "facts": [ "GoldSeeking:supreme-yin" ],
+      "clue": "Le miroir revoit une Réalisation qui se penchait sur lui comme sur un lac, et y reconnaissait son propre visage."
+    },
+    "notes": "Tenu par une puissance comme un simple trésor.",
+    "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears" ]
+  },
+  {
+    "id": "black-scale-jade", "name": "l'Écaille de Jade Noire", "source": "Power", "sleepYears": 3,
+    "memory": {
+      "facts": [ "GoldSeeking:supreme-yin:intercalary" ],
+      "clue": "Le miroir se souvient d'une guerre des positions autour de la lune, et d'une main qui le brisa pour qu'aucun vainqueur ne s'y regarde."
+    },
+    "notes": "Tenu par une puissance comme un simple trésor.",
+    "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears" ]
+  },
+  {
+    "id": "void-jade", "name": "le Dernier Éclat", "source": "GreatVoid", "sleepYears": 3,
+    "memory": {
+      "facts": [],
+      "clue": "Le miroir sait enfin ce qu'il est : le reflet où la Réalisation du Yin Suprême se regardait avant le Grand Renversement, brisé au Gué de Lingjin pour que nul ne s'en empare. Il attendait qu'une lignée le rassemble."
+    },
+    "notes": "💡 L'origine du miroir est le grand mystère du jeu (§11.5) : ni la source ni le wiki ne la donnent ; ce texte est une proposition à valider.",
+    "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears" ]
+  }
+]

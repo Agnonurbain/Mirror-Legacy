@@ -40,6 +40,13 @@ namespace MirrorChronicles.Data
                 Describe(lines, GameContentLoader.RegionsFile, r.Id, r.Provenance, r.InterpretedFields);
             foreach (var p in content.Patrons)
                 Describe(lines, GameContentLoader.PatronsFile, p.Id, p.Provenance, p.InterpretedFields);
+            foreach (var s in content.Shards)
+                Describe(lines, GameContentLoader.ShardsFile, s.Id, s.Provenance, s.InterpretedFields);
+            foreach (var e in content.Endings)
+            {
+                Describe(lines, GameContentLoader.EndingsFile, e.Id, e.Provenance, e.InterpretedFields);
+                if (e.Awaits != null) lines.Add($"{GameContentLoader.EndingsFile} · {e.Id} · awaits {e.Awaits}");
+            }
             foreach (var k in content.SecretKinds)
                 Describe(lines, GameContentLoader.SecretsFile, k.Id, k.Provenance, k.InterpretedFields);
             foreach (var a in content.Atmospheres)

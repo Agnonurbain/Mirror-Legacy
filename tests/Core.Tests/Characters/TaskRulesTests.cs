@@ -47,8 +47,9 @@ namespace MirrorChronicles.Tests.Characters
         public void AllowedTasks_IncludesEveryTask_WhenQiCultivator_TheHuntOnlyInItsWindow()
         {
             var c = new CharacterData { Age = Adult, HasSpiritualOrifice = true, Realm = CultivationRealm.QiRefinement, RealmStage = 1 };
-            Assert.AreEqual(System.Enum.GetValues(typeof(TaskType)).Length, TaskRules.AllowedTasks(c, huntOpen: true).Count);
+            Assert.AreEqual(System.Enum.GetValues(typeof(TaskType)).Length, TaskRules.AllowedTasks(c, huntOpen: true, lakeOpen: true).Count);
             CollectionAssert.DoesNotContain(TaskRules.AllowedTasks(c), TaskType.HuntBeast); // the ritual is years away
+            CollectionAssert.DoesNotContain(TaskRules.AllowedTasks(c, huntOpen: true), TaskType.SearchLake); // the lake's shard is found
         }
 
         [Test]

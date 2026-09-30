@@ -47,12 +47,14 @@ namespace MirrorChronicles.Economy
         private readonly EspionageSystem espionage;
         private readonly BuildingSystem buildings;
         private readonly TechniqueLibrary techniques;
+        private readonly Mirror.ShardSystem shards;
 
         public TaskAssignmentSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation,
             ResourceManager resources, MentalStabilitySystem stability, FactionManager factions,
             DeductionEngine deduction, EspionageSystem espionage, BuildingSystem buildings, TechniqueLibrary techniques,
-            Mirror.TalismanSystem talismans, World.BeastRegistry bestiary)
+            Mirror.TalismanSystem talismans, World.BeastRegistry bestiary, Mirror.ShardSystem shards)
         {
+            this.shards = shards;
             this.talismans = talismans;
             this.bestiary = bestiary;
             this.techniques = techniques;
@@ -76,7 +78,7 @@ namespace MirrorChronicles.Economy
                 ctx.Log.Warning($"[Tasks] {character.FullName} is away on an operation until the year ends.");
                 return false; // the hunt keeps them the whole year (HuntOperations): back at the next year's start
             }
-            if (!TaskRules.IsAllowed(character, task, talismans.HuntWindowOpen))
+            if (!TaskRules.IsAllowed(character, task, talismans.HuntWindowOpen, shards.LakeSearchOpen))
             {
                 ctx.Log.Warning($"[Tasks] {character.FullName} cannot take {task} ({RankCatalog.DisplayName(character)}).");
                 return false;
@@ -92,10 +94,11 @@ namespace MirrorChronicles.Economy
             var minersYield = new List<int>();
             int patrols = 0;
             int qiGathered = 0;
+            int lakeSearchers = 0;
 
             foreach (var member in members.Where(m => m.IsAlive))
             {
-                if (!TaskRules.IsAllowed(member, member.CurrentTask, talismans.HuntWindowOpen))
+                if (!TaskRules.IsAllowed(member, member.CurrentTask, talismans.HuntWindowOpen, shards.LakeSearchOpen))
                 {
                     ctx.Log.Warning($"[Tasks] {member.FullName} cannot perform {member.CurrentTask}; task cleared.");
                     member.CurrentTask = TaskType.None; // e.g. a mortal still set to Cultivation from an old save
@@ -116,10 +119,12 @@ namespace MirrorChronicles.Economy
                     case TaskType.Diversion: break; // engaged in a hunt operation this year (HuntOperations)
                     case TaskType.Seclusion: break; // hidden away (DaoHuntSystem): nothing else
                     case TaskType.ScoutBeasts: ScoutBeasts(member); break;
+                    case TaskType.SearchLake: lakeSearchers++; break;
                         // Teaching needs this year's students: resolved below
                 }
             }
 
+            shards.SearchLake(lakeSearchers);
             int stonesMined = VeinYield(minersYield);
             resources.AddSpiritStones(stonesMined);
             Teach(members);

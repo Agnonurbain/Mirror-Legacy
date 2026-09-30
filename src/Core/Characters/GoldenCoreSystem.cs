@@ -102,6 +102,7 @@ namespace MirrorChronicles.Characters
             member.GoldenCore = GoldenCoreRules.PositionOf(route);
             if (route == PositionRoute.Realization) fruitions.Claim(member.FruitionId, member.FullName);
             ctx.Log.Info($"[Golden Core] {member.FullName} ascends to the {member.GoldenCore} of {target.Name}.");
+            ctx.Events.TriggerPositionTaken(member, member.GoldenCore, GoldenCoreState.MetallicEssenceOnly);
             return true;
         }
 
@@ -232,6 +233,7 @@ namespace MirrorChronicles.Characters
             fruitions.Claim(member.FruitionId, member.FullName);
             member.GoldenCore = GoldenCoreState.Realization;
             ctx.Log.Info($"[Golden Core] {member.FullName} rises to the Realization by {move}.");
+            ctx.Events.TriggerPositionTaken(member, GoldenCoreState.Realization, from);
             return true;
         }
 

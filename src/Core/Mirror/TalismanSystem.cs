@@ -21,10 +21,12 @@ namespace MirrorChronicles.Mirror
         private readonly ClanManager clan;
         private readonly ResourceManager resources;
         private readonly FactionManager factions;
+        private readonly MirrorSystem mirror;
 
-        public TalismanSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions)
+        public TalismanSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, MirrorSystem mirror)
         {
             this.factions = factions;
+            this.mirror = mirror;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -64,6 +66,7 @@ namespace MirrorChronicles.Mirror
                 : beast == null || !resources.Beasts.Contains(beast) ? "the clan holds no such beast"
                 : rank == null ? "the beast is below the Qi Cultivation"
                 : resources.Prayers < Settings.PrayersPerRitual ? "the prayers are lacking"
+                : mirror.IsAsleep ? "the mirror sleeps: it integrates a shard"
                 : null;
             if (refusal != null)
             {

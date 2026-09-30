@@ -74,18 +74,6 @@ namespace MirrorChronicles.Clan
             return true;
         }
 
-        /// <summary>An ancestor leaves the mortal plane: gone from the clan, but not dead.</summary>
-        public void Ascend(CharacterData character)
-        {
-            if (!character.IsAlive) return;
-
-            character.IsAlive = false;
-            LeaveTheLiving(character);
-
-            ctx.Log.Info($"[ClanManager] The heavens open: {character.FullName} ascends!");
-            ctx.Events.TriggerAncestorAscended(character);
-        }
-
         /// <summary>The spiritual root a parent's talisman Qi gives their children besides (the stronger parent's).</summary>
         private int OffspringTalent(CharacterData father, CharacterData mother) =>
             new[] { father, mother }.Max(p => Mirror.TalismanRules.Of(p, ctx.Content.Talismans)?.OffspringRootBonus ?? 0);

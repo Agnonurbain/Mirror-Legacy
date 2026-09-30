@@ -1,82 +1,55 @@
-using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 
 namespace MirrorChronicles.Session
 {
+    /// <summary>Why a game was lost (not saved: an older loss is told plainly).</summary>
+    public enum DefeatCause { None, Extinct, MirrorSeized, Absorbed }
+
     /// <summary>
-    /// The current endings: victory once ten generations have passed and an ancestor has ascended;
-    /// defeat when no member of the line remains, or when a power seizes the mirror (L2c.4c). (The dynastic endings of
-    /// LORE.md §11.9 arrive with L6.)
+    /// The defeats of LORE.md §11.9: no member of the line remains, a power seizes the mirror (L2c.4c), or a suzerain
+    /// absorbs the clan. There is no forced victory (B3, 2026-09-30): the dynastic endings are told, and play goes on.
     /// </summary>
     public sealed class VictoryConditionSystem
     {
-        public const int GenerationsForVictory = 10;
-        public const int AscensionsForVictory = 1;
-
         private readonly GameContext ctx;
         private readonly ClanManager clan;
-        private readonly ClanKarmaSystem karma;
-        private readonly AscensionSystem ascension;
 
-        public bool GameWon { get; private set; }
         public bool GameLost { get; private set; }
-        public bool IsOver => GameWon || GameLost;
+        public bool IsOver => GameLost;
+        public DefeatCause Loss { get; private set; }
 
-        public VictoryConditionSystem(GameContext ctx, ClanManager clan, ClanKarmaSystem karma, AscensionSystem ascension)
+        public VictoryConditionSystem(GameContext ctx, ClanManager clan)
         {
             this.ctx = ctx;
             this.clan = clan;
-            this.karma = karma;
-            this.ascension = ascension;
 
-            ctx.Events.OnYearStarted += year => CheckVictory();
-            ctx.Events.OnCharacterDied += (c, cause) => CheckDefeat();
-            ctx.Events.OnAncestorAscended += c => CheckDefeat();
+            ctx.Events.OnCharacterDied += (c, cause) => CheckExtinction();
             ctx.Events.OnMirrorSeized += MirrorSeized;
             ctx.Events.OnClanAbsorbed += ClanAbsorbed;
         }
 
-        public void Restore(bool won, bool lost)
-        {
-            GameWon = won;
-            GameLost = lost;
-        }
-
-        private void CheckVictory()
-        {
-            if (IsOver) return;
-            if (karma.GenerationCount < GenerationsForVictory || ascension.AscendedAncestorsCount < AscensionsForVictory) return;
-
-            GameWon = true;
-            ctx.Log.Info("[Victory] Ten generations endured and an ancestor ascended: the line is eternal!");
-            ctx.Events.TriggerGameOver(true);
-        }
+        public void Restore(bool lost) => GameLost = lost;
 
         /// <summary>The second defeat of LORE.md §11.9: the mirror discovered and seized by a stronger power.</summary>
-        private void MirrorSeized(string faction)
-        {
-            if (IsOver) return;
-            GameLost = true;
-            ctx.Log.Warning($"[Victory] {faction} seizes the mirror: the clan's secret is lost.");
-            ctx.Events.TriggerGameOver(false);
-        }
+        private void MirrorSeized(string faction) =>
+            Lose(DefeatCause.MirrorSeized, $"{faction} seizes the mirror: the clan's secret is lost.");
 
         /// <summary>A defeat of vassalage (2026-09-27): the suzerain's grip complete, the clan is absorbed into its power.</summary>
-        private void ClanAbsorbed(string suzerain)
+        private void ClanAbsorbed(string suzerain) =>
+            Lose(DefeatCause.Absorbed, $"{suzerain} absorbs the clan: it is no longer its own.");
+
+        private void CheckExtinction()
+        {
+            if (clan.LivingMembers.Count == 0) Lose(DefeatCause.Extinct, "The line is extinguished.");
+        }
+
+        private void Lose(DefeatCause cause, string why)
         {
             if (IsOver) return;
             GameLost = true;
-            ctx.Log.Warning($"[Victory] {suzerain} absorbs the clan: it is no longer its own.");
-            ctx.Events.TriggerGameOver(false);
-        }
-
-        private void CheckDefeat()
-        {
-            if (IsOver || clan.LivingMembers.Count > 0) return;
-
-            GameLost = true;
-            ctx.Log.Warning("[Victory] The line is extinguished.");
-            ctx.Events.TriggerGameOver(false);
+            Loss = cause;
+            ctx.Log.Warning($"[Victory] {why}");
+            ctx.Events.TriggerGameOver();
         }
     }
 }

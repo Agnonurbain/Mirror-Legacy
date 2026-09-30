@@ -81,9 +81,13 @@ namespace MirrorChronicles.Session
         public MarriageAlliance Matches { get; }
         public EventManager RandomEvents { get; }
         public LegacySystem Legacy { get; }
-        public AscensionSystem Ascension { get; }
         public StoryEventManager Story { get; }
         public VictoryConditionSystem Victory { get; }
+        public ClanAnnals Annals { get; }
+        public DynasticEndings Endings { get; }
+        public SectSystem Sect { get; }
+        public ShardSystem Shards { get; }
+        public PowerShards PowerShards { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -112,7 +116,8 @@ namespace MirrorChronicles.Session
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
-            Talismans = new TalismanSystem(Context, Clan, Resources, Factions);
+            Talismans = new TalismanSystem(Context, Clan, Resources, Factions, Mirror);
+            Shards = new ShardSystem(Context, Clan, Mirror, Techniques, Knowledge, Wounds);
             Suspicion = new SuspicionLedger();
             Treaties = new TreatySystem(Context, Clan, Resources, Factions, Suspicion, Techniques);
             Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror, Treaties);
@@ -120,7 +125,7 @@ namespace MirrorChronicles.Session
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability, Techniques);
-            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
+            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary, Shards);
             Hunts = new HuntOperations(Context, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
             Lore = new MirrorLore(Context, Factions, seed);
             Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
@@ -129,6 +134,7 @@ namespace MirrorChronicles.Session
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
+            PowerShards = new PowerShards(Context, Clan, Factions, SecretBook, Suspicion, Lore, Treaties, Resources, Shards);
             Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
@@ -142,9 +148,11 @@ namespace MirrorChronicles.Session
             Matches = new MarriageAlliance(Context, Clan, Factions, Treaties, Marriages, Suspicion);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);
-            Ascension = new AscensionSystem(Context, Clan);
             Story = new StoryEventManager(Context, Clan, Resources, Stability, Factions);
-            Victory = new VictoryConditionSystem(Context, Clan, Karma, Ascension);
+            Victory = new VictoryConditionSystem(Context, Clan);
+            Annals = new ClanAnnals(Context, Clan, Karma);
+            Sect = new SectSystem(Context, Clan, Resources);
+            Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory, Sect); // judged last
         }
 
         /// <summary>A new game: the clan's knowledge and Qi, the founders, the known world and its lineages, the mirror's first two fragments.</summary>
@@ -158,10 +166,12 @@ namespace MirrorChronicles.Session
             foreach (var (qi, portions) in content.Clan.StartingQi) session.Resources.AddQi(qi, portions);
             FoundingClan.Found(session.Clan, content.Clan, session.Techniques, session.Context.Rng);
             session.Karma.Restore(1, 0, 0, session.Clan.PatriarchID);
+            session.Annals.Restore(null, 1, session.Clan.Registry.Records); // the founders' realms are no milestone
             session.Factions.InitializeFactions();
             session.Fruitions.DrawWorld(FruitionRegistry.WorldRandom(setup.Seed));
             session.Bestiary.Draw(BeastRegistry.WorldRandom(setup.Seed));
             session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(setup.Seed), session.Factions.Factions);
+            session.PowerShards.Place(PowerShards.WorldRandom(setup.Seed)); // three shards lie with three powers (B3c3)
             session.Deduction.AddFragment(Element.Fire, 1, "Rouleau calciné");
             session.Deduction.AddFragment(Element.Wood, 1, "Lamelle de bambou");
 
@@ -214,9 +224,10 @@ namespace MirrorChronicles.Session
             session.Clock.Restore(Math.Max(1, data.CurrentYear), data.CurrentPhase);
             session.Clan.Restore(records, data.PatriarchID);
             session.Resources.Restore(data.SpiritStones, data.MedicinalHerbs, data.SpiritualOres, data.Prestige, data.TechniqueFragments);
-            session.Mirror.Restore(data.MirrorPower, data.RestoredFragments);
+            session.Mirror.Restore(data.MirrorPower, data.RestoredFragments, data.MirrorAsleepUntil);
+            session.Shards.Restore(data.RecoveredShards); // none before 2.21
+            session.Shards.RestoreRuins(data.RevealedRuins);
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
-            session.Ascension.Restore(data.AscendedAncestors);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
             else session.Factions.InitializeFactions();
@@ -254,6 +265,7 @@ namespace MirrorChronicles.Session
             session.Intrigues.RestoreDemands(data.Demands, data.QuietUntil); // none in saves before 2.13
             session.SecretBook.Restore(data.SecretsHeld, data.SecretProgress);
             if (data.SecretsHeld == null) session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(data.Seed), session.Factions.Factions); // before 2.14
+            session.PowerShards.Place(PowerShards.WorldRandom(data.Seed)); // saves before 2.21: the powers' shards placed now
             session.Probes.RestoreAlertness(data.Alertness);
             session.Suspicion.RestoreClanDistrust(data.ClanDistrust); // none in saves before 2.15
             session.Dealings.RestoreSpent(data.SpentSecrets);
@@ -270,7 +282,10 @@ namespace MirrorChronicles.Session
             session.Talismans.RestoreCalendar(data.NextRitualYear ?? (data.CurrentYear + period - 1) / period * period);
             session.Fruitions.Restore(data.FruitionStates, FruitionRegistry.WorldRandom(data.Seed)); // older saves: the world their seed draws
             session.Story.Restore(data.TriggeredStoryEvents ?? new List<StoryTriggerType>(), data.PendingStoryEvents ?? new List<StoryTriggerType>());
-            session.Victory.Restore(data.GameWon, data.GameLost);
+            session.Victory.Restore(data.GameLost); // a game « won » under the old rule goes on: there is no forced victory now
+            session.Annals.Restore(data.Annals, session.Karma.GenerationCount, records); // none before 2.21
+            session.Endings.Restore(data.PositionMoves, data.EndingStreaks);
+            session.Sect.Restore(data.SectFoundedYear); // none before 2.21
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan resumes in year {session.Clock.Year}.");
             return session;
@@ -294,6 +309,9 @@ namespace MirrorChronicles.Session
                 TechniqueFragments = Resources.TechniqueFragments,
                 MirrorPower = Mirror.MirrorPower,
                 RestoredFragments = Mirror.RestoredFragments,
+                RecoveredShards = Shards.Recovered.ToList(),
+                RevealedRuins = Shards.RevealedRuins.ToList(),
+                MirrorAsleepUntil = Mirror.AsleepUntil,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
                 Knowledge = Knowledge.Keys.ToList(), // the known techniques live there since 2.3
@@ -329,6 +347,10 @@ namespace MirrorChronicles.Session
                 PendingChallenge = Challenges.Pending,
                 Impoverished = Upkeep.Impoverished,
                 DaoPreys = DaoHunts.Known.ToList(),
+                Annals = Annals.Entries.ToList(),
+                PositionMoves = new Dictionary<string, string>(Endings.Moves),
+                EndingStreaks = new Dictionary<string, int>(Endings.Streaks),
+                SectFoundedYear = Sect.FoundedYear,
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -337,12 +359,10 @@ namespace MirrorChronicles.Session
                 TotalBirths = Karma.TotalBirths,
                 TotalDeaths = Karma.TotalDeaths,
                 LastPatriarchId = Karma.LastPatriarchId,
-                AscendedAncestors = Ascension.AscendedAncestorsCount,
                 Buildings = Buildings.Buildings.Select(b => new BuildingData(b.Type) { Level = b.Level }).ToList(),
                 Factions = Factions.Factions.Select(f => f.Clone()).ToList(),
                 TriggeredStoryEvents = Story.TriggeredEvents.ToList(),
                 PendingStoryEvents = Story.PendingTriggers.ToList(),
-                GameWon = Victory.GameWon,
                 GameLost = Victory.GameLost
             };
         }

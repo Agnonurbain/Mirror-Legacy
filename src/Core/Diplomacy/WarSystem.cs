@@ -164,11 +164,17 @@ namespace MirrorChronicles.Diplomacy
             ctx.Events.TriggerPeace(SecretBook.ClanHolder, war.Enemy);
         }
 
-        private double ClanStrength(ClanWar war)
+        /// <summary>The clan's own war strength, without its allies: its strongest free member, and the others' weight.</summary>
+        public double ClanWarStrength()
         {
             var fighters = clan.LivingMembers.Where(m => m.CaptorFaction == null).Select(m => (double)HuntRules.Power(m.Realm, m.RealmStage))
                 .OrderByDescending(p => p).ToList();
-            double strength = fighters.Count == 0 ? 0 : fighters[0] + fighters.Skip(1).Sum() * Settings.ClanStrengthPerMember;
+            return fighters.Count == 0 ? 0 : fighters[0] + fighters.Skip(1).Sum() * Settings.ClanStrengthPerMember;
+        }
+
+        private double ClanStrength(ClanWar war)
+        {
+            double strength = ClanWarStrength();
             foreach (var ally in treaties.All.Where(t => t.Kind == TreatyKind.Defence && t.Faction != war.Enemy).Select(t => factions.GetFactionByName(t.Faction)))
                 if (ally != null && Comes(ally.Name)) strength += WarRules.Strength(ally, Settings); // it comes, or lingers
             return strength;
@@ -220,6 +226,7 @@ namespace MirrorChronicles.Diplomacy
                 enemy.Wealth -= tribute;
                 resources.AddSpiritStones(tribute);
                 MakePeace(war);
+                ctx.Events.TriggerClanWarWon(enemy.Name);
                 return;
             }
             ClanBattle(war, enemy);

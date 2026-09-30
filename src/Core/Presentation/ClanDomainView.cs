@@ -56,7 +56,7 @@ namespace MirrorChronicles.Presentation
                 .ThenByDescending(m => m.RealmStage)
                 .ThenByDescending(m => m.Age)
                 .Select(m => new MemberRow(m.ID, m.FullName, m.Age, RankCatalog.DisplayName(m), m.MentalStability,
-                    m.CurrentTask, TaskRules.AllowedTasks(m, session.Talismans.HuntWindowOpen), m.ID == patriarchId,
+                    m.CurrentTask, TaskRules.AllowedTasks(m, session.Talismans.HuntWindowOpen, session.Shards.LakeSearchOpen), m.ID == patriarchId,
                     m.CultivationMethodId, PractisedMethod(session, m),
                     session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
                     TemperamentLabel(m.Temperament), RipeLabel(session, m), RetreatLabel(m), AbilitiesLabel(m),
@@ -180,6 +180,7 @@ namespace MirrorChronicles.Presentation
             TaskType.Diversion => "Diversion",
             TaskType.GatherQi => "Récolte de Qi",
             TaskType.Seclusion => "Réclusion",
+            TaskType.SearchLake => "Sonder le lac",
             _ => task.ToString()
         };
 

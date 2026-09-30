@@ -38,6 +38,12 @@ namespace MirrorChronicles.Data
         /// <summary>The kinds of spirit beasts (beasts.json, L2c.2).</summary>
         public IReadOnlyList<SecretKind> SecretKinds { get; init; } = Array.Empty<SecretKind>();
         public IReadOnlyList<PatronDefinition> Patrons { get; init; } = Array.Empty<PatronDefinition>();
+
+        /// <summary>The shards of the mirror (shards.json, LORE.md §11.5).</summary>
+        public IReadOnlyList<ShardDefinition> Shards { get; init; } = Array.Empty<ShardDefinition>();
+
+        /// <summary>The dynastic endings (endings.json, LORE.md §11.9).</summary>
+        public IReadOnlyList<EndingDefinition> Endings { get; init; } = Array.Empty<EndingDefinition>();
         public IReadOnlyList<AtmosphereDefinition> Atmospheres { get; init; } = Array.Empty<AtmosphereDefinition>();
         public IReadOnlyList<BeastSpecies> BeastSpecies { get; init; } = Array.Empty<BeastSpecies>();
 
@@ -238,6 +244,12 @@ namespace MirrorChronicles.Data
 
         /// <summary>The ritual of the talisman Qi: prayers, offers, leaps (§11.5; the ten thousand prayers are the lore's).</summary>
         public TalismanSettings Talismans { get; init; }
+
+        /// <summary>What founding the clan's sect asks (B3d; interpretations).</summary>
+        public SectSettings Sect { get; init; }
+
+        /// <summary>How the mirror's shards are found (B3c; interpretations).</summary>
+        public ShardSettings Shards { get; init; }
 
         /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
         public TrialSettings Trials { get; init; }
