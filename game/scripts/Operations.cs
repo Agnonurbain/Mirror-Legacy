@@ -45,7 +45,7 @@ namespace MirrorChronicles.Game
             captives = GetNode<VBoxContainer>("%Captives");
             probes = GetNode<VBoxContainer>("%Probes");
             status = GetNode<Label>("%Status");
-            GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             // OPS_TAB=<0-4> opens a tab (screenshots of a smoke run)
             if (int.TryParse(OS.GetEnvironment("OPS_TAB"), out int tab)) GetNode<TabContainer>("%Tabs").CurrentTab = tab;
             Refresh();
@@ -508,7 +508,7 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Operations: ritual in year {OperationsView.Ritual(root.Session).Year}, {OperationsView.Signs(root.Session).Count} powers watched.");
-            if (root.SmokeEndsOnLibrary) GetTree().ChangeSceneToFile(Library.ScenePath); // the library checks itself
+            if (root.SmokeEndsOnLibrary) root.GoTo(Library.ScenePath); // the library checks itself
             else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }

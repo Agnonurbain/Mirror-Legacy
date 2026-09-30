@@ -48,19 +48,19 @@ namespace MirrorChronicles.Game
             storyChoices = GetNode<VBoxContainer>("%StoryChoices");
 
             nextPhase.Pressed += AdvancePhase;
-            GetNode<Button>("%OpenMap").Pressed += () => GetTree().ChangeSceneToFile(WorldMap.ScenePath);
-            GetNode<Button>("%OpenOperations").Pressed += () => GetTree().ChangeSceneToFile(Operations.ScenePath);
-            GetNode<Button>("%OpenMirror").Pressed += () => GetTree().ChangeSceneToFile(MirrorScreen.ScenePath);
-            GetNode<Button>("%OpenBuildings").Pressed += () => GetTree().ChangeSceneToFile(BuildingsScreen.ScenePath);
-            GetNode<Button>("%OpenBattle").Pressed += () => GetTree().ChangeSceneToFile(BattleScreen.ScenePath);
+            GetNode<Button>("%OpenMap").Pressed += () => root.GoTo(WorldMap.ScenePath);
+            GetNode<Button>("%OpenOperations").Pressed += () => root.GoTo(Operations.ScenePath);
+            GetNode<Button>("%OpenMirror").Pressed += () => root.GoTo(MirrorScreen.ScenePath);
+            GetNode<Button>("%OpenBuildings").Pressed += () => root.GoTo(BuildingsScreen.ScenePath);
+            GetNode<Button>("%OpenBattle").Pressed += () => root.GoTo(BattleScreen.ScenePath);
             GetNode<Button>("%OpenTitle").Pressed += () =>
             {
                 root.Save(); // the year's work kept
-                GetTree().ChangeSceneToFile(TitleScreen.ScenePath);
+                root.GoTo(TitleScreen.ScenePath);
             };
-            GetNode<Button>("%OpenLibrary").Pressed += () => GetTree().ChangeSceneToFile(Library.ScenePath);
-            GetNode<Button>("%OpenDiplomacy").Pressed += () => GetTree().ChangeSceneToFile(Diplomacy.ScenePath);
-            GetNode<Button>("%OpenGenealogy").Pressed += () => GetTree().ChangeSceneToFile(Genealogy.ScenePath);
+            GetNode<Button>("%OpenLibrary").Pressed += () => root.GoTo(Library.ScenePath);
+            GetNode<Button>("%OpenDiplomacy").Pressed += () => root.GoTo(Diplomacy.ScenePath);
+            GetNode<Button>("%OpenGenealogy").Pressed += () => root.GoTo(Genealogy.ScenePath);
             root.SessionChanged += Bind;
             Bind();
 
@@ -268,7 +268,7 @@ namespace MirrorChronicles.Game
             GD.Print($"[Smoke] Year {session.Clock.Year}: {session.Clan.LivingMembers.Count} members, "
                 + $"{roster.GetChildCount()} roster rows, {root.Chronicle.Entries.Count} chronicle entries.");
 
-            if (root.SmokeEndsOnMap) GetTree().ChangeSceneToFile(WorldMap.ScenePath); // the map checks itself, then quits
+            if (root.SmokeEndsOnMap) root.GoTo(WorldMap.ScenePath); // the map checks itself, then quits
             else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }

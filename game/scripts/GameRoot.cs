@@ -65,6 +65,7 @@ namespace MirrorChronicles.Game
             var args = OS.GetCmdlineUserArgs();
             IsSmokeRun = args.Contains("--smoke");
             SmokeStaysOnTitle = args.Contains("--title");
+            inkInSmoke = args.Contains("--ink");
             SmokeEndsOnBattle = args.Contains("--bat");
             SmokeEndsOnBuildings = args.Contains("--bld") || SmokeEndsOnBattle; // the battle is reached through the buildings
             SmokeEndsOnMirror = args.Contains("--mir") || SmokeEndsOnBuildings; // the buildings are reached through the mirror
@@ -77,6 +78,12 @@ namespace MirrorChronicles.Game
             content = GameContentLoader.Load(ReadDataFile); // unplayable content stops the game at startup, naming the file
             AddChild(new PaperBackdrop()); // rice paper behind every screen (Shuimo)
             BronzeTexture.Apply(ThemeDB.GetProjectTheme()); // worn bronze on the buttons
+            ink = new ColorRect { MouseFilter = Control.MouseFilterEnum.Ignore, Visible = false };
+            ink.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+            ink.Material = new ShaderMaterial { Shader = GD.Load<Shader>("res://theme/ink.gdshader") };
+            var above = new CanvasLayer { Layer = 100 };
+            above.AddChild(ink);
+            AddChild(above);
 
             if (IsSmokeRun) Start(GameSession.NewGame(Setup(SmokeSeed)), slot: 0); // never saved
             else AdoptLegacySave();
@@ -175,11 +182,54 @@ namespace MirrorChronicles.Game
             return DirAccess.RenameAbsolute(ProjectSettings.GlobalizePath(temp), ProjectSettings.GlobalizePath(path)) == Error.Ok;
         }
 
+        private const double InkSeconds = 0.35;
+        private ColorRect ink;
+        private bool travelling;
+        private string pendingPath;
+        private bool inkInSmoke; // --ink: a smoke run crosses under the ink too (to check it)
+
+        /// <summary>
+        /// Goes to another screen under a spreading ink (Shuimo): the ink covers the page, the scene changes beneath it,
+        /// the ink withdraws. A smoke run changes at once.
+        /// </summary>
+        public void GoTo(string scenePath)
+        {
+            if ((IsSmokeRun && !inkInSmoke) || ink == null)
+            {
+                GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, scenePath);
+                return;
+            }
+            if (travelling)
+            {
+                pendingPath = scenePath; // asked mid-crossing: taken once the ink has withdrawn
+                return;
+            }
+            travelling = true;
+            var material = (ShaderMaterial)ink.Material;
+            ink.Visible = true;
+            ink.MouseFilter = Control.MouseFilterEnum.Stop; // no click lands mid-crossing
+            var tween = CreateTween();
+            tween.TweenMethod(Callable.From<float>(v => material.SetShaderParameter("progress", v)), 0f, 1f, InkSeconds);
+            tween.TweenCallback(Callable.From(() => GetTree().ChangeSceneToFile(scenePath)));
+            tween.TweenMethod(Callable.From<float>(v => material.SetShaderParameter("progress", v)), 1f, 0f, InkSeconds);
+            tween.TweenCallback(Callable.From(() =>
+            {
+                ink.Visible = false;
+                ink.MouseFilter = Control.MouseFilterEnum.Ignore;
+                travelling = false;
+                if (pendingPath is { } next)
+                {
+                    pendingPath = null;
+                    GoTo(next);
+                }
+            }));
+        }
+
         /// <summary>A screen reached without a game (a direct launch, an erased slot) goes back to the title; true when it did.</summary>
         public bool RedirectWithoutSession(Node screen)
         {
             if (Session != null) return false;
-            screen.GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, TitleScreen.ScenePath);
+            GoTo(TitleScreen.ScenePath);
             return true;
         }
 

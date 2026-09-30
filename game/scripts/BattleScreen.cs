@@ -50,7 +50,7 @@ namespace MirrorChronicles.Game
             conclude = GetNode<Button>("%Conclude");
             status = GetNode<Label>("%Status");
 
-            back.Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            back.Pressed += () => root.GoTo(ClanDomain.ScenePath);
             GetNode<Button>("%Accept").Pressed += Accept;
             GetNode<Button>("%Decline").Pressed += () => Answer(root.Session.Challenges.Decline(), "Le clan se dérobe au défi.");
             endTurn.Pressed += () => { Battle?.EndTurn(); Refresh(); };

@@ -23,7 +23,7 @@ namespace MirrorChronicles.Game
             stones = GetNode<Label>("%Stones");
             list = GetNode<VBoxContainer>("%List");
             status = GetNode<Label>("%Status");
-            GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
         }
@@ -75,7 +75,7 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Buildings: {BuildingsView.Buildings(root.Session).Count} buildings, {root.Session.Resources.SpiritStones} stones.");
-            if (root.SmokeEndsOnBattle) GetTree().ChangeSceneToFile(BattleScreen.ScenePath); // the battle checks itself
+            if (root.SmokeEndsOnBattle) root.GoTo(BattleScreen.ScenePath); // the battle checks itself
             else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }

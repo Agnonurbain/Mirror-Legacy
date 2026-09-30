@@ -39,7 +39,7 @@ namespace MirrorChronicles.Game
             powers = GetNode<VBoxContainer>("%Powers");
             proposal = GetNode<VBoxContainer>("%Proposal");
             status = GetNode<Label>("%Status");
-            GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
         }
@@ -255,7 +255,7 @@ namespace MirrorChronicles.Game
             power ??= DiplomacyView.Powers(root.Session).FirstOrDefault()?.Name; // shown with a proposal open
             Refresh();
             GD.Print($"[Smoke] Diplomacy: {DiplomacyView.Powers(root.Session).Count} powers, {root.Session.Treaties.All.Count} treaties.");
-            if (root.SmokeEndsOnMirror) GetTree().ChangeSceneToFile(MirrorScreen.ScenePath); // the mirror checks itself
+            if (root.SmokeEndsOnMirror) root.GoTo(MirrorScreen.ScenePath); // the mirror checks itself
             else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }
