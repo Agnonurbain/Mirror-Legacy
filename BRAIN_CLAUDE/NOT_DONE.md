@@ -68,8 +68,8 @@
 
 | # | Tâche | Priorité | Détails |
 |---|---|---|---|
-| 60 | **Direction artistique Shuimo** | 🟢 | Sprites parchemin, textures bronze, bordures nuages/dragons. 5 tranches d'âge × 2 genres = 10 sprites par archétype. |
-| 61 | **UI thématique** | 🟢 | Remplacer toute l'UI placeholder par la version parchemin/bronze/encre. Transitions d'encre entre écrans. |
+| 60 | **Direction artistique Shuimo** | 🟡 | Fait en procédural (43a42-43a47) : papier de riz et feuille d'or, bronze patiné, paysage, portraits à l'encre (5 âges × 2 sexes, par élément et royaume). Reste, si l'on veut des images peintes : sprites et bordures dragons. Sprites parchemin, textures bronze, bordures nuages/dragons. 5 tranches d'âge × 2 genres = 10 sprites par archétype. |
+| 61 | **UI thématique** | 🟡 | Fait : thème Shuimo et rideau entre les écrans (43a41, 43a44-45). Reste : Remplacer toute l'UI placeholder par la version parchemin/bronze/encre. Transitions d'encre entre écrans. |
 | 62 | **VFX percée** | 🟢 | Particle System avec explosion ascendante + flash + camera shake. |
 | 63 | **VFX combat** | 🟢 | Traînées de Qi colorées par élément, shockwave à l'impact, Déviation de Qi = particules noires/rouges chaotiques. |
 | 64 | **Audio complet** | 🟢 | Musique Guqin (domaine), Taiko+Dizi (combat), montée orchestrale (percée). SFX parchemin, bronze, goutte d'encre. |

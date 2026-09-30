@@ -29,7 +29,9 @@ namespace MirrorChronicles.Game
 
         private void Refresh()
         {
-            GetNode<GenealogyCanvas>("%Tree").Show(GenealogyView.Tree(root.Session));
+            var tree = GetNode<GenealogyCanvas>("%Tree");
+            tree.Portraits = id => PortraitView.For(root.Session, id);
+            tree.Show(GenealogyView.Tree(root.Session));
             ShowLineage();
         }
 
