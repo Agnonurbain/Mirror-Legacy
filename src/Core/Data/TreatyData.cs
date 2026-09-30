@@ -65,6 +65,11 @@ namespace MirrorChronicles.Data
         /// <summary>A vassal's yearly tribute, the suzerain's grip growing each year; at the threshold it takes stones and an art.</summary>
         public double VassalTributeShare { get; init; }
         public int GripPerYear { get; init; }
+
+        /// <summary>The clan absorbing a vassal (2026-09-30): the cultivators who join it, the suspicion and distrust it stirs in every other power (🔎).</summary>
+        public int AbsorbedJoiners { get; init; }
+        public int AbsorbSuspicion { get; init; }
+        public int AbsorbDistrust { get; init; }
         public int GripThreshold { get; init; } = 1;
         public double GripStonesShare { get; init; }
 

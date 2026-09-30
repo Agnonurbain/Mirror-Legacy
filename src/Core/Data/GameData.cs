@@ -95,6 +95,7 @@ namespace MirrorChronicles.Data
         public Dictionary<string, string> PositionMoves { get; set; } // 2.21: « from>to » positions risen to, and by whom (the endings)
         public Dictionary<string, int> EndingStreaks { get; set; }    // 2.21: the years a hegemony has held in a row, by ending
         public int? SectFoundedYear { get; set; }                     // 2.21: the year the clan founded its sect (B3d)
+        public List<Diplomacy.AbsorbedPower> AbsorbedPowers { get; set; } // 2.21: the vassals the clan absorbed
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

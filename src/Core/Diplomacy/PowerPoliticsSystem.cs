@@ -34,6 +34,7 @@ namespace MirrorChronicles.Diplomacy
             this.factions = factions;
             this.suspicion = suspicion;
             this.treaties = treaties;
+            ctx.Events.OnPowerAbsorbed += (vassal, suzerain) => { if (suzerain == World.SecretBook.ClanHolder) Forget(vassal); };
         }
 
         private PoliticsSettings Settings => ctx.Content.Balance.Politics;
@@ -223,6 +224,14 @@ namespace MirrorChronicles.Diplomacy
         }
 
         /// <summary>The vassal is no more: its wealth, half its strength and its arts go to its suzerain.</summary>
+        /// <summary>A power the clan absorbed leaves the powers' web: its bonds, its calls, its place in a coalition.</summary>
+        private void Forget(string power)
+        {
+            bonds.RemoveAll(b => b.A == power || b.B == power);
+            calls.RemoveAll(c => c.Ally == power || c.Attacker == power);
+            if (Coalition != null) Coalition = Coalition with { Members = Coalition.Members.Where(m => m != power).ToList() };
+        }
+
         private void Absorb(FactionData suzerain, FactionData vassal)
         {
             suzerain.Wealth += Math.Max(0, vassal.Wealth);

@@ -86,6 +86,7 @@ namespace MirrorChronicles.Session
         public ClanAnnals Annals { get; }
         public DynasticEndings Endings { get; }
         public SectSystem Sect { get; }
+        public ClanAbsorption Absorption { get; }
         public ShardSystem Shards { get; }
         public PowerShards PowerShards { get; }
 
@@ -152,7 +153,8 @@ namespace MirrorChronicles.Session
             Story = new StoryEventManager(Context, Clan, Resources, Stability, Factions);
             Victory = new VictoryConditionSystem(Context, Clan);
             Annals = new ClanAnnals(Context, Clan, Karma);
-            Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory, Sect); // judged last
+            Absorption = new ClanAbsorption(Context, Clan, Resources, Factions, Treaties, Suspicion, Techniques, PowerShards, Shards);
+            Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory, Sect, Absorption); // judged last
         }
 
         /// <summary>A new game: the clan's knowledge and Qi, the founders, the known world and its lineages, the mirror's first two fragments.</summary>
@@ -287,6 +289,7 @@ namespace MirrorChronicles.Session
             session.Annals.Restore(data.Annals, session.Karma.GenerationCount, records); // none before 2.21
             session.Endings.Restore(data.PositionMoves, data.EndingStreaks);
             session.Sect.Restore(data.SectFoundedYear, session.Karma.GenerationCount); // none before 2.21
+            session.Absorption.Restore(data.AbsorbedPowers);
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan resumes in year {session.Clock.Year}.");
             return session;
@@ -352,6 +355,7 @@ namespace MirrorChronicles.Session
                 PositionMoves = new Dictionary<string, string>(Endings.Moves),
                 EndingStreaks = new Dictionary<string, int>(Endings.Streaks),
                 SectFoundedYear = Sect.FoundedYear,
+                AbsorbedPowers = Absorption.Absorbed.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
