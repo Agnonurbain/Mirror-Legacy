@@ -39,6 +39,9 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<SecretKind> SecretKinds { get; init; } = Array.Empty<SecretKind>();
         public IReadOnlyList<PatronDefinition> Patrons { get; init; } = Array.Empty<PatronDefinition>();
 
+        /// <summary>The patrons' hidden designs (designs.json, LORE.md §11.10).</summary>
+        public IReadOnlyList<PatronDesign> PatronDesigns { get; init; } = Array.Empty<PatronDesign>();
+
         /// <summary>The shards of the mirror (shards.json, LORE.md §11.5).</summary>
         public IReadOnlyList<ShardDefinition> Shards { get; init; } = Array.Empty<ShardDefinition>();
 
@@ -274,6 +277,19 @@ namespace MirrorChronicles.Data
     /// <summary>What knowledge costs (balance.json, L4c; the lore gives no price).</summary>
     public sealed record KnowledgeTradeSettings
     {
+        /// <summary>Accords of knowledge (LORE.md §11.10; 🔎): the relation an ascent method asks, and what each thing given is worth.</summary>
+        public int AscentAccordMinRelation { get; init; }
+        public int SecretWorthPerRank { get; init; }
+        public int BeastWorthPerRealm { get; init; }
+        public int QiWorthPerPortion { get; init; }
+        public double DebtWorthShare { get; init; }
+        public int DiscipleWorthPerRealm { get; init; }
+
+        /// <summary>Patrons (§11.10; 🔎): the yearly chance of an offer, the relation lost on a refusal, the mirror's cleansing.</summary>
+        public double PatronOfferChance { get; init; }
+        public int PatronRefusalLoss { get; init; }
+        public int CleanseMirrorCost { get; init; }
+
         /// <summary>The relation a power needs with the clan before it sells a technique.</summary>
         public int MinRelation { get; init; }
 
@@ -373,6 +389,12 @@ namespace MirrorChronicles.Data
         /// <summary>A deduction's grade: the fragments' average, +1 from this many fragments, at most this grade (7+ only from five divine ones).</summary>
         public int DeductionCompleteFragments { get; init; }
         public int DeductionMaxGrade { get; init; }
+
+        /// <summary>The mirror deduces an ascent method of its own will (LORE.md §11.10; 🔎): shards restored, good fragments, their quality, its power.</summary>
+        public int AscentDeductionShards { get; init; }
+        public int AscentDeductionFragments { get; init; }
+        public int AscentDeductionQuality { get; init; }
+        public int AscentDeductionPower { get; init; }
     }
 
     /// <summary>What condensing a divine ability costs (balance.json, tuned by simulation).</summary>

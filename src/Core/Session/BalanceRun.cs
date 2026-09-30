@@ -147,19 +147,19 @@ namespace MirrorChronicles.Session
         }
 
         /// <summary>
-        /// A method that leads to the Purple Mansion (its secret, LORE.md §5.3.4; grade 5 and above): until the clan knows one,
-        /// the pilot buys the cheapest a power will sell, keeping two years of upkeep in reserve.
+        /// A method that leads to the Purple Mansion (its secret, LORE.md §5.3.4; grade 5 and above) is never bought (§11.10):
+        /// until the clan knows one, the pilot has the mirror deduce it as soon as the mirror can.
         /// </summary>
         private static void SeekAMethodToTheAscent(GameSession session)
         {
-            if (AscentMethod(session) != null) return;
-            var offer = session.Factions.Factions
-                .SelectMany(f => session.Exchange.Offers(f.Name).Select(t => (Power: f.Name, Technique: t)))
-                .Where(o => LeadsToTheAscent(session, o.Technique) && session.Exchange.PurchaseRefusal(o.Power, o.Technique.ID) == null)
-                .OrderBy(o => session.Exchange.PriceOf(o.Technique, o.Power)).FirstOrDefault();
-            if (offer.Technique == null) return;
-            if (session.Resources.SpiritStones - session.Exchange.PriceOf(offer.Technique, offer.Power) < session.Upkeep.YearlyUpkeep * ReserveYears) return;
-            session.Exchange.BuyTechnique(offer.Power, offer.Technique.ID);
+            if (AscentMethod(session) == null && session.Deduction.AscentRefusal() == null) session.Deduction.DeduceAscentMethod();
+            if (session.Sponsorships.Pending != null) session.Sponsorships.Accept(); // a patron's gift, whatever it hides (§11.10)
+            foreach (var s in session.Sponsorships.Active.Where(x => !x.Cleansed).ToList()) session.Sponsorships.Cleanse(s.Id); // when the mirror can
+            var method = AscentMethod(session);
+            if (method == null) return;
+            foreach (var member in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.QiId == method.RequiredQiId
+                && m.CultivationMethodId != method.ID && TechniqueRules.CanPractise(m, method)).ToList())
+                session.Techniques.AssignMethod(member, method.ID); // the cultivators of its Qi take it up
         }
 
         /// <summary>A method of the Qi Cultivation that holds the ascent's secret and whose Qi can still be gathered.</summary>

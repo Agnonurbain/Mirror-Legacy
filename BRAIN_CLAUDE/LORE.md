@@ -1090,6 +1090,75 @@ La victoire « 10 générations + 1 ascension » disparaît : les générations 
 - **Un Embryon du Dao ne quitte pas le monde** (décision de l'utilisateur, 2026-09-30) : le membre qui l'atteint reste vivant, dans le clan et dans le monde. Le départ des Embryons du Dao vers le Ciel Extérieur (§5.8, §12) reste un fait de l'histoire du monde, pas une règle du clan.
 - 🎮 ✅ Fait (B3, 2026-09-30) : `ClanAnnals`, `DynasticEndings` (`endings.json`), `ShardSystem` et `PowerShards` (`shards.json`), `SectSystem` ; 🔎 chiffres dans `balance.json` (« shards », « sect ») ; la Double Maison demande un Manoir Pourpre, 20 cultivateurs et 10 000 pierres. ✅ **Effets de la secte** (décision de l'utilisateur, 2026-09-30) : les maîtres de pic enseignent mieux (🔎 +50 %), la ville prie davantage (🔎 +30 %), une succession trouble moins le clan (🔎 −2 de stabilité au lieu de −8 ; ce trouble de succession est nouveau) ; en échange, les grandes sectes s'en méfient (🔎 −20 de relation), les puissances avides la convoitent davantage (🔎 ×1,5) et les pics coûtent un entretien (🔎 300 pierres par an). ✅ **L'origine du miroir** : le fil Yin Suprême, lune et Gué de Lingjin des souvenirs des éclats (`shards.json`) est validé par l'utilisateur (2026-09-30).
 
+### 11.10 Obtenir une méthode — le savoir se paie en complots, pas en pierres
+
+✅ **Décisions de l'utilisateur (2026-09-30)** : les méthodes qui mènent au Manoir Pourpre (grade 5 et plus, ou porteuses du secret, §5.3.4) **ne s'achètent pas** : ce qui est le plus précieux dans ce monde, ce sont les méthodes. On les obtient par des **accords**, des **opportunités** (très rares) et surtout des **complots** : une puissance peut vouloir que le clan atteigne le Manoir Pourpre, parce qu'elle a prévu quelque chose pour lui ; d'autres l'en empêcheront ; au joueur de manœuvrer. Les méthodes ordinaires (grade 4 et moins) restent achetables en pierres, **mais pas seulement**. Le **miroir** peut déduire de lui-même une méthode du Manoir Pourpre **dès 3 éclats restaurés** (seuil validé), s'il a acquis assez de savoir.
+
+📚 **Ce que dit le wiki** (famille du roman, secte protectrice) : la famille n'achète jamais une méthode. Elle l'obtient par un **marché** avec une autre famille (pierres et service), par la **conquête** (le manuel et son Qi pris à une famille vaincue), en **explorant une grotte** avec des cultivateurs errants, par l'**amitié d'une bête** (du riz spirituel contre du savoir). « Maîtriser le Manoir Pourpre est rare **sans l'appui d'un Maître taoïste** » : les disciples d'une grande secte reçoivent son système de méthodes. Depuis la Migration du Sud, les méthodes du Manoir Pourpre sont rarissimes, et **chacune des cinq capacités divines demande une nouvelle méthode** alignée sur un Partenaire Dao. La secte protectrice traite les clans « **comme des récoltes** » : elle les cultive des siècles, puis les moissonne ; elle attise leurs guerres de frontière, prélève chaque année leurs meilleurs talents ; son maître **raffine les disciples dont la fondation lui convient** et avale des **pilules humaines** pour prolonger sa vie. Une porte rivale, déchirée par une lutte de lignées, voit un héritier atteindre le Manoir Pourpre « **avec l'appui d'une puissance extérieure** ».
+
+#### A. Les monnaies du savoir (méthodes de grade 4 et moins ; et, plus lourdes, les accords d'ascension)
+| # | Monnaie | Ce que le clan donne | Le revers |
+|---|---|---|---|
+| M1 | **Pierres spirituelles** | le prix d'un grade (grade 4 et moins seulement) | — |
+| M2 | **Savoir contre savoir** | une technique que la puissance n'a pas (une déduction du miroir, **nettoyée** de ses marques pour que nul ne remonte à sa source, §11.5) | ce que le clan cède, un autre peut l'utiliser contre lui |
+| M3 | **Un secret percé** | le secret d'une tierce puissance (`SecretBook`) | la victime peut apprendre qui l'a vendu |
+| M4 | **Un trésor** | une bête spirituelle capturée, des portions de Qi rares, des herbes, des minerais, un objet d'une ruine | donner du **Clair de Lune du Yin Suprême** trahirait le miroir (indices) |
+| M5 | **Un service** | un membre sert N années (garde, escorte, disciple invité), le clan combat à ses côtés ; 📚 un **assassinat commandé** (la famille du roman s'allie à un Maître taoïste pour abattre un rival) | un service peut mener là où l'on meurt, ou se faire des ennemis |
+| M6 | **Un otage ou un mariage** | un enfant doué envoyé comme disciple, ou marié dans sa lignée (orifice héréditaire, D3) | le sang du clan chez l'autre : levier, espion, otage |
+| M7 | **Un serment du Dao** | ne jamais nuire, garder un secret, rendre un service avant un terme (§ serments) | le parjure brise le chemin |
+| M8 | **Une dette** | rien aujourd'hui : la puissance réclamera plus tard, au pire moment | la dette se rappelle d'elle-même |
+| M9 | **Un lieu** | un terrain de chasse, une veine, une source de Qi, un village | le clan s'appauvrit ou se découvre |
+| M10 | **La vassalité** | se placer sous sa protection (📚 la secte donne ses arts à ses familles vassales) | tribut, emprise, absorption |
+| M11 | **Une essence métallique** | l'essence d'un Démon d'Essence Métallique scellé, d'un Vrai Monarque mort (haut niveau ; 📚 les officiels du Monde Souterrain s'achètent ainsi) | provoque le Monde Souterrain (§12.1) |
+| M12 | **Le mérite** | avoir sauvé la région (📚 un Maître taoïste repousse un Roi Démon et sauve des millions de gens ; la gratitude des grands) | le mérite attire aussi les regards |
+
+#### B. Les chemins vers une méthode d'ascension (grade 5 et plus : jamais en pierres)
+| # | Chemin | Comment | Le prix caché |
+|---|---|---|---|
+| C1 | **Un accord lourd** | plusieurs monnaies ensemble (serment + service + otage) avec une puissance qui détient une méthode d'ascension | la puissance tient le clan |
+| C2 | **Disciple d'une grande secte** | un membre entre dans une secte comme disciple ; elle lui enseigne son système jusqu'au Manoir Pourpre (📚) | il lui appartient : la secte peut le **moissonner** ; enseigner son art au clan est un vol (preuve) ; loyauté divisée |
+| C3 | **Le patronage d'un Maître taoïste** | un Manoir Pourpre (figure du monde) prend un membre sous son aile (📚 « rare sans l'appui d'un Maître taoïste ») | le patron a toujours un dessein (§C) |
+| C4 | **La conquête** | vaincre, soumettre ou absorber une puissance qui détient une méthode : le manuel **et son Qi** (📚 une famille vaincue ; cf. absorption) | la guerre, la méfiance des témoins |
+| C5 | **Une ruine, une grotte, un tombeau** | un Manoir Pourpre mort, une Grotte Céleste tombée, un ordre détruit (le Manoir de l'Aube d'Argent) : expédition, parfois avec des cultivateurs errants (📚) | très rare ; gardiens, pièges, rivaux sur place, partage du butin |
+| C6 | **Un grand partenaire** | la Renarde, la Tortue, l'Ermite (§ pactes) enseignent un savoir (📚 la bête amie du roman) | la faveur se paie en tribut |
+| C7 | **Le vol** | vol d'archives (sondage), infiltration | preuves, vengeance |
+| C8 | **La défection** | un cultivateur d'une puissance passe au clan avec sa méthode ; un espion retourné rapporte un manuel | sa puissance le traque ; il peut être un faux transfuge |
+| C9 | **Le miroir** | après 3 éclats restaurés et assez de savoir, il **déduit volontairement** une méthode d'ascension, propre, sur un Qi que le clan peut récolter ; il peut aussi lire l'**essence métallique** d'une Fruition pour rédiger des manuels de sa lignée (§11.5) | du temps, des fragments, la puissance du miroir, son sommeil |
+| C10 | **Le parrain** | une puissance **offre** la méthode : c'est le chemin le plus fréquent, et toujours un complot (§C) | le dessein caché |
+
+#### C. Les desseins cachés d'un parrain (le joueur ne voit que l'offre ; un sondage peut percer le dessein, rangé comme un secret de rang 3 ou 4 ; le miroir peut nettoyer un manuel de ses marques)
+| # | Dessein | Ce que veut le parrain | Source |
+|---|---|---|---|
+| D1 | **La moisson** | élever le clan des générations, puis le moissonner : l'annexer, prendre ses cultivateurs, son Qi, ses fondations | 📚 la secte qui traite les clans comme des récoltes |
+| D2 | **Le raffinage** | un Manoir Pourpre d'une fondation précise, à consommer pour sa propre percée (Partenaire Dao, Greffe du Dao, §5.3.3) : la méthode offerte façonne la fondation dont il a besoin | 📚 le maître qui raffine les disciples dont la fondation lui convient |
+| D3 | **Les pilules humaines** | les cultivateurs du clan comme ingrédients pour prolonger sa vie | 📚 |
+| D4 | **Le réceptacle** | un corps de la bonne lignée pour la **réincarnation** d'un Vrai Monarque, ou la **Reprise de la Fruition** qui possède l'héritier | §5.5.2, R9 |
+| D5 | **L'Élu récolté** | cultiver un prodige « porteur d'un fil de destin » pour récolter son destin | §5.8 (le Temple des Pins Verts) |
+| D6 | **Le vassal de Fruition** | un futur Surplus ou Intercalaire soumis à sa permission, qui étend son autorité ; ou une **Main Gauche fausse** qui dépend de lui | §5.5.1, §6.9 |
+| D7 | **La pyramide d'emprunt** | une méthode qui lie l'âme du pratiquant à un supérieur (le Miséricordieux livre son âme véritable) | §3.7 (bouddhisme moderne) |
+| D8 | **La marque** | le manuel porte une marque qui permet de suivre, d'épier ou de brider le pratiquant | 📚 les arts des sectes portent la marque de leurs auteurs (§11.5) |
+| D9 | **Le défaut caché** | un manuel imparfait qui plafonne, abrège la vie ou tue au moment critique ; le parrain détient la **contre-technique** | §2.3, §2.4 (techniques secrètes imparfaites, contres) |
+| D10 | **Le pion** | armer le clan pour mener sa guerre de frontière, puis l'abandonner | 📚 la secte qui attise les guerres entre familles |
+| D11 | **Le bouc émissaire** | rendre le clan fort et voyant, pour qu'il attire la haine et les coalitions à sa place | 📚 une famille rejette un massacre sur une autre |
+| D12 | **Le rempart** | un clan fort à sa frontière contre le Gouffre des Bêtes, les démons, les chamans | 📚 le Roi Démon repoussé |
+| D13 | **L'atmosphère** | la paix et la prospérité de la région du clan (ou sa ruine) pour l'atmosphère que sa propre percée exige | §5.8 (l'Équilibre Profond, les Eaux Tombantes) |
+| D14 | **Le sang impérial** | la lignée du clan descend peut-être de l'Empereur Martial Zhen : un parrain veut ce sang pour la **Voie Impériale** ou pour le **Yang Lumineux** scellé aux Neuf Enfers, que le Mont Xiaoyun convoite | §12, §12.1 |
+| D15 | **La Fruition vacante** | l'Eau Nourricière est vacante depuis 600 ans — c'est alors que le Marais devint le Lac : un parrain veut qu'un Vrai Monarque du clan la prenne, pour la tenir par lui | §6.8, §12 |
+| D16 | **Le pont d'Intercalaire** | se servir du futur Vrai Monarque du clan comme « pont » pour changer de position | §5.5.1 (Bruine Hivernale), §6.9 |
+| D17 | **L'essence du Monde Souterrain** | un agent du Monde Souterrain qui veut l'essence du clan quand son ascension au Noyau d'Or échouera | §12.1 |
+| D18 | **Le démon à nourrir** | provoquer un échec d'ascension pour faire naître un Démon d'Essence Métallique, puis le sceller et s'en servir | §5.5.1, §6.9 |
+| D19 | **La clé du Grand Vide** | un Manoir Pourpre capable de traverser le Vide pour ouvrir un royaume secret ou une Grotte Céleste ancrée | §5.8 |
+| D20 | **L'appât du miroir** | un connaisseur du miroir fait mûrir le clan pour trouver le porteur, et le saisir quand le miroir vaudra plus (restauré) | §11.5 |
+| D21 | **La rupture du pacte** | se servir du clan pour briser le pacte ancien de la Renarde des Monts Qingyan | §7.3 |
+| D22 | **L'héritier otage** | l'héritier le plus doué du clan, marié ou pris comme disciple : un levier pour toujours | 📚 la secte qui prélève les meilleurs talents |
+| D23 | **Le sincère** | parfois, un parrain aide vraiment : dette de sang ancienne, amitié, ennemi commun — le joueur ne peut jamais en être sûr | 📚 le Maître taoïste qui paya de sa vie pour sauver des millions de gens |
+
+**Ceux qui empêchent** (les parrains ont des rivaux) : une puissance qui apprend l'offre peut **saboter** l'ascension (embuscade pendant la retraite de manifestation, poison, faux présage), **surenchérir** (un autre parrain, un autre dessein), **dénoncer** l'accord pour le rompre, ou **acheter** le disciple.
+
+🎮 ✅ **Premier lot fait (2026-09-30)** : les méthodes d'ascension ne se vendent plus en pierres (`KnowledgeExchange`) ; le miroir en **déduit** une de lui-même dès 3 éclats, 4 fragments de qualité 3 et une lignée connue (`DeductionEngine.DeduceAscentMethod`, 🔎 60 de puissance ; bâtie sur un Qi que le clan récolte, souvent le sien : ses cultivateurs s'y convertissent) ; les **accords** (`KnowledgeAccords` : technique, secret, bête, Qi, dette, disciple ; 🔎 valeurs dans « knowledgeTrade ») ; les **parrains** (`Sponsorships`, `designs.json` : les 23 desseins, cachés dans un secret « patron-design », échéance à leur jalon, manuel nettoyé par le miroir). **Reste** : les conséquences propres à chaque dessein à son échéance (aujourd'hui : l'événement et la chronique), l'écran des accords, ceux qui empêchent, les chemins C2-C8.
+
+🎮 Mécanique d'origine : une **offre** arrive comme un événement (le parrain, la méthode, ce qu'il demande) ; le **dessein** est un secret du parrain (rang 3 ou 4), que les sondages percent ; il se **déclenche** à un jalon (Manoir Pourpre atteint, tentative au Noyau d'Or, N années, un héritier né). Les méthodes d'ascension ne sont plus vendues en pierres (`KnowledgeExchange`) ; la déduction volontaire du miroir s'ouvre à 3 éclats.
+
 ---
 
 ## 12. Chronologie (renommée)

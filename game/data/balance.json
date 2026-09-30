@@ -81,7 +81,16 @@
   "knowledgeTrade": {
     "minRelation": 20,
     "stonesPerGrade": [ 100, 250, 600, 1500, 4000, 10000, 30000 ],
-    "daoPartnersMirrorCost": 30
+    "daoPartnersMirrorCost": 30,
+    "ascentAccordMinRelation": 40,
+    "secretWorthPerRank": 1500,
+    "beastWorthPerRealm": 1000,
+    "qiWorthPerPortion": 300,
+    "debtWorthShare": 0.5,
+    "discipleWorthPerRealm": 2500,
+    "patronOfferChance": 0.08,
+    "patronRefusalLoss": 5,
+    "cleanseMirrorCost": 40
   },
   "plots": {
     "suspicionFadePerYear": 2,
@@ -533,6 +542,10 @@
     "artRequiredRealmByGrade": [ "Embryonic", "Embryonic", "QiRefinement", "QiRefinement", "Foundation", "Foundation", "PurpleMansion" ],
     "movementArtStepsByGrade": [ 1, 1, 1, 1, 2, 2, 2 ],
     "deductionCompleteFragments": 4,
-    "deductionMaxGrade": 6
+    "deductionMaxGrade": 6,
+    "ascentDeductionShards": 3,
+    "ascentDeductionFragments": 4,
+    "ascentDeductionQuality": 3,
+    "ascentDeductionPower": 60
   }
 }

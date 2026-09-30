@@ -59,6 +59,8 @@ namespace MirrorChronicles.Events
         // Events & outcome
         public event Action<RandomEventData> OnRandomEventOccurred;
         public event Action<StoryEventData> OnStoryEventRaised;
+        public event Action<Diplomacy.SponsorOffer> OnPatronOffer;          // a patron offers an ascent method (§11.10)
+        public event Action<Diplomacy.Sponsorship, PatronDesign> OnPatronDesignDue; // a patron's design falls due
         public event Action OnSectFounded;                                 // the clan founds its sect (B3d)
         public event Action<string> OnClanWarWon;                          // an enemy of the clan yields (B3c3: its loot)
         public event Action<ShardDefinition> OnRuinsRevealed;               // ruins found to hold a shard (B3c2)
@@ -100,6 +102,8 @@ namespace MirrorChronicles.Events
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);
         public void TriggerStoryEventRaised(StoryEventData evt) => OnStoryEventRaised?.Invoke(evt);
+        public void TriggerPatronOffer(Diplomacy.SponsorOffer offer) => OnPatronOffer?.Invoke(offer);
+        public void TriggerPatronDesignDue(Diplomacy.Sponsorship s, PatronDesign d) => OnPatronDesignDue?.Invoke(s, d);
         public void TriggerSectFounded() => OnSectFounded?.Invoke();
         public void TriggerClanWarWon(string enemy) => OnClanWarWon?.Invoke(enemy);
         public void TriggerRuinsRevealed(ShardDefinition shard) => OnRuinsRevealed?.Invoke(shard);

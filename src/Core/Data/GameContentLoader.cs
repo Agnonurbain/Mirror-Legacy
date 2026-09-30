@@ -33,9 +33,10 @@ namespace MirrorChronicles.Data
         public const string PatronsFile = "patrons.json";
         public const string EndingsFile = "endings.json";
         public const string ShardsFile = "shards.json";
+        public const string DesignsFile = "designs.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile, SecretsFile, PatronsFile, EndingsFile, ShardsFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile, SecretsFile, PatronsFile, EndingsFile, ShardsFile, DesignsFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -73,6 +74,7 @@ namespace MirrorChronicles.Data
             var patrons = Read<List<PatronDefinition>>(readFile, PatronsFile);
             var endings = Read<List<EndingDefinition>>(readFile, EndingsFile);
             var shards = Read<List<ShardDefinition>>(readFile, ShardsFile);
+            var designs = Read<List<PatronDesign>>(readFile, DesignsFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -111,6 +113,12 @@ namespace MirrorChronicles.Data
             CheckInterpretedFields(PatronsFile, patrons.Select(p => (p.Id, typeof(PatronDefinition), (IEnumerable<string>)p.InterpretedFields)));
             CheckEndings(endings, regions);
             CheckShards(shards, catalog.Techniques);
+            Require(designs.Count > 0 && designs.Select(d => d.Id).Distinct().Count() == designs.Count
+                && designs.All(d => !string.IsNullOrWhiteSpace(d.Id) && !string.IsNullOrWhiteSpace(d.Name) && d.Weight > 0
+                    && (d.Due != DesignDue.Years || d.Years > 0) && d.InterpretedFields != null)
+                && secretKinds.Any(k => k.Id == "patron-design"),
+                DesignsFile, "every design needs a unique id, a name, a weight, its years when it falls due after years; secrets.json needs « patron-design ».");
+            CheckInterpretedFields(DesignsFile, designs.Select(d => (d.Id, typeof(PatronDesign), (IEnumerable<string>)d.InterpretedFields)));
             Require(!shards.Any(s => s.Source == ShardSource.Power) || secretKinds.Any(k => k.Id == "hidden-treasure"),
                 SecretsFile, "the powers' shards lie under the « hidden-treasure » secret kind, which is missing.");
             CheckInterpretedFields(ShardsFile, shards.Select(s => (s.Id, typeof(ShardDefinition), (IEnumerable<string>)s.InterpretedFields)));
@@ -143,7 +151,8 @@ namespace MirrorChronicles.Data
                 SecretKinds = secretKinds,
                 Patrons = patrons,
                 Endings = endings,
-                Shards = shards
+                Shards = shards,
+                PatronDesigns = designs
             };
         }
 

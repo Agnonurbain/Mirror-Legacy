@@ -40,6 +40,8 @@ namespace MirrorChronicles.Data
                 Describe(lines, GameContentLoader.RegionsFile, r.Id, r.Provenance, r.InterpretedFields);
             foreach (var p in content.Patrons)
                 Describe(lines, GameContentLoader.PatronsFile, p.Id, p.Provenance, p.InterpretedFields);
+            foreach (var d in content.PatronDesigns)
+                Describe(lines, GameContentLoader.DesignsFile, d.Id, d.Provenance, d.InterpretedFields);
             foreach (var s in content.Shards)
                 Describe(lines, GameContentLoader.ShardsFile, s.Id, s.Provenance, s.InterpretedFields);
             foreach (var e in content.Endings)

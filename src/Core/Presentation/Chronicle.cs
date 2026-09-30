@@ -57,6 +57,8 @@ namespace MirrorChronicles.Presentation
             bus.OnExtortion += power => Add($"{power} convoite le trésor du clan et exige le prix de sa protection.");
             bus.OnDaoHuntFoiled += power => Add($"des gens de {power} fondent sur un Dao mûr du clan ; ils sont repoussés.");
             bus.OnHunt += (_, captured) => Add(captured ? "une chasse du clan ramène une bête spirituelle." : "une chasse du clan revient les mains vides.");
+            bus.OnPatronOffer += offer => Add($"{offer.Power} offre au clan une méthode qui mène au Manoir Pourpre. Que cache ce don ?");
+            bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
             bus.OnSectFounded += () => Add("le clan fonde sa secte : les pics en haut, la ville en bas.");
             bus.OnRuinsRevealed += shard => Add($"des ruines anciennes sont découvertes ; le miroir y sent {shard.Name}.");
             bus.OnShardRecovered += shard => Add($"un éclat du miroir revient : {shard.Name}. Le miroir s'endort pour l'intégrer.");
