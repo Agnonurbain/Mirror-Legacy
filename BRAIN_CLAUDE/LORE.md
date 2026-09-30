@@ -1088,6 +1088,7 @@ Aujourd'hui : 10 générations + 1 ascension (DaoEmbryo).
 
 La victoire « 10 générations + 1 ascension » disparaît : les générations deviennent des jalons des Annales. Les autres hauts faits (Grand Vide traversé, démon d'essence métallique soumis, pacte avec un grand partenaire, avant-poste en Mer Orientale…) restent des jalons, pas des fins. Les défaites ne changent pas (lignée éteinte, miroir saisi, clan absorbé par son suzerain).
 - **Un Embryon du Dao ne quitte pas le monde** (décision de l'utilisateur, 2026-09-30) : le membre qui l'atteint reste vivant, dans le clan et dans le monde. Le départ des Embryons du Dao vers le Ciel Extérieur (§5.8, §12) reste un fait de l'histoire du monde, pas une règle du clan.
+- 🎮 ✅ Fait (B3, 2026-09-30) : `ClanAnnals`, `DynasticEndings` (`endings.json`), `ShardSystem` et `PowerShards` (`shards.json`), `SectSystem` ; 🔎 chiffres dans `balance.json` (« shards », « sect ») ; la Double Maison demande un Manoir Pourpre, 20 cultivateurs et 10 000 pierres (ses effets de jeu restent à décider).
 
 ---
 
