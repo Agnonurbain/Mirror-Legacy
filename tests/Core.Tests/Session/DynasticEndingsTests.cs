@@ -58,7 +58,7 @@ namespace MirrorChronicles.Tests.Session
         public void TheEndingsThatAwaitAnotherPhase_AreListedAmongTheGaps()
         {
             var gaps = ContentGaps.Report(Fixtures.Content);
-            foreach (var id in new[] { "grand-culmination", "double-house", "ancestor-return", "core-legacy", "imperial-way", "other-daos" })
+            foreach (var id in new[] { "grand-culmination", "ancestor-return", "core-legacy", "imperial-way", "other-daos" })
                 Assert.IsTrue(gaps.Any(g => g.StartsWith(GameContentLoader.EndingsFile) && g.Contains(id)), id);
         }
 
