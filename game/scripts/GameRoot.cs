@@ -8,13 +8,14 @@ using MirrorChronicles.Session;
 namespace MirrorChronicles.Game
 {
     /// <summary>
-    /// Autoload that owns the running game: it loads the content from res://data, resumes the saved game
-    /// (user://) or starts a new one, and saves at the start of every year. A smoke run (<c>-- --smoke</c>)
-    /// always starts a fresh seeded game and never touches the player's save.
+    /// Autoload that owns the running game: it loads the content from res://data and keeps three ironman save slots
+    /// (user://slot-N.json; the title screen continues, begins or erases them), saving the slot played at the start of
+    /// every year. A smoke run (<c>-- --smoke</c>) always starts a fresh seeded game and never touches the player's saves.
     /// </summary>
     public partial class GameRoot : Node
     {
-        public const string SavePath = "user://ironman_save.json";
+        /// <summary>The single save of the first versions: it becomes slot 1 when that slot is empty.</summary>
+        public const string LegacySavePath = "user://ironman_save.json";
         private const string DataDirectory = "res://data/";
         private const int SmokeSeed = 7;
 
@@ -48,6 +49,9 @@ namespace MirrorChronicles.Game
         /// <summary>With <c>--bld</c> (implies <c>--mir</c>), the smoke run goes on from the mirror's screen to the buildings.</summary>
         public bool SmokeEndsOnBuildings { get; private set; }
 
+        /// <summary>With <c>--title</c>, the smoke run stays on the title screen (to capture it).</summary>
+        public bool SmokeStaysOnTitle { get; private set; }
+
         /// <summary>With <c>--bat</c> (implies <c>--bld</c>), the smoke run goes on from the buildings to a rival's challenge.</summary>
         public bool SmokeEndsOnBattle { get; private set; }
 
@@ -60,6 +64,7 @@ namespace MirrorChronicles.Game
         {
             var args = OS.GetCmdlineUserArgs();
             IsSmokeRun = args.Contains("--smoke");
+            SmokeStaysOnTitle = args.Contains("--title");
             SmokeEndsOnBattle = args.Contains("--bat");
             SmokeEndsOnBuildings = args.Contains("--bld") || SmokeEndsOnBattle; // the battle is reached through the buildings
             SmokeEndsOnMirror = args.Contains("--mir") || SmokeEndsOnBuildings; // the buildings are reached through the mirror
@@ -71,17 +76,63 @@ namespace MirrorChronicles.Game
             ScreenshotPath = args.Where(a => a.StartsWith(ScreenshotArgument)).Select(a => a.Substring(ScreenshotArgument.Length)).FirstOrDefault();
             content = GameContentLoader.Load(ReadDataFile); // unplayable content stops the game at startup, naming the file
 
-            if (IsSmokeRun) Start(GameSession.NewGame(Setup(SmokeSeed)));
-            else Start(LoadSave() ?? GameSession.NewGame(Setup(null)));
+            if (IsSmokeRun) Start(GameSession.NewGame(Setup(SmokeSeed)), slot: 0); // never saved
+            else AdoptLegacySave();
         }
 
-        public void NewGame() => Start(GameSession.NewGame(Setup(null)));
+        /// <summary>The slot being played (1-based), or 0 when nothing is saved (a smoke run).</summary>
+        public int CurrentSlot { get; private set; }
+
+        public static string SlotPath(int slot) => $"user://slot-{slot}.json";
+
+        /// <summary>The text saved in a slot, or null when the slot is empty.</summary>
+        public string ReadSlot(int slot) =>
+            Godot.FileAccess.FileExists(SlotPath(slot)) ? Godot.FileAccess.GetFileAsString(SlotPath(slot)) : null;
+
+        /// <summary>Continues the game of a slot; false when it cannot be read.</summary>
+        public bool Continue(int slot)
+        {
+            string json = ReadSlot(slot);
+            if (json == null) return false;
+            try
+            {
+                Start(GameSession.FromSaveData(SaveSerializer.Deserialize(json), Setup(null)), slot);
+                return true;
+            }
+            catch (System.IO.InvalidDataException e)
+            {
+                GD.PushWarning($"[GameRoot] Slot {slot} cannot be read: {e.Message}");
+                return false;
+            }
+        }
+
+        /// <summary>A new game in a slot (its former game is lost: ironman), saved at once.</summary>
+        public void NewGame(int slot, int? seed = null)
+        {
+            Start(GameSession.NewGame(Setup(seed)), slot);
+            Save();
+        }
+
+        public void Erase(int slot)
+        {
+            if (Godot.FileAccess.FileExists(SlotPath(slot))) DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(SlotPath(slot)));
+            if (CurrentSlot == slot) CurrentSlot = 0; // the game on screen is no longer saved
+        }
+
+        /// <summary>The single save of the first versions moves into slot 1 when that slot is empty.</summary>
+        private void AdoptLegacySave()
+        {
+            if (!Godot.FileAccess.FileExists(LegacySavePath) || Godot.FileAccess.FileExists(SlotPath(1))) return;
+            string json = Godot.FileAccess.GetFileAsString(LegacySavePath);
+            using (var file = Godot.FileAccess.Open(SlotPath(1), Godot.FileAccess.ModeFlags.Write)) file?.StoreString(json);
+            DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(LegacySavePath));
+        }
 
         public void Save()
         {
-            if (IsSmokeRun || Session == null) return;
+            if (IsSmokeRun || Session == null || CurrentSlot == 0) return;
 
-            using var file = Godot.FileAccess.Open(SavePath, Godot.FileAccess.ModeFlags.Write);
+            using var file = Godot.FileAccess.Open(SlotPath(CurrentSlot), Godot.FileAccess.ModeFlags.Write);
             if (file == null)
             {
                 GD.PushError($"[GameRoot] Cannot write the save ({Godot.FileAccess.GetOpenError()}).");
@@ -96,24 +147,10 @@ namespace MirrorChronicles.Game
             return seed.HasValue ? setup with { Seed = seed.Value } : setup;
         }
 
-        private GameSession LoadSave()
-        {
-            if (!Godot.FileAccess.FileExists(SavePath)) return null;
-            try
-            {
-                var data = SaveSerializer.Deserialize(Godot.FileAccess.GetFileAsString(SavePath));
-                return GameSession.FromSaveData(data, Setup(null));
-            }
-            catch (System.IO.InvalidDataException e)
-            {
-                GD.PushWarning($"[GameRoot] The save cannot be read, a new game begins: {e.Message}");
-                return null;
-            }
-        }
-
-        private void Start(GameSession session)
+        private void Start(GameSession session, int slot)
         {
             Session = session;
+            CurrentSlot = slot;
             Chronicle = new Chronicle(session);
             session.Events.OnYearStarted += year => Save();
             SessionChanged?.Invoke();

@@ -52,6 +52,11 @@ namespace MirrorChronicles.Game
             GetNode<Button>("%OpenMirror").Pressed += () => GetTree().ChangeSceneToFile(MirrorScreen.ScenePath);
             GetNode<Button>("%OpenBuildings").Pressed += () => GetTree().ChangeSceneToFile(BuildingsScreen.ScenePath);
             GetNode<Button>("%OpenBattle").Pressed += () => GetTree().ChangeSceneToFile(BattleScreen.ScenePath);
+            GetNode<Button>("%OpenTitle").Pressed += () =>
+            {
+                root.Save(); // the year's work kept
+                GetTree().ChangeSceneToFile(TitleScreen.ScenePath);
+            };
             GetNode<Button>("%OpenLibrary").Pressed += () => GetTree().ChangeSceneToFile(Library.ScenePath);
             GetNode<Button>("%OpenDiplomacy").Pressed += () => GetTree().ChangeSceneToFile(Diplomacy.ScenePath);
             GetNode<Button>("%OpenGenealogy").Pressed += () => GetTree().ChangeSceneToFile(Genealogy.ScenePath);

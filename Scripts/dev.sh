@@ -57,10 +57,11 @@ smoke() {
 
 # Plays the smoke years in a real window (needs a display) and saves it as PNG; "map", "ops", "lib", "tree", "dip", "mir", "bld" or "bat" captures that screen.
 screenshot() {
-  local out="${1:?usage: $0 screenshot <file.png> [map|ops|lib|tree|dip|mir|bld|bat]}"
+  local out="${1:?usage: $0 screenshot <file.png> [title|map|ops|lib|tree|dip|mir|bld|bat]}"
   [ -x "$GODOT_BIN" ] || { echo "ERROR: Godot not found at $GODOT_BIN (set GODOT_BIN)" >&2; exit 1; }
   build
   local screen=()
+  [ "${2:-}" = title ] && screen=(--title)
   [ "${2:-}" = map ] && screen=(--map)
   [ "${2:-}" = ops ] && screen=(--map --ops)
   [ "${2:-}" = lib ] && screen=(--map --ops --lib)
@@ -82,5 +83,5 @@ case "${1:-}" in
   smoke)      smoke ;;
   screenshot) screenshot "${2:-}" "${3:-}" ;;
   all)        build && run_tests && smoke ;;
-  *)          echo "usage: $0 build|test|gaps|balance|smoke|screenshot <file.png> [map|ops|lib|tree|dip|mir|bld|bat]|all" >&2; exit 2 ;;
+  *)          echo "usage: $0 build|test|gaps|balance|smoke|screenshot <file.png> [title|map|ops|lib|tree|dip|mir|bld|bat]|all" >&2; exit 2 ;;
 esac
