@@ -90,8 +90,10 @@ namespace MirrorChronicles.Mirror
 
         public ShardTaking Steal(string shardId, IReadOnlyList<string> teamIds)
         {
-            var team = (teamIds ?? new List<string>()).Select(clan.FindById).ToList();
+            var ids = teamIds ?? new List<string>();
+            var team = ids.Distinct().Select(clan.FindById).ToList();
             string refusal = !KnownByClan(shardId) ? "le clan ne sait pas où repose cet éclat"
+                : ids.Distinct().Count() != ids.Count ? "un membre ne compte qu'une fois dans l'équipe"
                 : team.Count == 0 || team.Count > Settings.ExpeditionMaxTeam ? $"un vol se mène à 1 à {Settings.ExpeditionMaxTeam} membres"
                 : team.Any(m => m == null || !m.IsAlive || m.CaptorFaction != null) ? "un membre de l'équipe n'est pas libre"
                 : team.Any(m => m.Realm < CultivationRealm.QiRefinement) ? "un vol demande des cultivateurs de la Culture du Qi"

@@ -17,6 +17,7 @@ namespace MirrorChronicles.Session
         private readonly ClanKarmaSystem karma;
         private readonly List<AnnalEntry> entries = new List<AnnalEntry>();
         private readonly HashSet<CultivationRealm> realmsKnown = new HashSet<CultivationRealm>();
+        private readonly HashSet<GoldenCoreState> positionsKnown = new HashSet<GoldenCoreState>();
         private int generationKnown = 1;
 
         public IReadOnlyList<AnnalEntry> Entries => entries;
@@ -45,8 +46,14 @@ namespace MirrorChronicles.Session
             entries.AddRange(saved ?? Enumerable.Empty<AnnalEntry>());
             generationKnown = System.Math.Max(1, generation);
             realmsKnown.Clear();
-            foreach (var m in members ?? Enumerable.Empty<CharacterData>()) realmsKnown.Add(m.Realm);
+            positionsKnown.Clear();
+            foreach (var m in members ?? Enumerable.Empty<CharacterData>())
+            {
+                realmsKnown.Add(m.Realm);
+                if (m.GoldenCore != GoldenCoreState.None && m.GoldenCore != GoldenCoreState.MetallicEssenceOnly) positionsKnown.Add(m.GoldenCore);
+            }
             foreach (var e in entries.Where(e => e.Kind == AnnalKind.RealmReached)) realmsKnown.Add((CultivationRealm)e.Value);
+            foreach (var e in entries.Where(e => e.Kind == AnnalKind.PositionTaken)) positionsKnown.Add((GoldenCoreState)e.Value);
         }
 
         /// <summary>A dynastic ending reached (B3b), and who reached it — none when the clan as a whole did.</summary>
@@ -61,7 +68,7 @@ namespace MirrorChronicles.Session
 
         private void PositionTaken(CharacterData member, GoldenCoreState position)
         {
-            if (entries.Any(e => e.Kind == AnnalKind.PositionTaken && e.Value == (int)position)) return;
+            if (!positionsKnown.Add(position)) return;
             Record(AnnalKind.PositionTaken, (int)position, member.FullName);
         }
 

@@ -131,6 +131,7 @@ namespace MirrorChronicles.Session
         /// </summary>
         private CharacterData GoldenLineHeir(int generations)
         {
+            if (!clan.Registry.Records.Any(r => r.Realm >= CultivationRealm.GoldenCore)) return null; // most years: no True Monarch at all
             var records = clan.Registry.Records.ToDictionary(r => r.ID);
             var depth = new Dictionary<string, int>();
             int Depth(CharacterData m)
@@ -174,8 +175,9 @@ namespace MirrorChronicles.Session
         {
             double clanStrength = wars.ClanWarStrength();
             var settings = ctx.Content.Balance.Wars;
-            return ClanVassals().Count >= c.Vassals
-                && PowersOf(c.RegionId).All(p => WarRules.Strength(p, settings) < clanStrength);
+            var powers = PowersOf(c.RegionId).ToList();
+            return powers.Count > 0 && ClanVassals().Count >= c.Vassals // a place without powers is no one's to dominate
+                && powers.All(p => WarRules.Strength(p, settings) < clanStrength);
         }
     }
 }

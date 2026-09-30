@@ -111,6 +111,8 @@ namespace MirrorChronicles.Data
             CheckInterpretedFields(PatronsFile, patrons.Select(p => (p.Id, typeof(PatronDefinition), (IEnumerable<string>)p.InterpretedFields)));
             CheckEndings(endings, regions);
             CheckShards(shards, catalog.Techniques);
+            Require(!shards.Any(s => s.Source == ShardSource.Power) || secretKinds.Any(k => k.Id == "hidden-treasure"),
+                SecretsFile, "the powers' shards lie under the « hidden-treasure » secret kind, which is missing.");
             CheckInterpretedFields(ShardsFile, shards.Select(s => (s.Id, typeof(ShardDefinition), (IEnumerable<string>)s.InterpretedFields)));
             CheckInterpretedFields(EndingsFile, endings.Select(e => (e.Id, typeof(EndingDefinition), (IEnumerable<string>)e.InterpretedFields)));
             CheckInterpretedFields(SecretsFile, secretKinds.Select(k => (k.Id, typeof(SecretKind), (IEnumerable<string>)k.InterpretedFields)));
@@ -675,6 +677,9 @@ namespace MirrorChronicles.Data
                 bool awaits = e.Conditions.Any(c => c.Kind == EndingConditionKind.Awaits);
                 Require(!awaits || !string.IsNullOrWhiteSpace(e.Awaits), EndingsFile, $"{e.Id}: an ending that awaits a system must say which (« awaits »).");
                 foreach (var c in e.Conditions) CheckEndingCondition(e.Id, c, regions);
+                Require(e.Conditions.Count(c => c.Kind == EndingConditionKind.Hegemony) <= 1
+                    && !e.Conditions.Any(c => (c.AnyOf ?? Array.Empty<EndingCondition>()).Any(a => a.Kind == EndingConditionKind.Hegemony)),
+                    EndingsFile, $"{e.Id}: a Hegemony counts its years alone: one per ending, never within an AnyOf.");
             }
         }
 

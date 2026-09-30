@@ -98,9 +98,11 @@ namespace MirrorChronicles.Mirror
         /// <summary>Why an expedition cannot leave (French, for the screens), or null.</summary>
         public string ExpeditionRefusal(string shardId, IReadOnlyList<string> teamIds, out List<CharacterData> team)
         {
-            team = (teamIds ?? new List<string>()).Select(clan.FindById).ToList();
+            var ids = teamIds ?? new List<string>();
+            team = ids.Distinct().Select(clan.FindById).ToList();
             var s = Settings;
             if (!revealedRuins.Contains(shardId)) return "ces ruines ne sont pas connues";
+            if (ids.Distinct().Count() != ids.Count) return "un membre ne compte qu'une fois dans l'équipe";
             if (team.Count == 0 || team.Count > s.ExpeditionMaxTeam) return $"une expédition part à 1 à {s.ExpeditionMaxTeam} membres";
             if (team.Any(m => m == null || !m.IsAlive || m.CaptorFaction != null)) return "un membre de l'équipe n'est pas libre";
             if (team.Any(m => m.Realm < CultivationRealm.QiRefinement)) return "l'expédition demande des cultivateurs de la Culture du Qi";
