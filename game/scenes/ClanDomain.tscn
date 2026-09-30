@@ -27,9 +27,10 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Header" type="HBoxContainer" parent="Margin/Layout"]
+[node name="Header" type="HFlowContainer" parent="Margin/Layout"]
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 6
 
 [node name="ClanName" type="Label" parent="Margin/Layout/Header"]
 unique_name_in_owner = true
@@ -66,9 +67,10 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Nav" type="HBoxContainer" parent="Margin/Layout"]
+[node name="Nav" type="HFlowContainer" parent="Margin/Layout"]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 6
 
 [node name="OpenOperations" type="Button" parent="Margin/Layout/Nav"]
 unique_name_in_owner = true
