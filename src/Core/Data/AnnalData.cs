@@ -6,7 +6,8 @@ namespace MirrorChronicles.Data
         RealmReached,   // Value: the realm first reached by a member of the clan
         PositionTaken,  // Value: the Golden Core position (GoldenCoreState) first taken
         Generation,     // Value: the generation that begins
-        EndingReached   // Ref: the dynastic ending (endings.json id); Subject: who reached it, or none for the clan as a whole
+        EndingReached,  // Ref: the dynastic ending (endings.json id); Subject: who reached it, or none for the clan as a whole
+        ShardRecovered  // Ref: the shard (shards.json id); Value: the shards restored so far
     }
 
     /// <summary>A milestone of the clan's Annals: what, when, who, and what it refers to (saved since 2.21).</summary>

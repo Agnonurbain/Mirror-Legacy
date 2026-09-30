@@ -54,6 +54,7 @@ namespace MirrorChronicles.Tests
         public RegionalQi Place { get; }
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
+        public ShardSystem Shards { get; }
         public BeastRegistry Bestiary { get; }
         public SuspicionLedger Suspicion { get; }
         public TreatySystem Treaties { get; }
@@ -108,7 +109,8 @@ namespace MirrorChronicles.Tests
             Deduction = new DeductionEngine(Ctx, Mirror, Techniques);
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
-            Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions);
+            Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions, Mirror);
+            Shards = new ShardSystem(Ctx, Mirror, Techniques, Knowledge);
             Bestiary = new BeastRegistry(Ctx);
             Suspicion = new SuspicionLedger();
             Treaties = new TreatySystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques);
@@ -116,7 +118,7 @@ namespace MirrorChronicles.Tests
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Ctx, Factions, Resources);
             Espionage = new EspionageSystem(Ctx, Factions, Deduction, Stability, Techniques);
-            Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
+            Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary, Shards);
             Hunts = new HuntOperations(Ctx, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
             Lore = new MirrorLore(Ctx, Factions, worldSeed: 1);
             Secrets = new SecretSystem(Ctx, Clan, Factions, Suspicion, Oaths, Mirror, Lore);

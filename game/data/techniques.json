@@ -2,6 +2,8 @@
   "techniques": [
     { "id": "white-lotus-intuition", "interpretedFields": ["Category"], "name": "Intuition du Lotus Blanc", "kind": "Cultivation", "grade": 5, "category": "Common",
       "dominantElement": "None", "requiredRealm": "Embryonic", "supremeRealm": "Embryonic" },
+    { "id": "supreme-yin-sutra", "interpretedFields": ["Grade", "Category"], "name": "Sutra de la respiration du Yin Suprême", "kind": "Cultivation", "grade": 5, "category": "Secret",
+      "dominantElement": "None", "requiredRealm": "Embryonic", "supremeRealm": "Embryonic" },
 
     { "id": "ember-phoenix-stride", "interpretedFields": ["Category"], "name": "Pas du Phénix de Braise", "kind": "Cultivation", "grade": 4, "category": "Common",
       "dominantElement": "Fire", "requiredRealm": "QiRefinement", "requiredQiId": "ember-phoenix-qi" },

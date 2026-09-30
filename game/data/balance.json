@@ -440,6 +440,9 @@
     "realmOdds": [ 0.7, 0.25, 0.05 ],
     "scoutRevealChance": 0.5
   },
+  "shards": {
+    "lakeSearchChance": 0.06
+  },
   "talismans": {
     "ritualPeriodYears": 20,
     "huntWindowYears": 3,

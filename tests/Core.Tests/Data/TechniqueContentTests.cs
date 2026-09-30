@@ -54,7 +54,16 @@ namespace MirrorChronicles.Tests.Data
                     ? ClanWith(c => { c["startingTechniques"] = new JArray("t"); foreach (var f in c["founders"]) f["cultivationMethod"] = "t"; })
                     : name == GameContentLoader.FactionsFile
                         ? FactionsWithoutTechniques()   // the factions' techniques are not in a minimal catalog
-                        : Fixtures.ReadDataFile(name)));
+                        : name == GameContentLoader.ShardsFile
+                            ? ShardsWithoutTechniques() // nor the shards' memories
+                            : Fixtures.ReadDataFile(name)));
+        }
+
+        private static string ShardsWithoutTechniques()
+        {
+            var shards = JArray.Parse(Fixtures.ReadDataFile(GameContentLoader.ShardsFile));
+            foreach (var s in shards) s["memory"]["techniqueId"] = null;
+            return shards.ToString();
         }
 
         private static string FactionsWithoutTechniques()

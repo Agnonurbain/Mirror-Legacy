@@ -15,6 +15,7 @@ namespace MirrorChronicles.Presentation
         public static string Describe(AnnalEntry entry, GameContent content) => entry.Kind switch
         {
             AnnalKind.EndingReached => EndingLine(entry, content),
+            AnnalKind.ShardRecovered => ShardLine(entry, content),
             AnnalKind.RealmReached => $"{entry.Subject} atteint {WithArticle((CultivationRealm)entry.Value)}, une première pour le clan.",
             AnnalKind.PositionTaken => $"{entry.Subject} obtient {FirstPosition((GoldenCoreState)entry.Value)}.",
             AnnalKind.Generation => $"la {entry.Value}e génération commence sous {entry.Subject ?? "un patriarche oublié"}.",
@@ -26,6 +27,13 @@ namespace MirrorChronicles.Presentation
         {
             string name = content.Endings.FirstOrDefault(e => e.Id == entry.Ref)?.Name ?? entry.Ref;
             return entry.Subject == null ? $"fin dynastique : {name}." : $"fin dynastique : {name} ({entry.Subject}).";
+        }
+
+        /// <summary>« le miroir retrouve le Jade du Lac (1/7) : … »</summary>
+        private static string ShardLine(AnnalEntry entry, GameContent content)
+        {
+            var shard = content.Shards.FirstOrDefault(s => s.Id == entry.Ref);
+            return $"le miroir retrouve {shard?.Name ?? entry.Ref} ({entry.Value}/{content.Shards.Count}) : {shard?.Memory.Clue}";
         }
 
         /// <summary>A realm's name with its article: « la Culture du Qi », « l'Embryon du Dao », « le Manoir Pourpre ».</summary>

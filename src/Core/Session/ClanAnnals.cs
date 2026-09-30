@@ -30,6 +30,8 @@ namespace MirrorChronicles.Session
             ctx.Events.OnBreakthroughSuccess += (member, realm) => RealmReached(member, realm);
             ctx.Events.OnPositionTaken += (member, position, from) => PositionTaken(member, position);
             ctx.Events.OnYearStarted += year => GenerationBegins(); // after the karma, built before: it counts the generation
+            ctx.Events.OnShardRecovered += shard =>
+                entries.Add(new AnnalEntry(AnnalKind.ShardRecovered, ctx.Clock.Year, entries.Count(e => e.Kind == AnnalKind.ShardRecovered) + 1, null, shard.Id));
         }
 
         /// <summary>

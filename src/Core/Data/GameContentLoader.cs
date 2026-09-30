@@ -32,9 +32,10 @@ namespace MirrorChronicles.Data
         public const string SecretsFile = "secrets.json";
         public const string PatronsFile = "patrons.json";
         public const string EndingsFile = "endings.json";
+        public const string ShardsFile = "shards.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile, SecretsFile, PatronsFile, EndingsFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile, SecretsFile, PatronsFile, EndingsFile, ShardsFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -71,6 +72,7 @@ namespace MirrorChronicles.Data
             var secretKinds = Read<List<SecretKind>>(readFile, SecretsFile);
             var patrons = Read<List<PatronDefinition>>(readFile, PatronsFile);
             var endings = Read<List<EndingDefinition>>(readFile, EndingsFile);
+            var shards = Read<List<ShardDefinition>>(readFile, ShardsFile);
 
             CheckClan(clan);
             CheckNames(names);
@@ -108,6 +110,8 @@ namespace MirrorChronicles.Data
                 PatronsFile, "every great partner needs a unique id, a name, a place of the map, a tribute and a boon, and deals only with a clan of the Purple Mansion or above.");
             CheckInterpretedFields(PatronsFile, patrons.Select(p => (p.Id, typeof(PatronDefinition), (IEnumerable<string>)p.InterpretedFields)));
             CheckEndings(endings, regions);
+            CheckShards(shards, catalog.Techniques);
+            CheckInterpretedFields(ShardsFile, shards.Select(s => (s.Id, typeof(ShardDefinition), (IEnumerable<string>)s.InterpretedFields)));
             CheckInterpretedFields(EndingsFile, endings.Select(e => (e.Id, typeof(EndingDefinition), (IEnumerable<string>)e.InterpretedFields)));
             CheckInterpretedFields(SecretsFile, secretKinds.Select(k => (k.Id, typeof(SecretKind), (IEnumerable<string>)k.InterpretedFields)));
             CheckInterpretedFields(AtmospheresFile, atmospheres.Select(a => (a.Id, typeof(AtmosphereDefinition), (IEnumerable<string>)a.InterpretedFields)));
@@ -136,7 +140,8 @@ namespace MirrorChronicles.Data
                 Atmospheres = atmospheres,
                 SecretKinds = secretKinds,
                 Patrons = patrons,
-                Endings = endings
+                Endings = endings,
+                Shards = shards
             };
         }
 
@@ -188,6 +193,7 @@ namespace MirrorChronicles.Data
         {
             var odds = balance.OrificeOdds;
             Require(odds != null, BalanceFile, "orificeOdds is missing.");
+            Require(balance.Shards != null && IsProbability(balance.Shards.LakeSearchChance), BalanceFile, "shards.lakeSearchChance must lie between 0 and 1.");
             Require(IsProbability(odds.Commoner) && IsProbability(odds.OneParent) && IsProbability(odds.TwoParents),
                 BalanceFile, "orifice odds must lie between 0 and 1.");
             Require(IsProbability(balance.AnnualBirthChance) && IsProbability(balance.AnnualMarriageChance),
@@ -676,6 +682,25 @@ namespace MirrorChronicles.Data
             };
             Require(whole, EndingsFile, $"{ending}: a {c.Kind} condition is incomplete (see EndingConditionKind).");
             foreach (var alternative in c.AnyOf ?? Array.Empty<EndingCondition>()) CheckEndingCondition(ending, alternative, regions);
+        }
+
+        /// <summary>
+        /// The mirror's shards (LORE.md §11.5): unique ids and names, the lake's first; a sleep of a year or more; a memory
+        /// whose technique is in the catalog and whose facts are well formed.
+        /// </summary>
+        private static void CheckShards(IReadOnlyList<ShardDefinition> shards, IReadOnlyList<TechniqueData> techniques)
+        {
+            Require(shards.Count > 0 && shards.Select(s => s.Id).Distinct().Count() == shards.Count && shards[0].Source == ShardSource.Lake,
+                ShardsFile, "the shards need unique ids, and the first lies in the lake (LORE.md §11.5).");
+            foreach (var s in shards)
+            {
+                Require(!string.IsNullOrWhiteSpace(s.Id) && !string.IsNullOrWhiteSpace(s.Name) && s.SleepYears >= 1 && s.Memory != null
+                    && s.InterpretedFields != null, ShardsFile, $"{s.Id}: every shard needs a name, a memory and a sleep of a year or more.");
+                Require(s.Memory.TechniqueId == null || techniques.Any(t => t.ID == s.Memory.TechniqueId),
+                    ShardsFile, $"{s.Id}: its technique \"{s.Memory.TechniqueId}\" is not in {TechniquesFile}.");
+                Require((s.Memory.Facts ?? Array.Empty<string>()).All(f => World.Fact.TryParse(f, out _)),
+                    ShardsFile, $"{s.Id}: a memory's facts are « Kind:Subject ».");
+            }
         }
 
         private static bool IsProbability(double value) => value >= 0 && value <= 1;

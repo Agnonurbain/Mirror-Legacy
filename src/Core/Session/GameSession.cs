@@ -85,6 +85,7 @@ namespace MirrorChronicles.Session
         public VictoryConditionSystem Victory { get; }
         public ClanAnnals Annals { get; }
         public DynasticEndings Endings { get; }
+        public ShardSystem Shards { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -113,7 +114,8 @@ namespace MirrorChronicles.Session
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
-            Talismans = new TalismanSystem(Context, Clan, Resources, Factions);
+            Talismans = new TalismanSystem(Context, Clan, Resources, Factions, Mirror);
+            Shards = new ShardSystem(Context, Mirror, Techniques, Knowledge);
             Suspicion = new SuspicionLedger();
             Treaties = new TreatySystem(Context, Clan, Resources, Factions, Suspicion, Techniques);
             Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror, Treaties);
@@ -121,7 +123,7 @@ namespace MirrorChronicles.Session
             Buildings = new BuildingSystem(Context, Clan, Resources, Stability, Cultivation);
             Alliances = new AllianceSystem(Context, Factions, Resources);
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability, Techniques);
-            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary);
+            Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary, Shards);
             Hunts = new HuntOperations(Context, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
             Lore = new MirrorLore(Context, Factions, seed);
             Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
@@ -217,7 +219,8 @@ namespace MirrorChronicles.Session
             session.Clock.Restore(Math.Max(1, data.CurrentYear), data.CurrentPhase);
             session.Clan.Restore(records, data.PatriarchID);
             session.Resources.Restore(data.SpiritStones, data.MedicinalHerbs, data.SpiritualOres, data.Prestige, data.TechniqueFragments);
-            session.Mirror.Restore(data.MirrorPower, data.RestoredFragments);
+            session.Mirror.Restore(data.MirrorPower, data.RestoredFragments, data.MirrorAsleepUntil);
+            session.Shards.Restore(data.RecoveredShards); // none before 2.21
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
@@ -298,6 +301,8 @@ namespace MirrorChronicles.Session
                 TechniqueFragments = Resources.TechniqueFragments,
                 MirrorPower = Mirror.MirrorPower,
                 RestoredFragments = Mirror.RestoredFragments,
+                RecoveredShards = Shards.Recovered.ToList(),
+                MirrorAsleepUntil = Mirror.AsleepUntil,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
                 Knowledge = Knowledge.Keys.ToList(), // the known techniques live there since 2.3

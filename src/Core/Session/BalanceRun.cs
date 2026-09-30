@@ -248,11 +248,13 @@ namespace MirrorChronicles.Session
 
         /// <summary>
         /// Every free member is set to work: a cultivator at the Foundation wall without the portion of Qi it absorbs
-        /// gathers it (LORE.md §2.5), then cultivates again; the idle cultivate, or else mine.
+        /// gathers it (LORE.md §2.5), then cultivates again; the idle cultivate, or else mine; one searches the lake while
+        /// its shard lies there (B3c).
         /// </summary>
         public static void SetTheIdleToWork(GameSession session)
         {
             bool huntOpen = session.Talismans.HuntWindowOpen;
+            bool lakeOpen = session.Shards.LakeSearchOpen;
             foreach (var member in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList())
             {
                 var trial = PowerLadder.Next(member.Realm, member.RealmStage).Trial;
@@ -260,10 +262,23 @@ namespace MirrorChronicles.Session
                 TaskType wanted = lacksQi && TaskRules.IsAllowed(member, TaskType.GatherQi, huntOpen) ? TaskType.GatherQi
                     : member.CurrentTask == TaskType.GatherQi || member.CurrentTask == TaskType.None ? TaskType.Cultivation
                     : member.CurrentTask;
-                if (!TaskRules.IsAllowed(member, wanted, huntOpen)) wanted = TaskType.Mine;
-                if (wanted != member.CurrentTask && TaskRules.IsAllowed(member, wanted, huntOpen)) session.Tasks.AssignTask(member, wanted);
+                if (!TaskRules.IsAllowed(member, wanted, huntOpen, lakeOpen)) wanted = TaskType.Mine;
+                if (wanted != member.CurrentTask && TaskRules.IsAllowed(member, wanted, huntOpen, lakeOpen)) session.Tasks.AssignTask(member, wanted);
             }
+            SendASearcherToTheLake(session, huntOpen, lakeOpen);
             FeedTheClan(session, huntOpen);
+        }
+
+        /// <summary>While the lake holds its shard, the lowest Qi cultivator but the patriarch dredges it.</summary>
+        private static void SendASearcherToTheLake(GameSession session, bool huntOpen, bool lakeOpen)
+        {
+            var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
+            if (!lakeOpen || free.Any(m => m.CurrentTask == TaskType.SearchLake)) return;
+            var searcher = free.Where(m => m.ID != session.Clan.PatriarchID && m.Realm == CultivationRealm.QiRefinement
+                    && (m.CurrentTask == TaskType.Cultivation || m.CurrentTask == TaskType.Mine)
+                    && TaskRules.IsAllowed(m, TaskType.SearchLake, huntOpen, lakeOpen))
+                .OrderBy(m => m.RealmStage).FirstOrDefault();
+            if (searcher != null) session.Tasks.AssignTask(searcher, TaskType.SearchLake);
         }
 
         /// <summary>

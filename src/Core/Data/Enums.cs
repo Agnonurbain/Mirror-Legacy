@@ -46,7 +46,8 @@ namespace MirrorChronicles.Data
         HuntBeast,  // capture a spirit beast for the mirror's talisman ritual (user decision, 2026-09-26)
         ScoutBeasts, // find the beasts of the hunting ground before the hunt (L2c.2)
         Diversion,   // seen elsewhere while the hunt strikes (L2c.3: « seen going left while going right »)
-        Seclusion    // hidden away: a ripe Dao is hardly seen, and does nothing else (2026-09-29)
+        Seclusion,   // hidden away: a ripe Dao is hardly seen, and does nothing else (2026-09-29)
+        SearchLake   // dredge the lake for the mirror's first shard (B3c, LORE.md §11.5)
     }
 
     public enum Element 

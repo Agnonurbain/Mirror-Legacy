@@ -39,23 +39,23 @@ namespace MirrorChronicles.Characters
         private static readonly TaskType[] AllTasks =
             Enum.GetValues(typeof(TaskType)).Cast<TaskType>().ToArray();
 
-        private static readonly TaskType[] TasksOutsideTheHunt =
-            AllTasks.Where(t => t != TaskType.HuntBeast && t != TaskType.ScoutBeasts && t != TaskType.Diversion).ToArray();
+        private static bool IsHuntTask(TaskType t) => t == TaskType.HuntBeast || t == TaskType.ScoutBeasts || t == TaskType.Diversion;
 
         /// <param name="huntOpen">The hunt is open only in the window before the mirror's ritual (user decision, 2026-09-26).</param>
-        public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character, bool huntOpen = false)
+        /// <param name="lakeOpen">The lake is searched only until its shard is found (B3c).</param>
+        public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character, bool huntOpen = false, bool lakeOpen = false)
         {
             if (character.Age < CultivationAge || character.Retreat != Retreat.None || character.CaptorFaction != null)
                 return InfantTasks; // a retreat, or captivity, leaves no task
             if (!SpiritualOrificeRules.CanCultivate(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
             if (character.Realm == CultivationRealm.Embryonic)
                 return character.RealmStage >= QiPerceptionChakra ? SummitEyeTasks : EmbryonicTasks;
-            return huntOpen ? AllTasks : TasksOutsideTheHunt;
+            return AllTasks.Where(t => (huntOpen || !IsHuntTask(t)) && (lakeOpen || t != TaskType.SearchLake)).ToArray();
         }
 
-        public static bool IsAllowed(CharacterData character, TaskType task, bool huntOpen = false)
+        public static bool IsAllowed(CharacterData character, TaskType task, bool huntOpen = false, bool lakeOpen = false)
         {
-            return AllowedTasks(character, huntOpen).Contains(task);
+            return AllowedTasks(character, huntOpen, lakeOpen).Contains(task);
         }
     }
 }

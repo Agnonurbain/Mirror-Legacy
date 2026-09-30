@@ -112,8 +112,8 @@ namespace MirrorChronicles.World
             }
             if (plan.Approach == ProbeApproach.Bribery && (plan.Stones <= 0 || resources.SpiritStones < plan.Stones))
                 return "la corruption demande des pierres";
-            if (plan.Approach == ProbeApproach.MirrorSight && mirror.MirrorPower < MirrorSightCost(plan.Target))
-                return $"il faut {MirrorSightCost(plan.Target)} de puissance du miroir";
+            if (plan.Approach == ProbeApproach.MirrorSight && mirror.PayRefusal(MirrorSightCost(plan.Target)) is { } mirrorRefusal)
+                return mirrorRefusal;
             return null;
         }
 
