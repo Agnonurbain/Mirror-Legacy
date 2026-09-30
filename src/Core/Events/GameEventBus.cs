@@ -59,6 +59,7 @@ namespace MirrorChronicles.Events
         // Events & outcome
         public event Action<RandomEventData> OnRandomEventOccurred;
         public event Action<StoryEventData> OnStoryEventRaised;
+        public event Action<ShardDefinition> OnRuinsRevealed;               // ruins found to hold a shard (B3c2)
         public event Action<ShardDefinition> OnShardRecovered;              // a shard of the mirror comes back (§11.5)
         public event Action<EndingDefinition, string> OnEndingReached;      // a dynastic ending (§11.9), and who reached it (null: the clan)
         public event Action OnGameOver;                                    // a defeat (§11.9): the dynastic endings never end the game
@@ -97,6 +98,7 @@ namespace MirrorChronicles.Events
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);
         public void TriggerStoryEventRaised(StoryEventData evt) => OnStoryEventRaised?.Invoke(evt);
+        public void TriggerRuinsRevealed(ShardDefinition shard) => OnRuinsRevealed?.Invoke(shard);
         public void TriggerShardRecovered(ShardDefinition shard) => OnShardRecovered?.Invoke(shard);
         public void TriggerEndingReached(EndingDefinition ending, string subject) => OnEndingReached?.Invoke(ending, subject);
         public void TriggerGameOver() => OnGameOver?.Invoke();

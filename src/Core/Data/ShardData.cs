@@ -24,6 +24,7 @@ namespace MirrorChronicles.Data
         public string Name { get; init; }
         public ShardSource Source { get; init; }
         public int SleepYears { get; init; }
+        public CultivationRealm GuardRealm { get; init; } // what guards ruins (the realm an expedition measures itself against)
         public ShardMemory Memory { get; init; } = new ShardMemory();
         public string Notes { get; init; }
         public Provenance Provenance { get; init; }
@@ -35,5 +36,22 @@ namespace MirrorChronicles.Data
     {
         /// <summary>Each searcher's chance a year to dredge the lake's shard up (🔎).</summary>
         public double LakeSearchChance { get; init; }
+
+        /// <summary>The chance a discovery of ruins reveals the next ruins holding a shard (🔎).</summary>
+        public double RuinsRevealChance { get; init; }
+
+        /// <summary>An expedition's odds (🔎): a base, and so much per point of power the team has over the guardian, bounded.</summary>
+        public double ExpeditionBaseChance { get; init; }
+        public double ExpeditionChancePerPower { get; init; }
+        public double ExpeditionMinChance { get; init; }
+        public double ExpeditionMaxChance { get; init; }
+
+        /// <summary>The share of each member's power besides the strongest's that helps (🔎).</summary>
+        public double ExpeditionHelpShare { get; init; }
+        public int ExpeditionMaxTeam { get; init; }
+
+        /// <summary>A failed expedition: the chance the weakest dies, and each other member's chance of a Dao wound (🔎).</summary>
+        public double ExpeditionDeathChance { get; init; }
+        public double ExpeditionWoundChance { get; init; }
     }
 }

@@ -10,22 +10,22 @@
     "provenance": "Wiki", "interpretedFields": [ "SleepYears" ]
   },
   {
-    "id": "sunken-terraces-jade", "name": "le Jade des Terrasses Englouties", "source": "Ruins", "sleepYears": 1,
+    "id": "sunken-terraces-jade", "name": "le Jade des Terrasses Englouties", "source": "Ruins", "sleepYears": 1, "guardRealm": "QiRefinement",
     "memory": {
       "facts": [ "Lineage:supreme-yin", "Lineage:lesser-yin" ],
       "clue": "Le miroir revoit un autel de l'Aube d'Argent où la lune ne se couchait jamais, et des disciples qui s'y inclinaient en silence."
     },
     "notes": "Des ruines d'un avant-poste de l'Aube d'Argent.",
-    "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears" ]
+    "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears", "GuardRealm" ]
   },
   {
-    "id": "western-mound-jade", "name": "le Jade du Tertre de l'Ouest", "source": "Ruins", "sleepYears": 2,
+    "id": "western-mound-jade", "name": "le Jade du Tertre de l'Ouest", "source": "Ruins", "sleepYears": 2, "guardRealm": "Foundation",
     "memory": {
       "facts": [ "Lineage:veiled-yin" ],
       "clue": "Au Gué de Lingjin, quand le monde fut réduit au dixième, le miroir tomba avec les étoiles en désordre. Il n'était pas seul : quelqu'un le tenait."
     },
     "notes": "Des ruines d'avant le Grand Renversement.",
-    "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears" ]
+    "provenance": "Interpretation", "interpretedFields": [ "Memory", "SleepYears", "GuardRealm" ]
   },
   {
     "id": "jade-buckle", "name": "la Boucle de Jade", "source": "Power", "sleepYears": 2,

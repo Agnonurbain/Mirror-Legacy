@@ -38,6 +38,7 @@ namespace MirrorChronicles.Data
         public int MirrorPower { get; set; } = 50;
         public int RestoredFragments { get; set; }
         public List<string> RecoveredShards { get; set; }   // 2.21: the shards recovered (shards.json ids)
+        public List<string> RevealedRuins { get; set; }     // 2.21: the ruins the clan knows to hold a shard
         public int MirrorAsleepUntil { get; set; }          // 2.21: the year the spirit wakes from integrating a shard
         public List<FragmentData> Fragments { get; set; }
         public List<TechniqueData> Techniques { get; set; } // deduced by the mirror

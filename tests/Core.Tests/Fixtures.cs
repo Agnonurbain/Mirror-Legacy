@@ -110,7 +110,8 @@ namespace MirrorChronicles.Tests
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions, Mirror);
-            Shards = new ShardSystem(Ctx, Mirror, Techniques, Knowledge);
+            Wounds = new WoundSystem(Ctx, Stability);
+            Shards = new ShardSystem(Ctx, Clan, Mirror, Techniques, Knowledge, Wounds);
             Bestiary = new BeastRegistry(Ctx);
             Suspicion = new SuspicionLedger();
             Treaties = new TreatySystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques);
@@ -135,7 +136,6 @@ namespace MirrorChronicles.Tests
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability, Resources);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
-            Wounds = new WoundSystem(Ctx, Stability);
             Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds, Suspicion);
             Upkeep = new UpkeepSystem(Ctx, Clan, Resources, Stability);
             DaoHunts = new DaoHuntSystem(Ctx, Clan, Factions, Treaties, Buildings);

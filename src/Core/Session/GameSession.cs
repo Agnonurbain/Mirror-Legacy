@@ -115,7 +115,7 @@ namespace MirrorChronicles.Session
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Context, Clan, Resources, Factions, Mirror);
-            Shards = new ShardSystem(Context, Mirror, Techniques, Knowledge);
+            Shards = new ShardSystem(Context, Clan, Mirror, Techniques, Knowledge, Wounds);
             Suspicion = new SuspicionLedger();
             Treaties = new TreatySystem(Context, Clan, Resources, Factions, Suspicion, Techniques);
             Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror, Treaties);
@@ -221,6 +221,7 @@ namespace MirrorChronicles.Session
             session.Resources.Restore(data.SpiritStones, data.MedicinalHerbs, data.SpiritualOres, data.Prestige, data.TechniqueFragments);
             session.Mirror.Restore(data.MirrorPower, data.RestoredFragments, data.MirrorAsleepUntil);
             session.Shards.Restore(data.RecoveredShards); // none before 2.21
+            session.Shards.RestoreRuins(data.RevealedRuins);
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
@@ -302,6 +303,7 @@ namespace MirrorChronicles.Session
                 MirrorPower = Mirror.MirrorPower,
                 RestoredFragments = Mirror.RestoredFragments,
                 RecoveredShards = Shards.Recovered.ToList(),
+                RevealedRuins = Shards.RevealedRuins.ToList(),
                 MirrorAsleepUntil = Mirror.AsleepUntil,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),

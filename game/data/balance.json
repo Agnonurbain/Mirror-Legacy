@@ -441,7 +441,16 @@
     "scoutRevealChance": 0.5
   },
   "shards": {
-    "lakeSearchChance": 0.06
+    "lakeSearchChance": 0.06,
+    "ruinsRevealChance": 0.35,
+    "expeditionBaseChance": 0.5,
+    "expeditionChancePerPower": 0.03,
+    "expeditionMinChance": 0.05,
+    "expeditionMaxChance": 0.95,
+    "expeditionHelpShare": 0.3,
+    "expeditionMaxTeam": 3,
+    "expeditionDeathChance": 0.3,
+    "expeditionWoundChance": 0.3
   },
   "talismans": {
     "ritualPeriodYears": 20,
