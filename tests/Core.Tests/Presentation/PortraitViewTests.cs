@@ -64,5 +64,12 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.AreEqual(PortraitView.Of(patriarch), PortraitView.For(s, patriarch.ID));
             Assert.IsNull(PortraitView.For(s, "nobody"));
         }
+
+        [Test]
+        public void AnUnknownLifespan_LooksAdult_NotAncient()
+        {
+            Assert.AreEqual(AgeBracket.Adult, PortraitView.Of(Member(40, 0)).Age);
+            Assert.IsNull(PortraitView.For(null, "anyone"));
+        }
     }
 }
