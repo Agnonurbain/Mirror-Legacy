@@ -87,7 +87,10 @@
     "beastWorthPerRealm": 1000,
     "qiWorthPerPortion": 300,
     "debtWorthShare": 0.5,
-    "discipleWorthPerRealm": 2500
+    "discipleWorthPerRealm": 2500,
+    "patronOfferChance": 0.08,
+    "patronRefusalLoss": 5,
+    "cleanseMirrorCost": 40
   },
   "plots": {
     "suspicionFadePerYear": 2,

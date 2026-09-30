@@ -117,7 +117,7 @@ namespace MirrorChronicles.World
         /// <summary>Every power holds a few secrets from the start, drawn in the powers' order: the same seed, the same secrets.</summary>
         public void DrawPowerSecrets(Random worldRng, IEnumerable<FactionData> powers)
         {
-            var kinds = ctx.Content.SecretKinds.Where(k => k.Holder != SecretHolder.Clan).ToList();
+            var kinds = ctx.Content.SecretKinds.Where(k => k.Holder != SecretHolder.Clan && k.Drawn).ToList();
             if (kinds.Count == 0) return;
             foreach (var power in powers)
             {

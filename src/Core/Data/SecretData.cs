@@ -16,6 +16,7 @@ namespace MirrorChronicles.Data
         public string Name { get; init; }
         public int Rank { get; init; }
         public SecretHolder Holder { get; init; }
+        public bool Drawn { get; init; } = true; // drawn with the world (a patron's design is created by its offer)
         public string Notes { get; init; }
         public Provenance Provenance { get; init; }
         public IReadOnlyList<string> InterpretedFields { get; init; } = Array.Empty<string>();

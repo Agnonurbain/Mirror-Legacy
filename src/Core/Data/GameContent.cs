@@ -39,6 +39,9 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<SecretKind> SecretKinds { get; init; } = Array.Empty<SecretKind>();
         public IReadOnlyList<PatronDefinition> Patrons { get; init; } = Array.Empty<PatronDefinition>();
 
+        /// <summary>The patrons' hidden designs (designs.json, LORE.md §11.10).</summary>
+        public IReadOnlyList<PatronDesign> PatronDesigns { get; init; } = Array.Empty<PatronDesign>();
+
         /// <summary>The shards of the mirror (shards.json, LORE.md §11.5).</summary>
         public IReadOnlyList<ShardDefinition> Shards { get; init; } = Array.Empty<ShardDefinition>();
 
@@ -281,6 +284,11 @@ namespace MirrorChronicles.Data
         public int QiWorthPerPortion { get; init; }
         public double DebtWorthShare { get; init; }
         public int DiscipleWorthPerRealm { get; init; }
+
+        /// <summary>Patrons (§11.10; 🔎): the yearly chance of an offer, the relation lost on a refusal, the mirror's cleansing.</summary>
+        public double PatronOfferChance { get; init; }
+        public int PatronRefusalLoss { get; init; }
+        public int CleanseMirrorCost { get; init; }
 
         /// <summary>The relation a power needs with the clan before it sells a technique.</summary>
         public int MinRelation { get; init; }

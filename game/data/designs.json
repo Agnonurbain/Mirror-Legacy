@@ -1,0 +1,370 @@
+[
+  {
+    "id": "harvest",
+    "name": "La moisson",
+    "description": "Élever le clan des générations, puis le moissonner : l'annexer, prendre ses cultivateurs, son Qi, ses fondations.",
+    "due": "Years",
+    "years": 60,
+    "cleansable": false,
+    "weight": 8,
+    "source": "📚 wiki : la secte qui traite les clans comme des récoltes",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "refining",
+    "name": "Le raffinage",
+    "description": "Un Manoir Pourpre d'une fondation précise, à consommer pour sa propre percée : la méthode offerte façonne la fondation dont il a besoin.",
+    "due": "PurpleMansion",
+    "years": 0,
+    "cleansable": false,
+    "weight": 8,
+    "source": "📚 wiki : le maître qui raffine les disciples dont la fondation lui convient ; §5.3.3",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "human-pills",
+    "name": "Les pilules humaines",
+    "description": "Les cultivateurs du clan comme ingrédients pour prolonger sa vie.",
+    "due": "Years",
+    "years": 40,
+    "cleansable": false,
+    "weight": 4,
+    "source": "📚 wiki",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "vessel",
+    "name": "Le réceptacle",
+    "description": "Un corps de la bonne lignée pour la réincarnation d'un Vrai Monarque, ou la Reprise de la Fruition qui possède l'héritier.",
+    "due": "GoldenCore",
+    "years": 0,
+    "cleansable": false,
+    "weight": 4,
+    "source": "§5.5.2, R9",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "fated-one",
+    "name": "L'Élu récolté",
+    "description": "Cultiver un prodige porteur d'un fil de destin pour récolter son destin.",
+    "due": "HeirBorn",
+    "years": 0,
+    "cleansable": false,
+    "weight": 4,
+    "source": "§5.8",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "fruition-vassal",
+    "name": "Le vassal de Fruition",
+    "description": "Un futur Surplus ou Intercalaire soumis à sa permission, ou une Main Gauche fausse qui dépend de lui.",
+    "due": "GoldenCore",
+    "years": 0,
+    "cleansable": false,
+    "weight": 5,
+    "source": "§5.5.1, §6.9",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "borrowing-pyramid",
+    "name": "La pyramide d'emprunt",
+    "description": "Une méthode qui lie l'âme du pratiquant à un supérieur.",
+    "due": "PurpleMansion",
+    "years": 0,
+    "cleansable": false,
+    "weight": 3,
+    "source": "§3.7",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "mark",
+    "name": "La marque",
+    "description": "Le manuel porte une marque qui permet de suivre, d'épier ou de brider le pratiquant.",
+    "due": "PurpleMansion",
+    "years": 0,
+    "cleansable": true,
+    "weight": 6,
+    "source": "📚 wiki : les arts des sectes portent la marque de leurs auteurs ; §11.5",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "hidden-flaw",
+    "name": "Le défaut caché",
+    "description": "Un manuel imparfait qui plafonne, abrège la vie ou tue au moment critique ; le parrain détient la contre-technique.",
+    "due": "PurpleMansion",
+    "years": 0,
+    "cleansable": true,
+    "weight": 5,
+    "source": "§2.3, §2.4",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "pawn",
+    "name": "Le pion",
+    "description": "Armer le clan pour mener sa guerre de frontière, puis l'abandonner.",
+    "due": "Years",
+    "years": 20,
+    "cleansable": false,
+    "weight": 6,
+    "source": "📚 wiki : la secte qui attise les guerres entre familles",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "scapegoat",
+    "name": "Le bouc émissaire",
+    "description": "Rendre le clan fort et voyant, pour qu'il attire la haine et les coalitions à sa place.",
+    "due": "Years",
+    "years": 30,
+    "cleansable": false,
+    "weight": 4,
+    "source": "📚 wiki",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "bulwark",
+    "name": "Le rempart",
+    "description": "Un clan fort à sa frontière contre le Gouffre des Bêtes, les démons, les chamans.",
+    "due": "Years",
+    "years": 25,
+    "cleansable": false,
+    "weight": 4,
+    "source": "📚 wiki : le Roi Démon repoussé",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "atmosphere",
+    "name": "L'atmosphère",
+    "description": "La paix et la prospérité de la région du clan, ou sa ruine, pour l'atmosphère que sa propre percée exige.",
+    "due": "Years",
+    "years": 50,
+    "cleansable": false,
+    "weight": 3,
+    "source": "§5.8",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "imperial-blood",
+    "name": "Le sang impérial",
+    "description": "La lignée du clan descend peut-être de l'Empereur Martial Zhen : son sang, pour la Voie Impériale ou le Yang Lumineux scellé aux Neuf Enfers.",
+    "due": "HeirBorn",
+    "years": 0,
+    "cleansable": false,
+    "weight": 3,
+    "source": "§12, §12.1",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "vacant-fruition",
+    "name": "La Fruition vacante",
+    "description": "Qu'un Vrai Monarque du clan prenne l'Eau Nourricière, vacante depuis six siècles, pour la tenir par lui.",
+    "due": "GoldenCore",
+    "years": 0,
+    "cleansable": false,
+    "weight": 3,
+    "source": "§6.8, §12",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "intercalary-bridge",
+    "name": "Le pont d'Intercalaire",
+    "description": "Se servir du futur Vrai Monarque du clan comme pont pour changer de position.",
+    "due": "GoldenCore",
+    "years": 0,
+    "cleansable": false,
+    "weight": 3,
+    "source": "§5.5.1, §6.9",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "underworld-essence",
+    "name": "L'essence du Monde Souterrain",
+    "description": "Recueillir l'essence du clan quand son ascension au Noyau d'Or échouera.",
+    "due": "GoldenCore",
+    "years": 0,
+    "cleansable": false,
+    "weight": 3,
+    "source": "§12.1",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "demon-to-feed",
+    "name": "Le démon à nourrir",
+    "description": "Provoquer un échec d'ascension pour faire naître un Démon d'Essence Métallique, le sceller et s'en servir.",
+    "due": "GoldenCore",
+    "years": 0,
+    "cleansable": false,
+    "weight": 3,
+    "source": "§5.5.1, §6.9",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "void-key",
+    "name": "La clé du Grand Vide",
+    "description": "Un Manoir Pourpre capable de traverser le Vide pour ouvrir un royaume secret ou une Grotte Céleste ancrée.",
+    "due": "PurpleMansion",
+    "years": 0,
+    "cleansable": false,
+    "weight": 3,
+    "source": "§5.8",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "mirror-bait",
+    "name": "L'appât du miroir",
+    "description": "Un connaisseur du miroir fait mûrir le clan pour trouver le porteur, et le saisir quand le miroir vaudra plus.",
+    "due": "Years",
+    "years": 40,
+    "cleansable": false,
+    "weight": 3,
+    "source": "§11.5",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "broken-pact",
+    "name": "La rupture du pacte",
+    "description": "Se servir du clan pour briser le pacte ancien de la Renarde des Monts Qingyan.",
+    "due": "Years",
+    "years": 30,
+    "cleansable": false,
+    "weight": 2,
+    "source": "§7.3",
+    "provenance": "Lore",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "heir-hostage",
+    "name": "L'héritier otage",
+    "description": "L'héritier le plus doué du clan, marié ou pris comme disciple : un levier pour toujours.",
+    "due": "HeirBorn",
+    "years": 0,
+    "cleansable": false,
+    "weight": 5,
+    "source": "📚 wiki : la secte qui prélève les meilleurs talents",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  },
+  {
+    "id": "sincere",
+    "name": "Le sincère",
+    "description": "Parfois, un parrain aide vraiment : dette de sang ancienne, amitié, ennemi commun. Le clan ne peut jamais en être sûr.",
+    "due": "Years",
+    "years": 30,
+    "cleansable": false,
+    "weight": 3,
+    "source": "📚 wiki : le Maître taoïste qui paya de sa vie pour sauver des millions de gens",
+    "provenance": "Wiki",
+    "interpretedFields": [
+      "Due",
+      "Years",
+      "Weight"
+    ]
+  }
+]

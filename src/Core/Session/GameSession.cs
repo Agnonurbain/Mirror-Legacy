@@ -88,6 +88,7 @@ namespace MirrorChronicles.Session
         public SectSystem Sect { get; }
         public ClanAbsorption Absorption { get; }
         public KnowledgeAccords Accords { get; }
+        public Sponsorships Sponsorships { get; }
         public ShardSystem Shards { get; }
         public PowerShards PowerShards { get; }
 
@@ -138,6 +139,7 @@ namespace MirrorChronicles.Session
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
             Accords = new KnowledgeAccords(Context, Clan, Factions, Techniques, Resources, SecretBook);
+            Sponsorships = new Sponsorships(Context, Clan, Factions, Techniques, SecretBook, Accords, Mirror);
             PowerShards = new PowerShards(Context, Clan, Factions, SecretBook, Suspicion, Lore, Treaties, Resources, Shards);
             Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
@@ -293,6 +295,7 @@ namespace MirrorChronicles.Session
             session.Sect.Restore(data.SectFoundedYear, session.Karma.GenerationCount); // none before 2.21
             session.Absorption.Restore(data.AbsorbedPowers);
             session.Accords.RestoreDebts(data.KnowledgeDebts);
+            session.Sponsorships.Restore(data.PendingSponsorOffer, data.Sponsorships);
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan resumes in year {session.Clock.Year}.");
             return session;
@@ -360,6 +363,8 @@ namespace MirrorChronicles.Session
                 SectFoundedYear = Sect.FoundedYear,
                 AbsorbedPowers = Absorption.Absorbed.ToList(),
                 KnowledgeDebts = Accords.Debts.ToList(),
+                PendingSponsorOffer = Sponsorships.Pending,
+                Sponsorships = Sponsorships.Active.ToList(),
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -421,6 +426,7 @@ namespace MirrorChronicles.Session
                     RandomEvents.TriggerYearlyEvent();
                     Marriages.ProcessAnnualMarriages(); // before Inheritance, so newlyweds can have children
                     DaoHunts.ProcessYear();             // a ripe Dao is prey (LORE.md §5.3.3): learnt, then struck, maybe foiled
+                    Sponsorships.ProcessYear();        // a patron may offer an ascent method, with a design (LORE.md §11.10)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:
