@@ -79,6 +79,80 @@ namespace MirrorChronicles.Tests.Clan
             Assert.IsNull(Fixtures.Content.Endings.Single(e => e.Id == "double-house").Awaits);
         }
 
+        // ---- What the sect changes (the user's decision, 2026-09-30) ----
+
+        [Test]
+        public void ThePeaks_TeachBetter()
+        {
+            int Taught(bool sect)
+            {
+                var w = new TestWorld();
+                var teacher = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation));
+                var student = w.Join(Fixtures.Cultivator());
+                w.Tasks.AssignTask(teacher, TaskType.Teaching);
+                w.Tasks.AssignTask(student, TaskType.Cultivation);
+                if (sect) w.Sect.Restore(1);
+                int before = student.CultivationXP + 1000 * student.RealmStage;
+                w.Tasks.ProcessYearlyTasks();
+                return student.CultivationXP + 1000 * student.RealmStage - before;
+            }
+            Assert.Greater(Taught(true), Taught(false));
+        }
+
+        [Test]
+        public void TheTown_PraysMore()
+        {
+            int Prayers(bool sect)
+            {
+                var s = Quiet();
+                if (sect) s.Sect.Restore(s.Clock.Year);
+                int before = s.Resources.Prayers;
+                s.Events.TriggerYearStarted(s.Clock.Year);
+                return s.Resources.Prayers - before;
+            }
+            Assert.Greater(Prayers(true), Prayers(false));
+        }
+
+        [Test]
+        public void ASuccession_Unsettles_TheClan_LessSoInASect()
+        {
+            int Unrest(bool sect)
+            {
+                var s = Quiet();
+                if (sect) s.Sect.Restore(s.Clock.Year);
+                var heir = s.Clan.LivingMembers.First(m => m.ID != s.Clan.PatriarchID);
+                var watcher = s.Clan.LivingMembers.First(m => m.ID != s.Clan.PatriarchID && m != heir);
+                watcher.MentalStability = 80;
+                s.Clan.AppointPatriarch(heir);
+                s.Events.TriggerYearStarted(s.Clock.Year);
+                return 80 - watcher.MentalStability;
+            }
+            Assert.AreEqual(Settings.SuccessionUnrest, Unrest(false));
+            Assert.AreEqual(Settings.SectSuccessionUnrest, Unrest(true));
+        }
+
+        [Test]
+        public void ANewSect_IsSeen_ByTheGreatSects()
+        {
+            var s = Ready();
+            var sects = s.Factions.Factions.Where(f => f.Kind == FactionKind.Sect).ToList();
+            var before = sects.ToDictionary(f => f.Name, f => f.RelationWithPlayer);
+            s.Sect.Found();
+            Assert.IsTrue(sects.All(f => f.RelationWithPlayer < before[f.Name] || f.RelationWithPlayer == -100));
+            Assert.AreEqual(Settings.GreedFactor, s.Sect.GreedFactor);
+        }
+
+        [Test]
+        public void ThePeaks_CostTheirUpkeep_EachYear()
+        {
+            var s = Ready();
+            s.Sect.Found();
+            s.Resources.AddSpiritStones(Settings.PeaksUpkeep);
+            int stones = s.Resources.SpiritStones;
+            s.Sect.PayThePeaks();
+            Assert.AreEqual(stones - Settings.PeaksUpkeep, s.Resources.SpiritStones);
+        }
+
         [Test]
         public void TheSect_SurvivesASave()
         {
