@@ -6,6 +6,7 @@ using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Economy;
+using MirrorChronicles.Mirror;
 using MirrorChronicles.World;
 
 namespace MirrorChronicles.Session
@@ -15,7 +16,7 @@ namespace MirrorChronicles.Session
         int Seed, int Years, bool Lost, int Members, int Powers, int Stones, CultivationRealm BestRealm,
         int Strikes, int Captures, int Coalitions, int ClanWars, int PowerWars, int Peaces, int Absorptions,
         int Betrayals, int Blackmails, int Thefts, int ProbesSpotted, int Challenges, int Deaths, int CombatDeaths, int PoorYears,
-        int Cultivators, int Devoured, int Extortions, int Foiled, int Hunts, int BeastsTaken);
+        int Cultivators, int Devoured, int Extortions, int Foiled, int Hunts, int BeastsTaken, int Shards, int Endings);
 
     /// <summary>
     /// Long automatic games (balance, 2026-09-29): a passive clan — no orders given, or only the idle set to work — lives through the years while the
@@ -72,7 +73,8 @@ namespace MirrorChronicles.Session
                 living.Count == 0 ? CultivationRealm.Embryonic : living.Max(m => m.Realm),
                 Get("strike"), Get("capture"), Get("coalition"), Get("clanWar"), Get("powerWar"), Get("peace"), Get("absorption"),
                 Get("betrayal"), Get("blackmail"), Get("theft"), Get("probe"), Get("challenge"), Get("death"), Get("combatDeath"), Get("poor"),
-                living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"), Get("extortion"), Get("foiled"), Get("hunt"), Get("capture-beast"));
+                living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"), Get("extortion"), Get("foiled"), Get("hunt"), Get("capture-beast"),
+                s.Mirror.RestoredFragments, s.Annals.Entries.Count(e => e.Kind == AnnalKind.EndingReached));
         }
 
         private const int ReserveYears = 2;      // the pilot pays a demand only if it keeps two years of upkeep
@@ -102,6 +104,8 @@ namespace MirrorChronicles.Session
             PlantASeed(session);
             WedTheLine(session);
             Hunt(session);
+            SeekTheShards(session);
+            if (session.Sect.FoundingRefusal() == null) session.Sect.Found(); // the Double House as soon as it can
             OfferToTheMirror(session);
             AnswerForTheCaptives(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
@@ -109,6 +113,35 @@ namespace MirrorChronicles.Session
                 session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao hides
             if (session.Clock.Year % TreatyEveryYears == 0 && session.Treaties.All.Count < MostTreaties) SeekATreaty(session);
         }
+
+        /// <summary>
+        /// The mirror's shards (B3c): an expedition to known ruins when the odds are good, the Great Void once it calls, and a
+        /// power's shard the clan has pierced — asked of a vassal, bought when the holder sells, else stolen when the odds are good.
+        /// </summary>
+        private static void SeekTheShards(GameSession session)
+        {
+            var shards = session.Shards;
+            var settings = session.Context.Content.Balance.Shards;
+            foreach (var ruins in shards.RevealedRuins.ToList())
+            {
+                var team = shards.BestTeam(CultivationRealm.QiRefinement, settings.ExpeditionMaxTeam);
+                var shard = session.Context.Content.Shards.First(x => x.Id == ruins);
+                if (shards.ExpeditionRefusal(ruins, team, out var members) == null && shards.ExpeditionChance(members, shard) >= GoodOdds)
+                    shards.Expedition(ruins, team);
+            }
+            var seeker = shards.BestTeam(CultivationRealm.PurpleMansion, 1);
+            if (seeker.Count == 1) shards.VoidSearch(seeker[0]);
+            foreach (var shard in session.PowerShards.KnownToClan())
+            {
+                if (session.PowerShards.DemandOfVassal(shard) == null || session.PowerShards.Trade(shard) == null) continue;
+                var team = shards.BestTeam(CultivationRealm.QiRefinement, settings.ExpeditionMaxTeam);
+                var holder = session.Factions.GetFactionByName(session.PowerShards.HolderOf(shard));
+                if (team.Count > 0 && session.PowerShards.TheftChance(team.Select(session.Clan.FindById).ToList(), holder) >= GoodOdds)
+                    session.PowerShards.Steal(shard, team);
+            }
+        }
+
+        private const double GoodOdds = 0.6; // the pilot risks an expedition or a theft from these odds
 
         private static void AnswerDemands(GameSession session)
         {
@@ -313,7 +346,7 @@ namespace MirrorChronicles.Session
                 ("combatDeaths", r => r.CombatDeaths), ("poorYears", r => r.PoorYears),
                 ("cultivators", r => r.Cultivators), ("devoured", r => r.Devoured),
                 ("extortions", r => r.Extortions), ("foiled", r => r.Foiled),
-                ("hunts", r => r.Hunts), ("beasts", r => r.BeastsTaken),
+                ("hunts", r => r.Hunts), ("beasts", r => r.BeastsTaken), ("shards", r => r.Shards), ("endings", r => r.Endings),
             };
             var text = new StringBuilder();
             text.AppendLine(string.Join(" ", columns.Select(c => c.Name.PadLeft(Math.Max(6, c.Name.Length)))));

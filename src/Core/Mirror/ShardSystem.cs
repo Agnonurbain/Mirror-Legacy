@@ -95,6 +95,12 @@ namespace MirrorChronicles.Mirror
             ctx.Events.TriggerRuinsRevealed(next);
         }
 
+        /// <summary>The strongest free members of at least <paramref name="minRealm"/>, none already out on an operation this year.</summary>
+        public IReadOnlyList<string> BestTeam(CultivationRealm minRealm, int size) =>
+            clan.LivingMembers
+                .Where(m => m.CaptorFaction == null && m.Realm >= minRealm && m.LastOperationYear != ctx.Clock.Year)
+                .OrderByDescending(m => HuntRules.Power(m.Realm, m.RealmStage)).Take(size).Select(m => m.ID).ToList();
+
         /// <summary>Why an expedition cannot leave (French, for the screens), or null.</summary>
         public string ExpeditionRefusal(string shardId, IReadOnlyList<string> teamIds, out List<CharacterData> team)
         {

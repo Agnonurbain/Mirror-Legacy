@@ -51,7 +51,7 @@ namespace MirrorChronicles.Presentation
 
         private static ShardActionLine Expedition(GameSession s, ShardDefinition shard)
         {
-            var team = BestTeam(s, CultivationRealm.QiRefinement, s.Context.Content.Balance.Shards.ExpeditionMaxTeam);
+            var team = s.Shards.BestTeam(CultivationRealm.QiRefinement, s.Context.Content.Balance.Shards.ExpeditionMaxTeam);
             string refusal = s.Shards.ExpeditionRefusal(shard.Id, team, out var members);
             string odds = refusal == null ? $" ({Percent(s.Shards.ExpeditionChance(members, shard))})" : "";
             return new ShardActionLine(ShardAction.Expedition, $"Expédition : {Names(members)}{odds}", team, refusal);
@@ -59,7 +59,7 @@ namespace MirrorChronicles.Presentation
 
         private static IReadOnlyList<ShardActionLine> Takings(GameSession s, ShardDefinition shard)
         {
-            var team = BestTeam(s, CultivationRealm.QiRefinement, s.Context.Content.Balance.Shards.ExpeditionMaxTeam);
+            var team = s.Shards.BestTeam(CultivationRealm.QiRefinement, s.Context.Content.Balance.Shards.ExpeditionMaxTeam);
             var members = team.Select(s.Clan.FindById).ToList();
             var holder = s.Factions.GetFactionByName(s.PowerShards.HolderOf(shard.Id));
             string theftRefusal = team.Count == 0 ? "aucun cultivateur libre cette année" : null;
@@ -80,19 +80,13 @@ namespace MirrorChronicles.Presentation
 
         private static ShardActionLine VoidSearch(GameSession s)
         {
-            var seeker = BestTeam(s, CultivationRealm.PurpleMansion, 1);
+            var seeker = s.Shards.BestTeam(CultivationRealm.PurpleMansion, 1);
             string noSeeker = seeker.Count == 0 ? "aucun membre du Manoir Pourpre n'est libre" : null;
             string label = seeker.Count == 0 ? "Chercher dans le Grand Vide"
                 : $"Chercher dans le Grand Vide : {s.Clan.FindById(seeker[0]).FullName} ({Percent(s.Context.Content.Balance.Shards.VoidSearchChance)})";
             string refusal = noSeeker ?? (s.Mirror.IsAsleep ? "le miroir dort : il intègre un éclat" : null);
             return new ShardActionLine(ShardAction.VoidSearch, label, seeker, refusal);
         }
-
-        /// <summary>The strongest free members of at least <paramref name="minRealm"/>, none already out on an operation this year.</summary>
-        public static IReadOnlyList<string> BestTeam(GameSession s, CultivationRealm minRealm, int size) =>
-            s.Clan.LivingMembers
-                .Where(m => m.CaptorFaction == null && m.Realm >= minRealm && m.LastOperationYear != s.Clock.Year)
-                .OrderByDescending(m => HuntRules.Power(m.Realm, m.RealmStage)).Take(size).Select(m => m.ID).ToList();
 
         private static string Names(IEnumerable<CharacterData> members) =>
             string.Join(", ", members.Where(m => m != null).Select(m => m.FullName)) is { Length: > 0 } names ? names : "personne";
