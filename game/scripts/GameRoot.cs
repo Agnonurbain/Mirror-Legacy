@@ -80,7 +80,7 @@ namespace MirrorChronicles.Game
             BronzeTexture.Apply(ThemeDB.GetProjectTheme()); // worn bronze on the buttons
             ink = new ColorRect { MouseFilter = Control.MouseFilterEnum.Ignore, Visible = false };
             ink.SetAnchorsPreset(Control.LayoutPreset.FullRect);
-            ink.Material = new ShaderMaterial { Shader = GD.Load<Shader>("res://theme/ink.gdshader") };
+            ink.Material = new ShaderMaterial { Shader = GD.Load<Shader>("res://theme/curtain.gdshader") }; // the curtain (inspired by valaxy-theme-shuimo)
             var above = new CanvasLayer { Layer = 100 };
             above.AddChild(ink);
             AddChild(above);
@@ -182,15 +182,15 @@ namespace MirrorChronicles.Game
             return DirAccess.RenameAbsolute(ProjectSettings.GlobalizePath(temp), ProjectSettings.GlobalizePath(path)) == Error.Ok;
         }
 
-        private const double InkSeconds = 0.35;
+        private const double InkSeconds = 0.45;
         private ColorRect ink;
         private bool travelling;
         private string pendingPath;
         private bool inkInSmoke; // --ink: a smoke run crosses under the ink too (to check it)
 
         /// <summary>
-        /// Goes to another screen under a spreading ink (Shuimo): the ink covers the page, the scene changes beneath it,
-        /// the ink withdraws. A smoke run changes at once.
+        /// Goes to another screen behind a curtain (Shuimo): two gold-flecked panels close on red seals, the scene changes
+        /// behind them, they part. A smoke run changes at once (<c>--ink</c> to check the curtain).
         /// </summary>
         public void GoTo(string scenePath)
         {
@@ -223,6 +223,14 @@ namespace MirrorChronicles.Game
                     GoTo(next);
                 }
             }));
+        }
+
+        /// <summary>Holds the curtain at a given closure (screenshots: <c>CURTAIN=0.7</c>).</summary>
+        public void HoldCurtain(float progress)
+        {
+            if (ink == null) return;
+            ink.Visible = true;
+            ((ShaderMaterial)ink.Material).SetShaderParameter("progress", progress);
         }
 
         /// <summary>A screen reached without a game (a direct launch, an erased slot) goes back to the title; true when it did.</summary>
