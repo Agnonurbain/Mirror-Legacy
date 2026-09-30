@@ -74,8 +74,9 @@ namespace MirrorChronicles.Tests.Session
         public void ThePilot_ProbesThePowers()
         {
             var session = Rich();
+            var prober = session.Clan.FindById(session.Shards.BestTeam(CultivationRealm.QiRefinement, 1).Single());
             BalanceRun.Act(session);
-            Assert.IsTrue(session.SecretBook.AllProgress.Keys.Any(k => k.StartsWith(SecretBook.ClanHolder)), "the clan pieces some secret together");
+            Assert.AreEqual(session.Clock.Year, prober.LastOperationYear, "the best free member goes out to probe (whatever comes of it)");
         }
 
         [Test]

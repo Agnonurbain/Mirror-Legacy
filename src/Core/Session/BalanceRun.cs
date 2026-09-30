@@ -16,7 +16,8 @@ namespace MirrorChronicles.Session
         int Seed, int Years, bool Lost, int Members, int Powers, int Stones, CultivationRealm BestRealm,
         int Strikes, int Captures, int Coalitions, int ClanWars, int PowerWars, int Peaces, int Absorptions,
         int Betrayals, int Blackmails, int Thefts, int ProbesSpotted, int Challenges, int Deaths, int CombatDeaths, int PoorYears,
-        int Cultivators, int Devoured, int Extortions, int Foiled, int Hunts, int BeastsTaken, int Shards, int Endings);
+        int Cultivators, int Devoured, int Extortions, int Foiled, int Hunts, int BeastsTaken, int Shards, int Endings,
+        int PurpleMansionYear, int FirstEndingYear); // 0: never
 
     /// <summary>
     /// Long automatic games (balance, 2026-09-29): a passive clan — no orders given, or only the idle set to work — lives through the years while the
@@ -74,7 +75,9 @@ namespace MirrorChronicles.Session
                 Get("strike"), Get("capture"), Get("coalition"), Get("clanWar"), Get("powerWar"), Get("peace"), Get("absorption"),
                 Get("betrayal"), Get("blackmail"), Get("theft"), Get("probe"), Get("challenge"), Get("death"), Get("combatDeath"), Get("poor"),
                 living.Count(SpiritualOrificeRules.CanCultivate), Get("devoured"), Get("extortion"), Get("foiled"), Get("hunt"), Get("capture-beast"),
-                s.Mirror.RestoredFragments, s.Annals.Entries.Count(e => e.Kind == AnnalKind.EndingReached));
+                s.Mirror.RestoredFragments, s.Annals.Entries.Count(e => e.Kind == AnnalKind.EndingReached),
+                s.Annals.Entries.FirstOrDefault(e => e.Kind == AnnalKind.RealmReached && e.Value == (int)CultivationRealm.PurpleMansion)?.Year ?? 0,
+                s.Annals.Entries.FirstOrDefault(e => e.Kind == AnnalKind.EndingReached)?.Year ?? 0);
         }
 
         private const int ReserveYears = 2;      // the pilot pays a demand only if it keeps two years of upkeep
@@ -104,6 +107,8 @@ namespace MirrorChronicles.Session
             PlantASeed(session);
             WedTheLine(session);
             Hunt(session);
+            SeekAMethodToTheAscent(session);
+            ProbeAPower(session);
             SeekTheShards(session);
             if (session.Sect.FoundingRefusal() == null) session.Sect.Found(); // the Double House as soon as it can
             OfferToTheMirror(session);
@@ -140,6 +145,72 @@ namespace MirrorChronicles.Session
                     session.PowerShards.Steal(shard, team);
             }
         }
+
+        /// <summary>
+        /// A method that leads to the Purple Mansion (its secret, LORE.md §5.3.4; grade 5 and above): until the clan knows one,
+        /// the pilot buys the cheapest a power will sell, keeping two years of upkeep in reserve.
+        /// </summary>
+        private static void SeekAMethodToTheAscent(GameSession session)
+        {
+            if (AscentMethod(session) != null) return;
+            var offer = session.Factions.Factions
+                .SelectMany(f => session.Exchange.Offers(f.Name).Select(t => (Power: f.Name, Technique: t)))
+                .Where(o => LeadsToTheAscent(session, o.Technique) && session.Exchange.PurchaseRefusal(o.Power, o.Technique.ID) == null)
+                .OrderBy(o => session.Exchange.PriceOf(o.Technique, o.Power)).FirstOrDefault();
+            if (offer.Technique == null) return;
+            if (session.Resources.SpiritStones - session.Exchange.PriceOf(offer.Technique, offer.Power) < session.Upkeep.YearlyUpkeep * ReserveYears) return;
+            session.Exchange.BuyTechnique(offer.Power, offer.Technique.ID);
+        }
+
+        /// <summary>A method of the Qi Cultivation that holds the ascent's secret and whose Qi can still be gathered.</summary>
+        private static bool LeadsToTheAscent(GameSession session, TechniqueData method) =>
+            method.Kind == TechniqueKind.Cultivation && method.RequiredQiId != null && TechniqueRules.HasPurpleMansionSecret(method)
+            && session.Techniques.FindQi(method.RequiredQiId) is { Vanished: false, Ubiquitous: false };
+
+        private static TechniqueData AscentMethod(GameSession session) =>
+            session.Techniques.Known.Where(t => LeadsToTheAscent(session, t)).OrderByDescending(t => t.Grade).FirstOrDefault();
+
+        /// <summary>
+        /// While the clan lacks the portions its youth needs to enter the ascent's method, two breathing cultivators who perceive
+        /// Qi gather it (they harvest the best method's Qi, TaskAssignmentSystem.GatherQi).
+        /// </summary>
+        private static void GatherTheQiOfTheAscent(GameSession session, bool huntOpen)
+        {
+            var method = AscentMethod(session);
+            if (method == null || session.Resources.QiPortions(method.RequiredQiId) >= AscentQiReserve) return;
+            var harvesters = session.Clan.LivingMembers
+                .Where(m => m.CaptorFaction == null && m.Realm == CultivationRealm.Embryonic && TaskRules.IsAllowed(m, TaskType.GatherQi, huntOpen))
+                .OrderByDescending(m => m.RealmStage).Take(AscentHarvesters).ToList();
+            foreach (var harvester in harvesters) session.Tasks.AssignTask(harvester, TaskType.GatherQi);
+        }
+
+        /// <summary>
+        /// A probe a year (LORE.md §11.5): the best free member infiltrates — or bribes, when the reserve allows — the power
+        /// where the odds are best, from fair odds: the way a player pieces the powers' secrets together, and finds where the
+        /// shards lie.
+        /// </summary>
+        private static void ProbeAPower(GameSession session)
+        {
+            var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, 1).ToList();
+            if (team.Count == 0) return;
+            bool canBribe = session.Resources.SpiritStones - ProbeBribe >= session.Upkeep.YearlyUpkeep * ReserveYears;
+            var best = session.Factions.Factions
+                .SelectMany(f => new[]
+                {
+                    new ProbePlan(f.Name, ProbeApproach.Infiltration, team, new List<string>(), 0),
+                    canBribe ? new ProbePlan(f.Name, ProbeApproach.Bribery, team, new List<string>(), ProbeBribe) : null
+                })
+                .Where(p => p != null)
+                .Where(p => session.Probes.RefusalOf(p) == null)
+                .Select(p => (Plan: p, Odds: session.Probes.ChanceAgainst(p)))
+                .OrderByDescending(x => x.Odds).FirstOrDefault();
+            if (best.Plan != null && best.Odds >= FairOdds) session.Probes.Probe(best.Plan);
+        }
+
+        private const int AscentQiReserve = 2;   // portions kept for the youth entering the ascent's method
+        private const int AscentHarvesters = 2;  // breathing cultivators gathering it
+        private const double FairOdds = 0.3;     // the pilot probes from these odds
+        private const int ProbeBribe = 500;      // the stones of a bribe
 
         private const double GoodOdds = 0.6; // the pilot risks an expedition or a theft from these odds
         private const int LowTalentRoot = 40; // a cultivator of a lesser root may be sent to the mine; a gifted one never
@@ -302,6 +373,7 @@ namespace MirrorChronicles.Session
                 if (wanted != member.CurrentTask && TaskRules.IsAllowed(member, wanted, huntOpen, lakeOpen)) session.Tasks.AssignTask(member, wanted);
             }
             SendASearcherToTheLake(session, huntOpen, lakeOpen);
+            GatherTheQiOfTheAscent(session, huntOpen);
             FeedTheClan(session, huntOpen);
         }
 
@@ -354,6 +426,7 @@ namespace MirrorChronicles.Session
                 ("cultivators", r => r.Cultivators), ("devoured", r => r.Devoured),
                 ("extortions", r => r.Extortions), ("foiled", r => r.Foiled),
                 ("hunts", r => r.Hunts), ("beasts", r => r.BeastsTaken), ("shards", r => r.Shards), ("endings", r => r.Endings),
+                ("pmYear", r => r.PurpleMansionYear), ("endYear", r => r.FirstEndingYear),
             };
             var text = new StringBuilder();
             text.AppendLine(string.Join(" ", columns.Select(c => c.Name.PadLeft(Math.Max(6, c.Name.Length)))));
