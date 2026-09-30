@@ -37,14 +37,18 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
-        public void ThePilot_SendsCultivatorsToTheMine_WhenTheCoffersRunLow()
+        public void ThePilot_SendsOnlyTheLeastGiftedToTheMine_WhenTheCoffersRunLow()
         {
             var session = GameSession.NewGame(Fixtures.Setup(3));
             foreach (var m in session.Clan.LivingMembers.Where(m => !SpiritualOrificeRules.CanCultivate(m)).ToList())
                 session.Clan.Kill(m, DeathCause.Illness); // a clan of cultivators only
+            var dull = session.Clan.LivingMembers.First(m => m.ID != session.Clan.PatriarchID);
+            dull.SpiritualRoot = 20; // a poor root: the mine is for them (the user's rule, 2026-09-30)
+            session.Shards.Recover("lake-jade"); // nobody sent to dredge the lake instead
             session.Resources.SetSpiritStones(0);
             BalanceRun.SetTheIdleToWork(session);
-            Assert.IsTrue(session.Clan.LivingMembers.Any(m => m.CurrentTask == TaskType.Mine), "someone must feed the clan");
+            Assert.AreEqual(TaskType.Mine, dull.CurrentTask, "the least gifted feeds the clan");
+            Assert.IsTrue(session.Clan.LivingMembers.Where(m => m.SpiritualRoot >= 40).All(m => m.CurrentTask != TaskType.Mine), "the gifted never go down");
         }
 
         [Test]
