@@ -29,6 +29,10 @@ window/stretch/mode="canvas_items"
 project/assembly_name="MirrorLegacy"
 project/solution_directory="../"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg")
+
 [gui]
 
 theme/custom="res://theme/shuimo.tres"
