@@ -25,7 +25,7 @@ namespace MirrorChronicles.Game
             arts = GetNode<VBoxContainer>("%Arts");
             market = GetNode<VBoxContainer>("%Market");
             status = GetNode<Label>("%Status");
-            GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             // LIB_TAB=<0-1> opens a tab (screenshots of a smoke run)
             if (int.TryParse(OS.GetEnvironment("LIB_TAB"), out int tab)) GetNode<TabContainer>("%Tabs").CurrentTab = tab;
             Refresh();
@@ -92,7 +92,7 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Library: {LibraryView.Library(root.Session).Count} arts known, {LibraryView.Market(root.Session).Count} on the market.");
-            if (root.SmokeEndsOnGenealogy) GetTree().ChangeSceneToFile(Genealogy.ScenePath); // the tree checks itself
+            if (root.SmokeEndsOnGenealogy) root.GoTo(Genealogy.ScenePath); // the tree checks itself
             else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }

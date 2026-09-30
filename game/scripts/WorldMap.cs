@@ -25,7 +25,7 @@ namespace MirrorChronicles.Game
             canvas = GetNode<MapCanvas>("%Canvas");
             placeName = GetNode<Label>("%PlaceName");
             placeFactions = GetNode<Label>("%PlaceFactions");
-            GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             hunt = GetNode<Button>("%Hunt");
             hunt.Pressed += () => { root.Session.Tasks.SetHuntingGround(selected); Refresh(); }; // the hunters go there
             canvas.PlaceSelected += Select;
@@ -87,7 +87,7 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Map: {WorldMapView.Places(root.Session).Count} places, {WorldMapView.Borders(root.Session).Count} borders.");
-            if (root.SmokeEndsOnOperations) GetTree().ChangeSceneToFile(Operations.ScenePath); // the operations check themselves
+            if (root.SmokeEndsOnOperations) root.GoTo(Operations.ScenePath); // the operations check themselves
             else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }

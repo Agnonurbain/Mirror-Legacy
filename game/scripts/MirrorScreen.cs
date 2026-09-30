@@ -34,7 +34,7 @@ namespace MirrorChronicles.Game
             judgment = GetNode<VBoxContainer>("%Judgment");
             deduction = GetNode<VBoxContainer>("%Deduction");
             status = GetNode<Label>("%Status");
-            GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             // MIR_TAB=<0-3> opens a tab (screenshots of a smoke run)
             var tabs = GetNode<TabContainer>("%Tabs");
             if (int.TryParse(OS.GetEnvironment("MIR_TAB"), out int tab) && tab >= 0 && tab < tabs.GetTabCount()) tabs.CurrentTab = tab;
@@ -189,7 +189,7 @@ namespace MirrorChronicles.Game
         {
             var header = MirrorView.Header(root.Session);
             GD.Print($"[Smoke] Mirror: power {header.Power}, {MirrorView.SeedCandidates(root.Session).Count} seed candidates, {MirrorView.Fragments(root.Session).Count} fragments.");
-            if (root.SmokeEndsOnBuildings) GetTree().ChangeSceneToFile(BuildingsScreen.ScenePath); // the buildings check themselves
+            if (root.SmokeEndsOnBuildings) root.GoTo(BuildingsScreen.ScenePath); // the buildings check themselves
             else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }

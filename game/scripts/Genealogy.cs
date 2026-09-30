@@ -22,7 +22,7 @@ namespace MirrorChronicles.Game
             if (root.RedirectWithoutSession(this)) return; // reached without a game
             lineage = GetNode<VBoxContainer>("%Lineage");
             status = GetNode<Label>("%Status");
-            GetNode<Button>("%Back").Pressed += () => GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
         }
@@ -83,7 +83,7 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             GD.Print($"[Smoke] Genealogy: {GenealogyView.Tree(root.Session).Count} members recorded, {OperationsView.Unwed(root.Session).Count} unwed cultivators.");
-            if (root.SmokeEndsOnDiplomacy) GetTree().ChangeSceneToFile(Diplomacy.ScenePath); // diplomacy checks itself
+            if (root.SmokeEndsOnDiplomacy) root.GoTo(Diplomacy.ScenePath); // diplomacy checks itself
             else if (root.ScreenshotPath != null) Screenshot.CaptureAndQuit(this, root.ScreenshotPath);
             else GetTree().Quit();
         }

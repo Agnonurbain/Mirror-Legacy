@@ -38,7 +38,7 @@ namespace MirrorChronicles.Game
             if (root.IsSmokeRun)
             {
                 GD.Print($"[Smoke] Title: {TitleView.Slots(root.ReadSlot).Count} slots.");
-                Callable.From(() => GetTree().ChangeSceneToFile(ClanDomain.ScenePath)).CallDeferred();
+                Callable.From(() => root.GoTo(ClanDomain.ScenePath)).CallDeferred();
                 return;
             }
             Refresh();
@@ -94,7 +94,7 @@ namespace MirrorChronicles.Game
         {
             Disarm();
             string refusal = root.Continue(index);
-            if (refusal == null) GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            if (refusal == null) root.GoTo(ClanDomain.ScenePath);
             else status.Text = $"Impossible : {refusal}.";
         }
 
@@ -117,7 +117,7 @@ namespace MirrorChronicles.Game
             }
             Disarm();
             if (!root.NewGame(slot.Index, worldSeed)) status.Text = "La partie a commencé, mais n'a pu être sauvegardée.";
-            GetTree().ChangeSceneToFile(ClanDomain.ScenePath);
+            root.GoTo(ClanDomain.ScenePath);
         }
 
         private void Erase(int index)
