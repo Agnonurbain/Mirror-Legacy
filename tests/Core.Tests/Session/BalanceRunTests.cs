@@ -4,6 +4,7 @@ using NUnit.Framework;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Tests.Session
 {
@@ -34,6 +35,50 @@ namespace MirrorChronicles.Tests.Session
             var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
             Assert.IsTrue(free.Any(m => m.CurrentTask == TaskType.Cultivation), "those who can, cultivate");
             Assert.IsTrue(free.All(m => m.CurrentTask != TaskType.None || !session.Tasks.AssignTask(m, TaskType.Mine)), "nobody idle who could work");
+        }
+
+        // ---- An active player's knowledge (2026-09-30): a method to the Purple Mansion, its Qi, the powers' secrets ----
+
+        private static GameSession Rich(int seed = 3)
+        {
+            var session = GameSession.NewGame(Fixtures.Setup(seed));
+            session.Resources.SetSpiritStones(100_000);
+            foreach (var f in session.Factions.Factions) f.RelationWithPlayer = 60;
+            return session;
+        }
+
+        private static bool KnowsTheAscent(GameSession s) =>
+            s.Techniques.Known.Any(t => t.Kind == TechniqueKind.Cultivation && TechniqueRules.HasPurpleMansionSecret(t) && t.RequiredQiId != null);
+
+        [Test]
+        public void ThePilot_BuysAMethodThatLeadsToThePurpleMansion()
+        {
+            var session = Rich();
+            Assert.IsFalse(KnowsTheAscent(session));
+            BalanceRun.Act(session);
+            Assert.IsTrue(KnowsTheAscent(session));
+        }
+
+        [Test]
+        public void ThePilot_GathersTheQiOfItsBestMethod()
+        {
+            var session = Rich();
+            BalanceRun.Act(session);
+            var young = Fixtures.Cultivator(age: 16, realm: CultivationRealm.Embryonic, stage: 5);
+            session.Clan.AddMember(young);
+            BalanceRun.SetTheIdleToWork(session);
+            Assert.AreEqual(TaskType.GatherQi, young.CurrentTask);
+        }
+
+        [Test]
+        public void ThePilot_ProbesThePowers()
+        {
+            var session = Rich();
+            while (session.Clan.LivingMembers.Count(m => m.Realm >= CultivationRealm.QiRefinement) < 4) session.Clan.AddMember(Fixtures.Cultivator(stage: 5));
+            session.Clock.Restore(3, GamePhase.Management); // a year of probes
+            var prober = session.Clan.FindById(session.Shards.BestTeam(CultivationRealm.QiRefinement, 2).First(id => id != session.Clan.PatriarchID));
+            BalanceRun.Act(session);
+            Assert.AreEqual(session.Clock.Year, prober.LastOperationYear, "the best free member but the patriarch goes out to probe (whatever comes of it)");
         }
 
         [Test]
