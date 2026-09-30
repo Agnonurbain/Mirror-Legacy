@@ -81,7 +81,7 @@ content_margin_top = 5.0
 content_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="panel"]
-bg_color = Color(0.88, 0.84, 0.74, 1.0)
+bg_color = Color(0.88, 0.84, 0.74, 0.6)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -97,7 +97,7 @@ content_margin_top = 8.0
 content_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="tab_selected"]
-bg_color = Color(0.88, 0.84, 0.74, 1.0)
+bg_color = Color(0.88, 0.84, 0.74, 0.6)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -280,3 +280,4 @@ CheckBox/styles/pressed = SubResource("none")
 CheckBox/styles/hover_pressed = SubResource("none")
 CheckBox/styles/disabled = SubResource("none")
 CheckBox/styles/focus = SubResource("none")
+OptionButton/constants/modulate_arrow = 1
