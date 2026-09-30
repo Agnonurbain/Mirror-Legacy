@@ -147,6 +147,7 @@ namespace MirrorChronicles.Game
         private Control BuildRow(MemberRow row)
         {
             var line = new HBoxContainer();
+            if (PortraitView.For(root.Session, row.Id) is { } portrait) line.AddChild(new PortraitIcon(portrait));
             line.AddChild(new Label
             {
                 Text = MemberText(row),

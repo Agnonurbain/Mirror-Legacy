@@ -74,6 +74,9 @@ namespace MirrorChronicles.Game
             foreach (var node in nodes) DrawCard(node);
         }
 
+        /// <summary>The portrait of a member of the tree, by id (set by the screen); null draws none.</summary>
+        public System.Func<string, Portrait> Portraits { get; set; }
+
         private void DrawCard(KinNode node)
         {
             var rect = new Rect2(TopLeft(node), new Vector2(CardWidth, CardHeight));
@@ -81,8 +84,14 @@ namespace MirrorChronicles.Game
             DrawRect(rect, Card);
             DrawRect(rect, node.IsPatriarch ? Seal : ink, false, node.IsPatriarch ? 2.5f : 1f);
             var font = ThemeDB.FallbackFont;
-            DrawString(font, rect.Position + new Vector2(8, 18), $"{(node.IsMale ? "♂" : "♀")} {node.Name}", HorizontalAlignment.Left, CardWidth - 16, NameSize, ink);
-            DrawString(font, rect.Position + new Vector2(8, 36), node.Status, HorizontalAlignment.Left, CardWidth - 16, StatusSize, ink);
+            float text = 8;
+            if (Portraits != null && Portraits(node.Id) is { } portrait)
+            {
+                InkPortrait.Draw(this, new Rect2(rect.Position + new Vector2(4, 3), new Vector2(34, CardHeight - 6)), portrait);
+                text = 44;
+            }
+            DrawString(font, rect.Position + new Vector2(text, 18), $"{(node.IsMale ? "♂" : "♀")} {node.Name}", HorizontalAlignment.Left, CardWidth - text - 8, NameSize, ink);
+            DrawString(font, rect.Position + new Vector2(text, 36), node.Status, HorizontalAlignment.Left, CardWidth - text - 8, StatusSize, ink);
         }
 
         private static Vector2 TopLeft(KinNode node) => new Vector2(Margin + node.Column * ColumnStep, Margin + node.Generation * RowStep);

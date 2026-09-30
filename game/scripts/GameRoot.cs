@@ -186,6 +186,9 @@ namespace MirrorChronicles.Game
         private ColorRect ink;
         private bool travelling;
         private string pendingPath;
+        private string currentPath;
+        private bool sceneChanged;
+        private const double LoadPause = 0.06;
         private bool inkInSmoke; // --ink: a smoke run crosses under the ink too (to check it)
 
         /// <summary>
@@ -201,16 +204,27 @@ namespace MirrorChronicles.Game
             }
             if (travelling)
             {
-                pendingPath = scenePath; // asked mid-crossing: taken once the ink has withdrawn
+                // closing: the old screen's last presses (a key held, a second click) are dropped; once the new screen
+                // is loaded, its own request (a redirect from _Ready) is kept for when the curtain has parted — the last wins
+                if (sceneChanged && scenePath != currentPath) pendingPath = scenePath;
                 return;
             }
             travelling = true;
+            sceneChanged = false;
+            currentPath = scenePath;
+            GetViewport().GuiReleaseFocus(); // no key or pad press reaches the old screen while the curtain closes
             var material = (ShaderMaterial)ink.Material;
             ink.Visible = true;
             ink.MouseFilter = Control.MouseFilterEnum.Stop; // no click lands mid-crossing
             var tween = CreateTween();
             tween.TweenMethod(Callable.From<float>(v => material.SetShaderParameter("progress", v)), 0f, 1f, InkSeconds);
-            tween.TweenCallback(Callable.From(() => GetTree().ChangeSceneToFile(scenePath)));
+            tween.TweenCallback(Callable.From(() =>
+            {
+                var error = GetTree().ChangeSceneToFile(scenePath);
+                if (error != Error.Ok) GD.PushError($"[GameRoot] Cannot open {scenePath} ({error}).");
+                sceneChanged = true;
+            }));
+            tween.TweenInterval(LoadPause); // the new screen settles before the curtain parts
             tween.TweenMethod(Callable.From<float>(v => material.SetShaderParameter("progress", v)), 1f, 0f, InkSeconds);
             tween.TweenCallback(Callable.From(() =>
             {

@@ -658,6 +658,116 @@
       "norm_label": ".runsmoke()"
     },
     {
+      "label": "BronzeTexture.cs",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_bronzetexture",
+      "community": 282,
+      "norm_label": "bronzetexture.cs"
+    },
+    {
+      "label": "MirrorChronicles.Game",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "scripts_bronzetexture_mirrorchronicles_game",
+      "community": 282,
+      "norm_label": "mirrorchronicles.game"
+    },
+    {
+      "label": "BronzeTexture",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "scripts_bronzetexture_bronzetexture",
+      "community": 282,
+      "norm_label": "bronzetexture"
+    },
+    {
+      "label": "int",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "game_scripts_bronzetexture_cs_int",
+      "community": 282,
+      "norm_label": "int"
+    },
+    {
+      "label": "Color",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "game_scripts_bronzetexture_cs_color",
+      "community": 282,
+      "norm_label": "color"
+    },
+    {
+      "label": ".Build()",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "scripts_bronzetexture_bronzetexture_build",
+      "community": 282,
+      "norm_label": ".build()"
+    },
+    {
+      "label": "ImageTexture",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "imagetexture",
+      "community": 282,
+      "norm_label": "imagetexture"
+    },
+    {
+      "label": ".Style()",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "scripts_bronzetexture_bronzetexture_style",
+      "community": 282,
+      "norm_label": ".style()"
+    },
+    {
+      "label": "StyleBoxTexture",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "styleboxtexture",
+      "community": 282,
+      "norm_label": "styleboxtexture"
+    },
+    {
+      "label": ".Apply()",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "scripts_bronzetexture_bronzetexture_apply",
+      "community": 282,
+      "norm_label": ".apply()"
+    },
+    {
+      "label": "Theme",
+      "file_type": "code",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "theme",
+      "community": 282,
+      "norm_label": "theme"
+    },
+    {
       "label": "BuildingsScreen.cs",
       "file_type": "code",
       "source_file": "game/scripts/BuildingsScreen.cs",
@@ -1021,7 +1131,7 @@
       "label": ".MemberText()",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L173",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "scripts_clandomain_clandomain_membertext",
       "community": 1,
@@ -1031,7 +1141,7 @@
       "label": ".BuildMethodChoice()",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L181",
+      "source_location": "L182",
       "_origin": "ast",
       "id": "scripts_clandomain_clandomain_buildmethodchoice",
       "community": 1,
@@ -1041,7 +1151,7 @@
       "label": ".Selector()",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L210",
+      "source_location": "L211",
       "_origin": "ast",
       "id": "scripts_clandomain_clandomain_selector",
       "community": 1,
@@ -1051,7 +1161,7 @@
       "label": "OptionButton",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L210",
+      "source_location": "L211",
       "_origin": "ast",
       "id": "game_scripts_clandomain_cs_optionbutton",
       "community": 1,
@@ -1061,7 +1171,7 @@
       "label": ".AssignMethod()",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L218",
+      "source_location": "L219",
       "_origin": "ast",
       "id": "scripts_clandomain_clandomain_assignmethod",
       "community": 1,
@@ -1071,7 +1181,7 @@
       "label": ".ShowStory()",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L224",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "scripts_clandomain_clandomain_showstory",
       "community": 1,
@@ -1081,7 +1191,7 @@
       "label": "StoryEventData",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L224",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "game_scripts_clandomain_cs_storyeventdata",
       "community": 1,
@@ -1091,7 +1201,7 @@
       "label": ".ShowChronicle()",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L240",
+      "source_location": "L241",
       "_origin": "ast",
       "id": "scripts_clandomain_clandomain_showchronicle",
       "community": 1,
@@ -1101,7 +1211,7 @@
       "label": ".RunSmoke()",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L249",
+      "source_location": "L250",
       "_origin": "ast",
       "id": "scripts_clandomain_clandomain_runsmoke",
       "community": 1,
@@ -1111,7 +1221,7 @@
       "label": ".IndexOf()",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L276",
+      "source_location": "L277",
       "_origin": "ast",
       "id": "scripts_clandomain_clandomain_indexof",
       "community": 1,
@@ -1121,7 +1231,7 @@
       "label": ".Clear()",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L283",
+      "source_location": "L284",
       "_origin": "ast",
       "id": "scripts_clandomain_clandomain_clear",
       "community": 1,
@@ -1131,7 +1241,7 @@
       "label": "Node",
       "file_type": "code",
       "source_file": "game/scripts/ClanDomain.cs",
-      "source_location": "L283",
+      "source_location": "L284",
       "_origin": "ast",
       "id": "game_scripts_clandomain_cs_node",
       "community": 1,
@@ -1233,7 +1343,7 @@
       "source_file": "game/scripts/Diplomacy.cs",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "bool",
+      "id": "game_scripts_diplomacy_cs_bool",
       "community": 209,
       "norm_label": "bool"
     },
@@ -1501,7 +1611,7 @@
       "label": ".SlotPath()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L86",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_slotpath",
       "community": 196,
@@ -1511,7 +1621,7 @@
       "label": ".ReadSlot()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L93",
+      "source_location": "L102",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_readslot",
       "community": 196,
@@ -1521,7 +1631,7 @@
       "label": ".Continue()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L102",
+      "source_location": "L111",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_continue",
       "community": 196,
@@ -1531,7 +1641,7 @@
       "label": ".NewGame()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L117",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_newgame",
       "community": 196,
@@ -1541,7 +1651,7 @@
       "label": ".Erase()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L124",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_erase",
       "community": 196,
@@ -1551,7 +1661,7 @@
       "label": ".AdoptLegacySave()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L140",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_adoptlegacysave",
       "community": 196,
@@ -1561,7 +1671,7 @@
       "label": ".Save()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L154",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_save",
       "community": 196,
@@ -1571,17 +1681,67 @@
       "label": ".WriteSafely()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L164",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_writesafely",
       "community": 196,
       "norm_label": ".writesafely()"
     },
     {
+      "label": "double",
+      "file_type": "code",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L185",
+      "_origin": "ast",
+      "id": "game_scripts_gameroot_cs_double",
+      "community": 196,
+      "norm_label": "double"
+    },
+    {
+      "label": "ColorRect",
+      "file_type": "code",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L186",
+      "_origin": "ast",
+      "id": "colorrect",
+      "community": 196,
+      "norm_label": "colorrect"
+    },
+    {
+      "label": "bool",
+      "file_type": "code",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L187",
+      "_origin": "ast",
+      "id": "game_scripts_gameroot_cs_bool",
+      "community": 196,
+      "norm_label": "bool"
+    },
+    {
+      "label": ".GoTo()",
+      "file_type": "code",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L198",
+      "_origin": "ast",
+      "id": "scripts_gameroot_gameroot_goto",
+      "community": 196,
+      "norm_label": ".goto()"
+    },
+    {
+      "label": ".HoldCurtain()",
+      "file_type": "code",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L243",
+      "_origin": "ast",
+      "id": "scripts_gameroot_gameroot_holdcurtain",
+      "community": 196,
+      "norm_label": ".holdcurtain()"
+    },
+    {
       "label": ".RedirectWithoutSession()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L177",
+      "source_location": "L251",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_redirectwithoutsession",
       "community": 196,
@@ -1591,7 +1751,7 @@
       "label": ".Setup()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L184",
+      "source_location": "L258",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_setup",
       "community": 196,
@@ -1601,7 +1761,7 @@
       "label": "GameSetup",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L184",
+      "source_location": "L258",
       "_origin": "ast",
       "id": "game_scripts_gameroot_cs_gamesetup",
       "community": 196,
@@ -1611,7 +1771,7 @@
       "label": ".Start()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L190",
+      "source_location": "L264",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_start",
       "community": 196,
@@ -1621,7 +1781,7 @@
       "label": "GameSession",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L190",
+      "source_location": "L264",
       "_origin": "ast",
       "id": "game_scripts_gameroot_cs_gamesession",
       "community": 196,
@@ -1631,7 +1791,7 @@
       "label": ".Stop()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L201",
+      "source_location": "L275",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_stop",
       "community": 196,
@@ -1641,7 +1801,7 @@
       "label": ".SaveAtYearStart()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L208",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_saveatyearstart",
       "community": 196,
@@ -1651,7 +1811,7 @@
       "label": ".ReadDataFile()",
       "file_type": "code",
       "source_file": "game/scripts/GameRoot.cs",
-      "source_location": "L210",
+      "source_location": "L284",
       "_origin": "ast",
       "id": "scripts_gameroot_gameroot_readdatafile",
       "community": 196,
@@ -1751,7 +1911,7 @@
       "label": ".ShowLineage()",
       "file_type": "code",
       "source_file": "game/scripts/Genealogy.cs",
-      "source_location": "L36",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "scripts_genealogy_genealogy_showlineage",
       "community": 211,
@@ -1761,7 +1921,7 @@
       "label": ".Text()",
       "file_type": "code",
       "source_file": "game/scripts/Genealogy.cs",
-      "source_location": "L81",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "scripts_genealogy_genealogy_text",
       "community": 211,
@@ -1771,7 +1931,7 @@
       "label": ".RunSmoke()",
       "file_type": "code",
       "source_file": "game/scripts/Genealogy.cs",
-      "source_location": "L83",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "scripts_genealogy_genealogy_runsmoke",
       "community": 211,
@@ -1881,7 +2041,7 @@
       "label": ".DrawCard()",
       "file_type": "code",
       "source_file": "game/scripts/GenealogyCanvas.cs",
-      "source_location": "L77",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "scripts_genealogycanvas_genealogycanvas_drawcard",
       "community": 203,
@@ -1891,7 +2051,7 @@
       "label": ".TopLeft()",
       "file_type": "code",
       "source_file": "game/scripts/GenealogyCanvas.cs",
-      "source_location": "L88",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "scripts_genealogycanvas_genealogycanvas_topleft",
       "community": 203,
@@ -1901,7 +2061,7 @@
       "label": "Vector2",
       "file_type": "code",
       "source_file": "game/scripts/GenealogyCanvas.cs",
-      "source_location": "L88",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "game_scripts_genealogycanvas_cs_vector2",
       "community": 203,
@@ -1966,6 +2126,276 @@
       "id": "scripts_godotgamelog_godotgamelog_warning",
       "community": 126,
       "norm_label": ".warning()"
+    },
+    {
+      "label": "InkPortrait.cs",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_inkportrait",
+      "community": 284,
+      "norm_label": "inkportrait.cs"
+    },
+    {
+      "label": "MirrorChronicles.Game",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "scripts_inkportrait_mirrorchronicles_game",
+      "community": 284,
+      "norm_label": "mirrorchronicles.game"
+    },
+    {
+      "label": "InkPortrait",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "scripts_inkportrait_inkportrait",
+      "community": 284,
+      "norm_label": "inkportrait"
+    },
+    {
+      "label": "Color",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "game_scripts_inkportrait_cs_color",
+      "community": 284,
+      "norm_label": "color"
+    },
+    {
+      "label": ".Tint()",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "scripts_inkportrait_inkportrait_tint",
+      "community": 284,
+      "norm_label": ".tint()"
+    },
+    {
+      "label": "Element",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "game_scripts_inkportrait_cs_element",
+      "community": 284,
+      "norm_label": "element"
+    },
+    {
+      "label": ".Draw()",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "scripts_inkportrait_inkportrait_draw",
+      "community": 284,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "CanvasItem",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "canvasitem",
+      "community": 284,
+      "norm_label": "canvasitem"
+    },
+    {
+      "label": "Rect2",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "game_scripts_inkportrait_cs_rect2",
+      "community": 284,
+      "norm_label": "rect2"
+    },
+    {
+      "label": "Portrait",
+      "file_type": "code",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "game_scripts_inkportrait_cs_portrait",
+      "community": 284,
+      "norm_label": "portrait"
+    },
+    {
+      "label": "LandscapeCanvas.cs",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas",
+      "community": 271,
+      "norm_label": "landscapecanvas.cs"
+    },
+    {
+      "label": "MirrorChronicles.Game",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_mirrorchronicles_game",
+      "community": 271,
+      "norm_label": "mirrorchronicles.game"
+    },
+    {
+      "label": "LandscapeCanvas",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas",
+      "community": 271,
+      "norm_label": "landscapecanvas"
+    },
+    {
+      "label": "int",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "game_scripts_landscapecanvas_cs_int",
+      "community": 271,
+      "norm_label": "int"
+    },
+    {
+      "label": "Color",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "game_scripts_landscapecanvas_cs_color",
+      "community": 271,
+      "norm_label": "color"
+    },
+    {
+      "label": "._Ready()",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas_ready",
+      "community": 271,
+      "norm_label": "._ready()"
+    },
+    {
+      "label": "._Draw()",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas_draw",
+      "community": 271,
+      "norm_label": "._draw()"
+    },
+    {
+      "label": ".Range()",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas_range",
+      "community": 271,
+      "norm_label": ".range()"
+    },
+    {
+      "label": "Random",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "game_scripts_landscapecanvas_cs_random",
+      "community": 271,
+      "norm_label": "random"
+    },
+    {
+      "label": ".Ridge()",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas_ridge",
+      "community": 271,
+      "norm_label": ".ridge()"
+    },
+    {
+      "label": "List",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "game_scripts_landscapecanvas_cs_list",
+      "community": 271,
+      "norm_label": "list"
+    },
+    {
+      "label": "Vector2",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "game_scripts_landscapecanvas_cs_vector2",
+      "community": 271,
+      "norm_label": "vector2"
+    },
+    {
+      "label": ".Cun()",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas_cun",
+      "community": 271,
+      "norm_label": ".cun()"
+    },
+    {
+      "label": ".Pines()",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L107",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas_pines",
+      "community": 271,
+      "norm_label": ".pines()"
+    },
+    {
+      "label": ".Water()",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L133",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas_water",
+      "community": 271,
+      "norm_label": ".water()"
+    },
+    {
+      "label": ".Pavilion()",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L145",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas_pavilion",
+      "community": 271,
+      "norm_label": ".pavilion()"
+    },
+    {
+      "label": ".Boat()",
+      "file_type": "code",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L156",
+      "_origin": "ast",
+      "id": "scripts_landscapecanvas_landscapecanvas_boat",
+      "community": 271,
+      "norm_label": ".boat()"
     },
     {
       "label": "Library.cs",
@@ -2433,7 +2863,7 @@
       "source_file": "game/scripts/MapCanvas.cs",
       "source_location": "L265",
       "_origin": "ast",
-      "id": "rect2",
+      "id": "game_scripts_mapcanvas_cs_rect2",
       "community": 163,
       "norm_label": "rect2"
     },
@@ -3288,6 +3718,186 @@
       "norm_label": ".runsmoke()"
     },
     {
+      "label": "PaperBackdrop.cs",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_paperbackdrop",
+      "community": 279,
+      "norm_label": "paperbackdrop.cs"
+    },
+    {
+      "label": "MirrorChronicles.Game",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "scripts_paperbackdrop_mirrorchronicles_game",
+      "community": 279,
+      "norm_label": "mirrorchronicles.game"
+    },
+    {
+      "label": "PaperBackdrop",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "scripts_paperbackdrop_paperbackdrop",
+      "community": 279,
+      "norm_label": "paperbackdrop"
+    },
+    {
+      "label": "CanvasLayer",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "canvaslayer",
+      "community": 279,
+      "norm_label": "canvaslayer"
+    },
+    {
+      "label": "int",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "game_scripts_paperbackdrop_cs_int",
+      "community": 279,
+      "norm_label": "int"
+    },
+    {
+      "label": "._Ready()",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "scripts_paperbackdrop_paperbackdrop_ready",
+      "community": 279,
+      "norm_label": "._ready()"
+    },
+    {
+      "label": "CloudFrame",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "scripts_paperbackdrop_cloudframe",
+      "community": 279,
+      "norm_label": "cloudframe"
+    },
+    {
+      "label": "Color",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "game_scripts_paperbackdrop_cs_color",
+      "community": 279,
+      "norm_label": "color"
+    },
+    {
+      "label": "float",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "game_scripts_paperbackdrop_cs_float",
+      "community": 279,
+      "norm_label": "float"
+    },
+    {
+      "label": "._Ready()",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "scripts_paperbackdrop_cloudframe_ready",
+      "community": 279,
+      "norm_label": "._ready()"
+    },
+    {
+      "label": "._Draw()",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "scripts_paperbackdrop_cloudframe_draw",
+      "community": 279,
+      "norm_label": "._draw()"
+    },
+    {
+      "label": ".DrawCloud()",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "scripts_paperbackdrop_cloudframe_drawcloud",
+      "community": 279,
+      "norm_label": ".drawcloud()"
+    },
+    {
+      "label": "Vector2",
+      "file_type": "code",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "game_scripts_paperbackdrop_cs_vector2",
+      "community": 279,
+      "norm_label": "vector2"
+    },
+    {
+      "label": "PortraitIcon.cs",
+      "file_type": "code",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_portraiticon",
+      "community": 286,
+      "norm_label": "portraiticon.cs"
+    },
+    {
+      "label": "MirrorChronicles.Game",
+      "file_type": "code",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "scripts_portraiticon_mirrorchronicles_game",
+      "community": 286,
+      "norm_label": "mirrorchronicles.game"
+    },
+    {
+      "label": "PortraitIcon",
+      "file_type": "code",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "scripts_portraiticon_portraiticon",
+      "community": 286,
+      "norm_label": "portraiticon"
+    },
+    {
+      "label": "Portrait",
+      "file_type": "code",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "game_scripts_portraiticon_cs_portrait",
+      "community": 286,
+      "norm_label": "portrait"
+    },
+    {
+      "label": "._Draw()",
+      "file_type": "code",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "scripts_portraiticon_portraiticon_draw",
+      "community": 286,
+      "norm_label": "._draw()"
+    },
+    {
       "label": "Screenshot.cs",
       "file_type": "code",
       "source_file": "game/scripts/Screenshot.cs",
@@ -3461,7 +4071,7 @@
       "label": ".Armed()",
       "file_type": "code",
       "source_file": "game/scripts/TitleScreen.cs",
-      "source_location": "L47",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "scripts_titlescreen_titlescreen_armed",
       "community": 212,
@@ -3471,7 +4081,7 @@
       "label": ".Arm()",
       "file_type": "code",
       "source_file": "game/scripts/TitleScreen.cs",
-      "source_location": "L49",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "scripts_titlescreen_titlescreen_arm",
       "community": 212,
@@ -3481,7 +4091,7 @@
       "label": ".Disarm()",
       "file_type": "code",
       "source_file": "game/scripts/TitleScreen.cs",
-      "source_location": "L56",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "scripts_titlescreen_titlescreen_disarm",
       "community": 212,
@@ -3491,7 +4101,7 @@
       "label": ".Refresh()",
       "file_type": "code",
       "source_file": "game/scripts/TitleScreen.cs",
-      "source_location": "L63",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "scripts_titlescreen_titlescreen_refresh",
       "community": 212,
@@ -3501,7 +4111,7 @@
       "label": ".Continue()",
       "file_type": "code",
       "source_file": "game/scripts/TitleScreen.cs",
-      "source_location": "L93",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "scripts_titlescreen_titlescreen_continue",
       "community": 212,
@@ -3511,7 +4121,7 @@
       "label": ".Begin()",
       "file_type": "code",
       "source_file": "game/scripts/TitleScreen.cs",
-      "source_location": "L101",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "scripts_titlescreen_titlescreen_begin",
       "community": 212,
@@ -3521,7 +4131,7 @@
       "label": "SlotLine",
       "file_type": "code",
       "source_file": "game/scripts/TitleScreen.cs",
-      "source_location": "L101",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "game_scripts_titlescreen_cs_slotline",
       "community": 212,
@@ -3531,7 +4141,7 @@
       "label": ".Erase()",
       "file_type": "code",
       "source_file": "game/scripts/TitleScreen.cs",
-      "source_location": "L123",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "scripts_titlescreen_titlescreen_erase",
       "community": 212,
@@ -3884,7 +4494,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 274,
+      "community": 224,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -3894,7 +4504,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 274,
+      "community": 224,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -7084,7 +7694,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 271,
+      "community": 183,
       "norm_label": "woundsystem"
     },
     {
@@ -7094,7 +7704,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 271,
+      "community": 183,
       "norm_label": "double"
     },
     {
@@ -7104,7 +7714,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 271,
+      "community": 183,
       "norm_label": "int"
     },
     {
@@ -7114,7 +7724,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 271,
+      "community": 183,
       "norm_label": "gamecontext"
     },
     {
@@ -7124,7 +7734,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 271,
+      "community": 183,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -7134,7 +7744,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 271,
+      "community": 183,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -7144,7 +7754,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 271,
+      "community": 183,
       "norm_label": "characterdata"
     },
     {
@@ -7154,7 +7764,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 271,
+      "community": 183,
       "norm_label": ".applydaowound()"
     },
     {
@@ -7164,7 +7774,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 271,
+      "community": 183,
       "norm_label": ".applywound()"
     },
     {
@@ -9974,7 +10584,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 274,
+      "community": 224,
       "norm_label": "combatunit.cs"
     },
     {
@@ -9984,7 +10594,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 274,
+      "community": 224,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -12214,7 +12824,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 270,
+      "community": 192,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -12224,7 +12834,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 270,
+      "community": 192,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -12894,7 +13504,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 270,
+      "community": 192,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -12904,7 +13514,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 270,
+      "community": 192,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -15154,7 +15764,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 268,
+      "community": 192,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -15164,7 +15774,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 268,
+      "community": 192,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -16464,7 +17074,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionengine",
-      "community": 192,
+      "community": 270,
       "norm_label": "deductionengine.cs"
     },
     {
@@ -16474,7 +17084,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_deductionengine_mirrorchronicles_mirror",
-      "community": 192,
+      "community": 270,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -17104,7 +17714,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_mirrorsystem",
-      "community": 274,
+      "community": 190,
       "norm_label": "mirrorsystem.cs"
     },
     {
@@ -17114,7 +17724,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorchronicles_mirror",
-      "community": 274,
+      "community": 190,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -19566,6 +20176,136 @@
       "id": "src_core_presentation_operationsview_cs_cultivationrealm",
       "community": 152,
       "norm_label": "cultivationrealm"
+    },
+    {
+      "label": "PortraitView.cs",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "presentation_portraitview",
+      "community": 281,
+      "norm_label": "portraitview.cs"
+    },
+    {
+      "label": "MirrorChronicles.Presentation",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "presentation_portraitview_mirrorchronicles_presentation",
+      "community": 281,
+      "norm_label": "mirrorchronicles.presentation"
+    },
+    {
+      "label": "PortraitView",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "presentation_portraitview_portraitview",
+      "community": 281,
+      "norm_label": "portraitview"
+    },
+    {
+      "label": "int",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "src_core_presentation_portraitview_cs_int",
+      "community": 281,
+      "norm_label": "int"
+    },
+    {
+      "label": "double",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "src_core_presentation_portraitview_cs_double",
+      "community": 281,
+      "norm_label": "double"
+    },
+    {
+      "label": ".Of()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "presentation_portraitview_portraitview_of",
+      "community": 281,
+      "norm_label": ".of()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_core_presentation_portraitview_cs_characterdata",
+      "community": 281,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": "Portrait",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_core_presentation_portraitview_cs_portrait",
+      "community": 281,
+      "norm_label": "portrait"
+    },
+    {
+      "label": ".For()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "presentation_portraitview_portraitview_for",
+      "community": 281,
+      "norm_label": ".for()"
+    },
+    {
+      "label": "GameSession",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "src_core_presentation_portraitview_cs_gamesession",
+      "community": 281,
+      "norm_label": "gamesession"
+    },
+    {
+      "label": ".AgeOf()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "presentation_portraitview_portraitview_ageof",
+      "community": 281,
+      "norm_label": ".ageof()"
+    },
+    {
+      "label": "AgeBracket",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "src_core_presentation_portraitview_cs_agebracket",
+      "community": 281,
+      "norm_label": "agebracket"
+    },
+    {
+      "label": ".Stable()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "presentation_portraitview_portraitview_stable",
+      "community": 281,
+      "norm_label": ".stable()"
     },
     {
       "label": "SecretsView.cs",
@@ -42548,6 +43288,146 @@
       "norm_label": ".spouses_fromthepowers_arelisted_theirsecretonlyoncesounded()"
     },
     {
+      "label": "PortraitViewTests.cs",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "presentation_portraitviewtests",
+      "community": 274,
+      "norm_label": "portraitviewtests.cs"
+    },
+    {
+      "label": "MirrorChronicles.Tests.Presentation",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "presentation_portraitviewtests_mirrorchronicles_tests_presentation",
+      "community": 274,
+      "norm_label": "mirrorchronicles.tests.presentation"
+    },
+    {
+      "label": "PortraitViewTests",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "presentation_portraitviewtests_portraitviewtests",
+      "community": 274,
+      "norm_label": "portraitviewtests"
+    },
+    {
+      "label": ".Member()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "presentation_portraitviewtests_portraitviewtests_member",
+      "community": 274,
+      "norm_label": ".member()"
+    },
+    {
+      "label": "CultivationRealm",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "tests_core_tests_presentation_portraitviewtests_cs_cultivationrealm",
+      "community": 274,
+      "norm_label": "cultivationrealm"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "tests_core_tests_presentation_portraitviewtests_cs_characterdata",
+      "community": 274,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".TheAge_IsTheShareOfLifeLived()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "presentation_portraitviewtests_portraitviewtests_theage_istheshareoflifelived",
+      "community": 274,
+      "norm_label": ".theage_istheshareoflifelived()"
+    },
+    {
+      "label": "AgeBracket",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "tests_core_tests_presentation_portraitviewtests_cs_agebracket",
+      "community": 274,
+      "norm_label": "agebracket"
+    },
+    {
+      "label": "TestCase",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "tests_core_tests_presentation_portraitviewtests_cs_testcase",
+      "community": 274,
+      "norm_label": "testcase"
+    },
+    {
+      "label": ".APortrait_ShowsTheElement_TheAura_AndStaysTheSame()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "presentation_portraitviewtests_portraitviewtests_aportrait_showstheelement_theaura_andstaysthesame",
+      "community": 274,
+      "norm_label": ".aportrait_showstheelement_theaura_andstaysthesame()"
+    },
+    {
+      "label": "Test",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "tests_core_tests_presentation_portraitviewtests_cs_test",
+      "community": 274,
+      "norm_label": "test"
+    },
+    {
+      "label": ".TheDead_AreFaded()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "presentation_portraitviewtests_portraitviewtests_thedead_arefaded",
+      "community": 274,
+      "norm_label": ".thedead_arefaded()"
+    },
+    {
+      "label": ".ASessionFindsAPortrait_ByTheMembersId()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "presentation_portraitviewtests_portraitviewtests_asessionfindsaportrait_bythemembersid",
+      "community": 274,
+      "norm_label": ".asessionfindsaportrait_bythemembersid()"
+    },
+    {
+      "label": ".AnUnknownLifespan_LooksAdult_NotAncient()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "presentation_portraitviewtests_portraitviewtests_anunknownlifespan_looksadult_notancient",
+      "community": 274,
+      "norm_label": ".anunknownlifespan_looksadult_notancient()"
+    },
+    {
       "label": "WorldMapViewTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/WorldMapViewTests.cs",
@@ -47721,7 +48601,7 @@
       "label": "\ud83d\udcca M\u00e9triques",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/DONE.md",
-      "source_location": "L177",
+      "source_location": "L184",
       "_origin": "ast",
       "id": "brain_claude_done_m\u00e9triques",
       "community": 49,
@@ -49264,7 +50144,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_worked_lesson_md_bugs_identifi\u00e9s_le\u00e7ons_apprises",
-      "community": 45,
+      "community": 285,
       "norm_label": "\ud83d\udcda worked_lesson.md \u2014 bugs identifies & lecons apprises"
     },
     {
@@ -49274,7 +50154,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_comment_utiliser_ce_fichier",
-      "community": 45,
+      "community": 285,
       "norm_label": "\ud83d\udcd6 comment utiliser ce fichier"
     },
     {
@@ -49464,7 +50344,7 @@
       "source_location": "L292",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_le\u00e7ons_d_architecture_design",
-      "community": 45,
+      "community": 285,
       "norm_label": "\ud83d\udcd0 lecons d'architecture & design"
     },
     {
@@ -49474,7 +50354,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_100_pivot_unity_web_unity_cause_de_la_dette",
-      "community": 45,
+      "community": 285,
       "norm_label": "wl-100 \u2014 pivot unity \u2192 web \u2192 unity : cause de la dette"
     },
     {
@@ -49484,7 +50364,7 @@
       "source_location": "L308",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_101_factions_hardcod\u00e9es_au_lieu_de_scriptableobjects",
-      "community": 45,
+      "community": 285,
       "norm_label": "wl-101 \u2014 factions hardcodees au lieu de scriptableobjects"
     },
     {
@@ -49494,7 +50374,7 @@
       "source_location": "L322",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_template_pour_nouvelles_entr\u00e9es",
-      "community": 45,
+      "community": 285,
       "norm_label": "\ud83d\udcdd template pour nouvelles entrees"
     },
     {
@@ -49764,7 +50644,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 274,
+      "community": 224,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -49778,7 +50658,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player controls no character directly; observes, guides and influences a mortal family over generations to become the strongest cultivator clan of Mount Dali.",
-      "community": 274,
+      "community": 190,
       "norm_label": "player as consciousness trapped in ancestral bronze mirror",
       "id": "brain_claude_memory_mirror_consciousness_premise"
     },
@@ -49857,7 +50737,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Only theoretical so far: POCO data separated from managers, but UI logic still lives in MonoBehaviours (NOT_DONE #102).",
-      "community": 20,
+      "community": 4,
       "norm_label": "mvc pattern (data pocos vs managers vs ui)",
       "id": "brain_claude_memory_mvc_pattern"
     },
@@ -49885,7 +50765,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 270,
+      "community": 192,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -49898,7 +50778,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 268,
+      "community": 192,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -49911,7 +50791,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 268,
+      "community": 192,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -49924,7 +50804,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 268,
+      "community": 192,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -49937,7 +50817,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 270,
+      "community": 192,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -49976,7 +50856,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 4,
       "norm_label": "strict mvc for ui (#102)",
       "id": "brain_claude_not_done_mvc_ui"
     },
@@ -50084,7 +50964,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 268,
+      "community": 192,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -50125,7 +51005,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 270,
+      "community": 192,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -50232,7 +51112,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 270,
+      "community": 192,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -50245,7 +51125,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 268,
+      "community": 192,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -50271,7 +51151,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 270,
+      "community": 192,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -50365,7 +51245,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Inconsistent AI-generated renames; prevention: IDE Refactor->Rename, treat CS0103 as error.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-001: deceased.rootelement does not exist (use affinity)",
       "id": "brain_claude_worked_lesson_wl_001"
     },
@@ -50379,7 +51259,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Avoid repeating the type prefix in method names.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-002: mirrorsystem.consumemirrorpower does not exist (consumepower)",
       "id": "brain_claude_worked_lesson_wl_002"
     },
@@ -50407,7 +51287,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Write real NUnit tests so signature drift is caught immediately.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-004: eventmanager.generateyearlyevent missing / triggeryearlyevent private",
       "id": "brain_claude_worked_lesson_wl_004"
     },
@@ -50421,7 +51301,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Separate test assembly + InternalsVisibleTo strategy from the start.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-005: private factionmanager.processyearlyfactionai called from test",
       "id": "brain_claude_worked_lesson_wl_005"
     },
@@ -50505,7 +51385,7 @@
       "author": null,
       "contributor": null,
       "rationale": "AI Studio forced a web format and C# was generated alongside without ever being compiled, causing WL-001..005; pick one framework and execute after every AI prompt.",
-      "community": 192,
+      "community": 268,
       "norm_label": "wl-100: unity -> web -> unity pivot debt",
       "id": "brain_claude_worked_lesson_wl_100"
     },
@@ -50559,7 +51439,7 @@
       "author": null,
       "contributor": null,
       "rationale": "2D multigenerational clan-management RPG with Xianxia cultivation, turn-based tactical combat, faction diplomacy and inheritance over 10+ generations.",
-      "community": 274,
+      "community": 190,
       "norm_label": "reflets de lignee: les chroniques du miroir (mirror chronicles)",
       "id": "readme_mirror_chronicles"
     },
@@ -50572,7 +51452,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 274,
+      "community": 190,
       "norm_label": "the mirror legacy (xuanjian xianzu) - inspiration",
       "id": "readme_the_mirror_legacy"
     },
@@ -51117,6 +51997,16 @@
     {
       "relation": "inherits",
       "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "control",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
       "source_file": "game/scripts/Library.cs",
       "source_location": "L12",
       "weight": 1.0,
@@ -51157,12 +52047,32 @@
     {
       "relation": "inherits",
       "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop_cloudframe",
+      "target": "control",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "scripts_portraiticon_portraiticon",
+      "target": "control",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "control",
-      "confidence_score": 1.0
+      "target": "control"
     },
     {
       "relation": "inherits",
@@ -51666,6 +52576,155 @@
       "confidence_score": 1.0,
       "source": "scripts_battlescreen_battlescreen_clear",
       "target": "game_scripts_battlescreen_cs_node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "scripts_bronzetexture",
+      "target": "scripts_bronzetexture_bronzetexture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "scripts_bronzetexture",
+      "target": "scripts_bronzetexture_mirrorchronicles_game",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_bronzetexture_bronzetexture",
+      "target": "game_scripts_bronzetexture_cs_color",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_bronzetexture_bronzetexture",
+      "target": "game_scripts_bronzetexture_cs_int",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "scripts_bronzetexture_bronzetexture",
+      "target": "scripts_bronzetexture_bronzetexture_apply",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "scripts_bronzetexture_bronzetexture",
+      "target": "scripts_bronzetexture_bronzetexture_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "scripts_bronzetexture_bronzetexture",
+      "target": "scripts_bronzetexture_bronzetexture_style",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_bronzetexture_bronzetexture_build",
+      "target": "game_scripts_bronzetexture_cs_color",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "scripts_bronzetexture_bronzetexture_apply",
+      "target": "scripts_bronzetexture_bronzetexture_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "scripts_bronzetexture_bronzetexture_build",
+      "target": "imagetexture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_bronzetexture_bronzetexture_style",
+      "target": "imagetexture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "scripts_bronzetexture_bronzetexture_apply",
+      "target": "scripts_bronzetexture_bronzetexture_style",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "scripts_bronzetexture_bronzetexture_style",
+      "target": "styleboxtexture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/BronzeTexture.cs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_bronzetexture_bronzetexture_apply",
+      "target": "theme",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -52545,9 +53604,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "context": "field",
-      "confidence_score": 1.0,
       "source": "scripts_diplomacy_diplomacy",
-      "target": "bool"
+      "target": "game_scripts_diplomacy_cs_bool",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -53077,6 +54136,39 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L186",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_gameroot_gameroot",
+      "target": "colorrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L192",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_gameroot_gameroot",
+      "target": "game_scripts_gameroot_cs_bool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L191",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_gameroot_gameroot",
+      "target": "game_scripts_gameroot_cs_double",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L33",
       "weight": 1.0,
       "context": "field",
@@ -53122,9 +54214,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot",
-      "target": "scripts_gameroot_gameroot_adoptlegacysave",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_adoptlegacysave"
     },
     {
       "relation": "method",
@@ -53132,9 +54224,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot",
-      "target": "scripts_gameroot_gameroot_continue",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_continue"
     },
     {
       "relation": "method",
@@ -53142,8 +54234,28 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot",
-      "target": "scripts_gameroot_gameroot_erase",
+      "target": "scripts_gameroot_gameroot_erase"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "scripts_gameroot_gameroot",
+      "target": "scripts_gameroot_gameroot_goto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "scripts_gameroot_gameroot",
+      "target": "scripts_gameroot_gameroot_holdcurtain",
       "confidence_score": 1.0
     },
     {
@@ -53172,9 +54284,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot",
-      "target": "scripts_gameroot_gameroot_readslot",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_readslot"
     },
     {
       "relation": "method",
@@ -53192,9 +54304,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L177",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot",
-      "target": "scripts_gameroot_gameroot_redirectwithoutsession",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_redirectwithoutsession"
     },
     {
       "relation": "method",
@@ -53212,9 +54324,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L208",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot",
-      "target": "scripts_gameroot_gameroot_saveatyearstart",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_saveatyearstart"
     },
     {
       "relation": "method",
@@ -53232,9 +54344,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot",
-      "target": "scripts_gameroot_gameroot_slotpath",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_slotpath"
     },
     {
       "relation": "method",
@@ -53252,9 +54364,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L201",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot",
-      "target": "scripts_gameroot_gameroot_stop",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_stop"
     },
     {
       "relation": "method",
@@ -53262,9 +54374,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot",
-      "target": "scripts_gameroot_gameroot_writesafely",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_writesafely"
     },
     {
       "relation": "references",
@@ -53273,9 +54385,9 @@
       "source_location": "L177",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_redirectwithoutsession",
-      "target": "node",
-      "confidence_score": 1.0
+      "target": "node"
     },
     {
       "relation": "calls",
@@ -53284,9 +54396,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_ready",
-      "target": "scripts_gameroot_gameroot_adoptlegacysave",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_adoptlegacysave"
     },
     {
       "relation": "calls",
@@ -53328,9 +54440,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L142",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_adoptlegacysave",
-      "target": "scripts_gameroot_gameroot_slotpath",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_slotpath"
     },
     {
       "relation": "calls",
@@ -53339,9 +54451,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L126",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_erase",
-      "target": "scripts_gameroot_gameroot_slotpath",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_slotpath"
     },
     {
       "relation": "calls",
@@ -53350,9 +54462,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_readslot",
-      "target": "scripts_gameroot_gameroot_slotpath",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_slotpath"
     },
     {
       "relation": "calls",
@@ -53361,9 +54473,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_save",
-      "target": "scripts_gameroot_gameroot_slotpath",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_slotpath"
     },
     {
       "relation": "calls",
@@ -53383,9 +54495,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_continue",
-      "target": "scripts_gameroot_gameroot_readslot",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_readslot"
     },
     {
       "relation": "calls",
@@ -53394,9 +54506,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_continue",
-      "target": "scripts_gameroot_gameroot_setup",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_setup"
     },
     {
       "relation": "calls",
@@ -53405,9 +54517,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L112",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_continue",
-      "target": "scripts_gameroot_gameroot_start",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_start"
     },
     {
       "relation": "calls",
@@ -53416,9 +54528,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_newgame",
-      "target": "scripts_gameroot_gameroot_save",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_save"
     },
     {
       "relation": "calls",
@@ -53449,9 +54561,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_erase",
-      "target": "scripts_gameroot_gameroot_stop",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_stop"
     },
     {
       "relation": "calls",
@@ -53460,9 +54572,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_adoptlegacysave",
-      "target": "scripts_gameroot_gameroot_writesafely",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_writesafely"
     },
     {
       "relation": "calls",
@@ -53471,9 +54583,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_save",
-      "target": "scripts_gameroot_gameroot_writesafely",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_writesafely"
     },
     {
       "relation": "calls",
@@ -53482,9 +54594,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L208",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_saveatyearstart",
-      "target": "scripts_gameroot_gameroot_save",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_save"
     },
     {
       "relation": "calls",
@@ -53496,6 +54608,17 @@
       "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_start",
       "target": "scripts_gameroot_gameroot_save"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/GameRoot.cs",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "scripts_gameroot_gameroot_redirectwithoutsession",
+      "target": "scripts_gameroot_gameroot_goto",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -53526,9 +54649,9 @@
       "source_file": "game/scripts/GameRoot.cs",
       "source_location": "L192",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_gameroot_gameroot_start",
-      "target": "scripts_gameroot_gameroot_stop",
-      "confidence_score": 1.0
+      "target": "scripts_gameroot_gameroot_stop"
     },
     {
       "relation": "contains",
@@ -53929,6 +55052,453 @@
       "confidence_score": 1.0,
       "source": "scripts_godotgamelog_godotgamelog",
       "target": "scripts_godotgamelog_godotgamelog_warning"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "scripts_inkportrait",
+      "target": "scripts_inkportrait_inkportrait",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "scripts_inkportrait",
+      "target": "scripts_inkportrait_mirrorchronicles_game",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_inkportrait_inkportrait",
+      "target": "game_scripts_inkportrait_cs_color",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "scripts_inkportrait_inkportrait",
+      "target": "scripts_inkportrait_inkportrait_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "scripts_inkportrait_inkportrait",
+      "target": "scripts_inkportrait_inkportrait_tint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "scripts_inkportrait_inkportrait_tint",
+      "target": "game_scripts_inkportrait_cs_color",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_inkportrait_inkportrait_draw",
+      "target": "scripts_inkportrait_inkportrait_tint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_inkportrait_inkportrait_tint",
+      "target": "game_scripts_inkportrait_cs_element",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_inkportrait_inkportrait_draw",
+      "target": "canvasitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_inkportrait_inkportrait_draw",
+      "target": "game_scripts_inkportrait_cs_portrait",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/InkPortrait.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_inkportrait_inkportrait_draw",
+      "target": "game_scripts_inkportrait_cs_rect2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas",
+      "target": "scripts_landscapecanvas_mirrorchronicles_game",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "game_scripts_landscapecanvas_cs_color",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "game_scripts_landscapecanvas_cs_int",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas_boat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas_cun",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas_pavilion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas_pines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas_range",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas_ready",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas_ridge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas",
+      "target": "scripts_landscapecanvas_landscapecanvas_water",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas_draw",
+      "target": "scripts_landscapecanvas_landscapecanvas_boat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas_draw",
+      "target": "scripts_landscapecanvas_landscapecanvas_pavilion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas_draw",
+      "target": "scripts_landscapecanvas_landscapecanvas_range",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas_draw",
+      "target": "scripts_landscapecanvas_landscapecanvas_water",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L42",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_landscapecanvas_landscapecanvas_range",
+      "target": "game_scripts_landscapecanvas_cs_random",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas_range",
+      "target": "scripts_landscapecanvas_landscapecanvas_cun",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas_range",
+      "target": "scripts_landscapecanvas_landscapecanvas_pines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "scripts_landscapecanvas_landscapecanvas_range",
+      "target": "scripts_landscapecanvas_landscapecanvas_ridge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_landscapecanvas_landscapecanvas_cun",
+      "target": "game_scripts_landscapecanvas_cs_random",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L107",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_landscapecanvas_landscapecanvas_pines",
+      "target": "game_scripts_landscapecanvas_cs_random",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_landscapecanvas_landscapecanvas_ridge",
+      "target": "game_scripts_landscapecanvas_cs_random",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L133",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_landscapecanvas_landscapecanvas_water",
+      "target": "game_scripts_landscapecanvas_cs_random",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "scripts_landscapecanvas_landscapecanvas_ridge",
+      "target": "game_scripts_landscapecanvas_cs_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "scripts_landscapecanvas_landscapecanvas_ridge",
+      "target": "game_scripts_landscapecanvas_cs_vector2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_landscapecanvas_landscapecanvas_cun",
+      "target": "game_scripts_landscapecanvas_cs_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L156",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_landscapecanvas_landscapecanvas_boat",
+      "target": "game_scripts_landscapecanvas_cs_vector2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "scripts_landscapecanvas_landscapecanvas_cun",
+      "target": "game_scripts_landscapecanvas_cs_vector2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/LandscapeCanvas.cs",
+      "source_location": "L145",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_landscapecanvas_landscapecanvas_pavilion",
+      "target": "game_scripts_landscapecanvas_cs_vector2",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -54939,12 +56509,12 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/MapCanvas.cs",
-      "source_location": "L135",
+      "source_location": "L265",
       "weight": 1.0,
       "context": "return_type",
-      "confidence_score": 1.0,
       "source": "scripts_mapcanvas_mapcanvas_statelabelrect",
-      "target": "rect2"
+      "target": "game_scripts_mapcanvas_cs_rect2",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -57182,6 +58752,182 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop",
+      "target": "scripts_paperbackdrop_cloudframe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop",
+      "target": "scripts_paperbackdrop_mirrorchronicles_game",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop",
+      "target": "scripts_paperbackdrop_paperbackdrop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop_paperbackdrop",
+      "target": "canvaslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_paperbackdrop_paperbackdrop",
+      "target": "game_scripts_paperbackdrop_cs_int",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop_paperbackdrop",
+      "target": "scripts_paperbackdrop_paperbackdrop_ready",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L30",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_paperbackdrop_cloudframe",
+      "target": "game_scripts_paperbackdrop_cs_color",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_paperbackdrop_cloudframe",
+      "target": "game_scripts_paperbackdrop_cs_float",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop_cloudframe",
+      "target": "scripts_paperbackdrop_cloudframe_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop_cloudframe",
+      "target": "scripts_paperbackdrop_cloudframe_drawcloud",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop_cloudframe",
+      "target": "scripts_paperbackdrop_cloudframe_ready",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "scripts_paperbackdrop_cloudframe_draw",
+      "target": "scripts_paperbackdrop_cloudframe_drawcloud",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PaperBackdrop.cs",
+      "source_location": "L49",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_paperbackdrop_cloudframe_drawcloud",
+      "target": "game_scripts_paperbackdrop_cs_vector2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "scripts_portraiticon",
+      "target": "scripts_portraiticon_mirrorchronicles_game",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "scripts_portraiticon",
+      "target": "scripts_portraiticon_portraiticon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "context": "field",
+      "source": "scripts_portraiticon_portraiticon",
+      "target": "game_scripts_portraiticon_cs_portrait",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/PortraitIcon.cs",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "scripts_portraiticon_portraiticon",
+      "target": "scripts_portraiticon_portraiticon_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "game/scripts/Screenshot.cs",
       "source_location": "L3",
       "weight": 1.0,
@@ -57237,9 +58983,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen",
-      "target": "scripts_titlescreen_mirrorchronicles_game",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_mirrorchronicles_game"
     },
     {
       "relation": "contains",
@@ -57247,9 +58993,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen",
-      "target": "scripts_titlescreen_titlescreen",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen"
     },
     {
       "relation": "references",
@@ -57258,9 +59004,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "game_scripts_titlescreen_cs_gameroot",
-      "confidence_score": 1.0
+      "target": "game_scripts_titlescreen_cs_gameroot"
     },
     {
       "relation": "references",
@@ -57269,9 +59015,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "game_scripts_titlescreen_cs_int",
-      "confidence_score": 1.0
+      "target": "game_scripts_titlescreen_cs_int"
     },
     {
       "relation": "references",
@@ -57280,9 +59026,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "game_scripts_titlescreen_cs_label",
-      "confidence_score": 1.0
+      "target": "game_scripts_titlescreen_cs_label"
     },
     {
       "relation": "references",
@@ -57291,9 +59037,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "game_scripts_titlescreen_cs_string",
-      "confidence_score": 1.0
+      "target": "game_scripts_titlescreen_cs_string"
     },
     {
       "relation": "references",
@@ -57302,9 +59048,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "game_scripts_titlescreen_cs_vboxcontainer",
-      "confidence_score": 1.0
+      "target": "game_scripts_titlescreen_cs_vboxcontainer"
     },
     {
       "relation": "references",
@@ -57313,9 +59059,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "lineedit",
-      "confidence_score": 1.0
+      "target": "lineedit"
     },
     {
       "relation": "references",
@@ -57324,9 +59070,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "pending",
-      "confidence_score": 1.0
+      "target": "pending"
     },
     {
       "relation": "method",
@@ -57334,9 +59080,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "scripts_titlescreen_titlescreen_arm",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_arm"
     },
     {
       "relation": "method",
@@ -57344,9 +59090,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "scripts_titlescreen_titlescreen_armed",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_armed"
     },
     {
       "relation": "method",
@@ -57354,9 +59100,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "scripts_titlescreen_titlescreen_begin",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_begin"
     },
     {
       "relation": "method",
@@ -57364,9 +59110,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "scripts_titlescreen_titlescreen_continue",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_continue"
     },
     {
       "relation": "method",
@@ -57374,9 +59120,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "scripts_titlescreen_titlescreen_disarm",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_disarm"
     },
     {
       "relation": "method",
@@ -57384,9 +59130,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L123",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "scripts_titlescreen_titlescreen_erase",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_erase"
     },
     {
       "relation": "method",
@@ -57394,9 +59140,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "scripts_titlescreen_titlescreen_ready",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_ready"
     },
     {
       "relation": "method",
@@ -57404,9 +59150,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen",
-      "target": "scripts_titlescreen_titlescreen_refresh",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_refresh"
     },
     {
       "relation": "references",
@@ -57415,9 +59161,9 @@
       "source_location": "L49",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_arm",
-      "target": "pending",
-      "confidence_score": 1.0
+      "target": "pending"
     },
     {
       "relation": "references",
@@ -57426,9 +59172,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_armed",
-      "target": "pending",
-      "confidence_score": 1.0
+      "target": "pending"
     },
     {
       "relation": "calls",
@@ -57437,9 +59183,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_ready",
-      "target": "scripts_titlescreen_titlescreen_disarm",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_disarm"
     },
     {
       "relation": "calls",
@@ -57448,9 +59194,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_ready",
-      "target": "scripts_titlescreen_titlescreen_refresh",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_refresh"
     },
     {
       "relation": "calls",
@@ -57459,9 +59205,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_begin",
-      "target": "scripts_titlescreen_titlescreen_armed",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_armed"
     },
     {
       "relation": "calls",
@@ -57470,9 +59216,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_erase",
-      "target": "scripts_titlescreen_titlescreen_armed",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_armed"
     },
     {
       "relation": "calls",
@@ -57481,9 +59227,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_refresh",
-      "target": "scripts_titlescreen_titlescreen_armed",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_armed"
     },
     {
       "relation": "calls",
@@ -57492,9 +59238,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_arm",
-      "target": "scripts_titlescreen_titlescreen_refresh",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_refresh"
     },
     {
       "relation": "calls",
@@ -57503,9 +59249,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_begin",
-      "target": "scripts_titlescreen_titlescreen_arm",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_arm"
     },
     {
       "relation": "calls",
@@ -57514,9 +59260,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_erase",
-      "target": "scripts_titlescreen_titlescreen_arm",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_arm"
     },
     {
       "relation": "calls",
@@ -57525,9 +59271,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_begin",
-      "target": "scripts_titlescreen_titlescreen_disarm",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_disarm"
     },
     {
       "relation": "calls",
@@ -57536,9 +59282,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_continue",
-      "target": "scripts_titlescreen_titlescreen_disarm",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_disarm"
     },
     {
       "relation": "calls",
@@ -57547,9 +59293,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_disarm",
-      "target": "scripts_titlescreen_titlescreen_refresh",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_refresh"
     },
     {
       "relation": "calls",
@@ -57558,9 +59304,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_erase",
-      "target": "scripts_titlescreen_titlescreen_refresh",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_refresh"
     },
     {
       "relation": "calls",
@@ -57569,9 +59315,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_refresh",
-      "target": "scripts_titlescreen_titlescreen_begin",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_begin"
     },
     {
       "relation": "calls",
@@ -57580,9 +59326,9 @@
       "source_file": "game/scripts/TitleScreen.cs",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_refresh",
-      "target": "scripts_titlescreen_titlescreen_continue",
-      "confidence_score": 1.0
+      "target": "scripts_titlescreen_titlescreen_continue"
     },
     {
       "relation": "references",
@@ -57591,9 +59337,9 @@
       "source_location": "L101",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "scripts_titlescreen_titlescreen_begin",
-      "target": "game_scripts_titlescreen_cs_slotline",
-      "confidence_score": 1.0
+      "target": "game_scripts_titlescreen_cs_slotline"
     },
     {
       "relation": "contains",
@@ -83899,6 +85645,187 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "presentation_portraitview",
+      "target": "presentation_portraitview_mirrorchronicles_presentation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "presentation_portraitview",
+      "target": "presentation_portraitview_portraitview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "presentation_portraitview_portraitview",
+      "target": "presentation_portraitview_portraitview_ageof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "presentation_portraitview_portraitview",
+      "target": "presentation_portraitview_portraitview_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "presentation_portraitview_portraitview",
+      "target": "presentation_portraitview_portraitview_of",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "presentation_portraitview_portraitview",
+      "target": "presentation_portraitview_portraitview_stable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "field",
+      "source": "presentation_portraitview_portraitview",
+      "target": "src_core_presentation_portraitview_cs_double",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "field",
+      "source": "presentation_portraitview_portraitview",
+      "target": "src_core_presentation_portraitview_cs_int",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "presentation_portraitview_portraitview_for",
+      "target": "presentation_portraitview_portraitview_of",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "presentation_portraitview_portraitview_of",
+      "target": "presentation_portraitview_portraitview_ageof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "presentation_portraitview_portraitview_of",
+      "target": "presentation_portraitview_portraitview_stable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_portraitview_portraitview_of",
+      "target": "src_core_presentation_portraitview_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "presentation_portraitview_portraitview_of",
+      "target": "src_core_presentation_portraitview_cs_portrait",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_portraitview_portraitview_ageof",
+      "target": "src_core_presentation_portraitview_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "presentation_portraitview_portraitview_for",
+      "target": "src_core_presentation_portraitview_cs_portrait",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_portraitview_portraitview_for",
+      "target": "src_core_presentation_portraitview_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/PortraitView.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "presentation_portraitview_portraitview_ageof",
+      "target": "src_core_presentation_portraitview_cs_agebracket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/SecretsView.cs",
       "source_location": "L7",
       "weight": 1.0,
@@ -84158,9 +86085,9 @@
       "source_file": "src/Core/Presentation/TitleView.cs",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_titleview",
-      "target": "presentation_titleview_mirrorchronicles_presentation",
-      "confidence_score": 1.0
+      "target": "presentation_titleview_mirrorchronicles_presentation"
     },
     {
       "relation": "contains",
@@ -84168,9 +86095,9 @@
       "source_file": "src/Core/Presentation/TitleView.cs",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_titleview",
-      "target": "presentation_titleview_titleview",
-      "confidence_score": 1.0
+      "target": "presentation_titleview_titleview"
     },
     {
       "relation": "method",
@@ -84178,9 +86105,9 @@
       "source_file": "src/Core/Presentation/TitleView.cs",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_titleview_titleview",
-      "target": "presentation_titleview_titleview_slots",
-      "confidence_score": 1.0
+      "target": "presentation_titleview_titleview_slots"
     },
     {
       "relation": "references",
@@ -84189,9 +86116,9 @@
       "source_location": "L14",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "presentation_titleview_titleview",
-      "target": "src_core_presentation_titleview_cs_int",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_titleview_cs_int"
     },
     {
       "relation": "references",
@@ -84200,9 +86127,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_titleview_titleview_slots",
-      "target": "src_core_presentation_titleview_cs_func",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_titleview_cs_func"
     },
     {
       "relation": "references",
@@ -84211,9 +86138,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_titleview_titleview_slots",
-      "target": "src_core_presentation_titleview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_titleview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -84222,9 +86149,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "presentation_titleview_titleview_slots",
-      "target": "src_core_presentation_titleview_cs_slotline",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_titleview_cs_slotline"
     },
     {
       "relation": "contains",
@@ -85376,9 +87303,9 @@
       "source_location": "L180",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_tryload",
-      "target": "session_gamesession_gamesession",
-      "confidence_score": 1.0
+      "target": "session_gamesession_gamesession"
     },
     {
       "relation": "calls",
@@ -85431,9 +87358,9 @@
       "source_location": "L180",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_tryload",
-      "target": "src_core_session_gamesession_cs_gamesetup",
-      "confidence_score": 1.0
+      "target": "src_core_session_gamesession_cs_gamesetup"
     },
     {
       "relation": "calls",
@@ -85442,9 +87369,9 @@
       "source_file": "src/Core/Session/GameSession.cs",
       "source_location": "L187",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_tryload",
-      "target": "session_gamesession_gamesession_fromsavedata",
-      "confidence_score": 1.0
+      "target": "session_gamesession_gamesession_fromsavedata"
     },
     {
       "relation": "calls",
@@ -85902,9 +87829,9 @@
       "source_file": "src/Core/Session/SaveSummary.cs",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummary",
-      "target": "session_savesummary_mirrorchronicles_session",
-      "confidence_score": 1.0
+      "target": "session_savesummary_mirrorchronicles_session"
     },
     {
       "relation": "contains",
@@ -85912,9 +87839,9 @@
       "source_file": "src/Core/Session/SaveSummary.cs",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummary",
-      "target": "session_savesummary_read",
-      "confidence_score": 1.0
+      "target": "session_savesummary_read"
     },
     {
       "relation": "references",
@@ -85923,9 +87850,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "session_savesummary_read",
-      "target": "savesummary",
-      "confidence_score": 1.0
+      "target": "savesummary"
     },
     {
       "relation": "contains",
@@ -130228,6 +132155,218 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests",
+      "target": "presentation_portraitviewtests_mirrorchronicles_tests_presentation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests",
+      "target": "presentation_portraitviewtests_portraitviewtests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests",
+      "target": "presentation_portraitviewtests_portraitviewtests_anunknownlifespan_looksadult_notancient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests",
+      "target": "presentation_portraitviewtests_portraitviewtests_aportrait_showstheelement_theaura_andstaysthesame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests",
+      "target": "presentation_portraitviewtests_portraitviewtests_asessionfindsaportrait_bythemembersid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests",
+      "target": "presentation_portraitviewtests_portraitviewtests_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests",
+      "target": "presentation_portraitviewtests_portraitviewtests_theage_istheshareoflifelived",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests",
+      "target": "presentation_portraitviewtests_portraitviewtests_thedead_arefaded",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests_anunknownlifespan_looksadult_notancient",
+      "target": "presentation_portraitviewtests_portraitviewtests_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests_aportrait_showstheelement_theaura_andstaysthesame",
+      "target": "presentation_portraitviewtests_portraitviewtests_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "presentation_portraitviewtests_portraitviewtests_member",
+      "target": "tests_core_tests_presentation_portraitviewtests_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_portraitviewtests_portraitviewtests_member",
+      "target": "tests_core_tests_presentation_portraitviewtests_cs_cultivationrealm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests_theage_istheshareoflifelived",
+      "target": "presentation_portraitviewtests_portraitviewtests_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "presentation_portraitviewtests_portraitviewtests_thedead_arefaded",
+      "target": "presentation_portraitviewtests_portraitviewtests_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_portraitviewtests_portraitviewtests_theage_istheshareoflifelived",
+      "target": "tests_core_tests_presentation_portraitviewtests_cs_agebracket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_portraitviewtests_portraitviewtests_theage_istheshareoflifelived",
+      "target": "tests_core_tests_presentation_portraitviewtests_cs_testcase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_portraitviewtests_portraitviewtests_aportrait_showstheelement_theaura_andstaysthesame",
+      "target": "tests_core_tests_presentation_portraitviewtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_portraitviewtests_portraitviewtests_anunknownlifespan_looksadult_notancient",
+      "target": "tests_core_tests_presentation_portraitviewtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_portraitviewtests_portraitviewtests_asessionfindsaportrait_bythemembersid",
+      "target": "tests_core_tests_presentation_portraitviewtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/PortraitViewTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_portraitviewtests_portraitviewtests_thedead_arefaded",
+      "target": "tests_core_tests_presentation_portraitviewtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Presentation/WorldMapViewTests.cs",
       "source_location": "L8",
       "weight": 1.0,
@@ -132319,9 +134458,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests",
-      "target": "session_savesummarytests_mirrorchronicles_tests_session",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_mirrorchronicles_tests_session"
     },
     {
       "relation": "contains",
@@ -132329,9 +134468,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests",
-      "target": "session_savesummarytests_savesummarytests",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests"
     },
     {
       "relation": "method",
@@ -132339,9 +134478,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests",
-      "target": "session_savesummarytests_savesummarytests_agoodsave_loads",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_agoodsave_loads"
     },
     {
       "relation": "method",
@@ -132349,9 +134488,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests",
-      "target": "session_savesummarytests_savesummarytests_anemptyfile_isunreadable_notanemptyslot",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_anemptyfile_isunreadable_notanemptyslot"
     },
     {
       "relation": "method",
@@ -132359,9 +134498,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests",
-      "target": "session_savesummarytests_savesummarytests_aninconsistentsave_isrefused_withareason_notacrash",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_aninconsistentsave_isrefused_withareason_notacrash"
     },
     {
       "relation": "method",
@@ -132369,9 +134508,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests",
-      "target": "session_savesummarytests_savesummarytests_anunreadablesave_isnull_notacrash",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_anunreadablesave_isnull_notacrash"
     },
     {
       "relation": "method",
@@ -132379,9 +134518,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests",
-      "target": "session_savesummarytests_savesummarytests_asave_issummed_up",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_asave_issummed_up"
     },
     {
       "relation": "method",
@@ -132389,9 +134528,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests",
-      "target": "session_savesummarytests_savesummarytests_asavewithholesinitsrecords_isstillsummedup",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_asavewithholesinitsrecords_isstillsummedup"
     },
     {
       "relation": "method",
@@ -132399,9 +134538,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests",
-      "target": "session_savesummarytests_savesummarytests_savedgame",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_savedgame"
     },
     {
       "relation": "method",
@@ -132409,9 +134548,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests",
-      "target": "session_savesummarytests_savesummarytests_theslots_tellwhattheyhold",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_theslots_tellwhattheyhold"
     },
     {
       "relation": "calls",
@@ -132420,9 +134559,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests_agoodsave_loads",
-      "target": "session_savesummarytests_savesummarytests_savedgame",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_savedgame"
     },
     {
       "relation": "calls",
@@ -132431,9 +134570,9 @@
       "source_file": "tests/Core.Tests/Session/SaveSummaryTests.cs",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests_theslots_tellwhattheyhold",
-      "target": "session_savesummarytests_savesummarytests_savedgame",
-      "confidence_score": 1.0
+      "target": "session_savesummarytests_savesummarytests_savedgame"
     },
     {
       "relation": "references",
@@ -132442,9 +134581,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests_asave_issummed_up",
-      "target": "tests_core_tests_session_savesummarytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_savesummarytests_cs_test"
     },
     {
       "relation": "references",
@@ -132453,9 +134592,9 @@
       "source_location": "L81",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests_agoodsave_loads",
-      "target": "tests_core_tests_session_savesummarytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_savesummarytests_cs_test"
     },
     {
       "relation": "references",
@@ -132464,9 +134603,9 @@
       "source_location": "L65",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests_anemptyfile_isunreadable_notanemptyslot",
-      "target": "tests_core_tests_session_savesummarytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_savesummarytests_cs_test"
     },
     {
       "relation": "references",
@@ -132475,9 +134614,9 @@
       "source_location": "L73",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests_aninconsistentsave_isrefused_withareason_notacrash",
-      "target": "tests_core_tests_session_savesummarytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_savesummarytests_cs_test"
     },
     {
       "relation": "references",
@@ -132486,9 +134625,9 @@
       "source_location": "L34",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests_anunreadablesave_isnull_notacrash",
-      "target": "tests_core_tests_session_savesummarytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_savesummarytests_cs_test"
     },
     {
       "relation": "references",
@@ -132497,9 +134636,9 @@
       "source_location": "L57",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests_asavewithholesinitsrecords_isstillsummedup",
-      "target": "tests_core_tests_session_savesummarytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_savesummarytests_cs_test"
     },
     {
       "relation": "references",
@@ -132508,9 +134647,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_savesummarytests_savesummarytests_theslots_tellwhattheyhold",
-      "target": "tests_core_tests_session_savesummarytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_savesummarytests_cs_test"
     },
     {
       "relation": "contains",
@@ -144721,5 +146860,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "3161c283c4c4f173c6e7a4963e16f6e887c47f79"
+  "built_at_commit": "3f9328ffa4e251e6a91804252482703c92e91b13"
 }
