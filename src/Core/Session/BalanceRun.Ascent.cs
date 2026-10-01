@@ -154,8 +154,18 @@ namespace MirrorChronicles.Session
         private static bool HasAlignedMethod(GameSession session, string ability) =>
             AlignedMethods(session, ability).Any(t => session.Techniques.Knows(t.ID));
 
-        private static bool HeldByAPower(GameSession session, string ability) =>
-            AlignedMethods(session, ability).Any(t => session.Factions.Factions.Any(f => f.Techniques.Contains(t.ID)));
+        /// <summary>
+        /// A power within reach holds a method aligned on the ability: one warm enough for an accord, or one the clan's best
+        /// team could rob at good odds — a hostile Golden Core empire is no reason to wait for ever.
+        /// </summary>
+        private static bool WithinReach(GameSession session, string ability)
+        {
+            int warm = session.Context.Content.Balance.KnowledgeTrade.AscentAccordMinRelation;
+            var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, session.Context.Content.Balance.Shards.ExpeditionMaxTeam)
+                .Select(session.Clan.FindById).Where(m => m != null).ToList();
+            return AlignedMethods(session, ability).Any(t => session.Factions.Factions.Any(f => f.Techniques.Contains(t.ID)
+                && (f.RelationWithPlayer >= warm || session.Paths.ManualTheftChance(f.Name, team) >= GoodOdds)));
+        }
 
         /// <summary>
         /// One aligned method a year, for the first wanted ability the clan has none for: by an accord the power accepts,
@@ -216,14 +226,14 @@ namespace MirrorChronicles.Session
 
         /// <summary>
         /// A mansion at its realm's full XP condenses an ability with spiritual objects (half the XP, a shallow foundation
-        /// that weighs on the forge) only as a last resort: when no method aligned on any wanted ability exists in the world —
-        /// while a power holds one, the patient clan waits to take it (the user's choice 2026-10-01).
+        /// that weighs on the forge) only as a last resort: when no method aligned on any wanted ability lies within reach —
+        /// while a power it can deal with or rob holds one, the patient clan waits to take it (the user's choice 2026-10-01).
         /// </summary>
         private static void CondenseWithResourcesWhenStuck(GameSession session, CharacterData mansion)
         {
             if (mansion.CultivationXP < PurpleMansionXp) return;
             var wanted = WantedAbilities(session, mansion).ToList();
-            if (wanted.Count == 0 || wanted.Any(a => HasAlignedMethod(session, a) || HeldByAPower(session, a))) return;
+            if (wanted.Count == 0 || wanted.Any(a => HasAlignedMethod(session, a) || WithinReach(session, a))) return;
             var s = session.Context.Content.Balance.DivineAbilities;
             if (!Affords(session, s.ResourceStones, CondenseReserveYears, towardTheGoldenCore: true)
                 || session.Resources.MedicinalHerbs < s.ResourceHerbs || session.Resources.SpiritualOres < s.ResourceOres) return;

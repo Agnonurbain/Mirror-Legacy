@@ -151,10 +151,26 @@ namespace MirrorChronicles.Tests.Session
         {
             var s = Session();
             var mansion = Mansion(s, xp: Xp);
-            KnowThePartners(s); // the powers hold methods of the Orthodox Water, out of reach this year
+            KnowThePartners(s);
+            s.Factions.GetFactionByName(Ruan).RelationWithPlayer = 60; // within reach, though the clan cannot pay it this year
             Stocked(s, 100_000);
             BalanceRun.Act(s);
             Assert.AreEqual(1, mansion.DivineAbilities.Count, "it waits for a method rather than condense a shallow foundation");
+        }
+
+        [Test]
+        public void ThePilot_CondensesWithResources_WhenTheOnlyHolderIsOutOfReach()
+        {
+            var s = Session();
+            var mansion = Mansion(s, xp: Xp);
+            KnowThePartners(s);
+            NoMethodInTheWorld(s);
+            var kun = s.Factions.GetFactionByName("Empire de Kun"); // a Golden Core empire, hostile: no accord, no theft at good odds
+            kun.Techniques.Add("orthodox-water-storm-sky-method");
+            kun.RelationWithPlayer = -30;
+            Stocked(s, 100_000);
+            BalanceRun.Act(s);
+            Assert.AreEqual(2, mansion.DivineAbilities.Count, "no holder within reach: waiting would be for ever");
         }
 
         [Test]
