@@ -129,18 +129,21 @@ namespace MirrorChronicles.Economy
             shards.SearchLake(lakeSearchers);
             int stonesMined = VeinYield(minersYield);
             resources.AddSpiritStones(stonesMined);
+            resources.AddOres(Math.Min(minersYield.Count, VeinSlots) * ctx.Content.Balance.Upkeep.OresPerVeinMiner); // the veins' ores
             Teach(members);
             return new YearlyTaskReport { StonesMined = stonesMined, Patrols = patrols, QiPortionsGathered = qiGathered };
         }
 
         /// <summary>
-        /// A year of harvesting spiritual Qi in wisps (LORE.md §2.5) with a method adapted to it: the Qi of
-        /// the harvester's own method, otherwise the best Qi among the clan's known methods. A vanished Qi
-        /// cannot be harvested, a ubiquitous one needs no harvest. Returns the portions condensed.
+        /// A year of harvesting spiritual Qi in wisps (LORE.md §2.5) with a method adapted to it: the Qi the
+        /// harvester is sent for when the clan knows a method of it (2026-10-01), else the Qi of the harvester's
+        /// own method, otherwise the best Qi among the clan's known methods. A vanished Qi cannot be harvested,
+        /// a ubiquitous one needs no harvest. Returns the portions condensed.
         /// </summary>
         private int GatherQi(CharacterData harvester)
         {
-            var qi = Harvestable(techniques.MethodOf(harvester))
+            var qi = SentFor(harvester)
+                ?? Harvestable(techniques.MethodOf(harvester))
                 ?? techniques.Known.Where(t => t.Kind == TechniqueKind.Cultivation)
                     .OrderByDescending(t => t.Grade)
                     .ThenBy(t => t.Name, StringComparer.Ordinal)
@@ -156,6 +159,10 @@ namespace MirrorChronicles.Economy
             if (portions > 0) ctx.Log.Info($"[Tasks] {harvester.FullName} condenses {portions} portion(s) of {qi.Name}.");
             return portions;
         }
+
+        private QiDefinition SentFor(CharacterData harvester) =>
+            harvester.HarvestQiId == null ? null
+                : techniques.Known.Where(t => t.RequiredQiId == harvester.HarvestQiId).Select(Harvestable).FirstOrDefault(q => q != null);
 
         private QiDefinition Harvestable(TechniqueData method)
         {

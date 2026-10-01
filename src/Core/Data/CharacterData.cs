@@ -79,6 +79,7 @@ namespace MirrorChronicles.Data
         // The Purple Mansion (LORE.md §5.4): divine abilities (« fruition-id:ability-id », the foundation first),
         // and the retreat of its breakthrough, which may hold a cultivator in the Great Void for life
         public List<string> DivineAbilities { get; set; }
+        public string HarvestQiId { get; set; }              // the Qi a harvester is sent for (2026-10-01); null: their own method's
         public string PursuedAbility { get; set; }           // the next ability they are condensing
         public List<string> ShallowAbilities { get; set; }   // condensed with resources: shallow foundations (§5.4.3)
         public List<string> GraftedAbilities { get; set; }   // condensed from a consumed foundation (Dao Graft)

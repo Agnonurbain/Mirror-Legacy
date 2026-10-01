@@ -390,6 +390,46 @@ namespace MirrorChronicles.Tests.Session
             TestContext.Progress.WriteLine(text.ToString());
         }
 
+        /// <summary>
+        /// What stands between the clan and its endings (diagnostic, 2026-10-01): per run, the richest treasury, the Purple
+        /// Mansions and how close they came to a Golden Core, the cultivators a sect needs, the vassals. Category EndingsTrail.
+        /// </summary>
+        [Test, Explicit, Category("EndingsTrail")]
+        public void EndingsTrail()
+        {
+            int seeds = int.TryParse(Environment.GetEnvironmentVariable("BALANCE_SEEDS"), out var n) ? n : 10;
+            int years = int.TryParse(Environment.GetEnvironmentVariable("BALANCE_YEARS"), out var y) ? y : 500;
+            var text = new System.Text.StringBuilder();
+            for (int seed = 1; seed <= seeds; seed++)
+            {
+                int maxStones = 0, pmYears = 0, maxPm = 0, maxAbilities = 0, fullXpYears = 0, readyYears = 0, routeYears = 0, maxCultivators = 0, maxVassals = 0, sectYears = 0;
+                BalanceRun.Play(Fixtures.Content, seed, years, out _, autopilot: true, observe: s =>
+                {
+                    s.Events.OnYearStarted += _ =>
+                    {
+                        var free = s.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
+                        var pm = free.Where(m => m.Realm == CultivationRealm.PurpleMansion).ToList();
+                        maxStones = Math.Max(maxStones, s.Resources.SpiritStones);
+                        pmYears += pm.Count;
+                        maxPm = Math.Max(maxPm, pm.Count);
+                        if (pm.Count > 0) maxAbilities = Math.Max(maxAbilities, pm.Max(m => m.DivineAbilities.Count));
+                        int xp = PowerLadder.XpForNextStage(CultivationRealm.PurpleMansion);
+                        if (pm.Any(m => m.CultivationXP >= xp)) fullXpYears++;
+                        var ready = pm.Where(m => m.CultivationXP >= xp && m.DivineAbilities.Count >= GoldenCoreRules.AbilitiesToForge).ToList();
+                        if (ready.Count > 0) readyYears++;
+                        if (ready.Any(m => s.Context.Content.Fruitions.Any(f => GoldenCoreRules.RouteTo(m.DivineAbilities, f.Id, s.Context.Content.Fruitions) != PositionRoute.None))) routeYears++;
+                        int cultivators = free.Count(m => m.Realm >= CultivationRealm.QiRefinement);
+                        maxCultivators = Math.Max(maxCultivators, cultivators);
+                        maxVassals = Math.Max(maxVassals, s.Treaties.All.Count(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain));
+                        if (pm.Count > 0 && cultivators >= s.Context.Content.Balance.Sect.MinCultivators) sectYears++;
+                    };
+                });
+                text.AppendLine($"seed {seed}: maxStones {maxStones}, pmYears {pmYears} (max {maxPm} at once, best {maxAbilities} abilities), "
+                    + $"fullXp {fullXpYears}y, ready {readyYears}y, route {routeYears}y, cultivators max {maxCultivators}, sect-ready-but-stones {sectYears}y, vassals max {maxVassals}");
+            }
+            TestContext.Progress.WriteLine(text.ToString());
+        }
+
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>
         [Test, Explicit, Category("Balance")]
         public void Report()

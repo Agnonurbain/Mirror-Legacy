@@ -18,5 +18,10 @@ namespace MirrorChronicles.Data
         public int VeinMiners { get; init; }
         public int VeinMinersPerMineLevel { get; init; }
         public double ExtraMinerShare { get; init; }
+
+        // The domain's materials (user decision 2026-10-01, interpretation): nothing produced them before
+        public int OresPerVeinMiner { get; init; }     // spiritual ores each miner of the veins brings up in a year
+        public int OresPerMineLevel { get; init; }     // and the Mine building's own, by level
+        public int HerbsPerGardenLevel { get; init; }  // medicinal herbs the Herb Garden grows each year, by level
     }
 }

@@ -76,7 +76,9 @@ namespace MirrorChronicles.Economy
             return true;
         }
 
-        /// <summary>Yearly bonuses: training, restful gardens, the mine, the meditation pagoda.</summary>
+        private UpkeepSettings Materials => ctx.Content.Balance.Upkeep;
+
+        /// <summary>Yearly bonuses: training, restful gardens and their herbs, the mine and its ores, the meditation pagoda.</summary>
         public void ApplyPassiveBonuses()
         {
             var members = clan.LivingMembers.ToList();
@@ -91,9 +93,11 @@ namespace MirrorChronicles.Economy
                     case BuildingType.HerbGarden:
                         foreach (var m in members.Where(m => m.CurrentTask == TaskType.Rest))
                             stability.ApplyModifier(m, building.Level);
+                        resources.AddHerbs(building.Level * Materials.HerbsPerGardenLevel); // its herbs (2026-10-01)
                         break;
                     case BuildingType.Mine:
                         resources.AddSpiritStones(building.Level * MineStonesPerLevel);
+                        resources.AddOres(building.Level * Materials.OresPerMineLevel);
                         break;
                     case BuildingType.MeditationPagoda:
                         foreach (var m in members)

@@ -284,7 +284,10 @@
     "povertyStability": -5,
     "veinMiners": 8,
     "veinMinersPerMineLevel": 4,
-    "extraMinerShare": 0.1
+    "extraMinerShare": 0.1,
+    "oresPerVeinMiner": 1,
+    "oresPerMineLevel": 2,
+    "herbsPerGardenLevel": 10
   },
   "challenges": {
     "maxFighters": 3,

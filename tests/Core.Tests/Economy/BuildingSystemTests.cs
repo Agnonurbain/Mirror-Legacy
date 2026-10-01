@@ -34,6 +34,24 @@ namespace MirrorChronicles.Tests.Economy
         }
 
         [Test]
+        public void TheHerbGarden_GrowsMedicinalHerbs_EachYear()
+        {
+            var w = WithLevel(BuildingType.HerbGarden, 2);
+            int herbs = w.Resources.MedicinalHerbs;
+            w.Buildings.ApplyPassiveBonuses();
+            Assert.AreEqual(herbs + 2 * w.Ctx.Content.Balance.Upkeep.HerbsPerGardenLevel, w.Resources.MedicinalHerbs);
+        }
+
+        [Test]
+        public void TheMine_YieldsSpiritualOres_ByItsLevel()
+        {
+            var w = WithLevel(BuildingType.Mine, 2);
+            int ores = w.Resources.SpiritualOres;
+            w.Buildings.ApplyPassiveBonuses();
+            Assert.AreEqual(ores + 2 * w.Ctx.Content.Balance.Upkeep.OresPerMineLevel, w.Resources.SpiritualOres);
+        }
+
+        [Test]
         public void Upgrade_Refuses_WhenTooPoor()
         {
             var w = new TestWorld();

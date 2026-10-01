@@ -298,8 +298,9 @@ namespace MirrorChronicles.Data
             var upkeep = balance.Upkeep;
             Require(upkeep != null && upkeep.MortalStones >= 0 && upkeep.CultivatorStones >= 0 && upkeep.StonesPerRealm >= 0
                 && IsProbability(upkeep.PovertyBirthFactor) && upkeep.ProsperityYears >= 1 && upkeep.PovertyStability <= 0 && upkeep.VeinMiners >= 1
-                && upkeep.VeinMinersPerMineLevel >= 0 && IsProbability(upkeep.ExtraMinerShare),
-                BalanceFile, "upkeep needs costs of zero or more, a poor year that shakes (zero or less), at least one vein, and shares between 0 and 1.");
+                && upkeep.VeinMinersPerMineLevel >= 0 && IsProbability(upkeep.ExtraMinerShare)
+                && upkeep.OresPerVeinMiner >= 0 && upkeep.OresPerMineLevel >= 0 && upkeep.HerbsPerGardenLevel >= 0,
+                BalanceFile, "upkeep needs costs of zero or more, a poor year that shakes (zero or less), at least one vein, shares between 0 and 1, and materials never negative.");
             var lineage = balance.Lineage;
             Require(lineage != null && lineage.SeekStones >= 0 && IsProbability(lineage.SeekChance) && lineage.SeekChancePerRealm >= 0,
                 BalanceFile, "lineage needs a cost never negative, a chance between 0 and 1, and a bonus per realm never negative.");

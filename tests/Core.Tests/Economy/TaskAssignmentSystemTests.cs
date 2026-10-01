@@ -43,6 +43,46 @@ namespace MirrorChronicles.Tests.Economy
         }
 
         [Test]
+        public void GatherQi_HarvestsTheQiItIsSentFor_WhenTheClanKnowsAMethodOfIt()
+        {
+            var w = new TestWorld();
+            w.Techniques.Learn(Fixtures.ClanMethod);
+            w.Techniques.Learn("measured-rain-method");
+            var harvester = Working(w, TaskType.GatherQi); // a Qi cultivator of the Clear Spring
+            harvester.HarvestQiId = "measured-rain-qi";    // sent for another Qi (2026-10-01: an ability's aligned Qi)
+
+            w.Tasks.ProcessYearlyTasks();
+
+            Assert.AreEqual(1, w.Resources.QiPortions("measured-rain-qi"));
+            Assert.AreEqual(0, w.Resources.QiPortions(Fixtures.ClanQi));
+        }
+
+        [Test]
+        public void GatherQi_CannotHarvestAQi_WhoseMethodTheClanLacks()
+        {
+            var w = new TestWorld();
+            w.Techniques.Learn(Fixtures.ClanMethod);
+            var harvester = Working(w, TaskType.GatherQi);
+            harvester.HarvestQiId = "measured-rain-qi"; // no method of it: harvested as ever
+
+            w.Tasks.ProcessYearlyTasks();
+
+            Assert.AreEqual(1, w.Resources.QiPortions(Fixtures.ClanQi));
+        }
+
+        [Test]
+        public void TheMinersOfTheVeins_BringUpSpiritualOres()
+        {
+            var w = new TestWorld();
+            int ores = w.Resources.SpiritualOres;
+            Working(w, TaskType.Mine);
+
+            w.Tasks.ProcessYearlyTasks();
+
+            Assert.AreEqual(ores + w.Ctx.Content.Balance.Upkeep.OresPerVeinMiner, w.Resources.SpiritualOres);
+        }
+
+        [Test]
         public void AssignTask_Refuses_CultivationForAMortal()
         {
             var w = new TestWorld();
