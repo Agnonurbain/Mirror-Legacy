@@ -522,6 +522,15 @@
     "oddsGainPerYear": 0.001,
     "lastYears": 20
   },
+  "powerEconomy": {
+    "incomePerPower": 0.05,
+    "upkeepPerPower": 0.04,
+    "temperIncome": { "Merchant": 1.5 },
+    "growthRate": 0.03,
+    "temperGrowth": { "Expansionist": 1.5 },
+    "realmWeight": [ 1, 1, 3, 10, 40, 100, 200 ],
+    "debtDecline": 0.03
+  },
   "shards": {
     "lakeSearchChance": 0.06,
     "ruinsRevealChance": 0.35,

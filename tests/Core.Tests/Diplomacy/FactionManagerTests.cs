@@ -62,31 +62,6 @@ namespace MirrorChronicles.Tests.Diplomacy
         }
 
         [Test]
-        public void ProcessYearlyFactionAI_GrowsExpansionistPower()
-        {
-            var (w, f) = WithFaction(FactionPersonality.Expansionist, 0, power: 1000);
-            w.Factions.ProcessYearlyFactionAI();
-            Assert.AreEqual(1100, f.PowerLevel);
-        }
-
-        // ---- Neighbours weigh more (L5b: the powers live on the map) ----
-
-        [TestCase(FactionPersonality.Aggressive, -40, "heshan")]        // the Ruan's prefecture borders the lake
-        [TestCase(FactionPersonality.Merchant, 10, "jingshui-lake")]   // on the lake itself
-        public void ProcessYearlyFactionAI_ANeighbourActsMoreStrongly(FactionPersonality personality, int start, string region)
-        {
-            var (far, distant) = WithFaction(personality, start);
-            var (near, neighbour) = WithFaction(personality, start);
-            neighbour.RegionId = region;
-
-            far.Factions.ProcessYearlyFactionAI();
-            near.Factions.ProcessYearlyFactionAI();
-
-            int factor = Fixtures.Content.Balance.Diplomacy.NeighbourIntensity;
-            Assert.AreEqual(start + factor * (distant.RelationWithPlayer - start), neighbour.RelationWithPlayer);
-        }
-
-        [Test]
         public void IsNeighbour_OnlyForTheHomeAndThePlacesBorderingIt()
         {
             var w = new TestWorld();

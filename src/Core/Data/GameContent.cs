@@ -263,6 +263,7 @@ namespace MirrorChronicles.Data
         /// <summary>How the mirror's shards are found (B3c; interpretations).</summary>
         public ShardSettings Shards { get; init; }
         public ElderSettings Elders { get; init; } = new ElderSettings();
+        public PowerEconomySettings PowerEconomy { get; init; } = new PowerEconomySettings();
 
         /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
         public TrialSettings Trials { get; init; }

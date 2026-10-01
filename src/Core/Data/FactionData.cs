@@ -32,6 +32,8 @@ namespace MirrorChronicles.Data
         public CultivationRealm HighestRealm { get; set; }    // the strongest cultivator it counts
         public List<string> Techniques { get; set; } = new List<string>(); // techniques.json ids it holds (LORE.md §2.4)
         public List<FactionElder> Elders { get; set; } = new List<FactionElder>(); // who it counts: they age, die and rise (2026-10-01)
+        public int BaselinePower { get; set; }       // its size when its elders were first weighed (PowerEconomy)
+        public double BaselineWeight { get; set; }   // and their weight then: the size its elders can lead scales from these
         public string Notes { get; set; }
         public Provenance Provenance { get; set; }
         public List<string> InterpretedFields { get; set; } = new List<string>(); // to replace when a source speaks

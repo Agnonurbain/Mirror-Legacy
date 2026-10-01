@@ -96,6 +96,7 @@ namespace MirrorChronicles.Session
         public PowerShards PowerShards { get; }
         public ShardSense ShardSense { get; }
         public ElderSystem Elders { get; }
+        public PowerEconomy PowerEconomy { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -121,6 +122,7 @@ namespace MirrorChronicles.Session
             Wounds = new WoundSystem(Context, Stability);
             Factions = new FactionManager(Context);
             Elders = new ElderSystem(Context, Factions);
+            PowerEconomy = new PowerEconomy(Context, Factions);
             Sect = new SectSystem(Context, Clan, Resources, Stability, Karma, Factions);
             Mirror = new MirrorSystem(Context, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
@@ -449,7 +451,8 @@ namespace MirrorChronicles.Session
                     Rivals.ProcessYear();              // those who hinder an ascent (LORE.md §11.10)
                     Paths.ProcessYear();
             ShardSense.ProcessYear();
-            Elders.ProcessYear();              // the powers' elders age, die and rise (the living world, 2026-10-01)          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
+            Elders.ProcessYear();              // the powers' elders age, die and rise (the living world, 2026-10-01)
+            PowerEconomy.ProcessYear();        // their income, upkeep and growth toward what their elders lead (step B)          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

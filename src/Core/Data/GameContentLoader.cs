@@ -303,6 +303,11 @@ namespace MirrorChronicles.Data
                 && IsProbability(elders.MinGoldenCoreOdds) && IsProbability(elders.MaxGoldenCoreOdds) && elders.MinGoldenCoreOdds <= elders.MaxGoldenCoreOdds
                 && IsProbability(elders.RiseOdds) && IsProbability(elders.OddsGainPerYear) && elders.LastYears >= 0,
                 BalanceFile, "elders needs cadets and years never negative, chances between 0 and 1, and a Golden Core odds range in order.");
+            var economy = balance.PowerEconomy;
+            Require(economy != null && economy.IncomePerPower >= 0 && economy.UpkeepPerPower >= 0 && economy.TemperIncome.Values.All(v => v >= 0)
+                && IsProbability(economy.GrowthRate) && economy.TemperGrowth.Values.All(v => v >= 0) && economy.RealmWeight is { Length: > 0 }
+                && economy.RealmWeight.All(w => w >= 0) && IsProbability(economy.DebtDecline),
+                BalanceFile, "powerEconomy needs income, upkeep, tempers and realm weights never negative, and rates between 0 and 1.");
             var upkeep = balance.Upkeep;
             Require(upkeep != null && upkeep.MortalStones >= 0 && upkeep.CultivatorStones >= 0 && upkeep.StonesPerRealm >= 0
                 && IsProbability(upkeep.PovertyBirthFactor) && upkeep.ProsperityYears >= 1 && upkeep.PovertyStability <= 0 && upkeep.VeinMiners >= 1

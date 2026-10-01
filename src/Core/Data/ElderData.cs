@@ -22,4 +22,20 @@ namespace MirrorChronicles.Data
         public double OddsGainPerYear { get; init; }   // a Purple Mansion at its peak prepares: its odds grow a little each year
         public int LastYears { get; init; } = 20;
     }
+
+    /// <summary>
+    /// The powers' economy and growth (balance.json « powerEconomy », the living world, step B, 2026-10-01 — interpretations).
+    /// A yearly income and upkeep by size; the size tends toward what the elders can lead, weighed by their realms against
+    /// the world as drawn; a temper speeds the income or the growth; a power in debt loses disciples.
+    /// </summary>
+    public sealed record PowerEconomySettings
+    {
+        public double IncomePerPower { get; init; }
+        public double UpkeepPerPower { get; init; }
+        public Dictionary<FactionPersonality, double> TemperIncome { get; init; } = new Dictionary<FactionPersonality, double>();
+        public double GrowthRate { get; init; }
+        public Dictionary<FactionPersonality, double> TemperGrowth { get; init; } = new Dictionary<FactionPersonality, double>();
+        public double[] RealmWeight { get; init; } = { 1, 1, 3, 10, 40, 100, 200 };
+        public double DebtDecline { get; init; }
+    }
 }

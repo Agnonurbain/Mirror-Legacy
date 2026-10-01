@@ -79,8 +79,7 @@ namespace MirrorChronicles.Diplomacy
                             Drift(faction, -3);
                         }
                         break;
-                    case FactionPersonality.Expansionist:
-                        faction.PowerLevel += 100;
+                    case FactionPersonality.Expansionist: // its growth is the economy's now (PowerEconomy, 2026-10-01)
                         if (faction.RelationWithPlayer < -50)
                             ctx.Log.Warning($"[Factions] {faction.Name} eyes the clan's territory.");
                         break;
