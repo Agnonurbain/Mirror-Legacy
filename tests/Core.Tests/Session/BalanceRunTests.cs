@@ -283,7 +283,7 @@ namespace MirrorChronicles.Tests.Session
                 "a challenge by the rules seldom kills (a failed hunt may; so may an expedition, the Great Void, a patron's wrath)");
             Assert.That(run.Devoured, Is.LessThanOrEqualTo(5), "a prudent clan keeps most of its ripe Daos (more Foundations live since 2026-10-01, more ripen)");
             Assert.That(run.Strikes, Is.LessThanOrEqualTo(40), "no chain reaction of blows");
-            Assert.That(run.ClanWars, Is.LessThanOrEqualTo(10), "no endless wars against the clan");
+            Assert.That(run.ClanWars, Is.LessThanOrEqualTo(15), "no endless wars against the clan (a clan that lives and grows rich draws refused extortions, 2026-10-01)");
         }
 
         /// <summary>
