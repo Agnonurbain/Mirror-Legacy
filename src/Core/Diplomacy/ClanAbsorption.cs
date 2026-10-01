@@ -104,6 +104,7 @@ namespace MirrorChronicles.Diplomacy
                 SpiritualRoot = rng.Next(30, 71),
                 Temperament = FoundationRules.RandomTemperament(rng)
             };
+            if (joiner.Realm >= CultivationRealm.Foundation) joiner.FoundationId = ctx.Content.Qi.FirstOrDefault(q => q.Foundation != null && !q.Vanished)?.Foundation; // a foundation of its own
             PowerLadder.Normalize(joiner);
             PowerLadder.NormalizeLifespan(joiner);
             joiner.MaxLifespan = System.Math.Max(joiner.MaxLifespan, joiner.Age + 10);

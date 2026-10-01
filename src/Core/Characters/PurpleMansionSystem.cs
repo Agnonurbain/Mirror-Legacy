@@ -164,7 +164,7 @@ namespace MirrorChronicles.Characters
             member.DivineAbilities.Clear();
             if (member.FoundationId != null) member.DivineAbilities.Add(member.FoundationId); // the foundation becomes the first ability
             cultivation.ApplyStep(member, step);
-            member.RealmStage = PowerLadder.PurpleMansionStageFromAbilities(member.DivineAbilities.Count);
+            member.RealmStage = Math.Max(1, PowerLadder.PurpleMansionStageFromAbilities(member.DivineAbilities.Count)); // never below the first stage
             ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
         }
 

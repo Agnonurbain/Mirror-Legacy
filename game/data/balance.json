@@ -453,6 +453,15 @@
     "realmOdds": [ 0.7, 0.25, 0.05 ],
     "scoutRevealChance": 0.5
   },
+  "ascentPaths": {
+    "discipleYears": 10,
+    "discipleMinRelation": 30,
+    "discipleHarvestChance": 0.03,
+    "tombChance": 0.05,
+    "defectionChance": 0.02,
+    "falseDefectorChance": 0.3,
+    "defectionRelationLoss": 20
+  },
   "ascentRivals": {
     "learnChance": 0.15,
     "strikeChance": 0.5,

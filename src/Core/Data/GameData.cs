@@ -100,6 +100,7 @@ namespace MirrorChronicles.Data
         public Diplomacy.SponsorOffer PendingSponsorOffer { get; set; }   // 2.21: a patron's offer awaiting the clan's answer
         public List<Diplomacy.Sponsorship> Sponsorships { get; set; }     // 2.21: accepted patronages and their designs
         public List<Diplomacy.AscentRival> AscentRivals { get; set; }     // 2.21: the rivals that know of an accord
+        public string AscentTomb { get; set; }                            // 2.21: the method a known Purple Mansion's tomb keeps
 
         // Lineage
         public int GenerationCount { get; set; } = 1;

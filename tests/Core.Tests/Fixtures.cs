@@ -60,6 +60,7 @@ namespace MirrorChronicles.Tests
         public Sponsorships Sponsorships { get; }
         public PatronDesignEffects DesignEffects { get; }
         public AscentRivals Rivals { get; }
+        public AscentPaths Paths { get; }
         public PowerShards PowerShards { get; }
         public BeastRegistry Bestiary { get; }
         public SuspicionLedger Suspicion { get; }
@@ -145,6 +146,7 @@ namespace MirrorChronicles.Tests
             Patrons = new PatronSystem(Ctx, Clan, Resources);
             DesignEffects = new PatronDesignEffects(Ctx, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
             Rivals = new AscentRivals(Ctx, Clan, Factions, Suspicion, Sponsorships, Treaties, Buildings, Resources);
+            Paths = new AscentPaths(Ctx, Clan, Factions, Techniques, Suspicion, Shards, Wounds);
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability, Resources);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);

@@ -45,7 +45,7 @@ namespace MirrorChronicles.Characters
         /// <param name="lakeOpen">The lake is searched only until its shard is found (B3c).</param>
         public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character, bool huntOpen = false, bool lakeOpen = false)
         {
-            if (character.Age < CultivationAge || character.Retreat != Retreat.None || character.CaptorFaction != null)
+            if (character.Age < CultivationAge || character.Retreat != Retreat.None || character.CaptorFaction != null || character.DiscipleOf != null)
                 return InfantTasks; // a retreat, or captivity, leaves no task
             if (!SpiritualOrificeRules.CanCultivate(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
             if (character.Realm == CultivationRealm.Embryonic)
