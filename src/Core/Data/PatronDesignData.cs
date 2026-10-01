@@ -10,6 +10,16 @@ namespace MirrorChronicles.Data
         public int MarkClues { get; init; }           // what the mark lets the patron see of the mirror
         public int FlawWounds { get; init; }          // the Dao wounds of a hidden flaw
         public int SincereGift { get; init; }         // the stones a sincere patron gives
+        public int HumanPillsTaken { get; init; }     // the cultivators taken as ingredients
+        public double FatedRootShare { get; init; }   // what is left of a fated child's root once its destiny is reaped
+        public int PyramidStability { get; init; }    // the stability a bound soul loses
+        public int PawnSuspicion { get; init; }       // a third power turned against the clan
+        public int ScapegoatSuspicion { get; init; }  // every power's suspicion of a scapegoat
+        public int BulwarkPrestige { get; init; }     // the prestige of standing as a rampart
+        public double AtmosphereStonesShare { get; init; } // the share of the stones a ruined region costs
+        public int ImperialSuspicion { get; init; }   // the states' suspicion of an imperial blood
+        public double VoidKeyDeathChance { get; init; }
+        public int VoidKeyTreasure { get; init; }
     }
 
     /// <summary>When a patron's design falls due (LORE.md §11.10, C).</summary>
