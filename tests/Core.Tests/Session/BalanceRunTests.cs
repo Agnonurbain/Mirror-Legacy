@@ -417,6 +417,27 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_SwearsItsKeepersToSecrecy()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var keeper = s.Clan.LivingMembers.First(m => m.ID != s.Clan.PatriarchID && SpiritualOrificeRules.CanCultivate(m));
+            keeper.KnowsMirrorSecret = true; // they saw the mirror at work
+            BalanceRun.Act(s);
+            Assert.IsNotNull(s.Oaths.SecrecyPartner(keeper), "sworn, a keeper talks five times less");
+        }
+
+        [Test]
+        public void ThePilot_KeepsWhatItTakesToBlurAnInvestigator()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            s.Clan.AddMember(Fixtures.Mortal(age: 14)); // a seed candidate
+            int blur = s.Context.Content.Balance.Plots.BlurMirrorCost;
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.TalismanSeedCost + blur - 1, 0); // a seed would leave less than a blur
+            BalanceRun.Act(s);
+            Assert.IsFalse(s.Clan.LivingMembers.Any(m => m.HasTalismanSeed), "the mirror keeps the price of a doubt");
+        }
+
+        [Test]
         public void ThePilot_SilencesACaptive_ItCannotBuy()
         {
             var (s, captive) = Captive(knowsTheMirror: true);

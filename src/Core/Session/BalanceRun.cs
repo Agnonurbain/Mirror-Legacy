@@ -88,7 +88,11 @@ namespace MirrorChronicles.Session
         private const int PeaceAfterYears = 2;   // it sues for peace after two years of war
         private const int TreatyEveryYears = 5;  // it seeks a treaty every five years
         private const int MostTreaties = 3;      // and keeps a few, not a web of them
-        private const int SeedReserve = 20;      // it keeps some of the mirror's power
+        /// <summary>
+        /// The mirror's power the pilot keeps for what it may not forgo: the price of a doubt sown in an investigator — the
+        /// blur — whose lack loses the mirror (2026-10-01: an investigator came when the mirror held 36 of the 40 it needed).
+        /// </summary>
+        private static int MirrorReserve(GameSession session) => session.Context.Content.Balance.Plots.BlurMirrorCost;
         private const double RebuildMargin = 1.5; // a thin reserve is rebuilt, not merely kept
         private const int SeedMinAge = 10;       // a seed for the young: old enough to be examined,
         private const int SeedMaxAge = 30;       // young enough to cultivate long
@@ -108,6 +112,7 @@ namespace MirrorChronicles.Session
             // then to the method of the ascent, without which the line never rises past the Foundation (2026-10-01: seeds ate it)
             if (AscentMethod(session) == null && session.Deduction.AscentRefusal() == null) session.Deduction.DeduceAscentMethod();
             AnswerForTheCaptives(session); // then its captives, before any stone is spent (2026-10-01: its Foundations were executed)
+            SwearTheKeepers(session);      // and those in the mirror's secret swear to keep it
             RiseThroughThePurpleMansion(session); // then to the road to the Golden Core (BalanceRun.Ascent.cs)
             AnswerDemands(session);
             AnswerChallenge(session);
@@ -267,7 +272,7 @@ namespace MirrorChronicles.Session
         {
             if (UnsoundedNewcomers(session).Any()) return false;
             int rank = session.SecretBook.NextUnknown(SecretBook.ClanHolder, target)?.Rank ?? 1;
-            return session.Mirror.MirrorPower >= session.Context.Content.Balance.Secrets.MirrorSightCostPerRank * rank + SeedReserve;
+            return session.Mirror.MirrorPower >= session.Context.Content.Balance.Secrets.MirrorSightCostPerRank * rank + MirrorReserve(session);
         }
 
         private const int AscentQiReserve = 2;   // portions kept for the youth entering the ascent's method
@@ -344,7 +349,7 @@ namespace MirrorChronicles.Session
 
         private static void PlantASeed(GameSession session)
         {
-            if (session.Mirror.MirrorPower < Mirror.MirrorSystem.TalismanSeedCost + SeedReserve) return;
+            if (session.Mirror.MirrorPower < Mirror.MirrorSystem.TalismanSeedCost + MirrorReserve(session)) return;
             var mortal = session.Clan.LivingMembers
                 .Where(m => m.CaptorFaction == null && m.OrificeKnown && !m.HasTalismanSeed && !SpiritualOrificeRules.CanCultivate(m)
                     && m.Age >= SeedMinAge && m.Age <= SeedMaxAge)
@@ -458,6 +463,25 @@ namespace MirrorChronicles.Session
                 .Where(m => m != null && session.Hunts.IsFree(m)).ToList();
             if (team.Count == 0 || SchemeRules.RescueChance(team, captor, session.Context.Content.Balance.Schemes) < GoodOdds) return false;
             return session.Captives.Rescue(captive.ID, team.Select(m => m.ID).ToList()) == null;
+        }
+
+        private const string KeepSecret = "keep-secret"; // oaths.json
+
+        /// <summary>
+        /// Each keeper of the mirror's secret not yet sworn swears to keep it, to the patriarch (or, for the patriarch, to
+        /// another keeper): sworn, a keeper talks five times less (2026-10-01: unsworn keepers leaked eight hundred clues in
+        /// a century and a half, and the rumour reached a knower).
+        /// </summary>
+        private static void SwearTheKeepers(GameSession session)
+        {
+            var patriarch = session.Clan.GetPatriarch();
+            foreach (var keeper in session.Clan.LivingMembers.Where(m => m.KnowsMirrorSecret && m.CaptorFaction == null
+                && session.Oaths.SecrecyPartner(m) == null).ToList())
+            {
+                var other = keeper != patriarch && patriarch is { CaptorFaction: null } ? patriarch
+                    : session.Clan.LivingMembers.FirstOrDefault(m => m != keeper && m.KnowsMirrorSecret && m.CaptorFaction == null);
+                if (other != null) session.Oaths.Swear(keeper, other, new[] { KeepSecret });
+            }
         }
 
         private static void SeekATreaty(GameSession session)

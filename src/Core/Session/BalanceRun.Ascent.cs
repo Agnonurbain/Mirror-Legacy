@@ -237,7 +237,7 @@ namespace MirrorChronicles.Session
         {
             string foundation = FoundationOf(mansion);
             int cost = session.Context.Content.Balance.KnowledgeTrade.DaoPartnersMirrorCost;
-            if (foundation == null || session.Knowledge.Knows(FactKind.DaoPartners, foundation) || session.Mirror.MirrorPower < cost + SeedReserve) return;
+            if (foundation == null || session.Knowledge.Knows(FactKind.DaoPartners, foundation) || session.Mirror.MirrorPower < cost + MirrorReserve(session)) return;
             session.Exchange.DecipherDaoPartners(foundation);
         }
 
