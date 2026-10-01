@@ -453,6 +453,16 @@
     "realmOdds": [ 0.7, 0.25, 0.05 ],
     "scoutRevealChance": 0.5
   },
+  "ascentRivals": {
+    "learnChance": 0.15,
+    "strikeChance": 0.5,
+    "denounceChance": 0.1,
+    "buyChance": 0.2,
+    "outbidStones": 1500,
+    "foiledDistrust": 20,
+    "denounceDistrust": 15,
+    "denounceRelationLoss": 20
+  },
   "patronDesigns": {
     "harvestRelationLoss": 30,
     "markClues": 30,

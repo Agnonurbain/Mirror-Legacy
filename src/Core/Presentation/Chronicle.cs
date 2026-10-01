@@ -57,6 +57,8 @@ namespace MirrorChronicles.Presentation
             bus.OnExtortion += power => Add($"{power} convoite le trésor du clan et exige le prix de sa protection.");
             bus.OnDaoHuntFoiled += power => Add($"des gens de {power} fondent sur un Dao mûr du clan ; ils sont repoussés.");
             bus.OnHunt += (_, captured) => Add(captured ? "une chasse du clan ramène une bête spirituelle." : "une chasse du clan revient les mains vides.");
+            bus.OnAccordDenounced += (rival, patron) => Add($"{rival} dénonce l'accord de {patron} avec le clan : {patron}, exposé, le renie.");
+            bus.OnMemberLured += (member, rival) => Add($"{member.FullName} quitte le clan pour {rival}.");
             bus.OnPatronDemand += (s, d) => Add($"{s.Power} réclame son dû : {d.Name}. Le clan doit répondre.");
             bus.OnPatronDesignResisted += (s, d) => Add($"le clan résiste à {s.Power}, qui ne l'oubliera pas.");
             bus.OnPatronOffer += offer => Add($"{offer.Power} offre au clan une méthode qui mène au Manoir Pourpre. Que cache ce don ?");

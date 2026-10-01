@@ -222,6 +222,9 @@ namespace MirrorChronicles.Diplomacy
             return null;
         }
 
+        /// <summary>An accord dropped (denounced, 2026-10-01): its design dies with it.</summary>
+        public void Dissolve(string id) => active.RemoveAll(s => s.Id == id);
+
         public void Restore(SponsorOffer pending, IEnumerable<Sponsorship> saved)
         {
             Pending = pending;
