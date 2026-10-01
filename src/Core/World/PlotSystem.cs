@@ -47,6 +47,7 @@ namespace MirrorChronicles.World
                 suspicion.AddToClan(power.Name, -Settings.SuspicionFadePerYear);
                 suspicion.AddEvidence(power.Name, -Settings.EvidenceFadePerYear);
             }
+            suspicion.AddPublicEvidence(-Settings.EvidenceFadePerYear); // the world forgets too
         }
 
         private PlotSettings Settings => ctx.Content.Balance.Plots;

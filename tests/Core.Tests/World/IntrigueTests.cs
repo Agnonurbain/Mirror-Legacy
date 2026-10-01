@@ -97,6 +97,43 @@ namespace MirrorChronicles.Tests.World
             Assert.AreEqual(Settings.RefusedSpreadEvidence, w.Suspicion.Evidence(Fang));
         }
 
+        // ---- Proof made public buys no silence (user decision 2026-10-01: a cascade of blackmail in the long runs) ----
+
+        [Test]
+        public void ARefusedBlackmailer_MakesItsProofPublic()
+        {
+            var w = Blackmailed();
+            w.Suspicion.AddEvidence(Chrysanthemum, 60);
+            w.Intrigues.Refuse(Chrysanthemum);
+            Assert.AreEqual(60, w.Suspicion.PublicEvidence, "all it held is known to all");
+        }
+
+        [Test]
+        public void ProofEveryoneKnows_SellsNoSilence()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Factions.Restore(new[] { Power(w, Fang) });
+            w.Suspicion.AddPublicEvidence(60);
+            w.Suspicion.AddEvidence(Fang, 60 + Settings.BlackmailEvidence - 1); // its own share falls short
+
+            w.Intrigues.ProcessYear();
+
+            Assert.IsFalse(w.Intrigues.Demands.Any(d => d.Kind == DemandKind.Silence));
+        }
+
+        [Test]
+        public void ProofBeyondWhatIsPublic_StillSells()
+        {
+            var w = World(new FixedRandom(0.0));
+            w.Factions.Restore(new[] { Power(w, Fang) });
+            w.Suspicion.AddPublicEvidence(60);
+            w.Suspicion.AddEvidence(Fang, 60 + Settings.BlackmailEvidence);
+
+            w.Intrigues.ProcessYear();
+
+            Assert.AreEqual(Fang, w.Intrigues.Demands.Single(d => d.Kind == DemandKind.Silence).Faction);
+        }
+
         // ---- Theft ----
 
         [Test]

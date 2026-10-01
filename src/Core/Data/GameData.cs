@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.21";
+        public const string CurrentVersion = "2.22";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -72,6 +72,7 @@ namespace MirrorChronicles.Data
         public Dictionary<string, int> Distrust { get; set; }        // 2.9, hidden: « holder→toward »
         public Confrontation Confrontation { get; set; }             // 2.9: a power that pierced the secret, awaiting its move
         public Dictionary<string, int> MirrorClues { get; set; }     // 2.9, hidden: what each power pieced together about the mirror
+        public int PublicEvidence { get; set; }                       // 2.22: the proof known to all, which sells no silence
         public Dictionary<string, int> Evidence { get; set; }        // 2.9, hidden: the proof each power holds against the clan
         public List<Prisoner> Prisoners { get; set; }                // 2.10; null in older saves: none held
         public List<Treaty> Treaties { get; set; }                   // 2.11; null in older saves: none concluded

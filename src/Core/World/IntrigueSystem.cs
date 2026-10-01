@@ -95,7 +95,7 @@ namespace MirrorChronicles.World
             var s = Settings;
             foreach (var power in factions.Factions.OrderBy(_ => ctx.Rng.Next()).ToList()) // none always first
             {
-                if (suspicion.Evidence(power.Name) < s.BlackmailEvidence || demands.Any(d => d.Faction == power.Name)) continue;
+                if (suspicion.PrivateEvidence(power.Name) < s.BlackmailEvidence || demands.Any(d => d.Faction == power.Name)) continue;
                 if (quietUntil.TryGetValue(power.Name, out int until) && until > ctx.Clock.Year) continue; // it was paid
                 if (plots.StruckThisYear.Contains(power.Name) || secrets.Confrontation?.Faction == power.Name) continue; // one blow a year
                 if (treaties.Spares(power.Name) || !ctx.Rng.Chance(IntrigueRules.BlackmailChance(power, s))) continue;
@@ -159,6 +159,8 @@ namespace MirrorChronicles.World
                 ctx.Events.TriggerExtortionRefused(faction);
                 return null;
             }
+            // what it held is now known to all: it sells no silence any more, for it or for those it told (2026-10-01)
+            suspicion.AddPublicEvidence(System.Math.Max(0, suspicion.Evidence(faction) - suspicion.PublicEvidence));
             foreach (var other in factions.Factions.Where(f => f.Name != faction))
             {
                 // it spreads what it holds: news to the ignorant, little to those who already know most of it

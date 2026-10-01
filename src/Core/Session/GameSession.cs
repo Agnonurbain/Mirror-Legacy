@@ -267,7 +267,7 @@ namespace MirrorChronicles.Session
             session.Resources.RestorePrayers(data.Prayers);           // saves made before 2.6: none gathered
             session.Resources.RestoreBeasts(data.CapturedBeasts);
             session.Suspicion.Restore(data.SuspicionOfClan, data.Distrust); // hidden; none in saves before 2.9
-            session.Suspicion.RestoreEvidence(data.Evidence);
+            session.Suspicion.RestoreEvidence(data.Evidence, data.PublicEvidence); // none public in saves before 2.22
             session.Suspicion.RestoreMirrorClues(data.MirrorClues);
             session.Secrets.RestoreConfrontation(data.Confrontation);
             session.Captives.RestorePrisoners(data.Prisoners); // none in saves before 2.10
@@ -345,6 +345,7 @@ namespace MirrorChronicles.Session
                 SuspicionOfClan = new Dictionary<string, int>(Suspicion.ClanSuspicions),
                 Distrust = new Dictionary<string, int>(Suspicion.Distrusts),
                 Evidence = new Dictionary<string, int>(Suspicion.Evidences),
+                PublicEvidence = Suspicion.PublicEvidence,
                 MirrorClues = new Dictionary<string, int>(Suspicion.AllMirrorClues),
                 Confrontation = Secrets.Confrontation,
                 Prisoners = Captives.Prisoners.ToList(),

@@ -215,6 +215,24 @@ namespace MirrorChronicles.Tests.World
             Assert.AreEqual(40, reloaded.Suspicion.MirrorClues(Ruan));
         }
 
+        [Test]
+        public void RoundTrip_KeepsThePublicProof()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Suspicion.AddPublicEvidence(35);
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            Assert.AreEqual(35, reloaded.Suspicion.PublicEvidence);
+        }
+
+        [Test]
+        public void PublicProof_FadesWithTheYears()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.Suspicion.AddPublicEvidence(35);
+            s.AdvanceYear();
+            Assert.Less(s.Suspicion.PublicEvidence, 35, "people forget");
+        }
+
         // ---- The mirror's answers, the pierced secret, the seizure (L2c.4c) ----
 
         [Test]

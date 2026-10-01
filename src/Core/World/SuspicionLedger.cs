@@ -46,8 +46,21 @@ namespace MirrorChronicles.World
 
         public IReadOnlyDictionary<string, int> Evidences => evidence;
 
-        public void RestoreEvidence(IReadOnlyDictionary<string, int> saved)
+        /// <summary>
+        /// The proof against the clan known to all (0-100): what a refused blackmailer spread. It still weighs on the clan,
+        /// but nobody sells silence on what everyone knows — only the proof a power holds beyond it buys a blackmail (user
+        /// decision 2026-10-01). It fades as the world forgets.
+        /// </summary>
+        public int PublicEvidence { get; private set; }
+
+        public void AddPublicEvidence(int amount) => PublicEvidence = Math.Clamp(PublicEvidence + amount, 0, Max);
+
+        /// <summary>A power's proof as a blackmailer's leverage: what it holds that the world does not already know.</summary>
+        public int PrivateEvidence(string faction) => Math.Max(0, Evidence(faction) - PublicEvidence);
+
+        public void RestoreEvidence(IReadOnlyDictionary<string, int> saved, int publicEvidence = 0)
         {
+            PublicEvidence = Math.Clamp(publicEvidence, 0, Max);
             evidence.Clear();
             foreach (var pair in saved ?? new Dictionary<string, int>()) evidence[pair.Key] = Math.Clamp(pair.Value, 0, Max);
         }
