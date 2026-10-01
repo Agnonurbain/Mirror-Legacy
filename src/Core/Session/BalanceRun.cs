@@ -27,9 +27,12 @@ namespace MirrorChronicles.Session
     public static class BalanceRun
     {
         /// <param name="autopilot">Each year the pilot acts (<see cref="Act"/>) and sets the free members to work (<see cref="SetTheIdleToWork"/>).</param>
-        public static BalanceReport Play(GameContent content, int seed, int years, out GameSession session, bool autopilot = false)
+        /// <param name="observe">Hooks a diagnostic on the new session before the first year (e.g. where the mirror's clues come from).</param>
+        public static BalanceReport Play(GameContent content, int seed, int years, out GameSession session, bool autopilot = false,
+            Action<GameSession> observe = null)
         {
             var s = GameSession.NewGame(new GameSetup { Seed = seed, Content = content });
+            observe?.Invoke(s);
             var counts = new Dictionary<string, int>();
             void Count(string key) => counts[key] = counts.TryGetValue(key, out int n) ? n + 1 : 1;
             var bus = s.Events;
@@ -100,6 +103,7 @@ namespace MirrorChronicles.Session
         {
             // the mirror's power goes first to an investigator: made to doubt, it cannot act (a seed can wait a year)
             if (session.Secrets.Confrontation is { } investigator) session.Secrets.BlurMemories(investigator.Faction);
+            SoundTheNewcomers(session); // then to the strangers in the house, before any seed (2026-10-01)
             AnswerDemands(session);
             AnswerChallenge(session);
             foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
@@ -113,7 +117,6 @@ namespace MirrorChronicles.Session
             if (session.Sect.FoundingRefusal() == null) session.Sect.Found(); // the Double House as soon as it can
             OfferToTheMirror(session);
             AnswerForTheCaptives(session);
-            SoundTheNewcomers(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content) && session.DaoHunts.IsCoveted(m)).ToList())
                 session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao someone covets hides
@@ -232,14 +235,16 @@ namespace MirrorChronicles.Session
         private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<GameSession, HashSet<string>> Sounded = new();
 
         /// <summary>
-        /// The mirror sounds once every member come from outside (a spouse, a defector, a joiner — no parent in the clan), when its
-        /// power allows; an unmasked spy is turned into a double agent (LORE.md §11.5; 2026-10-01: false defectors fed the knowers).
+        /// The mirror sounds once every member come from a power (a spouse, a defector, a joiner), when its power allows — those of
+        /// the strongest powers first, where an elder may know the mirror; an unmasked spy is turned into a double agent (LORE.md
+        /// §11.5; 2026-10-01: unsounded spies, waiting their turn for decades, fed the knowers the mirror).
         /// </summary>
         private static void SoundTheNewcomers(GameSession session)
         {
             var sounded = Sounded.GetOrCreateValue(session);
-            foreach (var member in session.Clan.LivingMembers.Where(m => m.FatherID == null && m.MotherID == null && m.CaptorFaction == null
-                && !sounded.Contains(m.ID)).ToList())
+            int Rank(CharacterData m) => session.Factions.GetFactionByName(m.FromFaction) is { } f ? (int)f.HighestRealm : -1;
+            foreach (var member in session.Clan.LivingMembers.Where(m => m.FromFaction != null && m.CaptorFaction == null
+                && !sounded.Contains(m.ID)).OrderByDescending(Rank).ToList())
             {
                 if (session.Mirror.MirrorPower < SeedReserve + session.Context.Content.Balance.Intrigues.UnmaskMirrorCost) return;
                 if (session.Intrigues.Unmask(member.ID) == null) return;

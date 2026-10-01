@@ -198,6 +198,7 @@ namespace MirrorChronicles.Diplomacy
                 SpiritualRoot = ctx.Rng.Next(40, 81),
                 QiId = method.RequiredQiId,
                 SpyFor = spy ? power.Name : null,
+                FromFaction = power.Name, // the clan knows whence he came, not whom he serves
                 Temperament = FoundationRules.RandomTemperament(ctx.Rng)
             };
             PowerLadder.Normalize(defector);

@@ -5,6 +5,7 @@
 #   ./Scripts/dev.sh smoke   run the game headless with --smoke --map --ops --lib --tree --dip --mir --bld --bat (domain years, the world map, the secret operations, the library, the family tree, diplomacy, the mirror, the buildings, a rival's challenge); fails on any engine or script error
 #   ./Scripts/dev.sh screenshot <file.png> [map]   play the smoke years in a window and save the domain (or the map) as PNG
 #   ./Scripts/dev.sh balance long automatic games over many seeds (BALANCE_SEEDS, BALANCE_YEARS): the tuning table
+#   ./Scripts/dev.sh trail   where the mirror's clues come from over long games (same env), and who seized it
 #   ./Scripts/dev.sh gaps    list what the lore leaves open: interpretations, unrevealed abilities (ContentGaps)
 #   ./Scripts/dev.sh all     build + test + smoke
 # GODOT_BIN overrides the editor binary (default: Godot 4.7.2 .NET in ~/Godot).
@@ -21,6 +22,12 @@ build() {
 
 run_tests() {
   dotnet test "$TESTS" --nologo
+}
+
+# The mirror's trail (2026-10-01): per source, the clues the powers whose elder knows the mirror gained, per run.
+trail() {
+  BALANCE_YEARS="${BALANCE_YEARS:-500}" dotnet test "$TESTS" --nologo --filter "Category=MirrorTrail" --logger "console;verbosity=detailed" \
+    | grep -E '^ *(seed |total:)'
 }
 
 # Long automatic games over many seeds (BALANCE_SEEDS, default 10; BALANCE_YEARS, default 150): what befell a passive clan.
@@ -80,8 +87,9 @@ case "${1:-}" in
   test)       run_tests ;;
   gaps)       gaps ;;
   balance)    balance ;;
+  trail)      trail ;;
   smoke)      smoke ;;
   screenshot) screenshot "${2:-}" "${3:-}" ;;
   all)        build && run_tests && smoke ;;
-  *)          echo "usage: $0 build|test|gaps|balance|smoke|screenshot <file.png> [title|map|ops|lib|tree|dip|mir|bld|bat]|all" >&2; exit 2 ;;
+  *)          echo "usage: $0 build|test|gaps|balance|trail|smoke|screenshot <file.png> [title|map|ops|lib|tree|dip|mir|bld|bat]|all" >&2; exit 2 ;;
 esac

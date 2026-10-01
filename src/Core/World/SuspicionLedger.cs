@@ -28,11 +28,21 @@ namespace MirrorChronicles.World
         /// <summary>The proof a power holds against the clan (0-100): enough of it makes striking its right.</summary>
         public int Evidence(string faction) => faction != null && evidence.TryGetValue(faction, out int v) ? v : 0;
 
-        public void AddEvidence(string faction, int amount)
+        public void AddEvidence(string faction, int amount,
+            [System.Runtime.CompilerServices.CallerFilePath] string file = "",
+            [System.Runtime.CompilerServices.CallerMemberName] string member = "")
         {
             if (faction == null || amount == 0) return;
-            evidence[faction] = Math.Clamp(Evidence(faction) + amount, 0, Max);
+            int before = Evidence(faction);
+            evidence[faction] = Math.Clamp(before + amount, 0, Max);
+            int gained = evidence[faction] - before;
+            if (gained != 0) OnEvidence?.Invoke(faction, gained, Source(file, member));
         }
+
+        /// <summary>Diagnostics (balance, 2026-10-01): a power's proof moved — by how much, and from which system.</summary>
+        public event Action<string, int, string> OnEvidence;
+
+        private static string Source(string file, string member) => $"{System.IO.Path.GetFileNameWithoutExtension(file)}.{member}";
 
         public IReadOnlyDictionary<string, int> Evidences => evidence;
 
@@ -47,11 +57,19 @@ namespace MirrorChronicles.World
         /// <summary>What a power has pieced together about a hidden treasure behind the clan (0-100): the mirror's secret.</summary>
         public int MirrorClues(string faction) => faction != null && clues.TryGetValue(faction, out int v) ? v : 0;
 
-        public void AddMirrorClues(string faction, int amount)
+        public void AddMirrorClues(string faction, int amount,
+            [System.Runtime.CompilerServices.CallerFilePath] string file = "",
+            [System.Runtime.CompilerServices.CallerMemberName] string member = "")
         {
             if (faction == null || amount == 0) return;
-            clues[faction] = Math.Clamp(MirrorClues(faction) + amount, 0, Max);
+            int before = MirrorClues(faction);
+            clues[faction] = Math.Clamp(before + amount, 0, Max);
+            int gained = clues[faction] - before;
+            if (gained != 0) OnMirrorClues?.Invoke(faction, gained, Source(file, member));
         }
+
+        /// <summary>Diagnostics (balance, 2026-10-01): a power's clues moved — by how much, and from which system.</summary>
+        public event Action<string, int, string> OnMirrorClues;
 
         public IReadOnlyDictionary<string, int> AllMirrorClues => clues;
 

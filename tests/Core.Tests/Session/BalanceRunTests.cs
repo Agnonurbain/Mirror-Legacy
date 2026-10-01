@@ -180,6 +180,53 @@ namespace MirrorChronicles.Tests.Session
             Assert.IsTrue(s.Clan.LivingMembers.Any(m => m.HasTalismanSeed));
         }
 
+        // ---- The pilot sounds its newcomers first (2026-10-01: unsounded spies fed the knowers the mirror) ----
+
+        private static CharacterData Newcomer(GameSession s, string from)
+        {
+            var newcomer = Fixtures.Cultivator(age: 25);
+            newcomer.FromFaction = from;
+            s.Clan.AddMember(newcomer);
+            return newcomer;
+        }
+
+        [Test]
+        public void ThePilot_SoundsTheNewcomerOfTheStrongestPower_First()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var weak = Newcomer(s, "Porte du Fer Ardent");        // a Foundation power
+            var strong = Newcomer(s, "Secte du Pic des Nuées");   // a Golden Core one
+            strong.SpyFor = "Secte du Pic des Nuées";
+            s.Mirror.Restore(s.Context.Content.Balance.Intrigues.UnmaskMirrorCost + 20, 0); // one sounding, its reserve kept
+            BalanceRun.Act(s);
+            Assert.IsTrue(strong.SpyUnmasked, "the newcomer of the strongest power is sounded first");
+            Assert.IsTrue(strong.DoubleAgent, "and turned");
+            Assert.IsFalse(weak.SpyUnmasked);
+        }
+
+        [Test]
+        public void ThePilot_SoundsBeforeItPlantsASeed()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var spy = Newcomer(s, "Secte du Pic des Nuées");
+            spy.SpyFor = "Secte du Pic des Nuées";
+            s.Clan.AddMember(Fixtures.Mortal(age: 14)); // a seed candidate
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.TalismanSeedCost + 20, 0); // a seed or a sounding, not both
+            BalanceRun.Act(s);
+            Assert.IsTrue(spy.SpyUnmasked, "the sounding goes first");
+        }
+
+        [Test]
+        public void ThePilot_SoundsOnlyThoseComeFromAPower_NeverTheFounders()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            Assume.That(s.Clan.LivingMembers.Any(m => m.FatherID == null && m.MotherID == null), "founders without parents");
+            int power = s.Context.Content.Balance.Intrigues.UnmaskMirrorCost + 20;
+            s.Mirror.Restore(power, 0);
+            BalanceRun.Act(s);
+            Assert.AreEqual(power, s.Mirror.MirrorPower, "nobody came from outside: nothing spent on sounding");
+        }
+
         [Test]
         public void ALongGame_WithTheActivePilot_StaysSane([Values(1, 2, 3)] int seed)
         {
@@ -308,6 +355,39 @@ namespace MirrorChronicles.Tests.Session
             s.Secrets.ProcessYear();
             Assert.IsFalse(seized, "the confrontation is answered before anything else");
             Assert.IsNull(s.Secrets.Confrontation, "the investigator doubts");
+        }
+
+        /// <summary>
+        /// Where the mirror's clues come from (diagnostic, 2026-10-01): per source, what the powers whose elder knows the
+        /// mirror gained over long runs, and who seized it. <c>BALANCE_SEEDS</c>/<c>BALANCE_YEARS</c>, category MirrorTrail.
+        /// </summary>
+        [Test, Explicit, Category("MirrorTrail")]
+        public void MirrorTrail()
+        {
+            int seeds = int.TryParse(Environment.GetEnvironmentVariable("BALANCE_SEEDS"), out var n) ? n : 10;
+            int years = int.TryParse(Environment.GetEnvironmentVariable("BALANCE_YEARS"), out var y) ? y : 500;
+            var total = new System.Collections.Generic.Dictionary<string, int>();
+            var text = new System.Text.StringBuilder();
+            for (int seed = 1; seed <= seeds; seed++)
+            {
+                var gains = new System.Collections.Generic.Dictionary<string, int>();
+                string seizedBy = null;
+                int seizedYear = 0;
+                BalanceRun.Play(Fixtures.Content, seed, years, out _, autopilot: true, observe: s =>
+                {
+                    s.Suspicion.OnMirrorClues += (faction, amount, source) =>
+                    {
+                        if (amount <= 0 || !s.Lore.Knows(faction)) return;
+                        gains[source] = gains.TryGetValue(source, out int g) ? g + amount : amount;
+                    };
+                    s.Events.OnMirrorSeized += f => { seizedBy = f; seizedYear = s.Clock.Year; };
+                });
+                text.AppendLine($"seed {seed}: seized by {seizedBy ?? "-"} (year {seizedYear}) — "
+                    + string.Join(", ", gains.OrderByDescending(p => p.Value).Select(p => $"{p.Key} {p.Value}")));
+                foreach (var p in gains) total[p.Key] = total.TryGetValue(p.Key, out int t) ? t + p.Value : p.Value;
+            }
+            text.AppendLine("total: " + string.Join(", ", total.OrderByDescending(p => p.Value).Select(p => $"{p.Key} {p.Value}")));
+            TestContext.Progress.WriteLine(text.ToString());
         }
 
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>
