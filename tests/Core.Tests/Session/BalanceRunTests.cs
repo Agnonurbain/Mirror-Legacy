@@ -228,6 +228,30 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_SetsItsMostGiftedToStudy_WhileItKnowsNoAscentMethod()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var gifted = Fixtures.Cultivator(age: 30, stage: 6); // not the lowest Qi cultivator: that one dredges the lake
+            gifted.SpiritualRoot = 90; // the fragments the mirror needs come from a gifted mind (quality 3 from a root of 75)
+            s.Clan.AddMember(gifted);
+            BalanceRun.SetTheIdleToWork(s);
+            Assert.AreEqual(TaskType.Study, gifted.CurrentTask);
+        }
+
+        [Test]
+        public void ThePilot_CallsItsScholarsBack_OnceTheAscentIsKnown()
+        {
+            var s = Knowing();
+            var scholar = Fixtures.Cultivator(age: 30);
+            scholar.SpiritualRoot = 90;
+            scholar.CurrentTask = TaskType.Study;
+            s.Clan.AddMember(scholar);
+            BalanceRun.Act(s); // the mirror deduces the method
+            BalanceRun.SetTheIdleToWork(s);
+            Assert.AreNotEqual(TaskType.Study, scholar.CurrentTask);
+        }
+
+        [Test]
         public void ThePilot_SoundsOnlyThoseComeFromAPower_NeverTheFounders()
         {
             var s = GameSession.NewGame(Fixtures.Setup(3));

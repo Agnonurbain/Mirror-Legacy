@@ -467,9 +467,35 @@ namespace MirrorChronicles.Session
             SendASearcherToTheLake(session, huntOpen, lakeOpen);
             GatherTheQiOfTheAscent(session, huntOpen);
             GatherTheQiOfTheAbilities(session, huntOpen);
+            SendTheScholars(session, huntOpen);
             SendTheDiplomats(session, huntOpen);
             SendABearerAbroad(session, huntOpen);
             FeedTheClan(session, huntOpen);
+        }
+
+        private const int MostScholars = 2;     // the gifted minds sent to study for the mirror's deduction
+        private const int ScholarRoot = 75;     // a root from which a fragment found is of the third quality (TaskAssignmentSystem.Study)
+
+        /// <summary>
+        /// While the clan knows no method to the Purple Mansion and the mirror lacks fragments good enough to deduce one, its
+        /// most gifted minds (never the patriarch) study; they come back to their cultivation once the method is known
+        /// (2026-10-01: a pilot that never studied never found the fragments, and its line never rose past the Foundation).
+        /// </summary>
+        private static void SendTheScholars(GameSession session, bool huntOpen)
+        {
+            var rules = session.Context.Content.Balance.Techniques;
+            bool needed = AscentMethod(session) == null
+                && session.Deduction.Fragments.Count(f => f.Quality >= rules.AscentDeductionQuality) < rules.AscentDeductionFragments;
+            var scholars = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.CurrentTask == TaskType.Study).ToList();
+            if (!needed)
+            {
+                foreach (var scholar in scholars) session.Tasks.AssignTask(scholar, TaskType.Cultivation);
+                return;
+            }
+            foreach (var mind in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.ID != session.Clan.PatriarchID
+                    && m.SpiritualRoot >= ScholarRoot && m.CurrentTask == TaskType.Cultivation && TaskRules.IsAllowed(m, TaskType.Study, huntOpen))
+                .OrderByDescending(m => m.SpiritualRoot).Take(MostScholars - scholars.Count).ToList())
+                session.Tasks.AssignTask(mind, TaskType.Study);
         }
 
         /// <summary>While the lake holds its shard, the lowest Qi cultivator but the patriarch dredges it.</summary>
