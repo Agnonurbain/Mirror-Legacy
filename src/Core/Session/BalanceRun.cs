@@ -149,9 +149,18 @@ namespace MirrorChronicles.Session
             }
             var seeker = shards.BestTeam(CultivationRealm.PurpleMansion, 1);
             if (seeker.Count == 1) shards.VoidSearch(seeker[0]);
-            foreach (var shard in session.PowerShards.KnownToClan())
+            var wary = Wary.GetOrCreateValue(session);
+            foreach (var shard in session.PowerShards.KnownToClan().Where(id => !wary.Contains(session.PowerShards.HolderOf(id))))
             {
-                if (session.PowerShards.DemandOfVassal(shard) == null || session.PowerShards.Trade(shard) == null) continue;
+                if (session.PowerShards.DemandOfVassal(shard) == null) continue;
+                string holder0 = session.PowerShards.HolderOf(shard);
+                int before = session.Suspicion.MirrorClues(holder0);
+                if (session.PowerShards.Trade(shard) == null) continue;
+                if (session.Suspicion.MirrorClues(holder0) > before) // it refused, and seemed suddenly very interested in the clan
+                {
+                    wary.Add(holder0); // never asked again, nor robbed: it knows what the shard is (2026-10-01: a yearly ask lost the mirror)
+                    continue;
+                }
                 var team = shards.BestTeam(CultivationRealm.QiRefinement, settings.ExpeditionMaxTeam);
                 var holder = session.Factions.GetFactionByName(session.PowerShards.HolderOf(shard));
                 if (team.Count > 0 && session.PowerShards.TheftChance(team.Select(session.Clan.FindById).ToList(), holder) >= GoodOdds)
@@ -283,6 +292,9 @@ namespace MirrorChronicles.Session
         private const int ProbeReserveYears = 5; // a bribe only from a well-filled treasury
 
         private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<GameSession, HashSet<string>> Sounded = new();
+
+        /// <summary>The holders that refused a shard's trade with too keen an interest: the pilot leaves them be.</summary>
+        private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<GameSession, HashSet<string>> Wary = new();
 
         /// <summary>
         /// The mirror sounds once every member come from a power (a spouse, a defector, a joiner), when its power allows — those of

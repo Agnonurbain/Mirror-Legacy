@@ -438,6 +438,22 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_NeverAsksAgain_AHolderThatRefusedWithInterest()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var knower = s.Factions.Factions.FirstOrDefault(f => s.Lore.Knows(f.Name));
+            Assume.That(knower, Is.Not.Null, "a power whose elder knows the mirror");
+            var secret = s.PowerShards.Hide("pale-seal-jade", knower.Name);
+            s.SecretBook.Grant(MirrorChronicles.World.SecretBook.ClanHolder, secret.Id); // the clan knows where it lies
+            BalanceRun.Act(s);
+            int after = s.Suspicion.MirrorClues(knower.Name);
+            Assume.That(after, Is.GreaterThan(0), "the first ask made it wonder");
+            s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);
+            BalanceRun.Act(s);
+            Assert.AreEqual(after, s.Suspicion.MirrorClues(knower.Name), "a holder that refused with interest is never asked again");
+        }
+
+        [Test]
         public void ThePilot_SilencesACaptive_ItCannotBuy()
         {
             var (s, captive) = Captive(knowsTheMirror: true);
