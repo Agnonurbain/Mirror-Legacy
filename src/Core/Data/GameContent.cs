@@ -248,6 +248,9 @@ namespace MirrorChronicles.Data
         /// <summary>The ritual of the talisman Qi: prayers, offers, leaps (§11.5; the ten thousand prayers are the lore's).</summary>
         public TalismanSettings Talismans { get; init; }
 
+        /// <summary>The other paths to an ascent method (§11.10, B; interpretations).</summary>
+        public Diplomacy.AscentPathSettings AscentPaths { get; init; }
+
         /// <summary>Those who hinder an ascent (§11.10; interpretations).</summary>
         public Diplomacy.AscentRivalSettings AscentRivals { get; init; }
 

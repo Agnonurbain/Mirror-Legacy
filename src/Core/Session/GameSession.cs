@@ -91,6 +91,7 @@ namespace MirrorChronicles.Session
         public Sponsorships Sponsorships { get; }
         public PatronDesignEffects DesignEffects { get; }
         public AscentRivals Rivals { get; }
+        public AscentPaths Paths { get; }
         public ShardSystem Shards { get; }
         public PowerShards PowerShards { get; }
 
@@ -150,6 +151,7 @@ namespace MirrorChronicles.Session
             Patrons = new PatronSystem(Context, Clan, Resources);
             DesignEffects = new PatronDesignEffects(Context, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
             Rivals = new AscentRivals(Context, Clan, Factions, Suspicion, Sponsorships, Treaties, Buildings, Resources);
+            Paths = new AscentPaths(Context, Clan, Factions, Techniques, Suspicion, Shards, Wounds);
             Challenges = new ChallengeSystem(Context, Clan, Resources, Factions, Techniques, Wounds, Suspicion);
             Upkeep = new UpkeepSystem(Context, Clan, Resources, Stability);
             DaoHunts = new DaoHuntSystem(Context, Clan, Factions, Treaties, Buildings, seed);
@@ -301,6 +303,7 @@ namespace MirrorChronicles.Session
             session.Accords.RestoreDebts(data.KnowledgeDebts);
             session.Sponsorships.Restore(data.PendingSponsorOffer, data.Sponsorships);
             session.Rivals.Restore(data.AscentRivals);
+            session.Paths.Restore(data.AscentTomb);
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan resumes in year {session.Clock.Year}.");
             return session;
@@ -371,6 +374,7 @@ namespace MirrorChronicles.Session
                 PendingSponsorOffer = Sponsorships.Pending,
                 Sponsorships = Sponsorships.Active.ToList(),
                 AscentRivals = Rivals.Known.ToList(),
+                AscentTomb = Paths.Tomb,
                 HuntingGround = Tasks.HuntingGround,
                 NextRitualYear = Talismans.NextRitualYear,
                 TalismanOffer = Talismans.PendingOffer == null ? null
@@ -434,6 +438,7 @@ namespace MirrorChronicles.Session
                     DaoHunts.ProcessYear();             // a ripe Dao is prey (LORE.md §5.3.3): learnt, then struck, maybe foiled
                     Sponsorships.ProcessYear();        // a patron may offer an ascent method, with a design (LORE.md §11.10)
                     Rivals.ProcessYear();              // those who hinder an ascent (LORE.md §11.10)
+                    Paths.ProcessYear();               // disciples serve and come home, defectors come (LORE.md §11.10)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

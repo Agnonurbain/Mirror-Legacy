@@ -30,16 +30,17 @@ namespace MirrorChronicles.Tests.Diplomacy
         [Test]
         public void ADisciple_LeavesForYears_AndComesBackWithTheMethod()
         {
-            var w = World(new FixedRandom(0.99)); // never harvested, never caught copying, no defector
+            var w = World(new FixedRandom(0.99)); // never harvested, no defector
             var disciple = w.Join(Fixtures.Cultivator(stage: 5));
+            disciple.QiId = Fixtures.Content.Techniques.Single(t => t.ID == Method).RequiredQiId; // a Qi the method works with
             Assert.IsNull(w.Paths.SendAsDisciple(disciple.ID, Holder));
             Assert.IsTrue(disciple.DiscipleOf == Holder && !MirrorChronicles.Characters.TaskRules.AllowedTasks(disciple).Skip(1).Any(), "away: no task");
 
             w.Ctx.Clock.Restore(1 + Settings.DiscipleYears, GamePhase.Management);
             w.Paths.ProcessYear();
 
-            Assert.IsTrue(disciple.DiscipleOf == null && w.Techniques.Knows(Method));
-            Assert.AreEqual(0, w.Suspicion.Evidence(Holder));
+            Assert.IsTrue(disciple.DiscipleOf == null && disciple.CultivationMethodId == Method);
+            Assert.IsFalse(w.Techniques.Knows(Method), "sworn by a Dao oath: a disciple never passes his faction's art on");
         }
 
         [Test]
@@ -105,7 +106,8 @@ namespace MirrorChronicles.Tests.Diplomacy
             int members = w.Clan.LivingMembers.Count;
             w.Paths.ProcessYear();
             var defector = w.Clan.LivingMembers.Skip(members).Single();
-            Assert.IsTrue(defector.CultivationMethodId == Method && w.Techniques.Knows(Method));
+            Assert.IsTrue(defector.CultivationMethodId == Method && defector.FoundationId != null);
+            Assert.IsFalse(w.Techniques.Knows(Method), "a defector was his faction's disciple: sworn, he cannot teach it");
             Assert.AreEqual(Holder, defector.SpyFor, "rolled low: a false defector");
         }
 

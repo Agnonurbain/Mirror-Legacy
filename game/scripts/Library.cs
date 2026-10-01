@@ -1,5 +1,6 @@
 using System.Linq;
 using Godot;
+using MirrorChronicles.Data;
 using MirrorChronicles.Presentation;
 
 namespace MirrorChronicles.Game
@@ -103,6 +104,19 @@ namespace MirrorChronicles.Game
         private void ShowMarket()
         {
             Clear(market);
+            var paths = root.Session.Paths;
+            if (paths.Tomb != null) // LORE.md §11.10, C5: a Purple Mansion's tomb keeps an ascent method
+            {
+                string kept = root.Session.Context.Content.Techniques.FirstOrDefault(t => t.ID == paths.Tomb)?.Name ?? paths.Tomb;
+                var explore = new Button { Text = $"Explorer le tombeau d'un Manoir Pourpre (il garde « {kept} »)" };
+                explore.Pressed += () =>
+                {
+                    var outcome = paths.ExploreTomb(root.Session.Shards.BestTeam(CultivationRealm.QiRefinement, 3));
+                    status.Text = outcome.Refusal ?? (outcome.Found ? $"L'expédition rapporte « {kept} »." : "Le tombeau garde son secret cette année.");
+                    Refresh();
+                };
+                market.AddChild(explore);
+            }
             var offers = LibraryView.Market(root.Session);
             if (offers.Count == 0) Add(market, "Aucune puissance ne détient d'art que le clan ignore.");
             foreach (var offer in offers)
@@ -130,6 +144,25 @@ namespace MirrorChronicles.Game
                     tabs.CurrentTab = tabs.GetTabCount() - 1;
                 };
                 line.AddChild(negotiate);
+                var steal = new Button { Text = "Voler" };
+                steal.Pressed += () =>
+                {
+                    var theft = paths.StealManual(offer.Power, offer.TechniqueId, root.Session.Shards.BestTeam(CultivationRealm.QiRefinement, 3));
+                    status.Text = theft.Refusal ?? (theft.Taken ? $"Le manuel « {offer.Name} » est volé sans être vu."
+                        : theft.Caught ? $"Le voleur est pris : {offer.Power} tient une preuve." : "Le vol échoue, sans être vu.");
+                    Refresh();
+                };
+                line.AddChild(steal);
+                var disciple = new Button { Text = "Envoyer un disciple", TooltipText = "Il pratiquera la méthode à son retour, mais un serment du Dao lui interdit de la transmettre." };
+                disciple.Pressed += () =>
+                {
+                    var member = root.Session.Clan.LivingMembers.Where(m => m.ID != root.Session.Clan.PatriarchID && m.CaptorFaction == null
+                        && m.DiscipleOf == null && m.Realm >= CultivationRealm.QiRefinement).OrderByDescending(m => m.SpiritualRoot).FirstOrDefault();
+                    status.Text = member == null ? "Aucun cultivateur libre ne peut partir."
+                        : paths.SendAsDisciple(member.ID, offer.Power) ?? $"{member.FullName} part servir {offer.Power} comme disciple.";
+                    Refresh();
+                };
+                line.AddChild(disciple);
                 if (offer.Refusal != null) line.AddChild(new Label { Text = $"({offer.Refusal})" });
                 market.AddChild(line);
             }
