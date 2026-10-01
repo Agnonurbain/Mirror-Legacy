@@ -244,7 +244,8 @@ namespace MirrorChronicles.Tests.Session
         {
             var s = Quiet();
             Member(s, CultivationRealm.GoldenCore); // alone, the clan does not outweigh the Cloud Peak
-            foreach (var power in new[] { "Secte de la Lune Pâle", "Secte des Mille Lames", "Porte du Roc Obscur", "Porte du Carnage" }) Vassal(s, power);
+            foreach (var power in s.Factions.Factions.Where(f => f.Name != "Secte du Pic des Nuées" && f.Kind != FactionKind.Family).Select(f => f.Name).ToList())
+                Vassal(s, power); // a host of vassals, each lending a share of its strength
             var wars = s.Context.Content.Balance.Wars;
             double peak = MirrorChronicles.Diplomacy.WarRules.Strength(s.Factions.GetFactionByName("Secte du Pic des Nuées"), wars);
             Assume.That(s.Wars.ClanWarStrength(), Is.LessThan(peak));
