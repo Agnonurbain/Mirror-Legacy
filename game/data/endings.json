@@ -12,6 +12,7 @@
     "id": "ascension", "name": "L'Ascension",
     "narrative": "Un membre du clan a touché l'Embryon du Dao. Les autres sont partis vers le Ciel Extérieur et ne sont jamais revenus ; celui-ci reste, et veille sur le lac. Là où ne restaient que deux Immortels, il y en a désormais trois.",
     "conditions": [ { "kind": "MemberRealm", "realm": "DaoEmbryo" } ],
+    "awaits": "la voie de la Réalisation à l'Embryon du Dao, que ni la source ni le wiki ne décrivent (LORE.md §5.6 : avancement inconnu) : à décider par l'utilisateur (2026-10-01)",
     "source": "LORE.md §5.6, §11.9 ; l'Embryon du Dao reste dans le monde (décision du 2026-09-30)", "provenance": "Lore", "interpretedFields": []
   },
   {

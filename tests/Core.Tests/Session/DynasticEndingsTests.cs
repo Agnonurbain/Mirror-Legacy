@@ -97,16 +97,13 @@ namespace MirrorChronicles.Tests.Session
         // ---- Summits of cultivation ----
 
         [Test]
-        public void TheAscension_IsReached_WhenAMemberBecomesADaoEmbryo_AndTheGameGoesOn()
+        public void TheAscension_AwaitsTheUsersDecision_AndIsNeverReachedMeanwhile()
         {
-            var s = Quiet();
-            var reached = Watch(s);
+            var s = Quiet(); // no road leads from a Realization to the Dao Embryo yet (LORE.md §5.6: unknown)
             var c = Member(s, CultivationRealm.DaoEmbryo);
-
             s.Events.TriggerBreakthroughSuccess(c, CultivationRealm.DaoEmbryo);
-
-            CollectionAssert.Contains(reached, "ascension");
-            Assert.IsTrue(s.Endings.IsReached("ascension") && !s.Victory.IsOver && c.IsAlive);
+            Assert.IsFalse(s.Endings.IsReached("ascension"));
+            Assert.IsNotNull(Fixtures.Content.Endings.Single(e => e.Id == "ascension").Awaits);
         }
 
         [Test]
@@ -114,23 +111,23 @@ namespace MirrorChronicles.Tests.Session
         {
             var s = Quiet();
             var reached = Watch(s);
-            var c = Member(s, CultivationRealm.DaoEmbryo);
-            s.Events.TriggerBreakthroughSuccess(c, CultivationRealm.DaoEmbryo);
+            Member(s, CultivationRealm.GoldenCore, GoldenCoreState.Realization);
             NextYear(s);
-            s.Events.TriggerBreakthroughSuccess(Member(s, CultivationRealm.DaoEmbryo), CultivationRealm.DaoEmbryo);
-            Assert.AreEqual(1, reached.Count(id => id == "ascension"));
+            Member(s, CultivationRealm.GoldenCore, GoldenCoreState.Realization);
+            NextYear(s);
+            Assert.AreEqual(1, reached.Count(id => id == "fruition-throne"));
         }
 
         [Test]
         public void AnEnding_IsKeptInTheAnnals_WithWhoReachedIt()
         {
             var s = Quiet();
-            var c = Member(s, CultivationRealm.DaoEmbryo);
-            s.Events.TriggerBreakthroughSuccess(c, CultivationRealm.DaoEmbryo);
+            var c = Member(s, CultivationRealm.GoldenCore, GoldenCoreState.Realization);
+            NextYear(s);
 
             var entry = s.Annals.Entries.Single(e => e.Kind == AnnalKind.EndingReached);
-            Assert.IsTrue(entry.Ref == "ascension" && entry.Subject == c.FullName && entry.Year == s.Clock.Year);
-            StringAssert.Contains("L'Ascension", AnnalsView.Describe(entry, s.Context.Content));
+            Assert.IsTrue(entry.Ref == "fruition-throne" && entry.Subject == c.FullName && entry.Year == s.Clock.Year);
+            StringAssert.Contains("Le Trône d'une Fruition", AnnalsView.Describe(entry, s.Context.Content));
         }
 
         [Test]

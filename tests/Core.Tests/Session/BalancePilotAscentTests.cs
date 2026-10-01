@@ -147,6 +147,31 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_ForgesAnyway_NearTheEndOfItsLife()
+        {
+            var s = Session();
+            var master = Mansion(s, Xp, FiveOrthodoxWater); // 50%: below the patient bar
+            master.Age = master.MaxLifespan - 10;            // but nothing left to lose (the user's choice, 2026-10-01)
+            BalanceRun.Act(s);
+            Assert.IsTrue(!master.IsAlive || master.Realm == CultivationRealm.GoldenCore, "forged, or the demon was born");
+        }
+
+        [Test]
+        public void ANearlySpentEssence_ClaimsItsPosition_WhateverTheOdds()
+        {
+            var s = Session();
+            var essence = Mansion(s, 0, FiveOrthodoxWater);
+            essence.Realm = CultivationRealm.GoldenCore;
+            essence.RealmStage = 1;
+            essence.GoldenCore = GoldenCoreState.MetallicEssenceOnly;
+            essence.FruitionId = "orthodox-water";
+            essence.SpiritualRoot = 0; // poor odds
+            essence.Age = essence.MaxLifespan - 5;
+            BalanceRun.Act(s);
+            Assert.IsTrue(!essence.IsAlive || essence.GoldenCore == GoldenCoreState.Realization);
+        }
+
+        [Test]
         public void ThePilot_WaitsForAMethod_RatherThanCondenseAShallowFoundation()
         {
             var s = Session();

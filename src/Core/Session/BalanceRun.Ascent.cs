@@ -13,11 +13,15 @@ namespace MirrorChronicles.Session
     /// a method aligned on a partner by an accord or a theft (one a year), pursues the ability it has a method for and sends a
     /// harvester for its Qi, condenses with resources when no method can be had, then forges the metal essence and claims a
     /// position — only from good odds, for a failure births a demon. A patient pilot: it waits for a method rather than
-    /// condense a shallow foundation, and rises only from 60% (the user's choice 2026-10-01: three demons in three forges).
+    /// condense a shallow foundation, and rises only from 60% (the user's choice 2026-10-01: three demons in three forges) — or
+    /// whatever the odds in its last twenty years, rather than die at the peak (2026-10-01: not one forge in a thousand years).
     /// </summary>
     public static partial class BalanceRun
     {
         private const double RiseOdds = 0.6;        // the pilot forges or claims a position from these odds (patient, the user's choice 2026-10-01)
+        private const int LastYears = 20;           // …or whatever the odds, with so few years left: nothing to lose (the user's choice)
+
+        private static bool NothingToLose(CharacterData member) => member.MaxLifespan - member.Age <= LastYears;
         private const int MaterialsLevel = 3;       // it builds the Herb Garden up to this level,
         private const int YieldLevel = 4;           // the Mine (more veins) and the Forge (a better yield) up to this one
         private const int BuildReserveYears = 5;    // from a treasury that keeps five years of upkeep after the work
@@ -358,7 +362,7 @@ namespace MirrorChronicles.Session
             var target = content.Fruitions.OrderBy(f => f.Id == own ? 0 : 1)
                 .Select(f => (f.Id, Route: GoldenCoreRules.RouteTo(master.DivineAbilities, f.Id, content.Fruitions)))
                 .FirstOrDefault(x => x.Route != PositionRoute.None);
-            if (target.Id == null || GoldenCoreRules.ForgeChance(master, content) < RiseOdds * 100) return;
+            if (target.Id == null || (GoldenCoreRules.ForgeChance(master, content) < RiseOdds * 100 && !NothingToLose(master))) return;
             bool specialised = target.Route == PositionRoute.IntercalaryThreeTwo;
             string method = specialised ? GoldenCoreRules.SpecialisedMethod(target.Id) : target.Id;
             if (!session.Knowledge.Knows(FactKind.GoldSeeking, method) && !session.GoldenCore.DecipherGoldSeeking(target.Id, specialised)) return;
@@ -372,7 +376,7 @@ namespace MirrorChronicles.Session
             var target = content.Fruitions.FirstOrDefault(f => f.Id == essence.FruitionId);
             if (target == null || essence.Retreat != Retreat.None) return;
             var route = GoldenCoreRules.RouteTo(essence.DivineAbilities, target.Id, content.Fruitions);
-            if (route == PositionRoute.None || GoldenCoreRules.ClaimChance(essence, route, target, content) < RiseOdds * 100) return;
+            if (route == PositionRoute.None || (GoldenCoreRules.ClaimChance(essence, route, target, content) < RiseOdds * 100 && !NothingToLose(essence))) return;
             var state = session.Fruitions.State(target.Id);
             if (route != PositionRoute.Realization && state?.Status == FruitionStatus.Occupied
                 && !session.GoldenCore.Permissions.ContainsKey(target.Id)
