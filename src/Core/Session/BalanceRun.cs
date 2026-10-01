@@ -105,6 +105,8 @@ namespace MirrorChronicles.Session
             // the mirror's power goes first to an investigator: made to doubt, it cannot act (a seed can wait a year)
             if (session.Secrets.Confrontation is { } investigator) session.Secrets.BlurMemories(investigator.Faction);
             SoundTheNewcomers(session); // then to the strangers in the house, before any seed (2026-10-01)
+            // then to the method of the ascent, without which the line never rises past the Foundation (2026-10-01: seeds ate it)
+            if (AscentMethod(session) == null && session.Deduction.AscentRefusal() == null) session.Deduction.DeduceAscentMethod();
             RiseThroughThePurpleMansion(session); // then to the road to the Golden Core (BalanceRun.Ascent.cs)
             AnswerDemands(session);
             AnswerChallenge(session);

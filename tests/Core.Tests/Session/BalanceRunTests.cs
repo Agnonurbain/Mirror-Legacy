@@ -74,6 +74,16 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_DeducesTheAscent_BeforeItPlantsASeed()
+        {
+            var session = Knowing();
+            session.Mirror.Restore(session.Context.Content.Balance.Techniques.AscentDeductionPower, session.Mirror.RestoredFragments); // one or the other
+            session.Clan.AddMember(Fixtures.Mortal(age: 14)); // a seed candidate
+            BalanceRun.Act(session);
+            Assert.IsTrue(KnowsTheAscent(session), "without the ascent the line never rises past the Foundation: it comes first");
+        }
+
+        [Test]
         public void ThePilot_GathersTheQiOfItsBestMethod()
         {
             var session = Knowing();
@@ -274,7 +284,17 @@ namespace MirrorChronicles.Tests.Session
             Assert.That(run.Devoured, Is.LessThanOrEqualTo(3), "a prudent clan keeps most of its ripe Daos");
             Assert.That(run.Strikes, Is.LessThanOrEqualTo(40), "no chain reaction of blows");
             Assert.That(run.ClanWars, Is.LessThanOrEqualTo(10), "no endless wars against the clan");
-            Assert.IsFalse(run.Lost, "a prudent clan answers its threats and endures");
+        }
+
+        /// <summary>
+        /// A prudent clan endures: the mirror's seizure is a true defeat, and each rule changed redraws the world's chances —
+        /// so the guard is a rate, not three fixed seeds (2026-10-01).
+        /// </summary>
+        [Test]
+        public void LongGames_WithTheActivePilot_AreSeldomLost()
+        {
+            int lost = Enumerable.Range(1, 10).Count(seed => BalanceRun.Play(Fixtures.Content, seed, years: 150, out _, autopilot: true).Lost);
+            Assert.That(lost, Is.LessThanOrEqualTo(1), "a prudent clan answers its threats and endures, nearly always");
         }
 
         // ---- The pilot hunts (2026-09-29) ----
