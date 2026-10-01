@@ -113,6 +113,7 @@ namespace MirrorChronicles.Session
             if (session.Sect.FoundingRefusal() == null) session.Sect.Found(); // the Double House as soon as it can
             OfferToTheMirror(session);
             AnswerForTheCaptives(session);
+            SoundTheNewcomers(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content) && session.DaoHunts.IsCoveted(m)).ToList())
                 session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao someone covets hides
@@ -227,6 +228,25 @@ namespace MirrorChronicles.Session
         private const int ProbeEveryYears = 3;   // a probe every few years, not every year
         private const int ProbeMinCultivators = 4;
         private const int ProbeReserveYears = 5; // a bribe only from a well-filled treasury
+
+        private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<GameSession, HashSet<string>> Sounded = new();
+
+        /// <summary>
+        /// The mirror sounds once every member come from outside (a spouse, a defector, a joiner — no parent in the clan), when its
+        /// power allows; an unmasked spy is turned into a double agent (LORE.md §11.5; 2026-10-01: false defectors fed the knowers).
+        /// </summary>
+        private static void SoundTheNewcomers(GameSession session)
+        {
+            var sounded = Sounded.GetOrCreateValue(session);
+            foreach (var member in session.Clan.LivingMembers.Where(m => m.FatherID == null && m.MotherID == null && m.CaptorFaction == null
+                && !sounded.Contains(m.ID)).ToList())
+            {
+                if (session.Mirror.MirrorPower < SeedReserve + session.Context.Content.Balance.Intrigues.UnmaskMirrorCost) return;
+                if (session.Intrigues.Unmask(member.ID) == null) return;
+                sounded.Add(member.ID);
+                if (member.SpyUnmasked) session.Intrigues.Turn(member.ID);
+            }
+        }
 
         private const double GoodOdds = 0.6; // the pilot risks an expedition or a theft from these odds
         private const int LowTalentRoot = 40; // a cultivator of a lesser root may be sent to the mine; a gifted one never
