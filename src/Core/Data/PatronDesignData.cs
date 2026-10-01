@@ -3,6 +3,15 @@ using System.Collections.Generic;
 
 namespace MirrorChronicles.Data
 {
+    /// <summary>What the first designs do when they fall due (balance.json « patronDesigns »; LORE.md §11.10; 🔎).</summary>
+    public sealed record PatronDesignSettings
+    {
+        public int HarvestRelationLoss { get; init; } // a weaker patron, thwarted, resents the clan
+        public int MarkClues { get; init; }           // what the mark lets the patron see of the mirror
+        public int FlawWounds { get; init; }          // the Dao wounds of a hidden flaw
+        public int SincereGift { get; init; }         // the stones a sincere patron gives
+    }
+
     /// <summary>When a patron's design falls due (LORE.md §11.10, C).</summary>
     public enum DesignDue { PurpleMansion, GoldenCore, Years, HeirBorn }
 

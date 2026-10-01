@@ -89,6 +89,7 @@ namespace MirrorChronicles.Session
         public ClanAbsorption Absorption { get; }
         public KnowledgeAccords Accords { get; }
         public Sponsorships Sponsorships { get; }
+        public PatronDesignEffects DesignEffects { get; }
         public ShardSystem Shards { get; }
         public PowerShards PowerShards { get; }
 
@@ -144,6 +145,7 @@ namespace MirrorChronicles.Session
             Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
+            DesignEffects = new PatronDesignEffects(Context, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources);
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars, Sect);
             Patrons = new PatronSystem(Context, Clan, Resources);
             Challenges = new ChallengeSystem(Context, Clan, Resources, Factions, Techniques, Wounds, Suspicion);

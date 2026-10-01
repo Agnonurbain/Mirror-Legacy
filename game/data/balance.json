@@ -453,6 +453,12 @@
     "realmOdds": [ 0.7, 0.25, 0.05 ],
     "scoutRevealChance": 0.5
   },
+  "patronDesigns": {
+    "harvestRelationLoss": 30,
+    "markClues": 30,
+    "flawWounds": 2,
+    "sincereGift": 2000
+  },
   "sect": {
     "minRealm": "PurpleMansion",
     "minCultivators": 20,

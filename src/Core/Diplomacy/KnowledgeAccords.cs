@@ -142,6 +142,9 @@ namespace MirrorChronicles.Diplomacy
         /// <summary>A debt owed for a method (a patron's price, §11.10).</summary>
         public void AddDebt(string power, string techniqueId) => debts.Add(new KnowledgeDebt(power, ctx.Clock.Year, techniqueId));
 
+        /// <summary>A patron forgives what the clan owes it.</summary>
+        public void ForgiveDebts(string power) => debts.RemoveAll(d => d.Power == power);
+
         public void RestoreDebts(IEnumerable<KnowledgeDebt> saved)
         {
             debts.Clear();
