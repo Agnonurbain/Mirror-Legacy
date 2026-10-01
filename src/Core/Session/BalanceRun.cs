@@ -201,36 +201,69 @@ namespace MirrorChronicles.Session
         }
 
         /// <summary>
-        /// A probe a year (LORE.md §11.5): the best free member infiltrates — or bribes, when the reserve allows — the power
-        /// where the odds are best, from fair odds: the way a player pieces the powers' secrets together, and finds where the
-        /// shards lie.
+        /// A probe a year (LORE.md §11.5) by the best free member but the patriarch, when the clan has cultivators to spare:
+        /// the way a player pieces the powers' secrets together and finds where the shards lie. A treasure is a secret of the
+        /// highest rank, under all the lesser ones: the pilot digs one power until it has nothing left to tell (2026-10-01:
+        /// rank-4 treasures were never pierced by probes scattered every third year).
         /// </summary>
         private static void ProbeAPower(GameSession session)
         {
-            if (session.Clock.Year % ProbeEveryYears != 0) return;
+            var plan = NextProbe(session);
+            if (plan == null) return;
+            session.Probes.Probe(plan);
+            Dug(session, plan.Target);
+        }
+
+        private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<GameSession, string[]> Digging = new();
+
+        /// <summary>Remembers the power the pilot is digging.</summary>
+        public static void Dug(GameSession session, string power)
+        {
+            Digging.Remove(session);
+            Digging.Add(session, new[] { power });
+        }
+
+        /// <summary>
+        /// The probe the pilot would send this year, or null: the power it is digging while it has something left to tell,
+        /// else a vassal of the clan's, else the power where the odds are best — by the mirror's sight when the mirror can
+        /// spare it (it is never seen), else by infiltration or a bribe the reserve allows, from fair odds.
+        /// </summary>
+        public static ProbePlan NextProbe(GameSession session)
+        {
             var cultivators = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm >= CultivationRealm.QiRefinement).ToList();
-            if (cultivators.Count < ProbeMinCultivators) return; // a small clan does not risk its few cultivators outside
+            if (cultivators.Count < ProbeMinCultivators) return null; // a small clan does not risk its few cultivators outside
             var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, 2).Where(id => id != session.Clan.PatriarchID).Take(1).ToList();
-            if (team.Count == 0) return;
+            if (team.Count == 0) return null;
+            string digging = Digging.TryGetValue(session, out var dug) ? dug[0] : null;
+            var vassals = session.Treaties.All.Where(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain).Select(t => t.Faction).ToHashSet();
             bool canBribe = session.Resources.SpiritStones - ProbeBribe >= session.Upkeep.YearlyUpkeep * ProbeReserveYears;
             var best = session.Factions.Factions
                 .SelectMany(f => new[]
                 {
+                    new ProbePlan(f.Name, ProbeApproach.MirrorSight, team, new List<string>(), 0),
                     new ProbePlan(f.Name, ProbeApproach.Infiltration, team, new List<string>(), 0),
                     canBribe ? new ProbePlan(f.Name, ProbeApproach.Bribery, team, new List<string>(), ProbeBribe) : null
                 })
-                .Where(p => p != null)
-                .Where(p => session.Probes.RefusalOf(p) == null)
+                .Where(p => p != null && session.Probes.RefusalOf(p) == null)
+                .Where(p => p.Approach != ProbeApproach.MirrorSight || MirrorSpares(session, p.Target))
                 .Select(p => (Plan: p, Odds: session.Probes.ChanceAgainst(p)))
-                .OrderByDescending(x => x.Odds).FirstOrDefault();
-            if (best.Plan != null && best.Odds >= FairOdds) session.Probes.Probe(best.Plan);
+                .Where(x => x.Odds >= FairOdds)
+                .OrderBy(x => x.Plan.Target == digging ? 0 : vassals.Contains(x.Plan.Target) ? 1 : 2)
+                .ThenByDescending(x => x.Odds).FirstOrDefault();
+            return best.Plan;
+        }
+
+        /// <summary>The mirror's sight costs by the rank of the next secret; the pilot keeps its reserve for the rest.</summary>
+        private static bool MirrorSpares(GameSession session, string target)
+        {
+            int rank = session.SecretBook.NextUnknown(SecretBook.ClanHolder, target)?.Rank ?? 1;
+            return session.Mirror.MirrorPower >= session.Context.Content.Balance.Secrets.MirrorSightCostPerRank * rank + SeedReserve;
         }
 
         private const int AscentQiReserve = 2;   // portions kept for the youth entering the ascent's method
         private const int AscentHarvesters = 2;  // breathing cultivators gathering it
         private const double FairOdds = 0.3;     // the pilot probes from these odds
         private const int ProbeBribe = 500;      // the stones of a bribe
-        private const int ProbeEveryYears = 3;   // a probe every few years, not every year
         private const int ProbeMinCultivators = 4;
         private const int ProbeReserveYears = 5; // a bribe only from a well-filled treasury
 

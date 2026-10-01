@@ -434,6 +434,41 @@ namespace MirrorChronicles.Tests.Session
             TestContext.Progress.WriteLine(text.ToString());
         }
 
+        /// <summary>
+        /// The mirror's shards (diagnostic, 2026-10-01): per run, the shards recovered and when, then for each one missing what
+        /// stands in the way — ruins never found, a holder unknown or unwilling, the Great Void unopened. Category ShardsTrail.
+        /// </summary>
+        [Test, Explicit, Category("ShardsTrail")]
+        public void ShardsTrail()
+        {
+            int seeds = int.TryParse(Environment.GetEnvironmentVariable("BALANCE_SEEDS"), out var n) ? n : 10;
+            int years = int.TryParse(Environment.GetEnvironmentVariable("BALANCE_YEARS"), out var y) ? y : 500;
+            var text = new System.Text.StringBuilder();
+            for (int seed = 1; seed <= seeds; seed++)
+            {
+                var taken = new System.Collections.Generic.List<string>();
+                BalanceRun.Play(Fixtures.Content, seed, years, out var s, autopilot: true, observe: x =>
+                    x.Events.OnShardRecovered += shard => taken.Add($"{shard.Id} ({x.Clock.Year})"));
+                var missing = s.Context.Content.Shards.Where(sh => !s.Shards.IsRecovered(sh.Id)).Select(sh =>
+                {
+                    switch (sh.Source)
+                    {
+                        case ShardSource.Ruins: return $"{sh.Id}: ruins {(s.Shards.RevealedRuins.Contains(sh.Id) ? "found" : "never found")}";
+                        case ShardSource.Power:
+                            string holder = s.PowerShards.HolderOf(sh.Id);
+                            var power = s.Factions.GetFactionByName(holder ?? "");
+                            bool vassal = s.Treaties.All.Any(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain && t.Faction == holder);
+                            return $"{sh.Id}: holder {holder ?? "none"} known={s.PowerShards.KnownByClan(sh.Id)} vassal={vassal} knower={s.Lore.Knows(holder)} realm={power?.HighestRealm} price={(power == null ? 0 : s.PowerShards.TradePrice(sh.Id))}";
+                        case ShardSource.GreatVoid: return $"{sh.Id}: void open={s.Shards.CanTraverseVoid}";
+                        default: return $"{sh.Id}: {sh.Source}";
+                    }
+                });
+                text.AppendLine($"seed {seed}: {taken.Count} taken — {string.Join(", ", taken)}");
+                foreach (var m in missing) text.AppendLine($"    {m}");
+            }
+            TestContext.Progress.WriteLine(text.ToString());
+        }
+
         /// <summary>The report behind the tuning: <c>./Scripts/dev.sh balance</c> (seeds × years, env BALANCE_SEEDS/BALANCE_YEARS).</summary>
         [Test, Explicit, Category("Balance")]
         public void Report()

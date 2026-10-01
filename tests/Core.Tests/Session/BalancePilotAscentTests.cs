@@ -325,6 +325,43 @@ namespace MirrorChronicles.Tests.Session
             Assert.That(s.Factions.GetFactionByName(vassal.Faction).Kind, Is.AnyOf(FactionKind.Gate, FactionKind.Sect), "the Twelve Gates' heirs");
         }
 
+        // ---- The pilot digs the powers' secrets, where the shards lie (2026-10-01: rank-4 treasures never pierced) ----
+
+        private static GameSession Prober()
+        {
+            var s = Session();
+            for (int i = 0; i < 4; i++) s.Clan.AddMember(Fixtures.Cultivator(age: 30, realm: CultivationRealm.Foundation, stage: 3));
+            return s;
+        }
+
+        [Test]
+        public void ThePilot_ProbesAVassalFirst()
+        {
+            var s = Prober();
+            s.Treaties.Conclude(new Treaty("v-tao", TreatyKind.Vassalage, "Famille Tao", s.Clock.Year, null, false, false, true));
+            Assume.That(s.SecretBook.NextUnknown(MirrorChronicles.World.SecretBook.ClanHolder, "Famille Tao"), Is.Not.Null);
+            Assert.AreEqual("Famille Tao", BalanceRun.NextProbe(s)?.Target);
+        }
+
+        [Test]
+        public void ThePilot_KeepsDigging_ThePowerItProbed()
+        {
+            var s = Prober();
+            var first = BalanceRun.NextProbe(s);
+            s.Probes.Probe(first);
+            BalanceRun.Dug(s, first.Target);
+            s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);
+            Assume.That(s.SecretBook.NextUnknown(MirrorChronicles.World.SecretBook.ClanHolder, first.Target), Is.Not.Null);
+            Assert.AreEqual(first.Target, BalanceRun.NextProbe(s)?.Target, "a treasure lies under the lesser secrets: it digs on");
+        }
+
+        [Test]
+        public void ThePilot_LooksWithTheMirror_WhenItCan()
+        {
+            var s = Prober(); // the mirror at its full power
+            Assert.AreEqual(ProbeApproach.MirrorSight, BalanceRun.NextProbe(s)?.Approach);
+        }
+
         [Test]
         public void ThePilot_BuildsTheHerbGardenAndTheMine_WhenItsTreasuryAllows()
         {
