@@ -51,6 +51,9 @@ namespace MirrorChronicles.Diplomacy
 
         private static bool IsAscent(TechniqueData t) => t.Kind == TechniqueKind.Cultivation && TechniqueRules.HasPurpleMansionSecret(t);
 
+        /// <summary>A method of the catalog, or null.</summary>
+        public TechniqueData Method(string techniqueId) => ctx.Content.Techniques.FirstOrDefault(t => t.ID == techniqueId);
+
         /// <summary>What a method is worth to its holder: its grade's price.</summary>
         public int PriceOf(TechniqueData method) => Settings.StonesPerGrade[method.Grade - 1];
 
@@ -69,6 +72,18 @@ namespace MirrorChronicles.Diplomacy
                 if (TermRefusal(power, term) is { } why) return why;
             int worth = (terms ?? new List<AccordTerm>()).Sum(t => Worth(power, method, t));
             return worth < PriceOf(method) ? $"ce que le clan offre ne suffit pas ({worth} sur {PriceOf(method)})" : null;
+        }
+
+        /// <summary>Why the clan cannot give this to the power (French), or null.</summary>
+        public string TermRefusal(string powerName, AccordTerm term) =>
+            factions.GetFactionByName(powerName) is { } power ? TermRefusal(power, term) : "puissance inconnue";
+
+        /// <summary>What a term is worth to the power for this method (0 when unknown).</summary>
+        public int WorthOf(string powerName, string techniqueId, AccordTerm term)
+        {
+            var power = factions.GetFactionByName(powerName);
+            var method = ctx.Content.Techniques.FirstOrDefault(t => t.ID == techniqueId);
+            return power == null || method == null ? 0 : Worth(power, method, term);
         }
 
         private string TermRefusal(FactionData power, AccordTerm term)
