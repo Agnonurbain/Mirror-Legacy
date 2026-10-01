@@ -94,6 +94,7 @@ namespace MirrorChronicles.Session
         public AscentPaths Paths { get; }
         public ShardSystem Shards { get; }
         public PowerShards PowerShards { get; }
+        public ShardSense ShardSense { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -144,6 +145,7 @@ namespace MirrorChronicles.Session
             Accords = new KnowledgeAccords(Context, Clan, Factions, Techniques, Resources, SecretBook);
             Sponsorships = new Sponsorships(Context, Clan, Factions, Techniques, SecretBook, Accords, Mirror);
             PowerShards = new PowerShards(Context, Clan, Factions, SecretBook, Suspicion, Lore, Treaties, Resources, Shards);
+            ShardSense = new ShardSense(Context, Clan, Factions, Shards, PowerShards, Mirror);
             Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
@@ -240,6 +242,7 @@ namespace MirrorChronicles.Session
             session.Mirror.Restore(data.MirrorPower, data.RestoredFragments, data.MirrorAsleepUntil);
             session.Shards.Restore(data.RecoveredShards); // none before 2.21
             session.Shards.RestoreRuins(data.RevealedRuins);
+            session.ShardSense.Restore(data.ShardDirections); // none before 2.23
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
@@ -329,6 +332,7 @@ namespace MirrorChronicles.Session
                 RestoredFragments = Mirror.RestoredFragments,
                 RecoveredShards = Shards.Recovered.ToList(),
                 RevealedRuins = Shards.RevealedRuins.ToList(),
+                ShardDirections = new Dictionary<string, string>(ShardSense.Directions),
                 MirrorAsleepUntil = Mirror.AsleepUntil,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
@@ -439,7 +443,8 @@ namespace MirrorChronicles.Session
                     DaoHunts.ProcessYear();             // a ripe Dao is prey (LORE.md §5.3.3): learnt, then struck, maybe foiled
                     Sponsorships.ProcessYear();        // a patron may offer an ascent method, with a design (LORE.md §11.10)
                     Rivals.ProcessYear();              // those who hinder an ascent (LORE.md §11.10)
-                    Paths.ProcessYear();               // disciples serve and come home, defectors come (LORE.md §11.10)
+                    Paths.ProcessYear();
+            ShardSense.ProcessYear();          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

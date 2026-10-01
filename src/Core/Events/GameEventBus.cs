@@ -69,6 +69,8 @@ namespace MirrorChronicles.Events
         public event Action<string> OnClanWarWon;                          // an enemy of the clan yields (B3c3: its loot)
         public event Action<ShardDefinition> OnRuinsRevealed;               // ruins found to hold a shard (B3c2)
         public event Action<ShardDefinition> OnShardRecovered;              // a shard of the mirror comes back (§11.5)
+        public event Action<ShardDefinition, string> OnShardSensed;        // the mirror senses a shard toward a region (2026-10-01)
+        public event Action<string, IReadOnlyList<string>> OnClanProbe;    // the clan sends a probe: its target, its team
         public event Action<EndingDefinition, string> OnEndingReached;      // a dynastic ending (§11.9), and who reached it (null: the clan)
         public event Action OnGameOver;                                    // a defeat (§11.9): the dynastic endings never end the game
 
@@ -116,6 +118,8 @@ namespace MirrorChronicles.Events
         public void TriggerClanWarWon(string enemy) => OnClanWarWon?.Invoke(enemy);
         public void TriggerRuinsRevealed(ShardDefinition shard) => OnRuinsRevealed?.Invoke(shard);
         public void TriggerShardRecovered(ShardDefinition shard) => OnShardRecovered?.Invoke(shard);
+        public void TriggerShardSensed(ShardDefinition shard, string regionId) => OnShardSensed?.Invoke(shard, regionId);
+        public void TriggerClanProbe(string target, IReadOnlyList<string> teamIds) => OnClanProbe?.Invoke(target, teamIds);
         public void TriggerEndingReached(EndingDefinition ending, string subject) => OnEndingReached?.Invoke(ending, subject);
         public void TriggerGameOver() => OnGameOver?.Invoke();
     }

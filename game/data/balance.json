@@ -536,6 +536,9 @@
     "tradeMinRelation": 30,
     "tradePriceShare": 0.2,
     "tradeMinPrice": 500,
+    "senseChance": 0.25,
+    "senseChancePerSeed": 0.05,
+    "senseMaxChance": 0.6,
     "voidSearchChance": 0.25,
     "voidDeathChance": 0.1
   },

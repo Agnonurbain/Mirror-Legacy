@@ -75,6 +75,7 @@ namespace MirrorChronicles.World
             string refusal = Refusal(plan, out var team);
             if (refusal != null) return ProbeOutcome.Refused(refusal);
             foreach (var member in team) member.LastOperationYear = ctx.Clock.Year;
+            ctx.Events.TriggerClanProbe(plan.Target, team.Select(m => m.ID).ToList()); // its members stand at the target's door
             var target = factions.GetFactionByName(plan.Target);
             if (plan.Approach == ProbeApproach.Bribery && resources.ConsumeSpiritStones(plan.Stones)) target.Wealth += plan.Stones;
             if (plan.Approach == ProbeApproach.MirrorSight) mirror.ConsumePower(MirrorSightCost(plan.Target));

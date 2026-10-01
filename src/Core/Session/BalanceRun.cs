@@ -225,7 +225,7 @@ namespace MirrorChronicles.Session
 
         /// <summary>
         /// The probe the pilot would send this year, or null: the power it is digging while it has something left to tell,
-        /// else a vassal of the clan's, else the power where the odds are best — by the mirror's sight when the mirror can
+        /// the powers of a region where the mirror sensed a shard first (ShardSense), else a vassal of the clan's, else the power where the odds are best — by the mirror's sight when the mirror can
         /// spare it (it is never seen), else by infiltration or a bribe the reserve allows, from fair odds.
         /// </summary>
         public static ProbePlan NextProbe(GameSession session)
@@ -237,6 +237,8 @@ namespace MirrorChronicles.Session
             string digging = Digging.TryGetValue(session, out var dug) ? dug[0] : null;
             var vassals = session.Treaties.All.Where(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain).Select(t => t.Faction).ToHashSet();
             bool canBribe = session.Resources.SpiritStones - ProbeBribe >= session.Upkeep.YearlyUpkeep * ProbeReserveYears;
+            var sensed = session.ShardSense.Directions.Where(d => !session.Shards.IsRecovered(d.Key) && !session.PowerShards.KnownByClan(d.Key))
+                .Select(d => d.Value).ToHashSet(); // the regions where the mirror sensed a shard still to find
             var best = session.Factions.Factions
                 .SelectMany(f => new[]
                 {
@@ -248,7 +250,8 @@ namespace MirrorChronicles.Session
                 .Where(p => p.Approach != ProbeApproach.MirrorSight || MirrorSpares(session, p.Target))
                 .Select(p => (Plan: p, Odds: session.Probes.ChanceAgainst(p)))
                 .Where(x => x.Odds >= FairOdds)
-                .OrderBy(x => x.Plan.Target == digging ? 0 : vassals.Contains(x.Plan.Target) ? 1 : 2)
+                .OrderBy(x => sensed.Contains(session.Factions.GetFactionByName(x.Plan.Target)?.RegionId) ? 0
+                    : x.Plan.Target == digging ? 1 : vassals.Contains(x.Plan.Target) ? 2 : 3)
                 .ThenByDescending(x => x.Odds).FirstOrDefault();
             return best.Plan;
         }

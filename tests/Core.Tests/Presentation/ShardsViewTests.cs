@@ -90,5 +90,16 @@ namespace MirrorChronicles.Tests.Presentation
             s.Events.TriggerMirrorSeized("Secte du Pic des Nuées");
             StringAssert.Contains("miroir", EndingView.Defeat(s));
         }
+
+        [Test]
+        public void AShardTheMirrorSensed_ShowsItsDirection()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(1));
+            s.PowerShards.Hide("pale-seal-jade", "Famille Ruan");
+            s.ShardSense.Restore(new System.Collections.Generic.Dictionary<string, string> { ["pale-seal-jade"] = "heshan" });
+            var line = ShardsView.Lines(s).Single(l => l.Id == "pale-seal-jade");
+            StringAssert.Contains("le miroir le sent", line.State);
+            StringAssert.Contains(s.Context.Content.Regions.Single(r => r.Id == "heshan").Name, line.State);
+        }
     }
 }

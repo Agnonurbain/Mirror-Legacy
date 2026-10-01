@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
@@ -21,6 +22,9 @@ namespace MirrorChronicles.Presentation
 
         public IReadOnlyList<string> Entries => entries;
         public event Action<string> OnEntryAdded;
+
+        private static string RegionName(GameSession session, string regionId) =>
+            session.Context.Content.Regions.FirstOrDefault(r => r.Id == regionId)?.Name ?? regionId;
 
         public Chronicle(GameSession session, int capacity = DefaultCapacity)
         {
@@ -65,6 +69,7 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
             bus.OnSectFounded += () => Add("le clan fonde sa secte : les pics en haut, la ville en bas.");
             bus.OnRuinsRevealed += shard => Add($"des ruines anciennes sont découvertes ; le miroir y sent {shard.Name}.");
+            bus.OnShardSensed += (shard, region) => Add($"le miroir sent un éclat vers {RegionName(session, region)} : les porteurs de ses graines l'entendent.");
             bus.OnShardRecovered += shard => Add($"un éclat du miroir revient : {shard.Name}. Le miroir s'endort pour l'intégrer.");
             bus.OnEndingReached += (ending, subject) => Add($"fin dynastique : {ending.Name}. La partie continue.");
             bus.OnGameOver += () =>

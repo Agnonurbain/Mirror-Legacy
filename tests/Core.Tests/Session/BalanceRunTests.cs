@@ -227,12 +227,15 @@ namespace MirrorChronicles.Tests.Session
             Assert.AreEqual(power, s.Mirror.MirrorPower, "nobody came from outside: nothing spent on sounding");
         }
 
+        private const int OtherPerils = 3; // ruins, a tomb, the Great Void, a patron's wrath: deaths « in combat » no counter tracks
+
         [Test]
         public void ALongGame_WithTheActivePilot_StaysSane([Values(1, 2, 3)] int seed)
         {
             var run = BalanceRun.Play(Fixtures.Content, seed, years: 150, out _, autopilot: true);
             Assert.That(run.Betrayals, Is.LessThanOrEqualTo(24), "a treaty is betrayed for a reason, not as a matter of course (a score of vassals and pacts since 2026-10-01)");
-            Assert.That(run.CombatDeaths, Is.LessThanOrEqualTo(run.Challenges + run.ClanWars + run.Hunts), "a challenge by the rules seldom kills (a failed hunt may)");
+            Assert.That(run.CombatDeaths, Is.LessThanOrEqualTo(run.Challenges + run.ClanWars + run.Hunts + OtherPerils),
+                "a challenge by the rules seldom kills (a failed hunt may; so may an expedition, the Great Void, a patron's wrath)");
             Assert.That(run.Devoured, Is.LessThanOrEqualTo(3), "a prudent clan keeps most of its ripe Daos");
             Assert.That(run.Strikes, Is.LessThanOrEqualTo(40), "no chain reaction of blows");
             Assert.That(run.ClanWars, Is.LessThanOrEqualTo(10), "no endless wars against the clan");

@@ -50,6 +50,14 @@ namespace MirrorChronicles.Data
     /// <summary>How the shards are found (balance.json « shards »; interpretations).</summary>
     public sealed record ShardSettings
     {
+        /// <summary>
+        /// The mirror senses a shard near (2026-10-01, interpretation): a chance a year per shard, more with each bearer of a
+        /// Talisman Seed beyond the first, bounded.
+        /// </summary>
+        public double SenseChance { get; init; }
+        public double SenseChancePerSeed { get; init; }
+        public double SenseMaxChance { get; init; }
+
         /// <summary>Each searcher's chance a year to dredge the lake's shard up (🔎).</summary>
         public double LakeSearchChance { get; init; }
 

@@ -42,12 +42,18 @@ namespace MirrorChronicles.Presentation
                     return new ShardLine(shard.Id, shard.Name, "dans des ruines anciennes, que le clan connaît", new[] { Expedition(s, shard) });
                 case ShardSource.Power when s.PowerShards.KnownByClan(shard.Id):
                     return new ShardLine(shard.Id, shard.Name, $"tenu par {s.PowerShards.HolderOf(shard.Id)}, qui le prend pour un simple trésor", Takings(s, shard));
+                case ShardSource.Power when s.ShardSense.Directions.TryGetValue(shard.Id, out var region):
+                    return new ShardLine(shard.Id, shard.Name, $"le miroir le sent vers {RegionName(s, region)} : reste à trouver qui le tient là-bas",
+                        new List<ShardActionLine>());
                 case ShardSource.GreatVoid when s.Context.Content.Shards.All(x => x.Id == shard.Id || s.Shards.IsRecovered(x.Id)):
                     return new ShardLine(shard.Id, shard.Name, "dans le Grand Vide : le miroir le sent", new[] { VoidSearch(s) });
                 default:
                     return new ShardLine(shard.Id, shard.Name, "inconnu", new List<ShardActionLine>());
             }
         }
+
+        private static string RegionName(GameSession s, string regionId) =>
+            s.Context.Content.Regions.FirstOrDefault(r => r.Id == regionId)?.Name ?? regionId;
 
         private static ShardActionLine Expedition(GameSession s, ShardDefinition shard)
         {
