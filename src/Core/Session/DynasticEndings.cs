@@ -173,10 +173,10 @@ namespace MirrorChronicles.Session
             return c.Count == 0 ? powers.Count + absorbed > 0 && bowed == powers.Count + absorbed : bowed >= c.Count;
         }
 
-        /// <summary>The clan outweighs in war every power of the region, and holds enough vassals.</summary>
+        /// <summary>The clan, with its vassals, outweighs in war every power of the region, and holds enough vassals.</summary>
         private bool Dominates(EndingCondition c)
         {
-            double clanStrength = wars.ClanWarStrength();
+            double clanStrength = treaties.SuzerainStrength(); // a hegemon reigns through its vassals (2026-10-01)
             var settings = ctx.Content.Balance.Wars;
             var powers = PowersOf(c.RegionId).ToList();
             return powers.Count > 0 && ClanVassals().Count >= c.Vassals // a place without powers is no one's to dominate

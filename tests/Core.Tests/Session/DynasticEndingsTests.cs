@@ -240,6 +240,22 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void TheHegemonyOfLinxi_CountsTheVassalsStrength()
+        {
+            var s = Quiet();
+            Member(s, CultivationRealm.GoldenCore); // alone, the clan does not outweigh the Cloud Peak
+            foreach (var power in new[] { "Secte de la Lune Pâle", "Secte des Mille Lames", "Porte du Roc Obscur", "Porte du Carnage" }) Vassal(s, power);
+            var wars = s.Context.Content.Balance.Wars;
+            double peak = MirrorChronicles.Diplomacy.WarRules.Strength(s.Factions.GetFactionByName("Secte du Pic des Nuées"), wars);
+            Assume.That(s.Wars.ClanWarStrength(), Is.LessThan(peak));
+            Assume.That(s.Treaties.SuzerainStrength(), Is.GreaterThan(peak));
+
+            for (int y = 0; y < 10; y++) NextYear(s);
+
+            Assert.IsTrue(s.Endings.IsReached("linxi-hegemony"), "a hegemon reigns through its vassals");
+        }
+
+        [Test]
         public void TheHegemonyOfLinxi_StartsOver_WhenItSlips()
         {
             var s = Quiet();

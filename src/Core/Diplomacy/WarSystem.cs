@@ -174,12 +174,7 @@ namespace MirrorChronicles.Diplomacy
         }
 
         /// <summary>The clan's own war strength, without its allies: its strongest free member, and the others' weight.</summary>
-        public double ClanWarStrength()
-        {
-            var fighters = clan.LivingMembers.Where(m => m.CaptorFaction == null).Select(m => (double)HuntRules.Power(m.Realm, m.RealmStage))
-                .OrderByDescending(p => p).ToList();
-            return fighters.Count == 0 ? 0 : fighters[0] + fighters.Skip(1).Sum() * Settings.ClanStrengthPerMember;
-        }
+        public double ClanWarStrength() => WarRules.ClanWarStrength(clan.LivingMembers, Settings);
 
         private double ClanStrength(ClanWar war)
         {

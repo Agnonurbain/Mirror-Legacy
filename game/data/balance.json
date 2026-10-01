@@ -368,6 +368,7 @@
     "suspicionWeight": 0.5,
     "acceptThreshold": 20,
     "suzerainRealmMargin": 1,
+    "suzerainStrengthFactor": 1.5,
     "betrayalBase": 0.01,
     "betrayalTemper": { "Aggressive": 1.5, "Merchant": 0.8, "Isolationist": 0.5, "Expansionist": 1.2, "Manipulative": 2.0 },
     "suspicionBetrayalWeight": 2.0,

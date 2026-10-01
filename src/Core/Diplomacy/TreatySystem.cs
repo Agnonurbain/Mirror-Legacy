@@ -71,6 +71,15 @@ namespace MirrorChronicles.Diplomacy
             if (saved != null) treaties.AddRange(saved);
         }
 
+        /// <summary>The clan's war strength with its vassals': what a suzerain weighs (2026-10-01: ascendancy, the Hegemony).</summary>
+        public double SuzerainStrength()
+        {
+            var wars = ctx.Content.Balance.Wars;
+            return WarRules.ClanWarStrength(clan.LivingMembers, wars)
+                + treaties.Where(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain)
+                    .Select(t => factions.GetFactionByName(t.Faction)).Where(f => f != null).Sum(f => WarRules.Strength(f, wars));
+        }
+
         public CultivationRealm ClanStrongest =>
             clan.LivingMembers.Where(m => m.CaptorFaction == null).Select(m => m.Realm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
 
@@ -100,8 +109,9 @@ namespace MirrorChronicles.Diplomacy
                 if (treaties.Any(t => t.Kind == TreatyKind.Vassalage && !t.ClanIsSuzerain)) return "le clan sert déjà un suzerain";
                 if ((int)power.HighestRealm < (int)strongest + s.SuzerainRealmMargin) return "elle est trop faible pour protéger le clan";
             }
-            if (kind == TreatyKind.Vassalage && clanAsSuzerain && (int)strongest < (int)power.HighestRealm + s.SuzerainRealmMargin)
-                return "le clan n'a pas l'ascendant sur elle";
+            if (kind == TreatyKind.Vassalage && clanAsSuzerain && (int)strongest < (int)power.HighestRealm + s.SuzerainRealmMargin
+                && SuzerainStrength() < WarRules.Strength(power, ctx.Content.Balance.Wars) * s.SuzerainStrengthFactor)
+                return "le clan n'a pas l'ascendant sur elle"; // by its realm, or by the weight of its host and its vassals (2026-10-01)
             if (sealedByOath && clan.GetPatriarch() == null) return "il faut un patriarche pour jurer";
             if (sealedByOath && clan.GetPatriarch().CaptorFaction != null) return "le patriarche est captif : il ne peut jurer";
             int min = s.MinRelation.TryGetValue(kind, out var m) ? m : 0;

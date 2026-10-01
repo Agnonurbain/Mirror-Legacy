@@ -278,7 +278,7 @@ namespace MirrorChronicles.Data
             var kinds = Enum.GetValues(typeof(TreatyKind)).Cast<TreatyKind>().ToList();
             Require(treaty != null && kinds.All(k => treaty.MinRelation.ContainsKey(k) && treaty.AcceptBase.ContainsKey(k))
                 && IsProbability(treaty.BetrayalBase) && treaty.BetrayalTemper.Values.All(t => t >= 0) && treaty.SuspicionBetrayalWeight >= 0
-                && treaty.StrongerBetrayalFactor >= 0 && treaty.SealedFactor >= 0 && treaty.SuzerainRealmMargin >= 0
+                && treaty.StrongerBetrayalFactor >= 0 && treaty.SealedFactor >= 0 && treaty.SuzerainRealmMargin >= 0 && treaty.SuzerainStrengthFactor >= 1
                 && IsProbability(treaty.BetrayalStonesShare) && IsProbability(treaty.SecretDiscoveryChance) && IsProbability(treaty.DefenceGuardChance)
                 && IsProbability(treaty.VassalTributeShare) && IsProbability(treaty.GripStonesShare) && treaty.GripThreshold > 0
                 && treaty.TradeDiscount > 0 && treaty.SealedHeartDemonYears >= 0,

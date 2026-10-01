@@ -31,6 +31,7 @@ namespace MirrorChronicles.Data
     {
         public Dictionary<TreatyKind, int> MinRelation { get; init; } = new Dictionary<TreatyKind, int>();
         public Dictionary<TreatyKind, int> AcceptBase { get; init; } = new Dictionary<TreatyKind, int>();
+        public double SuzerainStrengthFactor { get; init; } = 1.0; // the clan has the ascendant by war strength (with its vassals) this many times a power's (2026-10-01)
         public Dictionary<FactionPersonality, Dictionary<TreatyKind, int>> PersonalityBias { get; init; } =
             new Dictionary<FactionPersonality, Dictionary<TreatyKind, int>>();
         public int StrengthWeight { get; init; }

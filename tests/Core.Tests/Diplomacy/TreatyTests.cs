@@ -75,6 +75,35 @@ namespace MirrorChronicles.Tests.Diplomacy
             StringAssert.Contains("ascendant", strong.Treaties.Propose(Peak, TreatyKind.Vassalage, clanAsSuzerain: true));
         }
 
+        // ---- Ascendancy by strength (user decision 2026-10-01): a host of Purple Mansions may bow a Purple Mansion gate ----
+
+        [Test]
+        public void AClan_OutweighingAPowerAtWar_TakesItAsVassal_EvenAtItsOwnRealm()
+        {
+            var w = World(new FixedRandom(0.999), CultivationRealm.PurpleMansion);
+            for (int i = 0; i < 20; i++) w.Join(Fixtures.Cultivator(realm: CultivationRealm.PurpleMansion, stage: 3));
+            Warm(w, Ruan, 60);
+            Assert.That(w.Treaties.SuzerainStrength(), Is.GreaterThan(WarRules.Strength(Power(w, Ruan), Fixtures.Content.Balance.Wars) * Settings.SuzerainStrengthFactor));
+            Assert.IsNull(w.Treaties.Propose(Ruan, TreatyKind.Vassalage, clanAsSuzerain: true), "a Purple Mansion family bows to the stronger host");
+        }
+
+        [Test]
+        public void ALonePurpleMansion_HasNoAscendant_OverAPowerOfItsRealm()
+        {
+            var w = World(new FixedRandom(0.999), CultivationRealm.PurpleMansion);
+            Warm(w, Ruan, 60);
+            StringAssert.Contains("ascendant", w.Treaties.Propose(Ruan, TreatyKind.Vassalage, clanAsSuzerain: true));
+        }
+
+        [Test]
+        public void ASuzerain_WeighsWithItsVassals()
+        {
+            var w = World(new FixedRandom(0.999), CultivationRealm.PurpleMansion);
+            double alone = w.Treaties.SuzerainStrength();
+            Assert.IsNull(w.Treaties.Propose(Fang, TreatyKind.Vassalage, clanAsSuzerain: true));
+            Assert.AreEqual(alone + WarRules.Strength(Power(w, Fang), Fixtures.Content.Balance.Wars), w.Treaties.SuzerainStrength(), 1e-9);
+        }
+
         [Test]
         public void OneTreatyOfAKind_PerPower_AndOneSuzerain_ForTheClan()
         {
