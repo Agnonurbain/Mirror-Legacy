@@ -24,7 +24,7 @@ namespace MirrorChronicles.Session
     /// world plots, probes, bands and wars. The run counts what befell it, so the tuning of balance.json can check that
     /// none of it runs away. Engine-free: <c>./Scripts/dev.sh balance</c> prints <see cref="Table"/> over many seeds.
     /// </summary>
-    public static class BalanceRun
+    public static partial class BalanceRun
     {
         /// <param name="autopilot">Each year the pilot acts (<see cref="Act"/>) and sets the free members to work (<see cref="SetTheIdleToWork"/>).</param>
         /// <param name="observe">Hooks a diagnostic on the new session before the first year (e.g. where the mirror's clues come from).</param>
@@ -104,6 +104,7 @@ namespace MirrorChronicles.Session
             // the mirror's power goes first to an investigator: made to doubt, it cannot act (a seed can wait a year)
             if (session.Secrets.Confrontation is { } investigator) session.Secrets.BlurMemories(investigator.Faction);
             SoundTheNewcomers(session); // then to the strangers in the house, before any seed (2026-10-01)
+            RiseThroughThePurpleMansion(session); // then to the road to the Golden Core (BalanceRun.Ascent.cs)
             AnswerDemands(session);
             AnswerChallenge(session);
             foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
@@ -403,6 +404,7 @@ namespace MirrorChronicles.Session
             bool lakeOpen = session.Shards.LakeSearchOpen;
             foreach (var member in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList())
             {
+                member.HarvestQiId = null; // sent anew each year
                 var trial = PowerLadder.Next(member.Realm, member.RealmStage).Trial;
                 bool lacksQi = trial == TrialKind.FoundationWall && !session.Cultivation.HasTrialQi(member, trial);
                 TaskType wanted = lacksQi && TaskRules.IsAllowed(member, TaskType.GatherQi, huntOpen) ? TaskType.GatherQi
@@ -415,6 +417,7 @@ namespace MirrorChronicles.Session
             }
             SendASearcherToTheLake(session, huntOpen, lakeOpen);
             GatherTheQiOfTheAscent(session, huntOpen);
+            GatherTheQiOfTheAbilities(session, huntOpen);
             FeedTheClan(session, huntOpen);
         }
 

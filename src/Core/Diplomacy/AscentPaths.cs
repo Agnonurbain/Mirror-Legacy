@@ -132,6 +132,15 @@ namespace MirrorChronicles.Diplomacy
             return new ShardTaking(true, false, true, null);
         }
 
+        /// <summary>The odds of stealing a manual from this power with this team (0 when it holds nothing to steal).</summary>
+        public double ManualTheftChance(string powerName, IReadOnlyList<CharacterData> team) =>
+            factions.GetFactionByName(powerName) is { } power && team is { Count: > 0 }
+                ? Chance(team, power.HighestRealm, Ops.TheftBaseChance, Ops.TheftChancePerPower, Ops.TheftMinChance, Ops.TheftMaxChance) : 0;
+
+        /// <summary>The odds of an expedition to the known tomb, against its Purple Mansion guardian.</summary>
+        public double TombExpeditionChance(IReadOnlyList<CharacterData> team) =>
+            team is { Count: > 0 } ? Chance(team, CultivationRealm.PurpleMansion, Ops.ExpeditionBaseChance, Ops.ExpeditionChancePerPower, Ops.ExpeditionMinChance, Ops.ExpeditionMaxChance) : 0;
+
         private static double Chance(IReadOnlyList<CharacterData> team, CultivationRealm guard, double baseChance, double perPower, double min, double max)
         {
             var powers = team.Select(m => (double)HuntRules.Power(m.Realm, m.RealmStage)).OrderByDescending(p => p).ToList();
