@@ -136,5 +136,66 @@ namespace MirrorChronicles.Tests.Mirror
             var plan = BalanceRun.NextProbe(s);
             Assert.AreEqual(RegionOf(s, Near), s.Factions.GetFactionByName(plan.Target).RegionId);
         }
+
+        // ---- The pilot sends a bearer abroad, to the great powers (user decision 2026-10-01) ----
+
+        private static CharacterData Bearer(GameSession s)
+        {
+            var bearer = Fixtures.Cultivator(age: 25);
+            bearer.HasTalismanSeed = true;
+            s.Clan.AddMember(bearer);
+            return bearer;
+        }
+
+        [Test]
+        public void ThePilot_SendsABearer_ToAGreatPowerBeyondTheMirrorsReach()
+        {
+            var s = Session(Far, seedBearer: false);
+            var bearer = Bearer(s);
+            BalanceRun.SetTheIdleToWork(s);
+            Assert.AreEqual(TaskType.Diplomacy, bearer.CurrentTask);
+            var power = s.Factions.GetFactionByName(bearer.DiplomacyTarget);
+            Assert.That(power.HighestRealm, Is.GreaterThanOrEqualTo(CultivationRealm.PurpleMansion), "a great power");
+            Assert.IsFalse(s.ShardSense.NearTheDomain(power.Name), "beyond what the mirror reaches from home");
+        }
+
+        [Test]
+        public void TheBearer_StaysTwoYears_ThenGoesOn()
+        {
+            var s = Session(Far, seedBearer: false);
+            var bearer = Bearer(s);
+            BalanceRun.SetTheIdleToWork(s);
+            string first = bearer.DiplomacyTarget;
+            s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);
+            BalanceRun.SetTheIdleToWork(s);
+            Assert.AreEqual(first, bearer.DiplomacyTarget, "a year is short to be sensed");
+            s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);
+            BalanceRun.SetTheIdleToWork(s);
+            Assert.AreNotEqual(first, bearer.DiplomacyTarget, "then to the next great power");
+        }
+
+        [Test]
+        public void NoBearerGoesAbroad_WhenNoShardIsLeftToSeek()
+        {
+            var s = Session(Far, seedBearer: false);
+            foreach (var shard in s.Context.Content.Shards.Where(x => x.Source == ShardSource.Power)) s.Shards.Recover(shard.Id);
+            var bearer = Bearer(s);
+            BalanceRun.SetTheIdleToWork(s);
+            Assert.AreNotEqual(TaskType.Diplomacy, bearer.CurrentTask);
+        }
+
+        [Test]
+        public void TheBearerAbroad_LetsTheMirrorSenseAFarShard()
+        {
+            var s = Session(Far, seedBearer: false);
+            Bearer(s);
+            for (int year = 0; year < 40 && !s.ShardSense.Directions.ContainsKey(Shard); year++)
+            {
+                BalanceRun.SetTheIdleToWork(s);
+                s.ShardSense.ProcessYear();
+                s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);
+            }
+            Assert.AreEqual(RegionOf(s, Far), s.ShardSense.Directions[Shard], "in time, the bearer comes to the empire that holds it");
+        }
     }
 }

@@ -120,8 +120,8 @@ namespace MirrorChronicles.Session
                 .Where(f => !vassals.Contains(f.Name) && f.RelationWithPlayer < WarmEnough && VassalPriority(session, f) <= 2
                     && session.Treaties.HasAscendancyOver(f) && !session.Wars.AtWar(f.Name))
                 .OrderBy(f => VassalPriority(session, f) == 1 ? 0 : 1).ThenBy(f => f.RelationWithPlayer).Take(MostDiplomats).ToList();
-            var diplomats = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.CurrentTask == TaskType.Diplomacy).ToList();
-            var candidates = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.ID != session.Clan.PatriarchID
+            var diplomats = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.CurrentTask == TaskType.Diplomacy && !m.HasTalismanSeed).ToList();
+            var candidates = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.ID != session.Clan.PatriarchID && !m.HasTalismanSeed
                     && SpiritualOrificeRules.CanCultivate(m) && m.Realm >= CultivationRealm.QiRefinement && m.Realm < CultivationRealm.PurpleMansion
                     && (m.CurrentTask == TaskType.Cultivation || m.CurrentTask == TaskType.Mine) && TaskRules.IsAllowed(m, TaskType.Diplomacy, huntOpen))
                 .OrderBy(m => m.SpiritualRoot).ThenByDescending(m => (int)m.Realm);
@@ -136,6 +136,47 @@ namespace MirrorChronicles.Session
                 idle.DiplomacyTarget = null;
                 session.Tasks.AssignTask(idle, SpiritualOrificeRules.CanCultivate(idle) ? TaskType.Cultivation : TaskType.Mine);
             }
+        }
+
+        private const int BearerStayYears = 2; // a bearer abroad stays this long: the mirror needs time to sense
+
+        private sealed class Abroad { public string Power; public int Since; public readonly HashSet<string> Visited = new HashSet<string>(); }
+
+        private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<GameSession, Abroad> Journeys = new();
+
+        /// <summary>
+        /// A bearer of a Talisman Seed is sent abroad (user decision 2026-10-01): to a great power (the Purple Mansion or
+        /// above) beyond the mirror's reach from home, the mightiest first, for two years — the mirror senses through the
+        /// seeds a shard its host holds — then to the next; the round starts over once every one was visited, and ends when
+        /// no shard of a power is left to seek. A cultivator bearer is preferred: a gate or a sect receives no mortal.
+        /// </summary>
+        private static void SendABearerAbroad(GameSession session, bool huntOpen)
+        {
+            var journey = Journeys.GetOrCreateValue(session);
+            var bearer = session.Clan.LivingMembers.FirstOrDefault(m => m.HasTalismanSeed && m.CurrentTask == TaskType.Diplomacy
+                && m.DiplomacyTarget == journey.Power && journey.Power != null);
+            if (!session.ShardSense.AnyToSeek)
+            {
+                if (bearer != null) { bearer.DiplomacyTarget = null; session.Tasks.AssignTask(bearer, TaskType.Cultivation); }
+                journey.Power = null;
+                return;
+            }
+            if (bearer != null && session.Clock.Year - journey.Since < BearerStayYears) return; // still abroad
+            var great = session.Factions.Factions.Where(f => f.HighestRealm >= CultivationRealm.PurpleMansion && !session.ShardSense.NearTheDomain(f.Name))
+                .OrderByDescending(f => (int)f.HighestRealm).ThenByDescending(f => f.PowerLevel).ThenBy(f => f.Name, System.StringComparer.Ordinal).ToList();
+            if (great.Count == 0) return;
+            if (great.All(f => journey.Visited.Contains(f.Name))) journey.Visited.Clear(); // the round starts over
+            var next = great.First(f => !journey.Visited.Contains(f.Name));
+            bearer ??= session.Clan.LivingMembers.Where(m => m.HasTalismanSeed && m.CaptorFaction == null && m.DiscipleOf == null
+                    && m.ID != session.Clan.PatriarchID && m.Realm < CultivationRealm.PurpleMansion && TaskRules.IsAllowed(m, TaskType.Diplomacy, huntOpen)
+                    && m.CurrentTask != TaskType.Diplomacy)
+                .OrderByDescending(m => m.Realm >= CultivationRealm.QiRefinement).ThenBy(m => m.SpiritualRoot).FirstOrDefault();
+            if (bearer == null) return;
+            journey.Power = next.Name;
+            journey.Since = session.Clock.Year;
+            journey.Visited.Add(next.Name);
+            bearer.DiplomacyTarget = next.Name;
+            if (bearer.CurrentTask != TaskType.Diplomacy) session.Tasks.AssignTask(bearer, TaskType.Diplomacy);
         }
 
         private static bool Within(GameSession session, string place, string regionId)

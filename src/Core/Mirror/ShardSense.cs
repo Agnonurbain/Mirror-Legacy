@@ -77,8 +77,11 @@ namespace MirrorChronicles.Mirror
         private double Chance(int bearers) =>
             System.Math.Min(Settings.SenseMaxChance, Settings.SenseChance + Settings.SenseChancePerSeed * (bearers - 1));
 
-        /// <summary>The holder sits in the domain's region or a neighbouring one (or within them).</summary>
-        private bool NearTheDomain(string holder)
+        /// <summary>Whether a shard of a power still lies unfound and unsensed: worth sending a bearer abroad.</summary>
+        public bool AnyToSeek => Unsensed().Any();
+
+        /// <summary>The power sits in the domain's region or a neighbouring one (or within them): the mirror reaches it from home.</summary>
+        public bool NearTheDomain(string holder)
         {
             string home = ctx.Content.Clan.HomeRegion;
             var near = new HashSet<string>(ctx.Content.Regions.FirstOrDefault(r => r.Id == home)?.Neighbours ?? new List<string>()) { home };

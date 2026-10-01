@@ -458,6 +458,7 @@ namespace MirrorChronicles.Session
             GatherTheQiOfTheAscent(session, huntOpen);
             GatherTheQiOfTheAbilities(session, huntOpen);
             SendTheDiplomats(session, huntOpen);
+            SendABearerAbroad(session, huntOpen);
             FeedTheClan(session, huntOpen);
         }
 
