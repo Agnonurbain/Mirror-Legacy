@@ -17,6 +17,10 @@ namespace MirrorChronicles.Game
         private VBoxContainer arts;
         private VBoxContainer market;
         private Label status;
+        private VBoxContainer accord;                 // the accords tab (LORE.md §11.10, A)
+        private TabContainer tabs;
+        private (string Power, string TechniqueId, string Name)? negotiating;
+        private readonly System.Collections.Generic.HashSet<int> chosen = new System.Collections.Generic.HashSet<int>();
 
         public override void _Ready()
         {
@@ -27,7 +31,14 @@ namespace MirrorChronicles.Game
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             // LIB_TAB=<0-1> opens a tab (screenshots of a smoke run)
-            if (int.TryParse(OS.GetEnvironment("LIB_TAB"), out int tab)) GetNode<TabContainer>("%Tabs").CurrentTab = tab;
+            tabs = GetNode<TabContainer>("%Tabs");
+            var accordTab = new ScrollContainer { Name = "Accord" };
+            accord = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
+            accordTab.AddChild(accord);
+            tabs.AddChild(accordTab);
+            if (int.TryParse(OS.GetEnvironment("LIB_TAB"), out int tab)) tabs.CurrentTab = tab;
+            if (tab == 2 && LibraryView.Market(root.Session).FirstOrDefault() is { } first) // screenshots: an accord under way
+                negotiating = (first.Power, first.TechniqueId, first.Name);
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
         }
@@ -36,6 +47,44 @@ namespace MirrorChronicles.Game
         {
             ShowArts();
             ShowMarket();
+            ShowAccord();
+        }
+
+        private System.Collections.Generic.IReadOnlyList<AccordCandidate> Candidates() =>
+            AccordView.Candidates(root.Session.Accords, root.Session.Clan, root.Session.Techniques, root.Session.Resources,
+                root.Session.SecretBook, negotiating.Value.Power, negotiating.Value.TechniqueId);
+
+        /// <summary>The accord under way: what the clan could give, ticked or not, the worth against the price, and the seal.</summary>
+        private void ShowAccord()
+        {
+            Clear(accord);
+            if (negotiating == null)
+            {
+                Add(accord, "Choisissez « Négocier » sur un art du marché : une méthode se paie en savoir, en secrets, en bêtes, en Qi, en dettes ou en disciples.");
+                return;
+            }
+            var (power, techniqueId, name) = negotiating.Value;
+            Add(accord, $"Accord avec {power} pour « {name} ». Ce que le clan pourrait donner :");
+            var candidates = Candidates();
+            for (int i = 0; i < candidates.Count; i++)
+            {
+                int index = i;
+                var box = new CheckBox { Text = $"{candidates[i].Label} — vaut {candidates[i].Worth}", ButtonPressed = chosen.Contains(i) };
+                box.Toggled += on => { if (on) chosen.Add(index); else chosen.Remove(index); ShowAccord(); };
+                accord.AddChild(box);
+            }
+            var terms = chosen.Where(i => i < candidates.Count).Select(i => candidates[i].Term).ToList();
+            var summary = AccordView.Summary(root.Session.Accords, power, techniqueId, terms);
+            Add(accord, $"Valeur offerte : {summary.Worth} sur {summary.Price}.{(summary.Refusal == null ? "" : $" ({summary.Refusal})")}");
+            var seal = new Button { Text = "Conclure l'accord", Disabled = summary.Refusal != null, TooltipText = summary.Refusal ?? "" };
+            seal.Pressed += () =>
+            {
+                string refusal = root.Session.Accords.Conclude(power, techniqueId, terms);
+                status.Text = refusal == null ? $"Accord conclu : le clan obtient « {name} » de {power}." : $"Refusé : {refusal}.";
+                if (refusal == null) { negotiating = null; chosen.Clear(); }
+                Refresh();
+            };
+            accord.AddChild(seal);
         }
 
         private void ShowArts()
@@ -72,6 +121,15 @@ namespace MirrorChronicles.Game
                     Refresh();
                 };
                 line.AddChild(buy);
+                var negotiate = new Button { Text = "Négocier" };
+                negotiate.Pressed += () =>
+                {
+                    negotiating = (offer.Power, offer.TechniqueId, offer.Name);
+                    chosen.Clear();
+                    ShowAccord();
+                    tabs.CurrentTab = tabs.GetTabCount() - 1;
+                };
+                line.AddChild(negotiate);
                 if (offer.Refusal != null) line.AddChild(new Label { Text = $"({offer.Refusal})" });
                 market.AddChild(line);
             }
