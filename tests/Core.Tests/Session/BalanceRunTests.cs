@@ -217,6 +217,17 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_SoundsANewcomer_AsSoonAsTheMirrorCanPay_WithoutAReserve()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var spy = Newcomer(s, "Secte du Pic des Nuées");
+            spy.SpyFor = "Secte du Pic des Nuées";
+            s.Mirror.Restore(s.Context.Content.Balance.Intrigues.UnmaskMirrorCost, 0); // just the sounding's price
+            BalanceRun.Act(s);
+            Assert.IsTrue(spy.SpyUnmasked, "a spy waiting a year feeds a knower: the sounding comes before any reserve");
+        }
+
+        [Test]
         public void ThePilot_SoundsOnlyThoseComeFromAPower_NeverTheFounders()
         {
             var s = GameSession.NewGame(Fixtures.Setup(3));

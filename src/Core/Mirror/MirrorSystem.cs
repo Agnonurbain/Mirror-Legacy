@@ -65,7 +65,9 @@ namespace MirrorChronicles.Mirror
             return MirrorPower < amount ? $"il faut {amount} de puissance du miroir" : null;
         }
 
-        public bool ConsumePower(int amount)
+        public bool ConsumePower(int amount,
+            [System.Runtime.CompilerServices.CallerFilePath] string file = "",
+            [System.Runtime.CompilerServices.CallerMemberName] string member = "")
         {
             string refusal = PayRefusal(amount);
             if (refusal != null)
@@ -75,8 +77,12 @@ namespace MirrorChronicles.Mirror
             }
 
             MirrorPower -= amount;
+            OnPowerSpent?.Invoke(amount, $"{System.IO.Path.GetFileNameWithoutExtension(file)}.{member}");
             return true;
         }
+
+        /// <summary>Diagnostics (balance, 2026-10-01): the mirror spent its power — how much, and on what.</summary>
+        public event System.Action<int, string> OnPowerSpent;
 
         /// <summary>Cost 10, in battle: 30% of the unit's Qi and 15% of its vitality flow back.</summary>
         public bool UseQiPulse(CombatUnit target)

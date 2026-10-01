@@ -293,7 +293,8 @@ namespace MirrorChronicles.Session
             int Rank(CharacterData m) => session.Factions.GetFactionByName(m.FromFaction) is { } f ? (int)f.HighestRealm : -1;
             foreach (var member in UnsoundedNewcomers(session).OrderByDescending(Rank).ToList())
             {
-                if (session.Mirror.MirrorPower < SeedReserve + session.Context.Content.Balance.Intrigues.UnmaskMirrorCost) return;
+                // no reserve kept: the mirror regains a point a year, and a spy unsounded feeds its master five clues a year (2026-10-01)
+                if (session.Mirror.MirrorPower < session.Context.Content.Balance.Intrigues.UnmaskMirrorCost) return;
                 if (session.Intrigues.Unmask(member.ID) == null) return;
                 sounded.Add(member.ID);
                 if (member.SpyUnmasked) session.Intrigues.Turn(member.ID);
