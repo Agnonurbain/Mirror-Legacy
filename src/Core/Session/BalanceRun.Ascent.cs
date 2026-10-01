@@ -19,7 +19,7 @@ namespace MirrorChronicles.Session
         private const double RiseOdds = 0.5;        // the pilot forges or claims a position from these odds
         private const int MaterialsLevel = 3;       // it builds the Herb Garden and the Mine up to this level
         private const int BuildReserveYears = 5;    // from a treasury that keeps five years of upkeep after the work
-        private const int CondenseReserveYears = 5; // and condenses with resources on the same terms
+        private const int CondenseReserveYears = ReserveYears; // condenses with resources keeping the reserve it keeps for a demand
 
         private static int PurpleMansionXp => PowerLadder.XpForNextStage(CultivationRealm.PurpleMansion);
 
@@ -27,6 +27,7 @@ namespace MirrorChronicles.Session
         {
             BuildTheMaterials(session);
             ExploreTheTomb(session);
+            SeekAVassal(session);
             foreach (var essence in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null
                 && m.GoldenCore == GoldenCoreState.MetallicEssenceOnly).ToList())
                 ClaimAPosition(session, essence);
@@ -56,8 +57,52 @@ namespace MirrorChronicles.Session
             if (team.Count > 0 && session.Paths.TombExpeditionChance(team) >= GoodOdds) session.Paths.ExploreTomb(team.Select(m => m.ID).ToList());
         }
 
+        private const string Lake = "jingshui-lake"; // the Lake's Unity (endings.json)
+        private const string Linxi = "linxi";        // the Twelve Gates' Debt and the Hegemony
+
+        /// <summary>
+        /// One vassal sought a year (2026-10-01: the endings of the Lake, the Twelve Gates and the Hegemony): the families of
+        /// the lake first, then the powers of Linxi, then the rest — any that accepts; a vassal of the lake is absorbed as
+        /// soon as the clan's grip allows.
+        /// </summary>
+        private static void SeekAVassal(GameSession session)
+        {
+            foreach (var vassal in session.Treaties.All.Where(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain).Select(t => t.Faction).ToList())
+                if (session.Factions.GetFactionByName(vassal) is { } power && Within(session, power.RegionId, Lake) && session.Absorption.Refusal(vassal) == null)
+                    session.Absorption.Absorb(vassal);
+            var candidate = session.Factions.Factions
+                .Where(f => session.Treaties.Refusal(f, TreatyKind.Vassalage, clanAsSuzerain: true) == null)
+                .OrderBy(f => Within(session, f.RegionId, Lake) ? 0 : Within(session, f.RegionId, Linxi) ? 1 : 2)
+                .ThenByDescending(f => f.RelationWithPlayer).FirstOrDefault();
+            if (candidate != null) session.Treaties.Propose(candidate.Name, TreatyKind.Vassalage, clanAsSuzerain: true);
+        }
+
+        private static bool Within(GameSession session, string place, string regionId)
+        {
+            for (int hops = 0; place != null && hops < 16; hops++) // a region's parents, up to the state or sea
+            {
+                if (place == regionId) return true;
+                place = session.Context.Content.Regions.FirstOrDefault(r => r.Id == place)?.ParentId;
+            }
+            return false;
+        }
+
+        /// <summary>Whether the treasury pays this and keeps its reserve — and the sect's price while the clan saves for it.</summary>
         private static bool Affords(GameSession session, int stones, int reserveYears) =>
-            session.Resources.SpiritStones - stones >= session.Upkeep.YearlyUpkeep * reserveYears;
+            session.Resources.SpiritStones - stones >= session.Upkeep.YearlyUpkeep * reserveYears
+                + (SavesForTheSect(session) ? session.Context.Content.Balance.Sect.FoundingStones : 0);
+
+        /// <summary>
+        /// The Double House is within reach but for its stones (a Purple Mansion at home, enough cultivators): the clan
+        /// saves for it, and spends on nothing it can forgo (2026-10-01).
+        /// </summary>
+        private static bool SavesForTheSect(GameSession session)
+        {
+            if (session.Sect.Founded) return false;
+            var s = session.Context.Content.Balance.Sect;
+            var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
+            return free.Any(m => m.Realm >= s.MinRealm) && free.Count(m => m.Realm >= CultivationRealm.QiRefinement) >= s.MinCultivators;
+        }
 
         /// <summary>The Herb Garden and the Mine, a level each a year, from a full treasury: herbs and ores for the abilities.</summary>
         private static void BuildTheMaterials(GameSession session)

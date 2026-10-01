@@ -108,6 +108,7 @@ namespace MirrorChronicles.Tests.Diplomacy
             var defector = w.Clan.LivingMembers.Skip(members).Single();
             Assert.IsTrue(defector.CultivationMethodId == Method && defector.FoundationId != null);
             Assert.IsFalse(w.Techniques.Knows(Method), "a defector was his faction's disciple: sworn, he cannot teach it");
+            Assert.IsTrue(w.Knowledge.Knows(MirrorChronicles.World.FactKind.Ability, defector.FoundationId), "but the clan knows the foundation he bears");
             Assert.AreEqual(Holder, defector.SpyFor, "rolled low: a false defector");
         }
 

@@ -147,6 +147,29 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_TakesAFamilyOfTheLake_AsItsVassal_FirstOfAll()
+        {
+            var s = Session();
+            Mansion(s); // a Purple Mansion: the ascendant over the Foundation families
+            foreach (var f in s.Factions.Factions) f.RelationWithPlayer = 60;
+            BalanceRun.Act(s);
+            var vassal = s.Treaties.All.Single(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain);
+            Assert.AreEqual("jingshui-lake", s.Factions.GetFactionByName(vassal.Faction).RegionId);
+        }
+
+        [Test]
+        public void ThePilot_SavesForTheSect_InsteadOfBuilding_OnceOnlyItsStonesAreLacking()
+        {
+            var s = Session();
+            Mansion(s);
+            int needed = s.Context.Content.Balance.Sect.MinCultivators;
+            while (s.Clan.LivingMembers.Count(m => m.Realm >= CultivationRealm.QiRefinement) < needed) s.Clan.AddMember(Fixtures.Cultivator());
+            s.Resources.SetSpiritStones(s.Context.Content.Balance.Sect.FoundingStones - 1); // a garden is affordable, the sect not yet
+            BalanceRun.Act(s);
+            Assert.AreEqual(0, s.Buildings.GetBuilding(BuildingType.HerbGarden).Level, "every stone goes to the peaks");
+        }
+
+        [Test]
         public void ThePilot_BuildsTheHerbGardenAndTheMine_WhenItsTreasuryAllows()
         {
             var s = Session();

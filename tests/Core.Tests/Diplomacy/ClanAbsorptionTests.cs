@@ -71,6 +71,8 @@ namespace MirrorChronicles.Tests.Diplomacy
             var joiners = s.Clan.LivingMembers.Skip(members).ToList();
             Assert.AreEqual(Settings.AbsorbedJoiners, joiners.Count);
             Assert.IsTrue(joiners.All(m => m.LastName == s.Clan.ClanName && m.Realm >= CultivationRealm.QiRefinement));
+            Assert.IsTrue(joiners.Where(m => m.FoundationId != null).All(m => s.Knowledge.Knows(MirrorChronicles.World.FactKind.Ability, m.FoundationId)),
+                "the clan knows the foundations its joiners bear");
             Assert.IsFalse(s.Treaties.All.Any(t => t.Faction == Vassal));
             CollectionAssert.Contains(s.Absorption.Absorbed.Select(a => a.Name), Vassal);
         }

@@ -109,6 +109,7 @@ namespace MirrorChronicles.Diplomacy
             PowerLadder.NormalizeLifespan(joiner);
             joiner.MaxLifespan = System.Math.Max(joiner.MaxLifespan, joiner.Age + 10);
             techniques.NormalizeMember(joiner);
+            if (joiner.FoundationId != null) techniques.Knowledge.Reveal(World.FactKind.Ability, joiner.FoundationId, World.KnowledgeSource.Formed);
             return joiner;
         }
 

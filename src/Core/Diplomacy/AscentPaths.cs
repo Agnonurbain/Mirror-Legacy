@@ -214,6 +214,8 @@ namespace MirrorChronicles.Diplomacy
             PowerLadder.NormalizeLifespan(defector);
             defector.MaxLifespan = System.Math.Max(defector.MaxLifespan, defector.Age + 20);
             defector.FoundationId = techniques.FindQi(method.RequiredQiId)?.Foundation;
+            if (defector.FoundationId != null) // the clan knows the foundation he bears, not the method he swore to keep
+                techniques.Knowledge.Reveal(World.FactKind.Ability, defector.FoundationId, World.KnowledgeSource.Formed);
             clan.AddMember(defector);
             Practise(defector, method); // sworn to his faction: he cannot teach it
             factions.ChangeRelation(power.ID, -Settings.DefectionRelationLoss);
