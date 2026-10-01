@@ -400,6 +400,21 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_SabotagesARival_InTheRaceForItsMastersLineage()
+        {
+            var s = Session();
+            var master = Mansion(s, 0, FiveOrthodoxWater); // a Grand Perfection of the Orthodox Water
+            for (int i = 0; i < 3; i++) s.Clan.AddMember(Fixtures.Cultivator(age: 200, realm: CultivationRealm.PurpleMansion, stage: 3));
+            var lou = s.Factions.GetFactionByName("Famille Lou");
+            var rival = new FactionElder { Id = "rival", Name = "Rival", Realm = CultivationRealm.PurpleMansion, Stage = 5, BornYear = s.Clock.Year - 200,
+                MaxLifespan = 500, RealmSinceYear = s.Clock.Year - 1000, GoldenCoreOdds = 0.5, Perfected = true };
+            lou.Elders.Add(rival);
+            s.WorldFruitions.OpenRace("orthodox-water"); // free from the start
+            BalanceRun.Act(s);
+            Assert.IsTrue(s.Clan.LivingMembers.Any(m => m != master && m.LastOperationYear == s.Clock.Year), "a team went to spoil the rival's preparation");
+        }
+
+        [Test]
         public void ThePilot_BuildsTheHerbGardenAndTheMine_WhenItsTreasuryAllows()
         {
             var s = Session();

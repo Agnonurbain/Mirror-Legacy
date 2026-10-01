@@ -33,6 +33,7 @@ namespace MirrorChronicles.Session
         {
             BuildTheMaterials(session);
             GuardTheHoard(session);
+            SabotageTheRivals(session);
             ExploreTheTomb(session);
             SeekAVassal(session);
             foreach (var essence in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null
@@ -82,6 +83,28 @@ namespace MirrorChronicles.Session
                     && session.Treaties.Refusal(f, TreatyKind.NonAggression) == null)
                 .OrderByDescending(f => Diplomacy.WarRules.Strength(f, wars)).FirstOrDefault();
             if (greedy != null) session.Treaties.Propose(greedy.Name, TreatyKind.NonAggression);
+        }
+
+        /// <summary>
+        /// A race for the lineage a master of the clan aims at (its Grand Perfection, its own lineage): the pilot spoils the
+        /// best-placed rival's preparation, from good odds (the user's choice 2026-10-01: a race with plots).
+        /// </summary>
+        private static void SabotageTheRivals(GameSession session)
+        {
+            var aimed = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm == CultivationRealm.PurpleMansion
+                    && m.DivineAbilities.Count >= GoldenCoreRules.AbilitiesToForge)
+                .Select(m => FoundationRef.Parse(FoundationOf(m)).FruitionId).ToHashSet();
+            if (!session.WorldFruitions.Races.Any(r => aimed.Contains(r.FruitionId))) return;
+            var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, session.Context.Content.Balance.Shards.ExpeditionMaxTeam)
+                .Select(session.Clan.FindById).Where(m => m != null && m.LastOperationYear != session.Clock.Year && m.DiscipleOf == null
+                    && !(m.Realm == CultivationRealm.PurpleMansion && m.DivineAbilities.Count >= GoldenCoreRules.AbilitiesToForge)) // the master stays
+                .Select(m => m.ID).ToList();
+            if (team.Count == 0) return;
+            var rival = session.Factions.Factions
+                .Select(f => (Power: f, Best: f.Elders.Where(e => e.Realm == CultivationRealm.PurpleMansion && e.Perfected).Select(e => e.GoldenCoreOdds).DefaultIfEmpty(-1).Max()))
+                .Where(x => x.Best >= 0).OrderByDescending(x => x.Best).Select(x => x.Power).FirstOrDefault();
+            if (rival != null && session.WorldFruitions.SabotageChance(rival.Name, team) >= GoodOdds)
+                session.WorldFruitions.Sabotage(rival.Name, team);
         }
 
         private const string Lake = "jingshui-lake"; // the Lake's Unity (endings.json)

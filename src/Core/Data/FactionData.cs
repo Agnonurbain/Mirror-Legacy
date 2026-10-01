@@ -80,7 +80,8 @@ namespace MirrorChronicles.Data
         public int RealmSinceYear { get; set; }          // when it reached its realm
         public double GoldenCoreOdds { get; set; }       // at the Purple Mansion: its odds of forging and claiming a position
         public bool Ancient { get; set; }
-        public bool Perfected { get; set; }              // reached the Grand Perfection (five abilities): only then may it try the Golden Core                // there when the world began: an ancient being, whose lore is old
+        public bool Perfected { get; set; }
+        public string FruitionId { get; set; }           // the lineage whose Realization it holds, or null (2026-10-01)              // reached the Grand Perfection (five abilities): only then may it try the Golden Core                // there when the world began: an ancient being, whose lore is old
 
         public int Age(int year) => year - BornYear;
 

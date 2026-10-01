@@ -129,6 +129,19 @@ namespace MirrorChronicles.World
             }
         }
 
+        /// <summary>
+        /// A Grand Perfection dares the Golden Core from a lower bar — a race for a lineage freed (WorldFruitions): its
+        /// odds decide; a failure births a demon. False when it was not ready to try.
+        /// </summary>
+        public bool Dare(FactionData power, FactionElder elder, double bar)
+        {
+            if (elder.Realm != CultivationRealm.PurpleMansion || !elder.Perfected || elder.GoldenCoreOdds < bar) return false;
+            if (ctx.Rng.NextDouble() < elder.GoldenCoreOdds) Advance(power, elder, CultivationRealm.GoldenCore, ctx.Clock.Year);
+            else Die(power, elder, demon: true);
+            ElderSystem.Sync(power);
+            return true;
+        }
+
         /// <summary>A precious Purple Mansion at its peak dares only from good odds, or with nothing left to lose.</summary>
         private void TryTheGoldenCore(FactionData power, FactionElder elder, int year)
         {

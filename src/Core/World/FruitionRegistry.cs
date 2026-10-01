@@ -62,6 +62,13 @@ namespace MirrorChronicles.World
             return true;
         }
 
+        /// <summary>A holder passes: the lineage is free — awaiting its holder reborn, when one comes back (2026-10-01).</summary>
+        public void Vacate(string fruitionId, string returningHolder = null, int? returnYear = null)
+        {
+            if (State(fruitionId)?.Status != FruitionStatus.Occupied) return;
+            states[fruitionId] = new FruitionState(FruitionStatus.Free, null) { ReturningHolder = returningHolder, ReturnYear = returnYear };
+        }
+
         /// <summary>A held lineage passes to another holder (a successor, a usurper: world events).</summary>
         public void ChangeHolder(string fruitionId, string holder)
         {

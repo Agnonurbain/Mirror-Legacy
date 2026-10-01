@@ -63,4 +63,28 @@ namespace MirrorChronicles.Data
         public int RisenPower { get; init; }
         public int RisenWealth { get; init; }
     }
+
+    /// <summary>
+    /// The Fruitions of the world (balance.json « worldFruitions », the living world, step D, user decisions 2026-10-01 —
+    /// interpretations). A world holder passes each year by <see cref="HolderPassChance"/> (death, or the Struggle of the
+    /// Five Faces), save the eternal lineages; one may be reborn and come back after <see cref="ReturnYears"/>. A freed
+    /// lineage opens a race for <see cref="RaceYears"/>: a Grand Perfection dares from <see cref="RaceOdds"/>. The clan may
+    /// sabotage a contender.
+    /// </summary>
+    public sealed record WorldFruitionSettings
+    {
+        public double HolderPassChance { get; init; }
+        public List<string> Eternal { get; init; } = new List<string>();
+        public double ReincarnationChance { get; init; }
+        public int ReturnYears { get; init; } = 20;
+        public int RaceYears { get; init; } = 30;
+        public double RaceOdds { get; init; } = 0.45;
+        public double SabotageBaseChance { get; init; }
+        public double SabotageChancePerPower { get; init; }
+        public double SabotageMinChance { get; init; }
+        public double SabotageMaxChance { get; init; }
+        public double SabotageOddsLoss { get; init; }
+        public int SabotageCaughtEvidence { get; init; }
+        public int SabotageCaughtRelation { get; init; }
+    }
 }

@@ -25,6 +25,9 @@ namespace MirrorChronicles.Presentation
 
         private readonly HashSet<string> fell = new HashSet<string>(); // a fall is told once, not again as an absorption
 
+        private static string FruitionName(GameSession session, string fruitionId) =>
+            session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == fruitionId)?.Name ?? fruitionId;
+
         private static string RegionName(GameSession session, string regionId) =>
             session.Context.Content.Regions.FirstOrDefault(r => r.Id == regionId)?.Name ?? regionId;
 
@@ -71,6 +74,9 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
             bus.OnSectFounded += () => Add("le clan fonde sa secte : les pics en haut, la ville en bas.");
             bus.OnRuinsRevealed += shard => Add($"des ruines anciennes sont découvertes ; le miroir y sent {shard.Name}.");
+            bus.OnFruitionFreed += (id, holder, reborn) => Add($"{holder} ne tient plus la lignée {FruitionName(session, id)}"
+                + (reborn ? " ; réincarné, il pourrait revenir" : "") + " : la course est ouverte.");
+            bus.OnFruitionTaken += (id, holder) => Add($"{holder} prend la Réalisation de la lignée {FruitionName(session, id)}.");
             bus.OnPowerFell += (fallen, heir) => { fell.Add(fallen); Add($"{fallen} se disperse ; {Who(heir)} recueille ses restes."); };
             bus.OnPowerRose += (power, parent) => Add(parent == null ? $"la {power.Name} s'élève parmi les puissances."
                 : $"une branche quitte {parent} et fonde {power.Name}.");

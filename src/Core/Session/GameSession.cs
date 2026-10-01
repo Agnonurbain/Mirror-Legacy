@@ -98,6 +98,7 @@ namespace MirrorChronicles.Session
         public ElderSystem Elders { get; }
         public PowerEconomy PowerEconomy { get; }
         public PowerLifecycle Lifecycle { get; }
+        public WorldFruitions WorldFruitions { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -146,6 +147,7 @@ namespace MirrorChronicles.Session
             Captives = new CaptiveSystem(Context, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
             Lifecycle = new PowerLifecycle(Context, Factions, Politics, Elders);
+            WorldFruitions = new WorldFruitions(Context, Clan, Factions, Fruitions, Elders, Suspicion);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
             Accords = new KnowledgeAccords(Context, Clan, Factions, Techniques, Resources, SecretBook);
@@ -194,6 +196,7 @@ namespace MirrorChronicles.Session
             session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(setup.Seed), session.Factions.Factions);
             session.PowerShards.Place(PowerShards.WorldRandom(setup.Seed)); // three shards lie with three powers (B3c3)
             session.Elders.Populate(ElderSystem.WorldRandom(setup.Seed));    // the powers' elders (the living world, 2026-10-01)
+            session.WorldFruitions.Link();                                   // and the Realizations some of them hold
             session.Deduction.AddFragment(Element.Fire, 1, "Rouleau calciné");
             session.Deduction.AddFragment(Element.Wood, 1, "Lamelle de bambou");
 
@@ -290,6 +293,8 @@ namespace MirrorChronicles.Session
             if (data.SecretsHeld == null) session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(data.Seed), session.Factions.Factions); // before 2.14
             session.PowerShards.Place(PowerShards.WorldRandom(data.Seed)); // saves before 2.21: the powers' shards placed now
             session.Elders.Populate(ElderSystem.WorldRandom(data.Seed));    // saves before 2.24: the powers' elders drawn now
+            session.WorldFruitions.Link();
+            session.WorldFruitions.RestoreRaces(data.FruitionRaces);        // none before 2.25
             session.Probes.RestoreAlertness(data.Alertness);
             session.Suspicion.RestoreClanDistrust(data.ClanDistrust); // none in saves before 2.15
             session.Dealings.RestoreSpent(data.SpentSecrets);
@@ -350,6 +355,7 @@ namespace MirrorChronicles.Session
                 SpiritualQi = new Dictionary<string, int>(Resources.SpiritualQi),
                 QiHarvestProgress = new Dictionary<string, int>(Resources.QiHarvestProgress),
                 FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),
+                FruitionRaces = WorldFruitions.Races.ToList(),
                 GoldenCorePermissions = new Dictionary<string, string>(GoldenCore.Permissions),
                 Prayers = Resources.Prayers,
                 CapturedBeasts = Resources.Beasts.ToList(),
@@ -455,7 +461,8 @@ namespace MirrorChronicles.Session
             ShardSense.ProcessYear();
             Elders.ProcessYear();              // the powers' elders age, die and rise (the living world, 2026-10-01)
             PowerEconomy.ProcessYear();        // their income, upkeep and growth toward what their elders lead (step B)
-            Lifecycle.ProcessYear();           // powers fall, gates and sects are founded, kingdoms rise, families rise (step C)          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
+            Lifecycle.ProcessYear();
+            WorldFruitions.ProcessYear();      // holders pass and are reborn, lineages freed are raced for (step D)           // powers fall, gates and sects are founded, kingdoms rise, families rise (step C)          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

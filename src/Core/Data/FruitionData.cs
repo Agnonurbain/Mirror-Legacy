@@ -126,7 +126,15 @@ namespace MirrorChronicles.Data
     }
 
     /// <summary>A lineage's state in one game.</summary>
-    public sealed record FruitionState(FruitionStatus Status, string Holder);
+    public sealed record FruitionState(FruitionStatus Status, string Holder)
+    {
+        /// <summary>A holder passed but reborn (2026-10-01): free meanwhile, its own again at <see cref="ReturnYear"/> if nobody took it.</summary>
+        public string ReturningHolder { get; init; }
+        public int? ReturnYear { get; init; }
+    }
+
+    /// <summary>A lineage freed: a race to its Realization, open until a year (saved).</summary>
+    public sealed record FruitionRace(string FruitionId, int UntilYear);
 
     /// <summary>A foundation named as « fruition-id:ability-id » (qi.json).</summary>
     public static class FoundationRef

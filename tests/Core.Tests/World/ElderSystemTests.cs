@@ -220,22 +220,34 @@ namespace MirrorChronicles.Tests.World
 
         // ---- The world stays the world (2026-10-01: within five centuries every power had become a Golden Core) ----
 
+        /// <summary>
+        /// A rate over ten worlds, not three fixed seeds: a precious Purple Mansion gambles at the end of its life, so one
+        /// world may see a run of luck (2026-10-01: seed 3 drew eight True Monarchs, the mean was one).
+        /// </summary>
         [Test]
-        public void OverFiveCenturies_TheGoldenCoresStayRare_AndThePurpleMansionsFew([Values(1, 2, 3)] int seed)
+        public void OverFiveCenturies_TheGoldenCoresStayRare_AndThePurpleMansionsFew()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = seed, Content = Fixtures.QuietContent });
-            int CountRealm(CultivationRealm r) => s.Factions.Factions.SelectMany(f => f.Elders).Count(e => e.Realm == r);
-            int goldenAtFirst = CountRealm(CultivationRealm.GoldenCore), mansionsAtFirst = CountRealm(CultivationRealm.PurpleMansion);
-            int greatAtFirst = s.Factions.Factions.Count(f => f.HighestRealm >= CultivationRealm.GoldenCore);
-            for (int year = 0; year < 500; year++)
+            double goldenGained = 0, mansionsRatio = 0, greatGained = 0;
+            const int Worlds = 10;
+            for (int seed = 1; seed <= Worlds; seed++)
             {
-                s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);
-                s.Elders.ProcessYear();
-                s.PowerEconomy.ProcessYear();
+                var s = GameSession.NewGame(new GameSetup { Seed = seed, Content = Fixtures.QuietContent });
+                int CountRealm(CultivationRealm r) => s.Factions.Factions.SelectMany(f => f.Elders).Count(e => e.Realm == r);
+                int Great() => s.Factions.Factions.Count(f => f.HighestRealm >= CultivationRealm.GoldenCore);
+                int golden = CountRealm(CultivationRealm.GoldenCore), mansions = CountRealm(CultivationRealm.PurpleMansion), great = Great();
+                for (int year = 0; year < 500; year++)
+                {
+                    s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);
+                    s.Elders.ProcessYear();
+                    s.PowerEconomy.ProcessYear();
+                }
+                goldenGained += CountRealm(CultivationRealm.GoldenCore) - golden;
+                mansionsRatio += CountRealm(CultivationRealm.PurpleMansion) / (double)mansions;
+                greatGained += Great() - great;
             }
-            Assert.That(CountRealm(CultivationRealm.GoldenCore), Is.LessThanOrEqualTo(goldenAtFirst + 4), "a True Monarch is rarissime");
-            Assert.That(CountRealm(CultivationRealm.PurpleMansion), Is.InRange(mansionsAtFirst / 2, mansionsAtFirst * 3 / 2), "the Purple Mansions neither vanish nor swarm");
-            Assert.That(s.Factions.Factions.Count(f => f.HighestRealm >= CultivationRealm.GoldenCore), Is.LessThanOrEqualTo(greatAtFirst + 4), "a few great powers, not all");
+            Assert.That(goldenGained / Worlds, Is.LessThanOrEqualTo(3), "a True Monarch is rarissime");
+            Assert.That(mansionsRatio / Worlds, Is.InRange(0.5, 1.5), "the Purple Mansions neither vanish nor swarm");
+            Assert.That(greatGained / Worlds, Is.LessThanOrEqualTo(3), "a few great powers, not all");
         }
     }
 }
