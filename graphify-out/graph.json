@@ -4088,7 +4088,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_portraiticon",
-      "community": 302,
+      "community": 348,
       "norm_label": "portraiticon.cs"
     },
     {
@@ -4098,7 +4098,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "scripts_portraiticon_mirrorchronicles_game",
-      "community": 302,
+      "community": 348,
       "norm_label": "mirrorchronicles.game"
     },
     {
@@ -4108,7 +4108,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "scripts_portraiticon_portraiticon",
-      "community": 302,
+      "community": 348,
       "norm_label": "portraiticon"
     },
     {
@@ -4118,7 +4118,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "game_scripts_portraiticon_cs_portrait",
-      "community": 302,
+      "community": 348,
       "norm_label": "portrait"
     },
     {
@@ -4128,7 +4128,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "scripts_portraiticon_portraiticon_draw",
-      "community": 302,
+      "community": 348,
       "norm_label": "._draw()"
     },
     {
@@ -4688,7 +4688,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 328,
+      "community": 183,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -4698,7 +4698,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 328,
+      "community": 183,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -7898,7 +7898,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 183,
+      "community": 347,
       "norm_label": "woundsystem"
     },
     {
@@ -7908,7 +7908,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 183,
+      "community": 347,
       "norm_label": "double"
     },
     {
@@ -7918,7 +7918,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 183,
+      "community": 347,
       "norm_label": "int"
     },
     {
@@ -7928,7 +7928,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 183,
+      "community": 347,
       "norm_label": "gamecontext"
     },
     {
@@ -7938,7 +7938,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 183,
+      "community": 347,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -7948,7 +7948,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 183,
+      "community": 347,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -7958,7 +7958,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 183,
+      "community": 347,
       "norm_label": "characterdata"
     },
     {
@@ -7968,7 +7968,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 183,
+      "community": 347,
       "norm_label": ".applydaowound()"
     },
     {
@@ -7978,7 +7978,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 183,
+      "community": 347,
       "norm_label": ".applywound()"
     },
     {
@@ -10928,7 +10928,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 328,
+      "community": 183,
       "norm_label": "combatunit.cs"
     },
     {
@@ -10938,7 +10938,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 328,
+      "community": 183,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -15128,7 +15128,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 333,
+      "community": 345,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -15138,7 +15138,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 333,
+      "community": 345,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18138,7 +18138,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 345,
+      "community": 328,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -18148,7 +18148,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 345,
+      "community": 328,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -18328,7 +18328,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
-      "community": 344,
+      "community": 33,
       "norm_label": ".assigntask()"
     },
     {
@@ -18338,7 +18338,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 344,
+      "community": 33,
       "norm_label": "characterdata"
     },
     {
@@ -18348,7 +18348,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
-      "community": 344,
+      "community": 33,
       "norm_label": "tasktype"
     },
     {
@@ -18358,7 +18358,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 344,
+      "community": 33,
       "norm_label": ".processyearlytasks()"
     },
     {
@@ -18368,7 +18368,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 344,
+      "community": 33,
       "norm_label": "yearlytaskreport"
     },
     {
@@ -18378,7 +18378,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 347,
+      "community": 33,
       "norm_label": ".gatherqi()"
     },
     {
@@ -18388,7 +18388,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_sentfor",
-      "community": 347,
+      "community": 33,
       "norm_label": ".sentfor()"
     },
     {
@@ -18398,7 +18398,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 347,
+      "community": 33,
       "norm_label": "qidefinition"
     },
     {
@@ -18408,7 +18408,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 347,
+      "community": 33,
       "norm_label": ".harvestable()"
     },
     {
@@ -18418,7 +18418,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 347,
+      "community": 33,
       "norm_label": "techniquedata"
     },
     {
@@ -18428,7 +18428,7 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
-      "community": 348,
+      "community": 33,
       "norm_label": ".miningyield()"
     },
     {
@@ -18438,7 +18438,7 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ienumerable",
-      "community": 348,
+      "community": 33,
       "norm_label": "ienumerable"
     },
     {
@@ -18448,7 +18448,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_veinyield",
-      "community": 348,
+      "community": 33,
       "norm_label": ".veinyield()"
     },
     {
@@ -18458,7 +18458,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_list",
-      "community": 348,
+      "community": 33,
       "norm_label": "list"
     },
     {
@@ -18468,7 +18468,7 @@
       "source_location": "L194",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 344,
+      "community": 33,
       "norm_label": ".mineyield()"
     },
     {
@@ -18478,7 +18478,7 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 344,
+      "community": 33,
       "norm_label": ".study()"
     },
     {
@@ -18488,7 +18488,7 @@
       "source_location": "L231",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 344,
+      "community": 33,
       "norm_label": ".diplomacy()"
     },
     {
@@ -18498,7 +18498,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 344,
+      "community": 33,
       "norm_label": ".teach()"
     },
     {
@@ -18508,7 +18508,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 344,
+      "community": 33,
       "norm_label": "ireadonlylist"
     },
     {
@@ -18518,7 +18518,7 @@
       "source_location": "L258",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
-      "community": 344,
+      "community": 33,
       "norm_label": ".scoutbeasts()"
     },
     {
@@ -25565,7 +25565,7 @@
       "label": ".SeekTheShards()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L132",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_seektheshards",
       "community": 259,
@@ -25575,7 +25575,7 @@
       "label": ".SeekAMethodToTheAscent()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L159",
+      "source_location": "L161",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_seekamethodtotheascent",
       "community": 259,
@@ -25585,7 +25585,7 @@
       "label": ".LeadsToTheAscent()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L179",
+      "source_location": "L182",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_leadstotheascent",
       "community": 259,
@@ -25595,7 +25595,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L179",
+      "source_location": "L182",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_techniquedata",
       "community": 259,
@@ -25605,7 +25605,7 @@
       "label": ".AscentMethod()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L183",
+      "source_location": "L186",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_ascentmethod",
       "community": 259,
@@ -25615,7 +25615,7 @@
       "label": ".GatherTheQiOfTheAscent()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L191",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_gathertheqioftheascent",
       "community": 259,
@@ -25625,7 +25625,7 @@
       "label": ".ProbeAPower()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L209",
+      "source_location": "L212",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_probeapower",
       "community": 259,
@@ -25635,7 +25635,7 @@
       "label": "ConditionalWeakTable<GameSession, string[]>",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L217",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "conditionalweaktable_gamesession_string",
       "community": 259,
@@ -25645,7 +25645,7 @@
       "label": ".Dug()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L220",
+      "source_location": "L223",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_dug",
       "community": 259,
@@ -25655,7 +25655,7 @@
       "label": ".NextProbe()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L231",
+      "source_location": "L234",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_nextprobe",
       "community": 259,
@@ -25665,7 +25665,7 @@
       "label": "ProbePlan",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L231",
+      "source_location": "L234",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_probeplan",
       "community": 259,
@@ -25675,7 +25675,7 @@
       "label": ".MirrorSpares()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L263",
+      "source_location": "L266",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_mirrorspares",
       "community": 259,
@@ -25685,7 +25685,7 @@
       "label": "ConditionalWeakTable<GameSession, HashSet<string>>",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L277",
+      "source_location": "L280",
       "_origin": "ast",
       "id": "conditionalweaktable_gamesession_hashset_string",
       "community": 259,
@@ -25695,7 +25695,7 @@
       "label": ".UnsoundedNewcomers()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L284",
+      "source_location": "L287",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_unsoundednewcomers",
       "community": 259,
@@ -25705,7 +25705,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L284",
+      "source_location": "L287",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_ienumerable",
       "community": 259,
@@ -25715,7 +25715,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L284",
+      "source_location": "L287",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_characterdata",
       "community": 259,
@@ -25725,7 +25725,7 @@
       "label": ".SoundTheNewcomers()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L290",
+      "source_location": "L293",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_soundthenewcomers",
       "community": 259,
@@ -25735,7 +25735,7 @@
       "label": ".AnswerDemands()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L307",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_answerdemands",
       "community": 259,
@@ -25745,7 +25745,7 @@
       "label": ".AnswerChallenge()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L319",
+      "source_location": "L322",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_answerchallenge",
       "community": 259,
@@ -25755,7 +25755,7 @@
       "label": ".PlantASeed()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L342",
+      "source_location": "L345",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_plantaseed",
       "community": 259,
@@ -25765,7 +25765,7 @@
       "label": ".WedTheLine()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L353",
+      "source_location": "L356",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_wedtheline",
       "community": 259,
@@ -25775,7 +25775,7 @@
       "label": ".Hunt()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L378",
+      "source_location": "L381",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_hunt",
       "community": 259,
@@ -25785,7 +25785,7 @@
       "label": ".OfferToTheMirror()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L405",
+      "source_location": "L408",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_offertothemirror",
       "community": 259,
@@ -25795,17 +25795,37 @@
       "label": ".AnswerForTheCaptives()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L424",
+      "source_location": "L427",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_answerforthecaptives",
       "community": 259,
       "norm_label": ".answerforthecaptives()"
     },
     {
+      "label": ".RansomReserveYears()",
+      "file_type": "code",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L448",
+      "_origin": "ast",
+      "id": "session_balancerun_balancerun_ransomreserveyears",
+      "community": 259,
+      "norm_label": ".ransomreserveyears()"
+    },
+    {
+      "label": ".Rescue()",
+      "file_type": "code",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L452",
+      "_origin": "ast",
+      "id": "session_balancerun_balancerun_rescue",
+      "community": 259,
+      "norm_label": ".rescue()"
+    },
+    {
       "label": ".SeekATreaty()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L438",
+      "source_location": "L463",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_seekatreaty",
       "community": 259,
@@ -25815,17 +25835,27 @@
       "label": ".SetTheIdleToWork()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L450",
+      "source_location": "L475",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_settheidletowork",
       "community": 259,
       "norm_label": ".settheidletowork()"
     },
     {
+      "label": ".SendTheScholars()",
+      "file_type": "code",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L509",
+      "_origin": "ast",
+      "id": "session_balancerun_balancerun_sendthescholars",
+      "community": 259,
+      "norm_label": ".sendthescholars()"
+    },
+    {
       "label": ".SendASearcherToTheLake()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L476",
+      "source_location": "L527",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_sendasearchertothelake",
       "community": 259,
@@ -25835,7 +25865,7 @@
       "label": ".FeedTheClan()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L493",
+      "source_location": "L544",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_feedtheclan",
       "community": 259,
@@ -25845,7 +25875,7 @@
       "label": ".Table()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L510",
+      "source_location": "L561",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_table",
       "community": 259,
@@ -25855,7 +25885,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L510",
+      "source_location": "L561",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_ireadonlylist",
       "community": 259,
@@ -47908,7 +47938,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionenginetests",
-      "community": 5,
+      "community": 248,
       "norm_label": "deductionenginetests.cs"
     },
     {
@@ -47918,7 +47948,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_mirrorchronicles_tests_mirror",
-      "community": 5,
+      "community": 248,
       "norm_label": "mirrorchronicles.tests.mirror"
     },
     {
@@ -53062,10 +53092,20 @@
       "norm_label": ".thepilot_hasthemirrordeduceamethodtothepurplemansion()"
     },
     {
-      "label": ".ThePilot_GathersTheQiOfItsBestMethod()",
+      "label": ".ThePilot_DeducesTheAscent_BeforeItPlantsASeed()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L76",
+      "_origin": "ast",
+      "id": "session_balanceruntests_balanceruntests_thepilot_deducestheascent_beforeitplantsaseed",
+      "community": 264,
+      "norm_label": ".thepilot_deducestheascent_beforeitplantsaseed()"
+    },
+    {
+      "label": ".ThePilot_GathersTheQiOfItsBestMethod()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_gatherstheqiofitsbestmethod",
       "community": 264,
@@ -53075,7 +53115,7 @@
       "label": ".ThePilot_ProbesThePowers()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L89",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_probesthepowers",
       "community": 264,
@@ -53085,7 +53125,7 @@
       "label": ".ThePilot_SendsOnlyTheLeastGiftedToTheMine_WhenTheCoffersRunLow()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L100",
+      "source_location": "L110",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_sendsonlytheleastgiftedtothemine_whenthecoffersrunlow",
       "community": 264,
@@ -53095,7 +53135,7 @@
       "label": ".TheAutopilot_GathersTheQi_TheFoundationWallAbsorbs()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L115",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_theautopilot_gatherstheqi_thefoundationwallabsorbs",
       "community": 264,
@@ -53105,7 +53145,7 @@
       "label": ".ThePilot_PaysADemandItCanAfford_AndRefusesOneItCannot()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L131",
+      "source_location": "L141",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_paysademanditcanafford_andrefusesoneitcannot",
       "community": 264,
@@ -53115,7 +53155,7 @@
       "label": ".ThePilot_AnswersAChallenge_AndFightsItOut()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L149",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_answersachallenge_andfightsitout",
       "community": 264,
@@ -53125,7 +53165,7 @@
       "label": ".ThePilot_SuesForPeace_InALongWar()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L162",
+      "source_location": "L172",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_suesforpeace_inalongwar",
       "community": 264,
@@ -53135,7 +53175,7 @@
       "label": ".ThePilot_PlantsATalismanSeed_WhenTheMirrorCan()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L172",
+      "source_location": "L182",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_plantsatalismanseed_whenthemirrorcan",
       "community": 264,
@@ -53145,7 +53185,7 @@
       "label": ".Newcomer()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L185",
+      "source_location": "L195",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_newcomer",
       "community": 264,
@@ -53155,7 +53195,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L185",
+      "source_location": "L195",
       "_origin": "ast",
       "id": "tests_core_tests_session_balanceruntests_cs_characterdata",
       "community": 264,
@@ -53165,7 +53205,7 @@
       "label": ".ThePilot_SoundsTheNewcomerOfTheStrongestPower_First()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L193",
+      "source_location": "L203",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_soundsthenewcomerofthestrongestpower_first",
       "community": 264,
@@ -53175,7 +53215,7 @@
       "label": ".ThePilot_SoundsBeforeItPlantsASeed()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L207",
+      "source_location": "L217",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_soundsbeforeitplantsaseed",
       "community": 264,
@@ -53185,17 +53225,37 @@
       "label": ".ThePilot_SoundsANewcomer_AsSoonAsTheMirrorCanPay_WithoutAReserve()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L219",
+      "source_location": "L229",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_soundsanewcomer_assoonasthemirrorcanpay_withoutareserve",
       "community": 264,
       "norm_label": ".thepilot_soundsanewcomer_assoonasthemirrorcanpay_withoutareserve()"
     },
     {
+      "label": ".ThePilot_SetsItsMostGiftedToStudy_WhileItKnowsNoAscentMethod()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L240",
+      "_origin": "ast",
+      "id": "session_balanceruntests_balanceruntests_thepilot_setsitsmostgiftedtostudy_whileitknowsnoascentmethod",
+      "community": 264,
+      "norm_label": ".thepilot_setsitsmostgiftedtostudy_whileitknowsnoascentmethod()"
+    },
+    {
+      "label": ".ThePilot_CallsItsScholarsBack_OnceTheAscentIsKnown()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L251",
+      "_origin": "ast",
+      "id": "session_balanceruntests_balanceruntests_thepilot_callsitsscholarsback_oncetheascentisknown",
+      "community": 264,
+      "norm_label": ".thepilot_callsitsscholarsback_oncetheascentisknown()"
+    },
+    {
       "label": ".ThePilot_SoundsOnlyThoseComeFromAPower_NeverTheFounders()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L230",
+      "source_location": "L264",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_soundsonlythosecomefromapower_neverthefounders",
       "community": 264,
@@ -53205,7 +53265,7 @@
       "label": "int",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L241",
+      "source_location": "L275",
       "_origin": "ast",
       "id": "tests_core_tests_session_balanceruntests_cs_int",
       "community": 264,
@@ -53215,17 +53275,27 @@
       "label": ".ALongGame_WithTheActivePilot_StaysSane()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L243",
+      "source_location": "L277",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_alonggame_withtheactivepilot_stayssane",
       "community": 264,
       "norm_label": ".alonggame_withtheactivepilot_stayssane()"
     },
     {
+      "label": ".LongGames_WithTheActivePilot_AreSeldomLost()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L293",
+      "_origin": "ast",
+      "id": "session_balanceruntests_balanceruntests_longgames_withtheactivepilot_areseldomlost",
+      "community": 264,
+      "norm_label": ".longgames_withtheactivepilot_areseldomlost()"
+    },
+    {
       "label": ".InTheHuntWindow()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L258",
+      "source_location": "L302",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_inthehuntwindow",
       "community": 264,
@@ -53235,7 +53305,7 @@
       "label": ".ThePilot_Scouts_WhenItKnowsNoBeast()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L265",
+      "source_location": "L309",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_scouts_whenitknowsnobeast",
       "community": 264,
@@ -53245,7 +53315,7 @@
       "label": ".ThePilot_HuntsABeastItCanTake()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L274",
+      "source_location": "L318",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_huntsabeastitcantake",
       "community": 264,
@@ -53255,7 +53325,7 @@
       "label": ".AMemberAwayOnAnOperation_TakesNoOtherTask()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L287",
+      "source_location": "L331",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_amemberawayonanoperation_takesnoothertask",
       "community": 264,
@@ -53265,7 +53335,7 @@
       "label": ".TheChronicle_TellsAHunt()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L297",
+      "source_location": "L341",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thechronicle_tellsahunt",
       "community": 264,
@@ -53275,7 +53345,7 @@
       "label": ".ThePilot_OffersItsBeast_AndTakesATalisman()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L306",
+      "source_location": "L350",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_offersitsbeast_andtakesatalisman",
       "community": 264,
@@ -53285,7 +53355,7 @@
       "label": ".Captive()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L318",
+      "source_location": "L362",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_captive",
       "community": 264,
@@ -53295,7 +53365,7 @@
       "label": "s",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L318",
+      "source_location": "L362",
       "_origin": "ast",
       "id": "s",
       "community": 264,
@@ -53305,7 +53375,7 @@
       "label": "captive",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L318",
+      "source_location": "L362",
       "_origin": "ast",
       "id": "captive",
       "community": 264,
@@ -53315,7 +53385,7 @@
       "label": ".ThePilot_TradesAnAgent_ForItsCaptive()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L327",
+      "source_location": "L371",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_tradesanagent_foritscaptive",
       "community": 264,
@@ -53325,17 +53395,37 @@
       "label": ".ThePilot_BuysBackACaptive_WhenItCan()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L338",
+      "source_location": "L382",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_buysbackacaptive_whenitcan",
       "community": 264,
       "norm_label": ".thepilot_buysbackacaptive_whenitcan()"
     },
     {
+      "label": ".ThePilot_RansomsAFoundation_EvenIntoItsReserve()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L391",
+      "_origin": "ast",
+      "id": "session_balanceruntests_balanceruntests_thepilot_ransomsafoundation_evenintoitsreserve",
+      "community": 264,
+      "norm_label": ".thepilot_ransomsafoundation_evenintoitsreserve()"
+    },
+    {
+      "label": ".ThePilot_SendsARescue_WhenItsTeamOutmatchesTheCaptor()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L404",
+      "_origin": "ast",
+      "id": "session_balanceruntests_balanceruntests_thepilot_sendsarescue_whenitsteamoutmatchesthecaptor",
+      "community": 264,
+      "norm_label": ".thepilot_sendsarescue_whenitsteamoutmatchesthecaptor()"
+    },
+    {
       "label": ".ThePilot_SilencesACaptive_ItCannotBuy()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L347",
+      "source_location": "L419",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_silencesacaptive_itcannotbuy",
       "community": 264,
@@ -53345,7 +53435,7 @@
       "label": ".ThePilot_MakesAnInvestigatorDoubt()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L357",
+      "source_location": "L429",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_thepilot_makesaninvestigatordoubt",
       "community": 264,
@@ -53355,7 +53445,7 @@
       "label": ".MirrorTrail()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L378",
+      "source_location": "L450",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_mirrortrail",
       "community": 264,
@@ -53365,7 +53455,7 @@
       "label": "Explicit",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L378",
+      "source_location": "L450",
       "_origin": "ast",
       "id": "tests_core_tests_session_balanceruntests_cs_explicit",
       "community": 264,
@@ -53375,7 +53465,7 @@
       "label": "Category",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L378",
+      "source_location": "L450",
       "_origin": "ast",
       "id": "category",
       "community": 264,
@@ -53385,7 +53475,7 @@
       "label": ".EndingsTrail()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L411",
+      "source_location": "L483",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_endingstrail",
       "community": 264,
@@ -53395,7 +53485,7 @@
       "label": ".ShardsTrail()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L455",
+      "source_location": "L527",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_shardstrail",
       "community": 264,
@@ -53405,7 +53495,7 @@
       "label": ".Report()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L487",
+      "source_location": "L559",
       "_origin": "ast",
       "id": "session_balanceruntests_balanceruntests_report",
       "community": 264,
@@ -60538,7 +60628,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "brain_claude_plan_syst\u00e8mes_du_jeu_d\u00e9tail",
-      "community": 41,
+      "community": 344,
       "norm_label": "\ud83e\udde9 systemes du jeu (detail)"
     },
     {
@@ -60548,7 +60638,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "brain_claude_plan_1_core_boucle_principale",
-      "community": 41,
+      "community": 344,
       "norm_label": "1. core \u2014 boucle principale"
     },
     {
@@ -60558,7 +60648,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "brain_claude_plan_2_mirror_interface_joueur",
-      "community": 41,
+      "community": 344,
       "norm_label": "2. mirror \u2014 interface joueur"
     },
     {
@@ -60568,7 +60658,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "brain_claude_plan_3_clan_lign\u00e9e",
-      "community": 41,
+      "community": 344,
       "norm_label": "3. clan \u2014 lignee"
     },
     {
@@ -60578,7 +60668,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "brain_claude_plan_4_characters_individus",
-      "community": 41,
+      "community": 344,
       "norm_label": "4. characters \u2014 individus"
     },
     {
@@ -60588,7 +60678,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "brain_claude_plan_5_combat_tactique_tour_par_tour",
-      "community": 41,
+      "community": 344,
       "norm_label": "5. combat \u2014 tactique tour par tour"
     },
     {
@@ -60598,7 +60688,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "brain_claude_plan_6_diplomacy_monde_ext\u00e9rieur",
-      "community": 41,
+      "community": 344,
       "norm_label": "6. diplomacy \u2014 monde exterieur"
     },
     {
@@ -60608,7 +60698,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "brain_claude_plan_7_economy_ressources_t\u00e2ches",
-      "community": 41,
+      "community": 344,
       "norm_label": "7. economy \u2014 ressources & taches"
     },
     {
@@ -60618,7 +60708,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "brain_claude_plan_8_events_al\u00e9atoire_sc\u00e9naris\u00e9",
-      "community": 41,
+      "community": 344,
       "norm_label": "8. events \u2014 aleatoire + scenarise"
     },
     {
@@ -61374,7 +61464,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 345,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -61428,7 +61518,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 328,
+      "community": 183,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -61549,7 +61639,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 333,
+      "community": 345,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -61562,7 +61652,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 345,
+      "community": 328,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -61575,7 +61665,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 345,
+      "community": 328,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -61588,7 +61678,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 345,
+      "community": 328,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -61601,7 +61691,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 332,
+      "community": 345,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -61748,7 +61838,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 345,
+      "community": 328,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -61789,7 +61879,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 333,
+      "community": 345,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -61857,7 +61947,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 333,
+      "community": 345,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -61896,7 +61986,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 332,
+      "community": 345,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -61909,7 +61999,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 345,
+      "community": 328,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -61935,7 +62025,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 332,
+      "community": 345,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -62183,7 +62273,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 333,
+      "community": 345,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -105812,6 +105902,26 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L448",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun",
+      "target": "session_balancerun_balancerun_ransomreserveyears",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L452",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun",
+      "target": "session_balancerun_balancerun_rescue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L153",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -105847,6 +105957,16 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun",
       "target": "session_balancerun_balancerun_sendasearchertothelake"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L509",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun",
+      "target": "session_balancerun_balancerun_sendthescholars",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -106155,6 +106275,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L452",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "session_balancerun_balancerun_rescue",
+      "target": "src_core_session_balancerun_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L153",
       "weight": 1.0,
       "context": "parameter_type",
@@ -106194,6 +106325,17 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_sendasearchertothelake",
       "target": "src_core_session_balancerun_cs_gamesession"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L509",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "session_balancerun_balancerun_sendthescholars",
+      "target": "src_core_session_balancerun_cs_gamesession",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -106282,6 +106424,17 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_act",
       "target": "session_balancerun_balancerun_answerforthecaptives"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_act",
+      "target": "session_balancerun_balancerun_ascentmethod",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -106387,6 +106540,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_seekamethodtotheascent",
+      "target": "session_balancerun_balancerun_answerforthecaptives",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L155",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -106447,6 +106611,17 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_gathertheqioftheascent",
       "target": "session_balancerun_balancerun_ascentmethod"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L512",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_sendthescholars",
+      "target": "session_balancerun_balancerun_ascentmethod",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -106548,6 +106723,50 @@
       "target": "src_core_session_balancerun_cs_ienumerable"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L448",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "session_balancerun_balancerun_ransomreserveyears",
+      "target": "src_core_session_balancerun_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L452",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "session_balancerun_balancerun_rescue",
+      "target": "src_core_session_balancerun_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L436",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_answerforthecaptives",
+      "target": "session_balancerun_balancerun_ransomreserveyears",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L438",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_answerforthecaptives",
+      "target": "session_balancerun_balancerun_rescue",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -106568,6 +106787,17 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_settheidletowork",
       "target": "session_balancerun_balancerun_sendasearchertothelake"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L495",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_settheidletowork",
+      "target": "session_balancerun_balancerun_sendthescholars",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -112423,9 +112653,9 @@
       "source_file": "src/Core/World/PowerEconomy.cs",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomy",
-      "target": "world_powereconomy_mirrorchronicles_world",
-      "confidence_score": 1.0
+      "target": "world_powereconomy_mirrorchronicles_world"
     },
     {
       "relation": "contains",
@@ -112433,9 +112663,9 @@
       "source_file": "src/Core/World/PowerEconomy.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomy",
-      "target": "world_powereconomy_powereconomy",
-      "confidence_score": 1.0
+      "target": "world_powereconomy_powereconomy"
     },
     {
       "relation": "references",
@@ -112444,9 +112674,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy",
-      "target": "src_core_world_powereconomy_cs_factionmanager",
-      "confidence_score": 1.0
+      "target": "src_core_world_powereconomy_cs_factionmanager"
     },
     {
       "relation": "references",
@@ -112455,9 +112685,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy",
-      "target": "src_core_world_powereconomy_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_world_powereconomy_cs_gamecontext"
     },
     {
       "relation": "method",
@@ -112465,9 +112695,9 @@
       "source_file": "src/Core/World/PowerEconomy.cs",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy",
-      "target": "world_powereconomy_powereconomy_capacity",
-      "confidence_score": 1.0
+      "target": "world_powereconomy_powereconomy_capacity"
     },
     {
       "relation": "method",
@@ -112475,9 +112705,9 @@
       "source_file": "src/Core/World/PowerEconomy.cs",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy",
-      "target": "world_powereconomy_powereconomy_processyear",
-      "confidence_score": 1.0
+      "target": "world_powereconomy_powereconomy_processyear"
     },
     {
       "relation": "method",
@@ -112485,9 +112715,9 @@
       "source_file": "src/Core/World/PowerEconomy.cs",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy",
-      "target": "world_powereconomy_powereconomy_weight",
-      "confidence_score": 1.0
+      "target": "world_powereconomy_powereconomy_weight"
     },
     {
       "relation": "calls",
@@ -112496,9 +112726,9 @@
       "source_file": "src/Core/World/PowerEconomy.cs",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy_capacity",
-      "target": "world_powereconomy_powereconomy_weight",
-      "confidence_score": 1.0
+      "target": "world_powereconomy_powereconomy_weight"
     },
     {
       "relation": "calls",
@@ -112507,9 +112737,9 @@
       "source_file": "src/Core/World/PowerEconomy.cs",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy_processyear",
-      "target": "world_powereconomy_powereconomy_weight",
-      "confidence_score": 1.0
+      "target": "world_powereconomy_powereconomy_weight"
     },
     {
       "relation": "references",
@@ -112518,9 +112748,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy_weight",
-      "target": "src_core_world_powereconomy_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_powereconomy_cs_factiondata"
     },
     {
       "relation": "references",
@@ -112529,9 +112759,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy_capacity",
-      "target": "src_core_world_powereconomy_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_powereconomy_cs_factiondata"
     },
     {
       "relation": "calls",
@@ -112540,9 +112770,9 @@
       "source_file": "src/Core/World/PowerEconomy.cs",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy_processyear",
-      "target": "world_powereconomy_powereconomy_capacity",
-      "confidence_score": 1.0
+      "target": "world_powereconomy_powereconomy_capacity"
     },
     {
       "relation": "contains",
@@ -163151,6 +163381,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L293",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests",
+      "target": "session_balanceruntests_balanceruntests_longgames_withtheactivepilot_areseldomlost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L364",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -163251,6 +163491,26 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests",
+      "target": "session_balanceruntests_balanceruntests_thepilot_callsitsscholarsback_oncetheascentisknown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests",
+      "target": "session_balanceruntests_balanceruntests_thepilot_deducestheascent_beforeitplantsaseed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L62",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -163331,6 +163591,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L391",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests",
+      "target": "session_balanceruntests_balanceruntests_thepilot_ransomsafoundation_evenintoitsreserve",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L138",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -163341,11 +163611,31 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L404",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests",
+      "target": "session_balanceruntests_balanceruntests_thepilot_sendsarescue_whenitsteamoutmatchesthecaptor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L39",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests",
       "target": "session_balanceruntests_balanceruntests_thepilot_sendsonlytheleastgiftedtothemine_whenthecoffersrunlow"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L240",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests",
+      "target": "session_balanceruntests_balanceruntests_thepilot_setsitsmostgiftedtostudy_whileitknowsnoascentmethod",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -163476,6 +163766,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L293",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "session_balanceruntests_balanceruntests_longgames_withtheactivepilot_areseldomlost",
+      "target": "tests_core_tests_session_balanceruntests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L364",
       "weight": 1.0,
       "context": "attribute",
@@ -163559,6 +163860,28 @@
       "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_buysbackacaptive_whenitcan",
       "target": "tests_core_tests_session_balanceruntests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L251",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "session_balanceruntests_balanceruntests_thepilot_callsitsscholarsback_oncetheascentisknown",
+      "target": "tests_core_tests_session_balanceruntests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L76",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "session_balanceruntests_balanceruntests_thepilot_deducestheascent_beforeitplantsaseed",
+      "target": "tests_core_tests_session_balanceruntests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -163652,6 +163975,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L391",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "session_balanceruntests_balanceruntests_thepilot_ransomsafoundation_evenintoitsreserve",
+      "target": "tests_core_tests_session_balanceruntests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L138",
       "weight": 1.0,
       "context": "attribute",
@@ -163663,12 +163997,34 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L404",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "session_balanceruntests_balanceruntests_thepilot_sendsarescue_whenitsteamoutmatchesthecaptor",
+      "target": "tests_core_tests_session_balanceruntests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L39",
       "weight": 1.0,
       "context": "attribute",
       "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_sendsonlytheleastgiftedtothemine_whenthecoffersrunlow",
       "target": "tests_core_tests_session_balanceruntests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L240",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "session_balanceruntests_balanceruntests_thepilot_setsitsmostgiftedtostudy_whileitknowsnoascentmethod",
+      "target": "tests_core_tests_session_balanceruntests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -163851,6 +164207,28 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests_thepilot_callsitsscholarsback_oncetheascentisknown",
+      "target": "session_balanceruntests_balanceruntests_knowing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests_thepilot_deducestheascent_beforeitplantsaseed",
+      "target": "session_balanceruntests_balanceruntests_knowing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L79",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -163867,6 +164245,17 @@
       "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_hasthemirrordeduceamethodtothepurplemansion",
       "target": "session_balanceruntests_balanceruntests_knowing"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "session_balanceruntests_balanceruntests_thepilot_deducestheascent_beforeitplantsaseed",
+      "target": "session_balanceruntests_balanceruntests_knowstheascent",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -170836,9 +171225,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend"
     },
     {
       "relation": "method",
@@ -170926,9 +171315,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L223",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_overfivecenturies_thegoldencoresstayrare_andthepurplemansionsfew",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_overfivecenturies_thegoldencoresstayrare_andthepurplemansionsfew"
     },
     {
       "relation": "method",
@@ -171051,9 +171440,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -171293,9 +171682,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "calls",
@@ -171436,9 +171825,9 @@
       "source_location": "L100",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171524,9 +171913,9 @@
       "source_location": "L223",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_overfivecenturies_thegoldencoresstayrare_andthepurplemansionsfew",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171579,9 +171968,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
-      "target": "world_eldersystemtests_eldersystemtests_peakmansion",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_peakmansion"
     },
     {
       "relation": "calls",
@@ -175218,9 +175607,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests",
-      "target": "world_powereconomytests_mirrorchronicles_tests_world",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_mirrorchronicles_tests_world"
     },
     {
       "relation": "contains",
@@ -175228,9 +175617,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests"
     },
     {
       "relation": "method",
@@ -175238,9 +175627,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_amerchant_earnsmore",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_amerchant_earnsmore"
     },
     {
       "relation": "method",
@@ -175248,9 +175637,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound"
     },
     {
       "relation": "method",
@@ -175258,9 +175647,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples"
     },
     {
       "relation": "method",
@@ -175268,9 +175657,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises"
     },
     {
       "relation": "method",
@@ -175278,9 +175667,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies"
     },
     {
       "relation": "method",
@@ -175288,9 +175677,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_apowerindebt_declines",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_apowerindebt_declines"
     },
     {
       "relation": "method",
@@ -175298,9 +175687,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_session",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_session"
     },
     {
       "relation": "method",
@@ -175308,9 +175697,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_thebaseline_survivesasave"
     },
     {
       "relation": "method",
@@ -175318,9 +175707,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest"
     },
     {
       "relation": "method",
@@ -175328,9 +175717,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests",
-      "target": "world_powereconomytests_powereconomytests_years",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_years"
     },
     {
       "relation": "calls",
@@ -175339,9 +175728,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_amerchant_earnsmore",
-      "target": "world_powereconomytests_powereconomytests_session",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_session"
     },
     {
       "relation": "calls",
@@ -175350,9 +175739,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound",
-      "target": "world_powereconomytests_powereconomytests_session",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_session"
     },
     {
       "relation": "calls",
@@ -175361,9 +175750,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples",
-      "target": "world_powereconomytests_powereconomytests_session",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_session"
     },
     {
       "relation": "calls",
@@ -175372,9 +175761,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises",
-      "target": "world_powereconomytests_powereconomytests_session",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_session"
     },
     {
       "relation": "calls",
@@ -175383,9 +175772,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies",
-      "target": "world_powereconomytests_powereconomytests_session",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_session"
     },
     {
       "relation": "calls",
@@ -175394,9 +175783,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apowerindebt_declines",
-      "target": "world_powereconomytests_powereconomytests_session",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_session"
     },
     {
       "relation": "references",
@@ -175405,9 +175794,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_session",
-      "target": "tests_core_tests_world_powereconomytests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -175416,9 +175805,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
-      "target": "world_powereconomytests_powereconomytests_session",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_session"
     },
     {
       "relation": "calls",
@@ -175427,9 +175816,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest",
-      "target": "world_powereconomytests_powereconomytests_session",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_session"
     },
     {
       "relation": "references",
@@ -175438,9 +175827,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_years",
-      "target": "tests_core_tests_world_powereconomytests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -175449,9 +175838,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_amerchant_earnsmore",
-      "target": "world_powereconomytests_powereconomytests_years",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_years"
     },
     {
       "relation": "calls",
@@ -175460,9 +175849,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound",
-      "target": "world_powereconomytests_powereconomytests_years",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_years"
     },
     {
       "relation": "calls",
@@ -175471,9 +175860,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples",
-      "target": "world_powereconomytests_powereconomytests_years",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_years"
     },
     {
       "relation": "calls",
@@ -175482,9 +175871,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises",
-      "target": "world_powereconomytests_powereconomytests_years",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_years"
     },
     {
       "relation": "calls",
@@ -175493,9 +175882,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies",
-      "target": "world_powereconomytests_powereconomytests_years",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_years"
     },
     {
       "relation": "calls",
@@ -175504,9 +175893,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apowerindebt_declines",
-      "target": "world_powereconomytests_powereconomytests_years",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_years"
     },
     {
       "relation": "calls",
@@ -175515,9 +175904,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
-      "target": "world_powereconomytests_powereconomytests_years",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_years"
     },
     {
       "relation": "calls",
@@ -175526,9 +175915,9 @@
       "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest",
-      "target": "world_powereconomytests_powereconomytests_years",
-      "confidence_score": 1.0
+      "target": "world_powereconomytests_powereconomytests_years"
     },
     {
       "relation": "references",
@@ -175537,9 +175926,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples",
-      "target": "tests_core_tests_world_powereconomytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_test"
     },
     {
       "relation": "references",
@@ -175548,9 +175937,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_amerchant_earnsmore",
-      "target": "tests_core_tests_world_powereconomytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_test"
     },
     {
       "relation": "references",
@@ -175559,9 +175948,9 @@
       "source_location": "L80",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound",
-      "target": "tests_core_tests_world_powereconomytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_test"
     },
     {
       "relation": "references",
@@ -175570,9 +175959,9 @@
       "source_location": "L68",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises",
-      "target": "tests_core_tests_world_powereconomytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_test"
     },
     {
       "relation": "references",
@@ -175581,9 +175970,9 @@
       "source_location": "L56",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies",
-      "target": "tests_core_tests_world_powereconomytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_test"
     },
     {
       "relation": "references",
@@ -175592,9 +175981,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_apowerindebt_declines",
-      "target": "tests_core_tests_world_powereconomytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_test"
     },
     {
       "relation": "references",
@@ -175603,9 +175992,9 @@
       "source_location": "L103",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
-      "target": "tests_core_tests_world_powereconomytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_test"
     },
     {
       "relation": "references",
@@ -175614,9 +176003,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest",
-      "target": "tests_core_tests_world_powereconomytests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powereconomytests_cs_test"
     },
     {
       "relation": "contains",
@@ -181137,5 +181526,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "7d676709bd21b3d4d57740a16a75f8cf4ceb8ebb"
+  "built_at_commit": "3b6b144925523d4fe4e2324e05c309aff1f045f5"
 }
