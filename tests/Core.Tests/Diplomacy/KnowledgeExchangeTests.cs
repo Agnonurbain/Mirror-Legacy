@@ -91,8 +91,10 @@ namespace MirrorChronicles.Tests.Diplomacy
         public void Offers_ListTheTechniquesAPowerCouldSell_ThatTheClanLacks()
         {
             var w = World();
-            CollectionAssert.AreEquivalent(new[] { "clear-spring-sutra", Brook }.Where(id => !w.Techniques.Knows(id)),
-                w.Exchange.Offers(Ruan).Select(t => t.ID));
+            var offers = w.Exchange.Offers(Ruan).Select(t => t.ID).ToList();
+            CollectionAssert.IsSubsetOf(new[] { "clear-spring-sutra", Brook }.Where(id => !w.Techniques.Knows(id)), offers);
+            Assert.IsFalse(offers.Any(w.Techniques.Knows), "never what the clan already knows");
+            CollectionAssert.AreEquivalent(w.Factions.GetFactionByName(Ruan).Techniques.Where(id => !w.Techniques.Knows(id)), offers);
         }
 
         // ---- The mirror deciphers a foundation's Dao Partners ----

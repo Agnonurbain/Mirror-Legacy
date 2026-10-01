@@ -9,7 +9,13 @@
     "techniques": [
       "night-frost-canon",
       "measured-rain-method",
-      "dewdrop-pearl-method"
+      "dewdrop-pearl-method",
+      "supreme-yang-zenith-spear-method",
+      "bright-yang-vermilion-sting-method",
+      "bright-yang-besieged-monarch-method",
+      "cold-qi-northern-cold-water-method",
+      "linxi-cultivation-chaotic-usurpation-method",
+      "first-jade-true-dao-unification-method"
     ],
     "personality": "Expansionist",
     "powerLevel": 10000,
@@ -22,7 +28,8 @@
       "PowerLevel",
       "Wealth",
       "RelationWithPlayer",
-      "HighestRealm"
+      "HighestRealm",
+      "Techniques"
     ]
   },
   {
@@ -32,7 +39,14 @@
     "regionId": "singing-sands",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "nourishing-water-winter-retreat-method",
+      "hidden-metal-silver-pillar-method",
+      "gathered-wood-perchless-eagle-method",
+      "dry-qi-eight-exemptions-debate-method",
+      "linxi-cultivation-shape-in-transition-method",
+      "first-jade-green-jade-cliff-method"
+    ],
     "personality": "Aggressive",
     "powerLevel": 6000,
     "wealth": 8000,
@@ -44,7 +58,8 @@
       "PowerLevel",
       "Wealth",
       "RelationWithPlayer",
-      "HighestRealm"
+      "HighestRealm",
+      "Techniques"
     ]
   },
   {
@@ -54,7 +69,14 @@
     "regionId": "pale-moon-lands",
     "path": "Immortal",
     "highestRealm": "GoldenCore",
-    "techniques": [],
+    "techniques": [
+      "nourishing-water-dawn-abyss-method",
+      "orthodox-earth-fools-summit-race-method",
+      "gathered-wood-longevity-through-peril-method",
+      "dry-qi-pavilion-of-graces-method",
+      "celestial-regent-continuous-expansion-method",
+      "first-jade-jade-born-method"
+    ],
     "personality": "Isolationist",
     "powerLevel": 5000,
     "wealth": 6000,
@@ -65,7 +87,8 @@
       "Personality",
       "PowerLevel",
       "Wealth",
-      "RelationWithPlayer"
+      "RelationWithPlayer",
+      "Techniques"
     ]
   },
   {
@@ -99,7 +122,14 @@
     "regionId": "yunmen",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "gathered-water-ultimate-confluence-method",
+      "nourishing-fire-heavenly-blaze-method",
+      "orthodox-wood-sap-law-method",
+      "violet-qi-warm-precious-vase-method",
+      "celestial-regent-endless-derivations-method",
+      "grand-shaman-untraceable-presence-method"
+    ],
     "personality": "Isolationist",
     "powerLevel": 1200,
     "wealth": 1200,
@@ -110,7 +140,8 @@
       "Personality",
       "PowerLevel",
       "Wealth",
-      "RelationWithPlayer"
+      "RelationWithPlayer",
+      "Techniques"
     ]
   },
   {
@@ -164,7 +195,14 @@
     "regionId": "qingyuan",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "veiled-yin-spectral-yin-gale-method",
+      "hidden-water-reborn-spring-method",
+      "green-origin-gold-blooming-gold-heart-method",
+      "violet-qi-eastern-mount-detour-method",
+      "celestial-thunder-falling-thunder-method",
+      "perfect-elixir-supreme-divine-awaiting-method"
+    ],
     "personality": "Merchant",
     "powerLevel": 1000,
     "wealth": 3000,
@@ -175,7 +213,8 @@
       "Personality",
       "PowerLevel",
       "Wealth",
-      "RelationWithPlayer"
+      "RelationWithPlayer",
+      "Techniques"
     ]
   },
   {
@@ -185,7 +224,14 @@
     "regionId": "pingjiang",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "orthodox-water-black-water-serpent-king-method",
+      "hidden-water-embryo-vigil-method",
+      "orthodox-wood-veiled-word-method",
+      "violet-qi-purple-scroll-ordinance-method",
+      "celestial-regent-great-bear-balance-method",
+      "perfect-elixir-golden-book-sequence-method"
+    ],
     "personality": "Manipulative",
     "powerLevel": 1300,
     "wealth": 1600,
@@ -196,7 +242,8 @@
       "Personality",
       "PowerLevel",
       "Wealth",
-      "RelationWithPlayer"
+      "RelationWithPlayer",
+      "Techniques"
     ]
   },
   {
@@ -206,7 +253,14 @@
     "regionId": "luoping",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "lesser-yin-cold-drought-monarch-fire-method",
+      "hidden-water-meeting-of-the-dales-method",
+      "orthodox-wood-north-wind-march-method",
+      "violet-qi-life-nourishing-master-method",
+      "primordial-magnetism-primordial-magnetism-foundation-method",
+      "perfect-elixir-perfect-harmony-method"
+    ],
     "personality": "Merchant",
     "powerLevel": 1100,
     "wealth": 2500,
@@ -217,7 +271,8 @@
       "Personality",
       "PowerLevel",
       "Wealth",
-      "RelationWithPlayer"
+      "RelationWithPlayer",
+      "Techniques"
     ]
   },
   {
@@ -227,7 +282,14 @@
     "regionId": "nanling",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "gathered-water-flood-omen-method",
+      "nourishing-fire-hearth-god-method",
+      "orthodox-wood-unity-refuge-method",
+      "dry-qi-endless-splendour-method",
+      "celestial-regent-divine-law-watch-method",
+      "grand-shaman-earth-shaman-blessing-method"
+    ],
     "personality": "Aggressive",
     "powerLevel": 1400,
     "wealth": 1200,
@@ -238,7 +300,8 @@
       "Personality",
       "PowerLevel",
       "Wealth",
-      "RelationWithPlayer"
+      "RelationWithPlayer",
+      "Techniques"
     ]
   },
   {
@@ -248,7 +311,14 @@
     "regionId": "carnage-gate-lands",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "lesser-yin-engulfed-fragrance-method",
+      "hidden-water-deep-treasure-gate-method",
+      "orthodox-wood-anchored-gaze-method",
+      "violet-qi-earth-star-cultivation-method",
+      "celestial-regent-divine-sequence-method",
+      "perfect-elixir-radiant-lead-moistening-method"
+    ],
     "personality": "Aggressive",
     "powerLevel": 2000,
     "wealth": 1500,
@@ -259,7 +329,8 @@
       "Personality",
       "PowerLevel",
       "Wealth",
-      "RelationWithPlayer"
+      "RelationWithPlayer",
+      "Techniques"
     ]
   },
   {
@@ -293,7 +364,14 @@
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
     "techniques": [
-      "engulfed-blaze-art"
+      "engulfed-blaze-art",
+      "bright-yang-clarity-over-the-world-method",
+      "mutable-water-silhouette-under-the-wave-method",
+      "orthodox-fire-great-li-codex-method",
+      "gathered-wood-delirium-forest-method",
+      "auspicious-qi-fortunate-attainments-scroll-method",
+      "linxi-cultivation-baleful-comet-method",
+      "celadon-proclamation-mountain-chain-method"
     ],
     "personality": "Isolationist",
     "powerLevel": 3000,
@@ -306,7 +384,8 @@
       "PowerLevel",
       "Wealth",
       "RelationWithPlayer",
-      "HighestRealm"
+      "HighestRealm",
+      "Techniques"
     ]
   },
   {
@@ -318,7 +397,14 @@
     "highestRealm": "PurpleMansion",
     "techniques": [
       "clear-spring-sutra",
-      "upstream-brook-method"
+      "upstream-brook-method",
+      "supreme-yin-moon-silk-method",
+      "orthodox-water-ford-watcher-method",
+      "orthodox-water-storm-sky-method",
+      "pure-qi-pure-primordial-wind-method",
+      "exiled-qi-ravine-boat-method",
+      "city-sentinel-southern-sorrowful-waters-method",
+      "sword-dao-nourished-celadon-sky-method"
     ],
     "personality": "Aggressive",
     "powerLevel": 400,
@@ -330,7 +416,8 @@
       "Personality",
       "PowerLevel",
       "Wealth",
-      "RelationWithPlayer"
+      "RelationWithPlayer",
+      "Techniques"
     ]
   },
   {
@@ -367,7 +454,14 @@
     "highestRealm": "PurpleMansion",
     "techniques": [
       "silent-tide-sutra",
-      "first-word-sutra"
+      "first-word-sutra",
+      "supreme-yin-obscure-liturgy-method",
+      "orthodox-water-dike-guard-method",
+      "orthodox-water-peril-refuge-method",
+      "pure-qi-floating-cloud-body-method",
+      "exiled-qi-sunset-chasm-approach-method",
+      "city-sentinel-descending-souls-method",
+      "celadon-proclamation-abyss-watcher-method"
     ],
     "personality": "Expansionist",
     "powerLevel": 2500,
@@ -381,7 +475,8 @@
       "Wealth",
       "RelationWithPlayer",
       "HighestRealm",
-      "RegionId"
+      "RegionId",
+      "Techniques"
     ]
   },
   {
@@ -393,7 +488,14 @@
     "highestRealm": "PurpleMansion",
     "techniques": [
       "bronze-rampart-method",
-      "cedar-murmur-art"
+      "cedar-murmur-art",
+      "supreme-yin-autumn-moon-lake-method",
+      "hidden-water-sincere-dawn-method",
+      "mutable-metal-gold-feathered-beast-method",
+      "true-qi-embraced-stone-slumber-method",
+      "exiled-qi-river-of-oblivion-song-method",
+      "city-sentinel-western-sky-plateau-method",
+      "sword-dao-intent-bearing-body-method"
     ],
     "personality": "Isolationist",
     "powerLevel": 500,
@@ -406,7 +508,8 @@
       "PowerLevel",
       "Wealth",
       "RelationWithPlayer",
-      "RegionId"
+      "RegionId",
+      "Techniques"
     ]
   },
   {
@@ -609,7 +712,13 @@
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
     "techniques": [
-      "inner-sun-manual"
+      "inner-sun-manual",
+      "supreme-yang-solar-canon-guardian-method",
+      "bright-yang-heaven-salute-arch-method",
+      "bright-yang-throne-gaze-method",
+      "violet-qi-dao-origin-omen-method",
+      "exiled-qi-hidden-abyssal-vessel-method",
+      "city-sentinel-northern-desert-court-method"
     ],
     "personality": "Isolationist",
     "powerLevel": 2000,
@@ -623,7 +732,8 @@
       "Wealth",
       "RelationWithPlayer",
       "HighestRealm",
-      "RegionId"
+      "RegionId",
+      "Techniques"
     ]
   },
   {
@@ -633,7 +743,14 @@
     "regionId": "mount-jianfeng",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "mutable-water-evening-downpour-method",
+      "hidden-metal-underground-forge-method",
+      "gathered-wood-bitter-harvest-method",
+      "auspicious-qi-auspicious-clouds-method",
+      "linxi-cultivation-severing-of-bonds-method",
+      "first-jade-white-jade-disk-method"
+    ],
     "personality": "Isolationist",
     "powerLevel": 5000,
     "wealth": 5000,
@@ -646,7 +763,8 @@
       "Wealth",
       "RelationWithPlayer",
       "HighestRealm",
-      "RegionId"
+      "RegionId",
+      "Techniques"
     ]
   },
   {
@@ -723,7 +841,15 @@
     "regionId": "kun",
     "path": "Immortal",
     "highestRealm": "GoldenCore",
-    "techniques": [],
+    "techniques": [
+      "supreme-yin-original-accomplishment-method",
+      "mutable-water-lustral-dew-method",
+      "hidden-metal-treasure-silver-threads-method",
+      "hidden-wood-high-clouds-wood-method",
+      "baleful-qi-grave-gate-thorn-method",
+      "city-sentinel-eastern-plume-method",
+      "celadon-proclamation-sovereign-rock-method"
+    ],
     "personality": "Expansionist",
     "powerLevel": 15000,
     "wealth": 30000,
@@ -736,7 +862,8 @@
       "Wealth",
       "RelationWithPlayer",
       "HighestRealm",
-      "Path"
+      "Path",
+      "Techniques"
     ]
   },
   {
@@ -746,7 +873,14 @@
     "regionId": "tai",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "gathered-water-equal-waves-sage-method",
+      "molten-fire-fiend-flame-method",
+      "orthodox-wood-back-to-noon-method",
+      "dry-qi-relief-vigil-method",
+      "celestial-regent-waking-stars-listening-method",
+      "grand-shaman-emperor-mandate-method"
+    ],
     "personality": "Isolationist",
     "powerLevel": 7000,
     "wealth": 9000,
@@ -759,7 +893,8 @@
       "Wealth",
       "RelationWithPlayer",
       "HighestRealm",
-      "Path"
+      "Path",
+      "Techniques"
     ]
   },
   {
@@ -769,7 +904,14 @@
     "regionId": "hanshan",
     "path": "Immortal",
     "highestRealm": "PurpleMansion",
-    "techniques": [],
+    "techniques": [
+      "gathered-water-corrupted-river-method",
+      "blazing-fire-white-thorn-heart-method",
+      "orthodox-wood-wood-makes-the-square-method",
+      "dry-qi-bitter-stifling-heat-method",
+      "celestial-regent-divine-arrangement-method",
+      "grand-shaman-blood-drinker-method"
+    ],
     "personality": "Aggressive",
     "powerLevel": 6000,
     "wealth": 7000,
@@ -782,7 +924,8 @@
       "Wealth",
       "RelationWithPlayer",
       "HighestRealm",
-      "Path"
+      "Path",
+      "Techniques"
     ]
   },
   {
