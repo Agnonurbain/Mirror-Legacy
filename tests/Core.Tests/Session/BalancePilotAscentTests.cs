@@ -297,6 +297,7 @@ namespace MirrorChronicles.Tests.Session
         public void ThePilot_RaisesTheMineAndTheForge_ToTheFourthLevel()
         {
             var s = Session();
+            Mansion(s);
             s.Resources.SetSpiritStones(1_000_000);
             for (int year = 0; year < 6; year++) BalanceRun.Act(s);
             Assert.AreEqual(4, s.Buildings.GetBuilding(BuildingType.Mine).Level, "more veins worked fully");
@@ -402,6 +403,7 @@ namespace MirrorChronicles.Tests.Session
         public void ThePilot_BuildsTheHerbGardenAndTheMine_WhenItsTreasuryAllows()
         {
             var s = Session();
+            Mansion(s); // the garden's herbs serve a Purple Mansion
             s.Resources.SetSpiritStones(100_000);
             BalanceRun.Act(s);
             Assert.That(s.Buildings.GetBuilding(BuildingType.HerbGarden).Level, Is.GreaterThan(0));

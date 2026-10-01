@@ -22,6 +22,13 @@ namespace MirrorChronicles.World
             return KnowChance(figure.Realm, age, s);
         }
 
+        /// <summary>
+        /// An elder's chance to know the mirror (user decision 2026-10-01): an ancient being, there when the world began, by
+        /// the unknown age of its kind; one risen since, by its centuries at the summit only — a new True Monarch knows nothing.
+        /// </summary>
+        public static double ElderChance(FactionElder elder, int year, MirrorLoreSettings s) =>
+            KnowChance(elder.Realm, elder.Ancient ? s.UnknownAge + year : year - elder.RealmSinceYear, s);
+
         /// <summary>A stable number in [0, 1) for a world and a being: who knows is fixed by the world, never by the moment.</summary>
         public static double Draw(int worldSeed, string id)
         {

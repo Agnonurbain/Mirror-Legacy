@@ -40,6 +40,9 @@ namespace MirrorChronicles.World
                 .OrderByDescending(f => f.Realm).ThenBy(f => f.BornYear ?? int.MaxValue)
                 .FirstOrDefault(f => MirrorLoreRules.Draw(worldSeed, f.Id) < MirrorLoreRules.FigureChance(f, year, Settings));
             if (named != null) return named.Name;
+            if (power.Elders.Count > 0) // its living elders, each by its own centuries (2026-10-01)
+                return power.Elders.Where(e => e.FigureId == null).OrderByDescending(e => e.Realm)
+                    .FirstOrDefault(e => MirrorLoreRules.Draw(worldSeed, e.Id) < MirrorLoreRules.ElderChance(e, year, Settings))?.Name;
             if (figures.Any(f => f.Realm == power.HighestRealm)) return null; // its strongest is named, and does not know
 
             double elder = MirrorLoreRules.KnowChance(power.HighestRealm, Settings.UnknownAge + year, Settings);

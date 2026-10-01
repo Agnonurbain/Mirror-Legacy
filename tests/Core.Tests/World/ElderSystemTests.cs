@@ -169,5 +169,42 @@ namespace MirrorChronicles.Tests.World
             Years(s, 1);
             Assert.IsTrue(chronicle.Entries.Any(e => e.Contains(top.Name)), "a Purple Mansion or above is news");
         }
+
+        // ---- Who knows the mirror: the centuries at the summit (user decision 2026-10-01) ----
+
+        [Test]
+        public void ANewlyRisenTrueMonarch_KnowsNothingOfTheMirror_TheCenturiesAtTheSummitTeach()
+        {
+            var s = Session();
+            var settings = s.Context.Content.Balance.MirrorLore;
+            var risen = new FactionElder { Id = "risen", Realm = CultivationRealm.GoldenCore, BornYear = s.Clock.Year - 450, RealmSinceYear = s.Clock.Year };
+            Assert.AreEqual(settings.KnowChance[CultivationRealm.GoldenCore], MirrorChronicles.World.MirrorLoreRules.ElderChance(risen, s.Clock.Year, settings), 1e-9,
+                "its old age at the Purple Mansion teaches nothing of the mirror");
+            Assert.Greater(MirrorChronicles.World.MirrorLoreRules.ElderChance(risen, s.Clock.Year + 300, settings),
+                MirrorChronicles.World.MirrorLoreRules.ElderChance(risen, s.Clock.Year, settings), "three centuries at the summit do");
+        }
+
+        [Test]
+        public void AnAncientElder_KeepsItsLore()
+        {
+            var s = Session();
+            var settings = s.Context.Content.Balance.MirrorLore;
+            var ancient = new FactionElder { Id = "ancient", Realm = CultivationRealm.GoldenCore, Ancient = true, RealmSinceYear = s.Clock.Year };
+            Assert.AreEqual(MirrorChronicles.World.MirrorLoreRules.KnowChance(CultivationRealm.GoldenCore, settings.UnknownAge + s.Clock.Year, settings),
+                MirrorChronicles.World.MirrorLoreRules.ElderChance(ancient, s.Clock.Year, settings), 1e-9);
+        }
+
+        [Test]
+        public void AFamily_WhoseElderJustRose_DoesNotKnowTheMirror()
+        {
+            var s = Session();
+            var power = s.Factions.GetFactionByName("Famille Kang");
+            power.Elders.Clear();
+            power.Elders.Add(new FactionElder { Id = "kang-risen", Name = "Kang Risen", Realm = CultivationRealm.GoldenCore, Stage = 1,
+                BornYear = s.Clock.Year - 450, MaxLifespan = 1000, RealmSinceYear = s.Clock.Year });
+            power.HighestRealm = CultivationRealm.GoldenCore;
+            Assume.That(MirrorChronicles.World.MirrorLoreRules.Draw(1, "kang-risen"), Is.GreaterThan(s.Context.Content.Balance.MirrorLore.KnowChance[CultivationRealm.GoldenCore]));
+            Assert.IsFalse(s.Lore.Knows(power.Name));
+        }
     }
 }

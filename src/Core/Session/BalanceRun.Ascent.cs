@@ -220,9 +220,10 @@ namespace MirrorChronicles.Session
         /// </summary>
         private static void BuildTheMaterials(GameSession session)
         {
+            bool mansion = session.Clan.LivingMembers.Any(m => m.Realm >= CultivationRealm.PurpleMansion);
             foreach (var (type, level, productive) in new[]
-                { (BuildingType.Mine, YieldLevel, true), (BuildingType.Forge, YieldLevel, true), (BuildingType.HerbGarden, MaterialsLevel, false) })
-            {
+                { (BuildingType.Mine, YieldLevel, true), (BuildingType.Forge, YieldLevel, true), (BuildingType.HerbGarden, mansion ? MaterialsLevel : 0, false) })
+            { // the garden's herbs serve the Purple Mansion's abilities: no garden before one lives
                 var building = session.Buildings.GetBuilding(type);
                 if (building.Level < level && Affords(session, building.UpgradeCost, BuildReserveYears, spareTheSaving: productive))
                     session.Buildings.Upgrade(type);

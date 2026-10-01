@@ -46,6 +46,7 @@ namespace MirrorChronicles.World
                 int cadets = Settings.CadetsByKind.TryGetValue(power.Kind, out int n) ? n : 2;
                 for (int i = 0; i < cadets; i++)
                     power.Elders.Add(Elder(worldRng, null, DrawName(worldRng, power), Below(power.HighestRealm, worldRng), year, null));
+                foreach (var elder in power.Elders) elder.Ancient = true; // there when the world began
                 Sync(power);
             }
         }
