@@ -86,9 +86,12 @@ namespace MirrorChronicles.Tests.Diplomacy
             var w = World("harvest");
             Harvest(w);
             w.Techniques.Learn("clear-spring-sutra");
-            Assert.IsNotNull(w.Sponsorships.Negotiate("sp1", new[] { new AccordTerm(AccordCurrency.Debt, null, 1) }), "a debt alone is too little");
+            var secret = w.SecretBook.Create("hidden-debt", "Famille Tao", null);
+            w.SecretBook.Grant(SecretBook.ClanHolder, secret.Id);
+            StringAssert.Contains("dette", w.Sponsorships.Negotiate("sp1", new[] { new AccordTerm(AccordCurrency.Debt, null, 1) }), "a promise buys no design off");
+            StringAssert.Contains("ne suffit pas", w.Sponsorships.Negotiate("sp1", new[] { new AccordTerm(AccordCurrency.Technique, "clear-spring-sutra", 1) }));
             Assert.IsNull(w.Sponsorships.Negotiate("sp1", new[] { new AccordTerm(AccordCurrency.Technique, "clear-spring-sutra", 1),
-                new AccordTerm(AccordCurrency.Debt, null, 1) }));
+                new AccordTerm(AccordCurrency.Secret, secret.Id, 1) }));
             Assert.IsTrue(!Bound(w) && w.Sponsorships.Awaiting.Count == 0 && w.Factions.GetFactionByName(Patron).Techniques.Contains("clear-spring-sutra"));
         }
 

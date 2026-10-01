@@ -16,6 +16,9 @@ namespace MirrorChronicles.Diplomacy
     public sealed record Sponsorship(string Id, string Power, string TechniqueId, string DesignId, int Year, bool Due)
     {
         public bool Cleansed { get; init; }
+
+        /// <summary>Fallen due, and waiting for the clan's answer (2026-10-01).</summary>
+        public bool Awaiting { get; init; }
     }
 
     /// <summary>
@@ -40,6 +43,9 @@ namespace MirrorChronicles.Diplomacy
 
         public SponsorOffer Pending { get; private set; }
         public IReadOnlyList<Sponsorship> Active => active;
+
+        /// <summary>The designs fallen due that wait for the clan's answer.</summary>
+        public IReadOnlyList<Sponsorship> Awaiting => active.Where(s => s.Awaiting).ToList();
 
         public Sponsorships(GameContext ctx, ClanManager clan, FactionManager factions, TechniqueLibrary techniques, SecretBook secrets,
             KnowledgeAccords accords, MirrorSystem mirror)
@@ -154,10 +160,66 @@ namespace MirrorChronicles.Diplomacy
         private void FallDue(Sponsorship s)
         {
             if (s.Cleansed) return; // the mark is gone: the design has nothing left to hold
-            var due = s with { Due = true };
+            var design = Design(s);
+            bool answered = design.Demand || IsRevealed(s); // asked openly, or seen coming: the clan may answer
+            var due = s with { Due = true, Awaiting = answered };
             active[active.IndexOf(s)] = due;
-            ctx.Log.Warning($"[Patrons] {s.Power}'s design « {s.DesignId} » falls due.");
-            ctx.Events.TriggerPatronDesignDue(due, Design(due));
+            ctx.Log.Warning($"[Patrons] {s.Power}'s design « {s.DesignId} » falls due{(answered ? ": the clan must answer" : "")}.");
+            if (answered) ctx.Events.TriggerPatronDemand(due, design);
+            else ctx.Events.TriggerPatronDesignDue(due, design);
+        }
+
+        // ---- The clan's answer (2026-10-01) ----
+
+        private Sponsorship AwaitingOne(string id) => active.FirstOrDefault(s => s.Id == id && s.Awaiting);
+
+        private void Answered(Sponsorship s) => active[active.IndexOf(s)] = s with { Awaiting = false };
+
+        /// <summary>The clan yields: the design takes effect.</summary>
+        public string Yield(string id)
+        {
+            var s = AwaitingOne(id);
+            if (s == null) return "aucun dessein n'attend de réponse";
+            Answered(s);
+            ctx.Events.TriggerPatronDesignDue(s with { Awaiting = false }, Design(s));
+            return null;
+        }
+
+        /// <summary>The price that buys a design off: a share of the method's worth (🔎 balance.json « patronDesigns.negotiateShare »).</summary>
+        public int NegotiationPrice(string id)
+        {
+            var s = active.FirstOrDefault(x => x.Id == id);
+            var method = s == null ? null : accords.Method(s.TechniqueId);
+            return method == null ? 0 : (int)(accords.PriceOf(method) * ctx.Content.Balance.PatronDesigns.NegotiateShare);
+        }
+
+        /// <summary>The clan buys the design off with what an accord would give. Null when done, else why not (French).</summary>
+        public string Negotiate(string id, IReadOnlyList<AccordTerm> terms)
+        {
+            var s = AwaitingOne(id);
+            if (s == null) return "aucun dessein n'attend de réponse";
+            if ((terms ?? new List<AccordTerm>()).Any(t => t.Currency == AccordCurrency.Debt))
+                return "une dette ne rachète pas un dessein : le parrain veut quelque chose maintenant";
+            foreach (var term in terms ?? new List<AccordTerm>())
+                if (accords.TermRefusal(s.Power, term) is { } why) return why;
+            int worth = (terms ?? new List<AccordTerm>()).Sum(t => accords.WorthOf(s.Power, s.TechniqueId, t));
+            int price = NegotiationPrice(id);
+            if (worth < price) return $"ce que le clan offre ne suffit pas ({worth} sur {price})";
+            accords.GiveTerms(s.Power, s.TechniqueId, terms);
+            Answered(s);
+            ctx.Log.Info($"[Patrons] The clan buys off {s.Power}'s design « {s.DesignId} ».");
+            return null;
+        }
+
+        /// <summary>The clan resists: the design fails, and the patron takes it as it will (<see cref="PatronDesignEffects"/>).</summary>
+        public string Resist(string id)
+        {
+            var s = AwaitingOne(id);
+            if (s == null) return "aucun dessein n'attend de réponse";
+            Answered(s);
+            ctx.Log.Warning($"[Patrons] The clan resists {s.Power}'s design « {s.DesignId} ».");
+            ctx.Events.TriggerPatronDesignResisted(s, Design(s));
+            return null;
         }
 
         public void Restore(SponsorOffer pending, IEnumerable<Sponsorship> saved)

@@ -467,7 +467,10 @@
     "atmosphereStonesShare": 0.3,
     "imperialSuspicion": 10,
     "voidKeyDeathChance": 0.3,
-    "voidKeyTreasure": 3000
+    "voidKeyTreasure": 3000,
+    "negotiateShare": 0.5,
+    "resistRelationLoss": 40,
+    "resistSuspicion": 20
   },
   "sect": {
     "minRealm": "PurpleMansion",

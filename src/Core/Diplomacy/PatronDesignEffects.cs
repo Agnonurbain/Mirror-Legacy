@@ -57,6 +57,7 @@ namespace MirrorChronicles.Diplomacy
             this.accords = accords;
             this.resources = resources;
             ctx.Events.OnPatronDesignDue += Apply;
+            ctx.Events.OnPatronDesignResisted += Resisted;
         }
 
         private PatronDesignSettings Settings => ctx.Content.Balance.PatronDesigns;
@@ -161,6 +162,16 @@ namespace MirrorChronicles.Diplomacy
                     break;
             }
             ctx.Log.Info($"[Patrons] {patron.Name}'s design « {design.Id} » takes effect.");
+        }
+
+        /// <summary>A resisted patron turns hostile; one stronger than the clan makes war on it.</summary>
+        private void Resisted(Sponsorship s, PatronDesign design)
+        {
+            var patron = factions.GetFactionByName(s.Power);
+            if (patron == null) return;
+            factions.ChangeRelation(patron.ID, -Settings.ResistRelationLoss);
+            suspicion.AddToClan(patron.Name, Settings.ResistSuspicion);
+            if (WarRules.Strength(patron, ctx.Content.Balance.Wars) > wars.ClanWarStrength()) wars.WagedOnClan(patron.Name);
         }
 
         private CharacterData MostGiftedChild() =>
