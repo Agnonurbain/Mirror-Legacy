@@ -217,6 +217,7 @@ namespace MirrorChronicles.Tests.Session
             s.Resources.SetSpiritStones(s.Context.Content.Balance.Sect.FoundingStones - 1); // a garden is affordable, the sect not yet
             BalanceRun.Act(s);
             Assert.AreEqual(0, s.Buildings.GetBuilding(BuildingType.HerbGarden).Level, "every stone goes to the peaks");
+            Assert.That(s.Buildings.GetBuilding(BuildingType.Mine).Level, Is.GreaterThan(0), "but the mine feeds the saving");
         }
 
         private static void Stocked(GameSession s, int stones)
@@ -265,6 +266,31 @@ namespace MirrorChronicles.Tests.Session
             Stocked(s, 100_000);
             BalanceRun.Act(s);
             Assert.AreEqual("orthodox-water:storm-sky", mansion.DivineAbilities.Last(), "the first partner that is not of Life");
+        }
+
+        [Test]
+        public void ThePilot_RaisesTheMineAndTheForge_ToTheFourthLevel()
+        {
+            var s = Session();
+            s.Resources.SetSpiritStones(1_000_000);
+            for (int year = 0; year < 6; year++) BalanceRun.Act(s);
+            Assert.AreEqual(4, s.Buildings.GetBuilding(BuildingType.Mine).Level, "more veins worked fully");
+            Assert.AreEqual(4, s.Buildings.GetBuilding(BuildingType.Forge).Level, "a better yield from each");
+            Assert.AreEqual(3, s.Buildings.GetBuilding(BuildingType.HerbGarden).Level);
+        }
+
+        [Test]
+        public void ARichClan_SeeksPeaceWithAStrongerPower_BeforeItCovetsTheHoard()
+        {
+            var s = Session();
+            foreach (var f in s.Factions.Factions) f.RelationWithPlayer = 30;
+            s.Resources.SetSpiritStones(s.Context.Content.Balance.Intrigues.GreedStones); // a hoard that tempts
+            BalanceRun.Act(s);
+            double clan = s.Wars.ClanWarStrength();
+            var settings = s.Context.Content.Balance.Wars;
+            Assert.IsTrue(s.Treaties.All.Any(t => t.Kind == TreatyKind.NonAggression
+                && MirrorChronicles.Diplomacy.WarRules.Strength(s.Factions.GetFactionByName(t.Faction), settings) > clan),
+                "a pact with a power strong enough to covet it");
         }
 
         [Test]

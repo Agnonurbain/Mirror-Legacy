@@ -138,7 +138,7 @@ namespace MirrorChronicles.Tests.Session
             Assert.IsEmpty(s.Intrigues.Demands);
             Assert.IsFalse(s.Wars.ClanWars.Any(w => w.Enemy == "Famille Ruan"), "paid: no war");
 
-            int short_ = 500 + 2 * s.Upkeep.YearlyUpkeep - 1; // paying would leave less than two years of upkeep
+            int short_ = 500 + s.Upkeep.YearlyUpkeep - 1; // paying would leave less than a year of upkeep
             s.Resources.SetSpiritStones(short_);
             s.Intrigues.RestoreDemands(new[] { new Demand("Famille Fang", 500, s.Clock.Year, DemandKind.Protection) }, null);
             BalanceRun.Act(s);

@@ -18,7 +18,8 @@ namespace MirrorChronicles.Session
     public static partial class BalanceRun
     {
         private const double RiseOdds = 0.6;        // the pilot forges or claims a position from these odds (patient, the user's choice 2026-10-01)
-        private const int MaterialsLevel = 3;       // it builds the Herb Garden and the Mine up to this level
+        private const int MaterialsLevel = 3;       // it builds the Herb Garden up to this level,
+        private const int YieldLevel = 4;           // the Mine (more veins) and the Forge (a better yield) up to this one
         private const int BuildReserveYears = 5;    // from a treasury that keeps five years of upkeep after the work
         private const int CondenseReserveYears = ReserveYears; // condenses with resources keeping the reserve it keeps for a demand
 
@@ -27,6 +28,7 @@ namespace MirrorChronicles.Session
         private static void RiseThroughThePurpleMansion(GameSession session)
         {
             BuildTheMaterials(session);
+            GuardTheHoard(session);
             ExploreTheTomb(session);
             SeekAVassal(session);
             foreach (var essence in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null
@@ -56,6 +58,26 @@ namespace MirrorChronicles.Session
             var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, session.Context.Content.Balance.Shards.ExpeditionMaxTeam)
                 .Select(session.Clan.FindById).Where(m => m != null && m.LastOperationYear != session.Clock.Year && m.DiscipleOf == null).ToList();
             if (team.Count > 0 && session.Paths.TombExpeditionChance(team) >= GoodOdds) session.Paths.ExploreTomb(team.Select(m => m.ID).ToList());
+        }
+
+        private const double HoardWarning = 0.8; // the clan guards its hoard as it nears the greedy's notice
+
+        /// <summary>
+        /// A hoard tempts every power stronger than the clan that no treaty binds (IntrigueSystem.Covet): as its treasury nears
+        /// that notice, or while it saves for the sect, the clan seeks a non-aggression pact a year with the strongest of them
+        /// that will sign (2026-10-01: refused extortions became wars, and the sect's stones never gathered).
+        /// </summary>
+        private static void GuardTheHoard(GameSession session)
+        {
+            var intrigues = session.Context.Content.Balance.Intrigues;
+            if (session.Resources.SpiritStones < intrigues.GreedStones * HoardWarning && !SavesForTheSect(session)) return;
+            var wars = session.Context.Content.Balance.Wars;
+            double clan = session.Wars.ClanWarStrength();
+            var greedy = session.Factions.Factions
+                .Where(f => !session.Treaties.Spares(f.Name) && !session.Wars.AtWar(f.Name) && Diplomacy.WarRules.Strength(f, wars) > clan
+                    && session.Treaties.Refusal(f, TreatyKind.NonAggression) == null)
+                .OrderByDescending(f => Diplomacy.WarRules.Strength(f, wars)).FirstOrDefault();
+            if (greedy != null) session.Treaties.Propose(greedy.Name, TreatyKind.NonAggression);
         }
 
         private const string Lake = "jingshui-lake"; // the Lake's Unity (endings.json)
@@ -90,11 +112,11 @@ namespace MirrorChronicles.Session
 
         /// <summary>
         /// Whether the treasury pays this and keeps its reserve — and the sect's price while the clan saves for it, unless
-        /// the spending is on the road to the Golden Core, which no saving forgoes.
+        /// the spending is one no saving forgoes: the road to the Golden Core, or what feeds the treasury.
         /// </summary>
-        private static bool Affords(GameSession session, int stones, int reserveYears, bool towardTheGoldenCore = false) =>
+        private static bool Affords(GameSession session, int stones, int reserveYears, bool spareTheSaving = false) =>
             session.Resources.SpiritStones - stones >= session.Upkeep.YearlyUpkeep * reserveYears
-                + (!towardTheGoldenCore && SavesForTheSect(session) ? session.Context.Content.Balance.Sect.FoundingStones : 0);
+                + (!spareTheSaving && SavesForTheSect(session) ? session.Context.Content.Balance.Sect.FoundingStones : 0);
 
         /// <summary>
         /// The Double House is within reach but for its stones (a Purple Mansion at home, enough cultivators): the clan
@@ -108,13 +130,18 @@ namespace MirrorChronicles.Session
             return free.Any(m => m.Realm >= s.MinRealm) && free.Count(m => m.Realm >= CultivationRealm.QiRefinement) >= s.MinCultivators;
         }
 
-        /// <summary>The Herb Garden and the Mine, a level each a year, from a full treasury: herbs and ores for the abilities.</summary>
+        /// <summary>
+        /// A level a year of each: the Herb Garden for the abilities' herbs, the Mine (ores, more veins) and the Forge (a
+        /// better yield) for the treasury — these two feed the sect's saving rather than forgo it (2026-10-01: the veins
+        /// capped the income at the upkeep).
+        /// </summary>
         private static void BuildTheMaterials(GameSession session)
         {
-            foreach (var type in new[] { BuildingType.HerbGarden, BuildingType.Mine })
+            foreach (var (type, level, productive) in new[]
+                { (BuildingType.Mine, YieldLevel, true), (BuildingType.Forge, YieldLevel, true), (BuildingType.HerbGarden, MaterialsLevel, false) })
             {
                 var building = session.Buildings.GetBuilding(type);
-                if (building.Level < MaterialsLevel && Affords(session, building.UpgradeCost, BuildReserveYears))
+                if (building.Level < level && Affords(session, building.UpgradeCost, BuildReserveYears, spareTheSaving: productive))
                     session.Buildings.Upgrade(type);
             }
         }
@@ -235,7 +262,7 @@ namespace MirrorChronicles.Session
             var wanted = WantedAbilities(session, mansion).ToList();
             if (wanted.Count == 0 || wanted.Any(a => HasAlignedMethod(session, a) || WithinReach(session, a))) return;
             var s = session.Context.Content.Balance.DivineAbilities;
-            if (!Affords(session, s.ResourceStones, CondenseReserveYears, towardTheGoldenCore: true)
+            if (!Affords(session, s.ResourceStones, CondenseReserveYears, spareTheSaving: true)
                 || session.Resources.MedicinalHerbs < s.ResourceHerbs || session.Resources.SpiritualOres < s.ResourceOres) return;
             session.Abilities.CondenseWithResources(mansion, wanted[0]);
         }
@@ -270,7 +297,7 @@ namespace MirrorChronicles.Session
             var state = session.Fruitions.State(target.Id);
             if (route != PositionRoute.Realization && state?.Status == FruitionStatus.Occupied
                 && !session.GoldenCore.Permissions.ContainsKey(target.Id)
-                && Affords(session, content.Balance.GoldenCore.PermissionStones, CondenseReserveYears, towardTheGoldenCore: true))
+                && Affords(session, content.Balance.GoldenCore.PermissionStones, CondenseReserveYears, spareTheSaving: true))
                 session.GoldenCore.RequestPermission(target.Id);
             session.GoldenCore.ClaimPosition(essence);
         }

@@ -25,14 +25,24 @@ namespace MirrorChronicles.Economy
             this.ctx = ctx;
         }
 
-        public void AddSpiritStones(int amount)
+        /// <summary>Diagnostics (balance, 2026-10-01): stones came in (positive) or went out (negative), and from which system.</summary>
+        public event Action<int, string> OnStonesFlow;
+
+        private static string Source(string file, string member) => $"{System.IO.Path.GetFileNameWithoutExtension(file)}.{member}";
+
+        public void AddSpiritStones(int amount,
+            [System.Runtime.CompilerServices.CallerFilePath] string file = "",
+            [System.Runtime.CompilerServices.CallerMemberName] string member = "")
         {
             if (amount <= 0) return;
             SpiritStones += amount;
+            OnStonesFlow?.Invoke(amount, Source(file, member));
             ctx.Events.TriggerSpiritStonesChanged(SpiritStones);
         }
 
-        public bool ConsumeSpiritStones(int amount)
+        public bool ConsumeSpiritStones(int amount,
+            [System.Runtime.CompilerServices.CallerFilePath] string file = "",
+            [System.Runtime.CompilerServices.CallerMemberName] string member = "")
         {
             if (amount <= 0) return true;
             if (SpiritStones < amount)
@@ -42,6 +52,7 @@ namespace MirrorChronicles.Economy
             }
 
             SpiritStones -= amount;
+            OnStonesFlow?.Invoke(-amount, Source(file, member));
             ctx.Events.TriggerSpiritStonesChanged(SpiritStones);
             return true;
         }

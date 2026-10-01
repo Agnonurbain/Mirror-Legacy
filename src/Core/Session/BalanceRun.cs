@@ -83,7 +83,8 @@ namespace MirrorChronicles.Session
                 s.Annals.Entries.FirstOrDefault(e => e.Kind == AnnalKind.EndingReached)?.Year ?? 0);
         }
 
-        private const int ReserveYears = 2;      // the pilot pays a demand only if it keeps two years of upkeep
+        private const int ReserveYears = 2;      // the pilot pays a demand only if it keeps two years of upkeep,
+        private const int ProtectionReserveYears = 1; // one for the price of protection
         private const int PeaceAfterYears = 2;   // it sues for peace after two years of war
         private const int TreatyEveryYears = 5;  // it seeks a treaty every five years
         private const int MostTreaties = 3;      // and keeps a few, not a web of them
@@ -261,7 +262,9 @@ namespace MirrorChronicles.Session
         {
             foreach (var demand in session.Intrigues.Demands.ToList())
             {
-                bool affordable = session.Resources.SpiritStones - demand.Stones >= session.Upkeep.YearlyUpkeep * ReserveYears;
+                // protection costs what a peace would (a share of the hoard), war besides: it is paid down to a year's upkeep (2026-10-01)
+                int reserve = demand.Kind == DemandKind.Protection ? ProtectionReserveYears : ReserveYears;
+                bool affordable = session.Resources.SpiritStones - demand.Stones >= session.Upkeep.YearlyUpkeep * reserve;
                 if (affordable) session.Intrigues.Pay(demand.Faction);
                 else session.Intrigues.Refuse(demand.Faction);
             }
