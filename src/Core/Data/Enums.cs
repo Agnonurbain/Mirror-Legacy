@@ -80,7 +80,8 @@ namespace MirrorChronicles.Data
         SoulReplaced,          // the Fruition took back its body for its former master (LORE.md §5.5.2)
         Executed,              // put to death by the power holding them captive (L6a)
         ExecutedAsSpy,         // a spy unmasked and put to death by the clan (2026-09-27)
-        RipeDaoHarvested       // a ripe Dao harvested by a hunter of a higher realm (LORE.md §5.3.3; 2026-09-29)
+        RipeDaoHarvested,      // a ripe Dao harvested by a hunter of a higher realm (LORE.md §5.3.3; 2026-09-29)
+        ChosenHarvested        // a reborn ancestor, the Chosen of Destiny, harvested while young (R9; 2026-10-01)
     }
 
     /// <summary>

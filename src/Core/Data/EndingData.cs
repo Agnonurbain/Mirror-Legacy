@@ -20,7 +20,8 @@ namespace MirrorChronicles.Data
         MirrorShards,    // Count shards of the mirror restored
         AnyOf,           // one of AnyOf holds
         SectFounded,     // the clan has founded its sect (B3d)
-        Awaits           // a system still to come (the ending's Awaits says which): never holds meanwhile
+        Awaits,          // a system still to come (the ending's Awaits says which): never holds meanwhile
+        AncestorReturned // a living member reborn from a True Monarch of the clan has forged its Golden Core again (R9)
     }
 
     /// <summary>One condition of a dynastic ending; only the fields its kind reads are set.</summary>

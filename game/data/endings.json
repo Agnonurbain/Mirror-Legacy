@@ -85,9 +85,8 @@
   {
     "id": "ancestor-return", "name": "Le Retour de l'Ancêtre",
     "narrative": "Un Vrai Monarque du clan est mort, mais son essence est restée intacte. Il renaît dans un enfant du clan, et en quelques décennies il a retrouvé le Noyau d'Or. Le clan ne perd pas ses ancêtres : il les attend.",
-    "conditions": [ { "kind": "Awaits" } ],
-    "awaits": "la réincarnation d'un Vrai Monarque (R9, L6)",
-    "source": "LORE.md §5.5.2, §5.9 R9", "provenance": "Lore", "interpretedFields": []
+    "conditions": [ { "kind": "AncestorReturned" } ],
+    "source": "LORE.md §5.5.2, §5.9 R9 ; renaissance rapide avec risque de moisson (décision de l'utilisateur, 2026-10-01)", "provenance": "Interpretation", "interpretedFields": [ "Conditions" ]
   },
   {
     "id": "core-legacy", "name": "Le Legs du Noyau",

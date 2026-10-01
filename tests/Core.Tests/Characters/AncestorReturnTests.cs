@@ -138,6 +138,7 @@ namespace MirrorChronicles.Tests.Characters
             child.OrificeKnown = true;
             child.Realm = CultivationRealm.QiRefinement;
             child.CurrentTask = TaskType.Seclusion;
+            Assert.AreEqual(monarch.FullName, child.RebornFrom, "a child of the clan is the Chosen");
             Years(s, 1);
             Assert.IsTrue(child.IsAlive);
         }

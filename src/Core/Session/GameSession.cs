@@ -99,6 +99,7 @@ namespace MirrorChronicles.Session
         public PowerEconomy PowerEconomy { get; }
         public PowerLifecycle Lifecycle { get; }
         public WorldFruitions WorldFruitions { get; }
+        public AncestorReturn Ancestors { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -148,6 +149,7 @@ namespace MirrorChronicles.Session
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
             Lifecycle = new PowerLifecycle(Context, Factions, Politics, Elders);
             WorldFruitions = new WorldFruitions(Context, Clan, Factions, Fruitions, Elders, Suspicion, Mirror);
+            Ancestors = new AncestorReturn(Context, Clan, Fruitions);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
             Accords = new KnowledgeAccords(Context, Clan, Factions, Techniques, Resources, SecretBook);
@@ -295,6 +297,7 @@ namespace MirrorChronicles.Session
             session.Elders.Populate(ElderSystem.WorldRandom(data.Seed));    // saves before 2.24: the powers' elders drawn now
             session.WorldFruitions.Link();
             session.WorldFruitions.RestoreRaces(data.FruitionRaces, data.MovedHolders); // none before 2.25
+            session.Ancestors.Restore(data.PendingAncestors); // none before 2.26
             session.Probes.RestoreAlertness(data.Alertness);
             session.Suspicion.RestoreClanDistrust(data.ClanDistrust); // none in saves before 2.15
             session.Dealings.RestoreSpent(data.SpentSecrets);
@@ -357,6 +360,7 @@ namespace MirrorChronicles.Session
                 FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),
                 FruitionRaces = WorldFruitions.Races.ToList(),
                 MovedHolders = WorldFruitions.Moved.ToList(),
+                PendingAncestors = Ancestors.Pending.ToList(),
                 GoldenCorePermissions = new Dictionary<string, string>(GoldenCore.Permissions),
                 Prayers = Resources.Prayers,
                 CapturedBeasts = Resources.Beasts.ToList(),
@@ -458,12 +462,13 @@ namespace MirrorChronicles.Session
                     DaoHunts.ProcessYear();             // a ripe Dao is prey (LORE.md §5.3.3): learnt, then struck, maybe foiled
                     Sponsorships.ProcessYear();        // a patron may offer an ascent method, with a design (LORE.md §11.10)
                     Rivals.ProcessYear();              // those who hinder an ascent (LORE.md §11.10)
-                    Paths.ProcessYear();
-            ShardSense.ProcessYear();
-            Elders.ProcessYear();              // the powers' elders age, die and rise (the living world, 2026-10-01)
-            PowerEconomy.ProcessYear();        // their income, upkeep and growth toward what their elders lead (step B)
-            Lifecycle.ProcessYear();
-            WorldFruitions.ProcessYear();      // holders pass and are reborn, lineages freed are raced for (step D)           // powers fall, gates and sects are founded, kingdoms rise, families rise (step C)          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
+                    Paths.ProcessYear();               // disciples serve and come home, defectors come (LORE.md §11.10)
+                    ShardSense.ProcessYear();          // the mirror senses a shard near, through its seeds (2026-10-01)
+                    Elders.ProcessYear();              // the powers' elders age, die and rise (the living world, 2026-10-01)
+                    PowerEconomy.ProcessYear();        // their income, upkeep and growth toward what their elders lead (step B)
+                    Lifecycle.ProcessYear();           // powers fall, gates and sects are founded, kingdoms rise, families rise (step C)
+                    WorldFruitions.ProcessYear();      // holders pass and are reborn, lineages freed are raced for (step D)
+                    Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

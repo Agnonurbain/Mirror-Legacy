@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.25";
+        public const string CurrentVersion = "2.26";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -41,6 +41,7 @@ namespace MirrorChronicles.Data
         public List<string> RevealedRuins { get; set; }     // 2.21: the ruins the clan knows to hold a shard
         public List<FruitionRace> FruitionRaces { get; set; }       // 2.25: the races for the lineages freed
         public List<string> MovedHolders { get; set; }               // 2.25: the Surplus and Intercalaries already risen
+        public List<AncestorEssence> PendingAncestors { get; set; }  // 2.26: the clan's True Monarchs awaiting rebirth
         public Dictionary<string, string> ShardDirections { get; set; } // 2.23: the shards the mirror sensed → the region where each lies
         public int MirrorAsleepUntil { get; set; }          // 2.21: the year the spirit wakes from integrating a shard
         public List<FragmentData> Fragments { get; set; }

@@ -76,6 +76,8 @@ namespace MirrorChronicles.Presentation
             bus.OnRuinsRevealed += shard => Add($"des ruines anciennes sont découvertes ; le miroir y sent {shard.Name}.");
             bus.OnFruitionFreed += (id, holder, reborn) => Add($"{holder} ne tient plus la lignée {FruitionName(session, id)}"
                 + (reborn ? " ; réincarné, il pourrait revenir" : "") + " : la course est ouverte.");
+            bus.OnAncestorReborn += (child, ancestor) => Add($"{ancestor} renaît en {child.FullName} : l'essence du Vrai Monarque est intacte.");
+            bus.OnChosenHarvested += chosen => Add($"une puissance moissonne {chosen.FullName}, l'ancêtre renaissant : l'Élu du Destin n'est plus.");
             bus.OnFruitionRevealed += id => Add($"le miroir lève le voile sur la lignée {FruitionName(session, id)}.");
             bus.OnFruitionTaken += (id, holder) => Add($"{holder} prend la Réalisation de la lignée {FruitionName(session, id)}.");
             bus.OnPowerFell += (fallen, heir) => { fell.Add(fallen); Add($"{fallen} se disperse ; {Who(heir)} recueille ses restes."); };

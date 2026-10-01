@@ -108,6 +108,8 @@ namespace MirrorChronicles.Session
                 EndingConditionKind.MirrorShards => mirror.RestoredFragments >= c.Count,
                 EndingConditionKind.AnyOf => AnyHolds(ending, c, ref who),
                 EndingConditionKind.SectFounded => sect.Founded,
+                EndingConditionKind.AncestorReturned => Named(clan.LivingMembers.FirstOrDefault(m =>
+                    m.RebornFrom != null && m.Realm >= CultivationRealm.GoldenCore), out who),
                 _ => false // Awaits: a system still to come
             };
             if (holds && subject == null) subject = who;

@@ -424,5 +424,18 @@ namespace MirrorChronicles.Tests.Session
             Assert.That(s.Buildings.GetBuilding(BuildingType.HerbGarden).Level, Is.GreaterThan(0));
             Assert.That(s.Buildings.GetBuilding(BuildingType.Mine).Level, Is.GreaterThan(0));
         }
+
+        [Test]
+        public void ThePilot_HidesTheRebornAncestor_InSeclusion_UntilItsPurpleMansion()
+        {
+            var s = Session();
+            var chosen = Fixtures.Cultivator(age: 9, realm: CultivationRealm.Foundation);
+            chosen.RebornFrom = "Mo Ancien";
+            chosen.RebornEssence = new AncestorEssence("Mo Ancien", new List<string> { Sea }, null, GoldenCoreState.MetallicEssenceOnly, null, null);
+            s.Clan.AddMember(chosen);
+            BalanceRun.Act(s);
+            BalanceRun.SetTheIdleToWork(s);
+            Assert.AreEqual(TaskType.Seclusion, chosen.CurrentTask, "the Chosen of Destiny hides from the harvesters");
+        }
     }
 }

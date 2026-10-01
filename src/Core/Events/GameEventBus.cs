@@ -70,8 +70,10 @@ namespace MirrorChronicles.Events
         public event Action<ShardDefinition> OnRuinsRevealed;               // ruins found to hold a shard (B3c2)
         public event Action<ShardDefinition> OnShardRecovered;              // a shard of the mirror comes back (§11.5)
         public event Action<string, string, bool> OnFruitionFreed;        // a lineage freed: its id, the holder gone, whether reborn (2026-10-01)
-        public event Action<string, string> OnFruitionTaken;
-        public event Action<string> OnFruitionRevealed;                   // the mirror lays a hidden lineage's truth bare              // a lineage's Realization taken in the world: its id, its new holder
+        public event Action<string, string> OnFruitionTaken;              // a lineage's Realization taken in the world: its id, its new holder
+        public event Action<string> OnFruitionRevealed;                   // the mirror lays a hidden lineage's truth bare
+        public event Action<CharacterData, string> OnAncestorReborn;      // a True Monarch of the clan reborn: the child, the ancestor's name
+        public event Action<CharacterData> OnChosenHarvested;             // a power harvests the reborn while young
         public event Action<string, string> OnPowerFell;                  // a power disperses: its name, its heir's (2026-10-01)
         public event Action<FactionData, string> OnPowerRose;             // a power is born: it, and whence (a parent power, or null)
         public event Action<FactionData> OnKingdomFounded;                // a power founds a kingdom
@@ -128,6 +130,8 @@ namespace MirrorChronicles.Events
         public void TriggerShardRecovered(ShardDefinition shard) => OnShardRecovered?.Invoke(shard);
         public void TriggerFruitionFreed(string fruitionId, string holder, bool reborn) => OnFruitionFreed?.Invoke(fruitionId, holder, reborn);
         public void TriggerFruitionRevealed(string fruitionId) => OnFruitionRevealed?.Invoke(fruitionId);
+        public void TriggerAncestorReborn(CharacterData child, string ancestor) => OnAncestorReborn?.Invoke(child, ancestor);
+        public void TriggerChosenHarvested(CharacterData chosen) => OnChosenHarvested?.Invoke(chosen);
         public void TriggerFruitionTaken(string fruitionId, string holder) => OnFruitionTaken?.Invoke(fruitionId, holder);
         public void TriggerPowerFell(string fallen, string heir) => OnPowerFell?.Invoke(fallen, heir);
         public void TriggerPowerRose(FactionData power, string parent) => OnPowerRose?.Invoke(power, parent);

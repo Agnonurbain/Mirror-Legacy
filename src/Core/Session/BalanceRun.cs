@@ -48,6 +48,8 @@ namespace MirrorChronicles.Session
             bus.OnDaoHuntFoiled += _ => Count("foiled");
             bus.OnHunt += (_, captured) => { Count("hunt"); if (captured) Count("capture-beast"); };
             bus.OnTheft += (_, _) => Count("theft");
+            bus.OnAncestorReborn += (_, _) => Count("reborn");
+            bus.OnChosenHarvested += _ => Count("chosenHarvested");
             bus.OnProbeSpotted += _ => Count("probe");
             bus.OnChallengeSettled += (_, _) => Count("challenge");
             bus.OnCharacterDied += (_, cause) =>
@@ -532,6 +534,19 @@ namespace MirrorChronicles.Session
             SendTheDiplomats(session, huntOpen);
             SendABearerAbroad(session, huntOpen);
             FeedTheClan(session, huntOpen);
+            HideTheChosen(session);
+        }
+
+        /// <summary>
+        /// A reborn ancestor is the Chosen of Destiny (R9, 2026-10-01): until its Purple Mansion the powers may harvest it, so
+        /// the clan hides it in seclusion as soon as it may — it regains its realms there all the same.
+        /// </summary>
+        private static void HideTheChosen(GameSession session)
+        {
+            foreach (var chosen in session.Clan.LivingMembers.Where(m => m.RebornEssence != null && m.CaptorFaction == null
+                && m.Realm < CultivationRealm.PurpleMansion && m.CurrentTask != TaskType.Seclusion
+                && TaskRules.IsAllowed(m, TaskType.Seclusion)).ToList())
+                session.Tasks.AssignTask(chosen, TaskType.Seclusion);
         }
 
         private const int MostScholars = 2;     // the gifted minds sent to study for the mirror's deduction

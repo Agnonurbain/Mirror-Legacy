@@ -55,6 +55,8 @@ namespace MirrorChronicles.Data
         public int? LastOperationYear { get; set; }     // the year of their last hunt or diversion: one operation a year (L2c.5)     // took part in a hunt or bears a talisman: may leak it (L2c.4b)
         public bool TransformedLineage { get; set; }    // a Realization holder's descendant: reaches at least the Purple Mansion (§5.5.2)
         public string ReincarnationOfId { get; set; }   // reincarnated True Monarch (R9)
+        public string RebornFrom { get; set; }          // the clan's True Monarch reborn in this child (R9, 2026-10-01)
+        public AncestorEssence RebornEssence { get; set; } // what it regains as it grows; null once it has it all
         public string FragmentOfId { get; set; }        // fragment of a split Golden Core (R21)
 
         // Stats

@@ -524,6 +524,13 @@
 	"perfectionChance": 0.1,
 	"lastYears": 20
   },
+  "ancestors": {
+    "rebirthChance": 0.3,
+    "harvestChance": 0.03,
+    "foundationYears": 2,
+    "purpleMansionYears": 10,
+    "goldenCoreYears": 10
+  },
   "worldFruitions": {
     "holderPassChance": 0.002,
     "eternal": [ "dawnlight" ],

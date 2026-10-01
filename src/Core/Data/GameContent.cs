@@ -268,6 +268,7 @@ namespace MirrorChronicles.Data
         public PowerEconomySettings PowerEconomy { get; init; } = new PowerEconomySettings();
         public PowerLifecycleSettings PowerLifecycle { get; init; } = new PowerLifecycleSettings();
         public WorldFruitionSettings WorldFruitions { get; init; } = new WorldFruitionSettings();
+        public AncestorSettings Ancestors { get; init; } = new AncestorSettings();
 
         /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
         public TrialSettings Trials { get; init; }
