@@ -4808,7 +4808,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 82,
+      "community": 342,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -4818,7 +4818,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 82,
+      "community": 342,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -7898,7 +7898,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 333,
+      "community": 183,
       "norm_label": "woundsystem"
     },
     {
@@ -7908,7 +7908,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 333,
+      "community": 183,
       "norm_label": "double"
     },
     {
@@ -7918,7 +7918,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 333,
+      "community": 183,
       "norm_label": "int"
     },
     {
@@ -7928,7 +7928,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 333,
+      "community": 183,
       "norm_label": "gamecontext"
     },
     {
@@ -7938,7 +7938,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 333,
+      "community": 183,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -7948,7 +7948,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 333,
+      "community": 183,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -7958,7 +7958,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 333,
+      "community": 183,
       "norm_label": "characterdata"
     },
     {
@@ -7968,7 +7968,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 333,
+      "community": 183,
       "norm_label": ".applydaowound()"
     },
     {
@@ -7978,7 +7978,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 333,
+      "community": 183,
       "norm_label": ".applywound()"
     },
     {
@@ -8098,7 +8098,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 82,
+      "community": 342,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -8108,7 +8108,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 82,
+      "community": 342,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -8118,7 +8118,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 82,
+      "community": 342,
       "norm_label": "clankarmasystem"
     },
     {
@@ -8128,7 +8128,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 82,
+      "community": 342,
       "norm_label": "double"
     },
     {
@@ -8138,7 +8138,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 82,
+      "community": 342,
       "norm_label": "int"
     },
     {
@@ -8148,7 +8148,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 82,
+      "community": 342,
       "norm_label": "gamecontext"
     },
     {
@@ -8158,7 +8158,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 82,
+      "community": 342,
       "norm_label": "clanmanager"
     },
     {
@@ -8168,7 +8168,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 82,
+      "community": 342,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -8178,7 +8178,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 82,
+      "community": 342,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -8188,7 +8188,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 82,
+      "community": 342,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -8198,7 +8198,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 82,
+      "community": 342,
       "norm_label": ".restore()"
     },
     {
@@ -8208,7 +8208,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 82,
+      "community": 342,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -8568,7 +8568,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 293,
+      "community": 333,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -8578,7 +8578,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 293,
+      "community": 333,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11608,7 +11608,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 293,
+      "community": 333,
       "norm_label": "enums.cs"
     },
     {
@@ -11618,7 +11618,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 293,
+      "community": 333,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -11655,7 +11655,7 @@
       "label": ".Clone()",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L48",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "data_factiondata_factiondata_clone",
       "community": 331,
@@ -11665,7 +11665,7 @@
       "label": "FactionElder",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L69",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "data_factiondata_factionelder",
       "community": 331,
@@ -11675,7 +11675,7 @@
       "label": ".Age()",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L82",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_age",
       "community": 331,
@@ -11685,7 +11685,7 @@
       "label": ".Clone()",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L84",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_clone",
       "community": 331,
@@ -11895,7 +11895,7 @@
       "label": "TrialModifiers",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L362",
+      "source_location": "L363",
       "_origin": "ast",
       "id": "data_gamecontent_trialmodifiers",
       "community": 121,
@@ -11905,7 +11905,7 @@
       "label": "TechniqueSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L384",
+      "source_location": "L385",
       "_origin": "ast",
       "id": "data_gamecontent_techniquesettings",
       "community": 121,
@@ -11915,7 +11915,7 @@
       "label": "DivineAbilitySettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L419",
+      "source_location": "L420",
       "_origin": "ast",
       "id": "data_gamecontent_divineabilitysettings",
       "community": 121,
@@ -11925,7 +11925,7 @@
       "label": "GoldenCoreSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L445",
+      "source_location": "L446",
       "_origin": "ast",
       "id": "data_gamecontent_goldencoresettings",
       "community": 121,
@@ -11935,7 +11935,7 @@
       "label": "PurpleMansionSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L509",
+      "source_location": "L510",
       "_origin": "ast",
       "id": "data_gamecontent_purplemansionsettings",
       "community": 121,
@@ -11945,7 +11945,7 @@
       "label": "VoidBand",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L536",
+      "source_location": "L537",
       "_origin": "ast",
       "id": "data_gamecontent_voidband",
       "community": 121,
@@ -11955,7 +11955,7 @@
       "label": "OrificeOdds",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L544",
+      "source_location": "L545",
       "_origin": "ast",
       "id": "data_gamecontent_orificeodds",
       "community": 121,
@@ -12145,7 +12145,7 @@
       "label": ".CheckFactions()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L434",
+      "source_location": "L439",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfactions",
       "community": 18,
@@ -12155,7 +12155,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L434",
+      "source_location": "L439",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_list",
       "community": 18,
@@ -12165,7 +12165,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L434",
+      "source_location": "L439",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_factiondata",
       "community": 18,
@@ -12175,7 +12175,7 @@
       "label": "RegionDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L434",
+      "source_location": "L439",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_regiondefinition",
       "community": 18,
@@ -12185,7 +12185,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L434",
+      "source_location": "L439",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_ireadonlylist",
       "community": 18,
@@ -12195,7 +12195,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L434",
+      "source_location": "L439",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_techniquedata",
       "community": 18,
@@ -12205,7 +12205,7 @@
       "label": ".CheckEvents()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L448",
+      "source_location": "L453",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkevents",
       "community": 18,
@@ -12215,7 +12215,7 @@
       "label": "RandomEventData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L448",
+      "source_location": "L453",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_randomeventdata",
       "community": 18,
@@ -12225,7 +12225,7 @@
       "label": ".CheckStory()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L454",
+      "source_location": "L459",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkstory",
       "community": 18,
@@ -12235,7 +12235,7 @@
       "label": "StoryEventData",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L454",
+      "source_location": "L459",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_storyeventdata",
       "community": 18,
@@ -12245,7 +12245,7 @@
       "label": ".CheckQi()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L466",
+      "source_location": "L471",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkqi",
       "community": 18,
@@ -12255,7 +12255,7 @@
       "label": "QiDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L466",
+      "source_location": "L471",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_qidefinition",
       "community": 18,
@@ -12265,7 +12265,7 @@
       "label": ".CheckTechniques()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L474",
+      "source_location": "L479",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checktechniques",
       "community": 18,
@@ -12275,7 +12275,7 @@
       "label": "TechniqueCatalog",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L474",
+      "source_location": "L479",
       "_origin": "ast",
       "id": "techniquecatalog",
       "community": 18,
@@ -12285,7 +12285,7 @@
       "label": ".CheckClanKnowledge()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L522",
+      "source_location": "L527",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkclanknowledge",
       "community": 18,
@@ -12295,7 +12295,7 @@
       "label": ".CheckFruitions()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L547",
+      "source_location": "L552",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfruitions",
       "community": 18,
@@ -12305,7 +12305,7 @@
       "label": "FruitionCatalog",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L547",
+      "source_location": "L552",
       "_origin": "ast",
       "id": "fruitioncatalog",
       "community": 18,
@@ -12315,7 +12315,7 @@
       "label": ".CheckFoundations()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L571",
+      "source_location": "L576",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfoundations",
       "community": 18,
@@ -12325,7 +12325,7 @@
       "label": "FruitionDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L571",
+      "source_location": "L576",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_fruitiondefinition",
       "community": 18,
@@ -12335,7 +12335,7 @@
       "label": ".CheckFigures()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L588",
+      "source_location": "L593",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkfigures",
       "community": 18,
@@ -12345,7 +12345,7 @@
       "label": "FigureDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L588",
+      "source_location": "L593",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_figuredefinition",
       "community": 18,
@@ -12355,7 +12355,7 @@
       "label": ".CheckTalismans()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L603",
+      "source_location": "L608",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checktalismans",
       "community": 18,
@@ -12365,7 +12365,7 @@
       "label": "TalismanDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L603",
+      "source_location": "L608",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_talismandefinition",
       "community": 18,
@@ -12375,7 +12375,7 @@
       "label": ".CheckRegions()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L614",
+      "source_location": "L619",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkregions",
       "community": 18,
@@ -12385,7 +12385,7 @@
       "label": ".CheckAtmospheres()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L637",
+      "source_location": "L642",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkatmospheres",
       "community": 18,
@@ -12395,7 +12395,7 @@
       "label": "AtmosphereDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L637",
+      "source_location": "L642",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_atmospheredefinition",
       "community": 18,
@@ -12405,7 +12405,7 @@
       "label": ".CheckRegionalQi()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L648",
+      "source_location": "L653",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkregionalqi",
       "community": 18,
@@ -12415,7 +12415,7 @@
       "label": ".CheckOaths()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L661",
+      "source_location": "L666",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkoaths",
       "community": 18,
@@ -12425,7 +12425,7 @@
       "label": "OathCatalog",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L661",
+      "source_location": "L666",
       "_origin": "ast",
       "id": "oathcatalog",
       "community": 18,
@@ -12435,7 +12435,7 @@
       "label": ".CheckInterpretedFields()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L675",
+      "source_location": "L680",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkinterpretedfields",
       "community": 18,
@@ -12445,7 +12445,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L675",
+      "source_location": "L680",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_ienumerable",
       "community": 18,
@@ -12455,7 +12455,7 @@
       "label": "Id",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L675",
+      "source_location": "L680",
       "_origin": "ast",
       "id": "id",
       "community": 18,
@@ -12465,7 +12465,7 @@
       "label": "Type",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L675",
+      "source_location": "L680",
       "_origin": "ast",
       "id": "type",
       "community": 18,
@@ -12475,7 +12475,7 @@
       "label": "Fields",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L675",
+      "source_location": "L680",
       "_origin": "ast",
       "id": "fields",
       "community": 18,
@@ -12485,7 +12485,7 @@
       "label": ".CheckEndings()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L690",
+      "source_location": "L695",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkendings",
       "community": 18,
@@ -12495,7 +12495,7 @@
       "label": "EndingDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L690",
+      "source_location": "L695",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_endingdefinition",
       "community": 18,
@@ -12505,7 +12505,7 @@
       "label": ".CheckEndingCondition()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L707",
+      "source_location": "L712",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkendingcondition",
       "community": 18,
@@ -12515,7 +12515,7 @@
       "label": "EndingCondition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L707",
+      "source_location": "L712",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_endingcondition",
       "community": 18,
@@ -12525,7 +12525,7 @@
       "label": ".CheckShards()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L727",
+      "source_location": "L732",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_checkshards",
       "community": 18,
@@ -12535,7 +12535,7 @@
       "label": "ShardDefinition",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L727",
+      "source_location": "L732",
       "_origin": "ast",
       "id": "src_core_data_gamecontentloader_cs_sharddefinition",
       "community": 18,
@@ -12545,7 +12545,7 @@
       "label": ".IsProbability()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L742",
+      "source_location": "L747",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_isprobability",
       "community": 18,
@@ -12555,7 +12555,7 @@
       "label": ".Require()",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContentLoader.cs",
-      "source_location": "L744",
+      "source_location": "L749",
       "_origin": "ast",
       "id": "data_gamecontentloader_gamecontentloader_require",
       "community": 18,
@@ -14158,7 +14158,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 193,
+      "community": 345,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -14168,7 +14168,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 193,
+      "community": 345,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -14298,7 +14298,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 331,
+      "community": 333,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -14308,7 +14308,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 331,
+      "community": 333,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -14435,7 +14435,7 @@
       "label": ".IsNeighbour()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L96",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_factionmanager_isneighbour",
       "community": 40,
@@ -14445,7 +14445,7 @@
       "label": ".AreNeighbours()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L105",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_factionmanager_areneighbours",
       "community": 40,
@@ -14455,7 +14455,7 @@
       "label": "Dictionary",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L113",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "src_core_diplomacy_factionmanager_cs_dictionary",
       "community": 40,
@@ -14465,7 +14465,7 @@
       "label": ".RemoveFaction()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L116",
+      "source_location": "L115",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_factionmanager_removefaction",
       "community": 40,
@@ -14475,7 +14475,7 @@
       "label": ".Drift()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L119",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_factionmanager_drift",
       "community": 40,
@@ -14485,7 +14485,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L127",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_factionmanager_restore",
       "community": 40,
@@ -14495,7 +14495,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/FactionManager.cs",
-      "source_location": "L127",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "src_core_diplomacy_factionmanager_cs_ienumerable",
       "community": 40,
@@ -15128,7 +15128,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 293,
+      "community": 333,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -15138,7 +15138,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 293,
+      "community": 333,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -15148,7 +15148,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem",
-      "community": 40,
+      "community": 341,
       "norm_label": "marriagesystem"
     },
     {
@@ -15158,7 +15158,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_int",
-      "community": 40,
+      "community": 341,
       "norm_label": "int"
     },
     {
@@ -15168,7 +15168,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_gamecontext",
-      "community": 40,
+      "community": 341,
       "norm_label": "gamecontext"
     },
     {
@@ -15178,7 +15178,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_clanmanager",
-      "community": 40,
+      "community": 341,
       "norm_label": "clanmanager"
     },
     {
@@ -15188,7 +15188,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_factionmanager",
-      "community": 40,
+      "community": 341,
       "norm_label": "factionmanager"
     },
     {
@@ -15198,7 +15198,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_mentalstabilitysystem",
-      "community": 40,
+      "community": 341,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -15208,7 +15208,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_resourcemanager",
-      "community": 40,
+      "community": 341,
       "norm_label": "resourcemanager"
     },
     {
@@ -15218,7 +15218,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_marriagerefusal",
-      "community": 40,
+      "community": 341,
       "norm_label": ".marriagerefusal()"
     },
     {
@@ -15228,7 +15228,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "src_core_diplomacy_marriagesystem_cs_characterdata",
-      "community": 40,
+      "community": 341,
       "norm_label": "characterdata"
     },
     {
@@ -15238,7 +15238,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_arrange",
-      "community": 40,
+      "community": 341,
       "norm_label": ".arrange()"
     },
     {
@@ -15248,7 +15248,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_seekrefusal",
-      "community": 40,
+      "community": 341,
       "norm_label": ".seekrefusal()"
     },
     {
@@ -15258,7 +15258,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_seekcultivatorspouse",
-      "community": 40,
+      "community": 341,
       "norm_label": ".seekcultivatorspouse()"
     },
     {
@@ -15268,7 +15268,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_processannualmarriages",
-      "community": 40,
+      "community": 341,
       "norm_label": ".processannualmarriages()"
     },
     {
@@ -15278,7 +15278,7 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_canmarry",
-      "community": 40,
+      "community": 341,
       "norm_label": ".canmarry()"
     },
     {
@@ -15288,7 +15288,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_handlelovemarriage",
-      "community": 40,
+      "community": 341,
       "norm_label": ".handlelovemarriage()"
     },
     {
@@ -15298,7 +15298,7 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_handlearrangedmarriage",
-      "community": 40,
+      "community": 341,
       "norm_label": ".handlearrangedmarriage()"
     },
     {
@@ -15308,7 +15308,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_marriagesystem_wed",
-      "community": 40,
+      "community": 341,
       "norm_label": ".wed()"
     },
     {
@@ -18138,7 +18138,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 193,
+      "community": 345,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -18148,7 +18148,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 193,
+      "community": 345,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -18328,7 +18328,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
-      "community": 33,
+      "community": 344,
       "norm_label": ".assigntask()"
     },
     {
@@ -18338,7 +18338,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 33,
+      "community": 344,
       "norm_label": "characterdata"
     },
     {
@@ -18348,7 +18348,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
-      "community": 33,
+      "community": 344,
       "norm_label": "tasktype"
     },
     {
@@ -18358,7 +18358,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 33,
+      "community": 344,
       "norm_label": ".processyearlytasks()"
     },
     {
@@ -18368,7 +18368,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 33,
+      "community": 344,
       "norm_label": "yearlytaskreport"
     },
     {
@@ -18378,7 +18378,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 33,
+      "community": 347,
       "norm_label": ".gatherqi()"
     },
     {
@@ -18388,7 +18388,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_sentfor",
-      "community": 33,
+      "community": 347,
       "norm_label": ".sentfor()"
     },
     {
@@ -18398,7 +18398,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 33,
+      "community": 347,
       "norm_label": "qidefinition"
     },
     {
@@ -18408,7 +18408,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 33,
+      "community": 347,
       "norm_label": ".harvestable()"
     },
     {
@@ -18418,7 +18418,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 33,
+      "community": 347,
       "norm_label": "techniquedata"
     },
     {
@@ -18428,7 +18428,7 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
-      "community": 33,
+      "community": 348,
       "norm_label": ".miningyield()"
     },
     {
@@ -18438,7 +18438,7 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ienumerable",
-      "community": 33,
+      "community": 348,
       "norm_label": "ienumerable"
     },
     {
@@ -18448,7 +18448,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_veinyield",
-      "community": 33,
+      "community": 348,
       "norm_label": ".veinyield()"
     },
     {
@@ -18458,7 +18458,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_list",
-      "community": 33,
+      "community": 348,
       "norm_label": "list"
     },
     {
@@ -18468,7 +18468,7 @@
       "source_location": "L194",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 33,
+      "community": 344,
       "norm_label": ".mineyield()"
     },
     {
@@ -18478,7 +18478,7 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 33,
+      "community": 344,
       "norm_label": ".study()"
     },
     {
@@ -18488,7 +18488,7 @@
       "source_location": "L231",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 33,
+      "community": 344,
       "norm_label": ".diplomacy()"
     },
     {
@@ -18498,7 +18498,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 33,
+      "community": 344,
       "norm_label": ".teach()"
     },
     {
@@ -18508,7 +18508,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 33,
+      "community": 344,
       "norm_label": "ireadonlylist"
     },
     {
@@ -18518,7 +18518,7 @@
       "source_location": "L258",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
-      "community": 33,
+      "community": 344,
       "norm_label": ".scoutbeasts()"
     },
     {
@@ -19708,7 +19708,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionengine",
-      "community": 328,
+      "community": 333,
       "norm_label": "deductionengine.cs"
     },
     {
@@ -19718,7 +19718,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_deductionengine_mirrorchronicles_mirror",
-      "community": 328,
+      "community": 333,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -20388,7 +20388,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_mirrorsystem",
-      "community": 328,
+      "community": 333,
       "norm_label": "mirrorsystem.cs"
     },
     {
@@ -20398,7 +20398,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorchronicles_mirror",
-      "community": 328,
+      "community": 333,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -26555,7 +26555,7 @@
       "label": ".NewGame()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L175",
+      "source_location": "L177",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_newgame",
       "community": 251,
@@ -26565,7 +26565,7 @@
       "label": "GameSetup",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L175",
+      "source_location": "L177",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamesetup",
       "community": 251,
@@ -26575,7 +26575,7 @@
       "label": ".TryLoad()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L208",
+      "source_location": "L210",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tryload",
       "community": 251,
@@ -26585,7 +26585,7 @@
       "label": ".FromSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L225",
+      "source_location": "L227",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_fromsavedata",
       "community": 251,
@@ -26595,7 +26595,7 @@
       "label": "GameData",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L225",
+      "source_location": "L227",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
       "community": 251,
@@ -26605,7 +26605,7 @@
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L320",
+      "source_location": "L322",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 251,
@@ -26615,7 +26615,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L403",
+      "source_location": "L405",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -26625,7 +26625,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L403",
+      "source_location": "L405",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 251,
@@ -26635,7 +26635,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L407",
+      "source_location": "L409",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -26645,7 +26645,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L418",
+      "source_location": "L420",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -26655,7 +26655,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L425",
+      "source_location": "L427",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -26665,7 +26665,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L425",
+      "source_location": "L427",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -26675,7 +26675,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L468",
+      "source_location": "L471",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -28215,7 +28215,7 @@
       "label": ".DrawOdds()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L78",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_drawodds",
       "community": 338,
@@ -28225,7 +28225,7 @@
       "label": ".MinYears()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L81",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_minyears",
       "community": 338,
@@ -28235,7 +28235,7 @@
       "label": ".DrawName()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L84",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_drawname",
       "community": 338,
@@ -28245,7 +28245,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L84",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "src_core_world_eldersystem_cs_factiondata",
       "community": 338,
@@ -28255,7 +28255,7 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L92",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_processyear",
       "community": 338,
@@ -28265,7 +28265,7 @@
       "label": ".Rise()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L108",
+      "source_location": "L111",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_rise",
       "community": 338,
@@ -28275,7 +28275,7 @@
       "label": ".TryTheGoldenCore()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L118",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_trythegoldencore",
       "community": 338,
@@ -28285,7 +28285,7 @@
       "label": ".Advance()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L128",
+      "source_location": "L135",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_advance",
       "community": 338,
@@ -28295,7 +28295,7 @@
       "label": ".Die()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L138",
+      "source_location": "L145",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_die",
       "community": 338,
@@ -28305,7 +28305,7 @@
       "label": ".RaiseACadet()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L146",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_raiseacadet",
       "community": 338,
@@ -28315,7 +28315,7 @@
       "label": ".Sync()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L156",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_sync",
       "community": 338,
@@ -29660,6 +29660,96 @@
       "id": "src_core_world_plotsystem_cs_factiondata",
       "community": 181,
       "norm_label": "factiondata"
+    },
+    {
+      "label": "PowerEconomy.cs",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "world_powereconomy",
+      "community": 346,
+      "norm_label": "powereconomy.cs"
+    },
+    {
+      "label": "MirrorChronicles.World",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "world_powereconomy_mirrorchronicles_world",
+      "community": 346,
+      "norm_label": "mirrorchronicles.world"
+    },
+    {
+      "label": "PowerEconomy",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "world_powereconomy_powereconomy",
+      "community": 346,
+      "norm_label": "powereconomy"
+    },
+    {
+      "label": "GameContext",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "src_core_world_powereconomy_cs_gamecontext",
+      "community": 346,
+      "norm_label": "gamecontext"
+    },
+    {
+      "label": "FactionManager",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "src_core_world_powereconomy_cs_factionmanager",
+      "community": 346,
+      "norm_label": "factionmanager"
+    },
+    {
+      "label": ".Weight()",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "world_powereconomy_powereconomy_weight",
+      "community": 346,
+      "norm_label": ".weight()"
+    },
+    {
+      "label": "FactionData",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_core_world_powereconomy_cs_factiondata",
+      "community": 346,
+      "norm_label": "factiondata"
+    },
+    {
+      "label": ".Capacity()",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "world_powereconomy_powereconomy_capacity",
+      "community": 346,
+      "norm_label": ".capacity()"
+    },
+    {
+      "label": ".ProcessYear()",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "world_powereconomy_powereconomy_processyear",
+      "community": 346,
+      "norm_label": ".processyear()"
     },
     {
       "label": "ProbeRules.cs",
@@ -43362,30 +43452,10 @@
       "norm_label": ".processyearlyfactionai_movesrelationsbypersonality()"
     },
     {
-      "label": ".ProcessYearlyFactionAI_GrowsExpansionistPower()",
-      "file_type": "code",
-      "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L64",
-      "_origin": "ast",
-      "id": "diplomacy_factionmanagertests_factionmanagertests_processyearlyfactionai_growsexpansionistpower",
-      "community": 75,
-      "norm_label": ".processyearlyfactionai_growsexpansionistpower()"
-    },
-    {
-      "label": ".ProcessYearlyFactionAI_ANeighbourActsMoreStrongly()",
-      "file_type": "code",
-      "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L74",
-      "_origin": "ast",
-      "id": "diplomacy_factionmanagertests_factionmanagertests_processyearlyfactionai_aneighbouractsmorestrongly",
-      "community": 75,
-      "norm_label": ".processyearlyfactionai_aneighbouractsmorestrongly()"
-    },
-    {
       "label": ".IsNeighbour_OnlyForTheHomeAndThePlacesBorderingIt()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L89",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "diplomacy_factionmanagertests_factionmanagertests_isneighbour_onlyforthehomeandtheplacesborderingit",
       "community": 75,
@@ -47838,7 +47908,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionenginetests",
-      "community": 248,
+      "community": 5,
       "norm_label": "deductionenginetests.cs"
     },
     {
@@ -47848,7 +47918,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_mirrorchronicles_tests_mirror",
-      "community": 248,
+      "community": 5,
       "norm_label": "mirrorchronicles.tests.mirror"
     },
     {
@@ -56222,10 +56292,20 @@
       "norm_label": "factionelder"
     },
     {
-      "label": ".APreciousMansion_NeverGambles_OnPoorOdds()",
+      "label": ".AMansionShortOfItsGrandPerfection_NeverTries_EvenAtItsEnd()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L100",
+      "_origin": "ast",
+      "id": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
+      "community": 337,
+      "norm_label": ".amansionshortofitsgrandperfection_nevertries_evenatitsend()"
+    },
+    {
+      "label": ".APreciousMansion_NeverGambles_OnPoorOdds()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L111",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apreciousmansion_nevergambles_onpoorodds",
       "community": 337,
@@ -56235,7 +56315,7 @@
       "label": ".APreciousMansion_Rises_FromGoodOdds()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L110",
+      "source_location": "L121",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apreciousmansion_rises_fromgoododds",
       "community": 337,
@@ -56245,7 +56325,7 @@
       "label": ".AMansionNearItsEnd_TriesWhateverTheOdds_AndMayDie()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L121",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_amansionnearitsend_trieswhatevertheodds_andmaydie",
       "community": 337,
@@ -56255,7 +56335,7 @@
       "label": ".APower_RaisesNewElders_ToKeepItsRanks()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L131",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apower_raisesnewelders_tokeepitsranks",
       "community": 337,
@@ -56265,7 +56345,7 @@
       "label": ".ADeadFigure_KnowsNothingMore_OfTheMirror()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L141",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_adeadfigure_knowsnothingmore_ofthemirror",
       "community": 337,
@@ -56275,7 +56355,7 @@
       "label": ".TheElders_SurviveASave()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L151",
+      "source_location": "L162",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_theelders_surviveasave",
       "community": 337,
@@ -56285,7 +56365,7 @@
       "label": ".TheChronicle_TellsTheDeathOfAGreatElder()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L161",
+      "source_location": "L172",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_thechronicle_tellsthedeathofagreatelder",
       "community": 337,
@@ -56295,7 +56375,7 @@
       "label": ".ANewlyRisenTrueMonarch_KnowsNothingOfTheMirror_TheCenturiesAtTheSummitTeach()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L175",
+      "source_location": "L186",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_anewlyrisentruemonarch_knowsnothingofthemirror_thecenturiesatthesummitteach",
       "community": 337,
@@ -56305,7 +56385,7 @@
       "label": ".AnAncientElder_KeepsItsLore()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L187",
+      "source_location": "L198",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_anancientelder_keepsitslore",
       "community": 337,
@@ -56315,11 +56395,21 @@
       "label": ".AFamily_WhoseElderJustRose_DoesNotKnowTheMirror()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L197",
+      "source_location": "L208",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_afamily_whoseelderjustrose_doesnotknowthemirror",
       "community": 337,
       "norm_label": ".afamily_whoseelderjustrose_doesnotknowthemirror()"
+    },
+    {
+      "label": ".OverFiveCenturies_TheGoldenCoresStayRare_AndThePurpleMansionsFew()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L223",
+      "_origin": "ast",
+      "id": "world_eldersystemtests_eldersystemtests_overfivecenturies_thegoldencoresstayrare_andthepurplemansionsfew",
+      "community": 337,
+      "norm_label": ".overfivecenturies_thegoldencoresstayrare_andthepurplemansionsfew()"
     },
     {
       "label": "FruitionRegistryTests.cs",
@@ -57850,6 +57940,156 @@
       "id": "world_plottests_plottests_theinvestigator_isblurredatfullstrength_andoneblurmakesitdoubt",
       "community": 10,
       "norm_label": ".theinvestigator_isblurredatfullstrength_andoneblurmakesitdoubt()"
+    },
+    {
+      "label": "PowerEconomyTests.cs",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "world_powereconomytests",
+      "community": 343,
+      "norm_label": "powereconomytests.cs"
+    },
+    {
+      "label": "MirrorChronicles.Tests.World",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "world_powereconomytests_mirrorchronicles_tests_world",
+      "community": 343,
+      "norm_label": "mirrorchronicles.tests.world"
+    },
+    {
+      "label": "PowerEconomyTests",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests",
+      "community": 343,
+      "norm_label": "powereconomytests"
+    },
+    {
+      "label": ".Session()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_session",
+      "community": 343,
+      "norm_label": ".session()"
+    },
+    {
+      "label": "GameSession",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_powereconomytests_cs_gamesession",
+      "community": 343,
+      "norm_label": "gamesession"
+    },
+    {
+      "label": ".Years()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_years",
+      "community": 343,
+      "norm_label": ".years()"
+    },
+    {
+      "label": ".APower_EarnsByItsSize_AndPaysItsDisciples()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples",
+      "community": 343,
+      "norm_label": ".apower_earnsbyitssize_andpaysitsdisciples()"
+    },
+    {
+      "label": "Test",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_powereconomytests_cs_test",
+      "community": 343,
+      "norm_label": "test"
+    },
+    {
+      "label": ".AMerchant_EarnsMore()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_amerchant_earnsmore",
+      "community": 343,
+      "norm_label": ".amerchant_earnsmore()"
+    },
+    {
+      "label": ".TheWorld_AsDrawn_StaysAtRest()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest",
+      "community": 343,
+      "norm_label": ".theworld_asdrawn_staysatrest()"
+    },
+    {
+      "label": ".APower_Shrinks_WhenItsGreatElderDies()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies",
+      "community": 343,
+      "norm_label": ".apower_shrinks_whenitsgreatelderdies()"
+    },
+    {
+      "label": ".APower_Grows_WhenAnElderRises()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises",
+      "community": 343,
+      "norm_label": ".apower_grows_whenanelderrises()"
+    },
+    {
+      "label": ".AnExpansionist_GrowsFaster_ButNeverWithoutBound()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound",
+      "community": 343,
+      "norm_label": ".anexpansionist_growsfaster_butneverwithoutbound()"
+    },
+    {
+      "label": ".APowerInDebt_Declines()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_apowerindebt_declines",
+      "community": 343,
+      "norm_label": ".apowerindebt_declines()"
+    },
+    {
+      "label": ".TheBaseline_SurvivesASave()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L103",
+      "_origin": "ast",
+      "id": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
+      "community": 343,
+      "norm_label": ".thebaseline_survivesasave()"
     },
     {
       "label": "RegionalQiTests.cs",
@@ -61134,7 +61374,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 333,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -61202,7 +61442,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player controls no character directly; observes, guides and influences a mortal family over generations to become the strongest cultivator clan of Mount Dali.",
-      "community": 328,
+      "community": 333,
       "norm_label": "player as consciousness trapped in ancestral bronze mirror",
       "id": "brain_claude_memory_mirror_consciousness_premise"
     },
@@ -61309,7 +61549,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 293,
+      "community": 333,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -61322,7 +61562,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 345,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -61335,7 +61575,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 345,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -61348,7 +61588,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 345,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -61361,7 +61601,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 332,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -61508,7 +61748,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 345,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -61549,7 +61789,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 293,
+      "community": 333,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -61603,7 +61843,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Single slot by default, auto-save at end of each year; optional Casual mode with 3 slots.",
-      "community": 328,
+      "community": 333,
       "norm_label": "ironman save (yearly auto-save json)",
       "id": "brain_claude_plan_ironman_save"
     },
@@ -61617,7 +61857,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 331,
+      "community": 333,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -61643,7 +61883,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 82,
+      "community": 342,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -61656,7 +61896,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 332,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -61669,7 +61909,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 345,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -61695,7 +61935,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 332,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -61789,7 +62029,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Inconsistent AI-generated renames; prevention: IDE Refactor->Rename, treat CS0103 as error.",
-      "community": 328,
+      "community": 333,
       "norm_label": "wl-001: deceased.rootelement does not exist (use affinity)",
       "id": "brain_claude_worked_lesson_wl_001"
     },
@@ -61803,7 +62043,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Avoid repeating the type prefix in method names.",
-      "community": 328,
+      "community": 333,
       "norm_label": "wl-002: mirrorsystem.consumemirrorpower does not exist (consumepower)",
       "id": "brain_claude_worked_lesson_wl_002"
     },
@@ -61817,7 +62057,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 293,
+      "community": 333,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -61831,7 +62071,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Write real NUnit tests so signature drift is caught immediately.",
-      "community": 328,
+      "community": 333,
       "norm_label": "wl-004: eventmanager.generateyearlyevent missing / triggeryearlyevent private",
       "id": "brain_claude_worked_lesson_wl_004"
     },
@@ -61845,7 +62085,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Separate test assembly + InternalsVisibleTo strategy from the start.",
-      "community": 328,
+      "community": 333,
       "norm_label": "wl-005: private factionmanager.processyearlyfactionai called from test",
       "id": "brain_claude_worked_lesson_wl_005"
     },
@@ -61929,7 +62169,7 @@
       "author": null,
       "contributor": null,
       "rationale": "AI Studio forced a web format and C# was generated alongside without ever being compiled, causing WL-001..005; pick one framework and execute after every AI prompt.",
-      "community": 328,
+      "community": 333,
       "norm_label": "wl-100: unity -> web -> unity pivot debt",
       "id": "brain_claude_worked_lesson_wl_100"
     },
@@ -61943,7 +62183,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 331,
+      "community": 333,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -61983,7 +62223,7 @@
       "author": null,
       "contributor": null,
       "rationale": "2D multigenerational clan-management RPG with Xianxia cultivation, turn-based tactical combat, faction diplomacy and inheritance over 10+ generations.",
-      "community": 328,
+      "community": 333,
       "norm_label": "reflets de lignee: les chroniques du miroir (mirror chronicles)",
       "id": "readme_mirror_chronicles"
     },
@@ -61996,7 +62236,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 328,
+      "community": 333,
       "norm_label": "the mirror legacy (xuanjian xianzu) - inspiration",
       "id": "readme_the_mirror_legacy"
     },
@@ -83001,9 +83241,9 @@
       "source_file": "src/Core/Data/ElderData.cs",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_elderdata",
-      "target": "data_elderdata_mirrorchronicles_data",
-      "confidence_score": 1.0
+      "target": "data_elderdata_mirrorchronicles_data"
     },
     {
       "relation": "contains",
@@ -83081,9 +83321,9 @@
       "source_file": "src/Core/Data/FactionData.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_factiondata",
-      "target": "data_factiondata_factionelder",
-      "confidence_score": 1.0
+      "target": "data_factiondata_factionelder"
     },
     {
       "relation": "contains",
@@ -83123,9 +83363,9 @@
       "source_file": "src/Core/Data/FactionData.cs",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_factiondata_factiondata_clone",
-      "target": "data_factiondata_factionelder_clone",
-      "confidence_score": 1.0
+      "target": "data_factiondata_factionelder_clone"
     },
     {
       "relation": "method",
@@ -83133,9 +83373,9 @@
       "source_file": "src/Core/Data/FactionData.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_factiondata_factionelder",
-      "target": "data_factiondata_factionelder_age",
-      "confidence_score": 1.0
+      "target": "data_factiondata_factionelder_age"
     },
     {
       "relation": "references",
@@ -83144,9 +83384,9 @@
       "source_location": "L84",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "data_factiondata_factionelder_clone",
-      "target": "data_factiondata_factionelder",
-      "confidence_score": 1.0
+      "target": "data_factiondata_factionelder"
     },
     {
       "relation": "contains",
@@ -94469,9 +94709,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L123",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggerelderdied",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggerelderdied"
     },
     {
       "relation": "method",
@@ -94479,9 +94719,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggerelderrose",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggerelderrose"
     },
     {
       "relation": "method",
@@ -95139,9 +95379,9 @@
       "source_location": "L123",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus_triggerelderdied",
-      "target": "src_core_events_gameeventbus_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_events_gameeventbus_cs_factiondata"
     },
     {
       "relation": "references",
@@ -95150,9 +95390,9 @@
       "source_location": "L123",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus_triggerelderdied",
-      "target": "src_core_events_gameeventbus_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_events_gameeventbus_cs_factionelder"
     },
     {
       "relation": "references",
@@ -95161,9 +95401,9 @@
       "source_location": "L124",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus_triggerelderrose",
-      "target": "src_core_events_gameeventbus_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_events_gameeventbus_cs_factiondata"
     },
     {
       "relation": "references",
@@ -95172,9 +95412,9 @@
       "source_location": "L124",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus_triggerelderrose",
-      "target": "src_core_events_gameeventbus_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_events_gameeventbus_cs_factionelder"
     },
     {
       "relation": "references",
@@ -105644,9 +105884,9 @@
       "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L284",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun",
-      "target": "session_balancerun_balancerun_unsoundednewcomers",
-      "confidence_score": 1.0
+      "target": "session_balancerun_balancerun_unsoundednewcomers"
     },
     {
       "relation": "method",
@@ -105984,9 +106224,9 @@
       "source_location": "L284",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_unsoundednewcomers",
-      "target": "src_core_session_balancerun_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_session_balancerun_cs_gamesession"
     },
     {
       "relation": "references",
@@ -106270,9 +106510,9 @@
       "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L265",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_mirrorspares",
-      "target": "session_balancerun_balancerun_unsoundednewcomers",
-      "confidence_score": 1.0
+      "target": "session_balancerun_balancerun_unsoundednewcomers"
     },
     {
       "relation": "calls",
@@ -106281,9 +106521,9 @@
       "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L294",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_soundthenewcomers",
-      "target": "session_balancerun_balancerun_unsoundednewcomers",
-      "confidence_score": 1.0
+      "target": "session_balancerun_balancerun_unsoundednewcomers"
     },
     {
       "relation": "references",
@@ -106292,9 +106532,9 @@
       "source_location": "L284",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_unsoundednewcomers",
-      "target": "src_core_session_balancerun_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_session_balancerun_cs_characterdata"
     },
     {
       "relation": "references",
@@ -106303,9 +106543,9 @@
       "source_location": "L284",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_unsoundednewcomers",
-      "target": "src_core_session_balancerun_cs_ienumerable",
-      "confidence_score": 1.0
+      "target": "src_core_session_balancerun_cs_ienumerable"
     },
     {
       "relation": "calls",
@@ -109593,9 +109833,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem",
-      "target": "world_eldersystem_eldersystem",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem"
     },
     {
       "relation": "contains",
@@ -109603,9 +109843,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem",
-      "target": "world_eldersystem_mirrorchronicles_world",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_mirrorchronicles_world"
     },
     {
       "relation": "references",
@@ -109614,9 +109854,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "src_core_world_eldersystem_cs_factionmanager",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factionmanager"
     },
     {
       "relation": "references",
@@ -109625,9 +109865,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "src_core_world_eldersystem_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_gamecontext"
     },
     {
       "relation": "method",
@@ -109635,9 +109875,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_advance",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_advance"
     },
     {
       "relation": "method",
@@ -109645,9 +109885,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_below",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_below"
     },
     {
       "relation": "method",
@@ -109655,9 +109895,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_die",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_die"
     },
     {
       "relation": "method",
@@ -109665,9 +109905,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_drawname",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_drawname"
     },
     {
       "relation": "method",
@@ -109675,9 +109915,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_drawodds",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_drawodds"
     },
     {
       "relation": "method",
@@ -109685,9 +109925,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_elder",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_elder"
     },
     {
       "relation": "method",
@@ -109695,9 +109935,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_minyears",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_minyears"
     },
     {
       "relation": "method",
@@ -109705,9 +109945,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_populate",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_populate"
     },
     {
       "relation": "method",
@@ -109715,9 +109955,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_processyear",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_processyear"
     },
     {
       "relation": "method",
@@ -109725,9 +109965,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_raiseacadet",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_raiseacadet"
     },
     {
       "relation": "method",
@@ -109735,9 +109975,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_rise",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_rise"
     },
     {
       "relation": "method",
@@ -109745,9 +109985,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L156",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_sync",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_sync"
     },
     {
       "relation": "method",
@@ -109755,9 +109995,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_trythegoldencore",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_trythegoldencore"
     },
     {
       "relation": "method",
@@ -109765,9 +110005,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_worldrandom",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_worldrandom"
     },
     {
       "relation": "references",
@@ -109776,9 +110016,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_worldrandom",
-      "target": "src_core_world_eldersystem_cs_random",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_random"
     },
     {
       "relation": "references",
@@ -109787,9 +110027,9 @@
       "source_location": "L55",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_below",
-      "target": "src_core_world_eldersystem_cs_random",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_random"
     },
     {
       "relation": "references",
@@ -109798,9 +110038,9 @@
       "source_location": "L84",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_drawname",
-      "target": "src_core_world_eldersystem_cs_random",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_random"
     },
     {
       "relation": "references",
@@ -109809,9 +110049,9 @@
       "source_location": "L78",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_drawodds",
-      "target": "src_core_world_eldersystem_cs_random",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_random"
     },
     {
       "relation": "references",
@@ -109820,9 +110060,9 @@
       "source_location": "L58",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_elder",
-      "target": "src_core_world_eldersystem_cs_random",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_random"
     },
     {
       "relation": "references",
@@ -109831,9 +110071,9 @@
       "source_location": "L36",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_populate",
-      "target": "src_core_world_eldersystem_cs_random",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_random"
     },
     {
       "relation": "calls",
@@ -109842,9 +110082,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_populate",
-      "target": "world_eldersystem_eldersystem_below",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_below"
     },
     {
       "relation": "calls",
@@ -109853,9 +110093,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_populate",
-      "target": "world_eldersystem_eldersystem_drawname",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_drawname"
     },
     {
       "relation": "calls",
@@ -109864,9 +110104,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_populate",
-      "target": "world_eldersystem_eldersystem_elder",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_elder"
     },
     {
       "relation": "calls",
@@ -109875,9 +110115,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_populate",
-      "target": "world_eldersystem_eldersystem_sync",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_sync"
     },
     {
       "relation": "references",
@@ -109886,9 +110126,9 @@
       "source_location": "L55",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_below",
-      "target": "src_core_world_eldersystem_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_cultivationrealm"
     },
     {
       "relation": "references",
@@ -109897,9 +110137,9 @@
       "source_location": "L128",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_advance",
-      "target": "src_core_world_eldersystem_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_cultivationrealm"
     },
     {
       "relation": "references",
@@ -109908,9 +110148,9 @@
       "source_location": "L58",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_elder",
-      "target": "src_core_world_eldersystem_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_cultivationrealm"
     },
     {
       "relation": "references",
@@ -109919,9 +110159,9 @@
       "source_location": "L81",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_minyears",
-      "target": "src_core_world_eldersystem_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_cultivationrealm"
     },
     {
       "relation": "references",
@@ -109930,9 +110170,9 @@
       "source_location": "L58",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_elder",
-      "target": "src_core_world_eldersystem_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factionelder"
     },
     {
       "relation": "calls",
@@ -109941,9 +110181,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_elder",
-      "target": "world_eldersystem_eldersystem_drawodds",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_drawodds"
     },
     {
       "relation": "calls",
@@ -109952,9 +110192,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_elder",
-      "target": "world_eldersystem_eldersystem_minyears",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_minyears"
     },
     {
       "relation": "calls",
@@ -109963,9 +110203,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_raiseacadet",
-      "target": "world_eldersystem_eldersystem_elder",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_elder"
     },
     {
       "relation": "references",
@@ -109974,9 +110214,9 @@
       "source_location": "L128",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_advance",
-      "target": "src_core_world_eldersystem_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factionelder"
     },
     {
       "relation": "references",
@@ -109985,9 +110225,9 @@
       "source_location": "L138",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_die",
-      "target": "src_core_world_eldersystem_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factionelder"
     },
     {
       "relation": "references",
@@ -109996,9 +110236,9 @@
       "source_location": "L108",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_rise",
-      "target": "src_core_world_eldersystem_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factionelder"
     },
     {
       "relation": "references",
@@ -110007,9 +110247,9 @@
       "source_location": "L118",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_trythegoldencore",
-      "target": "src_core_world_eldersystem_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factionelder"
     },
     {
       "relation": "calls",
@@ -110018,9 +110258,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_rise",
-      "target": "world_eldersystem_eldersystem_drawodds",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_drawodds"
     },
     {
       "relation": "calls",
@@ -110029,9 +110269,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_rise",
-      "target": "world_eldersystem_eldersystem_minyears",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_minyears"
     },
     {
       "relation": "calls",
@@ -110040,9 +110280,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_trythegoldencore",
-      "target": "world_eldersystem_eldersystem_minyears",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_minyears"
     },
     {
       "relation": "references",
@@ -110051,9 +110291,9 @@
       "source_location": "L84",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_drawname",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "calls",
@@ -110062,9 +110302,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_raiseacadet",
-      "target": "world_eldersystem_eldersystem_drawname",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_drawname"
     },
     {
       "relation": "references",
@@ -110073,9 +110313,9 @@
       "source_location": "L128",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_advance",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -110084,9 +110324,9 @@
       "source_location": "L138",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_die",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -110095,9 +110335,9 @@
       "source_location": "L146",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_raiseacadet",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -110106,9 +110346,9 @@
       "source_location": "L108",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_rise",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -110117,9 +110357,9 @@
       "source_location": "L156",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_sync",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -110128,9 +110368,9 @@
       "source_location": "L118",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_trythegoldencore",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "calls",
@@ -110139,9 +110379,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_processyear",
-      "target": "world_eldersystem_eldersystem_die",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_die"
     },
     {
       "relation": "calls",
@@ -110150,9 +110390,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_processyear",
-      "target": "world_eldersystem_eldersystem_raiseacadet",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_raiseacadet"
     },
     {
       "relation": "calls",
@@ -110161,9 +110401,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_processyear",
-      "target": "world_eldersystem_eldersystem_rise",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_rise"
     },
     {
       "relation": "calls",
@@ -110172,9 +110412,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_processyear",
-      "target": "world_eldersystem_eldersystem_sync",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_sync"
     },
     {
       "relation": "calls",
@@ -110183,9 +110423,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_processyear",
-      "target": "world_eldersystem_eldersystem_trythegoldencore",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_trythegoldencore"
     },
     {
       "relation": "calls",
@@ -110194,9 +110434,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_rise",
-      "target": "world_eldersystem_eldersystem_advance",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_advance"
     },
     {
       "relation": "calls",
@@ -110205,9 +110445,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_trythegoldencore",
-      "target": "world_eldersystem_eldersystem_advance",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_advance"
     },
     {
       "relation": "calls",
@@ -110216,9 +110456,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_trythegoldencore",
-      "target": "world_eldersystem_eldersystem_die",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_die"
     },
     {
       "relation": "contains",
@@ -111757,9 +111997,9 @@
       "source_file": "src/Core/World/MirrorLoreRules.cs",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_mirrorlorerules_mirrorlorerules",
-      "target": "world_mirrorlorerules_mirrorlorerules_elderchance",
-      "confidence_score": 1.0
+      "target": "world_mirrorlorerules_mirrorlorerules_elderchance"
     },
     {
       "relation": "method",
@@ -111788,9 +112028,9 @@
       "source_file": "src/Core/World/MirrorLoreRules.cs",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_mirrorlorerules_mirrorlorerules_elderchance",
-      "target": "world_mirrorlorerules_mirrorlorerules_knowchance",
-      "confidence_score": 1.0
+      "target": "world_mirrorlorerules_mirrorlorerules_knowchance"
     },
     {
       "relation": "calls",
@@ -111832,9 +112072,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_mirrorlorerules_mirrorlorerules_elderchance",
-      "target": "mirrorloresettings",
-      "confidence_score": 1.0
+      "target": "mirrorloresettings"
     },
     {
       "relation": "references",
@@ -111865,9 +112105,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_mirrorlorerules_mirrorlorerules_elderchance",
-      "target": "src_core_world_mirrorlorerules_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_world_mirrorlorerules_cs_factionelder"
     },
     {
       "relation": "contains",
@@ -112176,6 +112416,133 @@
       "confidence_score": 1.0,
       "source": "world_plotsystem_plotsystem_decide",
       "target": "src_core_world_plotsystem_cs_factiondata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "world_powereconomy",
+      "target": "world_powereconomy_mirrorchronicles_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "world_powereconomy",
+      "target": "world_powereconomy_powereconomy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "field",
+      "source": "world_powereconomy_powereconomy",
+      "target": "src_core_world_powereconomy_cs_factionmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "field",
+      "source": "world_powereconomy_powereconomy",
+      "target": "src_core_world_powereconomy_cs_gamecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "world_powereconomy_powereconomy",
+      "target": "world_powereconomy_powereconomy_capacity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "world_powereconomy_powereconomy",
+      "target": "world_powereconomy_powereconomy_processyear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "world_powereconomy_powereconomy",
+      "target": "world_powereconomy_powereconomy_weight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "world_powereconomy_powereconomy_capacity",
+      "target": "world_powereconomy_powereconomy_weight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "world_powereconomy_powereconomy_processyear",
+      "target": "world_powereconomy_powereconomy_weight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powereconomy_powereconomy_weight",
+      "target": "src_core_world_powereconomy_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powereconomy_powereconomy_capacity",
+      "target": "src_core_world_powereconomy_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerEconomy.cs",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "world_powereconomy_powereconomy_processyear",
+      "target": "world_powereconomy_powereconomy_capacity",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -140080,26 +140447,6 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L74",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "diplomacy_factionmanagertests_factionmanagertests",
-      "target": "diplomacy_factionmanagertests_factionmanagertests_processyearlyfactionai_aneighbouractsmorestrongly"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "diplomacy_factionmanagertests_factionmanagertests",
-      "target": "diplomacy_factionmanagertests_factionmanagertests_processyearlyfactionai_growsexpansionistpower"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
       "source_location": "L52",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -140125,28 +140472,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "diplomacy_factionmanagertests_factionmanagertests_changerelation_stayswithinplusminushundred",
-      "target": "diplomacy_factionmanagertests_factionmanagertests_withfaction"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L78",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "diplomacy_factionmanagertests_factionmanagertests_processyearlyfactionai_aneighbouractsmorestrongly",
-      "target": "diplomacy_factionmanagertests_factionmanagertests_withfaction"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L67",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "diplomacy_factionmanagertests_factionmanagertests_processyearlyfactionai_growsexpansionistpower",
       "target": "diplomacy_factionmanagertests_factionmanagertests_withfaction"
     },
     {
@@ -140219,17 +140544,6 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L74",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "diplomacy_factionmanagertests_factionmanagertests_processyearlyfactionai_aneighbouractsmorestrongly",
-      "target": "tests_core_tests_diplomacy_factionmanagertests_cs_factionpersonality"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
       "source_location": "L52",
       "weight": 1.0,
       "context": "parameter_type",
@@ -140285,33 +140599,11 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L64",
-      "weight": 1.0,
-      "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "diplomacy_factionmanagertests_factionmanagertests_processyearlyfactionai_growsexpansionistpower",
-      "target": "tests_core_tests_diplomacy_factionmanagertests_cs_test"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
       "source_location": "L43",
       "weight": 1.0,
       "context": "attribute",
       "confidence_score": 1.0,
       "source": "diplomacy_factionmanagertests_factionmanagertests_changerelation_stayswithinplusminushundred",
-      "target": "tests_core_tests_diplomacy_factionmanagertests_cs_testcase"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Diplomacy/FactionManagerTests.cs",
-      "source_location": "L74",
-      "weight": 1.0,
-      "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "diplomacy_factionmanagertests_factionmanagertests_processyearlyfactionai_aneighbouractsmorestrongly",
       "target": "tests_core_tests_diplomacy_factionmanagertests_cs_testcase"
     },
     {
@@ -161488,9 +161780,9 @@
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
       "source_location": "L384",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balancepilotascenttests_balancepilotascenttests",
-      "target": "session_balancepilotascenttests_balancepilotascenttests_thepilot_keepsthemirror_foranewcomertosound_ratherthanitssight",
-      "confidence_score": 1.0
+      "target": "session_balancepilotascenttests_balancepilotascenttests_thepilot_keepsthemirror_foranewcomertosound_ratherthanitssight"
     },
     {
       "relation": "method",
@@ -161992,9 +162284,9 @@
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
       "source_location": "L406",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buildstheherbgardenandthemine_whenitstreasuryallows",
-      "target": "session_balancepilotascenttests_balancepilotascenttests_mansion",
-      "confidence_score": 1.0
+      "target": "session_balancepilotascenttests_balancepilotascenttests_mansion"
     },
     {
       "relation": "calls",
@@ -162113,9 +162405,9 @@
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
       "source_location": "L300",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_raisesthemineandtheforge_tothefourthlevel",
-      "target": "session_balancepilotascenttests_balancepilotascenttests_mansion",
-      "confidence_score": 1.0
+      "target": "session_balancepilotascenttests_balancepilotascenttests_mansion"
     },
     {
       "relation": "calls",
@@ -162520,9 +162812,9 @@
       "source_location": "L384",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_keepsthemirror_foranewcomertosound_ratherthanitssight",
-      "target": "tests_core_tests_session_balancepilotascenttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_balancepilotascenttests_cs_test"
     },
     {
       "relation": "references",
@@ -162729,9 +163021,9 @@
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
       "source_location": "L387",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_keepsthemirror_foranewcomertosound_ratherthanitssight",
-      "target": "session_balancepilotascenttests_balancepilotascenttests_prober",
-      "confidence_score": 1.0
+      "target": "session_balancepilotascenttests_balancepilotascenttests_prober"
     },
     {
       "relation": "calls",
@@ -163071,9 +163363,9 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests",
-      "target": "session_balanceruntests_balanceruntests_thepilot_soundsanewcomer_assoonasthemirrorcanpay_withoutareserve",
-      "confidence_score": 1.0
+      "target": "session_balanceruntests_balanceruntests_thepilot_soundsanewcomer_assoonasthemirrorcanpay_withoutareserve"
     },
     {
       "relation": "method",
@@ -163396,9 +163688,9 @@
       "source_location": "L219",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_soundsanewcomer_assoonasthemirrorcanpay_withoutareserve",
-      "target": "tests_core_tests_session_balanceruntests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_balanceruntests_cs_test"
     },
     {
       "relation": "references",
@@ -163605,9 +163897,9 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L223",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_soundsanewcomer_assoonasthemirrorcanpay_withoutareserve",
-      "target": "session_balanceruntests_balanceruntests_newcomer",
-      "confidence_score": 1.0
+      "target": "session_balanceruntests_balanceruntests_newcomer"
     },
     {
       "relation": "calls",
@@ -170473,9 +170765,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests"
     },
     {
       "relation": "contains",
@@ -170483,9 +170775,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests",
-      "target": "world_eldersystemtests_mirrorchronicles_tests_world",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_mirrorchronicles_tests_world"
     },
     {
       "relation": "references",
@@ -170494,9 +170786,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "tests_core_tests_world_eldersystemtests_cs_string",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_string"
     },
     {
       "relation": "method",
@@ -170504,9 +170796,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_adeadfigure_knowsnothingmore_ofthemirror",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_adeadfigure_knowsnothingmore_ofthemirror"
     },
     {
       "relation": "method",
@@ -170514,9 +170806,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L197",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_afamily_whoseelderjustrose_doesnotknowthemirror",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_afamily_whoseelderjustrose_doesnotknowthemirror"
     },
     {
       "relation": "method",
@@ -170524,9 +170816,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_ajunior_risesintime",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_ajunior_risesintime"
     },
     {
       "relation": "method",
@@ -170534,59 +170826,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_amansionnearitsend_trieswhatevertheodds_andmaydie",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L187",
-      "weight": 1.0,
-      "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_anancientelder_keepsitslore",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L55",
-      "weight": 1.0,
-      "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_anelder_diesattheendofitslife",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L175",
-      "weight": 1.0,
-      "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_anewlyrisentruemonarch_knowsnothingofthemirror_thecenturiesatthesummitteach",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L66",
-      "weight": 1.0,
-      "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_apower_fallsinrealm_whenitsonlytopelderdies",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L131",
-      "weight": 1.0,
-      "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_apower_raisesnewelders_tokeepitsranks",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_amansionnearitsend_trieswhatevertheodds_andmaydie"
     },
     {
       "relation": "method",
@@ -170595,8 +170837,68 @@
       "source_location": "L100",
       "weight": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_apreciousmansion_nevergambles_onpoorodds",
+      "target": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L187",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests",
+      "target": "world_eldersystemtests_eldersystemtests_anancientelder_keepsitslore"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests",
+      "target": "world_eldersystemtests_eldersystemtests_anelder_diesattheendofitslife"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L175",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests",
+      "target": "world_eldersystemtests_eldersystemtests_anewlyrisentruemonarch_knowsnothingofthemirror_thecenturiesatthesummitteach"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests",
+      "target": "world_eldersystemtests_eldersystemtests_apower_fallsinrealm_whenitsonlytopelderdies"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L131",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests",
+      "target": "world_eldersystemtests_eldersystemtests_apower_raisesnewelders_tokeepitsranks"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L100",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests",
+      "target": "world_eldersystemtests_eldersystemtests_apreciousmansion_nevergambles_onpoorodds"
     },
     {
       "relation": "method",
@@ -170604,9 +170906,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_apreciousmansion_rises_fromgoododds",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_apreciousmansion_rises_fromgoododds"
     },
     {
       "relation": "method",
@@ -170614,8 +170916,18 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_everypower_haselders_itsstrongestatitshighestrealm",
+      "target": "world_eldersystemtests_eldersystemtests_everypower_haselders_itsstrongestatitshighestrealm"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests",
+      "target": "world_eldersystemtests_eldersystemtests_overfivecenturies_thegoldencoresstayrare_andthepurplemansionsfew",
       "confidence_score": 1.0
     },
     {
@@ -170624,9 +170936,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_peakmansion",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_peakmansion"
     },
     {
       "relation": "method",
@@ -170634,9 +170946,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "method",
@@ -170644,9 +170956,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L161",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_thechronicle_tellsthedeathofagreatelder",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_thechronicle_tellsthedeathofagreatelder"
     },
     {
       "relation": "method",
@@ -170654,9 +170966,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L151",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_theelders_surviveasave",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_theelders_surviveasave"
     },
     {
       "relation": "method",
@@ -170664,9 +170976,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_thenamedfigures_aretheelders_oftheirpower",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_thenamedfigures_aretheelders_oftheirpower"
     },
     {
       "relation": "method",
@@ -170674,9 +170986,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_with",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_with"
     },
     {
       "relation": "method",
@@ -170684,9 +170996,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "calls",
@@ -170695,9 +171007,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_adeadfigure_knowsnothingmore_ofthemirror",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170706,9 +171018,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L200",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_afamily_whoseelderjustrose_doesnotknowthemirror",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170717,9 +171029,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_ajunior_risesintime",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170728,7 +171040,18 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_amansionnearitsend_trieswhatevertheodds_andmaydie",
+      "target": "world_eldersystemtests_eldersystemtests_session"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
       "target": "world_eldersystemtests_eldersystemtests_session",
       "confidence_score": 1.0
     },
@@ -170739,9 +171062,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_anancientelder_keepsitslore",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170750,9 +171073,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_anelder_diesattheendofitslife",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170761,9 +171084,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_anewlyrisentruemonarch_knowsnothingofthemirror_thecenturiesatthesummitteach",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170772,9 +171095,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apower_fallsinrealm_whenitsonlytopelderdies",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170783,9 +171106,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apower_raisesnewelders_tokeepitsranks",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170794,9 +171117,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apreciousmansion_nevergambles_onpoorodds",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170805,9 +171128,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apreciousmansion_rises_fromgoododds",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170816,9 +171139,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_everypower_haselders_itsstrongestatitshighestrealm",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "references",
@@ -170827,9 +171150,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_session",
-      "target": "tests_core_tests_world_eldersystemtests_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -170838,9 +171161,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_session",
-      "target": "tests_core_tests_world_eldersystemtests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -170849,9 +171172,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_thechronicle_tellsthedeathofagreatelder",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170860,9 +171183,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L154",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_theelders_surviveasave",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -170871,9 +171194,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_thenamedfigures_aretheelders_oftheirpower",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "references",
@@ -170882,9 +171205,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_with",
-      "target": "tests_core_tests_world_eldersystemtests_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -170893,9 +171216,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_peakmansion",
-      "target": "tests_core_tests_world_eldersystemtests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_gamesession"
     },
     {
       "relation": "references",
@@ -170904,9 +171227,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_years",
-      "target": "tests_core_tests_world_eldersystemtests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -170915,9 +171238,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_ajunior_risesintime",
-      "target": "world_eldersystemtests_eldersystemtests_with",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_with"
     },
     {
       "relation": "calls",
@@ -170926,9 +171249,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apower_raisesnewelders_tokeepitsranks",
-      "target": "world_eldersystemtests_eldersystemtests_with",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_with"
     },
     {
       "relation": "references",
@@ -170937,9 +171260,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_with",
-      "target": "func_eldersettings_eldersettings",
-      "confidence_score": 1.0
+      "target": "func_eldersettings_eldersettings"
     },
     {
       "relation": "calls",
@@ -170948,9 +171271,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_ajunior_risesintime",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "calls",
@@ -170959,7 +171282,18 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_amansionnearitsend_trieswhatevertheodds_andmaydie",
+      "target": "world_eldersystemtests_eldersystemtests_years"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
       "target": "world_eldersystemtests_eldersystemtests_years",
       "confidence_score": 1.0
     },
@@ -170970,9 +171304,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_anelder_diesattheendofitslife",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "calls",
@@ -170981,9 +171315,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apower_fallsinrealm_whenitsonlytopelderdies",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "calls",
@@ -170992,9 +171326,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apower_raisesnewelders_tokeepitsranks",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "calls",
@@ -171003,9 +171337,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apreciousmansion_nevergambles_onpoorodds",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "calls",
@@ -171014,9 +171348,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apreciousmansion_rises_fromgoododds",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "calls",
@@ -171025,9 +171359,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L169",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_thechronicle_tellsthedeathofagreatelder",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "calls",
@@ -171036,9 +171370,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_theelders_surviveasave",
-      "target": "world_eldersystemtests_eldersystemtests_years",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_years"
     },
     {
       "relation": "references",
@@ -171047,9 +171381,9 @@
       "source_location": "L36",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_everypower_haselders_itsstrongestatitshighestrealm",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171058,9 +171392,9 @@
       "source_location": "L141",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_adeadfigure_knowsnothingmore_ofthemirror",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171069,9 +171403,9 @@
       "source_location": "L197",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_afamily_whoseelderjustrose_doesnotknowthemirror",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171080,9 +171414,9 @@
       "source_location": "L79",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_ajunior_risesintime",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171091,7 +171425,18 @@
       "source_location": "L121",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_amansionnearitsend_trieswhatevertheodds_andmaydie",
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L100",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
       "target": "tests_core_tests_world_eldersystemtests_cs_test",
       "confidence_score": 1.0
     },
@@ -171102,9 +171447,9 @@
       "source_location": "L187",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_anancientelder_keepsitslore",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171113,9 +171458,9 @@
       "source_location": "L55",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_anelder_diesattheendofitslife",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171124,9 +171469,9 @@
       "source_location": "L175",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_anewlyrisentruemonarch_knowsnothingofthemirror_thecenturiesatthesummitteach",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171135,9 +171480,9 @@
       "source_location": "L66",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apower_fallsinrealm_whenitsonlytopelderdies",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171146,9 +171491,9 @@
       "source_location": "L131",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apower_raisesnewelders_tokeepitsranks",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171157,9 +171502,9 @@
       "source_location": "L100",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apreciousmansion_nevergambles_onpoorodds",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171168,7 +171513,18 @@
       "source_location": "L110",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apreciousmansion_rises_fromgoododds",
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L223",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_eldersystemtests_eldersystemtests_overfivecenturies_thegoldencoresstayrare_andthepurplemansionsfew",
       "target": "tests_core_tests_world_eldersystemtests_cs_test",
       "confidence_score": 1.0
     },
@@ -171179,9 +171535,9 @@
       "source_location": "L161",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_thechronicle_tellsthedeathofagreatelder",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171190,9 +171546,9 @@
       "source_location": "L151",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_theelders_surviveasave",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -171201,9 +171557,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_thenamedfigures_aretheelders_oftheirpower",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "calls",
@@ -171212,7 +171568,18 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L126",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_amansionnearitsend_trieswhatevertheodds_andmaydie",
+      "target": "world_eldersystemtests_eldersystemtests_peakmansion"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
       "target": "world_eldersystemtests_eldersystemtests_peakmansion",
       "confidence_score": 1.0
     },
@@ -171223,9 +171590,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apreciousmansion_nevergambles_onpoorodds",
-      "target": "world_eldersystemtests_eldersystemtests_peakmansion",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_peakmansion"
     },
     {
       "relation": "calls",
@@ -171234,9 +171601,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_apreciousmansion_rises_fromgoododds",
-      "target": "world_eldersystemtests_eldersystemtests_peakmansion",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_peakmansion"
     },
     {
       "relation": "references",
@@ -171245,9 +171612,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_peakmansion",
-      "target": "tests_core_tests_world_eldersystemtests_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_factiondata"
     },
     {
       "relation": "references",
@@ -171256,9 +171623,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_peakmansion",
-      "target": "tests_core_tests_world_eldersystemtests_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_factionelder"
     },
     {
       "relation": "contains",
@@ -174844,6 +175211,412 @@
       "confidence_score": 1.0,
       "source": "world_plottests_plottests_theleak_goestothepowerthatasksmost",
       "target": "world_plottests_plottests_keeper"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "world_powereconomytests",
+      "target": "world_powereconomytests_mirrorchronicles_tests_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "world_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_amerchant_earnsmore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_apowerindebt_declines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests",
+      "target": "world_powereconomytests_powereconomytests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_amerchant_earnsmore",
+      "target": "world_powereconomytests_powereconomytests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound",
+      "target": "world_powereconomytests_powereconomytests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples",
+      "target": "world_powereconomytests_powereconomytests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises",
+      "target": "world_powereconomytests_powereconomytests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies",
+      "target": "world_powereconomytests_powereconomytests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_apowerindebt_declines",
+      "target": "world_powereconomytests_powereconomytests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_powereconomytests_powereconomytests_session",
+      "target": "tests_core_tests_world_powereconomytests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
+      "target": "world_powereconomytests_powereconomytests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest",
+      "target": "world_powereconomytests_powereconomytests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powereconomytests_powereconomytests_years",
+      "target": "tests_core_tests_world_powereconomytests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_amerchant_earnsmore",
+      "target": "world_powereconomytests_powereconomytests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound",
+      "target": "world_powereconomytests_powereconomytests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples",
+      "target": "world_powereconomytests_powereconomytests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises",
+      "target": "world_powereconomytests_powereconomytests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies",
+      "target": "world_powereconomytests_powereconomytests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_apowerindebt_declines",
+      "target": "world_powereconomytests_powereconomytests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
+      "target": "world_powereconomytests_powereconomytests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest",
+      "target": "world_powereconomytests_powereconomytests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powereconomytests_powereconomytests_apower_earnsbyitssize_andpaysitsdisciples",
+      "target": "tests_core_tests_world_powereconomytests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powereconomytests_powereconomytests_amerchant_earnsmore",
+      "target": "tests_core_tests_world_powereconomytests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L80",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powereconomytests_powereconomytests_anexpansionist_growsfaster_butneverwithoutbound",
+      "target": "tests_core_tests_world_powereconomytests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powereconomytests_powereconomytests_apower_grows_whenanelderrises",
+      "target": "tests_core_tests_world_powereconomytests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powereconomytests_powereconomytests_apower_shrinks_whenitsgreatelderdies",
+      "target": "tests_core_tests_world_powereconomytests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powereconomytests_powereconomytests_apowerindebt_declines",
+      "target": "tests_core_tests_world_powereconomytests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L103",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
+      "target": "tests_core_tests_world_powereconomytests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerEconomyTests.cs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powereconomytests_powereconomytests_theworld_asdrawn_staysatrest",
+      "target": "tests_core_tests_world_powereconomytests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -180364,5 +181137,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "069ecac5fbc941fe0f673c57bb7a3bd98e502898"
+  "built_at_commit": "7d676709bd21b3d4d57740a16a75f8cf4ceb8ebb"
 }
