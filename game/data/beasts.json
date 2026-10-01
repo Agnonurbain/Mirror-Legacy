@@ -1,131 +1,131 @@
 [
   {
-    "id": "mist-wolf",
-    "name": "Loup des Brumes",
-    "element": "Water",
-    "habitats": [
-      "Wilds",
-      "Mountain",
+	"id": "mist-wolf",
+	"name": "Loup des Brumes",
+	"element": "Water",
+	"habitats": [
+	  "Wilds",
+	  "Mountain",
       "Plain"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "jade-serpent",
-    "name": "Serpent de Jade",
-    "element": "Wood",
-    "habitats": [
-      "Lake",
-      "River",
+	"id": "jade-serpent",
+	"name": "Serpent de Jade",
+	"element": "Wood",
+	"habitats": [
+	  "Lake",
+	  "River",
       "Wilds"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "cloud-crane",
-    "name": "Grue des Nuées",
-    "element": "Water",
-    "habitats": [
-      "Lake",
-      "Mountain",
+	"id": "cloud-crane",
+	"name": "Grue des Nuées",
+	"element": "Water",
+	"habitats": [
+	  "Lake",
+	  "Mountain",
       "River"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "thunder-striped-tiger",
-    "name": "Tigre aux Rayures de Tonnerre",
-    "element": "Lightning",
-    "habitats": [
-      "Mountain",
+	"id": "thunder-striped-tiger",
+	"name": "Tigre aux Rayures de Tonnerre",
+	"element": "Lightning",
+	"habitats": [
+	  "Mountain",
       "Wilds"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "moon-toad",
-    "name": "Crapaud de Lune",
-    "element": "Darkness",
-    "habitats": [
-      "Lake",
-      "River",
+	"id": "moon-toad",
+	"name": "Crapaud de Lune",
+	"element": "Darkness",
+	"habitats": [
+	  "Lake",
+	  "River",
       "Plain"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "iron-boar",
-    "name": "Sanglier de Fer",
-    "element": "Metal",
-    "habitats": [
-      "Mountain",
-      "Plain",
+	"id": "iron-boar",
+	"name": "Sanglier de Fer",
+	"element": "Metal",
+	"habitats": [
+	  "Mountain",
+	  "Plain",
       "Prefecture"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "summit-eagle",
-    "name": "Aigle des Cimes",
-    "element": "Fire",
-    "habitats": [
-      "Mountain",
+	"id": "summit-eagle",
+	"name": "Aigle des Cimes",
+	"element": "Fire",
+	"habitats": [
+	  "Mountain",
       "Desert"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "spring-turtle",
-    "name": "Tortue des Sources",
-    "element": "Water",
-    "habitats": [
-      "Lake",
-      "River",
+	"id": "spring-turtle",
+	"name": "Tortue des Sources",
+	"element": "Water",
+	"habitats": [
+	  "Lake",
+	  "River",
       "Island"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "sand-scorpion",
-    "name": "Scorpion des Sables",
-    "element": "Earth",
-    "habitats": [
-      "Desert",
+	"id": "sand-scorpion",
+	"name": "Scorpion des Sables",
+	"element": "Earth",
+	"habitats": [
+	  "Desert",
       "Wilds"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "dream-fox",
-    "name": "Renard des Songes",
-    "element": "Fire",
-    "habitats": [
-      "Prefecture",
-      "Plain",
-      "Mountain",
+	"id": "dream-fox",
+	"name": "Renard des Songes",
+	"element": "Fire",
+	"habitats": [
+	  "Prefecture",
+	  "Plain",
+	  "Mountain",
       "Wilds"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   },
   {
-    "id": "reef-eel",
-    "name": "Anguille des Récifs",
-    "element": "Water",
-    "habitats": [
-      "Island",
+	"id": "reef-eel",
+	"name": "Anguille des Récifs",
+	"element": "Water",
+	"habitats": [
+	  "Island",
       "Sea"
-    ],
-    "provenance": "Interpretation",
-    "interpretedFields": []
+	],
+	"provenance": "Interpretation",
+	"interpretedFields": []
   }
 ]
