@@ -12,11 +12,12 @@ namespace MirrorChronicles.Session
     /// the endings). It builds the Herb Garden and the Mine for the materials, reads its Purple Mansions' Dao Partners, takes
     /// a method aligned on a partner by an accord or a theft (one a year), pursues the ability it has a method for and sends a
     /// harvester for its Qi, condenses with resources when no method can be had, then forges the metal essence and claims a
-    /// position — only from good odds, for a failure births a demon.
+    /// position — only from good odds, for a failure births a demon. A patient pilot: it waits for a method rather than
+    /// condense a shallow foundation, and rises only from 60% (the user's choice 2026-10-01: three demons in three forges).
     /// </summary>
     public static partial class BalanceRun
     {
-        private const double RiseOdds = 0.5;        // the pilot forges or claims a position from these odds
+        private const double RiseOdds = 0.6;        // the pilot forges or claims a position from these odds (patient, the user's choice 2026-10-01)
         private const int MaterialsLevel = 3;       // it builds the Herb Garden and the Mine up to this level
         private const int BuildReserveYears = 5;    // from a treasury that keeps five years of upkeep after the work
         private const int CondenseReserveYears = ReserveYears; // condenses with resources keeping the reserve it keeps for a demand
@@ -153,6 +154,9 @@ namespace MirrorChronicles.Session
         private static bool HasAlignedMethod(GameSession session, string ability) =>
             AlignedMethods(session, ability).Any(t => session.Techniques.Knows(t.ID));
 
+        private static bool HeldByAPower(GameSession session, string ability) =>
+            AlignedMethods(session, ability).Any(t => session.Factions.Factions.Any(f => f.Techniques.Contains(t.ID)));
+
         /// <summary>
         /// One aligned method a year, for the first wanted ability the clan has none for: by an accord the power accepts,
         /// else stolen when the odds are good.
@@ -211,14 +215,15 @@ namespace MirrorChronicles.Session
         }
 
         /// <summary>
-        /// A mansion at its realm's full XP with no method for any wanted ability condenses one with spiritual objects
-        /// (half the XP, a shallow foundation) — when the treasury, the herbs and the ores allow.
+        /// A mansion at its realm's full XP condenses an ability with spiritual objects (half the XP, a shallow foundation
+        /// that weighs on the forge) only as a last resort: when no method aligned on any wanted ability exists in the world —
+        /// while a power holds one, the patient clan waits to take it (the user's choice 2026-10-01).
         /// </summary>
         private static void CondenseWithResourcesWhenStuck(GameSession session, CharacterData mansion)
         {
             if (mansion.CultivationXP < PurpleMansionXp) return;
             var wanted = WantedAbilities(session, mansion).ToList();
-            if (wanted.Count == 0 || wanted.Any(a => HasAlignedMethod(session, a))) return;
+            if (wanted.Count == 0 || wanted.Any(a => HasAlignedMethod(session, a) || HeldByAPower(session, a))) return;
             var s = session.Context.Content.Balance.DivineAbilities;
             if (!Affords(session, s.ResourceStones, CondenseReserveYears, towardTheGoldenCore: true)
                 || session.Resources.MedicinalHerbs < s.ResourceHerbs || session.Resources.SpiritualOres < s.ResourceOres) return;

@@ -28,6 +28,12 @@ namespace MirrorChronicles.Tests.Session
             Sea, "orthodox-water:ford-watcher", "orthodox-water:storm-sky", "orthodox-water:dike-guard", "orthodox-water:river-farewell"
         };
 
+        /// <summary>Five of the Orthodox Water, the Ford Watcher (of Life) condensed last: 60% at an average root.</summary>
+        private static readonly string[] LifeLast =
+        {
+            Sea, "orthodox-water:storm-sky", "orthodox-water:dike-guard", "orthodox-water:river-farewell", "orthodox-water:ford-watcher"
+        };
+
         private static int Xp => PowerLadder.XpForNextStage(CultivationRealm.PurpleMansion);
 
         private static GameSession Session()
@@ -49,6 +55,13 @@ namespace MirrorChronicles.Tests.Session
             s.Clan.AddMember(m);
             s.Knowledge.Reveal(FactKind.Ability, Sea, KnowledgeSource.Formed);
             return m;
+        }
+
+        /// <summary>No power holds a method aligned on the Orthodox Water: resources are the only way left.</summary>
+        private static void NoMethodInTheWorld(GameSession s)
+        {
+            foreach (var f in s.Factions.Factions)
+                f.Techniques.RemoveAll(id => s.Techniques.Find(id)?.RequiredQiId is { } qi && s.Techniques.FindQi(qi)?.Foundation?.StartsWith("orthodox-water:") == true);
         }
 
         private static void KnowThePartners(GameSession s) => s.Knowledge.Reveal(FactKind.DaoPartners, Sea, KnowledgeSource.Studied);
@@ -94,6 +107,7 @@ namespace MirrorChronicles.Tests.Session
             var s = Session();
             var mansion = Mansion(s, xp: Xp);
             KnowThePartners(s);
+            NoMethodInTheWorld(s);
             s.Resources.SetSpiritStones(100_000);
             s.Resources.AddHerbs(500);
             s.Resources.AddOres(500);
@@ -107,7 +121,7 @@ namespace MirrorChronicles.Tests.Session
         public void ThePilot_ForgesAGoldenCore_WhenItsGrandPerfectionIsReady()
         {
             var s = Session();
-            var master = Mansion(s, Xp, FiveOrthodoxWater);
+            var master = Mansion(s, Xp, LifeLast);
             BalanceRun.Act(s);
             Assert.IsTrue(s.Knowledge.Knows(FactKind.GoldSeeking, "orthodox-water"), "the mirror deciphers the gold-seeking method");
             Assert.IsTrue(!master.IsAlive || master.Realm == CultivationRealm.GoldenCore, "forged, or the demon was born");
@@ -121,6 +135,26 @@ namespace MirrorChronicles.Tests.Session
             master.ShallowAbilities.AddRange(FiveOrthodoxWater.Skip(1).Take(3)); // three shallow foundations weigh on it
             BalanceRun.Act(s);
             Assert.IsTrue(master.IsAlive && master.Realm == CultivationRealm.PurpleMansion);
+        }
+
+        [Test]
+        public void ThePilot_DoesNotForge_BelowSixtyPercent()
+        {
+            var s = Session();
+            var master = Mansion(s, Xp, FiveOrthodoxWater); // no Life last: 50% at an average root
+            BalanceRun.Act(s);
+            Assert.IsTrue(master.IsAlive && master.Realm == CultivationRealm.PurpleMansion, "half a chance of a demon is no chance a patient clan takes");
+        }
+
+        [Test]
+        public void ThePilot_WaitsForAMethod_RatherThanCondenseAShallowFoundation()
+        {
+            var s = Session();
+            var mansion = Mansion(s, xp: Xp);
+            KnowThePartners(s); // the powers hold methods of the Orthodox Water, out of reach this year
+            Stocked(s, 100_000);
+            BalanceRun.Act(s);
+            Assert.AreEqual(1, mansion.DivineAbilities.Count, "it waits for a method rather than condense a shallow foundation");
         }
 
         [Test]
@@ -183,6 +217,7 @@ namespace MirrorChronicles.Tests.Session
             var s = Session();
             var mansion = Mansion(s, xp: Xp);
             KnowThePartners(s);
+            NoMethodInTheWorld(s);
             int needed = s.Context.Content.Balance.Sect.MinCultivators;
             while (s.Clan.LivingMembers.Count(m => m.Realm >= CultivationRealm.QiRefinement) < needed) s.Clan.AddMember(Fixtures.Cultivator());
             Stocked(s, s.Context.Content.Balance.Sect.FoundingStones - 1);
@@ -196,6 +231,7 @@ namespace MirrorChronicles.Tests.Session
             var s = Session();
             var mansion = Mansion(s, Xp, Sea, "orthodox-water:storm-sky", "orthodox-water:dike-guard", "orthodox-water:river-farewell");
             KnowThePartners(s);
+            NoMethodInTheWorld(s);
             Stocked(s, 100_000);
             BalanceRun.Act(s);
             Assert.AreEqual(5, mansion.DivineAbilities.Count);
@@ -209,6 +245,7 @@ namespace MirrorChronicles.Tests.Session
             var s = Session();
             var mansion = Mansion(s, xp: Xp);
             KnowThePartners(s);
+            NoMethodInTheWorld(s);
             Stocked(s, 100_000);
             BalanceRun.Act(s);
             Assert.AreEqual("orthodox-water:storm-sky", mansion.DivineAbilities.Last(), "the first partner that is not of Life");
