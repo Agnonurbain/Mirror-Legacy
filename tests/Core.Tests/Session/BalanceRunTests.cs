@@ -402,9 +402,11 @@ namespace MirrorChronicles.Tests.Session
             var text = new System.Text.StringBuilder();
             for (int seed = 1; seed <= seeds; seed++)
             {
-                int maxStones = 0, pmYears = 0, maxPm = 0, maxAbilities = 0, fullXpYears = 0, readyYears = 0, routeYears = 0, maxCultivators = 0, maxVassals = 0, sectYears = 0;
+                int demons = 0, positions = 0, maxStones = 0, pmYears = 0, maxPm = 0, maxAbilities = 0, fullXpYears = 0, readyYears = 0, routeYears = 0, maxCultivators = 0, maxVassals = 0, sectYears = 0;
                 BalanceRun.Play(Fixtures.Content, seed, years, out var played, autopilot: true, observe: s =>
                 {
+                    s.Events.OnMetalEssenceDemon += _ => demons++;
+                    s.Events.OnPositionTaken += (_, _, _) => positions++;
                     s.Events.OnYearStarted += _ =>
                     {
                         var free = s.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
@@ -426,7 +428,7 @@ namespace MirrorChronicles.Tests.Session
                 });
                 text.AppendLine($"seed {seed}: maxStones {maxStones}, pmYears {pmYears} (max {maxPm} at once, best {maxAbilities} abilities), "
                     + $"fullXp {fullXpYears}y, ready {readyYears}y, route {routeYears}y, cultivators max {maxCultivators}, sect-ready-but-stones {sectYears}y, vassals max {maxVassals}, "
-                    + $"golden cores {played.Clan.Registry.Records.Count(r => r.Realm >= CultivationRealm.GoldenCore)}, endings: "
+                    + $"golden cores {played.Clan.Registry.Records.Count(r => r.Realm >= CultivationRealm.GoldenCore)}, demons {demons}, positions {positions}, endings: "
                     + string.Join(", ", played.Annals.Entries.Where(e => e.Kind == AnnalKind.EndingReached).Select(e => $"{e.Ref} ({e.Year})")));
             }
             TestContext.Progress.WriteLine(text.ToString());
