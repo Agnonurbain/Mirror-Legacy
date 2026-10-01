@@ -140,9 +140,9 @@ namespace MirrorChronicles.Tests
             Dealings = new SecretDealings(Ctx, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Ctx, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Wars = new WarSystem(Ctx, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
-            DesignEffects = new PatronDesignEffects(Ctx, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources);
             Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars, Sect);
             Patrons = new PatronSystem(Ctx, Clan, Resources);
+            DesignEffects = new PatronDesignEffects(Ctx, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability, Resources);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);

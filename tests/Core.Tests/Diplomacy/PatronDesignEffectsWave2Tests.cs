@@ -200,7 +200,8 @@ namespace MirrorChronicles.Tests.Diplomacy
         {
             var w = World("mirror-bait", out var p);
             Due(w, "mirror-bait", p);
-            Assert.AreEqual(Settings.MarkClues, w.Suspicion.MirrorClues(Patron));
+            int expected = w.Lore.Knows(Patron) ? Fixtures.Content.Balance.Plots.DoubtClues : Settings.MarkClues; // a knower comes to doubt at once
+            Assert.AreEqual(expected, w.Suspicion.MirrorClues(Patron));
         }
 
         [Test]

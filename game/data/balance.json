@@ -457,7 +457,17 @@
     "harvestRelationLoss": 30,
     "markClues": 30,
     "flawWounds": 2,
-    "sincereGift": 2000
+    "sincereGift": 2000,
+    "humanPillsTaken": 2,
+    "fatedRootShare": 0.5,
+    "pyramidStability": 30,
+    "pawnSuspicion": 30,
+    "scapegoatSuspicion": 15,
+    "bulwarkPrestige": 20,
+    "atmosphereStonesShare": 0.3,
+    "imperialSuspicion": 10,
+    "voidKeyDeathChance": 0.3,
+    "voidKeyTreasure": 3000
   },
   "sect": {
     "minRealm": "PurpleMansion",
