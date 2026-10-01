@@ -107,6 +107,7 @@ namespace MirrorChronicles.Session
             SoundTheNewcomers(session); // then to the strangers in the house, before any seed (2026-10-01)
             // then to the method of the ascent, without which the line never rises past the Foundation (2026-10-01: seeds ate it)
             if (AscentMethod(session) == null && session.Deduction.AscentRefusal() == null) session.Deduction.DeduceAscentMethod();
+            AnswerForTheCaptives(session); // then its captives, before any stone is spent (2026-10-01: its Foundations were executed)
             RiseThroughThePurpleMansion(session); // then to the road to the Golden Core (BalanceRun.Ascent.cs)
             AnswerDemands(session);
             AnswerChallenge(session);
@@ -120,7 +121,6 @@ namespace MirrorChronicles.Session
             SeekTheShards(session);
             if (session.Sect.FoundingRefusal() == null) session.Sect.Found(); // the Double House as soon as it can
             OfferToTheMirror(session);
-            AnswerForTheCaptives(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content) && session.DaoHunts.IsCoveted(m)).ToList())
                 session.Tasks.AssignTask(prey, TaskType.Seclusion); // a ripe Dao someone covets hides
@@ -161,6 +161,7 @@ namespace MirrorChronicles.Session
         private static void SeekAMethodToTheAscent(GameSession session)
         {
             if (AscentMethod(session) == null && session.Deduction.AscentRefusal() == null) session.Deduction.DeduceAscentMethod();
+            AnswerForTheCaptives(session); // then its captives, before any stone is spent (2026-10-01: its Foundations were executed)
             if (session.Sponsorships.Pending != null) session.Sponsorships.Accept(); // a patron's gift, whatever it hides (§11.10)
             foreach (var due in session.Sponsorships.Awaiting.ToList()) // resist a weaker patron, yield to a stronger one
             {
@@ -426,15 +427,37 @@ namespace MirrorChronicles.Session
         private static void AnswerForTheCaptives(GameSession session)
         {
             var captives = session.Captives;
-            foreach (var captive in captives.Held.ToList())
+            var schemes = session.Context.Content.Balance.Schemes;
+            foreach (var captive in captives.Held.OrderByDescending(m => (int)m.Realm).ToList()) // the most precious first
             {
                 var agent = captives.Prisoners.FirstOrDefault(p => p.Faction == captive.CaptorFaction);
                 if (agent != null && captives.Exchange(captive.ID, agent.Id) == null) continue;
-                int ransom = SchemeRules.Ransom(captive.Realm, session.Context.Content.Balance.Schemes);
-                if (session.Resources.SpiritStones - ransom >= session.Upkeep.YearlyUpkeep * ReserveYears
+                int ransom = SchemeRules.Ransom(captive.Realm, schemes);
+                if (session.Resources.SpiritStones - ransom >= session.Upkeep.YearlyUpkeep * RansomReserveYears(captive)
                     && captives.PayRansom(captive.ID) == null) continue;
+                if (Rescue(session, captive)) continue;
                 if (captive.KnowsMirrorSecret) captives.Silence(captive.ID);
             }
+        }
+
+        /// <summary>
+        /// The reserve the clan keeps when it ransoms: none for a Foundation or above — the road to the Purple Mansion, its
+        /// rarest — a year for a Qi cultivator, two for the rest (2026-10-01: captured Foundations were executed while the
+        /// clan of six hundred kept its two years of upkeep).
+        /// </summary>
+        private static int RansomReserveYears(CharacterData captive) =>
+            captive.Realm >= CultivationRealm.Foundation ? 0 : captive.Realm == CultivationRealm.QiRefinement ? ProtectionReserveYears : ReserveYears;
+
+        /// <summary>A rescue by the best free team, when its odds against the captor are good. True when it brought the captive home.</summary>
+        private static bool Rescue(GameSession session, CharacterData captive)
+        {
+            var captor = session.Factions.GetFactionByName(captive.CaptorFaction);
+            if (captor == null) return false;
+            var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, session.Context.Content.Balance.Shards.ExpeditionMaxTeam)
+                .Where(id => id != session.Clan.PatriarchID).Select(session.Clan.FindById)
+                .Where(m => m != null && session.Hunts.IsFree(m)).ToList();
+            if (team.Count == 0 || SchemeRules.RescueChance(team, captor, session.Context.Content.Balance.Schemes) < GoodOdds) return false;
+            return session.Captives.Rescue(captive.ID, team.Select(m => m.ID).ToList()) == null;
         }
 
         private static void SeekATreaty(GameSession session)

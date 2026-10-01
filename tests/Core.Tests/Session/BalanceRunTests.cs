@@ -389,6 +389,34 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_RansomsAFoundation_EvenIntoItsReserve()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var captive = Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation, stage: 3);
+            s.Clan.AddMember(captive);
+            s.Captives.Take(captive, "Famille Ruan");
+            int ransom = SchemeRules.Ransom(CultivationRealm.Foundation, s.Context.Content.Balance.Schemes);
+            s.Resources.SetSpiritStones(ransom + 1); // short of its two years' reserve
+            BalanceRun.Act(s);
+            Assert.IsNull(captive.CaptorFaction, "a Foundation is the road to the Purple Mansion: the clan pays");
+        }
+
+        [Test]
+        public void ThePilot_SendsARescue_WhenItsTeamOutmatchesTheCaptor()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var captive = Fixtures.Cultivator(age: 30);
+            s.Clan.AddMember(captive);
+            s.Captives.Take(captive, "Famille Lou"); // a Foundation family
+            for (int i = 0; i < 3; i++) s.Clan.AddMember(Fixtures.Cultivator(age: 200, realm: CultivationRealm.PurpleMansion, stage: 3));
+            s.Resources.SetSpiritStones(0); // no ransom
+            BalanceRun.Act(s);
+            Assume.That(SchemeRules.RescueChance(s.Clan.LivingMembers.Where(m => m.Realm == CultivationRealm.PurpleMansion).ToList(),
+                s.Factions.GetFactionByName("Famille Lou"), s.Context.Content.Balance.Schemes), Is.GreaterThanOrEqualTo(0.6));
+            Assert.IsNull(captive.CaptorFaction, "three Purple Mansions bring the captive home");
+        }
+
+        [Test]
         public void ThePilot_SilencesACaptive_ItCannotBuy()
         {
             var (s, captive) = Captive(knowsTheMirror: true);
