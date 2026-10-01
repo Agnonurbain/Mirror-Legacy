@@ -87,10 +87,13 @@ namespace MirrorChronicles.Session
             return false;
         }
 
-        /// <summary>Whether the treasury pays this and keeps its reserve — and the sect's price while the clan saves for it.</summary>
-        private static bool Affords(GameSession session, int stones, int reserveYears) =>
+        /// <summary>
+        /// Whether the treasury pays this and keeps its reserve — and the sect's price while the clan saves for it, unless
+        /// the spending is on the road to the Golden Core, which no saving forgoes.
+        /// </summary>
+        private static bool Affords(GameSession session, int stones, int reserveYears, bool towardTheGoldenCore = false) =>
             session.Resources.SpiritStones - stones >= session.Upkeep.YearlyUpkeep * reserveYears
-                + (SavesForTheSect(session) ? session.Context.Content.Balance.Sect.FoundingStones : 0);
+                + (!towardTheGoldenCore && SavesForTheSect(session) ? session.Context.Content.Balance.Sect.FoundingStones : 0);
 
         /// <summary>
         /// The Double House is within reach but for its stones (a Purple Mansion at home, enough cultivators): the clan
@@ -126,14 +129,20 @@ namespace MirrorChronicles.Session
             session.Exchange.DecipherDaoPartners(foundation);
         }
 
-        /// <summary>The partners of the mansion's own lineage it may still condense: named, known to the clan, not yet held.</summary>
+        /// <summary>
+        /// The partners of the mansion's own lineage it may still condense: named, known to the clan, not yet held — a Life
+        /// ability kept for the last, which helps the forge (§5.4.4), the others first.
+        /// </summary>
         private static IEnumerable<string> WantedAbilities(GameSession session, CharacterData mansion)
         {
             string lineage = FoundationRef.Parse(FoundationOf(mansion)).FruitionId;
             var fruition = session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == lineage);
             if (fruition == null) return Enumerable.Empty<string>();
-            return fruition.Abilities.Where(a => a.Name != null && !a.Substitute).Select(a => $"{lineage}:{a.Id}")
-                .Where(a => !mansion.DivineAbilities.Contains(a) && session.Knowledge.Knows(FactKind.Ability, a));
+            bool last = mansion.DivineAbilities.Count == GoldenCoreRules.AbilitiesToForge - 1;
+            return fruition.Abilities.Where(a => a.Name != null && !a.Substitute)
+                .Where(a => !mansion.DivineAbilities.Contains($"{lineage}:{a.Id}") && session.Knowledge.Knows(FactKind.Ability, $"{lineage}:{a.Id}"))
+                .OrderBy(a => a.Types.Contains(AbilityType.Life) == last ? 0 : 1) // stable: the lineage's order otherwise
+                .Select(a => $"{lineage}:{a.Id}");
         }
 
         /// <summary>The methods whose Qi builds this ability.</summary>
@@ -211,7 +220,7 @@ namespace MirrorChronicles.Session
             var wanted = WantedAbilities(session, mansion).ToList();
             if (wanted.Count == 0 || wanted.Any(a => HasAlignedMethod(session, a))) return;
             var s = session.Context.Content.Balance.DivineAbilities;
-            if (!Affords(session, s.ResourceStones, CondenseReserveYears)
+            if (!Affords(session, s.ResourceStones, CondenseReserveYears, towardTheGoldenCore: true)
                 || session.Resources.MedicinalHerbs < s.ResourceHerbs || session.Resources.SpiritualOres < s.ResourceOres) return;
             session.Abilities.CondenseWithResources(mansion, wanted[0]);
         }
@@ -246,7 +255,7 @@ namespace MirrorChronicles.Session
             var state = session.Fruitions.State(target.Id);
             if (route != PositionRoute.Realization && state?.Status == FruitionStatus.Occupied
                 && !session.GoldenCore.Permissions.ContainsKey(target.Id)
-                && Affords(session, content.Balance.GoldenCore.PermissionStones, CondenseReserveYears))
+                && Affords(session, content.Balance.GoldenCore.PermissionStones, CondenseReserveYears, towardTheGoldenCore: true))
                 session.GoldenCore.RequestPermission(target.Id);
             session.GoldenCore.ClaimPosition(essence);
         }

@@ -71,7 +71,7 @@ namespace MirrorChronicles.Tests.Session
             s.Factions.GetFactionByName(Ruan).RelationWithPlayer = 60;
             s.Techniques.Learn("supreme-yin-sutra"); // a grade-5 art Ruan lacks: worth an ascent method
             BalanceRun.Act(s);
-            Assert.IsTrue(s.Techniques.Knows(FordWatcherMethod), "the first partner a power holds a method for");
+            Assert.IsTrue(s.Techniques.Knows("orthodox-water-storm-sky-method"), "the first partner (not of Life: kept for the last) a power holds a method for");
         }
 
         [Test]
@@ -167,6 +167,51 @@ namespace MirrorChronicles.Tests.Session
             s.Resources.SetSpiritStones(s.Context.Content.Balance.Sect.FoundingStones - 1); // a garden is affordable, the sect not yet
             BalanceRun.Act(s);
             Assert.AreEqual(0, s.Buildings.GetBuilding(BuildingType.HerbGarden).Level, "every stone goes to the peaks");
+        }
+
+        private static void Stocked(GameSession s, int stones)
+        {
+            s.Resources.SetSpiritStones(stones);
+            s.Resources.AddHerbs(1000);
+            s.Resources.AddOres(1000);
+            foreach (var m in s.Clan.LivingMembers) m.LastOperationYear = s.Clock.Year; // nobody free to steal a manual
+        }
+
+        [Test]
+        public void ThePilot_StillCondenses_WhileSavingForTheSect()
+        {
+            var s = Session();
+            var mansion = Mansion(s, xp: Xp);
+            KnowThePartners(s);
+            int needed = s.Context.Content.Balance.Sect.MinCultivators;
+            while (s.Clan.LivingMembers.Count(m => m.Realm >= CultivationRealm.QiRefinement) < needed) s.Clan.AddMember(Fixtures.Cultivator());
+            Stocked(s, s.Context.Content.Balance.Sect.FoundingStones - 1);
+            BalanceRun.Act(s);
+            Assert.AreEqual(2, mansion.DivineAbilities.Count, "the road to the Golden Core is no saving to forgo");
+        }
+
+        [Test]
+        public void ThePilot_KeepsALifeAbility_ForTheLast()
+        {
+            var s = Session();
+            var mansion = Mansion(s, Xp, Sea, "orthodox-water:storm-sky", "orthodox-water:dike-guard", "orthodox-water:river-farewell");
+            KnowThePartners(s);
+            Stocked(s, 100_000);
+            BalanceRun.Act(s);
+            Assert.AreEqual(5, mansion.DivineAbilities.Count);
+            Assert.IsTrue(new[] { "orthodox-water:ford-watcher", "orthodox-water:peril-refuge" }.Contains(mansion.DivineAbilities.Last()),
+                "a Life ability condensed last helps the forge");
+        }
+
+        [Test]
+        public void ThePilot_SpendsNoLifeAbility_BeforeTheLast()
+        {
+            var s = Session();
+            var mansion = Mansion(s, xp: Xp);
+            KnowThePartners(s);
+            Stocked(s, 100_000);
+            BalanceRun.Act(s);
+            Assert.AreEqual("orthodox-water:storm-sky", mansion.DivineAbilities.Last(), "the first partner that is not of Life");
         }
 
         [Test]
