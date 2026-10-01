@@ -1,0 +1,169 @@
+using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
+using MirrorChronicles.Data;
+using MirrorChronicles.Session;
+
+namespace MirrorChronicles.Tests.Characters
+{
+    /// <summary>
+    /// The Ancestor's Return (LORE.md §5.5.2, R9; user decision 2026-10-01): a True Monarch of the clan whose essence is
+    /// intact may be reborn in the clan's next child, who regains the Foundation two years after the age of cultivation,
+    /// the Purple Mansion ten years later with its abilities, then forges its Golden Core again — the ending. While young, the
+    /// powers may « harvest » this Chosen of Destiny; hidden in seclusion, it is safe.
+    /// </summary>
+    [TestFixture]
+    public class AncestorReturnTests
+    {
+        private static readonly string[] Five =
+        {
+            "orthodox-water:boundless-sea", "orthodox-water:storm-sky", "orthodox-water:dike-guard",
+            "orthodox-water:river-farewell", "orthodox-water:ford-watcher"
+        };
+
+        private static GameContent With(System.Func<AncestorSettings, AncestorSettings> tweak) => Fixtures.QuietContent with
+        {
+            Balance = Fixtures.QuietContent.Balance with { Ancestors = tweak(Fixtures.QuietContent.Balance.Ancestors) }
+        };
+
+        private static GameContent Sure => With(a => a with { RebirthChance = 1.0, HarvestChance = 0 });
+
+        private static GameSession Session(GameContent content) => GameSession.NewGame(new GameSetup { Seed = 1, Content = content });
+
+        private static CharacterData Monarch(GameSession s)
+        {
+            var m = Fixtures.Cultivator(age: 400, realm: CultivationRealm.GoldenCore);
+            m.DivineAbilities = new List<string>(Five);
+            m.FoundationId = Five[0];
+            m.GoldenCore = GoldenCoreState.Realization;
+            m.FruitionId = "orthodox-water";
+            s.Clan.AddMember(m);
+            s.Fruitions.Claim("orthodox-water", m.FullName);
+            return m;
+        }
+
+        private static CharacterData Child(GameSession s, int age = 0)
+        {
+            var child = Fixtures.Mortal(age: age);
+            s.Clan.AddMember(child);
+            s.Events.TriggerCharacterBorn(child);
+            return child;
+        }
+
+        private static void Years(GameSession s, int years)
+        {
+            for (int i = 0; i < years; i++)
+            {
+                s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);
+                foreach (var m in s.Clan.LivingMembers) m.Age++;
+                s.Ancestors.ProcessYear();
+            }
+        }
+
+        [Test]
+        public void ATrueMonarch_DyingWithItsEssence_IsRebornInTheNextChild()
+        {
+            var s = Session(Sure);
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            var child = Child(s);
+            Assert.AreEqual(monarch.FullName, child.RebornFrom);
+            Assert.IsTrue(child.HasSpiritualOrifice, "the ancestor's essence opens the way");
+        }
+
+        [Test]
+        public void ADemon_OrASoulTakenBack_IsNeverReborn()
+        {
+            var s = Session(Sure);
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.MetalEssenceDemon);
+            Assert.IsNull(Child(s).RebornFrom, "its essence came alive as a demon");
+            var other = Monarch(s);
+            s.Clan.Kill(other, DeathCause.SoulReplaced);
+            Assert.IsNull(Child(s).RebornFrom, "the Fruition took its soul");
+        }
+
+        [Test]
+        public void TheReborn_RegainsItsRealms_Swiftly_AndTheEndingIsReached()
+        {
+            var s = Session(Sure);
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            var child = Child(s);
+            var settings = s.Context.Content.Balance.Ancestors;
+            int start = MirrorChronicles.Characters.TaskRules.CultivationAge;
+            Years(s, start + settings.FoundationYears);
+            Assert.AreEqual(CultivationRealm.Foundation, child.Realm, "the Foundation in two years");
+            Years(s, settings.PurpleMansionYears);
+            Assert.AreEqual(CultivationRealm.PurpleMansion, child.Realm);
+            CollectionAssert.AreEqual(Five, child.DivineAbilities, "its abilities come back");
+            Years(s, settings.GoldenCoreYears);
+            Assert.AreEqual(CultivationRealm.GoldenCore, child.Realm);
+            s.Events.TriggerYearStarted(s.Clock.Year);
+            Assert.IsTrue(s.Endings.IsReached("ancestor-return"));
+        }
+
+        [Test]
+        public void TheReborn_TakesItsRealizationBack_IfStillItsOwnOrFree()
+        {
+            var s = Session(Sure);
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            var child = Child(s);
+            var settings = s.Context.Content.Balance.Ancestors;
+            Years(s, MirrorChronicles.Characters.TaskRules.CultivationAge + settings.FoundationYears + settings.PurpleMansionYears + settings.GoldenCoreYears);
+            Assert.AreEqual(GoldenCoreState.Realization, child.GoldenCore);
+            Assert.AreEqual(child.FullName, s.Fruitions.State("orthodox-water").Holder);
+        }
+
+        [Test]
+        public void TheChosenOfDestiny_MayBeHarvested_WhileYoung()
+        {
+            var s = Session(With(a => a with { RebirthChance = 1.0, HarvestChance = 1.0 }));
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            var child = Child(s);
+            Years(s, 1);
+            Assert.IsFalse(child.IsAlive, "a power harvests the Chosen of Destiny");
+        }
+
+        [Test]
+        public void HiddenInSeclusion_TheChosen_IsSafe()
+        {
+            var s = Session(With(a => a with { RebirthChance = 1.0, HarvestChance = 1.0 }));
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            var child = Child(s, age: 10); // old enough to be hidden away
+            child.HasSpiritualOrifice = true;
+            child.OrificeKnown = true;
+            child.Realm = CultivationRealm.QiRefinement;
+            child.CurrentTask = TaskType.Seclusion;
+            Years(s, 1);
+            Assert.IsTrue(child.IsAlive);
+        }
+
+        [Test]
+        public void TheAncestorAwaitingRebirth_SurvivesASave()
+        {
+            var s = Session(Sure);
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), new GameSetup { Content = Sure });
+            var child = Fixtures.Mortal(age: 0);
+            reloaded.Clan.AddMember(child);
+            reloaded.Events.TriggerCharacterBorn(child);
+            Assert.AreEqual(monarch.FullName, child.RebornFrom);
+        }
+
+        [Test]
+        public void TheChronicle_TellsTheRebirth()
+        {
+            var s = Session(Sure);
+            var chronicle = new MirrorChronicles.Presentation.Chronicle(s);
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            Child(s);
+            Assert.IsTrue(chronicle.Entries.Any(e => e.Contains(monarch.FullName) && e.Contains("renaît")));
+        }
+    }
+}
