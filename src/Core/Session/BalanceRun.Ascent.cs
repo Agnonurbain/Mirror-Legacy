@@ -105,12 +105,13 @@ namespace MirrorChronicles.Session
             : Within(session, power.RegionId, Linxi) && (power.Kind == FactionKind.Gate || power.Kind == FactionKind.Sect) ? 1
             : Within(session, power.RegionId, Linxi) ? 2 : 3;
 
-        private const int MostDiplomats = 2;   // mortals sent to warm the powers the clan could bow
+        private const int MostDiplomats = 2;   // envoys sent to warm the powers the clan could bow
         private const int WarmEnough = 30;     // the relation from which a would-be vassal is left alone
 
         /// <summary>
-        /// A few mortals are sent as diplomats to the coldest powers the clan towers over and has not bowed yet, the gates and
-        /// sects of Linxi first; the others come home to the mine (2026-10-01: the cold kept the gates from bowing).
+        /// A few envoys are sent to the coldest powers the clan towers over and has not bowed yet, the gates and sects of
+        /// Linxi first: its least gifted cultivators below the Purple Mansion (an envoy weighs by its realm, and a gate
+        /// receives no mortal — the user's choice 2026-10-01); the envoys no longer needed go back to their cultivation.
         /// </summary>
         private static void SendTheDiplomats(GameSession session, bool huntOpen)
         {
@@ -120,15 +121,21 @@ namespace MirrorChronicles.Session
                     && session.Treaties.HasAscendancyOver(f) && !session.Wars.AtWar(f.Name))
                 .OrderBy(f => VassalPriority(session, f) == 1 ? 0 : 1).ThenBy(f => f.RelationWithPlayer).Take(MostDiplomats).ToList();
             var diplomats = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.CurrentTask == TaskType.Diplomacy).ToList();
-            var mortals = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && !SpiritualOrificeRules.CanCultivate(m)
-                && (m.CurrentTask == TaskType.Mine || m.CurrentTask == TaskType.None) && TaskRules.IsAllowed(m, TaskType.Diplomacy, huntOpen));
-            var envoys = diplomats.Concat(mortals).Take(targets.Count).ToList();
+            var candidates = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.ID != session.Clan.PatriarchID
+                    && SpiritualOrificeRules.CanCultivate(m) && m.Realm >= CultivationRealm.QiRefinement && m.Realm < CultivationRealm.PurpleMansion
+                    && (m.CurrentTask == TaskType.Cultivation || m.CurrentTask == TaskType.Mine) && TaskRules.IsAllowed(m, TaskType.Diplomacy, huntOpen))
+                .OrderBy(m => m.SpiritualRoot).ThenByDescending(m => (int)m.Realm);
+            var envoys = diplomats.Where(m => SpiritualOrificeRules.CanCultivate(m)).Concat(candidates).Take(targets.Count).ToList();
             for (int i = 0; i < envoys.Count; i++)
             {
                 envoys[i].DiplomacyTarget = targets[i].Name;
                 if (envoys[i].CurrentTask != TaskType.Diplomacy) session.Tasks.AssignTask(envoys[i], TaskType.Diplomacy);
             }
-            foreach (var idle in diplomats.Except(envoys)) { idle.DiplomacyTarget = null; session.Tasks.AssignTask(idle, TaskType.Mine); }
+            foreach (var idle in diplomats.Except(envoys))
+            {
+                idle.DiplomacyTarget = null;
+                session.Tasks.AssignTask(idle, SpiritualOrificeRules.CanCultivate(idle) ? TaskType.Cultivation : TaskType.Mine);
+            }
         }
 
         private static bool Within(GameSession session, string place, string regionId)

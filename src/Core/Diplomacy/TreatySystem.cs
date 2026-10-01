@@ -77,7 +77,7 @@ namespace MirrorChronicles.Diplomacy
             var wars = ctx.Content.Balance.Wars;
             return WarRules.ClanWarStrength(clan.LivingMembers, wars)
                 + treaties.Where(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain)
-                    .Select(t => factions.GetFactionByName(t.Faction)).Where(f => f != null).Sum(f => WarRules.Strength(f, wars));
+                    .Select(t => factions.GetFactionByName(t.Faction)).Where(f => f != null).Sum(f => WarRules.Strength(f, wars)) * Settings.VassalStrengthShare;
         }
 
         /// <summary>The clan towers over the power: by its realm, or by the weight of its host and its vassals (2026-10-01).</summary>

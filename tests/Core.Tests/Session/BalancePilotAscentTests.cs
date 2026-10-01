@@ -298,14 +298,19 @@ namespace MirrorChronicles.Tests.Session
         {
             var s = Session();
             for (int i = 0; i < 20; i++) Mansion(s); // a host of Purple Mansions: the ascendant over a gate of its realm
-            s.Clan.AddMember(Fixtures.Mortal(age: 40)); // past the age of a Talisman Seed: a mortal to send
+            var envoy = Fixtures.Cultivator(age: 40);    // a Qi cultivator of a poor root: the one to send
+            envoy.SpiritualRoot = 20;
+            s.Clan.AddMember(envoy);
             var gate = s.Factions.GetFactionByName("Porte du Roc Obscur");
             gate.RelationWithPlayer = -20; // too cold to bow
             Assume.That(s.Treaties.HasAscendancyOver(gate));
             BalanceRun.Act(s);
             BalanceRun.SetTheIdleToWork(s);
-            Assert.IsTrue(s.Clan.LivingMembers.Any(m => m.CurrentTask == TaskType.Diplomacy && m.DiplomacyTarget != null
-                && s.Factions.GetFactionByName(m.DiplomacyTarget) is { Kind: FactionKind.Gate or FactionKind.Sect }));
+            var envoys = s.Clan.LivingMembers.Where(m => m.CurrentTask == TaskType.Diplomacy).ToList();
+            Assert.IsTrue(envoys.Any(m => s.Factions.GetFactionByName(m.DiplomacyTarget) is { Kind: FactionKind.Gate or FactionKind.Sect }));
+            Assert.IsTrue(envoys.All(m => SpiritualOrificeRules.CanCultivate(m)), "a gate receives only a cultivator");
+            Assert.IsFalse(s.Clan.LivingMembers.Any(m => m.Realm == CultivationRealm.PurpleMansion && m.CurrentTask == TaskType.Diplomacy),
+                "never a Purple Mansion on the road to the Golden Core");
         }
 
         [Test]

@@ -281,6 +281,14 @@ namespace MirrorChronicles.Data
 
         /// <summary>Chance a successful spy steals a manual the power holds and the clan lacks, rather than a fragment.</summary>
         public double StealManualChance { get; init; }
+
+        /// <summary>
+        /// What an envoy's year warms a power by, by realm (2026-10-01, interpretation): a mortal counts little, a Purple
+        /// Mansion much; a gate or a sect receives no one below <see cref="GreatPowersReceive"/>.
+        /// </summary>
+        public int MortalEnvoyRelation { get; init; }
+        public int[] EnvoyRelationByRealm { get; init; } = { 5 };
+        public CultivationRealm GreatPowersReceive { get; init; } = CultivationRealm.QiRefinement;
     }
 
     /// <summary>What knowledge costs (balance.json, L4c; the lore gives no price).</summary>

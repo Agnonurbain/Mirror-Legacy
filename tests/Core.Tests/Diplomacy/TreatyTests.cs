@@ -101,7 +101,8 @@ namespace MirrorChronicles.Tests.Diplomacy
             var w = World(new FixedRandom(0.999), CultivationRealm.PurpleMansion);
             double alone = w.Treaties.SuzerainStrength();
             Assert.IsNull(w.Treaties.Propose(Fang, TreatyKind.Vassalage, clanAsSuzerain: true));
-            Assert.AreEqual(alone + WarRules.Strength(Power(w, Fang), Fixtures.Content.Balance.Wars), w.Treaties.SuzerainStrength(), 1e-9);
+            Assert.AreEqual(alone + WarRules.Strength(Power(w, Fang), Fixtures.Content.Balance.Wars) * Settings.VassalStrengthShare,
+                w.Treaties.SuzerainStrength(), 1e-9, "a vassal serves; it does not fight as the clan does");
         }
 
         [Test]

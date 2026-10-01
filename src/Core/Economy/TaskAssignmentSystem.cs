@@ -33,7 +33,6 @@ namespace MirrorChronicles.Economy
         public const int StudyXp = 10;
         public const int TeachingBaseXp = 20;
         public const int TeachingXpPerRealm = 10;
-        public const int DiplomacyRelation = 5;
 
         private readonly GameContext ctx;
         private readonly ClanManager clan;
@@ -225,12 +224,20 @@ namespace MirrorChronicles.Economy
             }
         }
 
-        /// <summary>+5 relation with the power the diplomat is sent to (else a random one), +2 per Council Room level.</summary>
+        /// <summary>
+        /// The power the diplomat is sent to (else a random one) warms by the envoy's realm (balance.json « diplomacy »), +2 per
+        /// Council Room level; a gate or a sect receives no envoy below its rank (2026-10-01).
+        /// </summary>
         private void Diplomacy(CharacterData diplomat)
         {
             var target = factions.GetFactionByName(diplomat.DiplomacyTarget) ?? factions.RandomFaction();
             if (target == null) return;
-            factions.ChangeRelation(target.ID, DiplomacyRelation + buildings.CouncilLevel * BuildingSystem.CouncilRelationBonusPerLevel);
+            var s = ctx.Content.Balance.Diplomacy;
+            bool mortal = !SpiritualOrificeRules.CanCultivate(diplomat);
+            bool great = target.Kind == FactionKind.Sect || target.Kind == FactionKind.Gate;
+            if (great && (mortal || diplomat.Realm < s.GreatPowersReceive)) return; // not received
+            int byRealm = s.EnvoyRelationByRealm[Math.Min((int)diplomat.Realm, s.EnvoyRelationByRealm.Length - 1)];
+            factions.ChangeRelation(target.ID, (mortal ? s.MortalEnvoyRelation : byRealm) + buildings.CouncilLevel * BuildingSystem.CouncilRelationBonusPerLevel);
         }
 
         /// <summary>Each teacher takes one cultivating student, lowest realm first: 20 + 10 per teacher realm XP.</summary>

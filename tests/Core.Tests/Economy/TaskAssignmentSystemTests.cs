@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using NUnit.Framework;
 using MirrorChronicles.Data;
+using MirrorChronicles.Economy;
 
 namespace MirrorChronicles.Tests.Economy
 {
@@ -68,6 +69,33 @@ namespace MirrorChronicles.Tests.Economy
             w.Tasks.ProcessYearlyTasks();
 
             Assert.AreEqual(1, w.Resources.QiPortions(Fixtures.ClanQi));
+        }
+
+        private static int Warmed(CharacterData envoy, string power)
+        {
+            var w = new TestWorld();
+            w.Factions.InitializeFactions();
+            var target = w.Factions.GetFactionByName(power);
+            int before = target.RelationWithPlayer;
+            var diplomat = Working(w, TaskType.Diplomacy, envoy);
+            diplomat.DiplomacyTarget = power;
+            w.Tasks.ProcessYearlyTasks();
+            return target.RelationWithPlayer - before;
+        }
+
+        [Test]
+        public void ADiplomat_WeighsByTheirRealm()
+        {
+            Assert.Greater(Warmed(Fixtures.Cultivator(realm: CultivationRealm.PurpleMansion), "Famille Lou"),
+                Warmed(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement), "Famille Lou"));
+            Assert.Greater(Warmed(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement), "Famille Lou"), Warmed(Fixtures.Mortal(), "Famille Lou"));
+        }
+
+        [Test]
+        public void AGateOrASect_ReceivesNoMortalEnvoy()
+        {
+            Assert.AreEqual(0, Warmed(Fixtures.Mortal(), "Porte du Roc Obscur"));
+            Assert.Greater(Warmed(Fixtures.Cultivator(), "Porte du Roc Obscur"), 0);
         }
 
         [Test]
@@ -176,9 +204,10 @@ namespace MirrorChronicles.Tests.Economy
             w.Buildings.Restore(new[] { new BuildingData(BuildingType.CouncilRoom) { Level = 2 } });
             var faction = new FactionData { Name = "Neighbour" };
             w.Factions.AddFaction(faction);
-            Working(w, TaskType.Diplomacy);
+            Working(w, TaskType.Diplomacy); // a Qi cultivator
             w.Tasks.ProcessYearlyTasks();
-            Assert.AreEqual(9, faction.RelationWithPlayer);
+            int envoy = w.Ctx.Content.Balance.Diplomacy.EnvoyRelationByRealm[(int)CultivationRealm.QiRefinement];
+            Assert.AreEqual(envoy + 2 * BuildingSystem.CouncilRelationBonusPerLevel, faction.RelationWithPlayer);
         }
 
         [Test]
