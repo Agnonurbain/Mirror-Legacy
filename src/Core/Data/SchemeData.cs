@@ -18,6 +18,9 @@ namespace MirrorChronicles.Data
     /// </summary>
     public sealed record SchemeSettings
     {
+        /// <summary>A power this hostile takes a hostage even from a clan that could not ransom it (2026-10-01, interpretation).</summary>
+        public int HostageRelation { get; init; } = -50;
+
         /// <summary>
         /// A power's yearly chance of scheming: the base, times its temper (by personality), times its hostility
         /// (1 + hostility / 100 × weight), damped by friendship (1 − friendship / 100 × damping), times its greed for the

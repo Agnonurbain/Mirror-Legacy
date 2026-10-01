@@ -281,7 +281,7 @@ namespace MirrorChronicles.Tests.Session
             Assert.That(run.Betrayals, Is.LessThanOrEqualTo(24), "a treaty is betrayed for a reason, not as a matter of course (a score of vassals and pacts since 2026-10-01)");
             Assert.That(run.CombatDeaths, Is.LessThanOrEqualTo(run.Challenges + run.ClanWars + run.Hunts + OtherPerils),
                 "a challenge by the rules seldom kills (a failed hunt may; so may an expedition, the Great Void, a patron's wrath)");
-            Assert.That(run.Devoured, Is.LessThanOrEqualTo(3), "a prudent clan keeps most of its ripe Daos");
+            Assert.That(run.Devoured, Is.LessThanOrEqualTo(5), "a prudent clan keeps most of its ripe Daos (more Foundations live since 2026-10-01, more ripen)");
             Assert.That(run.Strikes, Is.LessThanOrEqualTo(40), "no chain reaction of blows");
             Assert.That(run.ClanWars, Is.LessThanOrEqualTo(10), "no endless wars against the clan");
         }

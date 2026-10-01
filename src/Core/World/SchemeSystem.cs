@@ -53,10 +53,14 @@ namespace MirrorChronicles.World
             }
         }
 
-        /// <summary>An ambush on a member away from the domain; false when nobody was within reach.</summary>
+        /// <summary>
+        /// An ambush on a member away from the domain, for profit (the user's choice, 2026-10-01): one the clan's treasury
+        /// could ransom, or — for a power hostile enough — a hostage against the quarrel; false when nobody worth it was within
+        /// reach (a poor young clan was taken twelve times in sixty years, and died out).
+        /// </summary>
         public bool Ambush(FactionData power)
         {
-            var exposed = clan.LivingMembers.Where(IsAway).ToList();
+            var exposed = clan.LivingMembers.Where(IsAway).Where(m => WorthTaking(power, m)).ToList();
             if (exposed.Count == 0) return false;
 
             var target = ctx.Rng.Pick(exposed);
@@ -81,6 +85,9 @@ namespace MirrorChronicles.World
             ctx.Log.Info($"[Schemes] {target.FullName} escapes an ambush.");
             return true;
         }
+
+        private bool WorthTaking(FactionData power, CharacterData member) =>
+            captives.ClanStones >= SchemeRules.Ransom(member.Realm, Settings) || power.RelationWithPlayer <= Settings.HostageRelation;
 
         private bool IsAway(CharacterData member) =>
             member.CaptorFaction == null

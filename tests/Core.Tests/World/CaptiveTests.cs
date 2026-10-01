@@ -74,6 +74,30 @@ namespace MirrorChronicles.Tests.World
         }
 
         [Test]
+        public void APower_DoesNotAmbush_AMemberTheClanCouldNotRansom()
+        {
+            var w = World(new FixedRandom(0.0));
+            var envoy = Away(w);
+            w.Resources.SetSpiritStones(0); // nothing to pay with: no profit in the taking (the user's choice, 2026-10-01)
+            w.Factions.GetFactionByName(Ruan).RelationWithPlayer = 0;
+
+            Assert.IsFalse(w.Schemes.Ambush(w.Factions.GetFactionByName(Ruan)));
+            Assert.IsNull(envoy.CaptorFaction);
+        }
+
+        [Test]
+        public void AHostilePower_StillTakesAHostage_FromAPoorClan()
+        {
+            var w = World(new FixedRandom(0.0));
+            var envoy = Away(w);
+            w.Resources.SetSpiritStones(0);
+            w.Factions.GetFactionByName(Ruan).RelationWithPlayer = Settings.HostageRelation;
+
+            Assert.IsTrue(w.Schemes.Ambush(w.Factions.GetFactionByName(Ruan)));
+            Assert.AreEqual(Ruan, envoy.CaptorFaction, "a hostage against a quarrel");
+        }
+
+        [Test]
         public void AnAmbush_FindsNobody_AtHome()
         {
             var w = World(new FixedRandom(0.0));
