@@ -95,9 +95,40 @@ namespace MirrorChronicles.Session
                     session.Absorption.Absorb(vassal);
             var candidate = session.Factions.Factions
                 .Where(f => session.Treaties.Refusal(f, TreatyKind.Vassalage, clanAsSuzerain: true) == null)
-                .OrderBy(f => Within(session, f.RegionId, Lake) ? 0 : Within(session, f.RegionId, Linxi) ? 1 : 2)
-                .ThenByDescending(f => f.RelationWithPlayer).FirstOrDefault();
+                .OrderBy(f => VassalPriority(session, f)).ThenByDescending(f => f.RelationWithPlayer).FirstOrDefault();
             if (candidate != null) session.Treaties.Propose(candidate.Name, TreatyKind.Vassalage, clanAsSuzerain: true);
+        }
+
+        /// <summary>The lake's families first (its Unity), then the gates and sects of Linxi (the Twelve Gates' heirs), then Linxi, then the rest.</summary>
+        private static int VassalPriority(GameSession session, FactionData power) =>
+            Within(session, power.RegionId, Lake) && power.Kind == FactionKind.Family ? 0
+            : Within(session, power.RegionId, Linxi) && (power.Kind == FactionKind.Gate || power.Kind == FactionKind.Sect) ? 1
+            : Within(session, power.RegionId, Linxi) ? 2 : 3;
+
+        private const int MostDiplomats = 2;   // mortals sent to warm the powers the clan could bow
+        private const int WarmEnough = 30;     // the relation from which a would-be vassal is left alone
+
+        /// <summary>
+        /// A few mortals are sent as diplomats to the coldest powers the clan towers over and has not bowed yet, the gates and
+        /// sects of Linxi first; the others come home to the mine (2026-10-01: the cold kept the gates from bowing).
+        /// </summary>
+        private static void SendTheDiplomats(GameSession session, bool huntOpen)
+        {
+            var vassals = session.Treaties.All.Where(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain).Select(t => t.Faction).ToHashSet();
+            var targets = session.Factions.Factions
+                .Where(f => !vassals.Contains(f.Name) && f.RelationWithPlayer < WarmEnough && VassalPriority(session, f) <= 2
+                    && session.Treaties.HasAscendancyOver(f) && !session.Wars.AtWar(f.Name))
+                .OrderBy(f => VassalPriority(session, f) == 1 ? 0 : 1).ThenBy(f => f.RelationWithPlayer).Take(MostDiplomats).ToList();
+            var diplomats = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.CurrentTask == TaskType.Diplomacy).ToList();
+            var mortals = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && !SpiritualOrificeRules.CanCultivate(m)
+                && (m.CurrentTask == TaskType.Mine || m.CurrentTask == TaskType.None) && TaskRules.IsAllowed(m, TaskType.Diplomacy, huntOpen));
+            var envoys = diplomats.Concat(mortals).Take(targets.Count).ToList();
+            for (int i = 0; i < envoys.Count; i++)
+            {
+                envoys[i].DiplomacyTarget = targets[i].Name;
+                if (envoys[i].CurrentTask != TaskType.Diplomacy) session.Tasks.AssignTask(envoys[i], TaskType.Diplomacy);
+            }
+            foreach (var idle in diplomats.Except(envoys)) { idle.DiplomacyTarget = null; session.Tasks.AssignTask(idle, TaskType.Mine); }
         }
 
         private static bool Within(GameSession session, string place, string regionId)

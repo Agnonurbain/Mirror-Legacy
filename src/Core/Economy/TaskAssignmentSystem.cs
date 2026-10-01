@@ -114,7 +114,7 @@ namespace MirrorChronicles.Economy
                     case TaskType.Patrol: patrols++; break;
                     case TaskType.Rest: stability.ApplyModifier(member, RestStability); break;
                     case TaskType.Study: Study(member); break;
-                    case TaskType.Diplomacy: Diplomacy(); break;
+                    case TaskType.Diplomacy: Diplomacy(member); break;
                     case TaskType.Espionage: espionage.AttemptEspionage(member, factions.RandomFaction()); break;
                     case TaskType.GatherQi: qiGathered += GatherQi(member); break;
                     case TaskType.HuntBeast:
@@ -225,10 +225,10 @@ namespace MirrorChronicles.Economy
             }
         }
 
-        /// <summary>+5 relation with a random faction, +2 per Council Room level.</summary>
-        private void Diplomacy()
+        /// <summary>+5 relation with the power the diplomat is sent to (else a random one), +2 per Council Room level.</summary>
+        private void Diplomacy(CharacterData diplomat)
         {
-            var target = factions.RandomFaction();
+            var target = factions.GetFactionByName(diplomat.DiplomacyTarget) ?? factions.RandomFaction();
             if (target == null) return;
             factions.ChangeRelation(target.ID, DiplomacyRelation + buildings.CouncilLevel * BuildingSystem.CouncilRelationBonusPerLevel);
         }

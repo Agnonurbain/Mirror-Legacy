@@ -294,6 +294,33 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_SendsADiplomat_ToAColdGateItCouldBow()
+        {
+            var s = Session();
+            for (int i = 0; i < 20; i++) Mansion(s); // a host of Purple Mansions: the ascendant over a gate of its realm
+            s.Clan.AddMember(Fixtures.Mortal(age: 40)); // past the age of a Talisman Seed: a mortal to send
+            var gate = s.Factions.GetFactionByName("Porte du Roc Obscur");
+            gate.RelationWithPlayer = -20; // too cold to bow
+            Assume.That(s.Treaties.HasAscendancyOver(gate));
+            BalanceRun.Act(s);
+            BalanceRun.SetTheIdleToWork(s);
+            Assert.IsTrue(s.Clan.LivingMembers.Any(m => m.CurrentTask == TaskType.Diplomacy && m.DiplomacyTarget != null
+                && s.Factions.GetFactionByName(m.DiplomacyTarget) is { Kind: FactionKind.Gate or FactionKind.Sect }));
+        }
+
+        [Test]
+        public void ThePilot_SeeksTheGatesAndSectsOfLinxi_BeforeItsFamilies()
+        {
+            var s = Session();
+            for (int i = 0; i < 20; i++) Mansion(s);
+            foreach (var f in s.Factions.Factions) f.RelationWithPlayer = 60;
+            foreach (var family in s.Factions.Factions.Where(f => f.RegionId == "jingshui-lake").ToList()) s.Factions.Restore(s.Factions.Factions.Where(f => f != family).ToList());
+            BalanceRun.Act(s);
+            var vassal = s.Treaties.All.Single(t => t.Kind == TreatyKind.Vassalage && t.ClanIsSuzerain);
+            Assert.That(s.Factions.GetFactionByName(vassal.Faction).Kind, Is.AnyOf(FactionKind.Gate, FactionKind.Sect), "the Twelve Gates' heirs");
+        }
+
+        [Test]
         public void ThePilot_BuildsTheHerbGardenAndTheMine_WhenItsTreasuryAllows()
         {
             var s = Session();

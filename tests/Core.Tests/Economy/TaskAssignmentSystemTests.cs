@@ -71,6 +71,21 @@ namespace MirrorChronicles.Tests.Economy
         }
 
         [Test]
+        public void ADiplomat_SentToAPower_WarmsThatPower()
+        {
+            var w = new TestWorld();
+            w.Factions.InitializeFactions();
+            var power = w.Factions.GetFactionByName("Famille Lou");
+            int before = power.RelationWithPlayer;
+            var diplomat = Working(w, TaskType.Diplomacy, Fixtures.Mortal());
+            diplomat.DiplomacyTarget = power.Name;
+
+            w.Tasks.ProcessYearlyTasks();
+
+            Assert.Greater(power.RelationWithPlayer, before);
+        }
+
+        [Test]
         public void TheMinersOfTheVeins_BringUpSpiritualOres()
         {
             var w = new TestWorld();
