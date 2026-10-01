@@ -149,6 +149,7 @@ namespace MirrorChronicles.Game
             status.Text = EndingView.Defeat(session);
             TellNextEnding();
             OfferFromAPatron();
+            AskForAnAnswer();
             nextPhase.Disabled = over || session.Story.PendingEvent != null; // a story event waits for a choice
         }
 
@@ -198,6 +199,50 @@ namespace MirrorChronicles.Game
             patronOffer.Canceled += () => { root.Session.Sponsorships.Refuse(); status.Text = $"Le clan décline l'offre de {offer.Power}."; PatronOfferClosed(); };
             AddChild(patronOffer);
             patronOffer.PopupCentered();
+        }
+
+        private ConfirmationDialog demand; // a patron's design awaiting the clan's answer
+
+        /// <summary>A design asked openly, or seen coming: yield, negotiate (the cheapest present gifts), or resist.</summary>
+        private void AskForAnAnswer()
+        {
+            var s = root.Session.Sponsorships.Awaiting.FirstOrDefault();
+            if (s == null || demand != null || patronOffer != null || ending != null) return;
+            var design = root.Session.Context.Content.PatronDesigns.First(d => d.Id == s.DesignId);
+            int price = root.Session.Sponsorships.NegotiationPrice(s.Id);
+            var bundle = AccordView.Bundle(AccordView.Candidates(root.Session.Accords, root.Session.Clan, root.Session.Techniques,
+                root.Session.Resources, root.Session.SecretBook, s.Power, s.TechniqueId), price);
+            demand = new ConfirmationDialog
+            {
+                Title = $"{s.Power} réclame son dû",
+                DialogText = $"{design.Name} : {design.Description}\n\nCéder, c'est le laisser faire. Négocier, c'est racheter ce dessein"
+                    + (bundle == null ? " (le clan n'a rien qui vaille assez)" : $" en donnant : {string.Join(", ", bundle.Select(b => b.Label))}")
+                    + ". Résister, c'est s'en faire un ennemi — et peut-être la guerre.",
+                OkButtonText = "Céder",
+                CancelButtonText = "Résister",
+                DialogAutowrap = true,
+                MinSize = new Vector2I(700, 0)
+            };
+            var negotiate = demand.AddButton("Négocier", true, "negotiate");
+            negotiate.Disabled = bundle == null;
+            demand.CustomAction += action =>
+            {
+                if (action != "negotiate") return;
+                status.Text = root.Session.Sponsorships.Negotiate(s.Id, bundle.Select(b => b.Term).ToList()) ?? $"Le clan rachète le dessein de {s.Power}.";
+                demand.Hide();
+                DemandClosed();
+            };
+            demand.Confirmed += () => { status.Text = root.Session.Sponsorships.Yield(s.Id) ?? $"Le clan cède à {s.Power}."; DemandClosed(); };
+            demand.Canceled += () => { status.Text = root.Session.Sponsorships.Resist(s.Id) ?? $"Le clan résiste à {s.Power}."; DemandClosed(); };
+            AddChild(demand);
+            demand.PopupCentered();
+        }
+
+        private void DemandClosed()
+        {
+            demand?.QueueFree();
+            demand = null;
+            Refresh();
         }
 
         private void PatronOfferClosed()

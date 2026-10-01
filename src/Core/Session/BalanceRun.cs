@@ -154,6 +154,13 @@ namespace MirrorChronicles.Session
         {
             if (AscentMethod(session) == null && session.Deduction.AscentRefusal() == null) session.Deduction.DeduceAscentMethod();
             if (session.Sponsorships.Pending != null) session.Sponsorships.Accept(); // a patron's gift, whatever it hides (§11.10)
+            foreach (var due in session.Sponsorships.Awaiting.ToList()) // resist a weaker patron, yield to a stronger one
+            {
+                var patron = session.Factions.GetFactionByName(due.Power);
+                if (patron != null && Diplomacy.WarRules.Strength(patron, session.Context.Content.Balance.Wars) < session.Wars.ClanWarStrength())
+                    session.Sponsorships.Resist(due.Id);
+                else session.Sponsorships.Yield(due.Id);
+            }
             foreach (var s in session.Sponsorships.Active.Where(x => !x.Cleansed).ToList()) session.Sponsorships.Cleanse(s.Id); // when the mirror can
             var method = AscentMethod(session);
             if (method == null) return;
