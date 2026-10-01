@@ -513,13 +513,14 @@
   },
   "elders": {
     "cadetsByKind": { "Family": 2, "Sect": 4, "Gate": 3, "ImmortalIsland": 2, "Temple": 3, "Order": 2, "State": 4 },
-    "riseChance": [ 0.05, 0.03, 0.01 ],
+    "riseChance": [ 0.05, 0.03, 0.003 ],
     "minYearsInRealm": [ 10, 30, 60, 150 ],
     "newElderChance": 0.1,
-    "minGoldenCoreOdds": 0.2,
-    "maxGoldenCoreOdds": 0.7,
+    "minGoldenCoreOdds": 0.15,
+    "maxGoldenCoreOdds": 0.55,
     "riseOdds": 0.6,
-    "oddsGainPerYear": 0.001,
+    "oddsGainPerYear": 0.0005,
+    "perfectionChance": 0.1,
     "lastYears": 20
   },
   "powerEconomy": {

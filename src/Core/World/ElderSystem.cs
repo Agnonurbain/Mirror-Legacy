@@ -71,7 +71,10 @@ namespace MirrorChronicles.World
                 RealmSinceYear = year - rng.Next(Math.Max(1, MinYears(realm) * 2)),
             };
             if (realm == CultivationRealm.PurpleMansion) // one who held better odds would have risen before the world began
+            {
                 elder.GoldenCoreOdds = Math.Min(DrawOdds(rng), Settings.RiseOdds - 0.05);
+                elder.Perfected = rng.NextDouble() < Settings.PerfectionChance;
+            }
             return elder;
         }
 
@@ -111,13 +114,17 @@ namespace MirrorChronicles.World
             if (realm >= Settings.RiseChance.Length || year - elder.RealmSinceYear < MinYears(elder.Realm)) return;
             if (!ctx.Rng.Chance(Settings.RiseChance[realm])) return;
             Advance(power, elder, elder.Realm + 1, year);
-            if (elder.Realm == CultivationRealm.PurpleMansion) elder.GoldenCoreOdds = DrawOdds(ctx.Rng);
+            if (elder.Realm == CultivationRealm.PurpleMansion)
+            {
+                elder.GoldenCoreOdds = DrawOdds(ctx.Rng);
+                elder.Perfected = ctx.Rng.NextDouble() < Settings.PerfectionChance; // most never gather their five abilities
+            }
         }
 
         /// <summary>A precious Purple Mansion at its peak dares only from good odds, or with nothing left to lose.</summary>
         private void TryTheGoldenCore(FactionData power, FactionElder elder, int year)
         {
-            if (year - elder.RealmSinceYear < MinYears(CultivationRealm.PurpleMansion)) return;
+            if (!elder.Perfected || year - elder.RealmSinceYear < MinYears(CultivationRealm.PurpleMansion)) return;
             elder.GoldenCoreOdds = Math.Min(1.0, elder.GoldenCoreOdds + Settings.OddsGainPerYear); // it prepares
             bool lastYears = elder.MaxLifespan - elder.Age(year) <= Settings.LastYears;
             if (elder.GoldenCoreOdds < Settings.RiseOdds && !lastYears) return;

@@ -91,10 +91,21 @@ namespace MirrorChronicles.Tests.World
         private static FactionElder PeakMansion(GameSession s, FactionData power, double odds, int yearsLeft)
         {
             var e = new FactionElder { Id = "peak", Name = "Peak", Realm = CultivationRealm.PurpleMansion, Stage = 5, MaxLifespan = 500,
-                RealmSinceYear = s.Clock.Year - 1000, GoldenCoreOdds = odds };
+                RealmSinceYear = s.Clock.Year - 1000, GoldenCoreOdds = odds, Perfected = true }; // at its Grand Perfection
             e.BornYear = s.Clock.Year + 1 - (e.MaxLifespan - yearsLeft);
             power.Elders.Add(e);
             return e;
+        }
+
+        [Test]
+        public void AMansionShortOfItsGrandPerfection_NeverTries_EvenAtItsEnd()
+        {
+            var s = Session();
+            var power = s.Factions.GetFactionByName(Gate);
+            var elder = PeakMansion(s, power, odds: 1.0, yearsLeft: 5);
+            elder.Perfected = false; // five abilities it never gathered
+            Years(s, 1);
+            Assert.IsTrue(power.Elders.Contains(elder) && elder.Realm == CultivationRealm.PurpleMansion);
         }
 
         [Test]
@@ -205,6 +216,26 @@ namespace MirrorChronicles.Tests.World
             power.HighestRealm = CultivationRealm.GoldenCore;
             Assume.That(MirrorChronicles.World.MirrorLoreRules.Draw(1, "kang-risen"), Is.GreaterThan(s.Context.Content.Balance.MirrorLore.KnowChance[CultivationRealm.GoldenCore]));
             Assert.IsFalse(s.Lore.Knows(power.Name));
+        }
+
+        // ---- The world stays the world (2026-10-01: within five centuries every power had become a Golden Core) ----
+
+        [Test]
+        public void OverFiveCenturies_TheGoldenCoresStayRare_AndThePurpleMansionsFew([Values(1, 2, 3)] int seed)
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = seed, Content = Fixtures.QuietContent });
+            int CountRealm(CultivationRealm r) => s.Factions.Factions.SelectMany(f => f.Elders).Count(e => e.Realm == r);
+            int goldenAtFirst = CountRealm(CultivationRealm.GoldenCore), mansionsAtFirst = CountRealm(CultivationRealm.PurpleMansion);
+            int greatAtFirst = s.Factions.Factions.Count(f => f.HighestRealm >= CultivationRealm.GoldenCore);
+            for (int year = 0; year < 500; year++)
+            {
+                s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);
+                s.Elders.ProcessYear();
+                s.PowerEconomy.ProcessYear();
+            }
+            Assert.That(CountRealm(CultivationRealm.GoldenCore), Is.LessThanOrEqualTo(goldenAtFirst + 4), "a True Monarch is rarissime");
+            Assert.That(CountRealm(CultivationRealm.PurpleMansion), Is.InRange(mansionsAtFirst / 2, mansionsAtFirst * 3 / 2), "the Purple Mansions neither vanish nor swarm");
+            Assert.That(s.Factions.Factions.Count(f => f.HighestRealm >= CultivationRealm.GoldenCore), Is.LessThanOrEqualTo(greatAtFirst + 4), "a few great powers, not all");
         }
     }
 }

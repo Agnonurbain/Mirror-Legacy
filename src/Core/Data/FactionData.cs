@@ -79,7 +79,8 @@ namespace MirrorChronicles.Data
         public int MaxLifespan { get; set; }
         public int RealmSinceYear { get; set; }          // when it reached its realm
         public double GoldenCoreOdds { get; set; }       // at the Purple Mansion: its odds of forging and claiming a position
-        public bool Ancient { get; set; }                // there when the world began: an ancient being, whose lore is old
+        public bool Ancient { get; set; }
+        public bool Perfected { get; set; }              // reached the Grand Perfection (five abilities): only then may it try the Golden Core                // there when the world began: an ancient being, whose lore is old
 
         public int Age(int year) => year - BornYear;
 

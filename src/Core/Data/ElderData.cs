@@ -19,7 +19,8 @@ namespace MirrorChronicles.Data
         public double MinGoldenCoreOdds { get; init; }
         public double MaxGoldenCoreOdds { get; init; }
         public double RiseOdds { get; init; } = 0.6;
-        public double OddsGainPerYear { get; init; }   // a Purple Mansion at its peak prepares: its odds grow a little each year
+        public double OddsGainPerYear { get; init; }
+        public double PerfectionChance { get; init; } // a Purple Mansion ever gathers its five abilities (most never do, as with the clan)   // a Purple Mansion at its peak prepares: its odds grow a little each year
         public int LastYears { get; init; } = 20;
     }
 

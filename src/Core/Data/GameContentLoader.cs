@@ -301,7 +301,7 @@ namespace MirrorChronicles.Data
             Require(elders != null && elders.CadetsByKind.Values.All(n => n >= 0) && elders.RiseChance is { Length: > 0 } && elders.RiseChance.All(IsProbability)
                 && elders.MinYearsInRealm is { Length: > 0 } && elders.MinYearsInRealm.All(y => y >= 0) && IsProbability(elders.NewElderChance)
                 && IsProbability(elders.MinGoldenCoreOdds) && IsProbability(elders.MaxGoldenCoreOdds) && elders.MinGoldenCoreOdds <= elders.MaxGoldenCoreOdds
-                && IsProbability(elders.RiseOdds) && IsProbability(elders.OddsGainPerYear) && elders.LastYears >= 0,
+                && IsProbability(elders.RiseOdds) && IsProbability(elders.OddsGainPerYear) && IsProbability(elders.PerfectionChance) && elders.LastYears >= 0,
                 BalanceFile, "elders needs cadets and years never negative, chances between 0 and 1, and a Golden Core odds range in order.");
             var economy = balance.PowerEconomy;
             Require(economy != null && economy.IncomePerPower >= 0 && economy.UpkeepPerPower >= 0 && economy.TemperIncome.Values.All(v => v >= 0)
