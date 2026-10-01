@@ -69,6 +69,17 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
             bus.OnSectFounded += () => Add("le clan fonde sa secte : les pics en haut, la ville en bas.");
             bus.OnRuinsRevealed += shard => Add($"des ruines anciennes sont découvertes ; le miroir y sent {shard.Name}.");
+            bus.OnElderDied += (power, elder, demon) =>
+            {
+                if (elder.Realm >= CultivationRealm.PurpleMansion)
+                    Add(demon ? $"{elder.Name}, de {power.Name}, échoue au Noyau d'Or : un démon d'essence métallique naît."
+                              : $"{elder.Name}, de {power.Name}, meurt au terme de sa vie.");
+            };
+            bus.OnElderRose += (power, elder) =>
+            {
+                if (elder.Realm >= CultivationRealm.PurpleMansion)
+                    Add($"{elder.Name}, de {power.Name}, atteint {MirrorChronicles.Characters.RankCatalog.RealmName(elder.Realm)}.");
+            };
             bus.OnShardSensed += (shard, region) => Add($"le miroir sent un éclat vers {RegionName(session, region)} : les porteurs de ses graines l'entendent.");
             bus.OnShardRecovered += shard => Add($"un éclat du miroir revient : {shard.Name}. Le miroir s'endort pour l'intégrer.");
             bus.OnEndingReached += (ending, subject) => Add($"fin dynastique : {ending.Name}. La partie continue.");

@@ -95,6 +95,7 @@ namespace MirrorChronicles.Session
         public ShardSystem Shards { get; }
         public PowerShards PowerShards { get; }
         public ShardSense ShardSense { get; }
+        public ElderSystem Elders { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -119,6 +120,7 @@ namespace MirrorChronicles.Session
             Aging = new AgingSystem(Context, Clan);
             Wounds = new WoundSystem(Context, Stability);
             Factions = new FactionManager(Context);
+            Elders = new ElderSystem(Context, Factions);
             Sect = new SectSystem(Context, Clan, Resources, Stability, Karma, Factions);
             Mirror = new MirrorSystem(Context, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
@@ -187,6 +189,7 @@ namespace MirrorChronicles.Session
             session.Bestiary.Draw(BeastRegistry.WorldRandom(setup.Seed));
             session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(setup.Seed), session.Factions.Factions);
             session.PowerShards.Place(PowerShards.WorldRandom(setup.Seed)); // three shards lie with three powers (B3c3)
+            session.Elders.Populate(ElderSystem.WorldRandom(setup.Seed));    // the powers' elders (the living world, 2026-10-01)
             session.Deduction.AddFragment(Element.Fire, 1, "Rouleau calciné");
             session.Deduction.AddFragment(Element.Wood, 1, "Lamelle de bambou");
 
@@ -282,6 +285,7 @@ namespace MirrorChronicles.Session
             session.SecretBook.Restore(data.SecretsHeld, data.SecretProgress);
             if (data.SecretsHeld == null) session.SecretBook.DrawPowerSecrets(SecretBook.WorldRandom(data.Seed), session.Factions.Factions); // before 2.14
             session.PowerShards.Place(PowerShards.WorldRandom(data.Seed)); // saves before 2.21: the powers' shards placed now
+            session.Elders.Populate(ElderSystem.WorldRandom(data.Seed));    // saves before 2.24: the powers' elders drawn now
             session.Probes.RestoreAlertness(data.Alertness);
             session.Suspicion.RestoreClanDistrust(data.ClanDistrust); // none in saves before 2.15
             session.Dealings.RestoreSpent(data.SpentSecrets);
@@ -444,7 +448,8 @@ namespace MirrorChronicles.Session
                     Sponsorships.ProcessYear();        // a patron may offer an ascent method, with a design (LORE.md §11.10)
                     Rivals.ProcessYear();              // those who hinder an ascent (LORE.md §11.10)
                     Paths.ProcessYear();
-            ShardSense.ProcessYear();          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
+            ShardSense.ProcessYear();
+            Elders.ProcessYear();              // the powers' elders age, die and rise (the living world, 2026-10-01)          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

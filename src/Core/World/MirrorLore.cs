@@ -34,7 +34,8 @@ namespace MirrorChronicles.World
             var power = factions.GetFactionByName(faction);
             if (power == null) return null;
             int year = ctx.Clock.Year;
-            var figures = ctx.Content.Figures.Where(f => f.FactionName == faction).ToList();
+            var figures = ctx.Content.Figures.Where(f => f.FactionName == faction
+                && (power.Elders.Count == 0 || power.Elders.Any(e => e.FigureId == f.Id))).ToList(); // a secret dies with its keeper (2026-10-01)
             var named = figures
                 .OrderByDescending(f => f.Realm).ThenBy(f => f.BornYear ?? int.MaxValue)
                 .FirstOrDefault(f => MirrorLoreRules.Draw(worldSeed, f.Id) < MirrorLoreRules.FigureChance(f, year, Settings));

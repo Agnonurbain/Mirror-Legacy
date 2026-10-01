@@ -256,9 +256,13 @@ namespace MirrorChronicles.Session
             return best.Plan;
         }
 
-        /// <summary>The mirror's sight costs by the rank of the next secret; the pilot keeps its reserve for the rest.</summary>
+        /// <summary>
+        /// The mirror's sight costs by the rank of the next secret; the pilot keeps its reserve for the rest, and never looks
+        /// while a newcomer waits to be sounded (2026-10-01: a yearly sight starved the soundings, and a spy fed a knower).
+        /// </summary>
         private static bool MirrorSpares(GameSession session, string target)
         {
+            if (UnsoundedNewcomers(session).Any()) return false;
             int rank = session.SecretBook.NextUnknown(SecretBook.ClanHolder, target)?.Rank ?? 1;
             return session.Mirror.MirrorPower >= session.Context.Content.Balance.Secrets.MirrorSightCostPerRank * rank + SeedReserve;
         }
@@ -277,12 +281,17 @@ namespace MirrorChronicles.Session
         /// the strongest powers first, where an elder may know the mirror; an unmasked spy is turned into a double agent (LORE.md
         /// §11.5; 2026-10-01: unsounded spies, waiting their turn for decades, fed the knowers the mirror).
         /// </summary>
+        private static IEnumerable<CharacterData> UnsoundedNewcomers(GameSession session)
+        {
+            var sounded = Sounded.GetOrCreateValue(session);
+            return session.Clan.LivingMembers.Where(m => m.FromFaction != null && m.CaptorFaction == null && !sounded.Contains(m.ID));
+        }
+
         private static void SoundTheNewcomers(GameSession session)
         {
             var sounded = Sounded.GetOrCreateValue(session);
             int Rank(CharacterData m) => session.Factions.GetFactionByName(m.FromFaction) is { } f ? (int)f.HighestRealm : -1;
-            foreach (var member in session.Clan.LivingMembers.Where(m => m.FromFaction != null && m.CaptorFaction == null
-                && !sounded.Contains(m.ID)).OrderByDescending(Rank).ToList())
+            foreach (var member in UnsoundedNewcomers(session).OrderByDescending(Rank).ToList())
             {
                 if (session.Mirror.MirrorPower < SeedReserve + session.Context.Content.Balance.Intrigues.UnmaskMirrorCost) return;
                 if (session.Intrigues.Unmask(member.ID) == null) return;

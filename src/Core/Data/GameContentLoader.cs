@@ -297,6 +297,12 @@ namespace MirrorChronicles.Data
                 && IsProbability(duel.DeathChallengeChance) && duel.DeathDeclineFactor >= 1
                 && duel.DeathGrudgeRelation >= -100 && duel.DeathGrudgeRelation < 0 && duel.DeathGrudgeSuspicion > 0 && duel.DeathGrudgeSuspicion <= 100,
                 BalanceFile, "challenges needs at least one fighter and one rival, a wager, and a refusal that costs face (zero or less).");
+            var elders = balance.Elders;
+            Require(elders != null && elders.CadetsByKind.Values.All(n => n >= 0) && elders.RiseChance is { Length: > 0 } && elders.RiseChance.All(IsProbability)
+                && elders.MinYearsInRealm is { Length: > 0 } && elders.MinYearsInRealm.All(y => y >= 0) && IsProbability(elders.NewElderChance)
+                && IsProbability(elders.MinGoldenCoreOdds) && IsProbability(elders.MaxGoldenCoreOdds) && elders.MinGoldenCoreOdds <= elders.MaxGoldenCoreOdds
+                && IsProbability(elders.RiseOdds) && IsProbability(elders.OddsGainPerYear) && elders.LastYears >= 0,
+                BalanceFile, "elders needs cadets and years never negative, chances between 0 and 1, and a Golden Core odds range in order.");
             var upkeep = balance.Upkeep;
             Require(upkeep != null && upkeep.MortalStones >= 0 && upkeep.CultivatorStones >= 0 && upkeep.StonesPerRealm >= 0
                 && IsProbability(upkeep.PovertyBirthFactor) && upkeep.ProsperityYears >= 1 && upkeep.PovertyStability <= 0 && upkeep.VeinMiners >= 1

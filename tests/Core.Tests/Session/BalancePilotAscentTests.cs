@@ -381,6 +381,17 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
+        public void ThePilot_KeepsTheMirror_ForANewcomerToSound_RatherThanItsSight()
+        {
+            var s = Prober();
+            var stranger = Fixtures.Cultivator(age: 25);
+            stranger.FromFaction = "Secte de la Lune Pâle";
+            s.Clan.AddMember(stranger);
+            s.Mirror.Restore(39, 0); // short of a sounding with its reserve (20 + 20), enough for a sight
+            Assert.AreNotEqual(ProbeApproach.MirrorSight, BalanceRun.NextProbe(s)?.Approach, "a spy unsounded is the greater danger");
+        }
+
+        [Test]
         public void ThePilot_LooksWithTheMirror_WhenItCan()
         {
             var s = Prober(); // the mirror at its full power
