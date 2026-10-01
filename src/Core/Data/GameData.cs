@@ -40,6 +40,7 @@ namespace MirrorChronicles.Data
         public List<string> RecoveredShards { get; set; }   // 2.21: the shards recovered (shards.json ids)
         public List<string> RevealedRuins { get; set; }     // 2.21: the ruins the clan knows to hold a shard
         public List<FruitionRace> FruitionRaces { get; set; }       // 2.25: the races for the lineages freed
+        public List<string> MovedHolders { get; set; }               // 2.25: the Surplus and Intercalaries already risen
         public Dictionary<string, string> ShardDirections { get; set; } // 2.23: the shards the mirror sensed → the region where each lies
         public int MirrorAsleepUntil { get; set; }          // 2.21: the year the spirit wakes from integrating a shard
         public List<FragmentData> Fragments { get; set; }

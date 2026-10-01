@@ -19,6 +19,7 @@ namespace MirrorChronicles.Game
         private VBoxContainer market;
         private Label status;
         private VBoxContainer accord;                 // the accords tab (LORE.md §11.10, A)
+        private VBoxContainer lineages;               // the lineages of the world, as the clan knows them (2026-10-01)
         private TabContainer tabs;
         private (string Power, string TechniqueId, string Name)? negotiating;
         private readonly System.Collections.Generic.HashSet<int> chosen = new System.Collections.Generic.HashSet<int>();
@@ -31,12 +32,16 @@ namespace MirrorChronicles.Game
             market = GetNode<VBoxContainer>("%Market");
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
-            // LIB_TAB=<0-1> opens a tab (screenshots of a smoke run)
+            // LIB_TAB=<0-3> opens a tab (screenshots of a smoke run)
             tabs = GetNode<TabContainer>("%Tabs");
             var accordTab = new ScrollContainer { Name = "Accord" };
             accord = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
             accordTab.AddChild(accord);
             tabs.AddChild(accordTab);
+            var lineagesTab = new ScrollContainer { Name = "Lignées" };
+            lineages = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
+            lineagesTab.AddChild(lineages);
+            tabs.AddChild(lineagesTab);
             if (int.TryParse(OS.GetEnvironment("LIB_TAB"), out int tab)) tabs.CurrentTab = tab;
             if (tab == 2 && LibraryView.Market(root.Session).FirstOrDefault() is { } first) // screenshots: an accord under way
                 negotiating = (first.Power, first.TechniqueId, first.Name);
@@ -49,6 +54,31 @@ namespace MirrorChronicles.Game
             ShowArts();
             ShowMarket();
             ShowAccord();
+            ShowLineages();
+        }
+
+        /// <summary>Each lineage as the clan knows it: held, free, broken, a race, a holder reborn; the mirror for the hidden.</summary>
+        private void ShowLineages()
+        {
+            Clear(lineages);
+            foreach (var row in LineagesView.Rows(root.Session))
+            {
+                var line = new HBoxContainer();
+                line.AddChild(new Label { Text = $"{row.Name} — {row.State}", AutowrapMode = TextServer.AutowrapMode.WordSmart, SizeFlagsHorizontal = SizeFlags.ExpandFill });
+                if (row.CanReveal)
+                {
+                    var reveal = new Button { Text = row.RevealLabel };
+                    string id = row.Id;
+                    reveal.Pressed += () =>
+                    {
+                        string refusal = root.Session.WorldFruitions.Reveal(id);
+                        status.Text = refusal == null ? $"Le miroir lève le voile sur la lignée {row.Name}." : $"Impossible : {refusal}.";
+                        Refresh();
+                    };
+                    line.AddChild(reveal);
+                }
+                lineages.AddChild(line);
+            }
         }
 
         private System.Collections.Generic.IReadOnlyList<AccordCandidate> Candidates() =>

@@ -80,6 +80,8 @@ namespace MirrorChronicles.Data
         public int RaceYears { get; init; } = 30;
         public double RaceOdds { get; init; } = 0.45;
         public double SabotageBaseChance { get; init; }
+        public int RevealMirrorCost { get; init; }          // the mirror lays a hidden or suspected lineage's truth bare
+        public double SuspectTruthChance { get; init; }     // a suspected holder truly holds it
         public double SabotageChancePerPower { get; init; }
         public double SabotageMinChance { get; init; }
         public double SabotageMaxChance { get; init; }

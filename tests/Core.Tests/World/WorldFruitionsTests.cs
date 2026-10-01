@@ -19,9 +19,14 @@ namespace MirrorChronicles.Tests.World
         private const string FirstJade = "first-jade";    // held by the Venerable Lingxu, an elder of the Pale Moon
         private const string Dawnlight = "dawnlight";     // the Immortal Xiaoyun: she passes only at the end of time
 
+        /// <summary>The content with these world settings, and no Surplus or Intercalary rising (each test of moves asks for them).</summary>
         private static GameContent With(System.Func<WorldFruitionSettings, WorldFruitionSettings> tweak) => Fixtures.QuietContent with
         {
-            Balance = Fixtures.QuietContent.Balance with { WorldFruitions = tweak(Fixtures.QuietContent.Balance.WorldFruitions) }
+            Balance = Fixtures.QuietContent.Balance with
+            {
+                WorldFruitions = tweak(Fixtures.QuietContent.Balance.WorldFruitions),
+                GoldenCore = Fixtures.QuietContent.Balance.GoldenCore with { TransferChance = 0, TransformationChance = 0 }
+            }
         };
 
         private static GameSession Session(GameContent content = null) =>
@@ -180,6 +185,76 @@ namespace MirrorChronicles.Tests.World
             var chronicle = new MirrorChronicles.Presentation.Chronicle(s);
             Year(s);
             Assert.IsTrue(chronicle.Entries.Any(e => e.Contains("Tan Qing")));
+        }
+
+        /// <summary>The Transfer and the Transformation sure: a test of who rises, not of the odds.</summary>
+        private static GameContent SureMoves(GameContent c) => c with
+        {
+            Balance = c.Balance with { GoldenCore = c.Balance.GoldenCore with { TransferChance = 100, TransformationChance = 100 } }
+        };
+
+        // ---- The positions move: a Surplus's Transfer, an Intercalary's Transformation (LORE.md §5.5.1) ----
+
+        [Test]
+        public void AFreedRealization_IsTakenByItsSurplus_ByTransfer()
+        {
+            var s = Session(SureMoves(With(w => w with { HolderPassChance = 1.0, ReincarnationChance = 0 })));
+            Year(s); // Ao Ming passes: the Gathered Water is free, and its four Surplus try
+            var state = s.Fruitions.State("gathered-water");
+            Assert.AreEqual(FruitionStatus.Occupied, state.Status, "a Surplus rose by Transfer (sure, by the test's roll)");
+            Assert.That(new[] { "Ao Yue", "Ao Xi", "Ao Zai", "Ao Lin" }, Has.Member(state.Holder));
+        }
+
+        [Test]
+        public void AHolderRisenByTransfer_NeverRisesTwice()
+        {
+            var s = Session(SureMoves(With(w => w with { HolderPassChance = 1.0, ReincarnationChance = 0 })));
+            Year(s);
+            string first = s.Fruitions.State("gathered-water").Holder;
+            Year(s); // he passes in turn: the next Surplus rises, never him again
+            Assert.AreNotEqual(first, s.Fruitions.State("gathered-water").Holder);
+        }
+
+        // ---- The hidden and the suspected (LORE.md §6.8) ----
+
+        [Test]
+        public void AHiddenLineage_HasATrueStatus_TheMirrorReveals()
+        {
+            var s = Session();
+            Assume.That(s.Fruitions.State("violet-qi").Status, Is.EqualTo(FruitionStatus.Hidden));
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
+            Assert.IsNull(s.WorldFruitions.Reveal("violet-qi"));
+            Assert.That(s.Fruitions.State("violet-qi").Status, Is.AnyOf(FruitionStatus.Free, FruitionStatus.Occupied, FruitionStatus.Broken));
+            Assert.AreEqual(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower - s.Context.Content.Balance.WorldFruitions.RevealMirrorCost, s.Mirror.MirrorPower);
+        }
+
+        [Test]
+        public void ASuspectedHolder_IsConfirmedOrCleared_ByTheMirror()
+        {
+            var s = Session();
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
+            Assert.IsNull(s.WorldFruitions.Reveal("exiled-qi"));
+            var state = s.Fruitions.State("exiled-qi");
+            Assert.IsTrue(state.Status == FruitionStatus.Free || (state.Status == FruitionStatus.Occupied && state.Holder == "Marquis de la Nuit"));
+        }
+
+        [Test]
+        public void TheMirror_RevealsOnlyWhatIsHidden_AndAtItsPrice()
+        {
+            var s = Session();
+            s.Mirror.Restore(0, 0);
+            Assert.IsNotNull(s.WorldFruitions.Reveal("violet-qi"), "the mirror lacks the power");
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
+            Assert.IsNotNull(s.WorldFruitions.Reveal(Mutable), "nothing hidden there");
+        }
+
+        [Test]
+        public void TheTrueStatus_SurvivesASave()
+        {
+            var s = Session();
+            var hidden = s.Fruitions.State("violet-qi");
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), new GameSetup { Content = Fixtures.QuietContent });
+            Assert.AreEqual(hidden.TrueStatus, reloaded.Fruitions.State("violet-qi").TrueStatus);
         }
     }
 }

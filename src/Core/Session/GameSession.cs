@@ -147,7 +147,7 @@ namespace MirrorChronicles.Session
             Captives = new CaptiveSystem(Context, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
             Lifecycle = new PowerLifecycle(Context, Factions, Politics, Elders);
-            WorldFruitions = new WorldFruitions(Context, Clan, Factions, Fruitions, Elders, Suspicion);
+            WorldFruitions = new WorldFruitions(Context, Clan, Factions, Fruitions, Elders, Suspicion, Mirror);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
             Accords = new KnowledgeAccords(Context, Clan, Factions, Techniques, Resources, SecretBook);
@@ -294,7 +294,7 @@ namespace MirrorChronicles.Session
             session.PowerShards.Place(PowerShards.WorldRandom(data.Seed)); // saves before 2.21: the powers' shards placed now
             session.Elders.Populate(ElderSystem.WorldRandom(data.Seed));    // saves before 2.24: the powers' elders drawn now
             session.WorldFruitions.Link();
-            session.WorldFruitions.RestoreRaces(data.FruitionRaces);        // none before 2.25
+            session.WorldFruitions.RestoreRaces(data.FruitionRaces, data.MovedHolders); // none before 2.25
             session.Probes.RestoreAlertness(data.Alertness);
             session.Suspicion.RestoreClanDistrust(data.ClanDistrust); // none in saves before 2.15
             session.Dealings.RestoreSpent(data.SpentSecrets);
@@ -356,6 +356,7 @@ namespace MirrorChronicles.Session
                 QiHarvestProgress = new Dictionary<string, int>(Resources.QiHarvestProgress),
                 FruitionStates = new Dictionary<string, FruitionState>(Fruitions.States),
                 FruitionRaces = WorldFruitions.Races.ToList(),
+                MovedHolders = WorldFruitions.Moved.ToList(),
                 GoldenCorePermissions = new Dictionary<string, string>(GoldenCore.Permissions),
                 Prayers = Resources.Prayers,
                 CapturedBeasts = Resources.Beasts.ToList(),

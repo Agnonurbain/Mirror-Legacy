@@ -447,7 +447,7 @@ namespace MirrorChronicles.Data
     /// order of difficulty — the Intercalary « not guaranteed », the specialised one « very difficult but safer »,
     /// the axiom of the positions a danger — but no figure: every value here is an interpretation.
     /// </summary>
-    public sealed class GoldenCoreSettings
+    public sealed record GoldenCoreSettings
     {
         /// <summary>Base chance (%) of forging the five abilities into a metal essence.</summary>
         public int ForgeBaseChance { get; init; }

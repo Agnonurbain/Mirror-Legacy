@@ -131,6 +131,10 @@ namespace MirrorChronicles.Data
         /// <summary>A holder passed but reborn (2026-10-01): free meanwhile, its own again at <see cref="ReturnYear"/> if nobody took it.</summary>
         public string ReturningHolder { get; init; }
         public int? ReturnYear { get; init; }
+
+        /// <summary>A hidden or suspected lineage's truth, drawn by the world (2026-10-01, interpretation): what the mirror reveals.</summary>
+        public FruitionStatus? TrueStatus { get; init; }
+        public string TrueHolder { get; init; }
     }
 
     /// <summary>A lineage freed: a race to its Realization, open until a year (saved).</summary>

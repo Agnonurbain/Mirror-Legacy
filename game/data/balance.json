@@ -532,6 +532,8 @@
     "raceYears": 30,
     "raceOdds": 0.45,
     "sabotageBaseChance": 0.4,
+    "revealMirrorCost": 30,
+    "suspectTruthChance": 0.5,
     "sabotageChancePerPower": 0.03,
     "sabotageMinChance": 0.05,
     "sabotageMaxChance": 0.9,

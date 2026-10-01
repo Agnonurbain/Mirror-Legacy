@@ -25,11 +25,14 @@ namespace MirrorChronicles.World
         private readonly FruitionRegistry registry;
         private readonly ElderSystem elders;
         private readonly SuspicionLedger suspicion;
+        private readonly MirrorSystem mirror;
+        private readonly HashSet<string> moved = new HashSet<string>(); // the Surplus and Intercalaries already risen (each rises once)
         private readonly List<FruitionRace> races = new List<FruitionRace>();
 
         public WorldFruitions(GameContext ctx, ClanManager clan, FactionManager factions, FruitionRegistry registry, ElderSystem elders,
-            SuspicionLedger suspicion)
+            SuspicionLedger suspicion, MirrorSystem mirror)
         {
+            this.mirror = mirror;
             this.ctx = ctx;
             this.clan = clan;
             this.factions = factions;
@@ -44,10 +47,14 @@ namespace MirrorChronicles.World
 
         public IReadOnlyList<FruitionRace> Races => races;
 
-        public void RestoreRaces(IEnumerable<FruitionRace> saved)
+        public IReadOnlyCollection<string> Moved => moved;
+
+        public void RestoreRaces(IEnumerable<FruitionRace> saved, IEnumerable<string> savedMoved = null)
         {
             races.Clear();
             if (saved != null) races.AddRange(saved);
+            moved.Clear();
+            foreach (var name in savedMoved ?? Enumerable.Empty<string>()) moved.Add(name);
         }
 
         /// <summary>The powers' elders who hold a Realization at the world's start are bound to it (a figure such as the Venerable Lingxu).</summary>
@@ -84,6 +91,44 @@ namespace MirrorChronicles.World
             OpenRace(fruitionId);
             ctx.Log.Warning($"[Fruitions] {holder} no longer holds {fruitionId}{(reborn ? "; reborn, he may come back" : "")}: the race is open.");
             ctx.Events.TriggerFruitionFreed(fruitionId, holder, reborn);
+            MoveUp(fruitionId);
+        }
+
+        /// <summary>
+        /// The Realization free, the positions below move (LORE.md §5.5.1): its Surplus try the Transfer, then its
+        /// Intercalaries the Transformation, by the clan's own odds; each rises once.
+        /// </summary>
+        private void MoveUp(string fruitionId)
+        {
+            var lineage = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == fruitionId);
+            if (lineage == null) return;
+            var core = ctx.Content.Balance.GoldenCore;
+            foreach (var (name, chance) in lineage.Surplus.Select(n => (n, core.TransferChance))
+                .Concat(lineage.Intercalary.Select(n => (n, core.TransformationChance))).Where(c => !moved.Contains(c.Item1)).ToList())
+            {
+                if (ctx.Rng.Next(1, 101) > chance) continue; // a failure wounds its Dao: it stays where it is
+                registry.Claim(fruitionId, name);
+                moved.Add(name);
+                races.RemoveAll(r => r.FruitionId == fruitionId);
+                ctx.Log.Info($"[Fruitions] {name} rises to the Realization of {fruitionId}.");
+                ctx.Events.TriggerFruitionTaken(fruitionId, name);
+                return;
+            }
+        }
+
+        /// <summary>The mirror lays a hidden or suspected lineage's truth bare. Null when done, else why not (French).</summary>
+        public string Reveal(string fruitionId)
+        {
+            var state = registry.State(fruitionId);
+            if (state == null || (state.Status != FruitionStatus.Hidden && state.Status != FruitionStatus.Suspected))
+                return "rien n'est caché dans cette lignée";
+            int cost = Settings.RevealMirrorCost;
+            if (mirror.PayRefusal(cost) is { } why) return why;
+            mirror.ConsumePower(cost);
+            registry.Reveal(fruitionId);
+            ctx.Log.Info($"[Fruitions] The mirror lays the truth of {fruitionId} bare.");
+            ctx.Events.TriggerFruitionRevealed(fruitionId);
+            return null;
         }
 
         private void Return(string fruitionId, FruitionState state)

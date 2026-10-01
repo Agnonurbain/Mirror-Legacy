@@ -49,6 +49,26 @@ namespace MirrorChronicles.World
                     : new FruitionState(fruition.Status, fruition.Holder);
                 states[fruition.Id] = saved != null && saved.TryGetValue(fruition.Id, out var state) && state != null ? state : drawn;
             }
+            // after every other draw, so a seed's world is unchanged: the truth behind the hidden and the suspected
+            foreach (var fruition in ctx.Content.Fruitions.Where(f => f.Status == FruitionStatus.Hidden || f.Status == FruitionStatus.Suspected))
+            {
+                var truth = fruition.Status == FruitionStatus.Hidden
+                    ? Draw(worldRng)
+                    : worldRng.NextDouble() < ctx.Content.Balance.WorldFruitions.SuspectTruthChance
+                        ? new FruitionState(FruitionStatus.Occupied, fruition.Holder) : new FruitionState(FruitionStatus.Free, null);
+                var current = states[fruition.Id];
+                if (current.Status == fruition.Status && current.TrueStatus == null)
+                    states[fruition.Id] = current with { TrueStatus = truth.Status, TrueHolder = truth.Holder };
+            }
+        }
+
+        /// <summary>The truth of a hidden or suspected lineage laid bare. False when there is nothing hidden there.</summary>
+        public bool Reveal(string fruitionId)
+        {
+            var state = State(fruitionId);
+            if (state == null || (state.Status != FruitionStatus.Hidden && state.Status != FruitionStatus.Suspected)) return false;
+            states[fruitionId] = new FruitionState(state.TrueStatus ?? FruitionStatus.Free, state.TrueHolder);
+            return true;
         }
 
         /// <summary>
