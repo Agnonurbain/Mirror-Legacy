@@ -28,7 +28,7 @@ namespace MirrorChronicles.Tests.Presentation
             w.Resources.AddQi("clear-spring-qi", 2);
             w.Resources.AddBeast(new CapturedBeast("b1", CultivationRealm.Foundation, 3));
             w.SecretBook.Grant(SecretBook.ClanHolder, w.SecretBook.Create("hidden-debt", "Famille Tao", null).Id);
-            w.Join(Fixtures.Cultivator()); // the patriarch never leaves as a disciple
+            w.Clan.AppointPatriarch(w.Join(Fixtures.Cultivator())); // the patriarch never leaves as a disciple
             w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation));
             w.Resources.AddSpiritStones(100_000);
             return w;
