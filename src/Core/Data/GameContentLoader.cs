@@ -204,6 +204,8 @@ namespace MirrorChronicles.Data
         {
             var odds = balance.OrificeOdds;
             Require(odds != null, BalanceFile, "orificeOdds is missing.");
+            Require(balance.AscentRivals is { } rivals && new[] { rivals.LearnChance, rivals.StrikeChance, rivals.DenounceChance, rivals.BuyChance }.All(IsProbability),
+                BalanceFile, "ascentRivals: its chances lie between 0 and 1.");
             Require(balance.PatronDesigns is { HarvestRelationLoss: >= 0, MarkClues: >= 0, FlawWounds: >= 0, SincereGift: >= 0 }, BalanceFile, "patronDesigns: its effects are zero or more.");
             Require(balance.Sect != null && balance.Sect.MinCultivators >= 0 && balance.Sect.FoundingStones >= 0, BalanceFile, "sect: its needs are counts of zero or more.");
             var shards = balance.Shards;

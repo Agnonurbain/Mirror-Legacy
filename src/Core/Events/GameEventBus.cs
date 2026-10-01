@@ -63,6 +63,8 @@ namespace MirrorChronicles.Events
         public event Action<Diplomacy.Sponsorship, PatronDesign> OnPatronDesignDue; // a patron's design falls due
         public event Action<Diplomacy.Sponsorship, PatronDesign> OnPatronDemand;   // a design awaits the clan's answer
         public event Action<Diplomacy.Sponsorship, PatronDesign> OnPatronDesignResisted;
+        public event Action<string, string> OnAccordDenounced;              // rival, patron (§11.10)
+        public event Action<CharacterData, string> OnMemberLured;           // a practitioner bought away by a rival
         public event Action OnSectFounded;                                 // the clan founds its sect (B3d)
         public event Action<string> OnClanWarWon;                          // an enemy of the clan yields (B3c3: its loot)
         public event Action<ShardDefinition> OnRuinsRevealed;               // ruins found to hold a shard (B3c2)
@@ -108,6 +110,8 @@ namespace MirrorChronicles.Events
         public void TriggerPatronDesignDue(Diplomacy.Sponsorship s, PatronDesign d) => OnPatronDesignDue?.Invoke(s, d);
         public void TriggerPatronDemand(Diplomacy.Sponsorship s, PatronDesign d) => OnPatronDemand?.Invoke(s, d);
         public void TriggerPatronDesignResisted(Diplomacy.Sponsorship s, PatronDesign d) => OnPatronDesignResisted?.Invoke(s, d);
+        public void TriggerAccordDenounced(string rival, string patron) => OnAccordDenounced?.Invoke(rival, patron);
+        public void TriggerMemberLured(CharacterData member, string rival) => OnMemberLured?.Invoke(member, rival);
         public void TriggerSectFounded() => OnSectFounded?.Invoke();
         public void TriggerClanWarWon(string enemy) => OnClanWarWon?.Invoke(enemy);
         public void TriggerRuinsRevealed(ShardDefinition shard) => OnRuinsRevealed?.Invoke(shard);

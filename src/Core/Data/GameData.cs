@@ -99,6 +99,7 @@ namespace MirrorChronicles.Data
         public List<Diplomacy.KnowledgeDebt> KnowledgeDebts { get; set; } // 2.21: what the clan owes for a method (§11.10)
         public Diplomacy.SponsorOffer PendingSponsorOffer { get; set; }   // 2.21: a patron's offer awaiting the clan's answer
         public List<Diplomacy.Sponsorship> Sponsorships { get; set; }     // 2.21: accepted patronages and their designs
+        public List<Diplomacy.AscentRival> AscentRivals { get; set; }     // 2.21: the rivals that know of an accord
 
         // Lineage
         public int GenerationCount { get; set; } = 1;
