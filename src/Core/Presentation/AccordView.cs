@@ -48,6 +48,18 @@ namespace MirrorChronicles.Presentation
                 .Where(c => c.Worth > 0).ToList();
         }
 
+        /// <summary>The cheapest bundle of present gifts (no debt, no disciple) worth at least <paramref name="price"/>; null when none is.</summary>
+        public static IReadOnlyList<AccordCandidate> Bundle(IReadOnlyList<AccordCandidate> candidates, int price)
+        {
+            var bundle = new List<AccordCandidate>();
+            foreach (var c in candidates.Where(c => c.Term.Currency != AccordCurrency.Debt && c.Term.Currency != AccordCurrency.Disciple).OrderBy(c => c.Worth))
+            {
+                if (bundle.Sum(b => b.Worth) >= price) break;
+                bundle.Add(c);
+            }
+            return bundle.Sum(b => b.Worth) >= price ? bundle : null;
+        }
+
         public static AccordSummary Summary(KnowledgeAccords accords, string power, string techniqueId, IReadOnlyList<AccordTerm> terms)
         {
             int worth = (terms ?? new List<AccordTerm>()).Sum(t => accords.WorthOf(power, techniqueId, t));

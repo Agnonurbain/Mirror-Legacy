@@ -20,6 +20,9 @@ namespace MirrorChronicles.Data
         public int ImperialSuspicion { get; init; }   // the states' suspicion of an imperial blood
         public double VoidKeyDeathChance { get; init; }
         public int VoidKeyTreasure { get; init; }
+        public double NegotiateShare { get; init; }   // the share of the method's worth that buys a design off
+        public int ResistRelationLoss { get; init; }  // a patron resisted turns hostile
+        public int ResistSuspicion { get; init; }
     }
 
     /// <summary>When a patron's design falls due (LORE.md §11.10, C).</summary>
@@ -37,6 +40,7 @@ namespace MirrorChronicles.Data
         public DesignDue Due { get; init; }
         public int Years { get; init; }           // for a design due after years
         public bool Cleansable { get; init; }     // a mark or a flaw the mirror can wash out of the manual
+        public bool Demand { get; init; }         // it asks the clan openly: the clan answers (yield, negotiate, resist)
         public int Weight { get; init; } = 1;     // how often a patron harbours it
         public string Source { get; init; }
         public Provenance Provenance { get; init; }

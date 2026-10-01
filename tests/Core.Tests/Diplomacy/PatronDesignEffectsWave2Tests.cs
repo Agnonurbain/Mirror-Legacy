@@ -11,6 +11,12 @@ namespace MirrorChronicles.Tests.Diplomacy
     [TestFixture]
     public class PatronDesignEffectsWave2Tests
     {
+        /// <summary>A design that demands openly waits for an answer: these tests let the clan yield.</summary>
+        private static void YieldAll(TestWorld w)
+        {
+            foreach (var s in w.Sponsorships.Awaiting.ToList()) w.Sponsorships.Yield(s.Id);
+        }
+
         private const string Patron = "Famille Bai";
         private const string Other = "Famille Tao";
         private const string Method = "silent-tide-sutra";
@@ -49,6 +55,7 @@ namespace MirrorChronicles.Tests.Diplomacy
                     w.Ctx.Events.TriggerCharacterBorn(child);
                     break;
             }
+            YieldAll(w);
         }
 
         private static CharacterData Child(TestWorld w, int root)

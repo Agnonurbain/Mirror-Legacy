@@ -144,6 +144,15 @@ namespace MirrorChronicles.Diplomacy
             return null;
         }
 
+        /// <summary>A power makes war on the clan (a patron resisted, 2026-10-01).</summary>
+        public void WagedOnClan(string faction)
+        {
+            var power = factions.GetFactionByName(faction);
+            if (power == null || clanWars.Any(w => w.Enemy == faction)) return;
+            clanWars.Add(new ClanWar(faction, ctx.Clock.Year, power.PowerLevel));
+            ctx.Events.TriggerWarBegun(faction, SecretBook.ClanHolder);
+        }
+
         public string SuePeace(string faction)
         {
             var war = clanWars.FirstOrDefault(w => w.Enemy == faction);

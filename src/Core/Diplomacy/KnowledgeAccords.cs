@@ -140,6 +140,14 @@ namespace MirrorChronicles.Diplomacy
             return null;
         }
 
+        /// <summary>Gives these terms to the power (they were checked by the caller).</summary>
+        public void GiveTerms(string powerName, string techniqueId, IEnumerable<AccordTerm> terms)
+        {
+            var power = factions.GetFactionByName(powerName);
+            if (power == null) return;
+            foreach (var term in terms) Give(power, techniqueId, term);
+        }
+
         private void Give(FactionData power, string techniqueId, AccordTerm term)
         {
             switch (term.Currency)
