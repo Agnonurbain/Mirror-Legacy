@@ -23,6 +23,8 @@ namespace MirrorChronicles.Presentation
         public IReadOnlyList<string> Entries => entries;
         public event Action<string> OnEntryAdded;
 
+        private readonly HashSet<string> fell = new HashSet<string>(); // a fall is told once, not again as an absorption
+
         private static string RegionName(GameSession session, string regionId) =>
             session.Context.Content.Regions.FirstOrDefault(r => r.Id == regionId)?.Name ?? regionId;
 
@@ -43,7 +45,7 @@ namespace MirrorChronicles.Presentation
             bus.OnMemberFreed += c => Add($"{c.FullName} est libre.");
             bus.OnAgentCaught += faction => Add($"un agent de {faction} tombe entre les mains du clan.");
             bus.OnClanAbsorbed += suzerain => Add($"{suzerain} absorbe le clan : il n'est plus à lui-même.");
-            bus.OnPowerAbsorbed += (vassal, suzerain) => Add($"{Who(suzerain)} absorbe {vassal}.");
+            bus.OnPowerAbsorbed += (vassal, suzerain) => { if (!fell.Remove(vassal)) Add($"{Who(suzerain)} absorbe {vassal}."); };
             bus.OnCoalitionFormed += members => Add($"une coalition se forme contre le clan : {string.Join(", ", members)}.");
             bus.OnCallToArms += (ally, attacker) => Add($"{ally}, attaquée par {attacker}, appelle le clan aux armes.");
             bus.OnTheft += (what, thief) => Add(thief == null ? $"vol au domaine : {what}, sans que l'on sache qui." : $"vol au domaine : {what} ; le voleur, de {thief}, est pris.");
@@ -69,6 +71,10 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
             bus.OnSectFounded += () => Add("le clan fonde sa secte : les pics en haut, la ville en bas.");
             bus.OnRuinsRevealed += shard => Add($"des ruines anciennes sont découvertes ; le miroir y sent {shard.Name}.");
+            bus.OnPowerFell += (fallen, heir) => { fell.Add(fallen); Add($"{fallen} se disperse ; {Who(heir)} recueille ses restes."); };
+            bus.OnPowerRose += (power, parent) => Add(parent == null ? $"la {power.Name} s'élève parmi les puissances."
+                : $"une branche quitte {parent} et fonde {power.Name}.");
+            bus.OnKingdomFounded += power => Add($"{power.Name} fonde un royaume.");
             bus.OnElderDied += (power, elder, demon) =>
             {
                 if (elder.Realm >= CultivationRealm.PurpleMansion)

@@ -97,6 +97,7 @@ namespace MirrorChronicles.Session
         public ShardSense ShardSense { get; }
         public ElderSystem Elders { get; }
         public PowerEconomy PowerEconomy { get; }
+        public PowerLifecycle Lifecycle { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -144,6 +145,7 @@ namespace MirrorChronicles.Session
             Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
             Captives = new CaptiveSystem(Context, Clan, Resources, Factions, Suspicion, Oaths, Mirror, Hunts);
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
+            Lifecycle = new PowerLifecycle(Context, Factions, Politics, Elders);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
             Accords = new KnowledgeAccords(Context, Clan, Factions, Techniques, Resources, SecretBook);
@@ -452,7 +454,8 @@ namespace MirrorChronicles.Session
                     Paths.ProcessYear();
             ShardSense.ProcessYear();
             Elders.ProcessYear();              // the powers' elders age, die and rise (the living world, 2026-10-01)
-            PowerEconomy.ProcessYear();        // their income, upkeep and growth toward what their elders lead (step B)          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
+            PowerEconomy.ProcessYear();        // their income, upkeep and growth toward what their elders lead (step B)
+            Lifecycle.ProcessYear();           // powers fall, gates and sects are founded, kingdoms rise, families rise (step C)          // the mirror senses a shard near, through its seeds (2026-10-01)               // disciples serve and come home, defectors come (LORE.md §11.10)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

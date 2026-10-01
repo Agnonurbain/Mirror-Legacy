@@ -39,4 +39,28 @@ namespace MirrorChronicles.Data
         public double[] RealmWeight { get; init; } = { 1, 1, 3, 10, 40, 100, 200 };
         public double DebtDecline { get; init; }
     }
+
+    /// <summary>
+    /// The powers' births and falls (balance.json « powerLifecycle », the living world, step C, user decisions 2026-10-01 —
+    /// interpretations). A power under <see cref="FallPower"/> or without elders disperses. A founding is strict, and harder
+    /// at each rank: a gate asks a Purple Mansion founder and its followers, a sect a Golden Core and more, a kingdom — the
+    /// hardest — a power with a Golden Core, vassals and the size of the greatest. A family rises while the world counts
+    /// fewer powers than at first.
+    /// </summary>
+    public sealed record PowerLifecycleSettings
+    {
+        public int FallPower { get; init; }
+        public double SecessionChance { get; init; }
+        public int GateFollowers { get; init; } = 2;
+        public int MaxExtraPowers { get; init; } = 3;  // no founding beyond the world's first count and these
+        public int SectFollowers { get; init; } = 4;
+        public double SecessionPowerShare { get; init; }
+        public double SecessionWealthShare { get; init; }
+        public double KingdomChance { get; init; }
+        public int KingdomVassals { get; init; } = 3;
+        public double KingdomPowerShare { get; init; } = 0.5; // its size against the greatest power's
+        public double RiseChance { get; init; }
+        public int RisenPower { get; init; }
+        public int RisenWealth { get; init; }
+    }
 }

@@ -69,6 +69,9 @@ namespace MirrorChronicles.Events
         public event Action<string> OnClanWarWon;                          // an enemy of the clan yields (B3c3: its loot)
         public event Action<ShardDefinition> OnRuinsRevealed;               // ruins found to hold a shard (B3c2)
         public event Action<ShardDefinition> OnShardRecovered;              // a shard of the mirror comes back (§11.5)
+        public event Action<string, string> OnPowerFell;                  // a power disperses: its name, its heir's (2026-10-01)
+        public event Action<FactionData, string> OnPowerRose;             // a power is born: it, and whence (a parent power, or null)
+        public event Action<FactionData> OnKingdomFounded;                // a power founds a kingdom
         public event Action<FactionData, FactionElder, bool> OnElderDied;  // a power's elder dies (true: a demon of a failed Golden Core)
         public event Action<FactionData, FactionElder> OnElderRose;        // a power's elder reaches a new realm
         public event Action<ShardDefinition, string> OnShardSensed;        // the mirror senses a shard toward a region (2026-10-01)
@@ -120,6 +123,9 @@ namespace MirrorChronicles.Events
         public void TriggerClanWarWon(string enemy) => OnClanWarWon?.Invoke(enemy);
         public void TriggerRuinsRevealed(ShardDefinition shard) => OnRuinsRevealed?.Invoke(shard);
         public void TriggerShardRecovered(ShardDefinition shard) => OnShardRecovered?.Invoke(shard);
+        public void TriggerPowerFell(string fallen, string heir) => OnPowerFell?.Invoke(fallen, heir);
+        public void TriggerPowerRose(FactionData power, string parent) => OnPowerRose?.Invoke(power, parent);
+        public void TriggerKingdomFounded(FactionData power) => OnKingdomFounded?.Invoke(power);
         public void TriggerElderDied(FactionData power, FactionElder elder, bool demon) => OnElderDied?.Invoke(power, elder, demon);
         public void TriggerElderRose(FactionData power, FactionElder elder) => OnElderRose?.Invoke(power, elder);
         public void TriggerShardSensed(ShardDefinition shard, string regionId) => OnShardSensed?.Invoke(shard, regionId);

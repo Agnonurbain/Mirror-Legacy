@@ -51,6 +51,14 @@ namespace MirrorChronicles.World
             }
         }
 
+        /// <summary>A new elder of the power at this realm (a risen family's founder, its cadets): drawn by the game.</summary>
+        public FactionElder NewElder(FactionData power, CultivationRealm realm)
+        {
+            var elder = Elder(ctx.Rng, null, DrawName(ctx.Rng, power), realm, ctx.Clock.Year, null);
+            elder.RealmSinceYear = ctx.Clock.Year;
+            return elder;
+        }
+
         /// <summary>A cadet is drawn one or two realms below its power's best, never below the Qi Cultivation.</summary>
         private static CultivationRealm Below(CultivationRealm top, Random rng) =>
             (CultivationRealm)Math.Max((int)CultivationRealm.QiRefinement, (int)top - 1 - rng.Next(2));
@@ -160,7 +168,7 @@ namespace MirrorChronicles.World
         }
 
         /// <summary>A power's highest realm is its strongest elder's; with none left, it falls to the Qi Cultivation.</summary>
-        private static void Sync(FactionData power) =>
+        public static void Sync(FactionData power) =>
             power.HighestRealm = power.Elders.Count == 0 ? CultivationRealm.QiRefinement : power.Elders.Max(e => e.Realm);
     }
 }

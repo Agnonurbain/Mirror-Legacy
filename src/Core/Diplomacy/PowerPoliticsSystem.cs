@@ -232,6 +232,16 @@ namespace MirrorChronicles.Diplomacy
             if (Coalition != null) Coalition = Coalition with { Members = Coalition.Members.Where(m => m != power).ToList() };
         }
 
+        /// <summary>
+        /// A power fallen (no elder left, or ruined) disperses (the living world, 2026-10-01): its heir — its strongest
+        /// neighbour — gathers what remains, by the absorption's own path (its arts, its wealth, its shard, its bonds).
+        /// </summary>
+        public void Disperse(FactionData fallen, FactionData heir)
+        {
+            ctx.Events.TriggerPowerFell(fallen.Name, heir.Name);
+            Absorb(heir, fallen);
+        }
+
         private void Absorb(FactionData suzerain, FactionData vassal)
         {
             suzerain.Wealth += Math.Max(0, vassal.Wealth);

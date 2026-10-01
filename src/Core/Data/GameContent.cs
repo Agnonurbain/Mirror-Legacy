@@ -134,6 +134,8 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<string> Male { get; init; } = Array.Empty<string>();
         public IReadOnlyList<string> Female { get; init; } = Array.Empty<string>();
         public IReadOnlyList<string> OutsiderFamilies { get; init; } = Array.Empty<string>();
+        public IReadOnlyList<string> GateNames { get; init; } = Array.Empty<string>();  // for the gates founded in a game (interpretation)
+        public IReadOnlyList<string> SectNames { get; init; } = Array.Empty<string>();  // and the sects
     }
 
     /// <summary>Tunable rates (balance.json); decision D3 sets the orifice odds (LORE.md §4).</summary>
@@ -264,6 +266,7 @@ namespace MirrorChronicles.Data
         public ShardSettings Shards { get; init; }
         public ElderSettings Elders { get; init; } = new ElderSettings();
         public PowerEconomySettings PowerEconomy { get; init; } = new PowerEconomySettings();
+        public PowerLifecycleSettings PowerLifecycle { get; init; } = new PowerLifecycleSettings();
 
         /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
         public TrialSettings Trials { get; init; }
