@@ -40,6 +40,7 @@ namespace MirrorChronicles.Game
             proposal = GetNode<VBoxContainer>("%Proposal");
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
+            if (OS.GetEnvironment("DIP_POWER") is { Length: > 0 } chosen) power = chosen; // DIP_POWER=<name> opens on a power (screenshots)
             Refresh();
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
         }
@@ -175,6 +176,8 @@ namespace MirrorChronicles.Game
                 Add(proposal, "Choisissez une puissance à gauche.");
                 return;
             }
+            Add(proposal, $"Les aînés de {power} :"); // as the world knows them (the living world, 2026-10-01)
+            foreach (var elder in DiplomacyView.Elders(session, power)) Add(proposal, $"  {elder}");
             Add(proposal, $"Proposer à {power} :");
             var kinds = Enum.GetValues(typeof(TreatyKind)).Cast<TreatyKind>().ToList();
             var kindPicker = new OptionButton();

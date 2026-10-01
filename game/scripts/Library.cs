@@ -61,6 +61,20 @@ namespace MirrorChronicles.Game
         private void ShowLineages()
         {
             Clear(lineages);
+            var contenders = LineagesView.Contenders(root.Session);
+            if (contenders.Count > 0) Add(lineages, "— Les concurrents dans les courses ouvertes —");
+            foreach (var contender in contenders)
+            {
+                var sabotage = new Button { Text = contender.Label, Disabled = contender.TeamIds.Count == 0 };
+                sabotage.Pressed += () =>
+                {
+                    string outcome = root.Session.WorldFruitions.Sabotage(contender.Power, contender.TeamIds);
+                    status.Text = outcome == null ? $"La préparation de {contender.Elder} est gâchée." : $"Le sabotage : {outcome}.";
+                    Refresh();
+                };
+                lineages.AddChild(sabotage);
+            }
+            if (contenders.Count > 0) Add(lineages, "— Les lignées —");
             foreach (var row in LineagesView.Rows(root.Session))
             {
                 var line = new HBoxContainer();

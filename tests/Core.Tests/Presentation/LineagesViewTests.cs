@@ -48,5 +48,35 @@ namespace MirrorChronicles.Tests.Presentation
             StringAssert.Contains("course", mutable.State);
             StringAssert.Contains("Tan Qing", mutable.State, "he may come back");
         }
+
+        [Test]
+        public void ARace_ListsItsContenders_WithTheOddsOfASabotage()
+        {
+            var s = Session();
+            var lou = s.Factions.GetFactionByName("Famille Lou");
+            lou.Elders.Add(new FactionElder { Id = "c", Name = "Contender", Realm = CultivationRealm.PurpleMansion, Stage = 5, BornYear = 0,
+                MaxLifespan = 500, RealmSinceYear = 0, GoldenCoreOdds = 0.5, Perfected = true });
+            s.Fruitions.Vacate("mutable-water");
+            s.WorldFruitions.OpenRace("mutable-water");
+            var contender = LineagesView.Contenders(s).Single(c => c.Power == "Famille Lou");
+            Assert.AreEqual("Contender", contender.Elder);
+            StringAssert.Contains("%", contender.Label);
+            Assert.IsNotEmpty(contender.TeamIds);
+        }
+
+        [Test]
+        public void WithoutARace_ThereIsNoContender()
+        {
+            Assert.IsEmpty(LineagesView.Contenders(Session()));
+        }
+
+        [Test]
+        public void APowersElders_AreShown_AsTheWorldKnowsThem()
+        {
+            var s = Session();
+            var lines = DiplomacyView.Elders(s, "Secte de la Lune Pâle");
+            Assert.IsTrue(lines.Any(l => l.Contains("Vénérable Lingxu") && l.Contains("Jade Premier")), "the Venerable, holding the First Jade");
+            Assert.IsFalse(lines.Any(l => l.Contains("%")), "its odds stay its own");
+        }
     }
 }

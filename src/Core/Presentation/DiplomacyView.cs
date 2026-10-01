@@ -47,6 +47,17 @@ namespace MirrorChronicles.Presentation
                     World.ClanWatch.Sign(session.Suspicion.ClanDistrust(f.Name), session.Context.Content.Balance.ClanWatch)))
                 .ToList();
 
+        /// <summary>
+        /// A power's elders as the world knows them (the living world, 2026-10-01): name, realm, a Grand Perfection, the
+        /// Realization held — never its odds of the Golden Core, which stay its own.
+        /// </summary>
+        public static IReadOnlyList<string> Elders(GameSession session, string power) =>
+            session.Factions.GetFactionByName(power)?.Elders.OrderByDescending(e => e.Realm).ThenBy(e => e.Name, StringComparer.Ordinal)
+                .Select(e => $"{e.Name} — {RankCatalog.RealmName(e.Realm)}"
+                    + (e.Realm == CultivationRealm.PurpleMansion && e.Perfected ? ", à la Grande Perfection" : "")
+                    + (e.FruitionId != null ? $", tient la Réalisation de la lignée {session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == e.FruitionId)?.Name ?? e.FruitionId}" : ""))
+                .ToList() ?? (IReadOnlyList<string>)Array.Empty<string>();
+
         public static IReadOnlyList<DemandLine> Demands(GameSession session) =>
             session.Intrigues.Demands.Select(d => d.Kind == DemandKind.Protection
                 ? new DemandLine(d.Faction, d.Stones, "pour sa protection", "elle prendra par la guerre")
