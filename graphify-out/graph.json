@@ -1358,7 +1358,7 @@
       "source_location": "L422",
       "_origin": "ast",
       "id": "game_scripts_clandomain_cs_node",
-      "community": 196,
+      "community": 1,
       "norm_label": "node"
     },
     {
@@ -4688,7 +4688,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 224,
+      "community": 183,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -4698,7 +4698,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 224,
+      "community": 183,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -7898,7 +7898,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 183,
+      "community": 331,
       "norm_label": "woundsystem"
     },
     {
@@ -7908,7 +7908,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 183,
+      "community": 331,
       "norm_label": "double"
     },
     {
@@ -7918,7 +7918,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 183,
+      "community": 331,
       "norm_label": "int"
     },
     {
@@ -7928,7 +7928,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 183,
+      "community": 331,
       "norm_label": "gamecontext"
     },
     {
@@ -7938,7 +7938,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 183,
+      "community": 331,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -7948,7 +7948,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 183,
+      "community": 331,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -7958,7 +7958,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 183,
+      "community": 331,
       "norm_label": "characterdata"
     },
     {
@@ -7968,7 +7968,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 183,
+      "community": 331,
       "norm_label": ".applydaowound()"
     },
     {
@@ -7978,7 +7978,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 183,
+      "community": 331,
       "norm_label": ".applywound()"
     },
     {
@@ -8568,7 +8568,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 328,
+      "community": 293,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -8578,7 +8578,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 328,
+      "community": 293,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -8798,7 +8798,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_legacysystem",
-      "community": 331,
+      "community": 328,
       "norm_label": "legacysystem.cs"
     },
     {
@@ -8808,7 +8808,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "clan_legacysystem_mirrorchronicles_clan",
-      "community": 331,
+      "community": 328,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -8818,7 +8818,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "clan_legacysystem_legacysystem",
-      "community": 331,
+      "community": 328,
       "norm_label": "legacysystem"
     },
     {
@@ -8828,7 +8828,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_clan_legacysystem_cs_int",
-      "community": 331,
+      "community": 328,
       "norm_label": "int"
     },
     {
@@ -10928,7 +10928,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 224,
+      "community": 183,
       "norm_label": "combatunit.cs"
     },
     {
@@ -10938,7 +10938,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 224,
+      "community": 183,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -11588,7 +11588,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 328,
+      "community": 293,
       "norm_label": "enums.cs"
     },
     {
@@ -11598,7 +11598,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 328,
+      "community": 293,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -12848,7 +12848,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_randomeventdata",
-      "community": 331,
+      "community": 328,
       "norm_label": "randomeventdata.cs"
     },
     {
@@ -12858,7 +12858,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_randomeventdata_mirrorchronicles_data",
-      "community": 331,
+      "community": 328,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -12868,7 +12868,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "data_randomeventdata_randomeventdata",
-      "community": 331,
+      "community": 328,
       "norm_label": "randomeventdata"
     },
     {
@@ -13018,7 +13018,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_storyeventdata",
-      "community": 335,
+      "community": 0,
       "norm_label": "storyeventdata.cs"
     },
     {
@@ -13028,7 +13028,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "data_storyeventdata_mirrorchronicles_data",
-      "community": 335,
+      "community": 0,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -13038,7 +13038,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "data_storyeventdata_storyeventdata",
-      "community": 335,
+      "community": 0,
       "norm_label": "storyeventdata"
     },
     {
@@ -13048,7 +13048,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "data_storyeventdata_storychoice",
-      "community": 335,
+      "community": 0,
       "norm_label": "storychoice"
     },
     {
@@ -13058,7 +13058,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "data_storyeventdata_storyoutcome",
-      "community": 335,
+      "community": 0,
       "norm_label": "storyoutcome"
     },
     {
@@ -14088,7 +14088,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 337,
+      "community": 193,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -14098,7 +14098,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 337,
+      "community": 193,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -15058,7 +15058,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 337,
+      "community": 293,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -15068,7 +15068,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 337,
+      "community": 293,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18028,7 +18028,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 331,
+      "community": 193,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -18038,7 +18038,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 331,
+      "community": 193,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -18528,7 +18528,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_eventmanager",
-      "community": 331,
+      "community": 328,
       "norm_label": "eventmanager.cs"
     },
     {
@@ -18538,7 +18538,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "events_eventmanager_mirrorchronicles_events",
-      "community": 331,
+      "community": 328,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -19358,7 +19358,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_storyeventmanager",
-      "community": 335,
+      "community": 0,
       "norm_label": "storyeventmanager.cs"
     },
     {
@@ -19368,7 +19368,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "events_storyeventmanager_mirrorchronicles_events",
-      "community": 335,
+      "community": 0,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -25685,7 +25685,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L394",
+      "source_location": "L395",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -25695,7 +25695,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L394",
+      "source_location": "L395",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 251,
@@ -25705,7 +25705,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L398",
+      "source_location": "L399",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -25715,7 +25715,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L409",
+      "source_location": "L410",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -25725,7 +25725,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L416",
+      "source_location": "L417",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -25735,7 +25735,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L416",
+      "source_location": "L417",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -25745,7 +25745,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L457",
+      "source_location": "L458",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -27715,7 +27715,7 @@
       "label": ".StealOnce()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L178",
+      "source_location": "L180",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_stealonce",
       "community": 78,
@@ -27725,7 +27725,7 @@
       "label": ".Available()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L191",
+      "source_location": "L193",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_available",
       "community": 78,
@@ -27735,7 +27735,7 @@
       "label": "IntrigueTarget",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L191",
+      "source_location": "L193",
       "_origin": "ast",
       "id": "intriguetarget",
       "community": 78,
@@ -27745,7 +27745,7 @@
       "label": ".Steal()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L200",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_steal",
       "community": 78,
@@ -27755,7 +27755,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L200",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "src_core_world_intriguesystem_cs_factiondata",
       "community": 78,
@@ -27765,7 +27765,7 @@
       "label": ".Take()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L211",
+      "source_location": "L213",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_take",
       "community": 78,
@@ -27775,7 +27775,7 @@
       "label": ".Spies()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L240",
+      "source_location": "L242",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_spies",
       "community": 78,
@@ -27785,7 +27785,7 @@
       "label": ".Unmask()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L258",
+      "source_location": "L260",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_unmask",
       "community": 78,
@@ -27795,7 +27795,7 @@
       "label": ".Turn()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L270",
+      "source_location": "L272",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_turn",
       "community": 78,
@@ -27805,7 +27805,7 @@
       "label": ".ExecuteSpy()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L279",
+      "source_location": "L281",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_executespy",
       "community": 78,
@@ -27815,7 +27815,7 @@
       "label": ".Unmasked()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L289",
+      "source_location": "L291",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_unmasked",
       "community": 78,
@@ -27825,7 +27825,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L289",
+      "source_location": "L291",
       "_origin": "ast",
       "id": "src_core_world_intriguesystem_cs_characterdata",
       "community": 78,
@@ -28435,7 +28435,7 @@
       "label": "HashSet",
       "file_type": "code",
       "source_file": "src/Core/World/PlotSystem.cs",
-      "source_location": "L54",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "src_core_world_plotsystem_cs_hashset",
       "community": 181,
@@ -28445,7 +28445,7 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/World/PlotSystem.cs",
-      "source_location": "L59",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "world_plotsystem_plotsystem_processyear",
       "community": 181,
@@ -28455,7 +28455,7 @@
       "label": ".Rumour()",
       "file_type": "code",
       "source_file": "src/Core/World/PlotSystem.cs",
-      "source_location": "L77",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "world_plotsystem_plotsystem_rumour",
       "community": 181,
@@ -28465,7 +28465,7 @@
       "label": ".Decide()",
       "file_type": "code",
       "source_file": "src/Core/World/PlotSystem.cs",
-      "source_location": "L80",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "world_plotsystem_plotsystem_decide",
       "community": 181,
@@ -28475,7 +28475,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/World/PlotSystem.cs",
-      "source_location": "L80",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "src_core_world_plotsystem_cs_factiondata",
       "community": 181,
@@ -30672,10 +30672,30 @@
       "norm_label": ".source()"
     },
     {
+      "label": ".AddPublicEvidence()",
+      "file_type": "code",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "world_suspicionledger_suspicionledger_addpublicevidence",
+      "community": 179,
+      "norm_label": ".addpublicevidence()"
+    },
+    {
+      "label": ".PrivateEvidence()",
+      "file_type": "code",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "world_suspicionledger_suspicionledger_privateevidence",
+      "community": 179,
+      "norm_label": ".privateevidence()"
+    },
+    {
       "label": ".RestoreEvidence()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L49",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_restoreevidence",
       "community": 179,
@@ -30685,7 +30705,7 @@
       "label": "IReadOnlyDictionary",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L49",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "src_core_world_suspicionledger_cs_ireadonlydictionary",
       "community": 179,
@@ -30695,7 +30715,7 @@
       "label": ".MirrorClues()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L58",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_mirrorclues",
       "community": 179,
@@ -30705,7 +30725,7 @@
       "label": ".AddMirrorClues()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L60",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_addmirrorclues",
       "community": 179,
@@ -30715,7 +30735,7 @@
       "label": ".RestoreMirrorClues()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L76",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_restoremirrorclues",
       "community": 179,
@@ -30725,7 +30745,7 @@
       "label": ".Distrust()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L82",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_distrust",
       "community": 179,
@@ -30735,7 +30755,7 @@
       "label": ".AddDistrust()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L84",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_adddistrust",
       "community": 179,
@@ -30745,7 +30765,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L94",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_restore",
       "community": 179,
@@ -30755,7 +30775,7 @@
       "label": ".Inherit()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L106",
+      "source_location": "L119",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_inherit",
       "community": 179,
@@ -30765,7 +30785,7 @@
       "label": ".ClanDistrust()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L127",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_clandistrust",
       "community": 179,
@@ -30775,7 +30795,7 @@
       "label": ".AddClanDistrust()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L129",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_addclandistrust",
       "community": 179,
@@ -30785,7 +30805,7 @@
       "label": ".RestoreClanDistrust()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L139",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_restoreclandistrust",
       "community": 179,
@@ -30795,7 +30815,7 @@
       "label": ".Key()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L145",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_key",
       "community": 179,
@@ -30805,7 +30825,7 @@
       "label": ".Split()",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L147",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "world_suspicionledger_suspicionledger_split",
       "community": 179,
@@ -30815,7 +30835,7 @@
       "label": "Holder",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L147",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "src_core_world_suspicionledger_cs_holder",
       "community": 179,
@@ -30825,7 +30845,7 @@
       "label": "Toward",
       "file_type": "code",
       "source_file": "src/Core/World/SuspicionLedger.cs",
-      "source_location": "L147",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "toward",
       "community": 179,
@@ -54382,10 +54402,40 @@
       "norm_label": ".ademandleftunanswered_isarefusal()"
     },
     {
-      "label": ".AThief_TakesACapturedBeast_BeforeTheRitual()",
+      "label": ".ARefusedBlackmailer_MakesItsProofPublic()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
       "source_location": "L102",
+      "_origin": "ast",
+      "id": "world_intriguetests_intriguetests_arefusedblackmailer_makesitsproofpublic",
+      "community": 151,
+      "norm_label": ".arefusedblackmailer_makesitsproofpublic()"
+    },
+    {
+      "label": ".ProofEveryoneKnows_SellsNoSilence()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L111",
+      "_origin": "ast",
+      "id": "world_intriguetests_intriguetests_proofeveryoneknows_sellsnosilence",
+      "community": 151,
+      "norm_label": ".proofeveryoneknows_sellsnosilence()"
+    },
+    {
+      "label": ".ProofBeyondWhatIsPublic_StillSells()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "world_intriguetests_intriguetests_proofbeyondwhatispublic_stillsells",
+      "community": 151,
+      "norm_label": ".proofbeyondwhatispublic_stillsells()"
+    },
+    {
+      "label": ".AThief_TakesACapturedBeast_BeforeTheRitual()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_athief_takesacapturedbeast_beforetheritual",
       "community": 151,
@@ -54395,7 +54445,7 @@
       "label": ".AThief_CopiesAManual_OrTakesStones_OrQi()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L114",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_athief_copiesamanual_ortakesstones_orqi",
       "community": 151,
@@ -54405,7 +54455,7 @@
       "label": ".Patrols_MakeTheftRarer()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L134",
+      "source_location": "L171",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_patrols_maketheftrarer",
       "community": 151,
@@ -54415,7 +54465,7 @@
       "label": ".APatrol_MayCatchTheThief()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L141",
+      "source_location": "L178",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_apatrol_maycatchthethief",
       "community": 151,
@@ -54425,7 +54475,7 @@
       "label": ".TheYear_BringsOneTheftAtMost()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L153",
+      "source_location": "L190",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_theyear_bringsonetheftatmost",
       "community": 151,
@@ -54435,7 +54485,7 @@
       "label": ".AnArrangedSpouse_MayBeASpy_AndAlwaysComesFromItsPower()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L164",
+      "source_location": "L201",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_anarrangedspouse_maybeaspy_andalwayscomesfromitspower",
       "community": 151,
@@ -54445,7 +54495,7 @@
       "label": ".ASpy_FeedsItsPower_EachYear()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L175",
+      "source_location": "L212",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_aspy_feedsitspower_eachyear",
       "community": 151,
@@ -54455,7 +54505,7 @@
       "label": ".TheMirror_SoundsASpouse_AtItsPrice()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L185",
+      "source_location": "L222",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_themirror_soundsaspouse_atitsprice",
       "community": 151,
@@ -54465,7 +54515,7 @@
       "label": ".ADoubleAgent_TurnsItsPowersProofAgainstItself()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L201",
+      "source_location": "L238",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_adoubleagent_turnsitspowersproofagainstitself",
       "community": 151,
@@ -54475,7 +54525,7 @@
       "label": ".AnUnmaskedSpy_MayBeExecuted_ButNotAnUnsoundedOne()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L217",
+      "source_location": "L254",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_anunmaskedspy_maybeexecuted_butnotanunsoundedone",
       "community": 151,
@@ -54485,7 +54535,7 @@
       "label": ".RoundTrip_KeepsTheDemands_AndTheBoughtSilence()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L236",
+      "source_location": "L273",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_roundtrip_keepsthedemands_andtheboughtsilence",
       "community": 151,
@@ -54495,7 +54545,7 @@
       "label": ".AnAbsorbedBlackmailer_LeavesNoDemand()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L248",
+      "source_location": "L285",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_anabsorbedblackmailer_leavesnodemand",
       "community": 151,
@@ -54505,7 +54555,7 @@
       "label": ".APowerThatStruckThisYear_DoesNotAlsoBlackmail()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L256",
+      "source_location": "L293",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_apowerthatstruckthisyear_doesnotalsoblackmail",
       "community": 151,
@@ -54515,7 +54565,7 @@
       "label": ".APowerConfrontingTheClan_DoesNotBlackmail()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L270",
+      "source_location": "L307",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_apowerconfrontingtheclan_doesnotblackmail",
       "community": 151,
@@ -54525,7 +54575,7 @@
       "label": ".AnUnmaskedSpy_NeverLeadsTheClan()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L281",
+      "source_location": "L318",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_anunmaskedspy_neverleadstheclan",
       "community": 151,
@@ -54535,7 +54585,7 @@
       "label": ".AFullLedger_GainsLess_FromARefusal()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L295",
+      "source_location": "L332",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_afullledger_gainsless_fromarefusal",
       "community": 151,
@@ -54545,7 +54595,7 @@
       "label": ".SoundingNobody_SaysSo()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
-      "source_location": "L305",
+      "source_location": "L342",
       "_origin": "ast",
       "id": "world_intriguetests_intriguetests_soundingnobody_saysso",
       "community": 151,
@@ -55112,10 +55162,30 @@
       "norm_label": ".roundtrip_keepsthemirrorclues()"
     },
     {
+      "label": ".RoundTrip_KeepsThePublicProof()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L218",
+      "_origin": "ast",
+      "id": "world_plottests_plottests_roundtrip_keepsthepublicproof",
+      "community": 10,
+      "norm_label": ".roundtrip_keepsthepublicproof()"
+    },
+    {
+      "label": ".PublicProof_FadesWithTheYears()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L227",
+      "_origin": "ast",
+      "id": "world_plottests_plottests_publicproof_fadeswiththeyears",
+      "community": 10,
+      "norm_label": ".publicproof_fadeswiththeyears()"
+    },
+    {
       "label": ".BlurMemories_DimsAPowersCluesAndProof_ForTheMirrorsPower()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L220",
+      "source_location": "L238",
       "_origin": "ast",
       "id": "world_plottests_plottests_blurmemories_dimsapowerscluesandproof_forthemirrorspower",
       "community": 10,
@@ -55125,7 +55195,7 @@
       "label": ".BlurMemories_HoldsLessOnAGoldenCoresPower()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L236",
+      "source_location": "L254",
       "_origin": "ast",
       "id": "world_plottests_plottests_blurmemories_holdslessonagoldencorespower",
       "community": 10,
@@ -55135,7 +55205,7 @@
       "label": ".PlantFalseProof_TurnsAPowersProofIntoDistrustOfAnother()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L247",
+      "source_location": "L265",
       "_origin": "ast",
       "id": "world_plottests_plottests_plantfalseproof_turnsapowersproofintodistrustofanother",
       "community": 10,
@@ -55145,7 +55215,7 @@
       "label": ".APiercedSecret_BringsAnInvestigatorAtOnce()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L260",
+      "source_location": "L278",
       "_origin": "ast",
       "id": "world_plottests_plottests_apiercedsecret_bringsaninvestigatoratonce",
       "community": 10,
@@ -55155,7 +55225,7 @@
       "label": ".ThePowerThatStillKnows_SeizesTheMirror()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L272",
+      "source_location": "L290",
       "_origin": "ast",
       "id": "world_plottests_plottests_thepowerthatstillknows_seizesthemirror",
       "community": 10,
@@ -55165,7 +55235,7 @@
       "label": ".APowerMadeToDoubt_CannotAct()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L286",
+      "source_location": "L304",
       "_origin": "ast",
       "id": "world_plottests_plottests_apowermadetodoubt_cannotact",
       "community": 10,
@@ -55175,7 +55245,7 @@
       "label": ".AnOrdinaryPower_CannotNameTheMirror_OnlySuspectATreasure()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L308",
+      "source_location": "L326",
       "_origin": "ast",
       "id": "world_plottests_plottests_anordinarypower_cannotnamethemirror_onlysuspectatreasure",
       "community": 10,
@@ -55185,7 +55255,7 @@
       "label": ".TheRumour_MayReachAPowerWhereSomeoneKnows()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L321",
+      "source_location": "L339",
       "_origin": "ast",
       "id": "world_plottests_plottests_therumour_mayreachapowerwheresomeoneknows",
       "community": 10,
@@ -55195,7 +55265,7 @@
       "label": ".WhenNobodyKnows_TheRumourGoesNowhere()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L333",
+      "source_location": "L351",
       "_origin": "ast",
       "id": "world_plottests_plottests_whennobodyknows_therumourgoesnowhere",
       "community": 10,
@@ -55205,7 +55275,7 @@
       "label": ".TwoKnowersAtOnce_TheStrongestConfronts_TheOtherWaitsItsTurn()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L357",
+      "source_location": "L375",
       "_origin": "ast",
       "id": "world_plottests_plottests_twoknowersatonce_thestrongestconfronts_theotherwaitsitsturn",
       "community": 10,
@@ -55215,7 +55285,7 @@
       "label": ".AKnowerTooWeakToSeize_TellsOnlyAPeer()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L371",
+      "source_location": "L389",
       "_origin": "ast",
       "id": "world_plottests_plottests_aknowertooweaktoseize_tellsonlyapeer",
       "community": 10,
@@ -55225,7 +55295,7 @@
       "label": ".ASeizedMirror_LosesTheGame()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L388",
+      "source_location": "L406",
       "_origin": "ast",
       "id": "world_plottests_plottests_aseizedmirror_losesthegame",
       "community": 10,
@@ -55235,7 +55305,7 @@
       "label": ".RoundTrip_KeepsAConfrontation()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L396",
+      "source_location": "L414",
       "_origin": "ast",
       "id": "world_plottests_plottests_roundtrip_keepsaconfrontation",
       "community": 10,
@@ -55245,7 +55315,7 @@
       "label": ".ASoldSecret_EndsTheConfrontation_ForGood()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L407",
+      "source_location": "L425",
       "_origin": "ast",
       "id": "world_plottests_plottests_asoldsecret_endstheconfrontation_forgood",
       "community": 10,
@@ -55255,7 +55325,7 @@
       "label": ".APiercedSecret_IsNotAlsoStruckAsAnOrdinaryCase_ThatYear()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L422",
+      "source_location": "L440",
       "_origin": "ast",
       "id": "world_plottests_plottests_apiercedsecret_isnotalsostruckasanordinarycase_thatyear",
       "community": 10,
@@ -55265,7 +55335,7 @@
       "label": ".ALeak_AmongPowersAskingAsMuch_GoesToAnyOfThem()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L438",
+      "source_location": "L456",
       "_origin": "ast",
       "id": "world_plottests_plottests_aleak_amongpowersaskingasmuch_goestoanyofthem",
       "community": 10,
@@ -55275,7 +55345,7 @@
       "label": ".AProvenStrike_SpendsItsProof()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L454",
+      "source_location": "L472",
       "_origin": "ast",
       "id": "world_plottests_plottests_aprovenstrike_spendsitsproof",
       "community": 10,
@@ -55285,7 +55355,7 @@
       "label": ".ARumour_MakesThePowersWary_NotReadyToStrike()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L465",
+      "source_location": "L483",
       "_origin": "ast",
       "id": "world_plottests_plottests_arumour_makesthepowerswary_notreadytostrike",
       "community": 10,
@@ -55295,7 +55365,7 @@
       "label": ".SuspicionAndProof_FadeWithTheYears()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L478",
+      "source_location": "L496",
       "_origin": "ast",
       "id": "world_plottests_plottests_suspicionandproof_fadewiththeyears",
       "community": 10,
@@ -55305,7 +55375,7 @@
       "label": ".TheInvestigator_IsBlurredAtFullStrength_AndOneBlurMakesItDoubt()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
-      "source_location": "L491",
+      "source_location": "L509",
       "_origin": "ast",
       "id": "world_plottests_plottests_theinvestigator_isblurredatfullstrength_andoneblurmakesitdoubt",
       "community": 10,
@@ -57758,7 +57828,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "brain_claude_plan_syst\u00e8mes_du_jeu_d\u00e9tail",
-      "community": 334,
+      "community": 41,
       "norm_label": "\ud83e\udde9 systemes du jeu (detail)"
     },
     {
@@ -57768,7 +57838,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "brain_claude_plan_1_core_boucle_principale",
-      "community": 334,
+      "community": 41,
       "norm_label": "1. core \u2014 boucle principale"
     },
     {
@@ -57778,7 +57848,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "brain_claude_plan_2_mirror_interface_joueur",
-      "community": 334,
+      "community": 41,
       "norm_label": "2. mirror \u2014 interface joueur"
     },
     {
@@ -57788,7 +57858,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "brain_claude_plan_3_clan_lign\u00e9e",
-      "community": 334,
+      "community": 41,
       "norm_label": "3. clan \u2014 lignee"
     },
     {
@@ -57798,7 +57868,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "brain_claude_plan_4_characters_individus",
-      "community": 334,
+      "community": 41,
       "norm_label": "4. characters \u2014 individus"
     },
     {
@@ -57808,7 +57878,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "brain_claude_plan_5_combat_tactique_tour_par_tour",
-      "community": 334,
+      "community": 41,
       "norm_label": "5. combat \u2014 tactique tour par tour"
     },
     {
@@ -57818,7 +57888,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "brain_claude_plan_6_diplomacy_monde_ext\u00e9rieur",
-      "community": 334,
+      "community": 41,
       "norm_label": "6. diplomacy \u2014 monde exterieur"
     },
     {
@@ -57828,7 +57898,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "brain_claude_plan_7_economy_ressources_t\u00e2ches",
-      "community": 334,
+      "community": 41,
       "norm_label": "7. economy \u2014 ressources & taches"
     },
     {
@@ -57838,7 +57908,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "brain_claude_plan_8_events_al\u00e9atoire_sc\u00e9naris\u00e9",
-      "community": 334,
+      "community": 41,
       "norm_label": "8. events \u2014 aleatoire + scenarise"
     },
     {
@@ -58088,7 +58158,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_worked_lesson_md_bugs_identifi\u00e9s_le\u00e7ons_apprises",
-      "community": 336,
+      "community": 45,
       "norm_label": "\ud83d\udcda worked_lesson.md \u2014 bugs identifies & lecons apprises"
     },
     {
@@ -58098,7 +58168,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_comment_utiliser_ce_fichier",
-      "community": 336,
+      "community": 45,
       "norm_label": "\ud83d\udcd6 comment utiliser ce fichier"
     },
     {
@@ -58288,7 +58358,7 @@
       "source_location": "L292",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_le\u00e7ons_d_architecture_design",
-      "community": 336,
+      "community": 45,
       "norm_label": "\ud83d\udcd0 lecons d'architecture & design"
     },
     {
@@ -58298,7 +58368,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_100_pivot_unity_web_unity_cause_de_la_dette",
-      "community": 336,
+      "community": 45,
       "norm_label": "wl-100 \u2014 pivot unity \u2192 web \u2192 unity : cause de la dette"
     },
     {
@@ -58308,7 +58378,7 @@
       "source_location": "L308",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_101_factions_hardcod\u00e9es_au_lieu_de_scriptableobjects",
-      "community": 336,
+      "community": 45,
       "norm_label": "wl-101 \u2014 factions hardcodees au lieu de scriptableobjects"
     },
     {
@@ -58318,7 +58388,7 @@
       "source_location": "L322",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_template_pour_nouvelles_entr\u00e9es",
-      "community": 336,
+      "community": 45,
       "norm_label": "\ud83d\udcdd template pour nouvelles entrees"
     },
     {
@@ -58594,7 +58664,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 337,
+      "community": 328,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -58648,7 +58718,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 224,
+      "community": 183,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -58769,7 +58839,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 337,
+      "community": 293,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -58782,7 +58852,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 193,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -58795,7 +58865,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 193,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -58808,7 +58878,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 193,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -58821,7 +58891,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 337,
+      "community": 332,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -58968,7 +59038,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 193,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -58995,7 +59065,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 328,
       "norm_label": "annual 4-phase cycle (management -> events -> breakthrough -> inheritance)",
       "id": "brain_claude_plan_annual_cycle"
     },
@@ -59009,7 +59079,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 337,
+      "community": 293,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -59077,7 +59147,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 337,
+      "community": 328,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -59116,7 +59186,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 337,
+      "community": 332,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -59129,7 +59199,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 193,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -59142,7 +59212,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 331,
+      "community": 328,
       "norm_label": "phase 2 - combat & events",
       "id": "brain_claude_plan_phase_2_combat_events"
     },
@@ -59155,7 +59225,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 337,
+      "community": 332,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -59277,7 +59347,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 328,
+      "community": 293,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -59403,7 +59473,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 337,
+      "community": 328,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -59719,9 +59789,9 @@
       "source_file": "Scripts/dev.sh",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_dev",
-      "target": "scripts_dev_trail",
-      "confidence_score": 1.0
+      "target": "scripts_dev_trail"
     },
     {
       "relation": "calls",
@@ -59796,9 +59866,9 @@
       "source_location": "L90",
       "weight": 1.0,
       "context": "call",
+      "confidence_score": 1.0,
       "source": "home_aymeric_games_mirror_legacy_scripts_dev_sh__entry",
-      "target": "scripts_dev_trail",
-      "confidence_score": 1.0
+      "target": "scripts_dev_trail"
     },
     {
       "relation": "calls",
@@ -100795,9 +100865,9 @@
       "source_location": "L235",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun",
-      "target": "conditionalweaktable_gamesession_hashset_string",
-      "confidence_score": 1.0
+      "target": "conditionalweaktable_gamesession_hashset_string"
     },
     {
       "relation": "method",
@@ -100985,9 +101055,9 @@
       "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L242",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun",
-      "target": "session_balancerun_balancerun_soundthenewcomers",
-      "confidence_score": 1.0
+      "target": "session_balancerun_balancerun_soundthenewcomers"
     },
     {
       "relation": "method",
@@ -101071,9 +101141,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_play",
-      "target": "src_core_session_balancerun_cs_action",
-      "confidence_score": 1.0
+      "target": "src_core_session_balancerun_cs_action"
     },
     {
       "relation": "references",
@@ -101291,9 +101361,9 @@
       "source_location": "L242",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_soundthenewcomers",
-      "target": "src_core_session_balancerun_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_session_balancerun_cs_gamesession"
     },
     {
       "relation": "references",
@@ -101434,9 +101504,9 @@
       "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_act",
-      "target": "session_balancerun_balancerun_soundthenewcomers",
-      "confidence_score": 1.0
+      "target": "session_balancerun_balancerun_soundthenewcomers"
     },
     {
       "relation": "calls",
@@ -110597,6 +110667,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "world_suspicionledger_suspicionledger",
+      "target": "world_suspicionledger_suspicionledger_addpublicevidence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L20",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -110677,6 +110757,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "world_suspicionledger_suspicionledger",
+      "target": "world_suspicionledger_suspicionledger_privateevidence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L38",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -110719,9 +110809,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger",
-      "target": "world_suspicionledger_suspicionledger_source",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_source"
     },
     {
       "relation": "method",
@@ -110760,11 +110850,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/SuspicionLedger.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "world_suspicionledger_suspicionledger_privateevidence",
+      "target": "world_suspicionledger_suspicionledger_evidence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger_addevidence",
-      "target": "world_suspicionledger_suspicionledger_source",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_source"
     },
     {
       "relation": "calls",
@@ -110773,9 +110874,9 @@
       "source_file": "src/Core/World/SuspicionLedger.cs",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_suspicionledger_suspicionledger_addmirrorclues",
-      "target": "world_suspicionledger_suspicionledger_source",
-      "confidence_score": 1.0
+      "target": "world_suspicionledger_suspicionledger_source"
     },
     {
       "relation": "references",
@@ -154768,9 +154869,9 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L364",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests",
-      "target": "session_balanceruntests_balanceruntests_mirrortrail",
-      "confidence_score": 1.0
+      "target": "session_balanceruntests_balanceruntests_mirrortrail"
     },
     {
       "relation": "method",
@@ -154778,9 +154879,9 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L185",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests",
-      "target": "session_balanceruntests_balanceruntests_newcomer",
-      "confidence_score": 1.0
+      "target": "session_balanceruntests_balanceruntests_newcomer"
     },
     {
       "relation": "method",
@@ -154968,9 +155069,9 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L207",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests",
-      "target": "session_balanceruntests_balanceruntests_thepilot_soundsbeforeitplantsaseed",
-      "confidence_score": 1.0
+      "target": "session_balanceruntests_balanceruntests_thepilot_soundsbeforeitplantsaseed"
     },
     {
       "relation": "method",
@@ -154978,9 +155079,9 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests",
-      "target": "session_balanceruntests_balanceruntests_thepilot_soundsonlythosecomefromapower_neverthefounders",
-      "confidence_score": 1.0
+      "target": "session_balanceruntests_balanceruntests_thepilot_soundsonlythosecomefromapower_neverthefounders"
     },
     {
       "relation": "method",
@@ -154988,9 +155089,9 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L193",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests",
-      "target": "session_balanceruntests_balanceruntests_thepilot_soundsthenewcomerofthestrongestpower_first",
-      "confidence_score": 1.0
+      "target": "session_balanceruntests_balanceruntests_thepilot_soundsthenewcomerofthestrongestpower_first"
     },
     {
       "relation": "method",
@@ -155052,9 +155153,9 @@
       "source_location": "L364",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_mirrortrail",
-      "target": "tests_core_tests_session_balanceruntests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_balanceruntests_cs_test"
     },
     {
       "relation": "references",
@@ -155250,9 +155351,9 @@
       "source_location": "L207",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_soundsbeforeitplantsaseed",
-      "target": "tests_core_tests_session_balanceruntests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_balanceruntests_cs_test"
     },
     {
       "relation": "references",
@@ -155261,9 +155362,9 @@
       "source_location": "L219",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_soundsonlythosecomefromapower_neverthefounders",
-      "target": "tests_core_tests_session_balanceruntests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_balanceruntests_cs_test"
     },
     {
       "relation": "references",
@@ -155272,9 +155373,9 @@
       "source_location": "L193",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_soundsthenewcomerofthestrongestpower_first",
-      "target": "tests_core_tests_session_balanceruntests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_balanceruntests_cs_test"
     },
     {
       "relation": "references",
@@ -155393,9 +155494,9 @@
       "source_location": "L185",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_newcomer",
-      "target": "tests_core_tests_session_balanceruntests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_balanceruntests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -155437,9 +155538,9 @@
       "source_location": "L185",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_newcomer",
-      "target": "tests_core_tests_session_balanceruntests_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_balanceruntests_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -155448,9 +155549,9 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L211",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_soundsbeforeitplantsaseed",
-      "target": "session_balanceruntests_balanceruntests_newcomer",
-      "confidence_score": 1.0
+      "target": "session_balanceruntests_balanceruntests_newcomer"
     },
     {
       "relation": "calls",
@@ -155459,9 +155560,9 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L197",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_thepilot_soundsthenewcomerofthestrongestpower_first",
-      "target": "session_balanceruntests_balanceruntests_newcomer",
-      "confidence_score": 1.0
+      "target": "session_balanceruntests_balanceruntests_newcomer"
     },
     {
       "relation": "references",
@@ -155591,9 +155692,9 @@
       "source_location": "L364",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_mirrortrail",
-      "target": "category",
-      "confidence_score": 1.0
+      "target": "category"
     },
     {
       "relation": "references",
@@ -155602,9 +155703,9 @@
       "source_location": "L364",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_mirrortrail",
-      "target": "tests_core_tests_session_balanceruntests_cs_explicit",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_session_balanceruntests_cs_explicit"
     },
     {
       "relation": "references",
@@ -162779,6 +162880,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "world_intriguetests_intriguetests",
+      "target": "world_intriguetests_intriguetests_arefusedblackmailer_makesitsproofpublic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
       "source_location": "L175",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -162844,6 +162955,26 @@
       "confidence_score": 1.0,
       "source": "world_intriguetests_intriguetests",
       "target": "world_intriguetests_intriguetests_power"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "world_intriguetests_intriguetests",
+      "target": "world_intriguetests_intriguetests_proofbeyondwhatispublic_stillsells",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "world_intriguetests_intriguetests",
+      "target": "world_intriguetests_intriguetests_proofeveryoneknows_sellsnosilence",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -163053,6 +163184,28 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "world_intriguetests_intriguetests_proofbeyondwhatispublic_stillsells",
+      "target": "world_intriguetests_intriguetests_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "world_intriguetests_intriguetests_proofeveryoneknows_sellsnosilence",
+      "target": "world_intriguetests_intriguetests_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
       "source_location": "L308",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -163236,6 +163389,28 @@
       "target": "tests_core_tests_world_intriguetests_cs_factiondata"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "world_intriguetests_intriguetests_proofbeyondwhatispublic_stillsells",
+      "target": "world_intriguetests_intriguetests_power",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "world_intriguetests_intriguetests_proofeveryoneknows_sellsnosilence",
+      "target": "world_intriguetests_intriguetests_power",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
@@ -163371,6 +163546,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_intriguetests_intriguetests_arefusedblackmailer_makesitsproofpublic",
+      "target": "tests_core_tests_world_intriguetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
       "source_location": "L175",
       "weight": 1.0,
       "context": "attribute",
@@ -163421,6 +163607,28 @@
       "confidence_score": 1.0,
       "source": "world_intriguetests_intriguetests_payingtheblackmail_buyssilence_forawhile",
       "target": "tests_core_tests_world_intriguetests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L124",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_intriguetests_intriguetests_proofbeyondwhatispublic_stillsells",
+      "target": "tests_core_tests_world_intriguetests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L111",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_intriguetests_intriguetests_proofeveryoneknows_sellsnosilence",
+      "target": "tests_core_tests_world_intriguetests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -163509,6 +163717,17 @@
       "confidence_score": 1.0,
       "source": "world_intriguetests_intriguetests_anabsorbedblackmailer_leavesnodemand",
       "target": "world_intriguetests_intriguetests_blackmailed"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/IntrigueTests.cs",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "world_intriguetests_intriguetests_arefusedblackmailer_makesitsproofpublic",
+      "target": "world_intriguetests_intriguetests_blackmailed",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -164333,6 +164552,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L227",
+      "weight": 1.0,
+      "source": "world_plottests_plottests",
+      "target": "world_plottests_plottests_publicproof_fadeswiththeyears",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L329",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -164358,6 +164587,16 @@
       "confidence_score": 1.0,
       "source": "world_plottests_plottests",
       "target": "world_plottests_plottests_roundtrip_keepstheproofgathered"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "world_plottests_plottests",
+      "target": "world_plottests_plottests_roundtrip_keepsthepublicproof",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -165047,6 +165286,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L227",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_plottests_plottests_publicproof_fadeswiththeyears",
+      "target": "tests_core_tests_world_plottests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
       "source_location": "L329",
       "weight": 1.0,
       "context": "attribute",
@@ -165075,6 +165325,17 @@
       "confidence_score": 1.0,
       "source": "world_plottests_plottests_roundtrip_keepstheproofgathered",
       "target": "tests_core_tests_world_plottests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PlotTests.cs",
+      "source_location": "L218",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_plottests_plottests_roundtrip_keepsthepublicproof",
+      "target": "tests_core_tests_world_plottests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -170749,5 +171010,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "f5581a0eb1c2bdb0d663b3c257b7e27e1f813337"
+  "built_at_commit": "e21e524058eba076d16e3d758461c95936f1419d"
 }
