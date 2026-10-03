@@ -271,6 +271,7 @@ namespace MirrorChronicles.Data
         public AncestorSettings Ancestors { get; init; } = new AncestorSettings();
         public ImperialWaySettings ImperialWay { get; init; } = new ImperialWaySettings();
         public PhenomenaSettings Phenomena { get; init; } = new PhenomenaSettings();
+        public DemonSettings Demons { get; init; } = new DemonSettings();
 
         /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
         public TrialSettings Trials { get; init; }

@@ -202,6 +202,7 @@ namespace MirrorChronicles.Presentation
             DeathCause.Sacrificed => "sacrifié au miroir pour un Qi de talisman",
             DeathCause.Executed => "exécuté(e) en captivité",
             DeathCause.ExecutedAsSpy => "exécuté(e) pour espionnage",
+            DeathCause.DemonRavaged => "tué(e) par un Démon d'Essence Métallique",
             DeathCause.ChosenHarvested => "Élu du Destin moissonné par une puissance",
             DeathCause.MetalEssenceDemon => "en échouant au Noyau d'Or : un Démon d'Essence Métallique est né",
             _ => ""

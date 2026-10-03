@@ -452,5 +452,22 @@ namespace MirrorChronicles.Tests.Session
             BalanceRun.Act(s);
             Assert.IsTrue(s.Imperial.IsKingdom, "the Imperial Way: a kingdom, then cultivating by governing");
         }
+    
+        [Test]
+        public void ThePilot_LeavesADemonToTheUnderworld_AndSubduesOneLetBe()
+        {
+            var s = Session();
+            var failed = Fixtures.Cultivator(age: 300, realm: CultivationRealm.PurpleMansion, stage: 4);
+            s.Clan.AddMember(failed);
+            s.Clan.Kill(failed, DeathCause.MetalEssenceDemon);
+            s.Events.TriggerMetalEssenceDemon(failed);
+            s.Events.TriggerMetalEssenceDemon(failed);
+            s.Demons.LetItBe(s.Demons.Pending[0].Id);
+            s.Clan.AddMember(Fixtures.Cultivator(age: 400, realm: CultivationRealm.GoldenCore));
+            BalanceRun.Act(s);
+            Assert.IsEmpty(s.Demons.Pending, "the custom: safe");
+            Assert.IsEmpty(s.Demons.Ravaging, "a Golden Core of the clan subdues it");
+            Assert.AreEqual(0, s.Demons.Grudge);
+        }
     }
 }

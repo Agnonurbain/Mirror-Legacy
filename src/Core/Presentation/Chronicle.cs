@@ -72,6 +72,11 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronDesignResisted += (s, d) => Add($"le clan résiste à {s.Power}, qui ne l'oubliera pas.");
             bus.OnPatronOffer += offer => Add($"{offer.Power} offre au clan une méthode qui mène au Manoir Pourpre. Que cache ce don ?");
             bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
+            bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
+                ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
+                : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
+            bus.OnDemonSubdued += d => Add($"le clan soumet le démon né de {d.Name}.");
+            bus.OnUnderworldProvoked += () => Add("le clan garde une essence au mépris de la coutume : le Monde Souterrain s'en souviendra.");
             bus.OnPhenomenon += p => { if (p.RegionId == session.Context.Content.Clan.HomeRegion) Add(p.Kind == PhenomenonKind.Failure
                 ? $"un phénomène céleste durable couvre {RegionName(session, p.RegionId)} après l'échec de {p.Source} : la cultivation y ralentit."
                 : $"un phénomène trouble le temps sur {RegionName(session, p.RegionId)} à la mort de {p.Source} ; sa lignée y cultive plus vite."); };

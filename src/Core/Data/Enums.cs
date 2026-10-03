@@ -81,7 +81,8 @@ namespace MirrorChronicles.Data
         Executed,              // put to death by the power holding them captive (L6a)
         ExecutedAsSpy,         // a spy unmasked and put to death by the clan (2026-09-27)
         RipeDaoHarvested,      // a ripe Dao harvested by a hunter of a higher realm (LORE.md §5.3.3; 2026-09-29)
-        ChosenHarvested        // a reborn ancestor, the Chosen of Destiny, harvested while young (R9; 2026-10-01)
+        ChosenHarvested,       // a reborn ancestor, the Chosen of Destiny, harvested while young (R9; 2026-10-01)
+        DemonRavaged           // killed by a Metal Essence Demon the clan let be (L4e; 2026-10-03)
     }
 
     /// <summary>

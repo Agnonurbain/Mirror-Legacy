@@ -65,6 +65,9 @@ namespace MirrorChronicles.Events
         public event Action<Diplomacy.Sponsorship, PatronDesign> OnPatronDesignResisted;
         public event Action<string, string> OnAccordDenounced;              // rival, patron (§11.10)
         public event Action<CharacterData, string> OnMemberLured;           // a practitioner bought away by a rival
+        public event Action<MetalEssenceDemon> OnDemonBorn;                 // a demon of the clan, awaiting its choice (L4e, 2026-10-03)
+        public event Action<MetalEssenceDemon> OnDemonSubdued;
+        public event Action OnUnderworldProvoked;                           // the clan kept an essence against the custom
         public event Action<RegionalPhenomenon> OnPhenomenon;              // a phenomenon over a region (L4c, 2026-10-03)
         public event Action OnClanKingdomFounded;                          // the clan founds its kingdom (R20, 2026-10-03)
         public event Action OnSectFounded;                                 // the clan founds its sect (B3d)
@@ -129,6 +132,9 @@ namespace MirrorChronicles.Events
         public void TriggerSectFounded() => OnSectFounded?.Invoke();
         public void TriggerClanKingdomFounded() => OnClanKingdomFounded?.Invoke();
         public void TriggerPhenomenon(RegionalPhenomenon phenomenon) => OnPhenomenon?.Invoke(phenomenon);
+        public void TriggerDemonBorn(MetalEssenceDemon demon) => OnDemonBorn?.Invoke(demon);
+        public void TriggerDemonSubdued(MetalEssenceDemon demon) => OnDemonSubdued?.Invoke(demon);
+        public void TriggerUnderworldProvoked() => OnUnderworldProvoked?.Invoke();
         public void TriggerClanWarWon(string enemy) => OnClanWarWon?.Invoke(enemy);
         public void TriggerRuinsRevealed(ShardDefinition shard) => OnRuinsRevealed?.Invoke(shard);
         public void TriggerShardRecovered(ShardDefinition shard) => OnShardRecovered?.Invoke(shard);

@@ -24,8 +24,11 @@ namespace MirrorChronicles.Characters
         private readonly FruitionRegistry registry;
         private readonly List<AncestorEssence> pending = new List<AncestorEssence>(); // awaiting a child, the first dead first
 
-        public AncestorReturn(GameContext ctx, ClanManager clan, FruitionRegistry registry)
+        private readonly MetalEssenceDemons demons;
+
+        public AncestorReturn(GameContext ctx, ClanManager clan, FruitionRegistry registry, MetalEssenceDemons demons = null)
         {
+            this.demons = demons;
             this.ctx = ctx;
             this.clan = clan;
             this.registry = registry;
@@ -45,7 +48,9 @@ namespace MirrorChronicles.Characters
 
         private void Departed(CharacterData dead, DeathCause cause)
         {
-            if (dead.Realm < CultivationRealm.GoldenCore || Broken.Contains(cause) || !ctx.Rng.Chance(Settings.RebirthChance)) return;
+            if (dead.Realm < CultivationRealm.GoldenCore || Broken.Contains(cause)) return;
+            if (demons?.Grudge > 0) return; // the Underworld keeps the registers of the living, and bears the clan a grudge
+            if (!ctx.Rng.Chance(Settings.RebirthChance)) return;
             pending.Add(new AncestorEssence(dead.FullName, (dead.DivineAbilities ?? new List<string>()).ToList(), dead.FruitionId,
                 dead.GoldenCore, dead.CultivationMethodId, dead.QiId));
             ctx.Log.Info($"[Ancestors] {dead.FullName}'s essence is intact: it awaits a child of the clan.");

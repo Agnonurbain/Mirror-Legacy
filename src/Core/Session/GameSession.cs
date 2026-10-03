@@ -100,6 +100,7 @@ namespace MirrorChronicles.Session
         public PowerLifecycle Lifecycle { get; }
         public WorldFruitions WorldFruitions { get; }
         public AncestorReturn Ancestors { get; }
+        public MetalEssenceDemons Demons { get; }
         public ImperialWay Imperial { get; }
         public RegionalPhenomena Phenomena { get; }
 
@@ -151,7 +152,8 @@ namespace MirrorChronicles.Session
             Politics = new PowerPoliticsSystem(Context, Resources, Factions, Suspicion, Treaties);
             Lifecycle = new PowerLifecycle(Context, Factions, Politics, Elders);
             WorldFruitions = new WorldFruitions(Context, Clan, Factions, Fruitions, Elders, Suspicion, Mirror);
-            Ancestors = new AncestorReturn(Context, Clan, Fruitions);
+            Demons = new MetalEssenceDemons(Context, Clan, Resources, Factions);
+            Ancestors = new AncestorReturn(Context, Clan, Fruitions, Demons);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
             Accords = new KnowledgeAccords(Context, Clan, Factions, Techniques, Resources, SecretBook);
@@ -325,6 +327,7 @@ namespace MirrorChronicles.Session
             session.Endings.Restore(data.PositionMoves, data.EndingStreaks);
             session.Imperial.Restore(data.KingdomYear, data.SovereignId, data.ImperialMerit); // none before 2.27
             session.Phenomena.Restore(data.Phenomena); // none before 2.28
+            session.Demons.Restore(data.PendingDemons, data.RavagingDemons, data.Essences, data.UnderworldGrudgeUntil); // none before 2.29
             session.Sect.Restore(data.SectFoundedYear, session.Karma.GenerationCount); // none before 2.21
             session.Absorption.Restore(data.AbsorbedPowers);
             session.Accords.RestoreDebts(data.KnowledgeDebts);
@@ -405,6 +408,10 @@ namespace MirrorChronicles.Session
                 SovereignId = Imperial.SovereignId,
                 ImperialMerit = Imperial.Merit,
                 Phenomena = Phenomena.Active.ToList(),
+                PendingDemons = Demons.Pending.ToList(),
+                RavagingDemons = Demons.Ravaging.ToList(),
+                Essences = Demons.Essences,
+                UnderworldGrudgeUntil = Demons.GrudgeUntil,
                 AbsorbedPowers = Absorption.Absorbed.ToList(),
                 KnowledgeDebts = Accords.Debts.ToList(),
                 PendingSponsorOffer = Sponsorships.Pending,
@@ -483,6 +490,7 @@ namespace MirrorChronicles.Session
                     Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)
                     Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)
                     Phenomena.ProcessYear();           // the weathers of the dead pass (L4c)
+                    Demons.ProcessYear();              // a demon let be ravages; an unanswered one goes to the Underworld (L4e)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

@@ -524,6 +524,14 @@
 	"perfectionChance": 0.1,
 	"lastYears": 20
   },
+  "demons": {
+    "tiers": {
+      "Lesser": { "ravageYears": 5, "killChance": 0.2, "stonesLost": 100, "powerLoss": 10 },
+      "Ascent": { "ravageYears": 15, "killChance": 0.4, "stonesLost": 300, "powerLoss": 30 },
+      "Realization": { "ravageYears": 40, "killChance": 0.7, "stonesLost": 800, "powerLoss": 80 }
+    },
+    "grudgeYears": 50
+  },
   "phenomena": {
     "deaths": {
       "Foundation": { "years": 5, "alignedSpeed": 0.05, "herbs": 3, "ores": 3 },

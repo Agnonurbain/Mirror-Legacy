@@ -128,6 +128,7 @@ namespace MirrorChronicles.Session
             SeekTheShards(session);
             if (session.Sect.FoundingRefusal() == null) session.Sect.Found(); // the Double House as soon as it can
             if (session.Imperial.FoundingRefusal() == null) session.Imperial.Found(); // then the kingdom: the Imperial Way (R20)
+            AnswerTheDemons(session);
             OfferToTheMirror(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content) && session.DaoHunts.IsCoveted(m)).ToList())
@@ -536,6 +537,16 @@ namespace MirrorChronicles.Session
             SendABearerAbroad(session, huntOpen);
             FeedTheClan(session, huntOpen);
             HideTheChosen(session);
+        }
+
+        /// <summary>
+        /// A demon born of the clan goes to the Underworld, as the custom wants (the safe choice: no grudge on the clan's
+        /// rebirths); one let be is subdued by a Golden Core of the clan when it has one (L4e, 2026-10-03).
+        /// </summary>
+        private static void AnswerTheDemons(GameSession session)
+        {
+            foreach (var demon in session.Demons.Pending.ToList()) session.Demons.LeaveToTheUnderworld(demon.Id);
+            foreach (var demon in session.Demons.Ravaging.ToList()) session.Demons.Subdue(demon.Id);
         }
 
         /// <summary>

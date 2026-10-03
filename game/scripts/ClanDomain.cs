@@ -158,6 +158,7 @@ namespace MirrorChronicles.Game
             TellNextEnding();
             OfferFromAPatron();
             AskForAnAnswer();
+            AskAboutTheDemon();
             nextPhase.Disabled = over || session.Story.PendingEvent != null; // a story event waits for a choice
         }
 
@@ -217,6 +218,8 @@ namespace MirrorChronicles.Game
 
         private ConfirmationDialog demand; // a patron's design awaiting the clan's answer
 
+        private ConfirmationDialog demonChoice; // a Metal Essence Demon of the clan awaits its fate (L4e)
+
         /// <summary>A design asked openly, or seen coming: yield, negotiate (the cheapest present gifts), or resist.</summary>
         private void AskForAnAnswer()
         {
@@ -250,6 +253,45 @@ namespace MirrorChronicles.Game
             demand.Canceled += () => { status.Text = root.Session.Sponsorships.Resist(s.Id) ?? $"Le clan résiste à {s.Power}."; DemandClosed(); };
             AddChild(demand);
             demand.PopupCentered();
+        }
+
+        /// <summary>A demon born of the clan: leave it to the Underworld, take its essence back, or let it be (LORE.md §6.9).</summary>
+        private void AskAboutTheDemon()
+        {
+            var demons = root.Session.Demons;
+            var d = demons.Pending.FirstOrDefault();
+            if (d == null || demonChoice != null || demand != null || patronOffer != null || ending != null) return;
+            demonChoice = new ConfirmationDialog
+            {
+                Title = "Un Démon d'Essence Métallique est né",
+                DialogText = $"L'essence de {d.Name} a pris vie. La coutume veut qu'on la laisse au Monde Souterrain. "
+                    + "La sceller et la garder exige une force de Noyau d'Or, et le Monde Souterrain en gardera rancune : "
+                    + "aucun ancêtre du clan ne renaîtra tant qu'elle dure. Le laisser libre, c'est le laisser ravager la région.",
+                OkButtonText = "Laisser au Monde Souterrain",
+                CancelButtonText = "Le laisser libre",
+                DialogAutowrap = true,
+                MinSize = new Vector2I(700, 0)
+            };
+            var take = demonChoice.AddButton("Sceller l'essence", true, "take");
+            take.Disabled = !root.Session.Clan.LivingMembers.Any(m => m.Realm >= MirrorChronicles.Data.CultivationRealm.GoldenCore && m.CaptorFaction == null);
+            demonChoice.CustomAction += action =>
+            {
+                if (action != "take") return;
+                status.Text = demons.TakeTheEssence(d.Id) ?? "Le clan scelle l'essence. Le Monde Souterrain s'en souviendra.";
+                demonChoice.Hide();
+                DemonClosed();
+            };
+            demonChoice.Confirmed += () => { status.Text = demons.LeaveToTheUnderworld(d.Id) ?? "L'essence est laissée au Monde Souterrain."; DemonClosed(); };
+            demonChoice.Canceled += () => { status.Text = demons.LetItBe(d.Id) ?? "Le démon est libre : il ravage la région."; DemonClosed(); };
+            AddChild(demonChoice);
+            demonChoice.PopupCentered();
+        }
+
+        private void DemonClosed()
+        {
+            demonChoice?.QueueFree();
+            demonChoice = null;
+            Refresh();
         }
 
         private void DemandClosed()
