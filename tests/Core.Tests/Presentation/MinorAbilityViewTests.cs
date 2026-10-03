@@ -11,7 +11,7 @@ namespace MirrorChronicles.Tests.Presentation
     /// <summary>
     /// The minor abilities as the player sees them (G6, 2026-10-03): for each lineage, those the clan knows and how many it
     /// does not; the mirror's deduction at its price, or why not; a holding power's teaching in kind (the gifts proposed),
-    /// or why not; a theft at its odds. Each option does what it says.
+    /// or why not. Each option does what it says.
     /// </summary>
     [TestFixture]
     public class MinorAbilityViewTests
@@ -59,14 +59,15 @@ namespace MirrorChronicles.Tests.Presentation
         }
 
         [Test]
-        public void AColdHolder_Refuses_AndATheftShowsItsOdds()
+        public void AColdHolder_Refuses_AndNoTheftIsOffered()
         {
             var s = Session();
-            var power = Holder(s, -10);
+            Holder(s, -10);
             s.Clan.AddMember(Fixtures.Cultivator(realm: CultivationRealm.Foundation));
             var line = Line(s);
             Assert.IsNotNull(line.Options.Single(o => o.Kind == MinorDeal.Learn).Refusal);
-            StringAssert.Contains("%", line.Options.Single(o => o.Kind == MinorDeal.Steal && o.Power == power.Name).Label);
+            CollectionAssert.AreEquivalent(new[] { "Deduce", "Learn" }, line.Options.Select(o => o.Kind.ToString()).Distinct(),
+                "an ability is no thing to steal: given, found or deduced");
         }
 
         [Test]

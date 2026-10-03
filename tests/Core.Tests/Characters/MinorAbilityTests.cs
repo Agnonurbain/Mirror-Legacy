@@ -11,7 +11,8 @@ namespace MirrorChronicles.Tests.Characters
     /// The minor abilities of former True Monarchs (LORE.md §5.5.1, R2; L4e, user decisions 2026-10-03): every lineage has
     /// at least one (invented in the data where the lore names none); five abilities of the lineage with a minor one lead to
     /// its Surplus. They are rare knowledge: a tomb or ruins reveal one, the mirror deduces those of a lineage whose five are
-    /// known, and a power holding the lineage may teach one — in kind, never for stones, and to the trusted — or be robbed of it.
+    /// known, and a power holding the lineage may teach one — in kind, never for stones, and to the trusted. An ability is no thing
+    /// to steal: its knowledge is given, found or deduced (the user's decision, 2026-10-03).
     /// </summary>
     [TestFixture]
     public class MinorAbilityTests
@@ -120,19 +121,6 @@ namespace MirrorChronicles.Tests.Characters
             var other = s.Factions.Factions.First(f => f.Elders.All(e => e.FruitionId != lineage));
             other.RelationWithPlayer = 50;
             StringAssert.Contains("lignée", s.Minors.Buy(lineage, other.Name, QiWorth(s, worth)), "only a power holding the lineage knows its minors");
-        }
-
-        [Test]
-        public void APowerHoldingTheLineage_MayBeRobbedOfAMinor()
-        {
-            var b = Fixtures.QuietContent.Balance;
-            var s = Session(Fixtures.QuietContent with { Balance = b with { Shards = b.Shards with { TheftMinChance = 1, TheftMaxChance = 1 } } });
-            var (power, lineage) = AHolder(s);
-            var thief = Fixtures.Cultivator(realm: CultivationRealm.Foundation);
-            s.Clan.AddMember(thief);
-            Assert.IsNull(s.Minors.Steal(lineage, power.Name, new[] { thief.ID }));
-            Assert.IsTrue(s.Context.Content.Fruitions.Single(f => f.Id == lineage).Abilities.Where(a => a.Substitute)
-                .Any(a => s.Knowledge.Knows(FactKind.Ability, $"{lineage}:{a.Id}")));
         }
     }
 }

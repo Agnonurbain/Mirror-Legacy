@@ -99,7 +99,7 @@ namespace MirrorChronicles.Game
 
         private void Act(string outcome, string done)
         {
-            status.Text = outcome == null ? done : $"Impossible : {outcome}.";
+            status.Text = outcome == null ? done : char.ToUpper(outcome[0]) + outcome[1..] + "."; // a refusal or a failure, as it came
             Refresh();
         }
 

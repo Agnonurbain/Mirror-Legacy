@@ -14,7 +14,8 @@ namespace MirrorChronicles.Characters
     /// The minor abilities of former True Monarchs (LORE.md §5.5.1, R2; L4e, user decisions 2026-10-03): five abilities of a
     /// lineage with a minor one lead to its Surplus. They are rare knowledge: a tomb or ruins reveal one; the mirror deduces
     /// those of a lineage whose five orthodox abilities the clan knows; a power whose elder holds the lineage may teach one,
-    /// for stones and good relations, or be robbed of it — at the risk of being caught.
+    /// in kind and to the trusted. An ability is no thing to steal: its knowledge is given, found or deduced (the user's
+    /// decision, 2026-10-03).
     /// </summary>
     public sealed class MinorAbilities
     {
@@ -85,18 +86,6 @@ namespace MirrorChronicles.Characters
             return mirror.PayRefusal(Settings.MirrorCost);
         }
 
-        /// <summary>The odds of stealing a minor ability from this power with this team (0 without one).</summary>
-        public double StealChance(string powerName, IReadOnlyList<string> teamIds)
-        {
-            var power = factions.GetFactionByName(powerName);
-            var team = (teamIds ?? new List<string>()).Select(clan.FindById).Where(m => m != null).ToList();
-            if (power == null || team.Count == 0) return 0;
-            var ops = ctx.Content.Balance.Shards;
-            var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
-            double strength = powers[0] + powers.Skip(1).Sum() * 0.3;
-            return System.Math.Clamp(ops.TheftBaseChance + (strength - HuntRules.Power(power.HighestRealm, 5)) * ops.TheftChancePerPower, ops.TheftMinChance, ops.TheftMaxChance);
-        }
-
         /// <summary>The mirror deduces the minor abilities of a lineage whose five orthodox the clan knows. Null when done, else why not (French).</summary>
         public string Deduce(string lineage)
         {
@@ -126,29 +115,6 @@ namespace MirrorChronicles.Characters
             accords.Barter(power.Name, terms, $"une capacité mineure de {lineage}");
             RevealOne(lineage, KnowledgeSource.Trade);
             return null;
-        }
-
-        /// <summary>The clan steals a minor ability from a power holding the lineage. Null when done, else why not (French).</summary>
-        public string Steal(string lineage, string powerName, IReadOnlyList<string> teamIds)
-        {
-            var power = Holder(lineage, powerName);
-            if (power == null) return "seule une puissance qui tient la lignée connaît ses capacités mineures";
-            if (Unknown(lineage).Count == 0) return "le clan connaît déjà ses capacités mineures";
-            var team = (teamIds ?? new List<string>()).Distinct().Select(clan.FindById).ToList();
-            var ops = ctx.Content.Balance.Shards;
-            if (team.Count == 0 || team.Count > ops.ExpeditionMaxTeam || team.Any(m => m == null || !m.IsAlive || m.CaptorFaction != null
-                || m.Realm < CultivationRealm.QiRefinement || m.LastOperationYear == ctx.Clock.Year))
-                return $"un vol se fait à 1 à {ops.ExpeditionMaxTeam} cultivateurs libres";
-            double chance = StealChance(power.Name, team.Select(m => m.ID).ToList());
-            foreach (var m in team) m.LastOperationYear = ctx.Clock.Year;
-            if (ctx.Rng.Chance(chance))
-            {
-                RevealOne(lineage, KnowledgeSource.Espionage);
-                return null;
-            }
-            suspicion.AddEvidence(power.Name, Settings.CaughtEvidence);
-            factions.ChangeRelation(power.ID, Settings.CaughtRelation);
-            return "le vol échoue, et le clan est vu";
         }
     }
 }

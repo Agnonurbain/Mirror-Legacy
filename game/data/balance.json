@@ -529,114 +529,114 @@
   },
   "mandate": { "eventXpShare": 0.3, "yearlyXpShare": 0.05, "elderLeapChance": 0.02 },
   "positionBridges": {
-    "corruptedAtStart": [ "Water" ],
-    "bridges": [
-      { "from": "mutable-water", "bridge": "nourishing-water", "ability": "winter-drizzle", "to": "hidden-water", "virtue": "Water", "source": "LORE.md §5.5.1 (Bruine Hivernale entre l'Eau Muable et l'Eau Cachée, possible par la corruption de la vertu de l'Eau)", "provenance": "Lore" },
-      { "from": "mutable-fire", "bridge": "nourishing-fire", "to": "hidden-fire", "virtue": "Fire", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" },
-      { "from": "mutable-earth", "bridge": "nourishing-earth", "to": "hidden-earth", "virtue": "Earth", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" },
-      { "from": "mutable-metal", "bridge": "wandering-metal", "to": "hidden-metal", "virtue": "Metal", "source": "Analogie avec le pont de l'Eau ; le Métal Errant tient la place nourricière (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" },
-      { "from": "mutable-wood", "bridge": "nourishing-wood", "to": "hidden-wood", "virtue": "Wood", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" }
-    ]
+	"corruptedAtStart": [ "Water" ],
+	"bridges": [
+	  { "from": "mutable-water", "bridge": "nourishing-water", "ability": "winter-drizzle", "to": "hidden-water", "virtue": "Water", "source": "LORE.md §5.5.1 (Bruine Hivernale entre l'Eau Muable et l'Eau Cachée, possible par la corruption de la vertu de l'Eau)", "provenance": "Lore" },
+	  { "from": "mutable-fire", "bridge": "nourishing-fire", "to": "hidden-fire", "virtue": "Fire", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" },
+	  { "from": "mutable-earth", "bridge": "nourishing-earth", "to": "hidden-earth", "virtue": "Earth", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" },
+	  { "from": "mutable-metal", "bridge": "wandering-metal", "to": "hidden-metal", "virtue": "Metal", "source": "Analogie avec le pont de l'Eau ; le Métal Errant tient la place nourricière (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" },
+	  { "from": "mutable-wood", "bridge": "nourishing-wood", "to": "hidden-wood", "virtue": "Wood", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" }
+	]
   },
-  "minorAbilities": { "tombRevealChance": 0.5, "ruinsRevealChance": 0.2, "mirrorCost": 40, "worth": 6000, "buyRelation": 20, "caughtEvidence": 20, "caughtRelation": -25 },
+  "minorAbilities": { "tombRevealChance": 0.5, "ruinsRevealChance": 0.2, "mirrorCost": 40, "worth": 6000, "buyRelation": 20 },
   "artifacts": {
-    "ranks": {
-      "QiRefinement": { "strength": 2, "protection": 0.15, "cultivation": 0.05 },
-      "Foundation": { "strength": 4, "protection": 0.25, "cultivation": 0.1 },
-      "PurpleMansion": { "strength": 6, "protection": 0.35, "cultivation": 0.15 }
-    },
-    "classFactor": { "DharmaArtifact": 1.0, "SpiritualArtifact": 1.0, "SpiritualTreasure": 1.5 },
-    "forging": {
-      "QiRefinement": { "forgeLevel": 1, "ores": 20, "stones": 100 },
-      "Foundation": { "forgeLevel": 2, "ores": 60, "stones": 400 },
-      "PurpleMansion": { "forgeLevel": 4, "ores": 200, "stones": 1500 }
-    },
-    "raiseShare": 0.6,
-    "trade": { "commissionMarkup": 2.0, "oreValue": 5, "commissionRelation": 0, "sellShare": 0.5, "loanRelation": 50, "loanYears": 10, "borrowRelationCost": 15, "lendRelationGain": 10, "keepRelation": 0, "caughtEvidence": 20, "caughtRelation": -25, "caughtDeathChance": 0.1 },
-    "finding": { "ruinsChance": 0.3, "tombTreasureChance": 0.3, "warLootChance": 0.5, "warTreasureChance": 0.1, "mansionDeathTreasureChance": 0.1 },
-    "lineageFactor": 1.5
+	"ranks": {
+	  "QiRefinement": { "strength": 2, "protection": 0.15, "cultivation": 0.05 },
+	  "Foundation": { "strength": 4, "protection": 0.25, "cultivation": 0.1 },
+	  "PurpleMansion": { "strength": 6, "protection": 0.35, "cultivation": 0.15 }
+	},
+	"classFactor": { "DharmaArtifact": 1.0, "SpiritualArtifact": 1.0, "SpiritualTreasure": 1.5 },
+	"forging": {
+	  "QiRefinement": { "forgeLevel": 1, "ores": 20, "stones": 100 },
+	  "Foundation": { "forgeLevel": 2, "ores": 60, "stones": 400 },
+	  "PurpleMansion": { "forgeLevel": 4, "ores": 200, "stones": 1500 }
+	},
+	"raiseShare": 0.6,
+	"trade": { "commissionMarkup": 2.0, "oreValue": 5, "commissionRelation": 0, "sellShare": 0.5, "loanRelation": 50, "loanYears": 10, "borrowRelationCost": 15, "lendRelationGain": 10, "keepRelation": 0, "caughtEvidence": 20, "caughtRelation": -25, "caughtDeathChance": 0.1 },
+	"finding": { "ruinsChance": 0.3, "tombTreasureChance": 0.3, "warLootChance": 0.5, "warTreasureChance": 0.1, "mansionDeathTreasureChance": 0.1 },
+	"lineageFactor": 1.5
   },
   "fertility": {
-    "lastMotherAge": { "QiRefinement": 90, "Foundation": 140, "PurpleMansion": 220, "GoldenCore": 450 },
-    "birthFactor": { "QiRefinement": 0.8, "Foundation": 0.5, "PurpleMansion": 0.3, "GoldenCore": 0.15 }
+	"lastMotherAge": { "QiRefinement": 90, "Foundation": 140, "PurpleMansion": 220, "GoldenCore": 450 },
+	"birthFactor": { "QiRefinement": 0.8, "Foundation": 0.5, "PurpleMansion": 0.3, "GoldenCore": 0.15 }
   },
   "powerSchemes": { "schemeChance": 0.03, "personalityFactor": { "Aggressive": 2.0, "Manipulative": 2.0, "Isolationist": 0.5 }, "theftWeight": 0.5, "ambushWeight": 0.35, "theftWealthShare": 0.1, "caughtChance": 0.3, "ransomPerRealm": 500, "captiveYears": 3, "harvestPowerGain": 20 },
   "worldArsenal": { "elderCondenseChance": 0.1, "elderDesignationChance": 0.05, "masterlessStrikeChance": 0.05, "unsealChance": 0.2, "forgeChance": 0.15, "familyForgeChance": 0.05, "treasureFindChance": 0.01, "bondChance": 0.02, "transmuteChance": 0.001 },
   "dharma": {
-    "condenseOres": 300,
-    "condenseYears": 5,
-    "treasureStrength": 10,
-    "treasureGuardChance": 0.5,
-    "designationStrength": 20,
-    "designationGuardChance": 0.3,
-    "masterlessStrikeChance": 0.05
+	"condenseOres": 300,
+	"condenseYears": 5,
+	"treasureStrength": 10,
+	"treasureGuardChance": 0.5,
+	"designationStrength": 20,
+	"designationGuardChance": 0.3,
+	"masterlessStrikeChance": 0.05
   },
   "demons": {
-    "tiers": {
-      "Lesser": { "ravageYears": 5, "killChance": 0.2, "stonesLost": 100, "powerLoss": 10, "elderKillChance": 0.05 },
-      "Ascent": { "ravageYears": 15, "killChance": 0.4, "stonesLost": 300, "powerLoss": 30, "elderKillChance": 0.15 },
-      "Realization": { "ravageYears": 40, "killChance": 0.7, "stonesLost": 800, "powerLoss": 80, "elderKillChance": 0.3 }
-    },
-    "grudgeYears": 50,
-    "worldRavageChance": 0.5,
-    "worldSubdueChance": 0.3
+	"tiers": {
+	  "Lesser": { "ravageYears": 5, "killChance": 0.2, "stonesLost": 100, "powerLoss": 10, "elderKillChance": 0.05 },
+	  "Ascent": { "ravageYears": 15, "killChance": 0.4, "stonesLost": 300, "powerLoss": 30, "elderKillChance": 0.15 },
+	  "Realization": { "ravageYears": 40, "killChance": 0.7, "stonesLost": 800, "powerLoss": 80, "elderKillChance": 0.3 }
+	},
+	"grudgeYears": 50,
+	"worldRavageChance": 0.5,
+	"worldSubdueChance": 0.3
   },
   "phenomena": {
-    "deaths": {
-      "Foundation": { "years": 5, "alignedSpeed": 0.05, "herbs": 3, "ores": 3 },
-      "PurpleMansion": { "years": 30, "alignedSpeed": 0.1, "herbs": 15, "ores": 15 },
-      "GoldenCore": { "years": 100, "alignedSpeed": 0.2, "herbs": 50, "ores": 50 }
-    },
-    "failureSpeed": -0.025,
-    "failureYears": 300,
-    "maxAlignedSpeed": 0.3,
-    "minGeneralSpeed": -0.2
+	"deaths": {
+	  "Foundation": { "years": 5, "alignedSpeed": 0.05, "herbs": 3, "ores": 3 },
+	  "PurpleMansion": { "years": 30, "alignedSpeed": 0.1, "herbs": 15, "ores": 15 },
+	  "GoldenCore": { "years": 100, "alignedSpeed": 0.2, "herbs": 50, "ores": 50 }
+	},
+	"failureSpeed": -0.025,
+	"failureYears": 300,
+	"maxAlignedSpeed": 0.3,
+	"minGeneralSpeed": -0.2
   },
   "imperialWay": {
-    "meritPerYear": 1,
-    "meritPerVassal": 1,
-    "membersPerMerit": 100,
-    "maxMerit": 30,
-    "crownRelationLoss": 20
+	"meritPerYear": 1,
+	"meritPerVassal": 1,
+	"membersPerMerit": 100,
+	"maxMerit": 30,
+	"crownRelationLoss": 20
   },
   "ancestors": {
-    "rebirthChance": 0.3,
-    "harvestChance": 0.03,
-    "foundationYears": 2,
-    "purpleMansionYears": 10,
-    "goldenCoreYears": 10
+	"rebirthChance": 0.3,
+	"harvestChance": 0.03,
+	"foundationYears": 2,
+	"purpleMansionYears": 10,
+	"goldenCoreYears": 10
   },
   "worldFruitions": {
-    "holderPassChance": 0.002,
-    "eternal": [ "dawnlight" ],
-    "reincarnationChance": 0.4,
-    "returnYears": 20,
-    "raceYears": 30,
-    "raceOdds": 0.45,
-    "sabotageBaseChance": 0.4,
-    "revealMirrorCost": 30,
-    "suspectTruthChance": 0.5,
-    "sabotageChancePerPower": 0.03,
-    "sabotageMinChance": 0.05,
-    "sabotageMaxChance": 0.9,
-    "sabotageOddsLoss": 0.1,
-    "sabotageCaughtEvidence": 25,
-    "sabotageCaughtRelation": -30
+	"holderPassChance": 0.002,
+	"eternal": [ "dawnlight" ],
+	"reincarnationChance": 0.4,
+	"returnYears": 20,
+	"raceYears": 30,
+	"raceOdds": 0.45,
+	"sabotageBaseChance": 0.4,
+	"revealMirrorCost": 30,
+	"suspectTruthChance": 0.5,
+	"sabotageChancePerPower": 0.03,
+	"sabotageMinChance": 0.05,
+	"sabotageMaxChance": 0.9,
+	"sabotageOddsLoss": 0.1,
+	"sabotageCaughtEvidence": 25,
+	"sabotageCaughtRelation": -30
   },
   "powerLifecycle": {
-    "fallPower": 40,
-    "secessionChance": 0.001,
-    "maxExtraPowers": 3,
-    "gateFollowers": 2,
-    "sectFollowers": 4,
-    "secessionPowerShare": 0.25,
-    "secessionWealthShare": 0.2,
-    "kingdomChance": 0.01,
-    "kingdomVassals": 3,
-    "kingdomPowerShare": 0.5,
-    "riseChance": 0.03,
-    "risenPower": 300,
-    "risenWealth": 300
+	"fallPower": 40,
+	"secessionChance": 0.001,
+	"maxExtraPowers": 3,
+	"gateFollowers": 2,
+	"sectFollowers": 4,
+	"secessionPowerShare": 0.25,
+	"secessionWealthShare": 0.2,
+	"kingdomChance": 0.01,
+	"kingdomVassals": 3,
+	"kingdomPowerShare": 0.5,
+	"riseChance": 0.03,
+	"risenPower": 300,
+	"risenWealth": 300
   },
   "powerEconomy": {
 	"incomePerPower": 0.05,
