@@ -202,7 +202,7 @@ namespace MirrorChronicles.Session
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
             Intrigues.Armoury = Artifacts;
             Bridges = new PositionBridges(Context);
-            Mandate = new MandateOfLife(Context, Clan);
+            Mandate = new MandateOfLife(Context, Clan, Factions);
             GoldenCore.CorruptedVirtues = () => Bridges.Corrupted; // the bridges of the corrupted Virtues (R6)
             Minors = new MinorAbilities(Context, Clan, Resources, Factions, Suspicion, Mirror, Knowledge, Accords);
             Accords.Armoury = Artifacts; // an artifact may be given in an accord

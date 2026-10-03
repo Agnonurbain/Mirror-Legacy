@@ -527,7 +527,7 @@
 	"perfectionChance": 0.1,
 	"lastYears": 20
   },
-  "mandate": { "eventXpShare": 0.3, "yearlyXpShare": 0.05 },
+  "mandate": { "eventXpShare": 0.3, "yearlyXpShare": 0.05, "elderLeapChance": 0.02 },
   "positionBridges": {
     "corruptedAtStart": [ "Water" ],
     "bridges": [

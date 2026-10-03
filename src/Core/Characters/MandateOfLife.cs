@@ -15,11 +15,13 @@ namespace MirrorChronicles.Characters
     {
         private readonly GameContext ctx;
         private readonly ClanManager clan;
+        private readonly Diplomacy.FactionManager factions;
 
-        public MandateOfLife(GameContext ctx, ClanManager clan)
+        public MandateOfLife(GameContext ctx, ClanManager clan, Diplomacy.FactionManager factions = null)
         {
             this.ctx = ctx;
             this.clan = clan;
+            this.factions = factions;
             var bus = ctx.Events;
             bus.OnMemberCaptured += (m, _) => Embody(m, LifeMandate.Captivity, Settings.EventXpShare);
             bus.OnMemberFreed += m => Embody(m, LifeMandate.Freedom, Settings.EventXpShare);
@@ -28,6 +30,21 @@ namespace MirrorChronicles.Characters
             bus.OnClanWarWon += _ => All(LifeMandate.Victory);
             bus.OnChallengeSettled += (_, outcome) => { if (outcome == ChallengeOutcome.Won) All(LifeMandate.Victory); };
             bus.OnCharacterDied += (dead, _) => Mourn(dead);
+            // the world's elders too (the user's rule, 2026-10-03): a war, a demon's peril — a mourning needs kin, which elders have not
+            bus.OnWarBegun += (a, d) => { Leap(factions?.GetFactionByName(a)); Leap(factions?.GetFactionByName(d)); };
+            bus.OnWorldDemon += demon => { foreach (var p in factions?.Factions.Where(f => f.RegionId == demon.RegionId).ToList() ?? new System.Collections.Generic.List<FactionData>()) Leap(p); };
+        }
+
+        /// <summary>An event of its power may embody an elder's image: a Purple Mansion not yet perfected gathers its five abilities.</summary>
+        private void Leap(FactionData power)
+        {
+            if (power == null) return;
+            foreach (var elder in power.Elders.Where(e => e.Realm == CultivationRealm.PurpleMansion && !e.Perfected))
+                if (ctx.Rng.Chance(Settings.ElderLeapChance))
+                {
+                    elder.Perfected = true;
+                    ctx.Log.Info($"[Mandate] {elder.Name} of {power.Name} reaches its Grand Perfection at a leap.");
+                }
         }
 
         private MandateSettings Settings => ctx.Content.Balance.Mandate;

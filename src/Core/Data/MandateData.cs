@@ -14,5 +14,6 @@ namespace MirrorChronicles.Data
     {
         public double EventXpShare { get; init; } = 0.3;
         public double YearlyXpShare { get; init; } = 0.05;
+        public double ElderLeapChance { get; init; } = 0.02; // a power's elder not yet perfected gathers its five abilities at a leap
     }
 }
