@@ -104,6 +104,7 @@ namespace MirrorChronicles.Session
         public DharmaTreasures Dharma { get; }
         public ArtifactArmoury Artifacts { get; }
         public ArtifactForge Forge { get; }
+        public WorldArsenal Arsenal { get; }
         public ArtifactFinds Finds { get; }
         public ArtifactTrade ArtifactTrade { get; }
         public MinorAbilities Minors { get; }
@@ -194,6 +195,7 @@ namespace MirrorChronicles.Session
             Wars.DomainGuard = () => Dharma.DomainStrength; // the treasures and Designations weigh in the clan's wars (L4e)
             Artifacts = new ArtifactArmoury(Context, Clan);
             Forge = new ArtifactForge(Context, Clan, Resources, Buildings, Artifacts);
+            Arsenal = new WorldArsenal(Context, Factions, Artifacts);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
             Intrigues.Armoury = Artifacts;
@@ -521,6 +523,7 @@ namespace MirrorChronicles.Session
                     Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)
                     Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)
                     Phenomena.ProcessYear();           // the weathers of the dead pass (L4c)
+                    Arsenal.ProcessYear();             // the powers' treasures, Designations and artifacts (the world's, 2026-10-03)
                     ArtifactTrade.ProcessYear();       // loans of artifacts end (L4f)
                     Mandate.ProcessYear();             // a reign, a seclusion feed the images they embody (§5.4.3)
                     Dharma.ProcessYear();              // treasures condensed; a masterless Designation may strike (L4e)

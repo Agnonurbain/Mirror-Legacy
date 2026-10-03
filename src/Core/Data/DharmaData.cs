@@ -4,6 +4,21 @@ namespace MirrorChronicles.Data
     public sealed record RankDesignation(string Id, string Lineage, string MasterId, string MasterName, int Year);
 
     /// <summary>
+    /// The powers' treasures and artifacts (balance.json « worldArsenal », the user's rule 2026-10-03 — interpretations):
+    /// a year's odds a True Monarch condenses its treasure, a holder mortgages it, a masterless Designation strikes or is
+    /// unsealed, and a power forges an artifact (a sect, a gate or a kingdom; a family less often).
+    /// </summary>
+    public sealed record WorldArsenalSettings
+    {
+        public double ElderCondenseChance { get; init; } = 0.1;
+        public double ElderDesignationChance { get; init; } = 0.05;
+        public double MasterlessStrikeChance { get; init; } = 0.05;
+        public double UnsealChance { get; init; } = 0.2;
+        public double ForgeChance { get; init; } = 0.15;
+        public double FamilyForgeChance { get; init; } = 0.05;
+    }
+
+    /// <summary>
     /// The Dharma Treasures and the Rank Designations (balance.json « dharma », L4e, user decisions 2026-10-03 —
     /// interpretations): a treasure's price and years, its war strength and its guard of its bearer; a Designation's
     /// strength and its guard of the domain (halved when its master is not loved by the Fruition, or is gone); the yearly

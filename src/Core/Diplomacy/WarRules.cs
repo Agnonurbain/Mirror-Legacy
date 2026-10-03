@@ -22,6 +22,6 @@ namespace MirrorChronicles.Diplomacy
 
         /// <summary>A power's war strength: its strongest realm, and its size.</summary>
         public static double Strength(FactionData power, WarSettings s) =>
-            HuntRules.Power(power.HighestRealm, 5) + System.Math.Max(0, power.PowerLevel) * s.StrengthPerPowerLevel;
+            HuntRules.Power(power.HighestRealm, 5) + System.Math.Max(0, power.PowerLevel) * s.StrengthPerPowerLevel + power.DomainStrength;
     }
 }

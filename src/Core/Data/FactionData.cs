@@ -30,7 +30,9 @@ namespace MirrorChronicles.Data
         public string RegionId { get; set; }                  // a regions.json id
         public CultivationPath Path { get; set; }
         public CultivationRealm HighestRealm { get; set; }    // the strongest cultivator it counts
-        public List<ArtifactInstance> Artifacts { get; set; } = new List<ArtifactInstance>(); // stolen, bought or borrowed from the clan (L4f)
+        public List<ArtifactInstance> Artifacts { get; set; } = new List<ArtifactInstance>(); // forged, stolen, bought or borrowed from the clan (L4f)
+        public List<RankDesignation> Designations { get; set; } = new List<RankDesignation>(); // its holders' treasures mortgaged on their Fruitions
+        public double DomainStrength { get; set; }   // what its treasures, Designations and artifacts add to its war strength (recomputed yearly)
         public List<string> Techniques { get; set; } = new List<string>(); // techniques.json ids it holds (LORE.md §2.4)
         public List<FactionElder> Elders { get; set; } = new List<FactionElder>(); // who it counts: they age, die and rise (2026-10-01)
         public int BaselinePower { get; set; }       // its size when its elders were first weighed (PowerEconomy)
@@ -53,6 +55,7 @@ namespace MirrorChronicles.Data
             var copy = (FactionData)MemberwiseClone();
             copy.Techniques = new List<string>(Techniques ?? new List<string>());
             copy.Artifacts = new List<ArtifactInstance>(Artifacts ?? new List<ArtifactInstance>());
+            copy.Designations = new List<RankDesignation>(Designations ?? new List<RankDesignation>());
             copy.Elders = (Elders ?? new List<FactionElder>()).Select(e => e.Clone()).ToList();
             copy.InterpretedFields = new List<string>(InterpretedFields ?? new List<string>());
             return copy;
@@ -81,9 +84,10 @@ namespace MirrorChronicles.Data
         public int MaxLifespan { get; set; }
         public int RealmSinceYear { get; set; }          // when it reached its realm
         public double GoldenCoreOdds { get; set; }       // at the Purple Mansion: its odds of forging and claiming a position
-        public bool Ancient { get; set; }
-        public bool Perfected { get; set; }
-        public string FruitionId { get; set; }           // the lineage whose Realization it holds, or null (2026-10-01)              // reached the Grand Perfection (five abilities): only then may it try the Golden Core                // there when the world began: an ancient being, whose lore is old
+        public bool Ancient { get; set; }                // there when the world began: an ancient being, whose lore is old
+        public bool Perfected { get; set; }              // reached the Grand Perfection (five abilities): only then may it try the Golden Core
+        public string FruitionId { get; set; }           // the lineage whose Realization it holds, or null (2026-10-01)
+        public bool HasDharmaTreasure { get; set; }      // a True Monarch's treasure of its foundation (the world's, 2026-10-03)
 
         public int Age(int year) => year - BornYear;
 

@@ -556,6 +556,7 @@
     "finding": { "ruinsChance": 0.3, "tombTreasureChance": 0.3, "warLootChance": 0.5, "warTreasureChance": 0.1, "mansionDeathTreasureChance": 0.1 },
     "lineageFactor": 1.5
   },
+  "worldArsenal": { "elderCondenseChance": 0.1, "elderDesignationChance": 0.05, "masterlessStrikeChance": 0.05, "unsealChance": 0.2, "forgeChance": 0.15, "familyForgeChance": 0.05 },
   "dharma": {
     "condenseOres": 300,
     "condenseYears": 5,

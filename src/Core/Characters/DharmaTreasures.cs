@@ -107,9 +107,10 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>What the treasures and the Designations add to the clan's war strength.</summary>
-        public double DomainStrength =>
-            clan.LivingMembers.Count(m => Free(m) && m.HasDharmaTreasure) * Settings.TreasureStrength
-            + designations.Sum(d => Wield(d) * Settings.DesignationStrength);
+        public double DomainStrength => World.WorldArsenal.Weigh( // the greatest whole, the others as the clan's other fighters
+            clan.LivingMembers.Where(m => Free(m) && m.HasDharmaTreasure).Select(_ => Settings.TreasureStrength)
+                .Concat(designations.Select(d => Wield(d) * Settings.DesignationStrength)),
+            ctx.Content.Balance.Wars.ClanStrengthPerMember);
 
         /// <summary>The chance the Designations foil an ambush on any member of the clan.</summary>
         public double DomainGuardChance =>
