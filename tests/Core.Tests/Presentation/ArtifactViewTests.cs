@@ -57,5 +57,49 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.IsTrue(offers.Any(o => o.Kind == ArtifactDeal.Steal && o.Power == foe.Name));
             Assert.IsFalse(offers.Any(o => o.Kind == ArtifactDeal.Steal && o.Power == friend.Name));
         }
+
+        [Test]
+        public void AnArtifactInStore_OffersItsRaising_ByTheBestSmith_AtItsPrice()
+        {
+            var s = Session();
+            var smith = Fixtures.Cultivator(realm: CultivationRealm.Foundation);
+            s.Clan.AddMember(smith);
+            var a = s.Artifacts.Create(s.Context.Content.ArtifactForms.First().Id, CultivationRealm.QiRefinement, null);
+            var row = ArtifactView.Rows(s).Single(r => r.Id == a.Id);
+            Assert.IsNull(row.RaiseRefusal);
+            Assert.AreEqual(smith.ID, row.RaiseSmithId);
+            StringAssert.Contains("minerais", row.RaiseLabel);
+            Assert.IsNull(s.Forge.Raise(a.Id, row.RaiseSmithId));
+            Assert.AreEqual(CultivationRealm.Foundation, s.Artifacts.Armoury.Single().Rank);
+        }
+
+        [Test]
+        public void ASpiritualTreasure_OffersNoRaising()
+        {
+            var s = Session();
+            s.Clan.AddMember(Fixtures.Cultivator(realm: CultivationRealm.GoldenCore));
+            var t = s.Artifacts.Create(s.Context.Content.ArtifactForms.First().Id, CultivationRealm.PurpleMansion, null, ArtifactClass.SpiritualTreasure);
+            Assert.IsNull(ArtifactView.Rows(s).Single(r => r.Id == t.Id).RaiseLabel);
+        }
+
+        [Test]
+        public void AnArtifactInStore_MayBeLent_ToTheFriendliestPower()
+        {
+            var s = Session();
+            foreach (var f in s.Factions.Factions) f.RelationWithPlayer = -10;
+            var friend = s.Factions.Factions.First();
+            friend.RelationWithPlayer = 40;
+            var a = s.Artifacts.Create(s.Context.Content.ArtifactForms.First().Id, CultivationRealm.QiRefinement, null);
+            var row = ArtifactView.Rows(s).Single(r => r.Id == a.Id);
+            Assert.AreEqual(friend.Name, row.LendTo);
+            StringAssert.Contains(friend.Name, row.LendLabel);
+            Assert.IsNull(s.ArtifactTrade.Lend(a.Id, row.LendTo));
+            Assert.IsEmpty(s.Artifacts.Armoury);
+            var lent = ArtifactView.Rows(s).Single(r => r.Id == a.Id);
+            StringAssert.Contains($"prêté à {friend.Name} jusqu'en l'an", lent.Label, "a loan is still the clan's: it is shown");
+            Assert.IsNull(lent.EntrustTo);
+            Assert.IsNull(lent.LendTo);
+            Assert.IsNull(lent.RaiseLabel);
+        }
     }
 }

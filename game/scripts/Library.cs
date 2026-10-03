@@ -21,7 +21,8 @@ namespace MirrorChronicles.Game
         private VBoxContainer accord;                 // the accords tab (LORE.md §11.10, A)
         private VBoxContainer lineages;               // the lineages of the world, as the clan knows them (2026-10-01)
         private VBoxContainer goldenCore;             // the Golden Core's actions (L4e, G6, 2026-10-03)
-        private VBoxContainer armoury;                // the clan's artifacts, the forge, the powers' deals (L4f, 2026-10-03)
+        private VBoxContainer armoury;
+        private int commissionForm;                   // the form chosen for a commission                // the clan's artifacts, the forge, the powers' deals (L4f, 2026-10-03)
         private TabContainer tabs;
         private (string Power, string TechniqueId, string Name)? negotiating;
         private readonly System.Collections.Generic.HashSet<int> chosen = new System.Collections.Generic.HashSet<int>();
@@ -131,6 +132,20 @@ namespace MirrorChronicles.Game
                     entrust.Pressed += () => Act(s.Artifacts.Equip(s.Clan.FindById(to), id), "L'artefact est confié.");
                     line.AddChild(entrust);
                 }
+                if (row.RaiseLabel != null)
+                {
+                    var raise = new Button { Text = "Élever", TooltipText = row.RaiseRefusal ?? row.RaiseLabel, Disabled = row.RaiseRefusal != null };
+                    string id = row.Id, smith = row.RaiseSmithId;
+                    raise.Pressed += () => Act(s.Forge.Raise(id, smith), "L'artefact est élevé d'un rang.");
+                    line.AddChild(raise);
+                }
+                if (row.LendTo != null)
+                {
+                    var lend = new Button { Text = "Prêter", TooltipText = row.LendLabel };
+                    string id = row.Id, to = row.LendTo;
+                    lend.Pressed += () => Act(s.ArtifactTrade.Lend(id, to), $"L'artefact est prêté à {to}.");
+                    line.AddChild(lend);
+                }
                 if (row.Owned && buyer != null && s.Artifacts.Armoury.FirstOrDefault(a => a.Id == row.Id) is { } kept
                     && !MirrorChronicles.Characters.ArtifactTrade.IsPrecious(kept.Rank, kept.Class)) // a precious one is offered in an accord, never sold
                 {
@@ -147,11 +162,19 @@ namespace MirrorChronicles.Game
             foreach (var offer in offers)
                 AddButton(armoury, offer.Label, offer.Refusal, () => Act(s.Forge.Make(offer.FormId, offer.Rank, offer.SmithId), "La forge livre son œuvre."));
             Add(armoury, "— Les puissances —");
+            var formRow = new HBoxContainer();
+            formRow.AddChild(new Label { Text = "Forme à commander :" });
+            var formPicker = new OptionButton { SizeFlagsHorizontal = SizeFlags.ExpandFill };
+            foreach (var f in s.Context.Content.ArtifactForms) formPicker.AddItem($"{f.Name} ({ArtifactView.EffectLabel(f.Effect)})");
+            formPicker.Selected = System.Math.Clamp(commissionForm, 0, s.Context.Content.ArtifactForms.Count - 1);
+            formPicker.ItemSelected += index => commissionForm = (int)index;
+            formRow.AddChild(formPicker);
+            armoury.AddChild(formRow);
             foreach (var deal in ArtifactView.PowerOffers(s))
                 AddButton(armoury, deal.Label, deal.Refusal, () => Act(deal.Kind switch
                 {
                     ArtifactDeal.Borrow => s.ArtifactTrade.Borrow(deal.Power),
-                    ArtifactDeal.Commission => s.ArtifactTrade.Commission(deal.Power, s.Context.Content.ArtifactForms[0].Id, deal.Rank, deal.Terms),
+                    ArtifactDeal.Commission => s.ArtifactTrade.Commission(deal.Power, s.Context.Content.ArtifactForms[commissionForm].Id, deal.Rank, deal.Terms),
                     _ => s.ArtifactTrade.StealFrom(deal.Power, deal.TeamIds),
                 }, "C'est fait."));
             var binds = ArtifactView.BindOffers(s);

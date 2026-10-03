@@ -7,7 +7,14 @@ using MirrorChronicles.Session;
 namespace MirrorChronicles.Presentation
 {
     /// <summary>An artifact of the clan: its line, and the member it would best serve (null: none).</summary>
-    public sealed record ArtifactRow(string Id, string Label, string EntrustTo, string EntrustLabel, bool Owned);
+    public sealed record ArtifactRow(string Id, string Label, string EntrustTo, string EntrustLabel, bool Owned)
+    {
+        public string RaiseLabel { get; init; }    // raising it by one rank (null: it cannot be raised)
+        public string RaiseSmithId { get; init; }
+        public string RaiseRefusal { get; init; }  // why not now (null: it can)
+        public string LendTo { get; init; }        // the friendliest power it may be lent to (null: none)
+        public string LendLabel { get; init; }
+    }
 
     /// <summary>A work the forge may take: a form, the highest rank its best smith can make, the smith, and why not (null: it can).</summary>
     public sealed record ForgeOffer(string FormId, CultivationRealm Rank, string SmithId, string Label, string Refusal);
@@ -56,9 +63,35 @@ namespace MirrorChronicles.Presentation
             {
                 var to = s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && !m.TreasureBound && m.Realm >= a.Rank && (m.Artifact == null || m.Artifact.Rank < a.Rank))
                     .OrderByDescending(m => m.Artifact == null ? 1 : 0).ThenByDescending(m => Mirror.HuntRules.Power(m.Realm, m.RealmStage)).FirstOrDefault();
-                rows.Add(new ArtifactRow(a.Id, $"{Describe(a)} — dans l'armurerie", to?.ID, to == null ? null : $"Confier à {to.FullName}", a.LentBy == null));
+                rows.Add(Extras(s, a, new ArtifactRow(a.Id, $"{Describe(a)} — dans l'armurerie", to?.ID, to == null ? null : $"Confier à {to.FullName}", a.LentBy == null)));
             }
+            foreach (var power in s.Factions.Factions) // the clan's own, lent out: still the clan's
+                foreach (var a in power.Artifacts.Where(a => a.LentBy == ArtifactTrade.ClanLender))
+                    rows.Add(new ArtifactRow(a.Id, $"{Describe(a with { LentBy = null })} — prêté à {power.Name} jusqu'en l'an {a.DueYear}", null, null, false));
             return rows;
+        }
+
+        /// <summary>What may be done with an artifact of the clan's own in store: raise it by one rank, lend it to a friendly power.</summary>
+        private static ArtifactRow Extras(GameSession s, ArtifactInstance a, ArtifactRow row)
+        {
+            if (a.LentBy != null) return row;
+            var trade = s.Context.Content.Balance.Artifacts.Trade;
+            var lendTo = s.Factions.Factions.Where(f => f.RelationWithPlayer >= trade.KeepRelation).OrderByDescending(f => f.RelationWithPlayer).FirstOrDefault();
+            if (lendTo != null)
+                row = row with { LendTo = lendTo.Name, LendLabel = $"Prêter à {lendTo.Name} (+{trade.LendRelationGain} de relation, rendu dans {trade.LoanYears} ans)" };
+            if (a.Class == ArtifactClass.SpiritualTreasure || a.Rank >= CultivationRealm.PurpleMansion) return row;
+            var next = a.Rank + 1;
+            var settings = s.Context.Content.Balance.Artifacts;
+            if (!settings.Forging.TryGetValue(next, out var cost)) return row;
+            var smith = s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None && m.Realm >= next)
+                .OrderBy(m => m.LastOperationYear == s.Clock.Year ? 1 : 0).ThenByDescending(m => m.Realm).FirstOrDefault();
+            string price = $"{(int)(cost.Ores * settings.RaiseShare)} minerais, {(int)(cost.Stones * settings.RaiseShare)} pierres";
+            return row with
+            {
+                RaiseLabel = $"Élever d'un rang ({RankLabel(next)})" + (smith == null ? "" : $" par {smith.FullName}") + $" — {price}",
+                RaiseSmithId = smith?.ID,
+                RaiseRefusal = smith == null ? "aucun forgeron libre de ce royaume" : s.Forge.RaiseRefusal(a.Id, smith.ID),
+            };
         }
 
         /// <summary>For each form, the highest rank the clan's best free smith can forge, and why not when it cannot.</summary>
