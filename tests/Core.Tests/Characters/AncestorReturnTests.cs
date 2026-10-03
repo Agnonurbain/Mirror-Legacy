@@ -61,6 +61,17 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void AnIntactEssence_IsAlwaysReborn_AsTheLoreSays()
+        {
+            // « autant de fois qu'il le souhaite » (LORE.md §5.5.2; the user's decision, 2026-10-03): no roll, only the lore's risks
+            Assert.AreEqual(1.0, Fixtures.Content.Balance.Ancestors.RebirthChance, 1e-9);
+            var s = Session(With(a => a with { RebirthChance = Fixtures.Content.Balance.Ancestors.RebirthChance, HarvestChance = 0 }));
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            Assert.AreEqual(1, s.Ancestors.Pending.Count, "even dead of old age, its essence lingers");
+        }
+
+        [Test]
         public void ATrueMonarch_DyingWithItsEssence_IsRebornInTheNextChild()
         {
             var s = Session(Sure);

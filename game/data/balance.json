@@ -601,7 +601,7 @@
 	"crownRelationLoss": 20
   },
   "ancestors": {
-	"rebirthChance": 0.3,
+	"rebirthChance": 1.0,
 	"harvestChance": 0.03,
 	"foundationYears": 2,
 	"purpleMansionYears": 10,
