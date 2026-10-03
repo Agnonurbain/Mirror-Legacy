@@ -104,6 +104,7 @@ namespace MirrorChronicles.Session
         public DharmaTreasures Dharma { get; }
         public ArtifactArmoury Artifacts { get; }
         public ArtifactForge Forge { get; }
+        public ArtifactFinds Finds { get; }
         public ImperialWay Imperial { get; }
         public RegionalPhenomena Phenomena { get; }
 
@@ -189,6 +190,7 @@ namespace MirrorChronicles.Session
             Wars.DomainGuard = () => Dharma.DomainStrength; // the treasures and Designations weigh in the clan's wars (L4e)
             Artifacts = new ArtifactArmoury(Context, Clan);
             Forge = new ArtifactForge(Context, Clan, Resources, Buildings, Artifacts);
+            Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             Schemes.Guard = m => 1 - (1 - Dharma.GuardChance(m)) * (1 - Dharma.DomainGuardChance) * (1 - ArtifactRules.Protection(m));
             Place.Phenomena = Phenomena; // a death's weather, a failure's lasting phenomenon (L4c)
             GoldenCore.GovernanceBonus = Imperial.BonusFor; // a sovereign cultivates by governing (R20)

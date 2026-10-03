@@ -65,6 +65,9 @@ namespace MirrorChronicles.Events
         public event Action<Diplomacy.Sponsorship, PatronDesign> OnPatronDesignResisted;
         public event Action<string, string> OnAccordDenounced;              // rival, patron (§11.10)
         public event Action<CharacterData, string> OnMemberLured;           // a practitioner bought away by a rival
+        public event Action OnTombLooted;                                  // a tomb's guardian falls (C5)
+        public event Action<ArtifactInstance, string> OnArtifactFound;      // an artifact found, and where (L4f)
+        public event Action<CharacterData, ArtifactInstance> OnTreasureBound; // a Foundation binds itself to a Spiritual Treasure
         public event Action<ArtifactInstance, CharacterData> OnArtifactForged; // the clan's forge makes or raises an artifact (L4f)
         public event Action<CharacterData> OnDharmaTreasure;               // a True Monarch condenses its treasure (L4e)
         public event Action<RankDesignation> OnRankDesignation;            // a treasure mortgaged on its Fruition
@@ -137,6 +140,9 @@ namespace MirrorChronicles.Events
         public void TriggerPhenomenon(RegionalPhenomenon phenomenon) => OnPhenomenon?.Invoke(phenomenon);
         public void TriggerDemonBorn(MetalEssenceDemon demon) => OnDemonBorn?.Invoke(demon);
         public void TriggerDharmaTreasure(CharacterData member) => OnDharmaTreasure?.Invoke(member);
+        public void TriggerTombLooted() => OnTombLooted?.Invoke();
+        public void TriggerArtifactFound(ArtifactInstance a, string where) => OnArtifactFound?.Invoke(a, where);
+        public void TriggerTreasureBound(CharacterData m, ArtifactInstance a) => OnTreasureBound?.Invoke(m, a);
         public void TriggerArtifactForged(ArtifactInstance artifact, CharacterData smith) => OnArtifactForged?.Invoke(artifact, smith);
         public void TriggerRankDesignation(RankDesignation d) => OnRankDesignation?.Invoke(d);
         public void TriggerDemonSubdued(MetalEssenceDemon demon) => OnDemonSubdued?.Invoke(demon);

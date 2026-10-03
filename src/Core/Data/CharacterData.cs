@@ -57,6 +57,7 @@ namespace MirrorChronicles.Data
         public string ReincarnationOfId { get; set; }   // reincarnated True Monarch (R9)
         public string RebornFrom { get; set; }          // the clan's True Monarch reborn in this child (R9, 2026-10-01)
         public AncestorEssence RebornEssence { get; set; } // what it regains as it grows; null once it has it all
+        public bool TreasureBound { get; set; }          // bound for life to the Spiritual Treasure it bears (LORE.md §5.4.2)
         public ArtifactInstance Artifact { get; set; }   // the artifact it bears (L4f, 2026-10-03); null: none
         public int? TreasureReadyYear { get; set; }     // the year its Dharma Treasure is condensed (L4e, 2026-10-03)
         public bool HasDharmaTreasure { get; set; }     // a True Monarch's treasure of its foundation, lost with it

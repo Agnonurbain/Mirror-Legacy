@@ -537,6 +537,7 @@
       "PurpleMansion": { "forgeLevel": 4, "ores": 200, "stones": 1500 }
     },
     "raiseShare": 0.6,
+    "finding": { "ruinsChance": 0.3, "tombTreasureChance": 0.3, "warLootChance": 0.5, "warTreasureChance": 0.1, "mansionDeathTreasureChance": 0.1 },
     "lineageFactor": 1.5
   },
   "dharma": {

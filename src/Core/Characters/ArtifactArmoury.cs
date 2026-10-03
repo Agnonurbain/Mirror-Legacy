@@ -81,10 +81,22 @@ namespace MirrorChronicles.Characters
             if (artifact == null) return "cet artefact n'est pas dans l'armurerie du clan";
             if (member == null || !member.IsAlive || member.CaptorFaction != null) return "ce membre ne peut le recevoir";
             if (member.Realm < artifact.Rank) return "nul ne manie un artefact au-dessus de son royaume";
+            if (member.TreasureBound) return "lié à son trésor, il n'en portera jamais d'autre";
             Unequip(member);
             armoury.Remove(artifact);
             member.Artifact = artifact;
             return null;
+        }
+
+        /// <summary>An artifact taken out of the armoury, borne now by a member who binds itself to it.</summary>
+        public bool Withdraw(string artifactId, CharacterData bearer)
+        {
+            var artifact = armoury.FirstOrDefault(a => a.Id == artifactId);
+            if (artifact == null || bearer == null) return false;
+            Unequip(bearer);
+            armoury.Remove(artifact);
+            bearer.Artifact = artifact;
+            return true;
         }
 
         /// <summary>The member's artifact goes back to the armoury.</summary>

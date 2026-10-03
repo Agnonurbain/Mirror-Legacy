@@ -175,6 +175,7 @@ namespace MirrorChronicles.Diplomacy
             {
                 techniques.Learn(Tomb);
                 Tomb = null;
+                ctx.Events.TriggerTombLooted(); // its guardian's artifact (L4f)
                 return new ExpeditionOutcome(true, true, null);
             }
             var weakest = team.OrderBy(m => HuntRules.Power(m)).First();

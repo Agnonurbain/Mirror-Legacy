@@ -47,9 +47,20 @@ namespace MirrorChronicles.Data
         public int Stones { get; init; }
     }
 
+    /// <summary>The odds of finding artifacts: in ruins, in a tomb, in a yielding enemy's halls, after a Purple Mansion's death.</summary>
+    public sealed record ArtifactFinding
+    {
+        public double RuinsChance { get; init; }
+        public double TombTreasureChance { get; init; }
+        public double WarLootChance { get; init; }
+        public double WarTreasureChance { get; init; }
+        public double MansionDeathTreasureChance { get; init; }
+    }
+
     /// <summary>The artifacts (balance.json « artifacts », L4f, user decisions 2026-10-03 — interpretations).</summary>
     public sealed record ArtifactSettings
     {
+        public ArtifactFinding Finding { get; init; } = new ArtifactFinding();
         public Dictionary<CultivationRealm, ArtifactForging> Forging { get; init; } = new Dictionary<CultivationRealm, ArtifactForging>();
         public double RaiseShare { get; init; } = 0.6; // raising one costs this share of forging it anew
         public Dictionary<CultivationRealm, ArtifactScale> Ranks { get; init; } = new Dictionary<CultivationRealm, ArtifactScale>();
