@@ -53,6 +53,7 @@ namespace MirrorChronicles.Presentation
             GoldenCoreState.Intercalary => "le premier Intercalaire du clan",
             GoldenCoreState.TrueLeftHand => "la première Main Gauche vraie du clan",
             GoldenCoreState.FalseLeftHand => "la première Main Gauche fausse du clan",
+            GoldenCoreState.FalseGoldenCore => "le premier Faux Noyau d'Or du clan, forgé en gouvernant",
             _ => "une puissance de Noyau d'Or, une première pour le clan"
         };
     }

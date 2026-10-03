@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Clan;
@@ -62,7 +63,8 @@ namespace MirrorChronicles.Characters
             }
 
             member.CultivationXP -= Xp; // spent in the attempt
-            int chance = GoldenCoreRules.ForgeChance(member, ctx.Content);
+            int governing = GovernanceBonus?.Invoke(member) ?? 0;
+            int chance = ForgeOdds(member);
             if (ctx.Rng.Next(1, 101) > chance)
             {
                 BecomeDemon(member, $"fails to forge the metal essence ({chance}%)");
@@ -70,8 +72,28 @@ namespace MirrorChronicles.Characters
             }
 
             RiseWithoutPosition(member, GoldenCoreState.MetallicEssenceOnly, fruitionId);
-            ctx.Log.Info($"[Golden Core] {member.FullName} forges a metal essence: a True Monarch without position.");
+            if (governing > 0) RiseByTheImperialWay(member, fruitionId);
+            else ctx.Log.Info($"[Golden Core] {member.FullName} forges a metal essence: a True Monarch without position.");
             return true;
+        }
+
+        /// <summary>What governing the clan's kingdom adds to a sovereign's forge (R20; set by the session).</summary>
+        public Func<CharacterData, int> GovernanceBonus { get; set; }
+
+        /// <summary>Chance (%) of forging the metal essence: the rules', and a reigning sovereign's governing.</summary>
+        public int ForgeOdds(CharacterData member) =>
+            Math.Min(99, GoldenCoreRules.ForgeChance(member, ctx.Content) + (GovernanceBonus?.Invoke(member) ?? 0));
+
+        /// <summary>
+        /// Forged by governing (R20): the sovereign's core takes an imperial Surplus where the lineage leaves one open, else
+        /// it is a False Golden Core, as the late emperors' — no position asked of Heaven.
+        /// </summary>
+        private void RiseByTheImperialWay(CharacterData member, string fruitionId)
+        {
+            member.ImperialCore = true;
+            member.GoldenCore = IsOpen(PositionRoute.Surplus, fruitionId) ? GoldenCoreState.Surplus : GoldenCoreState.FalseGoldenCore;
+            ctx.Log.Info($"[Golden Core] {member.FullName} forges by governing: {member.GoldenCore} of {fruitionId}.");
+            ctx.Events.TriggerPositionTaken(member, member.GoldenCore, GoldenCoreState.MetallicEssenceOnly);
         }
 
         /// <summary>

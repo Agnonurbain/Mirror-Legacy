@@ -524,6 +524,13 @@
 	"perfectionChance": 0.1,
 	"lastYears": 20
   },
+  "imperialWay": {
+    "meritPerYear": 1,
+    "meritPerVassal": 1,
+    "membersPerMerit": 100,
+    "maxMerit": 30,
+    "crownRelationLoss": 20
+  },
   "ancestors": {
     "rebirthChance": 0.3,
     "harvestChance": 0.03,

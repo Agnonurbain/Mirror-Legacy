@@ -27,6 +27,7 @@ namespace MirrorChronicles.Game
         private Button nextPhase;
         private VBoxContainer roster, storyChoices;
         private Button foundSect;
+        private Button foundKingdom;
         private AcceptDialog ending; // the dynastic ending told on screen, if any
 
         public override void _Ready()
@@ -70,6 +71,9 @@ namespace MirrorChronicles.Game
             foundSect = new Button { Text = "Fonder la secte" };
             foundSect.Pressed += FoundSect;
             nav.AddChild(foundSect);
+            foundKingdom = new Button { Text = "Fonder le royaume" };
+            foundKingdom.Pressed += FoundKingdom;
+            nav.AddChild(foundKingdom);
             root.SessionChanged += Bind;
             Bind();
 
@@ -144,6 +148,10 @@ namespace MirrorChronicles.Game
             foundSect.Visible = !session.Sect.Founded;
             foundSect.Disabled = sectRefusal != null;
             foundSect.TooltipText = sectRefusal ?? "Les cultivateurs aux pics, les mortels à la ville (La Double Maison).";
+            string kingdomRefusal = session.Imperial.FoundingRefusal();
+            foundKingdom.Visible = session.Sect.Founded && !session.Imperial.IsKingdom;
+            foundKingdom.Disabled = kingdomRefusal != null;
+            foundKingdom.TooltipText = kingdomRefusal ?? "Le clan règne, et son souverain cultive en gouvernant (la Voie Impériale).";
 
             bool over = session.Victory.IsOver;
             status.Text = EndingView.Defeat(session);
@@ -151,6 +159,12 @@ namespace MirrorChronicles.Game
             OfferFromAPatron();
             AskForAnAnswer();
             nextPhase.Disabled = over || session.Story.PendingEvent != null; // a story event waits for a choice
+        }
+
+        private void FoundKingdom()
+        {
+            status.Text = root.Session.Imperial.Found() ?? "Le clan fonde son royaume : son souverain cultive en gouvernant.";
+            Refresh();
         }
 
         private void FoundSect()

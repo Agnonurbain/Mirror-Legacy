@@ -386,7 +386,7 @@ namespace MirrorChronicles.Session
             var target = content.Fruitions.OrderBy(f => f.Id == own ? 0 : 1)
                 .Select(f => (f.Id, Route: GoldenCoreRules.RouteTo(master.DivineAbilities, f.Id, content.Fruitions)))
                 .FirstOrDefault(x => x.Route != PositionRoute.None);
-            if (target.Id == null || (GoldenCoreRules.ForgeChance(master, content) < RiseOdds * 100 && !NothingToLose(master))) return;
+            if (target.Id == null || (session.GoldenCore.ForgeOdds(master) < RiseOdds * 100 && !NothingToLose(master))) return;
             bool specialised = target.Route == PositionRoute.IntercalaryThreeTwo;
             string method = specialised ? GoldenCoreRules.SpecialisedMethod(target.Id) : target.Id;
             if (!session.Knowledge.Knows(FactKind.GoldSeeking, method) && !session.GoldenCore.DecipherGoldSeeking(target.Id, specialised)) return;

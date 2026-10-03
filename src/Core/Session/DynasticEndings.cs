@@ -25,6 +25,7 @@ namespace MirrorChronicles.Session
         private readonly VictoryConditionSystem victory;
         private readonly Clan.SectSystem sect;
         private readonly ClanAbsorption absorption;
+        private readonly ImperialWay imperial;
         private readonly Dictionary<string, string> moves = new Dictionary<string, string>(); // « from>to » → who first made it
         private readonly Dictionary<string, int> streaks = new Dictionary<string, int>();     // ending id → years a hegemony held in a row
 
@@ -32,7 +33,8 @@ namespace MirrorChronicles.Session
         public IReadOnlyDictionary<string, int> Streaks => streaks;
 
         public DynasticEndings(GameContext ctx, ClanManager clan, TreatySystem treaties, FactionManager factions, WarSystem wars,
-            MirrorSystem mirror, ClanAnnals annals, VictoryConditionSystem victory, Clan.SectSystem sect, ClanAbsorption absorption)
+            MirrorSystem mirror, ClanAnnals annals, VictoryConditionSystem victory, Clan.SectSystem sect, ClanAbsorption absorption,
+            ImperialWay imperial = null)
         {
             this.ctx = ctx;
             this.clan = clan;
@@ -44,6 +46,7 @@ namespace MirrorChronicles.Session
             this.victory = victory;
             this.sect = sect;
             this.absorption = absorption;
+            this.imperial = imperial;
 
             ctx.Events.OnYearStarted += year => { CountHegemonies(); Check(); };
             ctx.Events.OnBreakthroughSuccess += (member, realm) => Check();
@@ -110,6 +113,8 @@ namespace MirrorChronicles.Session
                 EndingConditionKind.SectFounded => sect.Founded,
                 EndingConditionKind.AncestorReturned => Named(clan.LivingMembers.FirstOrDefault(m =>
                     m.RebornFrom != null && m.Realm >= CultivationRealm.GoldenCore), out who),
+                EndingConditionKind.ImperialCore => imperial?.IsKingdom == true && Named(clan.LivingMembers.FirstOrDefault(m =>
+                    m.ImperialCore && m.Realm >= CultivationRealm.GoldenCore), out who),
                 _ => false // Awaits: a system still to come
             };
             if (holds && subject == null) subject = who;

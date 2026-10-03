@@ -127,6 +127,7 @@ namespace MirrorChronicles.Session
             ProbeAPower(session);
             SeekTheShards(session);
             if (session.Sect.FoundingRefusal() == null) session.Sect.Found(); // the Double House as soon as it can
+            if (session.Imperial.FoundingRefusal() == null) session.Imperial.Found(); // then the kingdom: the Imperial Way (R20)
             OfferToTheMirror(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content) && session.DaoHunts.IsCoveted(m)).ToList())

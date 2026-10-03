@@ -62,7 +62,8 @@ namespace MirrorChronicles.Data
         DharmaMaster,          // R13, R14
         DevilEquivalent,       // R11, R12
         DemonicEquivalent,     // R16
-        ShamanicEquivalent     // R17
+        ShamanicEquivalent,    // R17
+        FalseGoldenCore        // R20 — an imperial core forged by governing, without an open Surplus (the late Zhen emperors)
     }
 
     /// <summary>

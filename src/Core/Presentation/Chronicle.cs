@@ -72,6 +72,7 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronDesignResisted += (s, d) => Add($"le clan résiste à {s.Power}, qui ne l'oubliera pas.");
             bus.OnPatronOffer += offer => Add($"{offer.Power} offre au clan une méthode qui mène au Manoir Pourpre. Que cache ce don ?");
             bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
+            bus.OnClanKingdomFounded += () => Add("le clan fonde son royaume : il règne, et son souverain cultive en gouvernant.");
             bus.OnSectFounded += () => Add("le clan fonde sa secte : les pics en haut, la ville en bas.");
             bus.OnRuinsRevealed += shard => Add($"des ruines anciennes sont découvertes ; le miroir y sent {shard.Name}.");
             bus.OnFruitionFreed += (id, holder, reborn) => Add($"{holder} ne tient plus la lignée {FruitionName(session, id)}"

@@ -100,7 +100,8 @@ namespace MirrorChronicles.Presentation
             {
                 GoldenCoreState.MetallicEssenceOnly => $"Essence métallique sans position (vise {lineage.Name})",
                 GoldenCoreState.Realization => $"Réalisation — {lineage.Name}",
-                GoldenCoreState.Surplus => $"Surplus — {lineage.Name}",
+                GoldenCoreState.Surplus => member.ImperialCore ? $"Surplus impérial — {lineage.Name}" : $"Surplus — {lineage.Name}",
+                GoldenCoreState.FalseGoldenCore => $"Faux Noyau d'Or impérial — forgé en gouvernant ({lineage.Name})",
                 GoldenCoreState.Intercalary => $"Intercalaire — {lineage.Name}",
                 GoldenCoreState.TrueLeftHand => $"Main Gauche vraie — {lineage.LeftHand} ({lineage.Name})",
                 GoldenCoreState.FalseLeftHand => $"Main Gauche fausse — au service de {member.PatronId} ({lineage.Name})",

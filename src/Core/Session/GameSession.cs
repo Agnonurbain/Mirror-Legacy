@@ -100,6 +100,7 @@ namespace MirrorChronicles.Session
         public PowerLifecycle Lifecycle { get; }
         public WorldFruitions WorldFruitions { get; }
         public AncestorReturn Ancestors { get; }
+        public ImperialWay Imperial { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -176,7 +177,9 @@ namespace MirrorChronicles.Session
             Victory = new VictoryConditionSystem(Context, Clan);
             Annals = new ClanAnnals(Context, Clan, Karma);
             Absorption = new ClanAbsorption(Context, Clan, Resources, Factions, Treaties, Suspicion, Techniques, PowerShards, Shards);
-            Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory, Sect, Absorption); // judged last
+            Imperial = new ImperialWay(Context, Clan, Sect, Treaties, Factions);
+            GoldenCore.GovernanceBonus = Imperial.BonusFor; // a sovereign cultivates by governing (R20)
+            Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory, Sect, Absorption, Imperial); // judged last
         }
 
         /// <summary>A new game: the clan's knowledge and Qi, the founders, the known world and its lineages, the mirror's first two fragments.</summary>
@@ -317,6 +320,7 @@ namespace MirrorChronicles.Session
             session.Victory.Restore(data.GameLost); // a game « won » under the old rule goes on: there is no forced victory now
             session.Annals.Restore(data.Annals, session.Karma.GenerationCount, records); // none before 2.21
             session.Endings.Restore(data.PositionMoves, data.EndingStreaks);
+            session.Imperial.Restore(data.KingdomYear, data.SovereignId, data.ImperialMerit); // none before 2.27
             session.Sect.Restore(data.SectFoundedYear, session.Karma.GenerationCount); // none before 2.21
             session.Absorption.Restore(data.AbsorbedPowers);
             session.Accords.RestoreDebts(data.KnowledgeDebts);
@@ -393,6 +397,9 @@ namespace MirrorChronicles.Session
                 PositionMoves = new Dictionary<string, string>(Endings.Moves),
                 EndingStreaks = new Dictionary<string, int>(Endings.Streaks),
                 SectFoundedYear = Sect.FoundedYear,
+                KingdomYear = Imperial.KingdomYear,
+                SovereignId = Imperial.SovereignId,
+                ImperialMerit = Imperial.Merit,
                 AbsorbedPowers = Absorption.Absorbed.ToList(),
                 KnowledgeDebts = Accords.Debts.ToList(),
                 PendingSponsorOffer = Sponsorships.Pending,
@@ -469,6 +476,7 @@ namespace MirrorChronicles.Session
                     Lifecycle.ProcessYear();           // powers fall, gates and sects are founded, kingdoms rise, families rise (step C)
                     WorldFruitions.ProcessYear();      // holders pass and are reborn, lineages freed are raced for (step D)
                     Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)
+                    Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

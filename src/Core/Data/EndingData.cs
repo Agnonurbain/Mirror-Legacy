@@ -21,7 +21,8 @@ namespace MirrorChronicles.Data
         AnyOf,           // one of AnyOf holds
         SectFounded,     // the clan has founded its sect (B3d)
         Awaits,          // a system still to come (the ending's Awaits says which): never holds meanwhile
-        AncestorReturned // a living member reborn from a True Monarch of the clan has forged its Golden Core again (R9)
+        AncestorReturned, // a living member reborn from a True Monarch of the clan has forged its Golden Core again (R9)
+        ImperialCore     // the clan reigns, and a living member forged its Golden Core by governing (R20)
     }
 
     /// <summary>One condition of a dynastic ending; only the fields its kind reads are set.</summary>

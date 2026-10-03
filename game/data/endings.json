@@ -98,9 +98,8 @@
   {
     "id": "imperial-way", "name": "La Voie Impériale",
     "narrative": "Le clan a fondé un État, et il cultive en gouvernant. Comme les empereurs de jadis, il tire sa puissance du Dao même de régner.",
-    "conditions": [ { "kind": "Awaits" } ],
-    "awaits": "la fondation d'un État et la Voie Impériale (R20, L7)",
-    "source": "LORE.md §3.6, §5.9 R20", "provenance": "Lore", "interpretedFields": []
+    "conditions": [ { "kind": "ImperialCore" } ],
+    "source": "LORE.md §3.6, §5.9 R20 ; fonder un royaume comme les puissances, puis forger le Noyau d'Or en gouvernant (décisions de l'utilisateur, 2026-10-03)", "provenance": "Interpretation", "interpretedFields": [ "Conditions" ]
   },
   {
     "id": "other-daos", "name": "Les Autres Daos",

@@ -437,5 +437,20 @@ namespace MirrorChronicles.Tests.Session
             BalanceRun.SetTheIdleToWork(s);
             Assert.AreEqual(TaskType.Seclusion, chosen.CurrentTask, "the Chosen of Destiny hides from the harvesters");
         }
+    
+        [Test]
+        public void ThePilot_FoundsTheKingdom_AsSoonAsItMay()
+        {
+            var s = Session();
+            s.Sect.Restore(s.Clock.Year);
+            s.Clan.AddMember(Fixtures.Cultivator(age: 400, realm: CultivationRealm.GoldenCore));
+            var families = s.Factions.Factions.Where(f => f.Kind == FactionKind.Family).Take(3).ToList();
+            s.Treaties.RestoreTreaties(families.Select((f, i) =>
+                new Treaty($"v{i}", TreatyKind.Vassalage, f.Name, s.Clock.Year, null, false, false, true)).ToList());
+            foreach (var f in s.Factions.Factions) f.PowerLevel = 0; // the clan weighs enough
+            Assume.That(s.Imperial.FoundingRefusal(), Is.Null);
+            BalanceRun.Act(s);
+            Assert.IsTrue(s.Imperial.IsKingdom, "the Imperial Way: a kingdom, then cultivating by governing");
+        }
     }
 }
