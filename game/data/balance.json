@@ -524,6 +524,17 @@
 	"perfectionChance": 0.1,
 	"lastYears": 20
   },
+  "phenomena": {
+    "deaths": {
+      "Foundation": { "years": 5, "alignedSpeed": 0.05, "herbs": 3, "ores": 3 },
+      "PurpleMansion": { "years": 30, "alignedSpeed": 0.1, "herbs": 15, "ores": 15 },
+      "GoldenCore": { "years": 100, "alignedSpeed": 0.2, "herbs": 50, "ores": 50 }
+    },
+    "failureSpeed": -0.025,
+    "failureYears": 300,
+    "maxAlignedSpeed": 0.3,
+    "minGeneralSpeed": -0.2
+  },
   "imperialWay": {
     "meritPerYear": 1,
     "meritPerVassal": 1,

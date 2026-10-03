@@ -101,6 +101,7 @@ namespace MirrorChronicles.Session
         public WorldFruitions WorldFruitions { get; }
         public AncestorReturn Ancestors { get; }
         public ImperialWay Imperial { get; }
+        public RegionalPhenomena Phenomena { get; }
 
         private GameSession(int seed, Random rng, string clanName, GameSetup setup)
         {
@@ -178,6 +179,8 @@ namespace MirrorChronicles.Session
             Annals = new ClanAnnals(Context, Clan, Karma);
             Absorption = new ClanAbsorption(Context, Clan, Resources, Factions, Treaties, Suspicion, Techniques, PowerShards, Shards);
             Imperial = new ImperialWay(Context, Clan, Sect, Treaties, Factions);
+            Phenomena = new RegionalPhenomena(Context, Resources);
+            Place.Phenomena = Phenomena; // a death's weather, a failure's lasting phenomenon (L4c)
             GoldenCore.GovernanceBonus = Imperial.BonusFor; // a sovereign cultivates by governing (R20)
             Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory, Sect, Absorption, Imperial); // judged last
         }
@@ -321,6 +324,7 @@ namespace MirrorChronicles.Session
             session.Annals.Restore(data.Annals, session.Karma.GenerationCount, records); // none before 2.21
             session.Endings.Restore(data.PositionMoves, data.EndingStreaks);
             session.Imperial.Restore(data.KingdomYear, data.SovereignId, data.ImperialMerit); // none before 2.27
+            session.Phenomena.Restore(data.Phenomena); // none before 2.28
             session.Sect.Restore(data.SectFoundedYear, session.Karma.GenerationCount); // none before 2.21
             session.Absorption.Restore(data.AbsorbedPowers);
             session.Accords.RestoreDebts(data.KnowledgeDebts);
@@ -400,6 +404,7 @@ namespace MirrorChronicles.Session
                 KingdomYear = Imperial.KingdomYear,
                 SovereignId = Imperial.SovereignId,
                 ImperialMerit = Imperial.Merit,
+                Phenomena = Phenomena.Active.ToList(),
                 AbsorbedPowers = Absorption.Absorbed.ToList(),
                 KnowledgeDebts = Accords.Debts.ToList(),
                 PendingSponsorOffer = Sponsorships.Pending,
@@ -477,6 +482,7 @@ namespace MirrorChronicles.Session
                     WorldFruitions.ProcessYear();      // holders pass and are reborn, lineages freed are raced for (step D)
                     Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)
                     Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)
+                    Phenomena.ProcessYear();           // the weathers of the dead pass (L4c)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
                     break;
                 case GamePhase.Breakthrough:

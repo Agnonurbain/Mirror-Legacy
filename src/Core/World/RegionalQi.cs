@@ -31,6 +31,9 @@ namespace MirrorChronicles.World
 
         private RegionalQiSettings Settings => ctx.Content.Balance.RegionalQi;
 
+        /// <summary>The phenomena over the regions (L4c); set by the session.</summary>
+        public RegionalPhenomena Phenomena { get; set; }
+
         private RegionDefinition Region(string regionId)
         {
             regions ??= ctx.Content.Regions.ToDictionary(r => r.Id);
@@ -88,7 +91,8 @@ namespace MirrorChronicles.World
             double abundance = qi == null ? 1.0 : Abundance(home, qi);
             if (qi != null && abundance <= 0) abundance = Settings.AbsentQiFactor; // a Qi brought from afar, and scarce
             var (lineage, element) = Affinity(member, qi);
-            return abundance * RegionalQiRules.AtmosphereSpeed(AtmosphereOf(home), lineage, element, member.Path);
+            return abundance * RegionalQiRules.AtmosphereSpeed(AtmosphereOf(home), lineage, element, member.Path)
+                * (Phenomena?.SpeedFactor(home, lineage) ?? 1.0);
         }
 
         /// <summary>The points of breakthrough chance the home atmosphere gives the member.</summary>
