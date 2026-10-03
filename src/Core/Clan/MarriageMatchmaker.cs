@@ -36,8 +36,17 @@ namespace MirrorChronicles.Clan
         private const int OutsiderMinSpiritualRoot = 10;
         private const int OutsiderMaxSpiritualRoot = 50;
 
+        /// <summary>A cultivator seeks a spouse through this share of its realm's life (2026-10-03: a widowed bearer weds again).</summary>
+        public const double CultivatorSeekingShare = 0.4;
+
+        /// <summary>The last age a member seeks a spouse: a mortal's <see cref="MaxSeekingAge"/>, a cultivator's by its realm's life.</summary>
+        public static int SeekingAge(CharacterData character) =>
+            character.Realm >= CultivationRealm.QiRefinement && SpiritualOrificeRules.CanCultivate(character)
+                ? Math.Max(MaxSeekingAge, (int)(PowerLadder.MaxLifespan(character.Realm, 1) * CultivatorSeekingShare))
+                : MaxSeekingAge;
+
         /// <summary>
-        /// A living, unmarried member between <see cref="MinMarriageAge"/> and <see cref="MaxSeekingAge"/>.
+        /// A living, unmarried member between <see cref="MinMarriageAge"/> and its <see cref="SeekingAge"/>.
         /// </summary>
         public static bool IsEligible(CharacterData character)
         {
@@ -46,7 +55,7 @@ namespace MirrorChronicles.Clan
                 && character.CaptorFaction == null // a captive marries nobody (L6a)
                 && string.IsNullOrEmpty(character.SpouseID)
                 && character.Age >= MinMarriageAge
-                && character.Age <= MaxSeekingAge;
+                && character.Age <= SeekingAge(character);
         }
 
         /// <summary>

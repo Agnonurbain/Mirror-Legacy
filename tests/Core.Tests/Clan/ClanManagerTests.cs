@@ -214,8 +214,8 @@ namespace MirrorChronicles.Tests.Clan
 
         private static void Couple(ClanManager target, int motherAge)
         {
-            var father = Fixtures.Cultivator(isMale: true, age: 30);
-            var mother = Fixtures.Cultivator(isMale: false, age: motherAge);
+            var father = Fixtures.Mortal(isMale: true, age: 30);   // mortals: a cultivator's window lengthens with her realm (2026-10-03)
+            var mother = Fixtures.Mortal(isMale: false, age: motherAge);
             father.SpouseID = mother.ID;
             mother.SpouseID = father.ID;
             target.AddMember(father);

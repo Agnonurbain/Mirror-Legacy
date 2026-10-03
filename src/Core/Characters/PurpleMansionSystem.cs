@@ -94,7 +94,7 @@ namespace MirrorChronicles.Characters
         }
 
         private bool IsReadyToAscend(CharacterData member) =>
-            member.Retreat == Retreat.None
+            member.Retreat == Retreat.None && !member.HoldsTrial // it waits, by choice
             && PowerLadder.Next(member.Realm, member.RealmStage).Trial == TrialKind.PurpleMansionAscension
             && cultivation.IsReadyForTrial(member);
 

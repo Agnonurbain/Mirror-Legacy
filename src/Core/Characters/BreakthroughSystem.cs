@@ -34,7 +34,7 @@ namespace MirrorChronicles.Characters
             int attempts = 0;
             foreach (var member in clan.LivingMembers.ToList())
             {
-                if (!cultivation.IsReadyForTrial(member)) continue;
+                if (member.HoldsTrial || !cultivation.IsReadyForTrial(member)) continue; // it waits, by choice
                 if (PowerLadder.Next(member.Realm, member.RealmStage).Trial == TrialKind.PurpleMansionAscension) continue; // PurpleMansionSystem
                 AttemptBreakthrough(member);
                 attempts++;

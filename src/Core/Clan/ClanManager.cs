@@ -132,15 +132,31 @@ namespace MirrorChronicles.Clan
             foreach (var father in living.Where(m => m.IsMale && !string.IsNullOrEmpty(m.SpouseID)).ToList())
             {
                 var mother = living.Find(m => m.ID == father.SpouseID);
-                if (mother == null || mother.Age < balance.MinMotherAge || mother.Age > balance.MaxMotherAge) continue;
+                if (mother == null || mother.Age < balance.MinMotherAge || mother.Age > LastMotherAge(mother)) continue;
 
-                if (ctx.Rng.NextDouble() < balance.AnnualBirthChance * birthFactor)
+                if (ctx.Rng.NextDouble() < balance.AnnualBirthChance * birthFactor * RealmFactor(father, mother))
                 {
                     GenerateChild(father, mother);
                     births++;
                 }
             }
             return births;
+        }
+
+        /// <summary>The motherhood window lengthens with the mother's realm (2026-10-03); a mortal's ends at maxMotherAge.</summary>
+        private int LastMotherAge(CharacterData mother)
+        {
+            var f = ctx.Content.Balance.Fertility.LastMotherAge;
+            return f.Where(x => x.Key <= mother.Realm).OrderByDescending(x => x.Key).Select(x => x.Value).DefaultIfEmpty(ctx.Content.Balance.MaxMotherAge)
+                .Max(age => System.Math.Max(age, ctx.Content.Balance.MaxMotherAge));
+        }
+
+        /// <summary>The higher a parent's realm, the rarer a child (by the higher of the two).</summary>
+        private double RealmFactor(CharacterData father, CharacterData mother)
+        {
+            var realm = father.Realm > mother.Realm ? father.Realm : mother.Realm;
+            var f = ctx.Content.Balance.Fertility.BirthFactor;
+            return f.Where(x => x.Key <= realm).OrderByDescending(x => x.Key).Select(x => x.Value).DefaultIfEmpty(1.0).First();
         }
 
         /// <summary>A Summit Eye cultivator examines newborns and newcomers (LORE.md §4).</summary>

@@ -96,6 +96,8 @@ namespace MirrorChronicles.Session
         /// </summary>
         private static int MirrorReserve(GameSession session) => session.Context.Content.Balance.Plots.BlurMirrorCost;
         private const double RebuildMargin = 1.5; // a thin reserve is rebuilt, not merely kept
+        private const int FewBearers = 8;        // below this many orifice bearers the line thins (2026-10-03)
+        private const int EndOfLifeYears = 10;   // with so few years left, a bearer dares its trial anyway
         private const int SeedMinAge = 10;       // a seed for the young: old enough to be examined,
         private const int SeedMaxAge = 30;       // young enough to cultivate long
 
@@ -120,6 +122,7 @@ namespace MirrorChronicles.Session
             AnswerChallenge(session);
             foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
                 session.Wars.SuePeace(war.Enemy);
+            HoldForAnHeir(session);
             PlantASeed(session);
             WedTheLine(session);
             Hunt(session);
@@ -365,13 +368,31 @@ namespace MirrorChronicles.Session
             session.Challenges.Conclude();
         }
 
+        /// <summary>
+        /// An heir first (user decision 2026-10-03, against the bearers' extinction): a childless orifice bearer holds back a
+        /// deadly trial — the Foundation's wall, the Purple Mansion's ascent — while its odds are poor, save at its life's end.
+        /// </summary>
+        private static void HoldForAnHeir(GameSession session)
+        {
+            foreach (var m in session.Clan.LivingMembers.Where(m => m.HasSpiritualOrifice && m.CaptorFaction == null).ToList())
+            {
+                var trial = PowerLadder.Next(m.Realm, m.RealmStage).Trial;
+                double odds = trial == TrialKind.FoundationWall ? session.Breakthroughs.CalculateSuccessRate(m) / 100.0
+                    : trial == TrialKind.PurpleMansionAscension ? session.PurpleMansion.AscentChanceOf(m) / 100.0 : 1.0;
+                bool heir = session.Clan.Registry.Records.Any(r => r.FatherID == m.ID || r.MotherID == m.ID);
+                bool lastYears = m.MaxLifespan - m.Age <= EndOfLifeYears;
+                m.HoldsTrial = !heir && !lastYears && odds < GoodOdds;
+            }
+        }
+
         private static void PlantASeed(GameSession session)
         {
             if (session.Mirror.MirrorPower < Mirror.MirrorSystem.TalismanSeedCost + MirrorReserve(session)) return;
-            var mortal = session.Clan.LivingMembers
+            var candidates = session.Clan.LivingMembers
                 .Where(m => m.CaptorFaction == null && m.OrificeKnown && !m.HasTalismanSeed && !SpiritualOrificeRules.CanCultivate(m)
-                    && m.Age >= SeedMinAge && m.Age <= SeedMaxAge)
-                .OrderBy(m => m.Age).FirstOrDefault();
+                    && m.Age >= SeedMinAge && m.Age <= SeedMaxAge);
+            bool few = session.Clan.LivingMembers.Count(m => m.HasSpiritualOrifice) < FewBearers; // the line thins: the most gifted (2026-10-03)
+            var mortal = (few ? candidates.OrderByDescending(m => m.SpiritualRoot).ThenBy(m => m.Age) : candidates.OrderBy(m => m.Age)).FirstOrDefault();
             if (mortal != null) session.Mirror.GrantTalismanSeed(mortal);
         }
 
@@ -379,12 +400,12 @@ namespace MirrorChronicles.Session
         private static void WedTheLine(GameSession session)
         {
             var seekers = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.OrificeKnown && m.SpouseID == null
-                && SpiritualOrificeRules.CanCultivate(m) && m.Age >= MarriageMatchmaker.MinMarriageAge && m.Age <= MarriageMatchmaker.MaxSeekingAge)
+                && SpiritualOrificeRules.CanCultivate(m) && m.Age >= MarriageMatchmaker.MinMarriageAge && m.Age <= MarriageMatchmaker.SeekingAge(m))
                 .ToList();
             foreach (var seeker in seekers.Where(m => m.SpouseID == null))
             {
-                var partner = session.Clan.LivingMembers.FirstOrDefault(p => p.OrificeKnown && SpiritualOrificeRules.CanCultivate(p)
-                    && session.Marriages.MarriageRefusal(seeker, p) == null);
+                var partner = session.Clan.LivingMembers.OrderByDescending(p => p.HasSpiritualOrifice) // an orifice on both sides: half the children bear it
+                    .FirstOrDefault(p => p.OrificeKnown && SpiritualOrificeRules.CanCultivate(p) && session.Marriages.MarriageRefusal(seeker, p) == null);
                 if (partner != null)
                 {
                     session.Marriages.Arrange(seeker.ID, partner.ID);
