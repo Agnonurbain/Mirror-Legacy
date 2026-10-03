@@ -80,9 +80,12 @@ namespace MirrorChronicles.Characters
         /// <summary>What governing the clan's kingdom adds to a sovereign's forge (R20; set by the session).</summary>
         public Func<CharacterData, int> GovernanceBonus { get; set; }
 
-        /// <summary>Chance (%) of forging the metal essence: the rules', and a reigning sovereign's governing.</summary>
+        /// <summary>What the home atmosphere gives a forge of its favoured lineage (LORE.md §5.8; set by the session).</summary>
+        public Func<CharacterData, int> PlaceBonus { get; set; }
+
+        /// <summary>Chance (%) of forging the metal essence: the rules', a favouring atmosphere, and a reigning sovereign's governing.</summary>
         public int ForgeOdds(CharacterData member) =>
-            Math.Min(99, GoldenCoreRules.ForgeChance(member, ctx.Content) + (GovernanceBonus?.Invoke(member) ?? 0));
+            Math.Min(99, GoldenCoreRules.ForgeChance(member, ctx.Content) + (PlaceBonus?.Invoke(member) ?? 0) + (GovernanceBonus?.Invoke(member) ?? 0));
 
         /// <summary>
         /// Forged by governing (R20): the sovereign's core takes an imperial Surplus where the lineage leaves one open, else

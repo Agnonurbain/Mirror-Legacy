@@ -188,6 +188,7 @@ namespace MirrorChronicles.Session
             Schemes.Guard = m => 1 - (1 - Dharma.GuardChance(m)) * (1 - Dharma.DomainGuardChance);
             Place.Phenomena = Phenomena; // a death's weather, a failure's lasting phenomenon (L4c)
             GoldenCore.GovernanceBonus = Imperial.BonusFor; // a sovereign cultivates by governing (R20)
+            GoldenCore.PlaceBonus = Place.BreakthroughBonus; // an atmosphere favouring the lineage helps the forge (§5.8)
             Endings = new DynasticEndings(Context, Clan, Treaties, Factions, Wars, Mirror, Annals, Victory, Sect, Absorption, Imperial); // judged last
         }
 

@@ -691,5 +691,28 @@ namespace MirrorChronicles.Tests.Characters
             heir.TransformedLineage = true;
             Assert.AreEqual(PurpleMansionRules.AscentChance(plain, s, m) + s.TransformedLineageBonus, PurpleMansionRules.AscentChance(heir, s, m));
         }
+    
+        // ---- An atmosphere favouring the lineage (LORE.md §5.8: the Profound Balance made for a Golden Core) ----
+
+        [Test]
+        public void AFavouringAtmosphere_AtHome_RaisesTheOddsOfTheForge()
+        {
+            var home = Content.Regions.Single(r => r.Id == Content.Clan.HomeRegion);
+            var favoured = JObject.FromObject(home);
+            favoured["AtmosphereId"] = "profound-balance"; // it favours the First Jade
+            var content = Content with
+            {
+                Regions = Content.Regions.Select(r => r.Id == home.Id ? favoured.ToObject<RegionDefinition>() : r).ToList()
+            };
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = content });
+            var jade = content.Fruitions.Single(f => f.Id == "first-jade");
+            var m = Fixtures.Cultivator(age: 300, realm: CultivationRealm.PurpleMansion, stage: 4);
+            m.DivineAbilities = jade.Abilities.Take(5).Select(a => $"first-jade:{a.Id}").ToList();
+            m.FoundationId = m.DivineAbilities[0];
+            s.Clan.AddMember(m);
+            int bonus = content.Atmospheres.Single(a => a.Id == "profound-balance").FavouredBreakthrough;
+            Assert.Greater(bonus, 0);
+            Assert.AreEqual(System.Math.Min(99, GoldenCoreRules.ForgeChance(m, content) + bonus), s.GoldenCore.ForgeOdds(m));
+        }
     }
 }
