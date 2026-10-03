@@ -20,6 +20,7 @@ namespace MirrorChronicles.Game
         private Label status;
         private VBoxContainer accord;                 // the accords tab (LORE.md §11.10, A)
         private VBoxContainer lineages;               // the lineages of the world, as the clan knows them (2026-10-01)
+        private VBoxContainer armoury;                // the clan's artifacts, the forge, the powers' deals (L4f, 2026-10-03)
         private TabContainer tabs;
         private (string Power, string TechniqueId, string Name)? negotiating;
         private readonly System.Collections.Generic.HashSet<int> chosen = new System.Collections.Generic.HashSet<int>();
@@ -42,6 +43,10 @@ namespace MirrorChronicles.Game
             lineages = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
             lineagesTab.AddChild(lineages);
             tabs.AddChild(lineagesTab);
+            var armouryTab = new ScrollContainer { Name = "Armurerie" };
+            armoury = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
+            armouryTab.AddChild(armoury);
+            tabs.AddChild(armouryTab);
             if (int.TryParse(OS.GetEnvironment("LIB_TAB"), out int tab)) tabs.CurrentTab = tab;
             if (tab == 2 && LibraryView.Market(root.Session).FirstOrDefault() is { } first) // screenshots: an accord under way
                 negotiating = (first.Power, first.TechniqueId, first.Name);
@@ -55,6 +60,70 @@ namespace MirrorChronicles.Game
             ShowMarket();
             ShowAccord();
             ShowLineages();
+            ShowArmoury();
+        }
+
+        private void Act(string outcome, string done)
+        {
+            status.Text = outcome == null ? done : $"Impossible : {outcome}.";
+            Refresh();
+        }
+
+        private void AddButton(VBoxContainer box, string text, string refusal, System.Action pressed)
+        {
+            var button = new Button { Text = text, Disabled = refusal != null, TooltipText = refusal ?? "" };
+            button.Pressed += pressed;
+            box.AddChild(button);
+        }
+
+        /// <summary>The clan's artifacts — borne, in store, lent —, the forge's works, the powers' deals, the bonds to a treasure (L4f).</summary>
+        private void ShowArmoury()
+        {
+            Clear(armoury);
+            var s = root.Session;
+            Add(armoury, "— Les artefacts du clan —");
+            var rows = ArtifactView.Rows(s);
+            if (rows.Count == 0) Add(armoury, "Le clan n'a aucun artefact.");
+            var buyer = s.Factions.Factions.Where(f => f.Kind == FactionKind.Sect || f.Kind == FactionKind.Gate)
+                .OrderByDescending(f => f.RelationWithPlayer).FirstOrDefault();
+            foreach (var row in rows)
+            {
+                var line = new HBoxContainer();
+                line.AddChild(new Label { Text = row.Label, AutowrapMode = TextServer.AutowrapMode.WordSmart, SizeFlagsHorizontal = SizeFlags.ExpandFill });
+                if (row.EntrustTo != null)
+                {
+                    var entrust = new Button { Text = row.EntrustLabel };
+                    string id = row.Id, to = row.EntrustTo;
+                    entrust.Pressed += () => Act(s.Artifacts.Equip(s.Clan.FindById(to), id), "L'artefact est confié.");
+                    line.AddChild(entrust);
+                }
+                if (row.Owned && buyer != null && s.Artifacts.Armoury.Any(a => a.Id == row.Id))
+                {
+                    var sell = new Button { Text = $"Vendre à {buyer.Name}" };
+                    string id = row.Id;
+                    sell.Pressed += () => Act(s.ArtifactTrade.Sell(id, buyer.Name), "L'artefact est vendu.");
+                    line.AddChild(sell);
+                }
+                armoury.AddChild(line);
+            }
+            Add(armoury, "— La forge —");
+            var offers = ArtifactView.ForgeOffers(s);
+            if (offers.Count == 0) Add(armoury, "Aucun forgeron libre.");
+            foreach (var offer in offers)
+                AddButton(armoury, offer.Label, offer.Refusal, () => Act(s.Forge.Make(offer.FormId, offer.Rank, offer.SmithId), "La forge livre son œuvre."));
+            Add(armoury, "— Les puissances —");
+            foreach (var deal in ArtifactView.PowerOffers(s))
+                AddButton(armoury, deal.Label, null, () => Act(deal.Kind switch
+                {
+                    ArtifactDeal.Borrow => s.ArtifactTrade.Borrow(deal.Power),
+                    ArtifactDeal.Commission => s.ArtifactTrade.Commission(deal.Power, s.Context.Content.ArtifactForms[0].Id,
+                        s.Factions.GetFactionByName(deal.Power).HighestRealm > CultivationRealm.PurpleMansion ? CultivationRealm.PurpleMansion : s.Factions.GetFactionByName(deal.Power).HighestRealm),
+                    _ => s.ArtifactTrade.StealFrom(deal.Power, deal.TeamIds),
+                }, "C'est fait."));
+            var binds = ArtifactView.BindOffers(s);
+            if (binds.Count > 0) Add(armoury, "— Le lien à un trésor —");
+            foreach (var bind in binds)
+                AddButton(armoury, bind.Label, null, () => Act(s.Finds.Bind(bind.MemberId, bind.ArtifactId), "Le lien est scellé."));
         }
 
         /// <summary>Each lineage as the clan knows it: held, free, broken, a race, a holder reborn; the mirror for the hidden.</summary>

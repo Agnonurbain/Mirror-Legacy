@@ -78,6 +78,7 @@ namespace MirrorChronicles.Tests.Characters
             var sect = Sect(s);
             sect.RelationWithPlayer = 80;
             Assert.IsNull(s.ArtifactTrade.Borrow(sect.Name));
+            Assert.AreEqual(80 - s.Context.Content.Balance.Artifacts.Trade.BorrowRelationCost, sect.RelationWithPlayer, "a favour owed");
             var lent = s.Artifacts.Armoury.Single();
             Assert.AreEqual(sect.Name, lent.LentBy);
             var bearer = Fixtures.Cultivator(age: 300, realm: CultivationRealm.GoldenCore);

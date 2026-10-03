@@ -537,7 +537,7 @@
       "PurpleMansion": { "forgeLevel": 4, "ores": 200, "stones": 1500 }
     },
     "raiseShare": 0.6,
-    "trade": { "commissionMarkup": 2.0, "oreValue": 5, "commissionRelation": 0, "sellShare": 0.5, "loanRelation": 50, "loanYears": 10, "lendRelationGain": 10, "keepRelation": 0, "caughtEvidence": 20, "caughtRelation": -25, "caughtDeathChance": 0.1 },
+    "trade": { "commissionMarkup": 2.0, "oreValue": 5, "commissionRelation": 0, "sellShare": 0.5, "loanRelation": 50, "loanYears": 10, "borrowRelationCost": 15, "lendRelationGain": 10, "keepRelation": 0, "caughtEvidence": 20, "caughtRelation": -25, "caughtDeathChance": 0.1 },
     "finding": { "ruinsChance": 0.3, "tombTreasureChance": 0.3, "warLootChance": 0.5, "warTreasureChance": 0.1, "mansionDeathTreasureChance": 0.1 },
     "lineageFactor": 1.5
   },

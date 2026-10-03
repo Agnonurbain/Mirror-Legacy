@@ -60,6 +60,7 @@ namespace MirrorChronicles.Data
         public double SellShare { get; init; } = 0.5;        // what a power pays of an artifact's worth
         public int LoanRelation { get; init; } = 50;         // a power lends from this relation
         public int LoanYears { get; init; } = 10;
+        public int BorrowRelationCost { get; init; } = 15;   // a loan is a favour owed
         public int LendRelationGain { get; init; } = 10;
         public int KeepRelation { get; init; }               // a borrower below this relation keeps the clan's loan
         public int CaughtEvidence { get; init; } = 20;

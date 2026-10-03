@@ -52,6 +52,19 @@ namespace MirrorChronicles.Characters
             smith.LastOperationYear = ctx.Clock.Year;
         }
 
+        /// <summary>Why this smith cannot forge an artifact of this rank (French), or null.</summary>
+        public string MakeRefusal(CultivationRealm rank, string smithId) => Refusal(clan.FindById(smithId), rank, 1.0);
+
+        /// <summary>Why this smith cannot raise this artifact (French), or null.</summary>
+        public string RaiseRefusal(string artifactId, string smithId)
+        {
+            var artifact = armoury.Armoury.FirstOrDefault(a => a.Id == artifactId);
+            if (artifact == null) return "cet artefact n'est pas dans l'armurerie du clan";
+            if (artifact.Class == ArtifactClass.SpiritualTreasure) return "un Trésor Spirituel ne se forge ni ne s'élève";
+            if (artifact.Rank >= CultivationRealm.PurpleMansion) return "au-delà du Manoir Pourpre, ce sont les Trésors de Dharma du Noyau d'Or";
+            return Refusal(clan.FindById(smithId), artifact.Rank + 1, Settings.RaiseShare);
+        }
+
         /// <summary>A smith forges an artifact of this form and rank. Null when done, else why not (French).</summary>
         public string Make(string formId, CultivationRealm rank, string smithId)
         {

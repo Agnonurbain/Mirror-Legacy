@@ -106,6 +106,7 @@ namespace MirrorChronicles.Characters
             var lent = armoury.Shape(ctx.Content.ArtifactForms[ctx.Rng.Next(ctx.Content.ArtifactForms.Count)].Id, Craft(power), AnyLineage())
                 with { LentBy = power.Name, DueYear = ctx.Clock.Year + Settings.LoanYears };
             armoury.Add(lent);
+            factions.ChangeRelation(power.ID, -Settings.BorrowRelationCost); // a favour owed
             ctx.Events.TriggerArtifactFound(lent, $"prêté par {power.Name}");
             return null;
         }
