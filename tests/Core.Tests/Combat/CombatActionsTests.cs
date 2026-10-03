@@ -141,7 +141,8 @@ namespace MirrorChronicles.Tests.Combat
         {
             var field = CombatFixtures.Field();
             var u = CombatFixtures.Place(field, 0, 0);
-            var foe = CombatFixtures.Place(field, 1, 0, CultivationRealm.Foundation, isAlly: false);
+            var foe = CombatFixtures.Place(field, 1, 0, CultivationRealm.QiRefinement, isAlly: false);
+            foe.IsDefending = true; // 10 strength against 8 defence, halved: one point, never zero
             new AttackAction().Execute(u, foe.CurrentCell, field);
             Assert.AreEqual(foe.MaxVitality - 1, foe.CurrentVitality);
         }

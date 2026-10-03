@@ -4208,7 +4208,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_portraiticon",
-      "community": 420,
+      "community": 302,
       "norm_label": "portraiticon.cs"
     },
     {
@@ -4218,7 +4218,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "scripts_portraiticon_mirrorchronicles_game",
-      "community": 420,
+      "community": 302,
       "norm_label": "mirrorchronicles.game"
     },
     {
@@ -4228,7 +4228,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "scripts_portraiticon_portraiticon",
-      "community": 420,
+      "community": 302,
       "norm_label": "portraiticon"
     },
     {
@@ -4238,7 +4238,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "game_scripts_portraiticon_cs_portrait",
-      "community": 420,
+      "community": 302,
       "norm_label": "portrait"
     },
     {
@@ -4248,7 +4248,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "scripts_portraiticon_portraiticon_draw",
-      "community": 420,
+      "community": 302,
       "norm_label": "._draw()"
     },
     {
@@ -5978,7 +5978,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 224,
+      "community": 333,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -5988,7 +5988,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 224,
+      "community": 333,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -6098,7 +6098,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 413,
+      "community": 82,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -6108,7 +6108,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 413,
+      "community": 82,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -10548,7 +10548,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 413,
+      "community": 82,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -10558,7 +10558,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 413,
+      "community": 82,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -10568,7 +10568,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 413,
+      "community": 82,
       "norm_label": "clankarmasystem"
     },
     {
@@ -10578,7 +10578,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 413,
+      "community": 82,
       "norm_label": "double"
     },
     {
@@ -10588,7 +10588,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 413,
+      "community": 82,
       "norm_label": "int"
     },
     {
@@ -10598,7 +10598,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 413,
+      "community": 82,
       "norm_label": "gamecontext"
     },
     {
@@ -10608,7 +10608,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 413,
+      "community": 82,
       "norm_label": "clanmanager"
     },
     {
@@ -10618,7 +10618,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 413,
+      "community": 82,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -10628,7 +10628,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 413,
+      "community": 82,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -10638,7 +10638,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 413,
+      "community": 82,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -10648,7 +10648,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 413,
+      "community": 82,
       "norm_label": ".restore()"
     },
     {
@@ -10658,7 +10658,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 413,
+      "community": 82,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -11038,7 +11038,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 410,
+      "community": 293,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -11048,7 +11048,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 410,
+      "community": 293,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11458,7 +11458,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_legacysystem",
-      "community": 405,
+      "community": 333,
       "norm_label": "legacysystem.cs"
     },
     {
@@ -11468,7 +11468,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "clan_legacysystem_mirrorchronicles_clan",
-      "community": 405,
+      "community": 333,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11478,7 +11478,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "clan_legacysystem_legacysystem",
-      "community": 405,
+      "community": 333,
       "norm_label": "legacysystem"
     },
     {
@@ -11488,7 +11488,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_clan_legacysystem_cs_int",
-      "community": 405,
+      "community": 333,
       "norm_label": "int"
     },
     {
@@ -12155,7 +12155,7 @@
       "label": ".Start()",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "combat_battle_battle_start",
       "community": 17,
@@ -12165,7 +12165,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_ireadonlylist",
       "community": 17,
@@ -12175,7 +12175,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_characterdata",
       "community": 17,
@@ -12185,7 +12185,7 @@
       "label": "Random",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_random",
       "community": 17,
@@ -12195,7 +12195,7 @@
       "label": "IGameLog",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_igamelog",
       "community": 17,
@@ -12205,7 +12205,7 @@
       "label": "CombatGrid",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "combatgrid",
       "community": 17,
@@ -12215,7 +12215,7 @@
       "label": "AIStrategyType",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_aistrategytype",
       "community": 17,
@@ -12225,7 +12225,7 @@
       "label": "Func",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_func",
       "community": 17,
@@ -12235,17 +12235,27 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_techniquedata",
       "community": 17,
       "norm_label": "techniquedata"
     },
     {
+      "label": "RealmGapSettings",
+      "file_type": "code",
+      "source_file": "src/Core/Combat/Battle.cs",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "src_core_combat_battle_cs_realmgapsettings",
+      "community": 17,
+      "norm_label": "realmgapsettings"
+    },
+    {
       "label": ".Perform()",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L62",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "combat_battle_battle_perform",
       "community": 17,
@@ -12255,7 +12265,7 @@
       "label": "ICombatAction",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L62",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_icombataction",
       "community": 17,
@@ -12265,7 +12275,7 @@
       "label": "GridCell",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L62",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_gridcell",
       "community": 17,
@@ -12275,7 +12285,7 @@
       "label": ".EndTurn()",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L71",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "combat_battle_battle_endturn",
       "community": 17,
@@ -12285,7 +12295,7 @@
       "label": ".AutoPlay()",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L77",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "combat_battle_battle_autoplay",
       "community": 17,
@@ -12295,7 +12305,7 @@
       "label": ".ResolveAftermath()",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L88",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "combat_battle_battle_resolveaftermath",
       "community": 17,
@@ -12305,7 +12315,7 @@
       "label": "ClanManager",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L88",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_clanmanager",
       "community": 17,
@@ -12315,7 +12325,7 @@
       "label": "WoundSystem",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L88",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_woundsystem",
       "community": 17,
@@ -12325,7 +12335,7 @@
       "label": ".Advance()",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L97",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "combat_battle_battle_advance",
       "community": 17,
@@ -12335,7 +12345,7 @@
       "label": ".CheckEnd()",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L121",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "combat_battle_battle_checkend",
       "community": 17,
@@ -12345,7 +12355,7 @@
       "label": ".Deploy()",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L133",
+      "source_location": "L135",
       "_origin": "ast",
       "id": "combat_battle_battle_deploy",
       "community": 17,
@@ -12355,7 +12365,7 @@
       "label": "BattleField",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L133",
+      "source_location": "L135",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_battlefield",
       "community": 17,
@@ -12365,7 +12375,7 @@
       "label": "CombatUnit",
       "file_type": "code",
       "source_file": "src/Core/Combat/Battle.cs",
-      "source_location": "L133",
+      "source_location": "L135",
       "_origin": "ast",
       "id": "src_core_combat_battle_cs_combatunit",
       "community": 17,
@@ -12475,7 +12485,7 @@
       "label": ".IsPowerless()",
       "file_type": "code",
       "source_file": "src/Core/Combat/BattleField.cs",
-      "source_location": "L61",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "combat_battlefield_battlefield_ispowerless",
       "community": 98,
@@ -12485,7 +12495,7 @@
       "label": ".ActiveOpponentsOf()",
       "file_type": "code",
       "source_file": "src/Core/Combat/BattleField.cs",
-      "source_location": "L64",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "combat_battlefield_battlefield_activeopponentsof",
       "community": 98,
@@ -12495,7 +12505,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Combat/BattleField.cs",
-      "source_location": "L64",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "src_core_combat_battlefield_cs_ienumerable",
       "community": 98,
@@ -12505,7 +12515,7 @@
       "label": ".ActiveAlliesOf()",
       "file_type": "code",
       "source_file": "src/Core/Combat/BattleField.cs",
-      "source_location": "L66",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "combat_battlefield_battlefield_activealliesof",
       "community": 98,
@@ -12515,7 +12525,7 @@
       "label": ".SideStands()",
       "file_type": "code",
       "source_file": "src/Core/Combat/BattleField.cs",
-      "source_location": "L69",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "combat_battlefield_battlefield_sidestands",
       "community": 98,
@@ -12525,7 +12535,7 @@
       "label": ".NearestOpponent()",
       "file_type": "code",
       "source_file": "src/Core/Combat/BattleField.cs",
-      "source_location": "L71",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "combat_battlefield_battlefield_nearestopponent",
       "community": 98,
@@ -13608,7 +13618,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 224,
+      "community": 333,
       "norm_label": "combatunit.cs"
     },
     {
@@ -13618,7 +13628,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 224,
+      "community": 333,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -14398,7 +14408,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 333,
+      "community": 293,
       "norm_label": "enums.cs"
     },
     {
@@ -14408,7 +14418,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 333,
+      "community": 293,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -15798,7 +15808,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_randomeventdata",
-      "community": 405,
+      "community": 333,
       "norm_label": "randomeventdata.cs"
     },
     {
@@ -15808,7 +15818,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_randomeventdata_mirrorchronicles_data",
-      "community": 405,
+      "community": 333,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -15818,7 +15828,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "data_randomeventdata_randomeventdata",
-      "community": 405,
+      "community": 333,
       "norm_label": "randomeventdata"
     },
     {
@@ -17098,7 +17108,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_espionagesystem",
-      "community": 193,
+      "community": 379,
       "norm_label": "espionagesystem"
     },
     {
@@ -17108,7 +17118,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_double",
-      "community": 193,
+      "community": 379,
       "norm_label": "double"
     },
     {
@@ -17118,7 +17128,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_int",
-      "community": 193,
+      "community": 379,
       "norm_label": "int"
     },
     {
@@ -17128,7 +17138,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_gamecontext",
-      "community": 193,
+      "community": 379,
       "norm_label": "gamecontext"
     },
     {
@@ -17138,7 +17148,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_factionmanager",
-      "community": 193,
+      "community": 379,
       "norm_label": "factionmanager"
     },
     {
@@ -17148,7 +17158,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_deductionengine",
-      "community": 193,
+      "community": 379,
       "norm_label": "deductionengine"
     },
     {
@@ -17158,7 +17168,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_mentalstabilitysystem",
-      "community": 193,
+      "community": 379,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -17168,7 +17178,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_techniquelibrary",
-      "community": 193,
+      "community": 379,
       "norm_label": "techniquelibrary"
     },
     {
@@ -17178,7 +17188,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_espionagesystem_attemptespionage",
-      "community": 193,
+      "community": 379,
       "norm_label": ".attemptespionage()"
     },
     {
@@ -17188,7 +17198,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_characterdata",
-      "community": 193,
+      "community": 379,
       "norm_label": "characterdata"
     },
     {
@@ -17198,7 +17208,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_core_diplomacy_espionagesystem_cs_factiondata",
-      "community": 193,
+      "community": 379,
       "norm_label": "factiondata"
     },
     {
@@ -17208,7 +17218,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "espionageresult",
-      "community": 193,
+      "community": 379,
       "norm_label": "espionageresult"
     },
     {
@@ -18098,7 +18108,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 333,
+      "community": 293,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -18108,7 +18118,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 333,
+      "community": 293,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -20152,10 +20162,40 @@
       "norm_label": "warsettings"
     },
     {
+      "label": ".WinChance()",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/WarRules.cs",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "diplomacy_warrules_warrules_winchance",
+      "community": 252,
+      "norm_label": ".winchance()"
+    },
+    {
+      "label": "CultivationRealm",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/WarRules.cs",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "src_core_diplomacy_warrules_cs_cultivationrealm",
+      "community": 252,
+      "norm_label": "cultivationrealm"
+    },
+    {
+      "label": "RealmGapSettings",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/WarRules.cs",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "src_core_diplomacy_warrules_cs_realmgapsettings",
+      "community": 252,
+      "norm_label": "realmgapsettings"
+    },
+    {
       "label": ".Strength()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarRules.cs",
-      "source_location": "L24",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "diplomacy_warrules_warrules_strength",
       "community": 252,
@@ -20165,7 +20205,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarRules.cs",
-      "source_location": "L24",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "src_core_diplomacy_warrules_cs_factiondata",
       "community": 252,
@@ -20412,10 +20452,30 @@
       "norm_label": ".total()"
     },
     {
-      "label": ".SideStrength()",
+      "label": ".SideTop()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
       "source_location": "L106",
+      "_origin": "ast",
+      "id": "diplomacy_warsystem_warsystem_sidetop",
+      "community": 239,
+      "norm_label": ".sidetop()"
+    },
+    {
+      "label": "CultivationRealm",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/WarSystem.cs",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "src_core_diplomacy_warsystem_cs_cultivationrealm",
+      "community": 239,
+      "norm_label": "cultivationrealm"
+    },
+    {
+      "label": ".SideStrength()",
+      "file_type": "code",
+      "source_file": "src/Core/Diplomacy/WarSystem.cs",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_sidestrength",
       "community": 239,
@@ -20425,7 +20485,7 @@
       "label": ".Battle()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L110",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_battle",
       "community": 239,
@@ -20435,7 +20495,7 @@
       "label": ".IsDefended()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L131",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_isdefended",
       "community": 239,
@@ -20445,7 +20505,7 @@
       "label": ".DeclareOn()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L135",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_declareon",
       "community": 239,
@@ -20455,7 +20515,7 @@
       "label": ".WagedOnClan()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L148",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_wagedonclan",
       "community": 239,
@@ -20465,7 +20525,7 @@
       "label": ".SuePeace()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L156",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_suepeace",
       "community": 239,
@@ -20475,7 +20535,7 @@
       "label": ".MakePeace()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L167",
+      "source_location": "L170",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_makepeace",
       "community": 239,
@@ -20485,7 +20545,7 @@
       "label": ".ClanWarStrength()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L177",
+      "source_location": "L180",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_clanwarstrength",
       "community": 239,
@@ -20495,7 +20555,7 @@
       "label": ".ClanStrength()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L182",
+      "source_location": "L185",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_clanstrength",
       "community": 239,
@@ -20505,7 +20565,7 @@
       "label": ".Comes()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L191",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_comes",
       "community": 239,
@@ -20515,7 +20575,7 @@
       "label": ".ClanBattle()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L198",
+      "source_location": "L206",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_clanbattle",
       "community": 239,
@@ -20525,7 +20585,7 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L219",
+      "source_location": "L227",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_processyear",
       "community": 239,
@@ -20535,7 +20595,7 @@
       "label": ".ClanYear()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L226",
+      "source_location": "L234",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_clanyear",
       "community": 239,
@@ -20545,7 +20605,7 @@
       "label": ".WarYear()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L242",
+      "source_location": "L250",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_waryear",
       "community": 239,
@@ -20555,7 +20615,7 @@
       "label": ".DeclareWars()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L264",
+      "source_location": "L272",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_declarewars",
       "community": 239,
@@ -20565,7 +20625,7 @@
       "label": ".MakeWarOnClan()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L298",
+      "source_location": "L306",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_makewaronclan",
       "community": 239,
@@ -21628,7 +21688,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_eventmanager",
-      "community": 405,
+      "community": 333,
       "norm_label": "eventmanager.cs"
     },
     {
@@ -21638,7 +21698,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "events_eventmanager_mirrorchronicles_events",
-      "community": 405,
+      "community": 333,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -25858,7 +25918,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "presentation_buildingsview",
-      "community": 250,
+      "community": 248,
       "norm_label": "buildingsview.cs"
     },
     {
@@ -25868,7 +25928,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "presentation_buildingsview_mirrorchronicles_presentation",
-      "community": 250,
+      "community": 248,
       "norm_label": "mirrorchronicles.presentation"
     },
     {
@@ -43622,10 +43682,30 @@
       "norm_label": ".nostrikercaptures_abeastbeyondreach()"
     },
     {
-      "label": ".NoRescue_WhenNoRescuerReachesTheCaptor()",
+      "label": ".InBattle_ABlowFromBeyondReach_DoesNotLand()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L105",
+      "_origin": "ast",
+      "id": "characters_realmgaptests_realmgaptests_inbattle_ablowfrombeyondreach_doesnotland",
+      "community": 416,
+      "norm_label": ".inbattle_ablowfrombeyondreach_doesnotland()"
+    },
+    {
+      "label": ".InWar_ASideOutOfReach_CannotWin()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
+      "source_location": "L118",
+      "_origin": "ast",
+      "id": "characters_realmgaptests_realmgaptests_inwar_asideoutofreach_cannotwin",
+      "community": 416,
+      "norm_label": ".inwar_asideoutofreach_cannotwin()"
+    },
+    {
+      "label": ".NoRescue_WhenNoRescuerReachesTheCaptor()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "characters_realmgaptests_realmgaptests_norescue_whennorescuerreachesthecaptor",
       "community": 416,
@@ -47815,7 +47895,7 @@
       "label": ".Attack_IsInvalid_AgainstAnAlly()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L149",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_attack_isinvalid_againstanally",
       "community": 12,
@@ -47825,7 +47905,7 @@
       "label": ".Attack_IsInvalid_FromAfar()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L158",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_attack_isinvalid_fromafar",
       "community": 12,
@@ -47835,7 +47915,7 @@
       "label": ".Defend_HalvesTheNextBlows()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L169",
+      "source_location": "L170",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_defend_halvesthenextblows",
       "community": 12,
@@ -47845,7 +47925,7 @@
       "label": ".Flee_Succeeds_WhenTheRollBeatsTheOdds()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L180",
+      "source_location": "L181",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_flee_succeeds_whentherollbeatstheodds",
       "community": 12,
@@ -47855,7 +47935,7 @@
       "label": ".Flee_CostsTheTurn_WhenItFails()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L190",
+      "source_location": "L191",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_flee_coststheturn_whenitfails",
       "community": 12,
@@ -47865,7 +47945,7 @@
       "label": ".HealingPill_HealsAnAdjacentAllyAndIsUsedUp()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L202",
+      "source_location": "L203",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_healingpill_healsanadjacentallyandisusedup",
       "community": 12,
@@ -47875,7 +47955,7 @@
       "label": ".Item_IsInvalid_WhenNoneIsLeft()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L214",
+      "source_location": "L215",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_item_isinvalid_whennoneisleft",
       "community": 12,
@@ -47885,7 +47965,7 @@
       "label": ".MartialArt_SpendsQiAndStrikesWithTheAffinityBonus()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L225",
+      "source_location": "L226",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_martialart_spendsqiandstrikeswiththeaffinitybonus",
       "community": 12,
@@ -47895,7 +47975,7 @@
       "label": ".WaterArt_StrikesHarder_OnWater()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L236",
+      "source_location": "L237",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_waterart_strikesharder_onwater",
       "community": 12,
@@ -47905,7 +47985,7 @@
       "label": ".SupportArt_HealsAnAlly()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L248",
+      "source_location": "L249",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_supportart_healsanally",
       "community": 12,
@@ -47915,7 +47995,7 @@
       "label": ".Technique_IsInvalid_WhenUnknown()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L260",
+      "source_location": "L261",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_technique_isinvalid_whenunknown",
       "community": 12,
@@ -47925,7 +48005,7 @@
       "label": ".Technique_IsInvalid_BelowTheRequiredRealm()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L270",
+      "source_location": "L271",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_technique_isinvalid_belowtherequiredrealm",
       "community": 12,
@@ -47935,7 +48015,7 @@
       "label": ".CultivationMethod_CannotBeUsedInCombat()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Combat/CombatActionsTests.cs",
-      "source_location": "L280",
+      "source_location": "L281",
       "_origin": "ast",
       "id": "combat_combatactionstests_combatactionstests_cultivationmethod_cannotbeusedincombat",
       "community": 12,
@@ -72814,7 +72894,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 293,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -72868,7 +72948,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 224,
+      "community": 333,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -72961,7 +73041,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Only theoretical so far: POCO data separated from managers, but UI logic still lives in MonoBehaviours (NOT_DONE #102).",
-      "community": 20,
+      "community": 4,
       "norm_label": "mvc pattern (data pocos vs managers vs ui)",
       "id": "brain_claude_memory_mvc_pattern"
     },
@@ -72989,7 +73069,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 333,
+      "community": 293,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -73080,7 +73160,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 4,
       "norm_label": "strict mvc for ui (#102)",
       "id": "brain_claude_not_done_mvc_ui"
     },
@@ -73215,7 +73295,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 405,
+      "community": 333,
       "norm_label": "annual 4-phase cycle (management -> events -> breakthrough -> inheritance)",
       "id": "brain_claude_plan_annual_cycle"
     },
@@ -73229,7 +73309,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 333,
+      "community": 293,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -73297,7 +73377,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 333,
+      "community": 293,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -73323,7 +73403,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 413,
+      "community": 82,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -73362,7 +73442,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 405,
+      "community": 333,
       "norm_label": "phase 2 - combat & events",
       "id": "brain_claude_plan_phase_2_combat_events"
     },
@@ -73497,7 +73577,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 333,
+      "community": 293,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -73623,7 +73703,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 333,
+      "community": 293,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -95930,6 +96010,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Combat/Battle.cs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "combat_battle_battle_start",
+      "target": "src_core_combat_battle_cs_realmgapsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Combat/Battle.cs",
       "source_location": "L44",
       "weight": 1.0,
       "context": "generic_arg",
@@ -108485,6 +108576,16 @@
       "target": "diplomacy_warrules_warrules_strength"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/WarRules.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "diplomacy_warrules_warrules",
+      "target": "diplomacy_warrules_warrules_winchance",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Diplomacy/WarRules.cs",
@@ -108549,6 +108650,28 @@
       "confidence_score": 1.0,
       "source": "diplomacy_warrules_warrules_strength",
       "target": "warsettings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/WarRules.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "diplomacy_warrules_warrules_winchance",
+      "target": "src_core_diplomacy_warrules_cs_cultivationrealm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/WarRules.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "diplomacy_warrules_warrules_winchance",
+      "target": "src_core_diplomacy_warrules_cs_realmgapsettings",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -108761,6 +108884,16 @@
       "confidence_score": 1.0,
       "source": "diplomacy_warsystem_warsystem",
       "target": "diplomacy_warsystem_warsystem_sidestrength"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/WarSystem.cs",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "diplomacy_warsystem_warsystem",
+      "target": "diplomacy_warsystem_warsystem_sidetop",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -108981,6 +109114,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
+      "source_location": "L106",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "diplomacy_warsystem_warsystem_sidetop",
+      "target": "src_core_diplomacy_warsystem_cs_ienumerable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/WarSystem.cs",
       "source_location": "L99",
       "weight": 1.0,
       "context": "parameter_type",
@@ -109174,6 +109318,39 @@
       "confidence_score": 1.0,
       "source": "diplomacy_warsystem_warsystem_waryear",
       "target": "diplomacy_warsystem_warsystem_total"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/WarSystem.cs",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "diplomacy_warsystem_warsystem_battle",
+      "target": "diplomacy_warsystem_warsystem_sidetop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/WarSystem.cs",
+      "source_location": "L106",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "diplomacy_warsystem_warsystem_sidetop",
+      "target": "src_core_diplomacy_warsystem_cs_cultivationrealm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Diplomacy/WarSystem.cs",
+      "source_location": "L185",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "diplomacy_warsystem_warsystem_clanstrength",
+      "target": "src_core_diplomacy_warsystem_cs_cultivationrealm",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -151698,6 +151875,26 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "characters_realmgaptests_realmgaptests",
+      "target": "characters_realmgaptests_realmgaptests_inbattle_ablowfrombeyondreach_doesnotland",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "characters_realmgaptests_realmgaptests",
+      "target": "characters_realmgaptests_realmgaptests_inwar_asideoutofreach_cannotwin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L20",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -151710,9 +151907,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests",
-      "target": "characters_realmgaptests_realmgaptests_noexpedition_toruinsguardedbeyondreach",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_noexpedition_toruinsguardedbeyondreach"
     },
     {
       "relation": "method",
@@ -151730,9 +151927,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests",
-      "target": "characters_realmgaptests_realmgaptests_noshardtheft_nosabotage_fromapowerbeyondreach",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_noshardtheft_nosabotage_fromapowerbeyondreach"
     },
     {
       "relation": "method",
@@ -151740,9 +151937,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests",
-      "target": "characters_realmgaptests_realmgaptests_nostrikercaptures_abeastbeyondreach",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_nostrikercaptures_abeastbeyondreach"
     },
     {
       "relation": "method",
@@ -151750,9 +151947,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests",
-      "target": "characters_realmgaptests_realmgaptests_session",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_session"
     },
     {
       "relation": "method",
@@ -151760,9 +151957,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests",
-      "target": "characters_realmgaptests_realmgaptests_threefoundations",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_threefoundations"
     },
     {
       "relation": "references",
@@ -151796,6 +151993,17 @@
       "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_ateam_countsonlythosewhoreachthefoe",
       "target": "characters_realmgaptests_realmgaptests_member"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "characters_realmgaptests_realmgaptests_inbattle_ablowfrombeyondreach_doesnotland",
+      "target": "characters_realmgaptests_realmgaptests_member",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -151837,9 +152045,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_threefoundations",
-      "target": "characters_realmgaptests_realmgaptests_member",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_member"
     },
     {
       "relation": "references",
@@ -151848,9 +152056,9 @@
       "source_location": "L62",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_threefoundations",
-      "target": "tests_core_tests_characters_realmgaptests_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_characterdata"
     },
     {
       "relation": "references",
@@ -151900,12 +152108,34 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
+      "source_location": "L105",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_realmgaptests_realmgaptests_inbattle_ablowfrombeyondreach_doesnotland",
+      "target": "tests_core_tests_characters_realmgaptests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
+      "source_location": "L118",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_realmgaptests_realmgaptests_inwar_asideoutofreach_cannotwin",
+      "target": "tests_core_tests_characters_realmgaptests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L69",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_noexpedition_toruinsguardedbeyondreach",
-      "target": "tests_core_tests_characters_realmgaptests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_test"
     },
     {
       "relation": "references",
@@ -151925,9 +152155,9 @@
       "source_location": "L78",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_noshardtheft_nosabotage_fromapowerbeyondreach",
-      "target": "tests_core_tests_characters_realmgaptests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_test"
     },
     {
       "relation": "references",
@@ -151936,9 +152166,9 @@
       "source_location": "L92",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_nostrikercaptures_abeastbeyondreach",
-      "target": "tests_core_tests_characters_realmgaptests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_test"
     },
     {
       "relation": "calls",
@@ -151947,9 +152177,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_noexpedition_toruinsguardedbeyondreach",
-      "target": "characters_realmgaptests_realmgaptests_session",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_session"
     },
     {
       "relation": "calls",
@@ -151958,9 +152188,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_noshardtheft_nosabotage_fromapowerbeyondreach",
-      "target": "characters_realmgaptests_realmgaptests_session",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_session"
     },
     {
       "relation": "calls",
@@ -151969,9 +152199,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_nostrikercaptures_abeastbeyondreach",
-      "target": "characters_realmgaptests_realmgaptests_session",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_session"
     },
     {
       "relation": "references",
@@ -151980,9 +152210,9 @@
       "source_location": "L59",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_session",
-      "target": "tests_core_tests_characters_realmgaptests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_gamesession"
     },
     {
       "relation": "references",
@@ -151991,9 +152221,9 @@
       "source_location": "L62",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_threefoundations",
-      "target": "tests_core_tests_characters_realmgaptests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -152002,9 +152232,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_noexpedition_toruinsguardedbeyondreach",
-      "target": "characters_realmgaptests_realmgaptests_threefoundations",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_threefoundations"
     },
     {
       "relation": "calls",
@@ -152013,9 +152243,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_noshardtheft_nosabotage_fromapowerbeyondreach",
-      "target": "characters_realmgaptests_realmgaptests_threefoundations",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_threefoundations"
     },
     {
       "relation": "calls",
@@ -152024,9 +152254,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_nostrikercaptures_abeastbeyondreach",
-      "target": "characters_realmgaptests_realmgaptests_threefoundations",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_threefoundations"
     },
     {
       "relation": "references",
@@ -152035,9 +152265,9 @@
       "source_location": "L62",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_threefoundations",
-      "target": "tests_core_tests_characters_realmgaptests_cs_list",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_list"
     },
     {
       "relation": "contains",
@@ -216976,5 +217206,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "3e3c07db990f448a58143026536c8819cb34c162"
+  "built_at_commit": "cebdfb5378f68d2a93dc5eb67e92b82045389693"
 }

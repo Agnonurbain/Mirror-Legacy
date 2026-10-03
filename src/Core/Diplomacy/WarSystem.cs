@@ -103,6 +103,9 @@ namespace MirrorChronicles.Diplomacy
 
         private int Total(IEnumerable<string> side) => side.Select(factions.GetFactionByName).Where(p => p != null).Sum(p => p.PowerLevel);
 
+        private CultivationRealm SideTop(IEnumerable<string> side) =>
+            side.Select(factions.GetFactionByName).Where(p => p != null).Select(p => p.HighestRealm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
+
         private double SideStrength(IEnumerable<string> side) =>
             side.Select(factions.GetFactionByName).Where(p => p != null).Sum(p => WarRules.Strength(p, Settings));
 
@@ -111,7 +114,7 @@ namespace MirrorChronicles.Diplomacy
         {
             var s = Settings;
             double a = SideStrength(war.SideA), b = SideStrength(war.SideB);
-            bool aWins = ctx.Rng.Chance(a + b <= 0 ? 0.5 : a / (a + b));
+            bool aWins = ctx.Rng.Chance(WarRules.WinChance(a, SideTop(war.SideA), b, SideTop(war.SideB), ctx.Content.Balance.RealmGap));
             var (winners, losers) = aWins ? (war.SideA, war.SideB) : (war.SideB, war.SideA);
             int loot = 0;
             foreach (var loser in losers.Select(factions.GetFactionByName).Where(p => p != null))
@@ -179,11 +182,16 @@ namespace MirrorChronicles.Diplomacy
         /// <summary>What the clan's Dharma Treasures and Rank Designations add to its war strength (L4e; set by the session).</summary>
         public System.Func<double> DomainGuard { get; set; }
 
-        private double ClanStrength(ClanWar war)
+        private double ClanStrength(ClanWar war, out CultivationRealm top)
         {
             double strength = ClanWarStrength();
+            top = clan.LivingMembers.Where(m => m.CaptorFaction == null).Select(m => m.Realm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
             foreach (var ally in treaties.All.Where(t => t.Kind == TreatyKind.Defence && t.Faction != war.Enemy).Select(t => factions.GetFactionByName(t.Faction)))
-                if (ally != null && Comes(ally.Name)) strength += WarRules.Strength(ally, Settings); // it comes, or lingers
+                if (ally != null && Comes(ally.Name))
+                {
+                    strength += WarRules.Strength(ally, Settings); // it comes, or lingers
+                    if (ally.HighestRealm > top) top = ally.HighestRealm;
+                }
             return strength;
         }
 
@@ -198,8 +206,8 @@ namespace MirrorChronicles.Diplomacy
         private void ClanBattle(ClanWar war, FactionData enemy)
         {
             var s = Settings;
-            double ours = ClanStrength(war), theirs = WarRules.Strength(enemy, s);
-            if (ctx.Rng.Chance(ours + theirs <= 0 ? 0.5 : ours / (ours + theirs)))
+            double ours = ClanStrength(war, out var ourTop), theirs = WarRules.Strength(enemy, s);
+            if (ctx.Rng.Chance(WarRules.WinChance(ours, ourTop, theirs, enemy.HighestRealm, ctx.Content.Balance.RealmGap)))
             {
                 enemy.PowerLevel -= (int)(enemy.PowerLevel * s.BattleLossShare);
                 int loot = (int)(Math.Max(0, enemy.Wealth) * s.ClanLootShare);

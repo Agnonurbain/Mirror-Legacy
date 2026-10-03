@@ -20,6 +20,17 @@ namespace MirrorChronicles.Diplomacy
             return fighters.Count == 0 ? 0 : fighters[0] + fighters.Skip(1).Sum() * s.ClanStrengthPerMember;
         }
 
+        /// <summary>
+        /// A side's chance of winning a battle: strength against strength, unless one side's strongest is out of the other's
+        /// reach — a host of Foundations cannot touch a Purple Mansion (AUDIT_LORE.md §1).
+        /// </summary>
+        public static double WinChance(double ours, CultivationRealm ourTop, double theirs, CultivationRealm theirTop, RealmGapSettings gap)
+        {
+            if (Characters.RealmGap.OutOfReach(ourTop, theirTop, gap)) return 0;
+            if (Characters.RealmGap.OutOfReach(theirTop, ourTop, gap)) return 1;
+            return ours + theirs <= 0 ? 0.5 : ours / (ours + theirs);
+        }
+
         /// <summary>A power's war strength: its strongest realm, and its size.</summary>
         public static double Strength(FactionData power, WarSettings s) =>
             HuntRules.Power(power.HighestRealm, 5) + System.Math.Max(0, power.PowerLevel) * s.StrengthPerPowerLevel + power.DomainStrength;

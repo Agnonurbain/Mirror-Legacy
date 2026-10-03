@@ -103,6 +103,29 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void InBattle_ABlowFromBeyondReach_DoesNotLand()
+        {
+            var field = new MirrorChronicles.Combat.BattleField(new MirrorChronicles.Combat.CombatGrid(10, 10), new System.Random(1), new MirrorChronicles.Session.RecordingGameLog());
+            var foundation = new MirrorChronicles.Combat.CombatUnit(Member(CultivationRealm.Foundation, 4), isAlly: true);
+            var mansion = new MirrorChronicles.Combat.CombatUnit(Member(CultivationRealm.PurpleMansion), isAlly: false);
+            var qi = new MirrorChronicles.Combat.CombatUnit(Member(CultivationRealm.QiRefinement, 9), isAlly: true);
+            var peer = new MirrorChronicles.Combat.CombatUnit(Member(CultivationRealm.Foundation, 1), isAlly: false);
+            Assert.IsTrue(field.IsPowerless(foundation, mansion), "a Purple Mansion is untouchable from below");
+            Assert.IsFalse(field.IsPowerless(mansion, foundation));
+            Assert.IsFalse(field.IsPowerless(qi, peer), "one realm behind still lands");
+        }
+
+        [Test]
+        public void InWar_ASideOutOfReach_CannotWin()
+        {
+            Assert.AreEqual(1.0, MirrorChronicles.Diplomacy.WarRules.WinChance(10, CultivationRealm.PurpleMansion, 1000, CultivationRealm.Foundation, Gap), 1e-9,
+                "a host of Foundations cannot touch a Purple Mansion");
+            Assert.AreEqual(0.0, MirrorChronicles.Diplomacy.WarRules.WinChance(1000, CultivationRealm.Foundation, 10, CultivationRealm.PurpleMansion, Gap), 1e-9);
+            Assert.AreEqual(0.5, MirrorChronicles.Diplomacy.WarRules.WinChance(50, CultivationRealm.Foundation, 50, CultivationRealm.QiRefinement, Gap), 1e-9,
+                "within reach, strength decides");
+        }
+
+        [Test]
         public void NoRescue_WhenNoRescuerReachesTheCaptor()
         {
             var s = Fixtures.QuietContent.Balance.Schemes;

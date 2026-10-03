@@ -41,11 +41,13 @@ namespace MirrorChronicles.Combat
 
         /// <param name="grid">The battlefield; null grows one from the random source.</param>
         /// <param name="findTechnique">Looks up the techniques the fighters know (e.g. the clan's deduced ones).</param>
+        /// <param name="gap">The gap between realms (balance.json « realmGap »); the defaults when null.</param>
         public static Battle Start(IReadOnlyList<CharacterData> allyData, IReadOnlyList<CharacterData> enemyData, Random rng,
             IGameLog log, CombatGrid grid = null, AIStrategyType enemyStrategy = AIStrategyType.Aggressive,
-            Func<string, TechniqueData> findTechnique = null)
+            Func<string, TechniqueData> findTechnique = null, RealmGapSettings gap = null)
         {
-            var field = new BattleField(grid ?? CombatGrid.Generate(DefaultSize, DefaultSize, rng), rng, log, findTechnique);
+            var field = new BattleField(grid ?? CombatGrid.Generate(DefaultSize, DefaultSize, rng), rng, log, findTechnique)
+                { Gap = gap ?? new RealmGapSettings() };
             var allies = allyData.Select(d => new CombatUnit(d, isAlly: true)).ToList();
             var enemies = enemyData.Select(d => new CombatUnit(d, isAlly: false, enemyStrategy)).ToList();
 

@@ -55,11 +55,16 @@ namespace MirrorChronicles.Combat
         }
 
         /// <summary>
-        /// True when the attacker's method leaves them powerless against the defender's (LORE.md §2.4: the
-        /// Veilleur du Sentier against the original sutra, whatever the realms).
+        /// True when the attacker cannot touch the defender: out of its reach (a Purple Mansion before a lesser realm, two
+        /// realms above), or its method leaves it powerless against the defender's (LORE.md §2.4: the Veilleur du Sentier
+        /// against the original sutra, whatever the realms).
         /// </summary>
         public bool IsPowerless(CombatUnit attacker, CombatUnit defender) =>
-            TechniqueRules.IsPowerlessAgainst(FindTechnique(attacker.BaseData.CultivationMethodId), defender.BaseData.CultivationMethodId);
+            RealmGap.OutOfReach(attacker.BaseData.Realm, defender.BaseData.Realm, Gap) // beyond reach (AUDIT_LORE.md §1)
+            || TechniqueRules.IsPowerlessAgainst(FindTechnique(attacker.BaseData.CultivationMethodId), defender.BaseData.CultivationMethodId);
+
+        /// <summary>The gap between realms the field obeys (balance.json « realmGap »; the defaults when none is given).</summary>
+        public RealmGapSettings Gap { get; init; } = new RealmGapSettings();
 
         public IEnumerable<CombatUnit> ActiveOpponentsOf(CombatUnit unit) => units.Where(u => u.IsActive && u.IsAlly != unit.IsAlly);
 

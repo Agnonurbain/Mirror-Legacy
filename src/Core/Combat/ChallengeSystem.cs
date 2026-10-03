@@ -124,7 +124,7 @@ namespace MirrorChronicles.Combat
 
             fought = Pending;
             Pending = null;
-            Current = Battle.Start(fighters, Rivals(fought), ctx.Rng, ctx.Log, findTechnique: techniques.Find);
+            Current = Battle.Start(fighters, Rivals(fought), ctx.Rng, ctx.Log, findTechnique: techniques.Find, gap: ctx.Content.Balance.RealmGap);
             return null;
         }
 
