@@ -177,7 +177,8 @@ namespace MirrorChronicles.Game
                 };
                 lineages.AddChild(sabotage);
             }
-            if (contenders.Count > 0) Add(lineages, "— Les lignées —");
+            ShowMinorAbilities();
+            Add(lineages, "— Les lignées —");
             foreach (var row in LineagesView.Rows(root.Session))
             {
                 var line = new HBoxContainer();
@@ -195,6 +196,22 @@ namespace MirrorChronicles.Game
                     line.AddChild(reveal);
                 }
                 lineages.AddChild(line);
+            }
+        }
+
+        /// <summary>The minor abilities of former True Monarchs: known, unknown, and the ways to learn one (G6, 2026-10-03).</summary>
+        private void ShowMinorAbilities()
+        {
+            var lines = MinorAbilityView.Lines(root.Session);
+            if (lines.Count == 0) return;
+            Add(lineages, "— Les capacités mineures d'anciens Vrais Monarques —");
+            foreach (var line in lines)
+            {
+                Add(lineages, $"{line.Name} : " + (line.Known.Count == 0 ? "aucune connue" : string.Join(", ", line.Known))
+                    + (line.Unknown > 0 ? $" ; {line.Unknown} encore inconnue(s)" : ""));
+                foreach (var option in line.Options)
+                    AddButton(lineages, option.Label, option.Refusal, () =>
+                        Act(MinorAbilityView.Perform(root.Session, line.Lineage, option), "Le clan apprend une capacité mineure."));
             }
         }
 

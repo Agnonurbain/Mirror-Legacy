@@ -128,11 +128,11 @@ namespace MirrorChronicles.World
                     var (lineage, _) = FoundationRef.Parse(fact.Subject);
                     if (lineage != null) yield return new Fact(FactKind.Lineage, lineage);
                     break;
-                case FactKind.DaoPartners: // knowing one's partners reveals them
+                case FactKind.DaoPartners: // knowing one's partners reveals them — the orthodox ones: a minor ability is rare knowledge (2026-10-03)
                     var (fruitionId, abilityId) = FoundationRef.Parse(fact.Subject);
                     var fruition = content.Fruitions.FirstOrDefault(f => f.Id == fruitionId);
                     if (fruition == null) break;
-                    foreach (var partner in fruition.Abilities.Where(a => a.Id != abilityId))
+                    foreach (var partner in fruition.Abilities.Where(a => a.Id != abilityId && !a.Substitute))
                         yield return new Fact(FactKind.Ability, $"{fruitionId}:{partner.Id}");
                     break;
             }

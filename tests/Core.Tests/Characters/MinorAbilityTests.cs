@@ -44,6 +44,21 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void KnowingTheDaoPartners_RevealsNoMinorAbility()
+        {
+            var s = Session();
+            s.Knowledge.Reveal(FactKind.DaoPartners, "gathered-wood:" + s.Context.Content.Fruitions.Single(f => f.Id == "gathered-wood").Abilities[0].Id, KnowledgeSource.Mirror);
+            Assert.IsEmpty(s.Minors.Known("gathered-wood"), "the partners are the orthodox four; a minor ability is rare knowledge");
+        }
+
+        [Test]
+        public void TheClan_KnowsNoMinorAbility_AtTheStart()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            Assert.AreEqual(0, KnownMinors(s));
+        }
+
+        [Test]
         public void ATomb_RevealsAMinorAbility()
         {
             var s = Session();

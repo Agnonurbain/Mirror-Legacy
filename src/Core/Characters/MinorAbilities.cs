@@ -67,15 +67,40 @@ namespace MirrorChronicles.Characters
             if (ctx.Rng.Chance(Settings.RuinsRevealChance)) RevealOne(null, KnowledgeSource.Event);
         }
 
-        /// <summary>The mirror deduces the minor abilities of a lineage whose five orthodox the clan knows. Null when done, else why not (French).</summary>
-        public string Deduce(string lineage)
+        /// <summary>The minor abilities of a lineage the clan knows, and those it does not.</summary>
+        public IReadOnlyList<string> Known(string lineage) => Minors(lineage).Where(m => knowledge.Knows(FactKind.Ability, m)).ToList();
+        public int UnknownCount(string lineage) => Unknown(lineage).Count;
+
+        /// <summary>The powers whose elder holds the lineage: they know its minor abilities.</summary>
+        public IReadOnlyList<FactionData> HoldersOf(string lineage) => factions.Factions.Where(f => f.Elders.Any(e => e.FruitionId == lineage)).ToList();
+
+        /// <summary>Why the mirror cannot deduce the lineage's minor abilities now (French), or null.</summary>
+        public string DeduceRefusal(string lineage)
         {
             var fruition = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == lineage);
             if (fruition == null) return "lignée inconnue";
+            if (Unknown(lineage).Count == 0) return "le clan connaît déjà ses capacités mineures";
             if (fruition.Abilities.Where(a => !a.Substitute).Count(a => knowledge.Knows(FactKind.Ability, $"{lineage}:{a.Id}")) < GoldenCoreRules.AbilitiesToForge)
                 return "il faut connaître ses cinq capacités orthodoxes";
-            if (Unknown(lineage).Count == 0) return "le clan connaît déjà ses capacités mineures";
-            if (mirror.PayRefusal(Settings.MirrorCost) is { } why) return why;
+            return mirror.PayRefusal(Settings.MirrorCost);
+        }
+
+        /// <summary>The odds of stealing a minor ability from this power with this team (0 without one).</summary>
+        public double StealChance(string powerName, IReadOnlyList<string> teamIds)
+        {
+            var power = factions.GetFactionByName(powerName);
+            var team = (teamIds ?? new List<string>()).Select(clan.FindById).Where(m => m != null).ToList();
+            if (power == null || team.Count == 0) return 0;
+            var ops = ctx.Content.Balance.Shards;
+            var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
+            double strength = powers[0] + powers.Skip(1).Sum() * 0.3;
+            return System.Math.Clamp(ops.TheftBaseChance + (strength - HuntRules.Power(power.HighestRealm, 5)) * ops.TheftChancePerPower, ops.TheftMinChance, ops.TheftMaxChance);
+        }
+
+        /// <summary>The mirror deduces the minor abilities of a lineage whose five orthodox the clan knows. Null when done, else why not (French).</summary>
+        public string Deduce(string lineage)
+        {
+            if (DeduceRefusal(lineage) is { } why) return why;
             mirror.ConsumePower(Settings.MirrorCost);
             while (RevealOne(lineage, KnowledgeSource.Mirror)) { }
             return null;
@@ -114,11 +139,8 @@ namespace MirrorChronicles.Characters
             if (team.Count == 0 || team.Count > ops.ExpeditionMaxTeam || team.Any(m => m == null || !m.IsAlive || m.CaptorFaction != null
                 || m.Realm < CultivationRealm.QiRefinement || m.LastOperationYear == ctx.Clock.Year))
                 return $"un vol se fait à 1 à {ops.ExpeditionMaxTeam} cultivateurs libres";
+            double chance = StealChance(power.Name, team.Select(m => m.ID).ToList());
             foreach (var m in team) m.LastOperationYear = ctx.Clock.Year;
-            var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
-            double strength = powers[0] + powers.Skip(1).Sum() * 0.3;
-            double chance = System.Math.Clamp(ops.TheftBaseChance + (strength - HuntRules.Power(power.HighestRealm, 5)) * ops.TheftChancePerPower,
-                ops.TheftMinChance, ops.TheftMaxChance);
             if (ctx.Rng.Chance(chance))
             {
                 RevealOne(lineage, KnowledgeSource.Espionage);
