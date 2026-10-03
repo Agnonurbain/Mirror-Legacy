@@ -58,7 +58,7 @@ namespace MirrorChronicles.World
             {
                 var power = factions.GetFactionByName(r.Power);
                 int age = year - r.BornYear;
-                if (power == null || (age < HiddenAge && ctx.Rng.Chance(Settings.HarvestChance)))
+                if (power == null || (age < HiddenAge && AHarvesterReaches(power) && ctx.Rng.Chance(Settings.HarvestChance)))
                 {
                     pending.Remove(r); // its power is gone, or a stronger one harvested the Chosen
                     continue;
@@ -68,6 +68,10 @@ namespace MirrorChronicles.World
                 Return(power, r, year);
             }
         }
+
+        /// <summary>Only another power's Purple Mansion, able to reach it, can harvest its Chosen (LORE.md §5.4; 2026-10-03).</summary>
+        private bool AHarvesterReaches(FactionData power) =>
+            factions.Factions.Any(f => f != power && f.HighestRealm >= CultivationRealm.PurpleMansion && TravelRules.PowerReaches(f, power.RegionId, ctx.Content));
 
         private void Return(FactionData power, WorldRebirth r, int year)
         {

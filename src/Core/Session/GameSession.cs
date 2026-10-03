@@ -164,7 +164,7 @@ namespace MirrorChronicles.Session
             Lifecycle = new PowerLifecycle(Context, Factions, Politics, Elders);
             WorldFruitions = new WorldFruitions(Context, Clan, Factions, Fruitions, Elders, Suspicion, Mirror);
             Demons = new MetalEssenceDemons(Context, Clan, Resources, Factions);
-            Ancestors = new AncestorReturn(Context, Clan, Fruitions, Demons);
+            Ancestors = new AncestorReturn(Context, Clan, Fruitions, Demons, Factions);
             Watch = new ClanWatch(Context, Suspicion);
             SecretBook = new SecretBook(Context, Suspicion);
             Accords = new KnowledgeAccords(Context, Clan, Factions, Techniques, Resources, SecretBook);

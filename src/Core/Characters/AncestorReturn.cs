@@ -26,8 +26,12 @@ namespace MirrorChronicles.Characters
 
         private readonly MetalEssenceDemons demons;
 
-        public AncestorReturn(GameContext ctx, ClanManager clan, FruitionRegistry registry, MetalEssenceDemons demons = null)
+        private readonly Diplomacy.FactionManager factions;
+
+        public AncestorReturn(GameContext ctx, ClanManager clan, FruitionRegistry registry, MetalEssenceDemons demons = null,
+            Diplomacy.FactionManager factions = null)
         {
+            this.factions = factions;
             this.demons = demons;
             this.ctx = ctx;
             this.clan = clan;
@@ -81,12 +85,20 @@ namespace MirrorChronicles.Characters
         private bool Harvested(CharacterData chosen)
         {
             if (chosen.Realm >= CultivationRealm.PurpleMansion || chosen.CurrentTask == TaskType.Seclusion
-                || chosen.CaptorFaction != null || !ctx.Rng.Chance(Settings.HarvestChance)) return false;
+                || chosen.CaptorFaction != null || !AHarvesterReaches(ctx.Content.Clan.HomeRegion, null) || !ctx.Rng.Chance(Settings.HarvestChance)) return false;
             ctx.Log.Warning($"[Ancestors] A power harvests {chosen.FullName}, the Chosen of Destiny.");
             ctx.Events.TriggerChosenHarvested(chosen);
             clan.Kill(chosen, DeathCause.ChosenHarvested);
             return true;
         }
+
+        /// <summary>
+        /// Only a Purple Mansion manipulates fate (LORE.md §5.4; the user's decision, 2026-10-03): a power harvests a Chosen
+        /// only with one of that realm able to reach it (without the powers' registry, anyone may).
+        /// </summary>
+        private bool AHarvesterReaches(string region, string exceptPower) =>
+            factions == null || factions.Factions.Any(f => f.Name != exceptPower && f.HighestRealm >= CultivationRealm.PurpleMansion
+                && World.TravelRules.PowerReaches(f, region, ctx.Content));
 
         /// <summary>One realm a year at most, each at its age: the ancestor remembers the way.</summary>
         private void Regain(CharacterData chosen)

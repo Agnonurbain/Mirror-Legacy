@@ -80,6 +80,17 @@ namespace MirrorChronicles.Tests.World
         }
 
         [Test]
+        public void WithoutAnotherPurpleMansionInReach_APowersChosenIsSafe()
+        {
+            var s = Session(With(rebirth: 1.0, harvest: 1.0));
+            var power = s.Factions.Factions.First();
+            foreach (var p in s.Factions.Factions.Where(p => p != power)) p.HighestRealm = CultivationRealm.Foundation;
+            s.Events.TriggerElderDied(power, Monarch("ancien"), false);
+            Years(s, YearsToReturn(s));
+            Assert.IsTrue(power.Elders.Any(e => e.Name == "ancien"), "no one could reach its fate");
+        }
+
+        [Test]
         public void TheReborn_TakesItsRealizationBack_IfFree()
         {
             var s = Session(With(rebirth: 1.0));

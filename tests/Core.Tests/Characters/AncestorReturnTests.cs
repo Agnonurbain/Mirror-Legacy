@@ -139,6 +139,19 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void WithoutAPurpleMansionInReach_NoPowerCanHarvestTheChosen()
+        {
+            // only a Purple Mansion manipulates fate (LORE.md §5.4; the user's decision, 2026-10-03)
+            var s = Session(With(a => a with { RebirthChance = 1.0, HarvestChance = 1.0 }));
+            foreach (var p in s.Factions.Factions) p.HighestRealm = CultivationRealm.Foundation;
+            var monarch = Monarch(s);
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            var child = Child(s);
+            Years(s, 1);
+            Assert.IsTrue(child.IsAlive);
+        }
+
+        [Test]
         public void HiddenInSeclusion_TheChosen_IsSafe()
         {
             var s = Session(With(a => a with { RebirthChance = 1.0, HarvestChance = 1.0 }));
