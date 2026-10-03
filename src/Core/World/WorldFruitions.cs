@@ -205,6 +205,8 @@ namespace MirrorChronicles.World
             if (team.Count == 0 || team.Any(m => m == null || !m.IsAlive || m.CaptorFaction != null || m.Realm < CultivationRealm.QiRefinement
                 || m.LastOperationYear == ctx.Clock.Year))
                 return "un membre de l'équipe ne peut partir";
+            if (TravelRules.Refusal(team, ctx.Content.Clan.HomeRegion, power.RegionId, ctx.Content.Regions, ctx.Content.Balance.Travel) is { } far)
+                return far;
             double chance = SabotageChance(powerName, team.Select(m => m.ID).ToList());
             foreach (var m in team) m.LastOperationYear = ctx.Clock.Year;
             if (ctx.Rng.Chance(chance))

@@ -77,7 +77,7 @@ namespace MirrorChronicles.Tests.Mirror
         public void ATheftUnseen_BringsTheShardBack_AndLeavesNoClue()
         {
             var w = Known(new FixedRandom(Pass));
-            var thief = w.Join(Fixtures.Cultivator(stage: 9));
+            var thief = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 1));
 
             var outcome = w.PowerShards.Steal(AShard, new[] { thief.ID });
 
@@ -89,7 +89,7 @@ namespace MirrorChronicles.Tests.Mirror
         public void ATheftCaught_LeavesProof_AndMakesTheHolderWonder()
         {
             var w = Known(new SequenceRandom(Fail, Pass)); // the theft fails; the thief is caught
-            var thief = w.Join(Fixtures.Cultivator(stage: 9));
+            var thief = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 1));
 
             var outcome = w.PowerShards.Steal(AShard, new[] { thief.ID });
 

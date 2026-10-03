@@ -5978,7 +5978,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 224,
+      "community": 183,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -5988,7 +5988,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 224,
+      "community": 183,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -6098,7 +6098,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 405,
+      "community": 82,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -6108,7 +6108,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 405,
+      "community": 82,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -10348,7 +10348,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 183,
+      "community": 413,
       "norm_label": "woundsystem"
     },
     {
@@ -10358,7 +10358,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 183,
+      "community": 413,
       "norm_label": "double"
     },
     {
@@ -10368,7 +10368,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 183,
+      "community": 413,
       "norm_label": "int"
     },
     {
@@ -10378,7 +10378,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 183,
+      "community": 413,
       "norm_label": "gamecontext"
     },
     {
@@ -10388,7 +10388,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 183,
+      "community": 413,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -10398,7 +10398,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 183,
+      "community": 413,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -10408,7 +10408,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 183,
+      "community": 413,
       "norm_label": "characterdata"
     },
     {
@@ -10418,7 +10418,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 183,
+      "community": 413,
       "norm_label": ".applydaowound()"
     },
     {
@@ -10428,7 +10428,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 183,
+      "community": 413,
       "norm_label": ".applywound()"
     },
     {
@@ -10548,7 +10548,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 405,
+      "community": 82,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -10558,7 +10558,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 405,
+      "community": 82,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -10568,7 +10568,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 405,
+      "community": 82,
       "norm_label": "clankarmasystem"
     },
     {
@@ -10578,7 +10578,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 405,
+      "community": 82,
       "norm_label": "double"
     },
     {
@@ -10588,7 +10588,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 405,
+      "community": 82,
       "norm_label": "int"
     },
     {
@@ -10598,7 +10598,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 405,
+      "community": 82,
       "norm_label": "gamecontext"
     },
     {
@@ -10608,7 +10608,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 405,
+      "community": 82,
       "norm_label": "clanmanager"
     },
     {
@@ -10618,7 +10618,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 405,
+      "community": 82,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -10628,7 +10628,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 405,
+      "community": 82,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -10638,7 +10638,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 405,
+      "community": 82,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -10648,7 +10648,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 405,
+      "community": 82,
       "norm_label": ".restore()"
     },
     {
@@ -10658,7 +10658,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 405,
+      "community": 82,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -11038,7 +11038,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 333,
+      "community": 193,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -11048,7 +11048,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 333,
+      "community": 193,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11458,7 +11458,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_legacysystem",
-      "community": 410,
+      "community": 333,
       "norm_label": "legacysystem.cs"
     },
     {
@@ -11468,7 +11468,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "clan_legacysystem_mirrorchronicles_clan",
-      "community": 410,
+      "community": 333,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11478,7 +11478,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "clan_legacysystem_legacysystem",
-      "community": 410,
+      "community": 333,
       "norm_label": "legacysystem"
     },
     {
@@ -11488,7 +11488,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_clan_legacysystem_cs_int",
-      "community": 410,
+      "community": 333,
       "norm_label": "int"
     },
     {
@@ -13618,7 +13618,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 224,
+      "community": 183,
       "norm_label": "combatunit.cs"
     },
     {
@@ -13628,7 +13628,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 224,
+      "community": 183,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -14408,7 +14408,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 333,
+      "community": 193,
       "norm_label": "enums.cs"
     },
     {
@@ -14418,7 +14418,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 333,
+      "community": 193,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -14715,7 +14715,7 @@
       "label": "TrialModifiers",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L384",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "data_gamecontent_trialmodifiers",
       "community": 121,
@@ -14725,7 +14725,7 @@
       "label": "TechniqueSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L406",
+      "source_location": "L409",
       "_origin": "ast",
       "id": "data_gamecontent_techniquesettings",
       "community": 121,
@@ -14735,7 +14735,7 @@
       "label": "DivineAbilitySettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L441",
+      "source_location": "L444",
       "_origin": "ast",
       "id": "data_gamecontent_divineabilitysettings",
       "community": 121,
@@ -14745,7 +14745,7 @@
       "label": "PurpleMansionSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L537",
+      "source_location": "L540",
       "_origin": "ast",
       "id": "data_gamecontent_purplemansionsettings",
       "community": 121,
@@ -14755,7 +14755,7 @@
       "label": "VoidBand",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L564",
+      "source_location": "L567",
       "_origin": "ast",
       "id": "data_gamecontent_voidband",
       "community": 121,
@@ -14765,7 +14765,7 @@
       "label": "OrificeOdds",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L572",
+      "source_location": "L575",
       "_origin": "ast",
       "id": "data_gamecontent_orificeodds",
       "community": 121,
@@ -15808,7 +15808,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_randomeventdata",
-      "community": 410,
+      "community": 333,
       "norm_label": "randomeventdata.cs"
     },
     {
@@ -15818,7 +15818,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_randomeventdata_mirrorchronicles_data",
-      "community": 410,
+      "community": 333,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -15828,7 +15828,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "data_randomeventdata_randomeventdata",
-      "community": 410,
+      "community": 333,
       "norm_label": "randomeventdata"
     },
     {
@@ -16182,6 +16182,26 @@
       "norm_label": ".clone()"
     },
     {
+      "label": "TravelData.cs",
+      "file_type": "code",
+      "source_file": "src/Core/Data/TravelData.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_traveldata",
+      "community": 422,
+      "norm_label": "traveldata.cs"
+    },
+    {
+      "label": "MirrorChronicles.Data",
+      "file_type": "code",
+      "source_file": "src/Core/Data/TravelData.cs",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "data_traveldata_mirrorchronicles_data",
+      "community": 422,
+      "norm_label": "mirrorchronicles.data"
+    },
+    {
       "label": "TreatyData.cs",
       "file_type": "code",
       "source_file": "src/Core/Data/TreatyData.cs",
@@ -16248,7 +16268,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem",
-      "community": 193,
+      "community": 420,
       "norm_label": "alliancesystem.cs"
     },
     {
@@ -16258,7 +16278,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_mirrorchronicles_diplomacy",
-      "community": 193,
+      "community": 420,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -16268,7 +16288,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem",
-      "community": 193,
+      "community": 420,
       "norm_label": "alliancesystem"
     },
     {
@@ -16278,7 +16298,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_double",
-      "community": 193,
+      "community": 420,
       "norm_label": "double"
     },
     {
@@ -16288,7 +16308,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_gamecontext",
-      "community": 193,
+      "community": 420,
       "norm_label": "gamecontext"
     },
     {
@@ -16298,7 +16318,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_factionmanager",
-      "community": 193,
+      "community": 420,
       "norm_label": "factionmanager"
     },
     {
@@ -16308,7 +16328,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_resourcemanager",
-      "community": 193,
+      "community": 420,
       "norm_label": "resourcemanager"
     },
     {
@@ -16318,7 +16338,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_offertribute",
-      "community": 193,
+      "community": 420,
       "norm_label": ".offertribute()"
     },
     {
@@ -16328,7 +16348,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_declarewar",
-      "community": 193,
+      "community": 420,
       "norm_label": ".declarewar()"
     },
     {
@@ -17088,7 +17108,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 379,
+      "community": 193,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -17098,7 +17118,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 379,
+      "community": 193,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -21178,7 +21198,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 379,
+      "community": 193,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -21188,7 +21208,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 379,
+      "community": 193,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -21688,7 +21708,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_eventmanager",
-      "community": 410,
+      "community": 333,
       "norm_label": "eventmanager.cs"
     },
     {
@@ -21698,7 +21718,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "events_eventmanager_mirrorchronicles_events",
-      "community": 410,
+      "community": 333,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -23485,7 +23505,7 @@
       "label": ".Execute()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L89",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_execute",
       "community": 173,
@@ -23495,7 +23515,7 @@
       "label": "HuntOutcome",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L89",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "huntoutcome",
       "community": 173,
@@ -23505,7 +23525,7 @@
       "label": ".Target()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L145",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_target",
       "community": 173,
@@ -23515,7 +23535,7 @@
       "label": "WorldBeast",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L145",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "src_core_mirror_huntoperations_cs_worldbeast",
       "community": 173,
@@ -23525,7 +23545,7 @@
       "label": ".Fit()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L148",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_fit",
       "community": 173,
@@ -23535,7 +23555,7 @@
       "label": ".Hurt()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L152",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_hurt",
       "community": 173,
@@ -23545,7 +23565,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L152",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "src_core_mirror_huntoperations_cs_list",
       "community": 173,
@@ -23555,7 +23575,7 @@
       "label": ".Suspect()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/HuntOperations.cs",
-      "source_location": "L172",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "mirror_huntoperations_huntoperations_suspect",
       "community": 173,
@@ -24175,7 +24195,7 @@
       "label": ".TheftChance()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L120",
+      "source_location": "L121",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_theftchance",
       "community": 109,
@@ -24185,7 +24205,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L120",
+      "source_location": "L121",
       "_origin": "ast",
       "id": "src_core_mirror_powershards_cs_characterdata",
       "community": 109,
@@ -24195,7 +24215,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L120",
+      "source_location": "L121",
       "_origin": "ast",
       "id": "src_core_mirror_powershards_cs_factiondata",
       "community": 109,
@@ -24205,7 +24225,7 @@
       "label": ".DemandOfVassal()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L134",
+      "source_location": "L135",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_demandofvassal",
       "community": 109,
@@ -24215,7 +24235,7 @@
       "label": ".TradePrice()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L149",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_tradeprice",
       "community": 109,
@@ -24225,7 +24245,7 @@
       "label": ".Trade()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L156",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_trade",
       "community": 109,
@@ -24235,7 +24255,7 @@
       "label": ".TakeAsLoot()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L178",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_takeasloot",
       "community": 109,
@@ -24245,7 +24265,7 @@
       "label": ".Take()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L186",
+      "source_location": "L187",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_take",
       "community": 109,
@@ -24255,7 +24275,7 @@
       "label": ".Wonder()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L194",
+      "source_location": "L195",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_wonder",
       "community": 109,
@@ -24265,7 +24285,7 @@
       "label": "Refused()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L205",
+      "source_location": "L206",
       "_origin": "ast",
       "id": "mirror_powershards_refused",
       "community": 109,
@@ -31805,7 +31825,7 @@
       "label": ".Exchange()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L165",
+      "source_location": "L167",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_exchange",
       "community": 187,
@@ -31815,7 +31835,7 @@
       "label": ".SellBack()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L179",
+      "source_location": "L181",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_sellback",
       "community": 187,
@@ -31825,7 +31845,7 @@
       "label": ".Release()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L194",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_release",
       "community": 187,
@@ -31835,7 +31855,7 @@
       "label": ".Denounce()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L220",
+      "source_location": "L222",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_denounce",
       "community": 187,
@@ -31845,7 +31865,7 @@
       "label": ".Execute()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L233",
+      "source_location": "L235",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_execute",
       "community": 187,
@@ -31855,7 +31875,7 @@
       "label": ".HeldMember()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L245",
+      "source_location": "L247",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_heldmember",
       "community": 187,
@@ -31865,7 +31885,7 @@
       "label": ".PrisonerOf()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L251",
+      "source_location": "L253",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_prisonerof",
       "community": 187,
@@ -31875,7 +31895,7 @@
       "label": ".Replace()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L253",
+      "source_location": "L255",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_replace",
       "community": 187,
@@ -31885,7 +31905,7 @@
       "label": ".ChangeRelation()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L255",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_changerelation",
       "community": 187,
@@ -31895,7 +31915,7 @@
       "label": ".Free()",
       "file_type": "code",
       "source_file": "src/Core/World/CaptiveSystem.cs",
-      "source_location": "L261",
+      "source_location": "L263",
       "_origin": "ast",
       "id": "world_captivesystem_captivesystem_free",
       "community": 187,
@@ -34855,7 +34875,7 @@
       "label": ".MirrorSightCost()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L132",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_mirrorsightcost",
       "community": 158,
@@ -34865,7 +34885,7 @@
       "label": ".PowerProbe()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L136",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_powerprobe",
       "community": 158,
@@ -34875,7 +34895,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L136",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_factiondata",
       "community": 158,
@@ -34885,7 +34905,7 @@
       "label": "ProbeApproach",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L136",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_probeapproach",
       "community": 158,
@@ -34895,7 +34915,7 @@
       "label": ".PowerChanceAgainst()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L142",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_powerchanceagainst",
       "community": 158,
@@ -34905,7 +34925,7 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L145",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_processyear",
       "community": 158,
@@ -34915,7 +34935,7 @@
       "label": ".Motive()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L161",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_motive",
       "community": 158,
@@ -34925,7 +34945,7 @@
       "label": ".ApproachOf()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L171",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_approachof",
       "community": 158,
@@ -34935,7 +34955,7 @@
       "label": ".Resolve()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L181",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_resolve",
       "community": 158,
@@ -34945,7 +34965,7 @@
       "label": ".CallAllies()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L202",
+      "source_location": "L204",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_callallies",
       "community": 158,
@@ -34955,7 +34975,7 @@
       "label": "Prompt",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L202",
+      "source_location": "L204",
       "_origin": "ast",
       "id": "prompt",
       "community": 158,
@@ -34965,7 +34985,7 @@
       "label": "Late",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L202",
+      "source_location": "L204",
       "_origin": "ast",
       "id": "late",
       "community": 158,
@@ -34975,7 +34995,7 @@
       "label": ".AlliesOf()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L216",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_alliesof",
       "community": 158,
@@ -34985,7 +35005,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L216",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_ienumerable",
       "community": 158,
@@ -34995,7 +35015,7 @@
       "label": ".Factors()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L223",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_factors",
       "community": 158,
@@ -35005,7 +35025,7 @@
       "label": "ProbeFactors",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L223",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_probefactors",
       "community": 158,
@@ -35015,7 +35035,7 @@
       "label": ".SuccessProbability()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L247",
+      "source_location": "L249",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_successprobability",
       "community": 158,
@@ -35025,7 +35045,7 @@
       "label": ".Spoils()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L254",
+      "source_location": "L256",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_spoils",
       "community": 158,
@@ -35035,7 +35055,7 @@
       "label": ".Spotted()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L267",
+      "source_location": "L269",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_spotted",
       "community": 158,
@@ -35045,7 +35065,7 @@
       "label": ".Disaster()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L280",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_disaster",
       "community": 158,
@@ -35055,7 +35075,7 @@
       "label": ".Strength()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L297",
+      "source_location": "L299",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_strength",
       "community": 158,
@@ -35065,7 +35085,7 @@
       "label": ".TeamStrength()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L300",
+      "source_location": "L302",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_teamstrength",
       "community": 158,
@@ -35075,7 +35095,7 @@
       "label": ".TopOf()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L304",
+      "source_location": "L306",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_topof",
       "community": 158,
@@ -35085,7 +35105,7 @@
       "label": "IReadOnlyCollection",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L304",
+      "source_location": "L306",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_ireadonlycollection",
       "community": 158,
@@ -35095,17 +35115,27 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L304",
+      "source_location": "L306",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_cultivationrealm",
       "community": 158,
       "norm_label": "cultivationrealm"
     },
     {
+      "label": ".TooFar()",
+      "file_type": "code",
+      "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L314",
+      "_origin": "ast",
+      "id": "world_probesystem_probesystem_toofar",
+      "community": 158,
+      "norm_label": ".toofar()"
+    },
+    {
       "label": ".BeyondReach()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L312",
+      "source_location": "L320",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_beyondreach",
       "community": 158,
@@ -35115,7 +35145,7 @@
       "label": ".Unseen()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L316",
+      "source_location": "L324",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_unseen",
       "community": 158,
@@ -35125,7 +35155,7 @@
       "label": ".Guard()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L319",
+      "source_location": "L327",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_guard",
       "community": 158,
@@ -35135,7 +35165,7 @@
       "label": ".Insider()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L328",
+      "source_location": "L336",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_insider",
       "community": 158,
@@ -35145,7 +35175,7 @@
       "label": ".Neighbours()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L335",
+      "source_location": "L343",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_neighbours",
       "community": 158,
@@ -37052,6 +37082,146 @@
       "norm_label": "toward"
     },
     {
+      "label": "TravelRules.cs",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "world_travelrules",
+      "community": 405,
+      "norm_label": "travelrules.cs"
+    },
+    {
+      "label": "MirrorChronicles.World",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "world_travelrules_mirrorchronicles_world",
+      "community": 405,
+      "norm_label": "mirrorchronicles.world"
+    },
+    {
+      "label": "TravelRules",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "world_travelrules_travelrules",
+      "community": 405,
+      "norm_label": "travelrules"
+    },
+    {
+      "label": ".CanReach()",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "world_travelrules_travelrules_canreach",
+      "community": 405,
+      "norm_label": ".canreach()"
+    },
+    {
+      "label": "CultivationRealm",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_core_world_travelrules_cs_cultivationrealm",
+      "community": 405,
+      "norm_label": "cultivationrealm"
+    },
+    {
+      "label": "IReadOnlyList",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_core_world_travelrules_cs_ireadonlylist",
+      "community": 405,
+      "norm_label": "ireadonlylist"
+    },
+    {
+      "label": "RegionDefinition",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_core_world_travelrules_cs_regiondefinition",
+      "community": 405,
+      "norm_label": "regiondefinition"
+    },
+    {
+      "label": "TravelSettings",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "travelsettings",
+      "community": 405,
+      "norm_label": "travelsettings"
+    },
+    {
+      "label": ".Refusal()",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "world_travelrules_travelrules_refusal",
+      "community": 405,
+      "norm_label": ".refusal()"
+    },
+    {
+      "label": "IEnumerable",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_core_world_travelrules_cs_ienumerable",
+      "community": 405,
+      "norm_label": "ienumerable"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_core_world_travelrules_cs_characterdata",
+      "community": 405,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".StateOf()",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "world_travelrules_travelrules_stateof",
+      "community": 405,
+      "norm_label": ".stateof()"
+    },
+    {
+      "label": "IReadOnlyDictionary",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "src_core_world_travelrules_cs_ireadonlydictionary",
+      "community": 405,
+      "norm_label": "ireadonlydictionary"
+    },
+    {
+      "label": ".Hops()",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "world_travelrules_travelrules_hops",
+      "community": 405,
+      "norm_label": ".hops()"
+    },
+    {
       "label": "WorldArsenal.cs",
       "file_type": "code",
       "source_file": "src/Core/World/WorldArsenal.cs",
@@ -37992,14 +38162,14 @@
       "norm_label": ".years()"
     },
     {
-      "label": ".ATrueMonarch_DyingWithItsEssence_IsRebornInTheNextChild()",
+      "label": ".AnIntactEssence_IsAlwaysReborn_AsTheLoreSays()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L63",
       "_origin": "ast",
-      "id": "characters_ancestorreturntests_ancestorreturntests_atruemonarch_dyingwithitsessence_isreborninthenextchild",
+      "id": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
       "community": 351,
-      "norm_label": ".atruemonarch_dyingwithitsessence_isreborninthenextchild()"
+      "norm_label": ".anintactessence_isalwaysreborn_astheloresays()"
     },
     {
       "label": "Test",
@@ -38012,10 +38182,20 @@
       "norm_label": "test"
     },
     {
-      "label": ".ADemon_OrASoulTakenBack_IsNeverReborn()",
+      "label": ".ATrueMonarch_DyingWithItsEssence_IsRebornInTheNextChild()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L74",
+      "_origin": "ast",
+      "id": "characters_ancestorreturntests_ancestorreturntests_atruemonarch_dyingwithitsessence_isreborninthenextchild",
+      "community": 351,
+      "norm_label": ".atruemonarch_dyingwithitsessence_isreborninthenextchild()"
+    },
+    {
+      "label": ".ADemon_OrASoulTakenBack_IsNeverReborn()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "characters_ancestorreturntests_ancestorreturntests_ademon_orasoultakenback_isneverreborn",
       "community": 351,
@@ -38025,7 +38205,7 @@
       "label": ".TheReborn_RegainsItsRealms_Swiftly_AndTheEndingIsReached()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
-      "source_location": "L86",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "characters_ancestorreturntests_ancestorreturntests_thereborn_regainsitsrealms_swiftly_andtheendingisreached",
       "community": 351,
@@ -38035,7 +38215,7 @@
       "label": ".TheReborn_TakesItsRealizationBack_IfStillItsOwnOrFree()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
-      "source_location": "L106",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "characters_ancestorreturntests_ancestorreturntests_thereborn_takesitsrealizationback_ifstillitsownorfree",
       "community": 351,
@@ -38045,7 +38225,7 @@
       "label": ".TheChosenOfDestiny_MayBeHarvested_WhileYoung()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
-      "source_location": "L119",
+      "source_location": "L130",
       "_origin": "ast",
       "id": "characters_ancestorreturntests_ancestorreturntests_thechosenofdestiny_maybeharvested_whileyoung",
       "community": 351,
@@ -38055,7 +38235,7 @@
       "label": ".HiddenInSeclusion_TheChosen_IsSafe()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
-      "source_location": "L130",
+      "source_location": "L141",
       "_origin": "ast",
       "id": "characters_ancestorreturntests_ancestorreturntests_hiddeninseclusion_thechosen_issafe",
       "community": 351,
@@ -38065,7 +38245,7 @@
       "label": ".TheAncestorAwaitingRebirth_SurvivesASave()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
-      "source_location": "L146",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "characters_ancestorreturntests_ancestorreturntests_theancestorawaitingrebirth_survivesasave",
       "community": 351,
@@ -38075,7 +38255,7 @@
       "label": ".TheChronicle_TellsTheRebirth()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
-      "source_location": "L159",
+      "source_location": "L170",
       "_origin": "ast",
       "id": "characters_ancestorreturntests_ancestorreturntests_thechronicle_tellstherebirth",
       "community": 351,
@@ -56428,7 +56608,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionenginetests",
-      "community": 5,
+      "community": 248,
       "norm_label": "deductionenginetests.cs"
     },
     {
@@ -56438,7 +56618,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_mirrorchronicles_tests_mirror",
-      "community": 5,
+      "community": 248,
       "norm_label": "mirrorchronicles.tests.mirror"
     },
     {
@@ -69202,6 +69382,126 @@
       "norm_label": ".apower_doesnotprobeaclanwithoutsecrets()"
     },
     {
+      "label": "TravelRulesTests.cs",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "world_travelrulestests",
+      "community": 410,
+      "norm_label": "travelrulestests.cs"
+    },
+    {
+      "label": "MirrorChronicles.Tests.World",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "world_travelrulestests_mirrorchronicles_tests_world",
+      "community": 410,
+      "norm_label": "mirrorchronicles.tests.world"
+    },
+    {
+      "label": "TravelRulesTests",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests",
+      "community": 410,
+      "norm_label": "travelrulestests"
+    },
+    {
+      "label": "string",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_travelrulestests_cs_string",
+      "community": 410,
+      "norm_label": "string"
+    },
+    {
+      "label": ".Reach()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_reach",
+      "community": 410,
+      "norm_label": ".reach()"
+    },
+    {
+      "label": "CultivationRealm",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_travelrulestests_cs_cultivationrealm",
+      "community": 410,
+      "norm_label": "cultivationrealm"
+    },
+    {
+      "label": ".TheEmbryonic_StayHome()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_theembryonic_stayhome",
+      "community": 410,
+      "norm_label": ".theembryonic_stayhome()"
+    },
+    {
+      "label": "Test",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_travelrulestests_cs_test",
+      "community": 410,
+      "norm_label": "test"
+    },
+    {
+      "label": ".AQiCultivator_RidesTheWind_AFewRegionsFromHome()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_aqicultivator_ridesthewind_afewregionsfromhome",
+      "community": 410,
+      "norm_label": ".aqicultivator_ridesthewind_afewregionsfromhome()"
+    },
+    {
+      "label": ".AFoundation_CrossesItsState_ButNoFurther()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_afoundation_crossesitsstate_butnofurther",
+      "community": 410,
+      "norm_label": ".afoundation_crossesitsstate_butnofurther()"
+    },
+    {
+      "label": ".APurpleMansion_GoesAnywhere_ThroughTheGreatVoid()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_apurplemansion_goesanywhere_throughthegreatvoid",
+      "community": 410,
+      "norm_label": ".apurplemansion_goesanywhere_throughthegreatvoid()"
+    },
+    {
+      "label": ".AProbe_OfAPowerTooFar_IsRefused_WithTheReason()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_aprobe_ofapowertoofar_isrefused_withthereason",
+      "community": 410,
+      "norm_label": ".aprobe_ofapowertoofar_isrefused_withthereason()"
+    },
+    {
       "label": "WorldArsenalTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/WorldArsenalTests.cs",
@@ -73048,7 +73348,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 224,
+      "community": 183,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -73182,7 +73482,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 379,
+      "community": 193,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -73195,7 +73495,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 379,
+      "community": 193,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -73208,7 +73508,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 379,
+      "community": 193,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -73368,7 +73668,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 379,
+      "community": 193,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -73395,7 +73695,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 410,
+      "community": 333,
       "norm_label": "annual 4-phase cycle (management -> events -> breakthrough -> inheritance)",
       "id": "brain_claude_plan_annual_cycle"
     },
@@ -73503,7 +73803,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 405,
+      "community": 82,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -73529,7 +73829,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 379,
+      "community": 193,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -73542,7 +73842,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 410,
+      "community": 333,
       "norm_label": "phase 2 - combat & events",
       "id": "brain_claude_plan_phase_2_combat_events"
     },
@@ -73677,7 +73977,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 333,
+      "community": 193,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -102258,6 +102558,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Data/TravelData.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "data_traveldata",
+      "target": "data_traveldata_mirrorchronicles_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/Core/Data/TreatyData.cs",
       "source_location": "L3",
       "weight": 1.0,
@@ -128347,9 +128657,9 @@
       "source_location": "L139",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_captivesystem_captivesystem_rescue",
-      "target": "src_core_world_captivesystem_cs_ireadonlycollection",
-      "confidence_score": 1.0
+      "target": "src_core_world_captivesystem_cs_ireadonlycollection"
     },
     {
       "relation": "calls",
@@ -132588,9 +132898,9 @@
       "source_file": "src/Core/World/ProbeRules.cs",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_proberules_proberules",
-      "target": "world_proberules_proberules_byhand",
-      "confidence_score": 1.0
+      "target": "world_proberules_proberules_byhand"
     },
     {
       "relation": "method",
@@ -132684,9 +132994,9 @@
       "source_location": "L34",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_proberules_proberules_byhand",
-      "target": "src_core_world_proberules_cs_probeapproach",
-      "confidence_score": 1.0
+      "target": "src_core_world_proberules_cs_probeapproach"
     },
     {
       "relation": "references",
@@ -132953,9 +133263,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L312",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem",
-      "target": "world_probesystem_probesystem_beyondreach",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_beyondreach"
     },
     {
       "relation": "method",
@@ -132983,9 +133293,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem",
-      "target": "world_probesystem_probesystem_detectchanceagainst",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_detectchanceagainst"
     },
     {
       "relation": "method",
@@ -133201,11 +133511,21 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L304",
+      "source_location": "L314",
       "weight": 1.0,
       "source": "world_probesystem_probesystem",
-      "target": "world_probesystem_probesystem_topof",
+      "target": "world_probesystem_probesystem_toofar",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L304",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_probesystem_probesystem",
+      "target": "world_probesystem_probesystem_topof"
     },
     {
       "relation": "method",
@@ -133213,9 +133533,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L316",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem",
-      "target": "world_probesystem_probesystem_unseen",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_unseen"
     },
     {
       "relation": "calls",
@@ -133224,9 +133544,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_detectchanceagainst",
-      "target": "world_probesystem_probesystem_alertness",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_alertness"
     },
     {
       "relation": "calls",
@@ -133356,9 +133676,9 @@
       "source_location": "L96",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_detectchanceagainst",
-      "target": "src_core_world_probesystem_cs_probeplan",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_probeplan"
     },
     {
       "relation": "references",
@@ -133392,6 +133712,17 @@
       "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_refusalof",
       "target": "src_core_world_probesystem_cs_probeplan"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L314",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_probesystem_probesystem_toofar",
+      "target": "src_core_world_probesystem_cs_probeplan",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -133433,9 +133764,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_chanceagainst",
-      "target": "world_probesystem_probesystem_beyondreach",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_beyondreach"
     },
     {
       "relation": "calls",
@@ -133486,11 +133817,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "world_probesystem_probesystem_chanceagainst",
+      "target": "world_probesystem_probesystem_toofar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_detectchanceagainst",
-      "target": "world_probesystem_probesystem_unseen",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_unseen"
     },
     {
       "relation": "calls",
@@ -133620,9 +133962,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_refusal",
-      "target": "world_probesystem_probesystem_beyondreach",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_beyondreach"
     },
     {
       "relation": "calls",
@@ -133636,15 +133978,26 @@
       "target": "world_probesystem_probesystem_mirrorsightcost"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "world_probesystem_probesystem_refusal",
+      "target": "world_probesystem_probesystem_toofar",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L312",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_beyondreach",
-      "target": "src_core_world_probesystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -133683,12 +134036,23 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L314",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "world_probesystem_probesystem_toofar",
+      "target": "src_core_world_probesystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L304",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_topof",
-      "target": "src_core_world_probesystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -133697,9 +134061,9 @@
       "source_location": "L316",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_unseen",
-      "target": "src_core_world_probesystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -133818,9 +134182,9 @@
       "source_location": "L312",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_beyondreach",
-      "target": "src_core_world_probesystem_cs_probeapproach",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_probeapproach"
     },
     {
       "relation": "references",
@@ -133884,9 +134248,9 @@
       "source_location": "L316",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_unseen",
-      "target": "src_core_world_probesystem_cs_probeapproach",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_probeapproach"
     },
     {
       "relation": "calls",
@@ -133895,9 +134259,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L143",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_powerchanceagainst",
-      "target": "world_probesystem_probesystem_beyondreach",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_beyondreach"
     },
     {
       "relation": "calls",
@@ -133972,9 +134336,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L188",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_resolve",
-      "target": "world_probesystem_probesystem_beyondreach",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_beyondreach"
     },
     {
       "relation": "calls",
@@ -134049,9 +134413,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_resolve",
-      "target": "world_probesystem_probesystem_unseen",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_unseen"
     },
     {
       "relation": "references",
@@ -134192,9 +134556,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L301",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_teamstrength",
-      "target": "world_probesystem_probesystem_topof",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_topof"
     },
     {
       "relation": "calls",
@@ -134203,9 +134567,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L313",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_beyondreach",
-      "target": "world_probesystem_probesystem_topof",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_topof"
     },
     {
       "relation": "references",
@@ -134214,9 +134578,9 @@
       "source_location": "L304",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_topof",
-      "target": "src_core_world_probesystem_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_cultivationrealm"
     },
     {
       "relation": "references",
@@ -134225,9 +134589,9 @@
       "source_location": "L304",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_topof",
-      "target": "src_core_world_probesystem_cs_ireadonlycollection",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_ireadonlycollection"
     },
     {
       "relation": "calls",
@@ -134236,9 +134600,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L317",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_unseen",
-      "target": "world_probesystem_probesystem_topof",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_topof"
     },
     {
       "relation": "references",
@@ -134247,7 +134611,18 @@
       "source_location": "L312",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_beyondreach",
+      "target": "src_core_world_probesystem_cs_ireadonlycollection"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L314",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_probesystem_probesystem_toofar",
       "target": "src_core_world_probesystem_cs_ireadonlycollection",
       "confidence_score": 1.0
     },
@@ -134258,9 +134633,9 @@
       "source_location": "L316",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_unseen",
-      "target": "src_core_world_probesystem_cs_ireadonlycollection",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_ireadonlycollection"
     },
     {
       "relation": "contains",
@@ -137355,6 +137730,242 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "world_travelrules",
+      "target": "world_travelrules_mirrorchronicles_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "world_travelrules",
+      "target": "world_travelrules_travelrules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "world_travelrules_travelrules",
+      "target": "world_travelrules_travelrules_canreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "world_travelrules_travelrules",
+      "target": "world_travelrules_travelrules_hops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "world_travelrules_travelrules",
+      "target": "world_travelrules_travelrules_refusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "world_travelrules_travelrules",
+      "target": "world_travelrules_travelrules_stateof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrules_travelrules_canreach",
+      "target": "src_core_world_travelrules_cs_cultivationrealm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrules_travelrules_canreach",
+      "target": "src_core_world_travelrules_cs_ireadonlylist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "world_travelrules_travelrules_canreach",
+      "target": "src_core_world_travelrules_cs_regiondefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrules_travelrules_canreach",
+      "target": "travelsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "world_travelrules_travelrules_canreach",
+      "target": "world_travelrules_travelrules_hops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "world_travelrules_travelrules_canreach",
+      "target": "world_travelrules_travelrules_stateof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "world_travelrules_travelrules_refusal",
+      "target": "world_travelrules_travelrules_canreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrules_travelrules_refusal",
+      "target": "src_core_world_travelrules_cs_ireadonlylist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "world_travelrules_travelrules_hops",
+      "target": "src_core_world_travelrules_cs_regiondefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "world_travelrules_travelrules_refusal",
+      "target": "src_core_world_travelrules_cs_regiondefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "world_travelrules_travelrules_stateof",
+      "target": "src_core_world_travelrules_cs_regiondefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrules_travelrules_refusal",
+      "target": "travelsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "world_travelrules_travelrules_refusal",
+      "target": "src_core_world_travelrules_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrules_travelrules_refusal",
+      "target": "src_core_world_travelrules_cs_ienumerable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrules_travelrules_stateof",
+      "target": "src_core_world_travelrules_cs_ireadonlydictionary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrules_travelrules_hops",
+      "target": "src_core_world_travelrules_cs_ireadonlydictionary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/Core/World/WorldArsenal.cs",
       "source_location": "L7",
       "weight": 1.0,
@@ -138579,6 +139190,16 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "source": "characters_ancestorreturntests_ancestorreturntests",
+      "target": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
+      "source_location": "L63",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests",
       "target": "characters_ancestorreturntests_ancestorreturntests_atruemonarch_dyingwithitsessence_isreborninthenextchild"
@@ -138709,6 +139330,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
+      "target": "characters_ancestorreturntests_ancestorreturntests_with",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L133",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -138769,6 +139401,17 @@
       "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_ademon_orasoultakenback_isneverreborn",
       "target": "characters_ancestorreturntests_ancestorreturntests_session"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
+      "target": "characters_ancestorreturntests_ancestorreturntests_session",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -138901,6 +139544,17 @@
       "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_ademon_orasoultakenback_isneverreborn",
       "target": "characters_ancestorreturntests_ancestorreturntests_monarch"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
+      "target": "characters_ancestorreturntests_ancestorreturntests_monarch",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -139129,9 +139783,9 @@
       "source_location": "L63",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "characters_ancestorreturntests_ancestorreturntests_atruemonarch_dyingwithitsessence_isreborninthenextchild",
-      "target": "tests_core_tests_characters_ancestorreturntests_cs_test"
+      "source": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
+      "target": "tests_core_tests_characters_ancestorreturntests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -139142,6 +139796,17 @@
       "context": "attribute",
       "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_ademon_orasoultakenback_isneverreborn",
+      "target": "tests_core_tests_characters_ancestorreturntests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "characters_ancestorreturntests_ancestorreturntests_atruemonarch_dyingwithitsessence_isreborninthenextchild",
       "target": "tests_core_tests_characters_ancestorreturntests_cs_test"
     },
     {
@@ -152218,9 +152883,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests",
-      "target": "characters_realmgaptests_realmgaptests_alesserpower_cannotprobeaclanguardedbeyonditsreach",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_alesserpower_cannotprobeaclanguardedbeyonditsreach"
     },
     {
       "relation": "method",
@@ -152238,9 +152903,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests",
-      "target": "characters_realmgaptests_realmgaptests_aprobebyhand_cannottouchapowerbeyondreach_butabribestillmay",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_aprobebyhand_cannottouchapowerbeyondreach_butabribestillmay"
     },
     {
       "relation": "method",
@@ -152258,9 +152923,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests",
-      "target": "characters_realmgaptests_realmgaptests_apurplemansionprobing_alessertarget_isnotseen",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_apurplemansionprobing_alessertarget_isnotseen"
     },
     {
       "relation": "method",
@@ -152401,9 +153066,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L149",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_apurplemansionprobing_alessertarget_isnotseen",
-      "target": "characters_realmgaptests_realmgaptests_member",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_member"
     },
     {
       "relation": "calls",
@@ -152500,9 +153165,9 @@
       "source_location": "L159",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_alesserpower_cannotprobeaclanguardedbeyonditsreach",
-      "target": "tests_core_tests_characters_realmgaptests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_test"
     },
     {
       "relation": "references",
@@ -152522,9 +153187,9 @@
       "source_location": "L128",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_aprobebyhand_cannottouchapowerbeyondreach_butabribestillmay",
-      "target": "tests_core_tests_characters_realmgaptests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_test"
     },
     {
       "relation": "references",
@@ -152533,9 +153198,9 @@
       "source_location": "L145",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_apurplemansionprobing_alessertarget_isnotseen",
-      "target": "tests_core_tests_characters_realmgaptests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_test"
     },
     {
       "relation": "references",
@@ -152632,9 +153297,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_alesserpower_cannotprobeaclanguardedbeyonditsreach",
-      "target": "characters_realmgaptests_realmgaptests_session",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_session"
     },
     {
       "relation": "calls",
@@ -152643,9 +153308,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_aprobebyhand_cannottouchapowerbeyondreach_butabribestillmay",
-      "target": "characters_realmgaptests_realmgaptests_session",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_session"
     },
     {
       "relation": "calls",
@@ -152654,9 +153319,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_apurplemansionprobing_alessertarget_isnotseen",
-      "target": "characters_realmgaptests_realmgaptests_session",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_session"
     },
     {
       "relation": "calls",
@@ -152720,9 +153385,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_aprobebyhand_cannottouchapowerbeyondreach_butabribestillmay",
-      "target": "characters_realmgaptests_realmgaptests_threefoundations",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_threefoundations"
     },
     {
       "relation": "calls",
@@ -211139,6 +211804,207 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "world_travelrulestests",
+      "target": "world_travelrulestests_mirrorchronicles_tests_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "world_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "field",
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "tests_core_tests_world_travelrulestests_cs_string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_afoundation_crossesitsstate_butnofurther",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_aprobe_ofapowertoofar_isrefused_withthereason",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_apurplemansion_goesanywhere_throughthegreatvoid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_aqicultivator_ridesthewind_afewregionsfromhome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_theembryonic_stayhome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests_afoundation_crossesitsstate_butnofurther",
+      "target": "world_travelrulestests_travelrulestests_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests_apurplemansion_goesanywhere_throughthegreatvoid",
+      "target": "world_travelrulestests_travelrulestests_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests_aqicultivator_ridesthewind_afewregionsfromhome",
+      "target": "world_travelrulestests_travelrulestests_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrulestests_travelrulestests_reach",
+      "target": "tests_core_tests_world_travelrulestests_cs_cultivationrealm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests_theembryonic_stayhome",
+      "target": "world_travelrulestests_travelrulestests_reach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_travelrulestests_travelrulestests_theembryonic_stayhome",
+      "target": "tests_core_tests_world_travelrulestests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_travelrulestests_travelrulestests_afoundation_crossesitsstate_butnofurther",
+      "target": "tests_core_tests_world_travelrulestests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_travelrulestests_travelrulestests_aprobe_ofapowertoofar_isrefused_withthereason",
+      "target": "tests_core_tests_world_travelrulestests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_travelrulestests_travelrulestests_apurplemansion_goesanywhere_throughthegreatvoid",
+      "target": "tests_core_tests_world_travelrulestests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_travelrulestests_travelrulestests_aqicultivator_ridesthewind_afewregionsfromhome",
+      "target": "tests_core_tests_world_travelrulestests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/WorldArsenalTests.cs",
       "source_location": "L7",
       "weight": 1.0,
@@ -217705,5 +218571,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "4de8754c42ecc33bd7c84aa377d7d10dde37c515"
+  "built_at_commit": "7df24ade2d5289de913bb161337adc578e46242b"
 }

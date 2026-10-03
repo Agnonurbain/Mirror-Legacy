@@ -277,6 +277,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>The gap between realms: whom a lower realm cannot reach (AUDIT_LORE.md §1, 2026-10-03; interpretations).</summary>
         public RealmGapSettings RealmGap { get; init; } = new RealmGapSettings();
+
+        /// <summary>How far a realm goes from home (AUDIT_LORE.md §1.5, 2026-10-03; interpretations).</summary>
+        public TravelSettings Travel { get; init; } = new TravelSettings();
         public WorldArsenalSettings WorldArsenal { get; init; } = new WorldArsenalSettings();
         public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();

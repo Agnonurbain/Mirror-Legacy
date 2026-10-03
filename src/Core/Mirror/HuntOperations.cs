@@ -68,6 +68,8 @@ namespace MirrorChronicles.Mirror
             if (plan.Team == null || !plan.Team.ContainsValue(HuntRole.Striker)) return "l'équipe a besoin d'un frappeur";
             var unfit = plan.Team.Keys.FirstOrDefault(id => !IsFree(clan.FindById(id)));
             if (unfit != null) return $"{clan.FindById(unfit)?.FullName ?? unfit} ne peut pas être de la chasse";
+            if (World.TravelRules.Refusal(plan.Team.Keys.Select(clan.FindById), ctx.Content.Clan.HomeRegion, beast.RegionId, ctx.Content.Regions,
+                ctx.Content.Balance.Travel) is { } far) return far;
 
             if (plan.DiversionMemberId != null)
             {

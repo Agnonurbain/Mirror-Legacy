@@ -88,7 +88,7 @@ namespace MirrorChronicles.World
         {
             var team = (plan.TeamIds ?? new List<string>()).Select(clan.FindById).Where(m => m != null).ToList();
             var allies = alliesPrompt ? AlliesOf(plan.Target).Where(a => a != Clan).ToList() : new List<string>();
-            if (BeyondReach(Clan, team, plan.Target, plan.Approach)) return 0;
+            if (BeyondReach(Clan, team, plan.Target, plan.Approach) || TooFar(team, plan)) return 0;
             return SuccessProbability(Factors(Clan, TeamStrength(team, plan.Target), plan.Target, plan.Approach, Partners(plan), plan.Stones, allies), plan.Target);
         }
 
@@ -114,6 +114,8 @@ namespace MirrorChronicles.World
             if (team.Count == 0) return "il faut une équipe";
             var unfit = team.FirstOrDefault(m => !hunts.IsFree(m));
             if (unfit != null || team.Contains(null)) return $"{unfit?.FullName ?? "un membre"} ne peut pas partir";
+            if (TooFar(team, plan))
+                return TravelRules.Refusal(team, ctx.Content.Clan.HomeRegion, target.RegionId, ctx.Content.Regions, ctx.Content.Balance.Travel);
             if (BeyondReach(Clan, team, plan.Target, plan.Approach))
                 return $"personne de l'équipe n'atteint {plan.Target}, dont le plus fort est d'un royaume trop haut ({RankCatalog.RealmName(target.HighestRealm)}) — la corruption ou le miroir le peuvent";
             foreach (var partner in Partners(plan))
@@ -307,6 +309,12 @@ namespace MirrorChronicles.World
             var who = team != null && team.Count > 0 ? team : clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
             return who.Select(m => m.Realm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
         }
+
+        /// <summary>The clan's agents cannot go so far (the mirror's sight needs no road — AUDIT_LORE.md §1.5).</summary>
+        private bool TooFar(IReadOnlyCollection<CharacterData> team, ProbePlan plan) =>
+            plan.Approach != ProbeApproach.MirrorSight
+            && TravelRules.Refusal(team, ctx.Content.Clan.HomeRegion, factions.GetFactionByName(plan.Target)?.RegionId, ctx.Content.Regions,
+                ctx.Content.Balance.Travel) != null;
 
         /// <summary>A probe by hand cannot touch a target whose strongest is beyond the prober's reach.</summary>
         private bool BeyondReach(string prober, IReadOnlyCollection<CharacterData> team, string target, ProbeApproach approach) =>

@@ -98,7 +98,8 @@ namespace MirrorChronicles.Mirror
                 : team.Any(m => m == null || !m.IsAlive || m.CaptorFaction != null) ? "un membre de l'équipe n'est pas libre"
                 : team.Any(m => m.Realm < CultivationRealm.QiRefinement) ? "un vol demande des cultivateurs de la Culture du Qi"
                 : team.Any(m => m.LastOperationYear == ctx.Clock.Year) ? "un membre de l'équipe a déjà mené une opération cette année"
-                : null;
+                : World.TravelRules.Refusal(team, ctx.Content.Clan.HomeRegion, factions.GetFactionByName(HolderOf(shardId))?.RegionId,
+                    ctx.Content.Regions, ctx.Content.Balance.Travel);
             if (refusal != null) return ShardTaking.Refused(refusal);
 
             string holder = HolderOf(shardId);

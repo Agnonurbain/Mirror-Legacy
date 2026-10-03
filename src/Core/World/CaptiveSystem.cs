@@ -146,6 +146,8 @@ namespace MirrorChronicles.World
             if (unfit != null || team.Contains(null)) return $"{unfit?.FullName ?? "un membre"} ne peut pas partir";
             var captor = factions.GetFactionByName(captive.CaptorFaction);
             if (captor == null) return "puissance inconnue";
+            if (TravelRules.Refusal(team, ctx.Content.Clan.HomeRegion, captor.RegionId, ctx.Content.Regions, ctx.Content.Balance.Travel) is { } far)
+                return far;
             if (!Characters.RealmGap.Reaches(team, captor.HighestRealm, ctx.Content.Balance.RealmGap))
                 return $"personne de l'équipe n'atteint {captor.Name}, dont le plus fort est d'un royaume trop haut ({RankCatalog.RealmName(captor.HighestRealm)})";
 
