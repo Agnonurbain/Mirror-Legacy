@@ -74,9 +74,40 @@ namespace MirrorChronicles.Clan
             return null;
         }
 
-        /// <summary>A year on the throne: a Purple Mansion sovereign cultivates by governing.</summary>
+        /// <summary>The powers' bonds, to count a kingdom's vassals (set by the session).</summary>
+        public PowerPoliticsSystem Politics { get; set; }
+
+        public int WorldMerit(FactionData power) => power?.ImperialMerit ?? 0;
+
+        /// <summary>What governing adds to a kingdom's sovereign elder's odds of the Golden Core (0 to 1).</summary>
+        public double GoverningBonus(FactionData power, FactionElder elder) =>
+            power != null && power.Kind == FactionKind.State && elder != null && elder.Id == power.SovereignId ? power.ImperialMerit / 100.0 : 0;
+
+        /// <summary>
+        /// The kingdoms of the world govern too (the user's rule, 2026-10-03): a kingdom's highest elder is its sovereign; at
+        /// the Purple Mansion its odds grow with the years and its vassals, to the clan's own cap; a new one starts anew.
+        /// </summary>
+        private void GovernTheWorld()
+        {
+            var s = Settings;
+            foreach (var power in factions.Factions.Where(f => f.Kind == FactionKind.State))
+            {
+                var sovereign = power.Elders.OrderByDescending(e => e.Realm).ThenByDescending(e => e.Stage).FirstOrDefault();
+                if (sovereign?.Id != power.SovereignId)
+                {
+                    power.SovereignId = sovereign?.Id;
+                    power.ImperialMerit = 0;
+                }
+                if (sovereign == null || sovereign.Realm != CultivationRealm.PurpleMansion) continue;
+                int vassals = Politics?.Bonds.Count(b => b.Kind == BondKind.Vassalage && b.A == power.Name) ?? 0;
+                power.ImperialMerit = System.Math.Min(s.MaxMerit, power.ImperialMerit + s.MeritPerYear + vassals * s.MeritPerVassal);
+            }
+        }
+
+        /// <summary>A year on the throne: a Purple Mansion sovereign cultivates by governing — the clan's, and the world's kingdoms'.</summary>
         public void ProcessYear()
         {
+            GovernTheWorld();
             if (!IsKingdom) return;
             var sovereign = clan.GetPatriarch();
             if (sovereign?.ID != SovereignId)

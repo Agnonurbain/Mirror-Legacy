@@ -148,7 +148,7 @@ namespace MirrorChronicles.World
         /// <summary>A power's elder risen to the Golden Core asks Heaven for a free Realization, a raced one first.</summary>
         private void AskForAPosition(FactionData power, FactionElder elder)
         {
-            if (elder.Realm < CultivationRealm.GoldenCore || elder.FruitionId != null) return;
+            if (elder.Realm < CultivationRealm.GoldenCore || elder.FruitionId != null || elder.ImperialCore) return; // an imperial core asks no Realization
             var free = registry.States.Where(p => p.Value.Status == FruitionStatus.Free).Select(p => p.Key)
                 .OrderBy(id => races.Any(r => r.FruitionId == id) ? 0 : 1).ThenBy(id => id, StringComparer.Ordinal).ToList();
             if (free.Count == 0) return; // a True Monarch without position: it waits

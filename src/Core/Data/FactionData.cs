@@ -32,6 +32,8 @@ namespace MirrorChronicles.Data
         public CultivationRealm HighestRealm { get; set; }    // the strongest cultivator it counts
         public List<ArtifactInstance> Artifacts { get; set; } = new List<ArtifactInstance>(); // forged, stolen, bought or borrowed from the clan (L4f)
         public List<RankDesignation> Designations { get; set; } = new List<RankDesignation>(); // its holders' treasures mortgaged on their Fruitions
+        public string SovereignId { get; set; }       // a kingdom's sovereign, its highest elder (the Imperial Way, 2026-10-03)
+        public int ImperialMerit { get; set; }        // what governing has added to its sovereign's odds (points)
         public double DomainStrength { get; set; }   // what its treasures, Designations and artifacts add to its war strength (recomputed yearly)
         public List<string> Techniques { get; set; } = new List<string>(); // techniques.json ids it holds (LORE.md §2.4)
         public List<FactionElder> Elders { get; set; } = new List<FactionElder>(); // who it counts: they age, die and rise (2026-10-01)
@@ -88,6 +90,7 @@ namespace MirrorChronicles.Data
         public bool Perfected { get; set; }              // reached the Grand Perfection (five abilities): only then may it try the Golden Core
         public string FruitionId { get; set; }           // the lineage whose Realization it holds, or null (2026-10-01)
         public bool HasDharmaTreasure { get; set; }      // a True Monarch's treasure of its foundation (the world's, 2026-10-03)
+        public bool ImperialCore { get; set; }           // its Golden Core forged by governing its kingdom: no Realization asked
 
         public int Age(int year) => year - BornYear;
 

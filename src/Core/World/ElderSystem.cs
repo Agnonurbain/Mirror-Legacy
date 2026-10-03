@@ -142,14 +142,23 @@ namespace MirrorChronicles.World
             return true;
         }
 
+        /// <summary>What governing a kingdom adds to its sovereign's odds (the Imperial Way, 2026-10-03; set by the session).</summary>
+        public Func<FactionData, FactionElder, double> GoverningBonus { get; set; }
+
         /// <summary>A precious Purple Mansion at its peak dares only from good odds, or with nothing left to lose.</summary>
         private void TryTheGoldenCore(FactionData power, FactionElder elder, int year)
         {
             if (!elder.Perfected || year - elder.RealmSinceYear < MinYears(CultivationRealm.PurpleMansion)) return;
             elder.GoldenCoreOdds = Math.Min(1.0, elder.GoldenCoreOdds + Settings.OddsGainPerYear); // it prepares
+            double governing = GoverningBonus?.Invoke(power, elder) ?? 0;
+            double odds = Math.Min(0.99, elder.GoldenCoreOdds + governing);
             bool lastYears = elder.MaxLifespan - elder.Age(year) <= Settings.LastYears;
-            if (elder.GoldenCoreOdds < Settings.RiseOdds && !lastYears) return;
-            if (ctx.Rng.NextDouble() < elder.GoldenCoreOdds) Advance(power, elder, CultivationRealm.GoldenCore, year);
+            if (odds < Settings.RiseOdds && !lastYears) return;
+            if (ctx.Rng.NextDouble() < odds)
+            {
+                elder.ImperialCore = governing > 0; // forged by governing: an imperial core
+                Advance(power, elder, CultivationRealm.GoldenCore, year);
+            }
             else Die(power, elder, demon: true);
         }
 
