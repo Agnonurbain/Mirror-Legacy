@@ -295,7 +295,8 @@ namespace MirrorChronicles.Diplomacy
             }
             var clanStrength = WarRules.ClanStrength(clan.LivingMembers);
             foreach (var power in powers.Where(p => !AtWar(p.Name) && suspicion.OfClan(p.Name) >= s.DeclareSuspicion
-                && p.RelationWithPlayer <= s.DeclareRelation && WarRules.Strength(p, s) > clanStrength && !treaties.Spares(p.Name)))
+                && p.RelationWithPlayer <= s.DeclareRelation && WarRules.Strength(p, s) > clanStrength && !treaties.Spares(p.Name)
+                && World.TravelRules.PowerReaches(p, ctx.Content.Clan.HomeRegion, ctx.Content))) // it must reach the domain (audit §6.3)
             {
                 if (!ctx.Rng.Chance(s.PowerDeclareChance)) continue;
                 MakeWarOnClan(power);

@@ -11038,7 +11038,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 193,
+      "community": 333,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -11048,7 +11048,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 193,
+      "community": 333,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -14408,7 +14408,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 193,
+      "community": 333,
       "norm_label": "enums.cs"
     },
     {
@@ -14418,7 +14418,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 193,
+      "community": 333,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -16268,7 +16268,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem",
-      "community": 420,
+      "community": 193,
       "norm_label": "alliancesystem.cs"
     },
     {
@@ -16278,7 +16278,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_mirrorchronicles_diplomacy",
-      "community": 420,
+      "community": 193,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -16288,7 +16288,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem",
-      "community": 420,
+      "community": 193,
       "norm_label": "alliancesystem"
     },
     {
@@ -16298,7 +16298,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_double",
-      "community": 420,
+      "community": 193,
       "norm_label": "double"
     },
     {
@@ -16308,7 +16308,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_gamecontext",
-      "community": 420,
+      "community": 193,
       "norm_label": "gamecontext"
     },
     {
@@ -16318,7 +16318,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_factionmanager",
-      "community": 420,
+      "community": 193,
       "norm_label": "factionmanager"
     },
     {
@@ -16328,7 +16328,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_resourcemanager",
-      "community": 420,
+      "community": 193,
       "norm_label": "resourcemanager"
     },
     {
@@ -16338,7 +16338,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_offertribute",
-      "community": 420,
+      "community": 193,
       "norm_label": ".offertribute()"
     },
     {
@@ -16348,7 +16348,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_declarewar",
-      "community": 420,
+      "community": 193,
       "norm_label": ".declarewar()"
     },
     {
@@ -17108,7 +17108,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 193,
+      "community": 379,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -17118,7 +17118,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 193,
+      "community": 379,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -17248,7 +17248,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 193,
+      "community": 333,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -17258,7 +17258,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 193,
+      "community": 333,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -20645,7 +20645,7 @@
       "label": ".MakeWarOnClan()",
       "file_type": "code",
       "source_file": "src/Core/Diplomacy/WarSystem.cs",
-      "source_location": "L306",
+      "source_location": "L307",
       "_origin": "ast",
       "id": "diplomacy_warsystem_warsystem_makewaronclan",
       "community": 239,
@@ -21198,7 +21198,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 193,
+      "community": 379,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -21208,7 +21208,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 193,
+      "community": 379,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -23738,7 +23738,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_mirrorsystem",
-      "community": 333,
+      "community": 190,
       "norm_label": "mirrorsystem.cs"
     },
     {
@@ -23748,7 +23748,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorchronicles_mirror",
-      "community": 333,
+      "community": 190,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -33165,7 +33165,7 @@
       "label": ".Available()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L193",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_available",
       "community": 78,
@@ -33175,7 +33175,7 @@
       "label": "IntrigueTarget",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L193",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "intriguetarget",
       "community": 78,
@@ -33185,7 +33185,7 @@
       "label": ".Steal()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L203",
+      "source_location": "L204",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_steal",
       "community": 78,
@@ -33195,7 +33195,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L203",
+      "source_location": "L204",
       "_origin": "ast",
       "id": "src_core_world_intriguesystem_cs_factiondata",
       "community": 78,
@@ -33205,7 +33205,7 @@
       "label": ".Take()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L214",
+      "source_location": "L215",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_take",
       "community": 78,
@@ -33215,7 +33215,7 @@
       "label": ".Spies()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L251",
+      "source_location": "L252",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_spies",
       "community": 78,
@@ -33225,7 +33225,7 @@
       "label": ".Unmask()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L269",
+      "source_location": "L270",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_unmask",
       "community": 78,
@@ -33235,7 +33235,7 @@
       "label": ".Turn()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L281",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_turn",
       "community": 78,
@@ -33245,7 +33245,7 @@
       "label": ".ExecuteSpy()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L290",
+      "source_location": "L291",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_executespy",
       "community": 78,
@@ -33255,7 +33255,7 @@
       "label": ".Unmasked()",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L300",
+      "source_location": "L301",
       "_origin": "ast",
       "id": "world_intriguesystem_intriguesystem_unmasked",
       "community": 78,
@@ -33265,7 +33265,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/World/IntrigueSystem.cs",
-      "source_location": "L300",
+      "source_location": "L301",
       "_origin": "ast",
       "id": "src_core_world_intriguesystem_cs_characterdata",
       "community": 78,
@@ -34915,7 +34915,7 @@
       "label": ".PowerChanceAgainst()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L144",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_powerchanceagainst",
       "community": 158,
@@ -34925,7 +34925,7 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L147",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_processyear",
       "community": 158,
@@ -34935,7 +34935,7 @@
       "label": ".Motive()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L163",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_motive",
       "community": 158,
@@ -34945,7 +34945,7 @@
       "label": ".ApproachOf()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L173",
+      "source_location": "L175",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_approachof",
       "community": 158,
@@ -34955,7 +34955,7 @@
       "label": ".Resolve()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L183",
+      "source_location": "L185",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_resolve",
       "community": 158,
@@ -34965,7 +34965,7 @@
       "label": ".CallAllies()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L204",
+      "source_location": "L206",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_callallies",
       "community": 158,
@@ -34975,7 +34975,7 @@
       "label": "Prompt",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L204",
+      "source_location": "L206",
       "_origin": "ast",
       "id": "prompt",
       "community": 158,
@@ -34985,7 +34985,7 @@
       "label": "Late",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L204",
+      "source_location": "L206",
       "_origin": "ast",
       "id": "late",
       "community": 158,
@@ -34995,7 +34995,7 @@
       "label": ".AlliesOf()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L218",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_alliesof",
       "community": 158,
@@ -35005,7 +35005,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L218",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_ienumerable",
       "community": 158,
@@ -35015,7 +35015,7 @@
       "label": ".Factors()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L225",
+      "source_location": "L227",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_factors",
       "community": 158,
@@ -35025,7 +35025,7 @@
       "label": "ProbeFactors",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L225",
+      "source_location": "L227",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_probefactors",
       "community": 158,
@@ -35035,7 +35035,7 @@
       "label": ".SuccessProbability()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L249",
+      "source_location": "L251",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_successprobability",
       "community": 158,
@@ -35045,7 +35045,7 @@
       "label": ".Spoils()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L256",
+      "source_location": "L258",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_spoils",
       "community": 158,
@@ -35055,7 +35055,7 @@
       "label": ".Spotted()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L269",
+      "source_location": "L271",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_spotted",
       "community": 158,
@@ -35065,7 +35065,7 @@
       "label": ".Disaster()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L282",
+      "source_location": "L284",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_disaster",
       "community": 158,
@@ -35075,7 +35075,7 @@
       "label": ".Strength()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L299",
+      "source_location": "L301",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_strength",
       "community": 158,
@@ -35085,7 +35085,7 @@
       "label": ".TeamStrength()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L302",
+      "source_location": "L304",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_teamstrength",
       "community": 158,
@@ -35095,7 +35095,7 @@
       "label": ".TopOf()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L306",
+      "source_location": "L308",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_topof",
       "community": 158,
@@ -35105,7 +35105,7 @@
       "label": "IReadOnlyCollection",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L306",
+      "source_location": "L308",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_ireadonlycollection",
       "community": 158,
@@ -35115,17 +35115,27 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L306",
+      "source_location": "L308",
       "_origin": "ast",
       "id": "src_core_world_probesystem_cs_cultivationrealm",
       "community": 158,
       "norm_label": "cultivationrealm"
     },
     {
+      "label": ".RegionOf()",
+      "file_type": "code",
+      "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L315",
+      "_origin": "ast",
+      "id": "world_probesystem_probesystem_regionof",
+      "community": 158,
+      "norm_label": ".regionof()"
+    },
+    {
       "label": ".TooFar()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L314",
+      "source_location": "L318",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_toofar",
       "community": 158,
@@ -35135,7 +35145,7 @@
       "label": ".BeyondReach()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L320",
+      "source_location": "L324",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_beyondreach",
       "community": 158,
@@ -35145,7 +35155,7 @@
       "label": ".Unseen()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L324",
+      "source_location": "L328",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_unseen",
       "community": 158,
@@ -35155,7 +35165,7 @@
       "label": ".Guard()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L327",
+      "source_location": "L331",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_guard",
       "community": 158,
@@ -35165,7 +35175,7 @@
       "label": ".Insider()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L336",
+      "source_location": "L340",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_insider",
       "community": 158,
@@ -35175,7 +35185,7 @@
       "label": ".Neighbours()",
       "file_type": "code",
       "source_file": "src/Core/World/ProbeSystem.cs",
-      "source_location": "L343",
+      "source_location": "L347",
       "_origin": "ast",
       "id": "world_probesystem_probesystem_neighbours",
       "community": 158,
@@ -35985,7 +35995,7 @@
       "label": ".WorthTaking()",
       "file_type": "code",
       "source_file": "src/Core/World/SchemeSystem.cs",
-      "source_location": "L98",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "world_schemesystem_schemesystem_worthtaking",
       "community": 201,
@@ -35995,7 +36005,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/World/SchemeSystem.cs",
-      "source_location": "L98",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "src_core_world_schemesystem_cs_characterdata",
       "community": 201,
@@ -36005,7 +36015,7 @@
       "label": ".IsAway()",
       "file_type": "code",
       "source_file": "src/Core/World/SchemeSystem.cs",
-      "source_location": "L101",
+      "source_location": "L102",
       "_origin": "ast",
       "id": "world_schemesystem_schemesystem_isaway",
       "community": 201,
@@ -37162,10 +37172,40 @@
       "norm_label": "travelsettings"
     },
     {
-      "label": ".Refusal()",
+      "label": ".PowerReaches()",
       "file_type": "code",
       "source_file": "src/Core/World/TravelRules.cs",
       "source_location": "L29",
+      "_origin": "ast",
+      "id": "world_travelrules_travelrules_powerreaches",
+      "community": 405,
+      "norm_label": ".powerreaches()"
+    },
+    {
+      "label": "FactionData",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_core_world_travelrules_cs_factiondata",
+      "community": 405,
+      "norm_label": "factiondata"
+    },
+    {
+      "label": "GameContent",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_core_world_travelrules_cs_gamecontent",
+      "community": 405,
+      "norm_label": "gamecontent"
+    },
+    {
+      "label": ".Refusal()",
+      "file_type": "code",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "world_travelrules_travelrules_refusal",
       "community": 405,
@@ -37175,7 +37215,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/World/TravelRules.cs",
-      "source_location": "L29",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "src_core_world_travelrules_cs_ienumerable",
       "community": 405,
@@ -37185,7 +37225,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/World/TravelRules.cs",
-      "source_location": "L29",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "src_core_world_travelrules_cs_characterdata",
       "community": 405,
@@ -37195,7 +37235,7 @@
       "label": ".StateOf()",
       "file_type": "code",
       "source_file": "src/Core/World/TravelRules.cs",
-      "source_location": "L39",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "world_travelrules_travelrules_stateof",
       "community": 405,
@@ -37205,7 +37245,7 @@
       "label": "IReadOnlyDictionary",
       "file_type": "code",
       "source_file": "src/Core/World/TravelRules.cs",
-      "source_location": "L39",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "src_core_world_travelrules_cs_ireadonlydictionary",
       "community": 405,
@@ -37215,7 +37255,7 @@
       "label": ".Hops()",
       "file_type": "code",
       "source_file": "src/Core/World/TravelRules.cs",
-      "source_location": "L43",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "world_travelrules_travelrules_hops",
       "community": 405,
@@ -62897,7 +62937,7 @@
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
       "source_location": "L379",
       "_origin": "ast",
-      "id": "s",
+      "id": "tests_core_tests_session_balanceruntests_cs_s",
       "community": 264,
       "norm_label": "s"
     },
@@ -69492,10 +69532,90 @@
       "norm_label": ".apurplemansion_goesanywhere_throughthegreatvoid()"
     },
     {
-      "label": ".AProbe_OfAPowerTooFar_IsRefused_WithTheReason()",
+      "label": ".FarPower()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L51",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_farpower",
+      "community": 410,
+      "norm_label": ".farpower()"
+    },
+    {
+      "label": "GameSession",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_travelrulestests_cs_gamesession",
+      "community": 410,
+      "norm_label": "gamesession"
+    },
+    {
+      "label": "S",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_travelrulestests_cs_s",
+      "community": 410,
+      "norm_label": "s"
+    },
+    {
+      "label": "FactionData",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_travelrulestests_cs_factiondata",
+      "community": 410,
+      "norm_label": "factiondata"
+    },
+    {
+      "label": "Far",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "far",
+      "community": 410,
+      "norm_label": "far"
+    },
+    {
+      "label": ".APower_GoesAsFarAsItsStrongestCarriesIt()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_apower_goesasfarasitsstrongestcarriesit",
+      "community": 410,
+      "norm_label": ".apower_goesasfarasitsstrongestcarriesit()"
+    },
+    {
+      "label": ".APowerTooFar_CannotAmbushTheClansMembers()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_apowertoofar_cannotambushtheclansmembers",
+      "community": 410,
+      "norm_label": ".apowertoofar_cannotambushtheclansmembers()"
+    },
+    {
+      "label": ".APowerTooFar_CannotProbeTheClanByHand()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "world_travelrulestests_travelrulestests_apowertoofar_cannotprobetheclanbyhand",
+      "community": 410,
+      "norm_label": ".apowertoofar_cannotprobetheclanbyhand()"
+    },
+    {
+      "label": ".AProbe_OfAPowerTooFar_IsRefused_WithTheReason()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "world_travelrulestests_travelrulestests_aprobe_ofapowertoofar_isrefused_withthereason",
       "community": 410,
@@ -73362,7 +73482,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player controls no character directly; observes, guides and influences a mortal family over generations to become the strongest cultivator clan of Mount Dali.",
-      "community": 333,
+      "community": 190,
       "norm_label": "player as consciousness trapped in ancestral bronze mirror",
       "id": "brain_claude_memory_mirror_consciousness_premise"
     },
@@ -73482,7 +73602,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 379,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -73495,7 +73615,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 379,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -73508,7 +73628,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 379,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -73668,7 +73788,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 379,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -73829,7 +73949,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 379,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -73977,7 +74097,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 193,
+      "community": 333,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -74143,7 +74263,7 @@
       "author": null,
       "contributor": null,
       "rationale": "2D multigenerational clan-management RPG with Xianxia cultivation, turn-based tactical combat, faction diplomacy and inheritance over 10+ generations.",
-      "community": 333,
+      "community": 190,
       "norm_label": "reflets de lignee: les chroniques du miroir (mirror chronicles)",
       "id": "readme_mirror_chronicles"
     },
@@ -74156,7 +74276,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 190,
       "norm_label": "the mirror legacy (xuanjian xianzu) - inspiration",
       "id": "readme_the_mirror_legacy"
     },
@@ -102561,9 +102681,9 @@
       "source_file": "src/Core/Data/TravelData.cs",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_traveldata",
-      "target": "data_traveldata_mirrorchronicles_data",
-      "confidence_score": 1.0
+      "target": "data_traveldata_mirrorchronicles_data"
     },
     {
       "relation": "contains",
@@ -133441,6 +133561,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L315",
+      "weight": 1.0,
+      "source": "world_probesystem_probesystem",
+      "target": "world_probesystem_probesystem_regionof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L160",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -133513,9 +133643,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L314",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem",
-      "target": "world_probesystem_probesystem_toofar",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_toofar"
     },
     {
       "relation": "method",
@@ -133720,9 +133850,9 @@
       "source_location": "L314",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_toofar",
-      "target": "src_core_world_probesystem_cs_probeplan",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_probeplan"
     },
     {
       "relation": "references",
@@ -133819,9 +133949,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_chanceagainst",
-      "target": "world_probesystem_probesystem_toofar",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_toofar"
     },
     {
       "relation": "calls",
@@ -133984,9 +134114,9 @@
       "source_file": "src/Core/World/ProbeSystem.cs",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_refusal",
-      "target": "world_probesystem_probesystem_toofar",
-      "confidence_score": 1.0
+      "target": "world_probesystem_probesystem_toofar"
     },
     {
       "relation": "references",
@@ -134039,9 +134169,9 @@
       "source_location": "L314",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_toofar",
-      "target": "src_core_world_probesystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -134086,6 +134216,17 @@
       "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_powerprobe",
       "target": "src_core_world_probesystem_cs_probeapproach"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ProbeSystem.cs",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "world_probesystem_probesystem_powerprobe",
+      "target": "world_probesystem_probesystem_regionof",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -134622,9 +134763,9 @@
       "source_location": "L314",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_probesystem_probesystem_toofar",
-      "target": "src_core_world_probesystem_cs_ireadonlycollection",
-      "confidence_score": 1.0
+      "target": "src_core_world_probesystem_cs_ireadonlycollection"
     },
     {
       "relation": "references",
@@ -137733,9 +137874,9 @@
       "source_file": "src/Core/World/TravelRules.cs",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrules",
-      "target": "world_travelrules_mirrorchronicles_world",
-      "confidence_score": 1.0
+      "target": "world_travelrules_mirrorchronicles_world"
     },
     {
       "relation": "contains",
@@ -137743,9 +137884,9 @@
       "source_file": "src/Core/World/TravelRules.cs",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrules",
-      "target": "world_travelrules_travelrules",
-      "confidence_score": 1.0
+      "target": "world_travelrules_travelrules"
     },
     {
       "relation": "method",
@@ -137753,9 +137894,9 @@
       "source_file": "src/Core/World/TravelRules.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules",
-      "target": "world_travelrules_travelrules_canreach",
-      "confidence_score": 1.0
+      "target": "world_travelrules_travelrules_canreach"
     },
     {
       "relation": "method",
@@ -137763,9 +137904,9 @@
       "source_file": "src/Core/World/TravelRules.cs",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules",
-      "target": "world_travelrules_travelrules_hops",
-      "confidence_score": 1.0
+      "target": "world_travelrules_travelrules_hops"
     },
     {
       "relation": "method",
@@ -137774,8 +137915,18 @@
       "source_location": "L29",
       "weight": 1.0,
       "source": "world_travelrules_travelrules",
-      "target": "world_travelrules_travelrules_refusal",
+      "target": "world_travelrules_travelrules_powerreaches",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_travelrules_travelrules",
+      "target": "world_travelrules_travelrules_refusal"
     },
     {
       "relation": "method",
@@ -137783,9 +137934,9 @@
       "source_file": "src/Core/World/TravelRules.cs",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules",
-      "target": "world_travelrules_travelrules_stateof",
-      "confidence_score": 1.0
+      "target": "world_travelrules_travelrules_stateof"
     },
     {
       "relation": "references",
@@ -137794,9 +137945,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_canreach",
-      "target": "src_core_world_travelrules_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_cultivationrealm"
     },
     {
       "relation": "references",
@@ -137805,9 +137956,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_canreach",
-      "target": "src_core_world_travelrules_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -137816,9 +137967,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_canreach",
-      "target": "src_core_world_travelrules_cs_regiondefinition",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_regiondefinition"
     },
     {
       "relation": "references",
@@ -137827,9 +137978,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_canreach",
-      "target": "travelsettings",
-      "confidence_score": 1.0
+      "target": "travelsettings"
     },
     {
       "relation": "calls",
@@ -137838,9 +137989,9 @@
       "source_file": "src/Core/World/TravelRules.cs",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_canreach",
-      "target": "world_travelrules_travelrules_hops",
-      "confidence_score": 1.0
+      "target": "world_travelrules_travelrules_hops"
     },
     {
       "relation": "calls",
@@ -137849,8 +138000,19 @@
       "source_file": "src/Core/World/TravelRules.cs",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_canreach",
-      "target": "world_travelrules_travelrules_stateof",
+      "target": "world_travelrules_travelrules_stateof"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "world_travelrules_travelrules_powerreaches",
+      "target": "world_travelrules_travelrules_canreach",
       "confidence_score": 1.0
     },
     {
@@ -137860,9 +138022,9 @@
       "source_file": "src/Core/World/TravelRules.cs",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_refusal",
-      "target": "world_travelrules_travelrules_canreach",
-      "confidence_score": 1.0
+      "target": "world_travelrules_travelrules_canreach"
     },
     {
       "relation": "references",
@@ -137871,9 +138033,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_refusal",
-      "target": "src_core_world_travelrules_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -137882,9 +138044,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_hops",
-      "target": "src_core_world_travelrules_cs_regiondefinition",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_regiondefinition"
     },
     {
       "relation": "references",
@@ -137893,9 +138055,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_refusal",
-      "target": "src_core_world_travelrules_cs_regiondefinition",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_regiondefinition"
     },
     {
       "relation": "references",
@@ -137904,8 +138066,30 @@
       "source_location": "L39",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_stateof",
-      "target": "src_core_world_travelrules_cs_regiondefinition",
+      "target": "src_core_world_travelrules_cs_regiondefinition"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "world_travelrules_travelrules_refusal",
+      "target": "travelsettings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/TravelRules.cs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrules_travelrules_powerreaches",
+      "target": "src_core_world_travelrules_cs_factiondata",
       "confidence_score": 1.0
     },
     {
@@ -137915,8 +138099,8 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "parameter_type",
-      "source": "world_travelrules_travelrules_refusal",
-      "target": "travelsettings",
+      "source": "world_travelrules_travelrules_powerreaches",
+      "target": "src_core_world_travelrules_cs_gamecontent",
       "confidence_score": 1.0
     },
     {
@@ -137926,9 +138110,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_refusal",
-      "target": "src_core_world_travelrules_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_characterdata"
     },
     {
       "relation": "references",
@@ -137937,9 +138121,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_refusal",
-      "target": "src_core_world_travelrules_cs_ienumerable",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_ienumerable"
     },
     {
       "relation": "references",
@@ -137948,9 +138132,9 @@
       "source_location": "L39",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_stateof",
-      "target": "src_core_world_travelrules_cs_ireadonlydictionary",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_ireadonlydictionary"
     },
     {
       "relation": "references",
@@ -137959,9 +138143,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_travelrules_travelrules_hops",
-      "target": "src_core_world_travelrules_cs_ireadonlydictionary",
-      "confidence_score": 1.0
+      "target": "src_core_world_travelrules_cs_ireadonlydictionary"
     },
     {
       "relation": "contains",
@@ -139190,9 +139374,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests",
-      "target": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays"
     },
     {
       "relation": "method",
@@ -139332,9 +139516,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
-      "target": "characters_ancestorreturntests_ancestorreturntests_with",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_with"
     },
     {
       "relation": "calls",
@@ -139409,9 +139593,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
-      "target": "characters_ancestorreturntests_ancestorreturntests_session",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_session"
     },
     {
       "relation": "calls",
@@ -139552,9 +139736,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
-      "target": "characters_ancestorreturntests_ancestorreturntests_monarch",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_monarch"
     },
     {
       "relation": "calls",
@@ -139783,9 +139967,9 @@
       "source_location": "L63",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_anintactessence_isalwaysreborn_astheloresays",
-      "target": "tests_core_tests_characters_ancestorreturntests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_ancestorreturntests_cs_test"
     },
     {
       "relation": "references",
@@ -195841,12 +196025,12 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalanceRunTests.cs",
-      "source_location": "L192",
+      "source_location": "L379",
       "weight": 1.0,
       "context": "return_type",
-      "confidence_score": 1.0,
       "source": "session_balanceruntests_balanceruntests_captive",
-      "target": "s"
+      "target": "tests_core_tests_session_balanceruntests_cs_s",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -211807,9 +211991,9 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests",
-      "target": "world_travelrulestests_mirrorchronicles_tests_world",
-      "confidence_score": 1.0
+      "target": "world_travelrulestests_mirrorchronicles_tests_world"
     },
     {
       "relation": "contains",
@@ -211817,9 +212001,9 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests",
-      "target": "world_travelrulestests_travelrulestests",
-      "confidence_score": 1.0
+      "target": "world_travelrulestests_travelrulestests"
     },
     {
       "relation": "references",
@@ -211828,9 +212012,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests",
-      "target": "tests_core_tests_world_travelrulestests_cs_string",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_travelrulestests_cs_string"
     },
     {
       "relation": "method",
@@ -211838,8 +212022,38 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests",
-      "target": "world_travelrulestests_travelrulestests_afoundation_crossesitsstate_butnofurther",
+      "target": "world_travelrulestests_travelrulestests_afoundation_crossesitsstate_butnofurther"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_apower_goesasfarasitsstrongestcarriesit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_apowertoofar_cannotambushtheclansmembers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_apowertoofar_cannotprobetheclanbyhand",
       "confidence_score": 1.0
     },
     {
@@ -211848,9 +212062,9 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests",
-      "target": "world_travelrulestests_travelrulestests_aprobe_ofapowertoofar_isrefused_withthereason",
-      "confidence_score": 1.0
+      "target": "world_travelrulestests_travelrulestests_aprobe_ofapowertoofar_isrefused_withthereason"
     },
     {
       "relation": "method",
@@ -211858,9 +212072,9 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests",
-      "target": "world_travelrulestests_travelrulestests_apurplemansion_goesanywhere_throughthegreatvoid",
-      "confidence_score": 1.0
+      "target": "world_travelrulestests_travelrulestests_apurplemansion_goesanywhere_throughthegreatvoid"
     },
     {
       "relation": "method",
@@ -211868,8 +212082,18 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests",
-      "target": "world_travelrulestests_travelrulestests_aqicultivator_ridesthewind_afewregionsfromhome",
+      "target": "world_travelrulestests_travelrulestests_aqicultivator_ridesthewind_afewregionsfromhome"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests",
+      "target": "world_travelrulestests_travelrulestests_farpower",
       "confidence_score": 1.0
     },
     {
@@ -211878,9 +212102,9 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests",
-      "target": "world_travelrulestests_travelrulestests_reach",
-      "confidence_score": 1.0
+      "target": "world_travelrulestests_travelrulestests_reach"
     },
     {
       "relation": "method",
@@ -211888,9 +212112,9 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests",
-      "target": "world_travelrulestests_travelrulestests_theembryonic_stayhome",
-      "confidence_score": 1.0
+      "target": "world_travelrulestests_travelrulestests_theembryonic_stayhome"
     },
     {
       "relation": "calls",
@@ -211899,9 +212123,9 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_afoundation_crossesitsstate_butnofurther",
-      "target": "world_travelrulestests_travelrulestests_reach",
-      "confidence_score": 1.0
+      "target": "world_travelrulestests_travelrulestests_reach"
     },
     {
       "relation": "calls",
@@ -211910,9 +212134,9 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_apurplemansion_goesanywhere_throughthegreatvoid",
-      "target": "world_travelrulestests_travelrulestests_reach",
-      "confidence_score": 1.0
+      "target": "world_travelrulestests_travelrulestests_reach"
     },
     {
       "relation": "calls",
@@ -211921,9 +212145,9 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_aqicultivator_ridesthewind_afewregionsfromhome",
-      "target": "world_travelrulestests_travelrulestests_reach",
-      "confidence_score": 1.0
+      "target": "world_travelrulestests_travelrulestests_reach"
     },
     {
       "relation": "references",
@@ -211932,9 +212156,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_reach",
-      "target": "tests_core_tests_world_travelrulestests_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_travelrulestests_cs_cultivationrealm"
     },
     {
       "relation": "calls",
@@ -211943,8 +212167,19 @@
       "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_theembryonic_stayhome",
-      "target": "world_travelrulestests_travelrulestests_reach",
+      "target": "world_travelrulestests_travelrulestests_reach"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_travelrulestests_travelrulestests_farpower",
+      "target": "tests_core_tests_world_travelrulestests_cs_cultivationrealm",
       "confidence_score": 1.0
     },
     {
@@ -211954,9 +212189,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_theembryonic_stayhome",
-      "target": "tests_core_tests_world_travelrulestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_travelrulestests_cs_test"
     },
     {
       "relation": "references",
@@ -211965,7 +212200,40 @@
       "source_location": "L35",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_afoundation_crossesitsstate_butnofurther",
+      "target": "tests_core_tests_world_travelrulestests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_travelrulestests_travelrulestests_apower_goesasfarasitsstrongestcarriesit",
+      "target": "tests_core_tests_world_travelrulestests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_travelrulestests_travelrulestests_apowertoofar_cannotambushtheclansmembers",
+      "target": "tests_core_tests_world_travelrulestests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L77",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_travelrulestests_travelrulestests_apowertoofar_cannotprobetheclanbyhand",
       "target": "tests_core_tests_world_travelrulestests_cs_test",
       "confidence_score": 1.0
     },
@@ -211976,9 +212244,9 @@
       "source_location": "L51",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_aprobe_ofapowertoofar_isrefused_withthereason",
-      "target": "tests_core_tests_world_travelrulestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_travelrulestests_cs_test"
     },
     {
       "relation": "references",
@@ -211987,9 +212255,9 @@
       "source_location": "L44",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_apurplemansion_goesanywhere_throughthegreatvoid",
-      "target": "tests_core_tests_world_travelrulestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_travelrulestests_cs_test"
     },
     {
       "relation": "references",
@@ -211998,8 +212266,85 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_travelrulestests_travelrulestests_aqicultivator_ridesthewind_afewregionsfromhome",
-      "target": "tests_core_tests_world_travelrulestests_cs_test",
+      "target": "tests_core_tests_world_travelrulestests_cs_test"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests_apower_goesasfarasitsstrongestcarriesit",
+      "target": "world_travelrulestests_travelrulestests_farpower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests_apowertoofar_cannotambushtheclansmembers",
+      "target": "world_travelrulestests_travelrulestests_farpower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "world_travelrulestests_travelrulestests_apowertoofar_cannotprobetheclanbyhand",
+      "target": "world_travelrulestests_travelrulestests_farpower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_travelrulestests_travelrulestests_farpower",
+      "target": "far",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_travelrulestests_travelrulestests_farpower",
+      "target": "tests_core_tests_world_travelrulestests_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_travelrulestests_travelrulestests_farpower",
+      "target": "tests_core_tests_world_travelrulestests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/TravelRulesTests.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_travelrulestests_travelrulestests_farpower",
+      "target": "tests_core_tests_world_travelrulestests_cs_s",
       "confidence_score": 1.0
     },
     {
@@ -218571,5 +218916,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "7df24ade2d5289de913bb161337adc578e46242b"
+  "built_at_commit": "eb2125c39358caab63488f8db76711172413f5ac"
 }

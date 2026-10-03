@@ -138,6 +138,8 @@ namespace MirrorChronicles.World
         public ProbeOutcome PowerProbe(FactionData prober, string target, ProbeApproach approach, List<string> partners) =>
             prober == null || target == prober.Name || approach == ProbeApproach.MirrorSight || book.NextUnknown(prober.Name, target) == null
                 ? ProbeOutcome.Refused("sondage impossible")
+                : approach != ProbeApproach.Bribery && !TravelRules.PowerReaches(prober, RegionOf(target), ctx.Content)
+                ? ProbeOutcome.Refused("trop loin")
                 : Resolve(prober.Name, Strength(prober), target, approach, (partners ?? new List<string>()).Distinct().ToList(), 0, null);
 
         /// <summary>A power's odds against a target, before any roll (no partners, the target's allies lingering).</summary>
@@ -309,6 +311,8 @@ namespace MirrorChronicles.World
             var who = team != null && team.Count > 0 ? team : clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
             return who.Select(m => m.Realm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
         }
+
+        private string RegionOf(string side) => side == Clan ? ctx.Content.Clan.HomeRegion : factions.GetFactionByName(side)?.RegionId;
 
         /// <summary>The clan's agents cannot go so far (the mirror's sight needs no road — AUDIT_LORE.md §1.5).</summary>
         private bool TooFar(IReadOnlyCollection<CharacterData> team, ProbePlan plan) =>

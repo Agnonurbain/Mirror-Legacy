@@ -25,6 +25,10 @@ namespace MirrorChronicles.World
             return hops != null && hops <= max;
         }
 
+        /// <summary>True when a power can send its own to the place: as far as its strongest carries them (world parity).</summary>
+        public static bool PowerReaches(FactionData power, string to, GameContent content) =>
+            power != null && CanReach(power.HighestRealm, power.RegionId, to, content.Regions, content.Balance.Travel);
+
         /// <summary>Why the team cannot go there (French), or null: its strongest carries the others.</summary>
         public static string Refusal(IEnumerable<CharacterData> team, string home, string to, IReadOnlyList<RegionDefinition> regions, TravelSettings s)
         {

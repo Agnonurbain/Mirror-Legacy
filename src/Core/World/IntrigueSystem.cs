@@ -182,7 +182,8 @@ namespace MirrorChronicles.World
             int patrols = Patrols;
             foreach (var thief in factions.Factions.OrderBy(_ => ctx.Rng.Next()).ToList())
             {
-                if (treaties.Spares(thief.Name) || !ctx.Rng.Chance(IntrigueRules.TheftChance(thief, patrols, Settings))) continue;
+                if (treaties.Spares(thief.Name) || !TravelRules.PowerReaches(thief, ctx.Content.Clan.HomeRegion, ctx.Content)
+                    || !ctx.Rng.Chance(IntrigueRules.TheftChance(thief, patrols, Settings))) continue;
                 var targets = Available().ToList();
                 if (targets.Count == 0) return;
                 Steal(thief, ctx.Rng.Pick(targets));

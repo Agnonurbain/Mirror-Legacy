@@ -48,6 +48,40 @@ namespace MirrorChronicles.Tests.World
             Assert.IsTrue(Reach(CultivationRealm.PurpleMansion, "black-pearl-atoll"));
         }
 
+        private static (GameSession S, FactionData Far) FarPower(CultivationRealm realm)
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var far = System.Linq.Enumerable.First(s.Factions.Factions, f => f.RegionId == "mount-yunfeng");
+            far.HighestRealm = realm;
+            return (s, far);
+        }
+
+        [Test]
+        public void APower_GoesAsFarAsItsStrongestCarriesIt()
+        {
+            var (s, far) = FarPower(CultivationRealm.QiRefinement);
+            Assert.IsFalse(TravelRules.PowerReaches(far, Home, s.Context.Content), "four regions away, a Qi Cultivator cannot come");
+            far.HighestRealm = CultivationRealm.Foundation;
+            Assert.IsTrue(TravelRules.PowerReaches(far, Home, s.Context.Content), "a Foundation crosses its state");
+        }
+
+        [Test]
+        public void APowerTooFar_CannotAmbushTheClansMembers()
+        {
+            var (s, far) = FarPower(CultivationRealm.QiRefinement);
+            foreach (var m in s.Clan.LivingMembers) m.LastOperationYear = s.Clock.Year; // all away
+            s.Resources.AddSpiritStones(100_000); // all worth taking
+            Assert.IsFalse(s.Schemes.Ambush(far));
+        }
+
+        [Test]
+        public void APowerTooFar_CannotProbeTheClanByHand()
+        {
+            var (s, far) = FarPower(CultivationRealm.QiRefinement);
+            s.SecretBook.Create("internal-feud", SecretBook.ClanHolder, null);
+            Assert.IsNotNull(s.Probes.PowerProbe(far, SecretBook.ClanHolder, ProbeApproach.Infiltration, new List<string>()).Refusal);
+        }
+
         [Test]
         public void AProbe_OfAPowerTooFar_IsRefused_WithTheReason()
         {
