@@ -57,6 +57,9 @@ namespace MirrorChronicles.Data
         /// </summary>
         public Temperament Imagery { get; init; }
 
+        /// <summary>The life events that embody its image (the Mandate of Life, §5.4.3; interpretations of its name, 2026-10-03).</summary>
+        public IReadOnlyList<LifeMandate> Mandate { get; init; } = Array.Empty<LifeMandate>();
+
         public Provenance Provenance { get; init; }
 
         /// <summary>Fields filled by interpretation, to replace when a source speaks.</summary>

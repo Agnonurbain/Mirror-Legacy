@@ -67,6 +67,7 @@ namespace MirrorChronicles.World
             if (exposed.Count == 0) return false;
 
             var target = ctx.Rng.Pick(exposed);
+            ctx.Events.TriggerMemberImperilled(target); // whatever comes of it, a peril lived (the Mandate of Life)
             var guardian = treaties?.Guardians(against: power.Name).FirstOrDefault();
             if (guardian != null && ctx.Rng.Chance(ctx.Content.Balance.Treaties.DefenceGuardChance))
             {

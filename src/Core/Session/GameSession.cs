@@ -108,6 +108,7 @@ namespace MirrorChronicles.Session
         public ArtifactTrade ArtifactTrade { get; }
         public MinorAbilities Minors { get; }
         public PositionBridges Bridges { get; }
+        public MandateOfLife Mandate { get; }
         public ImperialWay Imperial { get; }
         public RegionalPhenomena Phenomena { get; }
 
@@ -197,6 +198,7 @@ namespace MirrorChronicles.Session
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
             Intrigues.Armoury = Artifacts;
             Bridges = new PositionBridges(Context);
+            Mandate = new MandateOfLife(Context, Clan);
             GoldenCore.CorruptedVirtues = () => Bridges.Corrupted; // the bridges of the corrupted Virtues (R6)
             Minors = new MinorAbilities(Context, Clan, Resources, Factions, Suspicion, Mirror, Knowledge);
             Schemes.Guard = m => 1 - (1 - Dharma.GuardChance(m)) * (1 - Dharma.DomainGuardChance) * (1 - ArtifactRules.Protection(m));
@@ -516,6 +518,7 @@ namespace MirrorChronicles.Session
                     Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)
                     Phenomena.ProcessYear();           // the weathers of the dead pass (L4c)
                     ArtifactTrade.ProcessYear();       // loans of artifacts end (L4f)
+                    Mandate.ProcessYear();             // a reign, a seclusion feed the images they embody (§5.4.3)
                     Dharma.ProcessYear();              // treasures condensed; a masterless Designation may strike (L4e)
                     Demons.ProcessYear();              // a demon let be ravages; an unanswered one goes to the Underworld (L4e)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year

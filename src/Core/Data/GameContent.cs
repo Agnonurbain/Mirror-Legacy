@@ -277,6 +277,7 @@ namespace MirrorChronicles.Data
         public ArtifactSettings Artifacts { get; init; } = new ArtifactSettings();
         public MinorAbilitySettings MinorAbilities { get; init; } = new MinorAbilitySettings();
         public PositionBridgeSettings PositionBridges { get; init; } = new PositionBridgeSettings();
+        public MandateSettings Mandate { get; init; } = new MandateSettings();
 
         /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
         public TrialSettings Trials { get; init; }

@@ -65,6 +65,8 @@ namespace MirrorChronicles.Events
         public event Action<Diplomacy.Sponsorship, PatronDesign> OnPatronDesignResisted;
         public event Action<string, string> OnAccordDenounced;              // rival, patron (§11.10)
         public event Action<CharacterData, string> OnMemberLured;           // a practitioner bought away by a rival
+        public event Action<CharacterData> OnMemberImperilled;            // a member ambushed, or its ripe Dao struck and the blow driven off
+        public event Action<CharacterData, string> OnMandateEmbodied;     // a life event embodies the ability a member condenses (§5.4.3)
         public event Action<string> OnMinorAbilityLearnt;                 // « lineage:ability », a former True Monarch's minor ability (R2)
         public event Action OnTombLooted;                                  // a tomb's guardian falls (C5)
         public event Action<ArtifactInstance, string> OnArtifactFound;      // an artifact found, and where (L4f)
@@ -142,6 +144,8 @@ namespace MirrorChronicles.Events
         public void TriggerDemonBorn(MetalEssenceDemon demon) => OnDemonBorn?.Invoke(demon);
         public void TriggerDharmaTreasure(CharacterData member) => OnDharmaTreasure?.Invoke(member);
         public void TriggerTombLooted() => OnTombLooted?.Invoke();
+        public void TriggerMemberImperilled(CharacterData member) => OnMemberImperilled?.Invoke(member);
+        public void TriggerMandateEmbodied(CharacterData member, string ability) => OnMandateEmbodied?.Invoke(member, ability);
         public void TriggerMinorAbilityLearnt(string ability) => OnMinorAbilityLearnt?.Invoke(ability);
         public void TriggerArtifactFound(ArtifactInstance a, string where) => OnArtifactFound?.Invoke(a, where);
         public void TriggerTreasureBound(CharacterData m, ArtifactInstance a) => OnTreasureBound?.Invoke(m, a);

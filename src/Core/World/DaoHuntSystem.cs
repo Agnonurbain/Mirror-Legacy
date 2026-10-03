@@ -107,6 +107,7 @@ namespace MirrorChronicles.World
                 ctx.Log.Warning($"[DaoHunt] {hunter.Name} strikes at {prey.FullName}'s ripe Dao, and is driven off.");
                 known.RemoveAll(k => k.Faction == hunter.Name && k.MemberId == prey.ID); // it withdraws, and must learn anew
                 ctx.Events.TriggerDaoHuntFoiled(hunter.Name);
+                ctx.Events.TriggerMemberImperilled(prey);
             }
         }
     }
