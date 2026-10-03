@@ -20,6 +20,7 @@ namespace MirrorChronicles.Game
         private Label status;
         private VBoxContainer accord;                 // the accords tab (LORE.md §11.10, A)
         private VBoxContainer lineages;               // the lineages of the world, as the clan knows them (2026-10-01)
+        private VBoxContainer goldenCore;             // the Golden Core's actions (L4e, G6, 2026-10-03)
         private VBoxContainer armoury;                // the clan's artifacts, the forge, the powers' deals (L4f, 2026-10-03)
         private TabContainer tabs;
         private (string Power, string TechniqueId, string Name)? negotiating;
@@ -33,7 +34,7 @@ namespace MirrorChronicles.Game
             market = GetNode<VBoxContainer>("%Market");
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
-            // LIB_TAB=<0-3> opens a tab (screenshots of a smoke run)
+            // LIB_TAB=<0-5> opens a tab (screenshots of a smoke run)
             tabs = GetNode<TabContainer>("%Tabs");
             var accordTab = new ScrollContainer { Name = "Accord" };
             accord = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
@@ -43,6 +44,10 @@ namespace MirrorChronicles.Game
             lineages = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
             lineagesTab.AddChild(lineages);
             tabs.AddChild(lineagesTab);
+            var coreTab = new ScrollContainer { Name = "Noyau d'Or" };
+            goldenCore = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
+            coreTab.AddChild(goldenCore);
+            tabs.AddChild(coreTab);
             var armouryTab = new ScrollContainer { Name = "Armurerie" };
             armoury = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
             armouryTab.AddChild(armoury);
@@ -61,6 +66,35 @@ namespace MirrorChronicles.Game
             ShowAccord();
             ShowLineages();
             ShowArmoury();
+            ShowGoldenCore();
+        }
+
+        private static readonly GoldenCoreAction[] Perilous = { GoldenCoreAction.Forge, GoldenCoreAction.Claim, GoldenCoreAction.Transmute };
+
+        /// <summary>What each member may do toward and at the Golden Core, its odds or price, or why not; the perilous asked twice.</summary>
+        private void ShowGoldenCore()
+        {
+            Clear(goldenCore);
+            var options = GoldenCoreView.Actions(root.Session);
+            if (options.Count == 0) Add(goldenCore, "Aucun membre n'est aux portes du Noyau d'Or : il faut une Grande Perfection du Manoir Pourpre, ses cinq capacités et l'XP du royaume.");
+            foreach (var option in options)
+                AddButton(goldenCore, option.Label, option.Refusal, () =>
+                {
+                    if (!Perilous.Contains(option.Kind)) { Act(GoldenCoreView.Perform(root.Session, option), "C'est fait."); return; }
+                    var confirm = new ConfirmationDialog
+                    {
+                        Title = "Le Noyau d'Or",
+                        DialogText = $"{option.Label}\n\nUn échec fait naître un Démon d'Essence Métallique : le membre est perdu. Un Manoir Pourpre au sommet est précieux.",
+                        OkButtonText = "Tenter",
+                        CancelButtonText = "Attendre",
+                        DialogAutowrap = true,
+                        MinSize = new Vector2I(640, 0)
+                    };
+                    confirm.Confirmed += () => { Act(GoldenCoreView.Perform(root.Session, option), "Le Ciel répond : c'est accompli."); confirm.QueueFree(); };
+                    confirm.Canceled += () => confirm.QueueFree();
+                    AddChild(confirm);
+                    confirm.PopupCentered();
+                });
         }
 
         private void Act(string outcome, string done)

@@ -136,6 +136,39 @@ namespace MirrorChronicles.Characters
             return true;
         }
 
+        /// <summary>The lineages a Grand Perfection ready to forge may aim at, by the route its abilities open, and whether the clan knows the method.</summary>
+        public IReadOnlyList<(string FruitionId, PositionRoute Route, bool KnowsMethod)> ForgeTargets(CharacterData member)
+        {
+            if (!IsReadyToRise(member, GoldenCoreRules.AbilitiesToForge) || member.ProgressionSealed) return new List<(string, PositionRoute, bool)>();
+            return ctx.Content.Fruitions
+                .Select(f => (f.Id, Route: GoldenCoreRules.RouteTo(member.DivineAbilities, f.Id, ctx.Content, Corrupted)))
+                .Where(x => x.Route != PositionRoute.None)
+                .Select(x => (x.Id, x.Route, knowledge.Knows(FactKind.GoldSeeking, x.Route == PositionRoute.IntercalaryThreeTwo ? GoldenCoreRules.SpecialisedMethod(x.Id) : x.Id)))
+                .ToList();
+        }
+
+        /// <summary>Why this essence cannot ask for its position now (French), or null.</summary>
+        public string ClaimRefusal(CharacterData member)
+        {
+            if (member == null || !member.IsAlive || member.Realm != CultivationRealm.GoldenCore || member.GoldenCore != GoldenCoreState.MetallicEssenceOnly)
+                return "seule une essence métallique sans position demande une position";
+            if (member.Retreat != Retreat.None) return "en retraite";
+            var route = GoldenCoreRules.RouteTo(member.DivineAbilities, member.FruitionId, ctx.Content, Corrupted);
+            if (route == PositionRoute.None) return "ses capacités ne mènent à aucune position de cette lignée";
+            if (IsOpen(route, member.FruitionId)) return null;
+            var state = fruitions.State(member.FruitionId);
+            return state?.Status == FruitionStatus.Occupied && route != PositionRoute.Realization
+                ? $"la lignée est tenue : il faut la permission de {state.Holder}" : "la position visée est fermée";
+        }
+
+        /// <summary>Chance (%) the essence is granted its position.</summary>
+        public int ClaimOdds(CharacterData member)
+        {
+            var route = GoldenCoreRules.RouteTo(member.DivineAbilities, member.FruitionId, ctx.Content, Corrupted);
+            var target = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == member.FruitionId);
+            return target == null ? 0 : GoldenCoreRules.ClaimChance(member, route, target, ctx.Content);
+        }
+
         /// <summary>
         /// Offers a tribute to a lineage's holder for leave to take a Surplus or an Intercalary there; the
         /// tribute is spent even if refused. False when refused or when there is no holder to ask.
