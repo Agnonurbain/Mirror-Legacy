@@ -404,8 +404,8 @@ namespace MirrorChronicles.Session
             var state = session.Fruitions.State(target.Id);
             if (route != PositionRoute.Realization && state?.Status == FruitionStatus.Occupied
                 && !session.GoldenCore.Permissions.ContainsKey(target.Id)
-                && Affords(session, content.Balance.GoldenCore.PermissionStones, CondenseReserveYears, spareTheSaving: true))
-                session.GoldenCore.RequestPermission(target.Id);
+                && Presentation.GoldenCoreView.Tribute(session, target.Id) is { } tribute) // a tribute in kind: never stones (2026-10-03)
+                session.GoldenCore.RequestPermission(target.Id, tribute.Select(t => t.Term).ToList());
             session.GoldenCore.ClaimPosition(essence);
         }
 

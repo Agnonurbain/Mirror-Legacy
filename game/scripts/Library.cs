@@ -131,7 +131,8 @@ namespace MirrorChronicles.Game
                     entrust.Pressed += () => Act(s.Artifacts.Equip(s.Clan.FindById(to), id), "L'artefact est confié.");
                     line.AddChild(entrust);
                 }
-                if (row.Owned && buyer != null && s.Artifacts.Armoury.Any(a => a.Id == row.Id))
+                if (row.Owned && buyer != null && s.Artifacts.Armoury.FirstOrDefault(a => a.Id == row.Id) is { } kept
+                    && !MirrorChronicles.Characters.ArtifactTrade.IsPrecious(kept.Rank, kept.Class)) // a precious one is offered in an accord, never sold
                 {
                     var sell = new Button { Text = $"Vendre à {buyer.Name}" };
                     string id = row.Id;
@@ -147,11 +148,10 @@ namespace MirrorChronicles.Game
                 AddButton(armoury, offer.Label, offer.Refusal, () => Act(s.Forge.Make(offer.FormId, offer.Rank, offer.SmithId), "La forge livre son œuvre."));
             Add(armoury, "— Les puissances —");
             foreach (var deal in ArtifactView.PowerOffers(s))
-                AddButton(armoury, deal.Label, null, () => Act(deal.Kind switch
+                AddButton(armoury, deal.Label, deal.Refusal, () => Act(deal.Kind switch
                 {
                     ArtifactDeal.Borrow => s.ArtifactTrade.Borrow(deal.Power),
-                    ArtifactDeal.Commission => s.ArtifactTrade.Commission(deal.Power, s.Context.Content.ArtifactForms[0].Id,
-                        s.Factions.GetFactionByName(deal.Power).HighestRealm > CultivationRealm.PurpleMansion ? CultivationRealm.PurpleMansion : s.Factions.GetFactionByName(deal.Power).HighestRealm),
+                    ArtifactDeal.Commission => s.ArtifactTrade.Commission(deal.Power, s.Context.Content.ArtifactForms[0].Id, deal.Rank, deal.Terms),
                     _ => s.ArtifactTrade.StealFrom(deal.Power, deal.TeamIds),
                 }, "C'est fait."));
             var binds = ArtifactView.BindOffers(s);

@@ -65,8 +65,8 @@ namespace MirrorChronicles.Diplomacy
         {
             if (power == null) return "puissance inconnue";
             if (technique == null) return "elle ne détient pas cet art, ou le clan le connaît déjà";
-            if (technique.Kind == TechniqueKind.Cultivation && Characters.TechniqueRules.HasPurpleMansionSecret(technique))
-                return "une méthode du Manoir Pourpre ne s'achète pas : elle s'obtient par un accord, une opportunité ou un complot";
+            if (KnowledgeAccords.IsPrecious(technique)) // a high technique, of the Purple Mansion and its abilities (the user's rule, 2026-10-03)
+                return "un art du Manoir Pourpre ne s'achète pas avec des pierres : il s'obtient par un accord, une opportunité ou un complot";
             if (power.RelationWithPlayer < Settings.MinRelation) return $"la relation est trop froide ({Settings.MinRelation} requise)";
             if (resources.SpiritStones < PriceOf(technique, power.Name)) return $"il faut {PriceOf(technique, power.Name)} pierres spirituelles";
             return null;

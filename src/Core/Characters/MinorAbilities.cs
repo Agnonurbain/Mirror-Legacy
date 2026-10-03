@@ -25,10 +25,12 @@ namespace MirrorChronicles.Characters
         private readonly SuspicionLedger suspicion;
         private readonly MirrorSystem mirror;
         private readonly KnowledgeBase knowledge;
+        private readonly KnowledgeAccords accords;
 
         public MinorAbilities(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, SuspicionLedger suspicion,
-            MirrorSystem mirror, KnowledgeBase knowledge)
+            MirrorSystem mirror, KnowledgeBase knowledge, KnowledgeAccords accords)
         {
+            this.accords = accords;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -85,16 +87,18 @@ namespace MirrorChronicles.Characters
             return power != null && power.Elders.Any(e => e.FruitionId == lineage) ? power : null;
         }
 
-        /// <summary>A power whose elder holds the lineage teaches one of its minor abilities. Null when done, else why not (French).</summary>
-        public string Buy(string lineage, string powerName)
+        /// <summary>
+        /// A power whose elder holds the lineage teaches one of its minor abilities — for what it wants in kind, never for
+        /// stones: too precious (the user's rule, 2026-10-03). Null when done, else why not (French).
+        /// </summary>
+        public string Buy(string lineage, string powerName, IReadOnlyList<AccordTerm> terms)
         {
             var power = Holder(lineage, powerName);
             if (power == null) return "seule une puissance qui tient la lignée connaît ses capacités mineures";
             if (Unknown(lineage).Count == 0) return "le clan connaît déjà ses capacités mineures";
             if (power.RelationWithPlayer < Settings.BuyRelation) return $"{power.Name} ne livre pas ce savoir au clan";
-            if (resources.SpiritStones < Settings.Price) return $"ce savoir coûte {Settings.Price} pierres";
-            resources.ConsumeSpiritStones(Settings.Price);
-            power.Wealth += Settings.Price;
+            if (accords.BarterRefusal(power.Name, Settings.Worth, precious: true, terms) is { } why) return why;
+            accords.Barter(power.Name, terms, $"une capacité mineure de {lineage}");
             RevealOne(lineage, KnowledgeSource.Trade);
             return null;
         }

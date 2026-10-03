@@ -200,7 +200,11 @@ namespace MirrorChronicles.Session
             Bridges = new PositionBridges(Context);
             Mandate = new MandateOfLife(Context, Clan);
             GoldenCore.CorruptedVirtues = () => Bridges.Corrupted; // the bridges of the corrupted Virtues (R6)
-            Minors = new MinorAbilities(Context, Clan, Resources, Factions, Suspicion, Mirror, Knowledge);
+            Minors = new MinorAbilities(Context, Clan, Resources, Factions, Suspicion, Mirror, Knowledge, Accords);
+            Accords.Armoury = Artifacts; // an artifact may be given in an accord
+            GoldenCore.Accords = Accords;   // a holder's leave is paid in kind
+            GoldenCore.Factions = Factions;
+            ArtifactTrade.Accords = Accords;
             Schemes.Guard = m => 1 - (1 - Dharma.GuardChance(m)) * (1 - Dharma.DomainGuardChance) * (1 - ArtifactRules.Protection(m));
             Place.Phenomena = Phenomena; // a death's weather, a failure's lasting phenomenon (L4c)
             GoldenCore.GovernanceBonus = Imperial.BonusFor; // a sovereign cultivates by governing (R20)

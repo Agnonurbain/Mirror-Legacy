@@ -47,7 +47,7 @@
 	"intercalaryBridgeChance": 30,
 	"transmutationChance": 25,
 	"axiomPenalty": 30,
-	"permissionStones": 5000,
+	"permissionWorth": 5000,
 	"permissionChance": 0.3,
 	"goldSeekingMirrorCost": 40,
 	"specialisedMirrorCost": 70,
@@ -93,6 +93,7 @@
 	"qiWorthPerPortion": 300,
 	"debtWorthShare": 0.5,
 	"discipleWorthPerRealm": 2500,
+	"artifactOreValue": 5,
 	"patronOfferChance": 0.08,
 	"patronRefusalLoss": 5,
 	"cleanseMirrorCost": 40
@@ -537,7 +538,7 @@
       { "from": "mutable-wood", "bridge": "nourishing-wood", "to": "hidden-wood", "virtue": "Wood", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" }
     ]
   },
-  "minorAbilities": { "tombRevealChance": 0.5, "ruinsRevealChance": 0.2, "mirrorCost": 40, "price": 2000, "buyRelation": 20, "caughtEvidence": 20, "caughtRelation": -25 },
+  "minorAbilities": { "tombRevealChance": 0.5, "ruinsRevealChance": 0.2, "mirrorCost": 40, "worth": 6000, "buyRelation": 20, "caughtEvidence": 20, "caughtRelation": -25 },
   "artifacts": {
     "ranks": {
       "QiRefinement": { "strength": 2, "protection": 0.15, "cultivation": 0.05 },

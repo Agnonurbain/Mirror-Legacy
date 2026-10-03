@@ -10,7 +10,7 @@ namespace MirrorChronicles.Data
         public double TombRevealChance { get; init; } = 0.5;
         public double RuinsRevealChance { get; init; } = 0.2;
         public int MirrorCost { get; init; } = 40;
-        public int Price { get; init; } = 2000;
+        public int Worth { get; init; } = 6000; // what it is worth in kind: never sold for stones
         public int BuyRelation { get; init; } = 20;
         public int CaughtEvidence { get; init; } = 20;
         public int CaughtRelation { get; init; } = -25;

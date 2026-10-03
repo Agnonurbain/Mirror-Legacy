@@ -15,7 +15,8 @@ namespace MirrorChronicles.Presentation
     public enum ArtifactDeal { Borrow, Commission, Steal }
 
     /// <summary>A deal with a power: a loan, a commission, a theft — the team for a theft.</summary>
-    public sealed record PowerOffer(ArtifactDeal Kind, string Power, string Label, IReadOnlyList<string> TeamIds);
+    public sealed record PowerOffer(ArtifactDeal Kind, string Power, string Label, IReadOnlyList<string> TeamIds,
+        CultivationRealm Rank = CultivationRealm.Embryonic, IReadOnlyList<Diplomacy.AccordTerm> Terms = null, string Refusal = null);
 
     /// <summary>A peak Foundation and a Spiritual Treasure it may bind itself to.</summary>
     public sealed record BindOffer(string MemberId, string ArtifactId, string Label);
@@ -91,8 +92,17 @@ namespace MirrorChronicles.Presentation
                     && p.HighestRealm >= CultivationRealm.QiRefinement)
                 {
                     var rank = p.HighestRealm > CultivationRealm.PurpleMansion ? CultivationRealm.PurpleMansion : p.HighestRealm;
-                    offers.Add(new PowerOffer(ArtifactDeal.Commission, p.Name,
-                        $"Commander à {p.Name} un artefact ({RankLabel(rank)}) — {s.ArtifactTrade.CommissionPrice(rank)} pierres", new List<string>()));
+                    int price = s.ArtifactTrade.CommissionPrice(rank);
+                    if (!ArtifactTrade.IsPrecious(rank, ArtifactArmoury.ClassOf(rank)))
+                        offers.Add(new PowerOffer(ArtifactDeal.Commission, p.Name, $"Commander à {p.Name} un artefact ({RankLabel(rank)}) — {price} pierres", new List<string>(), rank));
+                    else
+                    {
+                        var bundle = AccordView.Bundle(AccordView.Offerings(s.Accords, s.Clan, s.Techniques, s.Resources, s.SecretBook, s.Artifacts, p.Name, price, precious: true), price);
+                        offers.Add(new PowerOffer(ArtifactDeal.Commission, p.Name,
+                            $"Commander à {p.Name} un artefact ({RankLabel(rank)}) — en nature" + (bundle == null ? "" : $" : {string.Join(", ", bundle.Select(b => b.Label))}"),
+                            new List<string>(), rank, bundle?.Select(b => b.Term).ToList(),
+                            bundle == null ? "le clan n'a rien qui vaille un artefact du Manoir Pourpre (les pierres n'y comptent pas)" : null));
+                    }
                 }
                 if (p.RelationWithPlayer < 0 && team.Count > 0)
                     offers.Add(new PowerOffer(ArtifactDeal.Steal, p.Name, $"Voler un artefact à {p.Name}", team));

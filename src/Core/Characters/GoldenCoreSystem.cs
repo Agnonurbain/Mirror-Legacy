@@ -169,15 +169,31 @@ namespace MirrorChronicles.Characters
             return target == null ? 0 : GoldenCoreRules.ClaimChance(member, route, target, ctx.Content);
         }
 
+        /// <summary>The accords, to pay a holder's leave in kind (set by the session).</summary>
+        public Diplomacy.KnowledgeAccords Accords { get; set; }
+
+        /// <summary>The powers, to find a lineage's holder among their elders (set by the session).</summary>
+        public Diplomacy.FactionManager Factions { get; set; }
+
+        /// <summary>Who receives a tribute for a lineage's leave: the power whose elder holds it, or the lone holder by its name.</summary>
+        public string TributeRecipient(string fruitionId)
+        {
+            var holder = fruitions.State(fruitionId)?.Holder;
+            return Factions?.Factions.FirstOrDefault(f => f.Elders.Any(e => e.Name == holder && e.FruitionId == fruitionId))?.Name ?? holder;
+        }
+
         /// <summary>
-        /// Offers a tribute to a lineage's holder for leave to take a Surplus or an Intercalary there; the
-        /// tribute is spent even if refused. False when refused or when there is no holder to ask.
+        /// Offers a tribute in kind to a lineage's holder for leave to take a Surplus or an Intercalary there — never stones,
+        /// a True Monarch's leave has no price in stones (the user's rule, 2026-10-03); the tribute is spent even if refused.
+        /// False when refused, when the tribute does not suffice, or when there is no holder to ask.
         /// </summary>
-        public bool RequestPermission(string fruitionId)
+        public bool RequestPermission(string fruitionId, IReadOnlyList<Diplomacy.AccordTerm> terms)
         {
             var state = fruitions.State(fruitionId);
-            if (state?.Status != FruitionStatus.Occupied || state.Holder == null || !resources.ConsumeSpiritStones(Settings.PermissionStones))
-                return false;
+            if (state?.Status != FruitionStatus.Occupied || state.Holder == null || Accords == null) return false;
+            string recipient = TributeRecipient(fruitionId);
+            if (Accords.BarterRefusal(recipient, Settings.PermissionWorth, precious: true, terms) != null) return false;
+            Accords.Barter(recipient, terms, $"la permission de {fruitionId}");
             if (!ctx.Rng.Chance(Settings.PermissionChance))
             {
                 ctx.Log.Info($"[Golden Core] {state.Holder} refuses the clan's tribute.");

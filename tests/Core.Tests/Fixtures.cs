@@ -95,6 +95,15 @@ namespace MirrorChronicles.Tests
         public MarriageAlliance Matches { get; }
 
         /// <param name="content">Other content than the shipped one (a clan elsewhere, a changed balance).</param>
+        /// <summary>Qi portions worth a holder's leave, given to the clan to offer (a tribute in kind, never stones).</summary>
+        public System.Collections.Generic.List<AccordTerm> Tribute()
+        {
+            const string qi = "clear-spring-qi";
+            int portions = Ctx.Content.Balance.GoldenCore.PermissionWorth / Ctx.Content.Balance.KnowledgeTrade.QiWorthPerPortion + 1;
+            Resources.AddQi(qi, portions);
+            return new System.Collections.Generic.List<AccordTerm> { new AccordTerm(AccordCurrency.Qi, qi, portions) };
+        }
+
         public TestWorld(Random rng, GameContent content = null)
         {
             Ctx = content == null ? Fixtures.Context(rng) : new GameContext(new GameEventBus(), new RecordingGameLog(), rng, new GameClock(), content);
@@ -137,6 +146,8 @@ namespace MirrorChronicles.Tests
             Watch = new ClanWatch(Ctx, Suspicion);
             SecretBook = new SecretBook(Ctx, Suspicion);
             Accords = new KnowledgeAccords(Ctx, Clan, Factions, Techniques, Resources, SecretBook);
+            GoldenCore.Accords = Accords; // a holder's leave is paid in kind (2026-10-03)
+            GoldenCore.Factions = Factions;
             Sponsorships = new Sponsorships(Ctx, Clan, Factions, Techniques, SecretBook, Accords, Mirror);
             PowerShards = new PowerShards(Ctx, Clan, Factions, SecretBook, Suspicion, Lore, Treaties, Resources, Shards);
             Dealings = new SecretDealings(Ctx, Clan, Resources, Factions, Suspicion, SecretBook);

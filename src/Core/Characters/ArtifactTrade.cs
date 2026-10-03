@@ -40,18 +40,20 @@ namespace MirrorChronicles.Characters
         }
 
         private ArtifactSettings Artifacts => ctx.Content.Balance.Artifacts;
+
+        /// <summary>The accords, to commission a precious artifact in kind (set by the session).</summary>
+        public Diplomacy.KnowledgeAccords Accords { get; set; }
         private ArtifactTradeSettings Settings => Artifacts.Trade;
 
         private static CultivationRealm Craft(FactionData power) =>
             power.HighestRealm > CultivationRealm.PurpleMansion ? CultivationRealm.PurpleMansion : power.HighestRealm;
 
-        /// <summary>What an artifact is worth in stones: its forging, its class.</summary>
-        public int Worth(CultivationRealm rank, ArtifactClass cls)
-        {
-            var cost = Artifacts.Forging.Where(f => f.Key <= rank).OrderByDescending(f => f.Key).Select(f => f.Value).FirstOrDefault() ?? new ArtifactForging();
-            double factor = Artifacts.ClassFactor.TryGetValue(cls, out var f) ? f : 1.0;
-            return (int)((cost.Stones + cost.Ores * Settings.OreValue) * factor);
-        }
+        /// <summary>What an artifact is worth: its forging, its class.</summary>
+        public int Worth(CultivationRealm rank, ArtifactClass cls) =>
+            ArtifactRules.Worth(new ArtifactInstance(null, null, null, cls, rank, null, ArtifactEffect.Combat, 0, 0, 0, 1), Artifacts, Settings.OreValue);
+
+        /// <summary>A Purple Mansion's artifact is precious: never bought nor sold for stones (the user's rule, 2026-10-03).</summary>
+        public static bool IsPrecious(CultivationRealm rank, ArtifactClass cls) => rank >= CultivationRealm.PurpleMansion || cls == ArtifactClass.SpiritualTreasure;
 
         public int CommissionPrice(CultivationRealm rank) => (int)(Worth(rank, ArmouryClass(rank)) * Settings.CommissionMarkup);
 
@@ -63,8 +65,11 @@ namespace MirrorChronicles.Characters
             return lineages.Count == 0 ? null : lineages[ctx.Rng.Next(lineages.Count)].Id;
         }
 
-        /// <summary>A sect, a gate or a kingdom forges an artifact for the clan. Null when done, else why not (French).</summary>
-        public string Commission(string powerName, string formId, CultivationRealm rank)
+        /// <summary>
+        /// A sect, a gate or a kingdom forges an artifact for the clan: for stones, or — a Purple Mansion's, precious — for what
+        /// it wants in kind. Null when done, else why not (French).
+        /// </summary>
+        public string Commission(string powerName, string formId, CultivationRealm rank, IReadOnlyList<AccordTerm> terms = null)
         {
             var power = factions.GetFactionByName(powerName);
             if (power == null || (power.Kind != FactionKind.Sect && power.Kind != FactionKind.Gate && power.Kind != FactionKind.State))
@@ -73,9 +78,18 @@ namespace MirrorChronicles.Characters
             if (rank > Craft(power) || !Artifacts.Forging.ContainsKey(rank)) return $"{power.Name} ne forge pas d'artefact de ce rang";
             if (ctx.Content.ArtifactForms.All(f => f.Id != formId)) return "forme d'artefact inconnue";
             int price = CommissionPrice(rank);
-            if (resources.SpiritStones < price) return $"la commande coûte {price} pierres";
-            resources.ConsumeSpiritStones(price);
-            power.Wealth += price;
+            if (IsPrecious(rank, ArtifactArmoury.ClassOf(rank)))
+            {
+                if (Accords == null) return "aucun accord possible";
+                if (Accords.BarterRefusal(power.Name, price, precious: true, terms) is { } why) return why;
+                Accords.Barter(power.Name, terms, "un artefact du Manoir Pourpre");
+            }
+            else
+            {
+                if (resources.SpiritStones < price) return $"la commande coûte {price} pierres";
+                resources.ConsumeSpiritStones(price);
+                power.Wealth += price;
+            }
             var made = armoury.Create(formId, rank, AnyLineage());
             ctx.Events.TriggerArtifactFound(made, $"commandé à {power.Name}");
             return null;
@@ -88,6 +102,7 @@ namespace MirrorChronicles.Characters
             var artifact = armoury.Armoury.FirstOrDefault(a => a.Id == artifactId);
             if (power == null) return "puissance inconnue";
             if (artifact == null || artifact.LentBy != null) return "le clan ne vend que ses propres artefacts de l'armurerie";
+            if (IsPrecious(artifact.Rank, artifact.Class)) return "un artefact du Manoir Pourpre ne se vend pas pour des pierres : il s'offre dans un accord";
             int price = (int)(Worth(artifact.Rank, artifact.Class) * Settings.SellShare);
             armoury.TakeAway(artifactId);
             power.Artifacts.Add(artifact);

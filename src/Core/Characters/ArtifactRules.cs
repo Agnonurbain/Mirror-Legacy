@@ -23,6 +23,15 @@ namespace MirrorChronicles.Characters
         public static double Protection(CharacterData member) =>
             Wields(member) ? Math.Min(0.95, member.Artifact.Protection * Kin(member)) : 0;
 
+        /// <summary>What an artifact is worth: its rank's forging (ores at their worth in stones), and its class.</summary>
+        public static int Worth(ArtifactInstance a, ArtifactSettings s, int oreValue)
+        {
+            var cost = System.Linq.Enumerable.FirstOrDefault(System.Linq.Enumerable.Select(System.Linq.Enumerable.OrderByDescending(
+                System.Linq.Enumerable.Where(s.Forging, f => f.Key <= a.Rank), f => f.Key), f => f.Value)) ?? new ArtifactForging();
+            double factor = s.ClassFactor.TryGetValue(a.Class, out var f) ? f : 1.0;
+            return (int)((cost.Stones + cost.Ores * oreValue) * factor);
+        }
+
         /// <summary>The factor on its bearer's cultivation (1: none).</summary>
         public static double CultivationSpeed(CharacterData member)
         {

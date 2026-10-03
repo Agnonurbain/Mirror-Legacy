@@ -57,8 +57,7 @@ namespace MirrorChronicles.Tests.Characters
         /// <summary>Tan Qing, holder of the Mutable Water, has granted the clan leave.</summary>
         private static void PatronAgrees(TestWorld w)
         {
-            w.Resources.AddSpiritStones(Settings.PermissionStones);
-            Assert.IsTrue(w.GoldenCore.RequestPermission(MutableWater));
+            Assert.IsTrue(w.GoldenCore.RequestPermission(MutableWater, w.Tribute()));
         }
 
         // ---- The data ----

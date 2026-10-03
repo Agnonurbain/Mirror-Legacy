@@ -317,6 +317,7 @@ namespace MirrorChronicles.Data
         public int QiWorthPerPortion { get; init; }
         public double DebtWorthShare { get; init; }
         public int DiscipleWorthPerRealm { get; init; }
+        public int ArtifactOreValue { get; init; } = 5; // an ore's worth in stones, when an artifact is given
 
         /// <summary>Patrons (§11.10; 🔎): the yearly chance of an offer, the relation lost on a refusal, the mirror's cleansing.</summary>
         public double PatronOfferChance { get; init; }
@@ -485,7 +486,7 @@ namespace MirrorChronicles.Data
         public int AxiomPenalty { get; init; }
 
         /// <summary>The tribute offered to a holder for a Surplus or an Intercalary of their lineage, and its chance.</summary>
-        public int PermissionStones { get; init; }
+        public int PermissionWorth { get; init; } // a holder's leave, paid in kind: never in stones (2026-10-03)
         public double PermissionChance { get; init; }
 
         /// <summary>Mirror power to decipher a lineage's gold-seeking method, and its specialised Intercalary method.</summary>

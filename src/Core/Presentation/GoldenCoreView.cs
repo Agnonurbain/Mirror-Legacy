@@ -53,9 +53,13 @@ namespace MirrorChronicles.Presentation
                     string refusal = s.GoldenCore.ClaimRefusal(m);
                     var state = s.Fruitions.State(m.FruitionId);
                     if (refusal != null && state?.Status == FruitionStatus.Occupied && !s.GoldenCore.Permissions.ContainsKey(m.FruitionId))
+                    {
+                        var tribute = Tribute(s, m.FruitionId);
                         options.Add(new GoldenCoreOption(GoldenCoreAction.Permission, m.ID, m.FruitionId,
-                            $"{m.FullName} : offrir un tribut à {state.Holder} pour sa permission ({gc.PermissionStones} pierres, {(int)(gc.PermissionChance * 100)} %)",
-                            s.Resources.SpiritStones < gc.PermissionStones ? $"il faut {gc.PermissionStones} pierres" : null));
+                            $"{m.FullName} : offrir un tribut à {state.Holder} pour sa permission ({(int)(gc.PermissionChance * 100)} %)"
+                            + (tribute == null ? "" : $" : {string.Join(", ", tribute.Select(t => t.Label))}"),
+                            tribute == null ? "le clan n'a rien qui vaille un tel tribut (les pierres n'y comptent pas)" : null));
+                    }
                     options.Add(new GoldenCoreOption(GoldenCoreAction.Claim, m.ID, m.FruitionId,
                         $"{m.FullName} : demander sa position dans {Lineage(s, m.FruitionId)} — {s.GoldenCore.ClaimOdds(m)} %", refusal));
                 }
@@ -91,6 +95,14 @@ namespace MirrorChronicles.Presentation
             return options;
         }
 
+        /// <summary>The cheapest tribute in kind for a lineage's leave, or null.</summary>
+        public static IReadOnlyList<AccordCandidate> Tribute(GameSession s, string fruitionId)
+        {
+            int worth = s.Context.Content.Balance.GoldenCore.PermissionWorth;
+            return AccordView.Bundle(AccordView.Offerings(s.Accords, s.Clan, s.Techniques, s.Resources, s.SecretBook, s.Artifacts,
+                s.GoldenCore.TributeRecipient(fruitionId), worth, precious: true), worth);
+        }
+
         /// <summary>Does it: null when done; else what came of it (French).</summary>
         public static string Perform(GameSession s, GoldenCoreOption o)
         {
@@ -104,7 +116,9 @@ namespace MirrorChronicles.Presentation
                     if (!s.GoldenCore.Forge(m, o.Target)) return "la forge ne peut être tentée";
                     return m.IsAlive ? null : "l'essence prend vie : un Démon d'Essence Métallique est né";
                 case GoldenCoreAction.Permission:
-                    return s.GoldenCore.RequestPermission(o.Target) ? null : "le détenteur refuse le tribut";
+                    var tribute = Tribute(s, o.Target);
+                    if (tribute == null) return "le clan n'a rien qui vaille un tel tribut";
+                    return s.GoldenCore.RequestPermission(o.Target, tribute.Select(t => t.Term).ToList()) ? null : "le détenteur refuse le tribut";
                 case GoldenCoreAction.Claim:
                     if (!s.GoldenCore.ClaimPosition(m)) return "la position ne peut être demandée";
                     return m.IsAlive ? null : "le Ciel refuse : un Démon d'Essence Métallique est né";

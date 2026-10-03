@@ -11,7 +11,7 @@ namespace MirrorChronicles.Tests.Characters
     /// The minor abilities of former True Monarchs (LORE.md §5.5.1, R2; L4e, user decisions 2026-10-03): every lineage has
     /// at least one (invented in the data where the lore names none); five abilities of the lineage with a minor one lead to
     /// its Surplus. They are rare knowledge: a tomb or ruins reveal one, the mirror deduces those of a lineage whose five are
-    /// known, and a power holding the lineage may teach one — for stones and good relations — or be robbed of it.
+    /// known, and a power holding the lineage may teach one — in kind, never for stones, and to the trusted — or be robbed of it.
     /// </summary>
     [TestFixture]
     public class MinorAbilityTests
@@ -82,22 +82,29 @@ namespace MirrorChronicles.Tests.Characters
             return (power, lineage.Id);
         }
 
+        private static System.Collections.Generic.List<MirrorChronicles.Diplomacy.AccordTerm> QiWorth(GameSession s, int worth)
+        {
+            int portions = worth / s.Context.Content.Balance.KnowledgeTrade.QiWorthPerPortion + 1;
+            s.Resources.AddQi("clear-spring-qi", portions);
+            return new System.Collections.Generic.List<MirrorChronicles.Diplomacy.AccordTerm>
+                { new MirrorChronicles.Diplomacy.AccordTerm(MirrorChronicles.Diplomacy.AccordCurrency.Qi, "clear-spring-qi", portions) };
+        }
+
         [Test]
-        public void APowerHoldingTheLineage_TeachesAMinor_ForStonesAndGoodRelations()
+        public void APowerHoldingTheLineage_TeachesAMinor_InKind_AndToTheTrusted()
         {
             var s = Session();
             var (power, lineage) = AHolder(s);
+            int worth = s.Context.Content.Balance.MinorAbilities.Worth;
             power.RelationWithPlayer = -10;
-            Assert.IsNotNull(s.Minors.Buy(lineage, power.Name));
+            Assert.IsNotNull(s.Minors.Buy(lineage, power.Name, QiWorth(s, worth)));
             power.RelationWithPlayer = 50;
-            int stones = s.Resources.SpiritStones;
-            Assert.IsNull(s.Minors.Buy(lineage, power.Name));
-            Assert.Less(s.Resources.SpiritStones, stones);
+            Assert.IsNull(s.Minors.Buy(lineage, power.Name, QiWorth(s, worth)));
             Assert.IsTrue(s.Context.Content.Fruitions.Single(f => f.Id == lineage).Abilities.Where(a => a.Substitute)
                 .Any(a => s.Knowledge.Knows(FactKind.Ability, $"{lineage}:{a.Id}")));
             var other = s.Factions.Factions.First(f => f.Elders.All(e => e.FruitionId != lineage));
             other.RelationWithPlayer = 50;
-            StringAssert.Contains("lignée", s.Minors.Buy(lineage, other.Name), "only a power holding the lineage knows its minors");
+            StringAssert.Contains("lignée", s.Minors.Buy(lineage, other.Name, QiWorth(s, worth)), "only a power holding the lineage knows its minors");
         }
 
         [Test]

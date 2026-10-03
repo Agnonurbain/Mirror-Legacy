@@ -305,8 +305,7 @@ namespace MirrorChronicles.Tests.Characters
             var c = Forged(w, MutableWater, MutableWithSubstitute);
             Assert.IsFalse(w.GoldenCore.ClaimPosition(c));
 
-            w.Resources.AddSpiritStones(Content.Balance.GoldenCore.PermissionStones);
-            Assert.IsTrue(w.GoldenCore.RequestPermission(MutableWater));
+            Assert.IsTrue(w.GoldenCore.RequestPermission(MutableWater, w.Tribute()));
             Assert.IsTrue(w.GoldenCore.ClaimPosition(c));
 
             Assert.AreEqual(GoldenCoreState.Surplus, c.GoldenCore);
@@ -363,13 +362,10 @@ namespace MirrorChronicles.Tests.Characters
         public void RequestPermission_CostsATribute_EvenWhenRefused()
         {
             var w = new TestWorld(new FixedRandom(Fail));
-            int tribute = Content.Balance.GoldenCore.PermissionStones;
-            w.Resources.AddSpiritStones(tribute);
-            int before = w.Resources.SpiritStones;
+            var tribute = w.Tribute();
+            Assert.IsFalse(w.GoldenCore.RequestPermission(MutableWater, tribute));
 
-            Assert.IsFalse(w.GoldenCore.RequestPermission(MutableWater));
-
-            Assert.AreEqual(before - tribute, w.Resources.SpiritStones);
+            Assert.AreEqual(0, w.Resources.QiPortions(tribute[0].Ref), "the tribute in kind is given, even if refused");
             Assert.IsFalse(w.GoldenCore.Permissions.ContainsKey(MutableWater));
         }
 
@@ -377,16 +373,14 @@ namespace MirrorChronicles.Tests.Characters
         public void RequestPermission_Refuses_ALineageWithoutHolder()
         {
             var w = new TestWorld(new FixedRandom(Pass));
-            w.Resources.AddSpiritStones(Content.Balance.GoldenCore.PermissionStones);
-            Assert.IsFalse(w.GoldenCore.RequestPermission(OrthodoxWater));
+            Assert.IsFalse(w.GoldenCore.RequestPermission(OrthodoxWater, w.Tribute()));
         }
 
         [Test]
         public void Permission_LapsesWhenTheHolderChanges()
         {
             var w = new TestWorld(new FixedRandom(Pass));
-            w.Resources.AddSpiritStones(Content.Balance.GoldenCore.PermissionStones);
-            w.GoldenCore.RequestPermission(MutableWater);
+            w.GoldenCore.RequestPermission(MutableWater, w.Tribute());
             w.Fruitions.ChangeHolder(MutableWater, "Nouveau détenteur");
 
             var c = Forged(w, MutableWater, MutableWithSubstitute);

@@ -48,6 +48,33 @@ namespace MirrorChronicles.Presentation
                 .Where(c => c.Worth > 0).ToList();
         }
 
+        /// <summary>
+        /// Everything the clan could give a recipient — a power, or a lone figure by its name — for a thing of this price; stones
+        /// only when the thing is not precious (the user's rule, 2026-10-03). Its artifacts too.
+        /// </summary>
+        public static IReadOnlyList<AccordCandidate> Offerings(KnowledgeAccords accords, ClanManager clan, TechniqueLibrary techniques,
+            ResourceManager resources, SecretBook secrets, ArtifactArmoury armoury, string recipient, int price, bool precious)
+        {
+            var terms = new List<(string Label, AccordTerm Term)>();
+            if (!precious) terms.Add(($"{price} pierres spirituelles", new AccordTerm(AccordCurrency.Stones, null, price)));
+            foreach (var art in techniques.Known.OrderByDescending(t => t.Grade))
+                terms.Add(($"l'art « {art.Name} » (grade {art.Grade})", new AccordTerm(AccordCurrency.Technique, art.ID, 1)));
+            foreach (var secret in secrets.KnownBy(SecretBook.ClanHolder))
+                terms.Add(($"un secret de {secret.Holder} (rang {secret.Rank})", new AccordTerm(AccordCurrency.Secret, secret.Id, 1)));
+            foreach (var beast in resources.Beasts)
+                terms.Add(($"une bête spirituelle ({RankCatalog.RealmName(beast.Realm)})", new AccordTerm(AccordCurrency.Beast, beast.Id, 1)));
+            foreach (var (qi, portions) in resources.SpiritualQi.Where(q => q.Value > 0))
+                terms.Add(($"{portions} portion(s) de {techniques.FindQi(qi)?.Name ?? qi}", new AccordTerm(AccordCurrency.Qi, qi, portions)));
+            foreach (var artifact in armoury?.Armoury.Where(a => a.LentBy == null) ?? Enumerable.Empty<ArtifactInstance>())
+                terms.Add(($"l'artefact {artifact.Name}", new AccordTerm(AccordCurrency.Artifact, artifact.Id, 1)));
+            terms.Add(("une dette : elle la réclamera un jour", new AccordTerm(AccordCurrency.Debt, null, 1)));
+            foreach (var member in clan.LivingMembers.Where(m => m.ID != clan.PatriarchID && m.CaptorFaction == null && SpiritualOrificeRules.CanCultivate(m)))
+                terms.Add(($"{member.FullName} part comme disciple ({RankCatalog.RealmName(member.Realm)})", new AccordTerm(AccordCurrency.Disciple, member.ID, 1)));
+            return terms.Where(t => accords.BarterRefusal(recipient, 0, precious, new[] { t.Term }) == null)
+                .Select(t => new AccordCandidate(t.Label, t.Term, accords.BarterWorth(t.Term, price, precious)))
+                .Where(c => c.Worth > 0).ToList();
+        }
+
         /// <summary>The cheapest bundle of present gifts (no debt, no disciple) worth at least <paramref name="price"/>; null when none is.</summary>
         public static IReadOnlyList<AccordCandidate> Bundle(IReadOnlyList<AccordCandidate> candidates, int price)
         {
