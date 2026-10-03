@@ -184,8 +184,9 @@ namespace MirrorChronicles.World
             var team = (teamIds ?? new List<string>()).Select(clan.FindById).Where(m => m != null).ToList();
             if (power == null || team.Count == 0) return 0;
             var s = Settings;
-            var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
-            double strength = powers[0] + powers.Skip(1).Sum() * 0.3;
+            var gap = ctx.Content.Balance.RealmGap;
+            if (!Characters.RealmGap.Reaches(team, power.HighestRealm, gap)) return 0; // numbers do not cross a realm (audit §1)
+            double strength = Characters.RealmGap.TeamStrength(team, power.HighestRealm, 0.3, gap);
             return Math.Clamp(s.SabotageBaseChance + (strength - HuntRules.Power(power.HighestRealm, 5)) * s.SabotageChancePerPower,
                 s.SabotageMinChance, s.SabotageMaxChance);
         }

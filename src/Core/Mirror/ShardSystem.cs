@@ -150,8 +150,9 @@ namespace MirrorChronicles.Mirror
         public double ExpeditionChance(IReadOnlyList<CharacterData> team, ShardDefinition shard)
         {
             var s = Settings;
-            var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
-            double strength = powers[0] + powers.Skip(1).Sum() * s.ExpeditionHelpShare;
+            var gap = ctx.Content.Balance.RealmGap;
+            if (!Characters.RealmGap.Reaches(team, shard.GuardRealm, gap)) return 0; // numbers do not cross a realm (audit §1)
+            double strength = Characters.RealmGap.TeamStrength(team, shard.GuardRealm, s.ExpeditionHelpShare, gap);
             double guardian = HuntRules.Power(shard.GuardRealm, 5);
             return System.Math.Clamp(s.ExpeditionBaseChance + (strength - guardian) * s.ExpeditionChancePerPower, s.ExpeditionMinChance, s.ExpeditionMaxChance);
         }

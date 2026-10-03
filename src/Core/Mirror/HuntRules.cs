@@ -36,9 +36,9 @@ namespace MirrorChronicles.Mirror
         public static int CaptureChance(HuntPlan plan, WorldBeast beast, ClanManager clan, GameContent content)
         {
             var s = content.Balance.Hunt;
-            int best = plan.Team.Where(p => p.Value == HuntRole.Striker)
-                .Select(p => clan.FindById(p.Key)).Where(m => m != null)
-                .Select(m => Power(m)).DefaultIfEmpty(0).Max();
+            var strikers = plan.Team.Where(p => p.Value == HuntRole.Striker).Select(p => clan.FindById(p.Key)).Where(m => m != null).ToList();
+            if (strikers.Count > 0 && !Characters.RealmGap.Reaches(strikers, beast.Realm, content.Balance.RealmGap)) return 0; // beyond reach (audit §1)
+            int best = strikers.Select(m => Power(m)).DefaultIfEmpty(0).Max();
             int lures = plan.Team.Values.Count(r => r == HuntRole.Lure);
             int chance = s.CaptureBase + (best - Power(beast.Realm, beast.Stage)) * s.CapturePerPowerPoint
                 + lures * s.LureBonus + s.TimingCapture[(int)plan.Timing];

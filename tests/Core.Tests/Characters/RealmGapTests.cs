@@ -56,6 +56,52 @@ namespace MirrorChronicles.Tests.Characters
             Assert.Greater(SchemeRules.CaptureChance(peer, mansion, s, Gap), 0);
         }
 
+        private static MirrorChronicles.Session.GameSession Session() =>
+            MirrorChronicles.Session.GameSession.NewGame(new MirrorChronicles.Session.GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+
+        private static List<CharacterData> ThreeFoundations(MirrorChronicles.Session.GameSession s)
+        {
+            var team = new List<CharacterData> { Member(CultivationRealm.Foundation, 4), Member(CultivationRealm.Foundation, 4), Member(CultivationRealm.Foundation, 4) };
+            foreach (var m in team) s.Clan.AddMember(m);
+            return team;
+        }
+
+        [Test]
+        public void NoExpedition_ToRuinsGuardedBeyondReach()
+        {
+            var s = Session();
+            var team = ThreeFoundations(s);
+            Assert.AreEqual(0, s.Shards.ExpeditionChance(team, new ShardDefinition { Id = "x", GuardRealm = CultivationRealm.GoldenCore }), 1e-9);
+            Assert.Greater(s.Shards.ExpeditionChance(team, new ShardDefinition { Id = "x", GuardRealm = CultivationRealm.Foundation }), 0);
+        }
+
+        [Test]
+        public void NoShardTheft_NoSabotage_FromAPowerBeyondReach()
+        {
+            var s = Session();
+            var team = ThreeFoundations(s);
+            var power = s.Factions.Factions[0];
+            power.HighestRealm = CultivationRealm.PurpleMansion;
+            Assert.AreEqual(0, s.PowerShards.TheftChance(team, power), 1e-9);
+            Assert.AreEqual(0, s.WorldFruitions.SabotageChance(power.Name, team.ConvertAll(m => m.ID)), 1e-9);
+            power.HighestRealm = CultivationRealm.Foundation;
+            Assert.Greater(s.PowerShards.TheftChance(team, power), 0);
+            Assert.Greater(s.WorldFruitions.SabotageChance(power.Name, team.ConvertAll(m => m.ID)), 0);
+        }
+
+        [Test]
+        public void NoStrikerCaptures_ABeastBeyondReach()
+        {
+            var s = Session();
+            var team = ThreeFoundations(s);
+            var plan = new HuntPlan { Team = new Dictionary<string, HuntRole>() };
+            foreach (var m in team) plan.Team[m.ID] = HuntRole.Striker;
+            var mansionBeast = new WorldBeast("b", "x", "r", CultivationRealm.PurpleMansion, 1, null);
+            var peerBeast = mansionBeast with { Realm = CultivationRealm.Foundation };
+            Assert.AreEqual(0, MirrorChronicles.Mirror.HuntRules.CaptureChance(plan, mansionBeast, s.Clan, s.Context.Content));
+            Assert.Greater(MirrorChronicles.Mirror.HuntRules.CaptureChance(plan, peerBeast, s.Clan, s.Context.Content), 0);
+        }
+
         [Test]
         public void NoRescue_WhenNoRescuerReachesTheCaptor()
         {
