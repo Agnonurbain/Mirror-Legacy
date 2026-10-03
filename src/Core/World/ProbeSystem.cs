@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
@@ -79,7 +80,7 @@ namespace MirrorChronicles.World
             var target = factions.GetFactionByName(plan.Target);
             if (plan.Approach == ProbeApproach.Bribery && resources.ConsumeSpiritStones(plan.Stones)) target.Wealth += plan.Stones;
             if (plan.Approach == ProbeApproach.MirrorSight) mirror.ConsumePower(MirrorSightCost(plan.Target));
-            return Resolve(Clan, TeamStrength(team), plan.Target, plan.Approach, Partners(plan), plan.Stones, team);
+            return Resolve(Clan, TeamStrength(team, plan.Target), plan.Target, plan.Approach, Partners(plan), plan.Stones, team);
         }
 
         /// <summary>The clan's odds against a target, before any roll (the allies either all prompt or all lingering).</summary>
@@ -87,7 +88,15 @@ namespace MirrorChronicles.World
         {
             var team = (plan.TeamIds ?? new List<string>()).Select(clan.FindById).Where(m => m != null).ToList();
             var allies = alliesPrompt ? AlliesOf(plan.Target).Where(a => a != Clan).ToList() : new List<string>();
-            return SuccessProbability(Factors(Clan, TeamStrength(team), plan.Target, plan.Approach, Partners(plan), plan.Stones, allies), plan.Target);
+            if (BeyondReach(Clan, team, plan.Target, plan.Approach)) return 0;
+            return SuccessProbability(Factors(Clan, TeamStrength(team, plan.Target), plan.Target, plan.Approach, Partners(plan), plan.Stones, allies), plan.Target);
+        }
+
+        /// <summary>The chance the clan's probe is seen, before any partner's leak (none when its agents are beyond the target's sight).</summary>
+        public double DetectChanceAgainst(ProbePlan plan)
+        {
+            var team = (plan.TeamIds ?? new List<string>()).Select(clan.FindById).Where(m => m != null).ToList();
+            return Unseen(Clan, team, plan.Target, plan.Approach) ? 0 : ProbeRules.DetectChance(plan.Approach, Alertness(plan.Target), Settings);
         }
 
         /// <summary>Why the clan cannot send this probe now; null when it can.</summary>
@@ -105,6 +114,8 @@ namespace MirrorChronicles.World
             if (team.Count == 0) return "il faut une équipe";
             var unfit = team.FirstOrDefault(m => !hunts.IsFree(m));
             if (unfit != null || team.Contains(null)) return $"{unfit?.FullName ?? "un membre"} ne peut pas partir";
+            if (BeyondReach(Clan, team, plan.Target, plan.Approach))
+                return $"personne de l'équipe n'atteint {plan.Target}, dont le plus fort est d'un royaume trop haut ({RankCatalog.RealmName(target.HighestRealm)}) — la corruption ou le miroir le peuvent";
             foreach (var partner in Partners(plan))
             {
                 var power = factions.GetFactionByName(partner);
@@ -129,7 +140,7 @@ namespace MirrorChronicles.World
 
         /// <summary>A power's odds against a target, before any roll (no partners, the target's allies lingering).</summary>
         public double PowerChanceAgainst(FactionData prober, string target, ProbeApproach approach) =>
-            SuccessProbability(Factors(prober.Name, Strength(prober), target, approach, new List<string>(), 0, new List<string>()), target, approach);
+            BeyondReach(prober.Name, null, target, approach) ? 0 : SuccessProbability(Factors(prober.Name, Strength(prober), target, approach, new List<string>(), 0, new List<string>()), target, approach);
 
         public void ProcessYear()
         {
@@ -174,8 +185,9 @@ namespace MirrorChronicles.World
             var (prompt, late) = CallAllies(prober, target, partners);
             bool leaked = partners.Aggregate(false, (seen, partner) =>
                 ctx.Rng.Chance(Math.Clamp(s.PartnerLeakChance * (1 + suspicion.Distrust(partner, prober) / 100.0), 0, 1)) || seen);
-            bool success = ctx.Rng.Chance(SuccessProbability(Factors(prober, strength, target, approach, partners, stones, prompt), target, approach));
-            bool detected = ctx.Rng.Chance(ProbeRules.DetectChance(approach, Alertness(target), s)) || leaked;
+            bool success = !BeyondReach(prober, team, target, approach)
+                && ctx.Rng.Chance(SuccessProbability(Factors(prober, strength, target, approach, partners, stones, prompt), target, approach));
+            bool detected = (!Unseen(prober, team, target, approach) && ctx.Rng.Chance(ProbeRules.DetectChance(approach, Alertness(target), s))) || leaked;
             bool disaster = !success && detected && ctx.Rng.Chance(s.DisasterChance.TryGetValue(approach, out var d) ? d : 0);
 
             var revealed = success ? Spoils(prober, target, approach, partners, late) : new List<string>();
@@ -284,7 +296,25 @@ namespace MirrorChronicles.World
 
         private static int Strength(FactionData power) => HuntRules.Power(power.HighestRealm, 5);
 
-        private static int TeamStrength(IEnumerable<CharacterData> team) => team.Where(m => m != null).Sum(m => HuntRules.Power(m));
+        /// <summary>The team's strength against the target's strongest: those beyond its reach add nothing (AUDIT_LORE.md §1).</summary>
+        private int TeamStrength(IEnumerable<CharacterData> team, string target) =>
+            (int)RealmGap.TeamStrength(team.Where(m => m != null), TopOf(target, null), 1.0, ctx.Content.Balance.RealmGap);
+
+        /// <summary>The strongest realm on a side: the clan's agents when it sends some, else its strongest free member; a power's strongest.</summary>
+        private CultivationRealm TopOf(string side, IReadOnlyCollection<CharacterData> team)
+        {
+            if (side != Clan) return factions.GetFactionByName(side)?.HighestRealm ?? CultivationRealm.Embryonic;
+            var who = team != null && team.Count > 0 ? team : clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
+            return who.Select(m => m.Realm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
+        }
+
+        /// <summary>A probe by hand cannot touch a target whose strongest is beyond the prober's reach.</summary>
+        private bool BeyondReach(string prober, IReadOnlyCollection<CharacterData> team, string target, ProbeApproach approach) =>
+            ProbeRules.ByHand(approach) && RealmGap.OutOfReach(TopOf(prober, team), TopOf(target, null), ctx.Content.Balance.RealmGap);
+
+        /// <summary>A probe by hand goes unseen by a target whose strongest cannot reach the prober's — a Purple Mansion among lesser realms.</summary>
+        private bool Unseen(string prober, IReadOnlyCollection<CharacterData> team, string target, ProbeApproach approach) =>
+            ProbeRules.ByHand(approach) && RealmGap.OutOfReach(TopOf(target, null), TopOf(prober, team), ctx.Content.Balance.RealmGap);
 
         private int Guard(string target)
         {

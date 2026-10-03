@@ -179,6 +179,7 @@ namespace MirrorChronicles.Tests.World
         {
             var w = World(new SequenceRandom(0.999, 0.0, 0.0)); // it fails, is seen, and ends in disaster
             Hold(w, Ruan, "internal-feud");
+            w.Factions.GetFactionByName(Ruan).HighestRealm = w.Clan.GetPatriarch().Realm; // within reach of each other
             var outcome = w.Probes.Probe(Plan(w, Ruan));
             Assert.IsTrue(outcome.Disaster);
             Assert.IsTrue(w.Clan.LivingMembers.Any(m => m.CaptorFaction == Ruan));

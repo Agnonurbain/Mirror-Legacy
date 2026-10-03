@@ -142,7 +142,7 @@ namespace MirrorChronicles.World
                 if (victim != null && year - c.Year <= Settings.CaptiveYears) continue;
                 captives.Remove(c);
                 ctx.Log.Warning($"[PowerSchemes] {c.Captor} puts {c.Elder.Name} of {c.Victim} to death.");
-                ctx.Events.TriggerElderDied(victim ?? captor, c.Elder, false);
+                if ((victim ?? captor) is { } where) ctx.Events.TriggerElderDied(where, c.Elder, false); // both gone: no one is left to mourn it
             }
         }
     }

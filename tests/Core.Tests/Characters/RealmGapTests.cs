@@ -126,6 +126,47 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void AProbeByHand_CannotTouchAPowerBeyondReach_ButABribeStillMay()
+        {
+            var s = Session();
+            var team = ThreeFoundations(s);
+            var power = s.Factions.Factions[0];
+            power.HighestRealm = CultivationRealm.PurpleMansion;
+            var ids = team.ConvertAll(m => m.ID);
+            Assert.AreEqual(0, s.Probes.ChanceAgainst(new ProbePlan(power.Name, ProbeApproach.Infiltration, ids, new List<string>(), 0)), 1e-9);
+            if (s.SecretBook.NextUnknown(SecretBook.ClanHolder, power.Name) != null)
+                StringAssert.Contains("n'atteint", s.Probes.RefusalOf(new ProbePlan(power.Name, ProbeApproach.Infiltration, ids, new List<string>(), 0)));
+            Assert.AreEqual(0, s.Probes.ChanceAgainst(new ProbePlan(power.Name, ProbeApproach.RecordTheft, ids, new List<string>(), 0)), 1e-9);
+            Assert.Greater(s.Probes.ChanceAgainst(new ProbePlan(power.Name, ProbeApproach.Bribery, ids, new List<string>(), 500)), 0, "gold has no realm");
+            power.HighestRealm = CultivationRealm.Foundation;
+            Assert.Greater(s.Probes.ChanceAgainst(new ProbePlan(power.Name, ProbeApproach.Infiltration, ids, new List<string>(), 0)), 0);
+        }
+
+        [Test]
+        public void APurpleMansionProbing_ALesserTarget_IsNotSeen()
+        {
+            var s = Session();
+            var mansion = Member(CultivationRealm.PurpleMansion);
+            s.Clan.AddMember(mansion);
+            var power = s.Factions.Factions[0];
+            power.HighestRealm = CultivationRealm.Foundation;
+            var unseen = new ProbePlan(power.Name, ProbeApproach.Infiltration, new List<string> { mansion.ID }, new List<string>(), 0);
+            Assert.AreEqual(0, s.Probes.DetectChanceAgainst(unseen), 1e-9, "invisible to the realms below");
+            power.HighestRealm = CultivationRealm.PurpleMansion;
+            Assert.Greater(s.Probes.DetectChanceAgainst(unseen), 0);
+        }
+
+        [Test]
+        public void ALesserPower_CannotProbeAClanGuardedBeyondItsReach()
+        {
+            var s = Session();
+            foreach (var m in s.Clan.LivingMembers) m.Realm = CultivationRealm.PurpleMansion;
+            var lesser = s.Factions.Factions[0];
+            lesser.HighestRealm = CultivationRealm.Foundation;
+            Assert.AreEqual(0, s.Probes.PowerChanceAgainst(lesser, SecretBook.ClanHolder, ProbeApproach.Infiltration), 1e-9);
+        }
+
+        [Test]
         public void NoRescue_WhenNoRescuerReachesTheCaptor()
         {
             var s = Fixtures.QuietContent.Balance.Schemes;

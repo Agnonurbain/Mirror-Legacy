@@ -110,6 +110,7 @@ namespace MirrorChronicles.Tests.World
         {
             var w = World(new SequenceRandom(0.999, 0.0, 0.0)); // it fails, is seen, ends in disaster: an agent caught
             w.SecretBook.Create("executed-agent", SecretBook.ClanHolder, null);
+            w.Factions.GetFactionByName(Ruan).HighestRealm = w.Clan.LivingMembers.Max(m => m.Realm); // within sight of each other
             w.Probes.PowerProbe(w.Factions.GetFactionByName(Ruan), SecretBook.ClanHolder, ProbeApproach.Infiltration, new List<string>());
             Assert.AreEqual(Settings.AgentCaught, w.Suspicion.ClanDistrust(Ruan));
         }

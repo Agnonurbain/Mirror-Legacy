@@ -27,6 +27,13 @@ namespace MirrorChronicles.World
             return Math.Clamp(percent, s.MinPercent, s.MaxPercent) / 100.0;
         }
 
+        /// <summary>
+        /// A probe by hand — a provocation, an infiltration, a theft of records — needs its agents at the target's door; a
+        /// bribe or the mirror's sight do not, and no realm stands in their way (AUDIT_LORE.md §1).
+        /// </summary>
+        public static bool ByHand(ProbeApproach approach) =>
+            approach == ProbeApproach.Provocation || approach == ProbeApproach.Infiltration || approach == ProbeApproach.RecordTheft;
+
         /// <summary>The chance a probe is seen: the approach's own, more against a watchful target.</summary>
         public static double DetectChance(ProbeApproach approach, int alertness, SecretSettings s) =>
             approach == ProbeApproach.MirrorSight ? 0 : Math.Clamp(Value(s.DetectChance, approach) + alertness * s.AlertDetect, 0, 1);
