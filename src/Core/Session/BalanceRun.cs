@@ -511,7 +511,7 @@ namespace MirrorChronicles.Session
             var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, session.Context.Content.Balance.Shards.ExpeditionMaxTeam)
                 .Where(id => id != session.Clan.PatriarchID).Select(session.Clan.FindById)
                 .Where(m => m != null && session.Hunts.IsFree(m)).ToList();
-            if (team.Count == 0 || SchemeRules.RescueChance(team, captor, session.Context.Content.Balance.Schemes) < GoodOdds) return false;
+            if (team.Count == 0 || SchemeRules.RescueChance(team, captor, session.Context.Content.Balance.Schemes, session.Context.Content.Balance.RealmGap) < GoodOdds) return false;
             return session.Captives.Rescue(captive.ID, team.Select(m => m.ID).ToList()) == null;
         }
 

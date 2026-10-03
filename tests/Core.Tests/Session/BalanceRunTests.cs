@@ -429,7 +429,7 @@ namespace MirrorChronicles.Tests.Session
             s.Resources.SetSpiritStones(0); // no ransom
             BalanceRun.Act(s);
             Assume.That(SchemeRules.RescueChance(s.Clan.LivingMembers.Where(m => m.Realm == CultivationRealm.PurpleMansion).ToList(),
-                s.Factions.GetFactionByName("Famille Lou"), s.Context.Content.Balance.Schemes), Is.GreaterThanOrEqualTo(0.6));
+                s.Factions.GetFactionByName("Famille Lou"), s.Context.Content.Balance.Schemes, s.Context.Content.Balance.RealmGap), Is.GreaterThanOrEqualTo(0.6));
             Assert.IsNull(captive.CaptorFaction, "three Purple Mansions bring the captive home");
         }
 

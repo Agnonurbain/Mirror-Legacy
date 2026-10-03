@@ -562,6 +562,7 @@
   },
   "powerSchemes": { "schemeChance": 0.03, "personalityFactor": { "Aggressive": 2.0, "Manipulative": 2.0, "Isolationist": 0.5 }, "theftWeight": 0.5, "ambushWeight": 0.35, "theftWealthShare": 0.1, "caughtChance": 0.3, "ransomPerRealm": 500, "captiveYears": 3, "harvestPowerGain": 20 },
   "worldArsenal": { "elderCondenseChance": 0.1, "elderDesignationChance": 0.05, "masterlessStrikeChance": 0.05, "unsealChance": 0.2, "forgeChance": 0.15, "familyForgeChance": 0.05, "treasureFindChance": 0.01, "bondChance": 0.02, "transmuteChance": 0.001 },
+  "realmGap": { "unreachableFrom": "PurpleMansion", "maxRealmsBehind": 1 },
   "dharma": {
 	"condenseOres": 300,
 	"condenseYears": 5,

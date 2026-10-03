@@ -274,6 +274,9 @@ namespace MirrorChronicles.Data
         public PhenomenaSettings Phenomena { get; init; } = new PhenomenaSettings();
         public DemonSettings Demons { get; init; } = new DemonSettings();
         public DharmaSettings Dharma { get; init; } = new DharmaSettings();
+
+        /// <summary>The gap between realms: whom a lower realm cannot reach (AUDIT_LORE.md §1, 2026-10-03; interpretations).</summary>
+        public RealmGapSettings RealmGap { get; init; } = new RealmGapSettings();
         public WorldArsenalSettings WorldArsenal { get; init; } = new WorldArsenalSettings();
         public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();

@@ -146,9 +146,11 @@ namespace MirrorChronicles.World
             if (unfit != null || team.Contains(null)) return $"{unfit?.FullName ?? "un membre"} ne peut pas partir";
             var captor = factions.GetFactionByName(captive.CaptorFaction);
             if (captor == null) return "puissance inconnue";
+            if (!Characters.RealmGap.Reaches(team, captor.HighestRealm, ctx.Content.Balance.RealmGap))
+                return $"personne de l'équipe n'atteint {captor.Name}, dont le plus fort est d'un royaume trop haut ({RankCatalog.RealmName(captor.HighestRealm)})";
 
             foreach (var rescuer in team) rescuer.LastOperationYear = ctx.Clock.Year;
-            if (!ctx.Rng.Chance(SchemeRules.RescueChance(team, captor, Settings)))
+            if (!ctx.Rng.Chance(SchemeRules.RescueChance(team, captor, Settings, ctx.Content.Balance.RealmGap)))
             {
                 suspicion.AddToClan(captor.Name, Settings.FailedRescueSuspicion); // how did they know where to strike?
                 return "le sauvetage échoue";

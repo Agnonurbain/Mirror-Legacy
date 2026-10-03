@@ -84,7 +84,7 @@ namespace MirrorChronicles.World
                 ctx.Log.Info($"[Schemes] A great partner's shadow foils {power.Name}'s ambush on {target.FullName}.");
                 return true;
             }
-            if (ctx.Rng.Chance(SchemeRules.CaptureChance(power, target, Settings)))
+            if (ctx.Rng.Chance(SchemeRules.CaptureChance(power, target, Settings, ctx.Content.Balance.RealmGap)))
             {
                 captives.Take(target, power.Name);
                 return true;

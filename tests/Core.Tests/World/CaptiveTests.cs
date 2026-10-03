@@ -22,6 +22,7 @@ namespace MirrorChronicles.Tests.World
         private const string Fang = "Famille Fang";
 
         private static SchemeSettings Settings => Fixtures.Content.Balance.Schemes;
+        private static RealmGapSettings Gap => Fixtures.Content.Balance.RealmGap;
 
         private static TestWorld World(System.Random rng)
         {
@@ -124,7 +125,7 @@ namespace MirrorChronicles.Tests.World
             var ruan = new FactionData { HighestRealm = CultivationRealm.PurpleMansion };
             var weak = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement);
             var strong = Fixtures.Cultivator(realm: CultivationRealm.PurpleMansion);
-            Assert.Greater(SchemeRules.CaptureChance(ruan, weak, Settings), SchemeRules.CaptureChance(ruan, strong, Settings));
+            Assert.Greater(SchemeRules.CaptureChance(ruan, weak, Settings, Gap), SchemeRules.CaptureChance(ruan, strong, Settings, Gap));
         }
 
         [Test]
@@ -297,7 +298,7 @@ namespace MirrorChronicles.Tests.World
         {
             var w = World(new FixedRandom(0.0));
             var captive = Captive(w);
-            var rescuer = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 5));
+            var rescuer = w.Join(Fixtures.Cultivator(realm: CultivationRealm.PurpleMansion, stage: 1));
             int relation = w.Factions.GetFactionByName(Ruan).RelationWithPlayer;
 
             Assert.IsNull(w.Captives.Rescue(captive.ID, new[] { rescuer.ID }));
@@ -308,11 +309,27 @@ namespace MirrorChronicles.Tests.World
         }
 
         [Test]
+        public void ARescue_IsRefused_WhenNoRescuerReachesTheCaptor_AndCostsNoOperation()
+        {
+            var w = World(new FixedRandom(0.0));
+            var captive = Captive(w);
+            var captor = w.Factions.GetFactionByName(Ruan);
+            captor.HighestRealm = CultivationRealm.PurpleMansion;
+            var rescuer = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 5));
+            int? year = rescuer.LastOperationYear;
+
+            StringAssert.Contains("n'atteint", w.Captives.Rescue(captive.ID, new[] { rescuer.ID }));
+
+            Assert.AreEqual(Ruan, captive.CaptorFaction);
+            Assert.AreEqual(year, rescuer.LastOperationYear, "nothing was tried");
+        }
+
+        [Test]
         public void AFailedRescue_LeavesTheCaptiveHeld_AndTheCaptorSuspicious()
         {
             var w = World(new FixedRandom(0.999));
             var captive = Captive(w);
-            var rescuer = w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 1));
+            var rescuer = w.Join(Fixtures.Cultivator(realm: CultivationRealm.PurpleMansion, stage: 1));
 
             StringAssert.Contains("échoue", w.Captives.Rescue(captive.ID, new[] { rescuer.ID }));
 
@@ -339,7 +356,7 @@ namespace MirrorChronicles.Tests.World
             var ruan = new FactionData { HighestRealm = CultivationRealm.Foundation };
             var weak = new[] { Fixtures.Cultivator(realm: CultivationRealm.QiRefinement) };
             var strong = new[] { Fixtures.Cultivator(realm: CultivationRealm.Foundation), Fixtures.Cultivator(realm: CultivationRealm.Foundation) };
-            Assert.Greater(SchemeRules.RescueChance(strong, ruan, Settings), SchemeRules.RescueChance(weak, ruan, Settings));
+            Assert.Greater(SchemeRules.RescueChance(strong, ruan, Settings, Gap), SchemeRules.RescueChance(weak, ruan, Settings, Gap));
         }
 
         // ---- The agents the clan holds ----
@@ -522,10 +539,10 @@ namespace MirrorChronicles.Tests.World
         [Test]
         public void ARescue_CountsEachRescuerOnce()
         {
-            // alone: 20 %; counted twice it would be 70 %
+            // alone: 32 %; counted twice it would be 95 %
             var w = World(new FixedRandom(0.5));
             var captive = Captive(w);
-            var rescuer = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 5));
+            var rescuer = w.Join(Fixtures.Cultivator(realm: CultivationRealm.PurpleMansion, stage: 1));
 
             StringAssert.Contains("échoue", w.Captives.Rescue(captive.ID, new[] { rescuer.ID, rescuer.ID }));
         }
