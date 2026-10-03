@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.33";
+        public const string CurrentVersion = "2.34";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -52,6 +52,7 @@ namespace MirrorChronicles.Data
         public int UnderworldGrudgeUntil { get; set; }                // 2.29: the year the Underworld's grudge ends
         public List<RankDesignation> RankDesignations { get; set; }   // 2.30: the treasures mortgaged on their Fruitions
         public List<ArtifactInstance> ArtifactArmoury { get; set; }   // 2.31: the clan's artifacts nobody bears
+        public List<World.WorldRebirth> WorldRebirths { get; set; }   // 2.34: the powers' True Monarchs awaiting their return
         public List<Element> CorruptedVirtues { get; set; }           // 2.32: the Virtues whose bridges are open (null: those of the start)
         public Dictionary<string, string> ShardDirections { get; set; } // 2.23: the shards the mirror sensed → the region where each lies
         public int MirrorAsleepUntil { get; set; }          // 2.21: the year the spirit wakes from integrating a shard

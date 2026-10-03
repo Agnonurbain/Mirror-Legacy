@@ -39,7 +39,7 @@ namespace MirrorChronicles.World
             this.registry = registry;
             this.elders = elders;
             this.suspicion = suspicion;
-            ctx.Events.OnElderDied += (power, elder, demon) => { if (elder.FruitionId != null) Pass(elder.FruitionId, elder.Name); };
+            ctx.Events.OnElderDied += (power, elder, demon) => { if (elder.FruitionId != null) Pass(elder.FruitionId, elder.Name, mayReturn: false); }; // an elder's rebirth is WorldRebirths'
             ctx.Events.OnElderRose += AskForAPosition;
         }
 
@@ -84,9 +84,9 @@ namespace MirrorChronicles.World
             && !clan.LivingMembers.Any(m => m.FullName == holder)
             && !factions.Factions.SelectMany(f => f.Elders).Any(e => e.FruitionId == fruitionId);
 
-        private void Pass(string fruitionId, string holder)
+        private void Pass(string fruitionId, string holder, bool mayReturn = true)
         {
-            bool reborn = ctx.Rng.Chance(Settings.ReincarnationChance);
+            bool reborn = mayReturn && ctx.Rng.Chance(Settings.ReincarnationChance);
             registry.Vacate(fruitionId, reborn ? holder : null, reborn ? ctx.Clock.Year + Settings.ReturnYears : null);
             OpenRace(fruitionId);
             ctx.Log.Warning($"[Fruitions] {holder} no longer holds {fruitionId}{(reborn ? "; reborn, he may come back" : "")}: the race is open.");
