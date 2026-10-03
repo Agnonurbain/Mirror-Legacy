@@ -62,7 +62,7 @@ namespace MirrorChronicles.Session
             if (session.Paths.Tomb == null) return;
             var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, session.Context.Content.Balance.Shards.ExpeditionMaxTeam)
                 .Select(session.Clan.FindById).Where(m => m != null && m.LastOperationYear != session.Clock.Year && m.DiscipleOf == null).ToList();
-            if (team.Count > 0 && session.Paths.TombExpeditionChance(team) >= GoodOdds) session.Paths.ExploreTomb(team.Select(m => m.ID).ToList());
+            if (team.Count > 0 && !LineIsThin(session) && session.Paths.TombExpeditionChance(team) >= GoodOdds) session.Paths.ExploreTomb(team.Select(m => m.ID).ToList());
         }
 
         private const double HoardWarning = 0.8; // the clan guards its hoard as it nears the greedy's notice
@@ -91,6 +91,7 @@ namespace MirrorChronicles.Session
         /// </summary>
         private static void SabotageTheRivals(GameSession session)
         {
+            if (LineIsThin(session)) return; // an heir first: no deadly plot while the bearers are few
             var aimed = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm == CultivationRealm.PurpleMansion
                     && m.DivineAbilities.Count >= GoldenCoreRules.AbilitiesToForge)
                 .Select(m => FoundationRef.Parse(FoundationOf(m)).FruitionId).ToHashSet();
@@ -317,7 +318,7 @@ namespace MirrorChronicles.Session
                         if (terms != null && session.Accords.Conclude(power.Name, method.ID, terms) == null) return;
                         var team = session.Shards.BestTeam(CultivationRealm.QiRefinement, session.Context.Content.Balance.Shards.ExpeditionMaxTeam)
                             .Select(session.Clan.FindById).Where(m => m != null && m.LastOperationYear != session.Clock.Year && m.DiscipleOf == null).ToList();
-                        if (team.Count > 0 && session.Paths.ManualTheftChance(power.Name, team) >= GoodOdds)
+                        if (team.Count > 0 && !LineIsThin(session) && session.Paths.ManualTheftChance(power.Name, team) >= GoodOdds)
                         {
                             session.Paths.StealManual(power.Name, method.ID, team.Select(m => m.ID).ToList());
                             return;

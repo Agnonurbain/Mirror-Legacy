@@ -149,6 +149,7 @@ namespace MirrorChronicles.Session
         {
             var shards = session.Shards;
             var settings = session.Context.Content.Balance.Shards;
+            if (LineIsThin(session)) return; // an heir first: no deadly expedition nor theft while the bearers are few (2026-10-03)
             foreach (var ruins in shards.RevealedRuins.ToList())
             {
                 var team = shards.BestTeam(CultivationRealm.QiRefinement, settings.ExpeditionMaxTeam);
@@ -372,6 +373,13 @@ namespace MirrorChronicles.Session
         /// An heir first (user decision 2026-10-03, against the bearers' extinction): a childless orifice bearer holds back a
         /// deadly trial — the Foundation's wall, the Purple Mansion's ascent — while its odds are poor, save at its life's end.
         /// </summary>
+        /// <summary>The orifice bearers are few: the pilot risks none of them in a deadly operation (2026-10-03, seed 9 lost three in four years).</summary>
+        private static bool LineIsThin(GameSession session) => session.Clan.LivingMembers.Count(m => m.HasSpiritualOrifice) < FewBearers;
+
+        /// <summary>A childless orifice bearer while the line is thin: the pilot risks its life in no strike.</summary>
+        private static bool Spared(GameSession session, CharacterData m) =>
+            LineIsThin(session) && m.HasSpiritualOrifice && !session.Clan.Registry.Records.Any(r => r.FatherID == m.ID || r.MotherID == m.ID);
+
         private static void HoldForAnHeir(GameSession session)
         {
             foreach (var m in session.Clan.LivingMembers.Where(m => m.HasSpiritualOrifice && m.CaptorFaction == null).ToList())
@@ -440,8 +448,11 @@ namespace MirrorChronicles.Session
                     session.Tasks.AssignTask(scout, TaskType.ScoutBeasts);
                 return;
             }
-            var team = new Dictionary<string, HuntRole> { [hunters[0].ID] = HuntRole.Striker };
-            if (hunters.Count > 1) team[hunters[1].ID] = HuntRole.Lookout;
+            var striker = hunters.FirstOrDefault(m => !Spared(session, m) && Mirror.HuntRules.Power(m.Realm, m.RealmStage) > Mirror.HuntRules.Power(target.Realm, target.Stage));
+            if (striker == null) return; // an heir first: no childless bearer strikes while the line is thin
+            var team = new Dictionary<string, HuntRole> { [striker.ID] = HuntRole.Striker };
+            var lookout = hunters.FirstOrDefault(m => m != striker);
+            if (lookout != null) team[lookout.ID] = HuntRole.Lookout;
             int coverCost = content.Balance.Hunt.CoverStones[(int)CoverStory.Trade];
             bool cover = target.OwnerFaction != null && session.Resources.SpiritStones - coverCost >= session.Upkeep.YearlyUpkeep * ReserveYears;
             var plan = new HuntPlan { TargetBeastId = target.Id, Team = team, Cover = cover ? CoverStory.Trade : CoverStory.None };

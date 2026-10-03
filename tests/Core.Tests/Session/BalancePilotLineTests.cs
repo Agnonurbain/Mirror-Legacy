@@ -93,5 +93,17 @@ namespace MirrorChronicles.Tests.Session
             Assert.IsTrue(gifted.HasTalismanSeed);
             Assert.IsFalse(plain.HasTalismanSeed);
         }
+
+        [Test]
+        public void WhileTheBearersAreFew_ThePilotRisksNoDeadlyOperation()
+        {
+            var s = Session();
+            var ruins = s.Context.Content.Shards.First(x => x.Source == ShardSource.Ruins).Id;
+            s.Shards.RestoreRuins(new[] { ruins });
+            foreach (var x in s.Clan.LivingMembers.Where(x => x.HasSpiritualOrifice).Skip(3).ToList()) x.HasSpiritualOrifice = false; // a thin line
+            foreach (var x in s.Clan.LivingMembers.Where(x => x.HasSpiritualOrifice)) { x.Realm = CultivationRealm.Foundation; x.RealmStage = 2; }
+            BalanceRun.Act(s);
+            Assert.IsFalse(s.Clan.LivingMembers.Any(m => m.LastOperationYear == s.Clock.Year), "no expedition, no theft, no hunt: an heir first");
+        }
     }
 }
