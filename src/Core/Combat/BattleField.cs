@@ -61,6 +61,7 @@ namespace MirrorChronicles.Combat
         /// </summary>
         public bool IsPowerless(CombatUnit attacker, CombatUnit defender) =>
             RealmGap.OutOfReach(attacker.BaseData.Realm, defender.BaseData.Realm, Gap) // beyond reach (AUDIT_LORE.md §1)
+            || RealmGap.Suppressed(attacker.BaseData, defender.BaseData)            // a Golden Core's essence over its own foundation
             || TechniqueRules.IsPowerlessAgainst(FindTechnique(attacker.BaseData.CultivationMethodId), defender.BaseData.CultivationMethodId);
 
         /// <summary>The gap between realms the field obeys (balance.json « realmGap »; the defaults when none is given).</summary>

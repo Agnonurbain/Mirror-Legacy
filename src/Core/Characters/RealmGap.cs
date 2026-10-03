@@ -29,6 +29,17 @@ namespace MirrorChronicles.Characters
             return powers.Count == 0 ? 0 : powers[0] + powers.Skip(1).Sum() * helpShare;
         }
 
+        /// <summary>
+        /// True when the defender's metallic essence leaves the attacker powerless: a True Monarch whose essence is forged
+        /// in a lineage, before a cultivator whose foundation is of that lineage (LORE.md §5.5.2).
+        /// </summary>
+        public static bool Suppressed(CharacterData attacker, CharacterData defender)
+        {
+            if (attacker == null || defender == null || defender.Realm < CultivationRealm.GoldenCore || defender.FruitionId == null) return false;
+            var (lineage, _) = FoundationRef.Parse(attacker.FoundationId);
+            return lineage != null && lineage == defender.FruitionId;
+        }
+
         /// <summary>True when at least one of the team reaches a foe of this realm.</summary>
         public static bool Reaches(IEnumerable<CharacterData> team, CultivationRealm foe, RealmGapSettings gap) =>
             (team ?? Enumerable.Empty<CharacterData>()).Any(m => m != null && !OutOfReach(m.Realm, foe, gap));

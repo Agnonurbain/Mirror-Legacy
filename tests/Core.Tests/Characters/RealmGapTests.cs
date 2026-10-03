@@ -116,6 +116,22 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void AGoldenCoresEssence_LeavesThoseOfItsFoundation_Powerless()
+        {
+            var monarch = Member(CultivationRealm.GoldenCore);
+            monarch.FruitionId = "orthodox-water";
+            var kin = Member(CultivationRealm.GoldenCore);
+            kin.FoundationId = "orthodox-water:boundless-sea";
+            var other = Member(CultivationRealm.GoldenCore);
+            other.FoundationId = "bright-yang:x";
+            Assert.IsTrue(RealmGap.Suppressed(kin, monarch), "LORE.md §5.5.2: of the same foundation, wholly powerless");
+            Assert.IsFalse(RealmGap.Suppressed(other, monarch));
+            Assert.IsFalse(RealmGap.Suppressed(monarch, kin), "the essence suppresses, it is not suppressed");
+            var field = new MirrorChronicles.Combat.BattleField(new MirrorChronicles.Combat.CombatGrid(10, 10), new System.Random(1), new MirrorChronicles.Session.RecordingGameLog());
+            Assert.IsTrue(field.IsPowerless(new MirrorChronicles.Combat.CombatUnit(kin, true), new MirrorChronicles.Combat.CombatUnit(monarch, false)));
+        }
+
+        [Test]
         public void InWar_ASideOutOfReach_CannotWin()
         {
             Assert.AreEqual(1.0, MirrorChronicles.Diplomacy.WarRules.WinChance(10, CultivationRealm.PurpleMansion, 1000, CultivationRealm.Foundation, Gap), 1e-9,
