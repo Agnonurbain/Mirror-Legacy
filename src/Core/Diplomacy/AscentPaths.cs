@@ -143,7 +143,7 @@ namespace MirrorChronicles.Diplomacy
 
         private static double Chance(IReadOnlyList<CharacterData> team, CultivationRealm guard, double baseChance, double perPower, double min, double max)
         {
-            var powers = team.Select(m => (double)HuntRules.Power(m.Realm, m.RealmStage)).OrderByDescending(p => p).ToList();
+            var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
             double strength = powers[0] + powers.Skip(1).Sum() * 0.3;
             return System.Math.Clamp(baseChance + (strength - HuntRules.Power(guard, 5)) * perPower, min, max);
         }
@@ -177,7 +177,7 @@ namespace MirrorChronicles.Diplomacy
                 Tomb = null;
                 return new ExpeditionOutcome(true, true, null);
             }
-            var weakest = team.OrderBy(m => HuntRules.Power(m.Realm, m.RealmStage)).First();
+            var weakest = team.OrderBy(m => HuntRules.Power(m)).First();
             if (ctx.Rng.Chance(Ops.ExpeditionDeathChance)) clan.Kill(weakest, DeathCause.Combat);
             foreach (var m in team.Where(m => m.IsAlive)) if (ctx.Rng.Chance(Ops.ExpeditionWoundChance)) wounds.ApplyDaoWound(m);
             return new ExpeditionOutcome(true, false, null);

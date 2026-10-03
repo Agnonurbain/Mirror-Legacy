@@ -120,7 +120,7 @@ namespace MirrorChronicles.Mirror
         public double TheftChance(IReadOnlyList<CharacterData> team, FactionData holder)
         {
             var s = Settings;
-            var powers = team.Select(m => (double)HuntRules.Power(m.Realm, m.RealmStage)).OrderByDescending(p => p).ToList();
+            var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
             double strength = powers[0] + powers.Skip(1).Sum() * s.ExpeditionHelpShare;
             double guard = HuntRules.Power(holder?.HighestRealm ?? CultivationRealm.QiRefinement, 5);
             return Math.Clamp(s.TheftBaseChance + (strength - guard) * s.TheftChancePerPower, s.TheftMinChance, s.TheftMaxChance);

@@ -524,6 +524,15 @@
 	"perfectionChance": 0.1,
 	"lastYears": 20
   },
+  "artifacts": {
+    "ranks": {
+      "QiRefinement": { "strength": 2, "protection": 0.15, "cultivation": 0.05 },
+      "Foundation": { "strength": 4, "protection": 0.25, "cultivation": 0.1 },
+      "PurpleMansion": { "strength": 6, "protection": 0.35, "cultivation": 0.15 }
+    },
+    "classFactor": { "DharmaArtifact": 1.0, "SpiritualArtifact": 1.0, "SpiritualTreasure": 1.5 },
+    "lineageFactor": 1.5
+  },
   "dharma": {
     "condenseOres": 300,
     "condenseYears": 5,

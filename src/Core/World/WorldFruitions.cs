@@ -184,7 +184,7 @@ namespace MirrorChronicles.World
             var team = (teamIds ?? new List<string>()).Select(clan.FindById).Where(m => m != null).ToList();
             if (power == null || team.Count == 0) return 0;
             var s = Settings;
-            var powers = team.Select(m => (double)HuntRules.Power(m.Realm, m.RealmStage)).OrderByDescending(p => p).ToList();
+            var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
             double strength = powers[0] + powers.Skip(1).Sum() * 0.3;
             return Math.Clamp(s.SabotageBaseChance + (strength - HuntRules.Power(power.HighestRealm, 5)) * s.SabotageChancePerPower,
                 s.SabotageMinChance, s.SabotageMaxChance);

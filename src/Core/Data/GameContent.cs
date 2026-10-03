@@ -47,6 +47,7 @@ namespace MirrorChronicles.Data
 
         /// <summary>The dynastic endings (endings.json, LORE.md §11.9).</summary>
         public IReadOnlyList<EndingDefinition> Endings { get; init; } = Array.Empty<EndingDefinition>();
+        public IReadOnlyList<ArtifactForm> ArtifactForms { get; init; } = Array.Empty<ArtifactForm>();
         public IReadOnlyList<AtmosphereDefinition> Atmospheres { get; init; } = Array.Empty<AtmosphereDefinition>();
         public IReadOnlyList<BeastSpecies> BeastSpecies { get; init; } = Array.Empty<BeastSpecies>();
 
@@ -273,6 +274,7 @@ namespace MirrorChronicles.Data
         public PhenomenaSettings Phenomena { get; init; } = new PhenomenaSettings();
         public DemonSettings Demons { get; init; } = new DemonSettings();
         public DharmaSettings Dharma { get; init; } = new DharmaSettings();
+        public ArtifactSettings Artifacts { get; init; } = new ArtifactSettings();
 
         /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
         public TrialSettings Trials { get; init; }

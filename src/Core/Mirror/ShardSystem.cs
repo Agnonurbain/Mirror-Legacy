@@ -99,7 +99,7 @@ namespace MirrorChronicles.Mirror
         public IReadOnlyList<string> BestTeam(CultivationRealm minRealm, int size) =>
             clan.LivingMembers
                 .Where(m => m.CaptorFaction == null && m.Realm >= minRealm && m.LastOperationYear != ctx.Clock.Year)
-                .OrderByDescending(m => HuntRules.Power(m.Realm, m.RealmStage)).Take(size).Select(m => m.ID).ToList();
+                .OrderByDescending(m => HuntRules.Power(m)).Take(size).Select(m => m.ID).ToList();
 
         /// <summary>Why an expedition cannot leave (French, for the screens), or null.</summary>
         public string ExpeditionRefusal(string shardId, IReadOnlyList<string> teamIds, out List<CharacterData> team)
@@ -138,7 +138,7 @@ namespace MirrorChronicles.Mirror
             }
 
             var s = Settings;
-            var weakest = team.OrderBy(m => HuntRules.Power(m.Realm, m.RealmStage)).First();
+            var weakest = team.OrderBy(m => HuntRules.Power(m)).First();
             if (ctx.Rng.Chance(s.ExpeditionDeathChance)) clan.Kill(weakest, DeathCause.Combat);
             foreach (var member in team.Where(m => m.IsAlive))
                 if (ctx.Rng.Chance(s.ExpeditionWoundChance)) wounds.ApplyDaoWound(member);
@@ -150,7 +150,7 @@ namespace MirrorChronicles.Mirror
         public double ExpeditionChance(IReadOnlyList<CharacterData> team, ShardDefinition shard)
         {
             var s = Settings;
-            var powers = team.Select(m => (double)HuntRules.Power(m.Realm, m.RealmStage)).OrderByDescending(p => p).ToList();
+            var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
             double strength = powers[0] + powers.Skip(1).Sum() * s.ExpeditionHelpShare;
             double guardian = HuntRules.Power(shard.GuardRealm, 5);
             return System.Math.Clamp(s.ExpeditionBaseChance + (strength - guardian) * s.ExpeditionChancePerPower, s.ExpeditionMinChance, s.ExpeditionMaxChance);

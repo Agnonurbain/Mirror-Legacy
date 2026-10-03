@@ -405,7 +405,7 @@ namespace MirrorChronicles.Session
             if (!session.Talismans.HuntWindowOpen) return;
             var content = session.Context.Content;
             var hunters = session.Clan.LivingMembers.Where(m => session.Hunts.IsFree(m) && !FoundationRules.IsPrey(m, content))
-                .OrderByDescending(m => Mirror.HuntRules.Power(m.Realm, m.RealmStage)).ToList();
+                .OrderByDescending(m => Mirror.HuntRules.Power(m)).ToList();
             if (hunters.Count == 0) return;
             int strength = Mirror.HuntRules.Power(hunters[0].Realm, hunters[0].RealmStage);
             var known = session.Bestiary.Beasts.Where(b => session.Knowledge.Knows(World.FactKind.Beast, b.Id)).ToList();

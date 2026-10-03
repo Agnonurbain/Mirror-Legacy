@@ -12,6 +12,9 @@ namespace MirrorChronicles.Mirror
         /// <summary>A cultivator's or a beast's power: realm × 10 + stage.</summary>
         public static int Power(CultivationRealm realm, int stage) => (int)realm * 10 + stage;
 
+        /// <summary>A member's power: its realm and stage, and the artifact it bears (L4f).</summary>
+        public static int Power(CharacterData member) => Power(member.Realm, member.RealmStage) + Characters.ArtifactRules.Strength(member);
+
         /// <summary>
         /// Getting close unseen: lookouts, the timing (a festival helps only against an owner), a diversion elsewhere and
         /// the mirror's illusion help; the owner's guard — its strongest realm — hinders.
@@ -35,7 +38,7 @@ namespace MirrorChronicles.Mirror
             var s = content.Balance.Hunt;
             int best = plan.Team.Where(p => p.Value == HuntRole.Striker)
                 .Select(p => clan.FindById(p.Key)).Where(m => m != null)
-                .Select(m => Power(m.Realm, m.RealmStage)).DefaultIfEmpty(0).Max();
+                .Select(m => Power(m)).DefaultIfEmpty(0).Max();
             int lures = plan.Team.Values.Count(r => r == HuntRole.Lure);
             int chance = s.CaptureBase + (best - Power(beast.Realm, beast.Stage)) * s.CapturePerPowerPoint
                 + lures * s.LureBonus + s.TimingCapture[(int)plan.Timing];

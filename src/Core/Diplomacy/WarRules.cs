@@ -10,12 +10,12 @@ namespace MirrorChronicles.Diplomacy
     {
         /// <summary>What a power weighs the clan by: its strongest free member (a captive defends nothing).</summary>
         public static int ClanStrength(IEnumerable<CharacterData> members) =>
-            members.Where(m => m.CaptorFaction == null).Select(m => HuntRules.Power(m.Realm, m.RealmStage)).DefaultIfEmpty(0).Max();
+            members.Where(m => m.CaptorFaction == null).Select(m => HuntRules.Power(m)).DefaultIfEmpty(0).Max();
 
         /// <summary>The clan's own war strength, without its allies: its strongest free member, and the others' weight.</summary>
         public static double ClanWarStrength(IEnumerable<CharacterData> members, WarSettings s)
         {
-            var fighters = members.Where(m => m.CaptorFaction == null).Select(m => (double)HuntRules.Power(m.Realm, m.RealmStage))
+            var fighters = members.Where(m => m.CaptorFaction == null).Select(m => (double)HuntRules.Power(m))
                 .OrderByDescending(p => p).ToList();
             return fighters.Count == 0 ? 0 : fighters[0] + fighters.Skip(1).Sum() * s.ClanStrengthPerMember;
         }

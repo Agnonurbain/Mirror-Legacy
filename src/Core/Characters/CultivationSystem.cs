@@ -70,6 +70,7 @@ namespace MirrorChronicles.Characters
             if (character.MentalStability < LowStabilityThreshold)
                 multiplier *= LowStabilityMultiplier;
             if (place != null) multiplier *= place.SpeedFactor(character); // the Qi of the place, its atmosphere (L5b)
+            multiplier *= ArtifactRules.CultivationSpeed(character);        // an artifact of its lineage (L4f)
             return multiplier;
         }
 

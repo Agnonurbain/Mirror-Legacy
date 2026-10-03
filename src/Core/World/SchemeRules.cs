@@ -37,7 +37,7 @@ namespace MirrorChronicles.World
         /// <summary>A rescue's chance: the team's power against the captor's strongest.</summary>
         public static double RescueChance(IEnumerable<CharacterData> team, FactionData captor, SchemeSettings s)
         {
-            int teamPower = team.Sum(m => HuntRules.Power(m.Realm, m.RealmStage));
+            int teamPower = team.Sum(m => HuntRules.Power(m));
             int captorPower = HuntRules.Power(captor.HighestRealm, s.CaptorStage);
             return Percent(s.RescueBase + (teamPower - captorPower) * s.RescuePerPowerPoint);
         }

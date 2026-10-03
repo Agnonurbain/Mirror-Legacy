@@ -284,13 +284,13 @@ namespace MirrorChronicles.World
 
         private static int Strength(FactionData power) => HuntRules.Power(power.HighestRealm, 5);
 
-        private static int TeamStrength(IEnumerable<CharacterData> team) => team.Where(m => m != null).Sum(m => HuntRules.Power(m.Realm, m.RealmStage));
+        private static int TeamStrength(IEnumerable<CharacterData> team) => team.Where(m => m != null).Sum(m => HuntRules.Power(m));
 
         private int Guard(string target)
         {
             if (target != Clan) return factions.GetFactionByName(target) is { } power ? Strength(power) : 0;
             var free = clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
-            int strongest = free.Select(m => HuntRules.Power(m.Realm, m.RealmStage)).DefaultIfEmpty(0).Max();
+            int strongest = free.Select(m => HuntRules.Power(m)).DefaultIfEmpty(0).Max();
             return strongest + free.Count(m => m.CurrentTask == TaskType.Patrol) * Settings.PatrolGuardPoints;
         }
 

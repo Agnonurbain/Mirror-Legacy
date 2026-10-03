@@ -95,7 +95,8 @@ namespace MirrorChronicles.World
                     .FirstOrDefault(f => f != null && !treaties.Spares(f.Name) && ctx.Rng.Chance(s.StrikeChance));
                 if (hunter == null) continue; // one blow a year at most
                 double success = DaoHuntRules.StrikeSuccess(guardian, patrols, buildings.FormationLevel, ally,
-                    prey.CurrentTask == TaskType.Seclusion, s, ctx.Content.Balance.RipeDaoGuardedFactor);
+                    prey.CurrentTask == TaskType.Seclusion, s, ctx.Content.Balance.RipeDaoGuardedFactor)
+                    * (1 - Characters.ArtifactRules.Protection(prey)); // a guarding artifact (L4f)
                 if (ctx.Rng.Chance(success))
                 {
                     ctx.Log.Info($"[DaoHunt] {prey.FullName}'s ripe Dao is harvested by a stronger cultivator.");

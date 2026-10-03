@@ -34,9 +34,10 @@ namespace MirrorChronicles.Data
         public const string EndingsFile = "endings.json";
         public const string ShardsFile = "shards.json";
         public const string DesignsFile = "designs.json";
+        public const string ArtifactsFile = "artifacts.json";
 
         public static IReadOnlyList<string> Files { get; } =
-            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile, SecretsFile, PatronsFile, EndingsFile, ShardsFile, DesignsFile };
+            new[] { ClanFile, NamesFile, BalanceFile, FactionsFile, EventsFile, StoryFile, TechniquesFile, QiFile, FruitionsFile, OathsFile, RegionsFile, TalismansFile, FiguresFile, BeastsFile, AtmospheresFile, SecretsFile, PatronsFile, EndingsFile, ShardsFile, DesignsFile, ArtifactsFile };
 
         /// <summary>Abilities a lineage has besides its substitutes: the orthodox five (LORE.md §6.1).</summary>
         private const int OrthodoxAbilities = 5;
@@ -70,6 +71,7 @@ namespace MirrorChronicles.Data
             var figures = Read<List<FigureDefinition>>(readFile, FiguresFile);
             var beasts = Read<List<BeastSpecies>>(readFile, BeastsFile);
             var atmospheres = Read<List<AtmosphereDefinition>>(readFile, AtmospheresFile);
+            var artifactForms = Read<List<ArtifactForm>>(readFile, ArtifactsFile);
             var secretKinds = Read<List<SecretKind>>(readFile, SecretsFile);
             var patrons = Read<List<PatronDefinition>>(readFile, PatronsFile);
             var endings = Read<List<EndingDefinition>>(readFile, EndingsFile);
@@ -124,6 +126,11 @@ namespace MirrorChronicles.Data
             CheckInterpretedFields(ShardsFile, shards.Select(s => (s.Id, typeof(ShardDefinition), (IEnumerable<string>)s.InterpretedFields)));
             CheckInterpretedFields(EndingsFile, endings.Select(e => (e.Id, typeof(EndingDefinition), (IEnumerable<string>)e.InterpretedFields)));
             CheckInterpretedFields(SecretsFile, secretKinds.Select(k => (k.Id, typeof(SecretKind), (IEnumerable<string>)k.InterpretedFields)));
+            Require(artifactForms.All(f => !string.IsNullOrWhiteSpace(f.Id) && !string.IsNullOrWhiteSpace(f.Name) && f.InterpretedFields != null)
+                && artifactForms.Select(f => f.Id).Distinct().Count() == artifactForms.Count
+                && System.Enum.GetValues(typeof(ArtifactEffect)).Cast<ArtifactEffect>().All(e => artifactForms.Any(f => f.Effect == e)),
+                ArtifactsFile, "every artifact form needs a unique id and a name; each effect needs a form.");
+            CheckInterpretedFields(ArtifactsFile, artifactForms.Select(f => (f.Id, typeof(ArtifactForm), (IEnumerable<string>)f.InterpretedFields)));
             CheckInterpretedFields(AtmospheresFile, atmospheres.Select(a => (a.Id, typeof(AtmosphereDefinition), (IEnumerable<string>)a.InterpretedFields)));
             CheckInterpretedFields(QiFile, qi.Select(q => (q.Id, typeof(QiDefinition), (IEnumerable<string>)q.InterpretedFields)));
             CheckInterpretedFields(FruitionsFile, fruitions.Fruitions.Select(f => (f.Id, typeof(FruitionDefinition), (IEnumerable<string>)f.InterpretedFields))
@@ -148,6 +155,7 @@ namespace MirrorChronicles.Data
                 Figures = figures,
                 BeastSpecies = beasts,
                 Atmospheres = atmospheres,
+                ArtifactForms = artifactForms,
                 SecretKinds = secretKinds,
                 Patrons = patrons,
                 Endings = endings,

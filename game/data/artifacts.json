@@ -1,0 +1,12 @@
+[
+  { "id": "sword", "name": "Épée", "effect": "Combat", "source": "Wiki : armes des cultivateurs (Li Zhouwei/Equipment : épée, hache)", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] },
+  { "id": "saber", "name": "Sabre", "effect": "Combat", "source": "Interprétation : arme", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] },
+  { "id": "axe", "name": "Hache de bataille", "effect": "Combat", "source": "Wiki : hache d'un roi du Yang Lumineux, Artefact Spirituel du Manoir Pourpre", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] },
+  { "id": "spear", "name": "Lance", "effect": "Combat", "source": "Interprétation : arme", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] },
+  { "id": "soft-armour", "name": "Armure souple", "effect": "Protection", "source": "Wiki : armure souple, Artefact de Dharma de la Fondation devenu Artefact Spirituel", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] },
+  { "id": "campaign-cloak", "name": "Cape de campagne", "effect": "Protection", "source": "Wiki : cape de campagne, Artefact Spirituel", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] },
+  { "id": "bracelets", "name": "Bracelets", "effect": "Protection", "source": "Wiki : bracelets, Trésor Spirituel", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] },
+  { "id": "seal", "name": "Sceau", "effect": "Cultivation", "source": "Wiki : sceau, Relique de Dharma", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] },
+  { "id": "pearl", "name": "Perle", "effect": "Cultivation", "source": "Wiki : perle, Trésor Spirituel", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] },
+  { "id": "map-scroll", "name": "Carte-rouleau", "effect": "Cultivation", "source": "Wiki : carte d'un fleuve, Trésor Spirituel prêté", "provenance": "Interpretation", "interpretedFields": [ "Name", "Effect" ] }
+]
