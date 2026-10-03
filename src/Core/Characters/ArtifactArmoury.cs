@@ -62,6 +62,18 @@ namespace MirrorChronicles.Characters
                 s.LineageFactor);
         }
 
+        /// <summary>An artifact of the armoury raised to a higher rank: the same artifact, its class and gifts those of its new rank.</summary>
+        public ArtifactInstance Raise(string artifactId, CultivationRealm rank)
+        {
+            var old = armoury.FirstOrDefault(a => a.Id == artifactId);
+            if (old == null) return null;
+            var form = ctx.Content.ArtifactForms.First(f => f.Id == old.FormId);
+            var raised = Make(form, rank, old.Lineage, ClassOf(rank)) with { Id = old.Id };
+            armoury[armoury.IndexOf(old)] = raised;
+            ctx.Log.Info($"[Artifacts] {old.Name} is raised to {rank}.");
+            return raised;
+        }
+
         /// <summary>A member takes an artifact of the armoury; the one it bore goes back. Null when done, else why not (French).</summary>
         public string Equip(CharacterData member, string artifactId)
         {

@@ -65,6 +65,7 @@ namespace MirrorChronicles.Events
         public event Action<Diplomacy.Sponsorship, PatronDesign> OnPatronDesignResisted;
         public event Action<string, string> OnAccordDenounced;              // rival, patron (§11.10)
         public event Action<CharacterData, string> OnMemberLured;           // a practitioner bought away by a rival
+        public event Action<ArtifactInstance, CharacterData> OnArtifactForged; // the clan's forge makes or raises an artifact (L4f)
         public event Action<CharacterData> OnDharmaTreasure;               // a True Monarch condenses its treasure (L4e)
         public event Action<RankDesignation> OnRankDesignation;            // a treasure mortgaged on its Fruition
         public event Action<MetalEssenceDemon> OnDemonBorn;                 // a demon of the clan, awaiting its choice (L4e, 2026-10-03)
@@ -136,6 +137,7 @@ namespace MirrorChronicles.Events
         public void TriggerPhenomenon(RegionalPhenomenon phenomenon) => OnPhenomenon?.Invoke(phenomenon);
         public void TriggerDemonBorn(MetalEssenceDemon demon) => OnDemonBorn?.Invoke(demon);
         public void TriggerDharmaTreasure(CharacterData member) => OnDharmaTreasure?.Invoke(member);
+        public void TriggerArtifactForged(ArtifactInstance artifact, CharacterData smith) => OnArtifactForged?.Invoke(artifact, smith);
         public void TriggerRankDesignation(RankDesignation d) => OnRankDesignation?.Invoke(d);
         public void TriggerDemonSubdued(MetalEssenceDemon demon) => OnDemonSubdued?.Invoke(demon);
         public void TriggerUnderworldProvoked() => OnUnderworldProvoked?.Invoke();

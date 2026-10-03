@@ -39,9 +39,19 @@ namespace MirrorChronicles.Data
         public double Cultivation { get; init; }
     }
 
+    /// <summary>What forging an artifact of a rank asks: the forge's level, ores and stones.</summary>
+    public sealed record ArtifactForging
+    {
+        public int ForgeLevel { get; init; }
+        public int Ores { get; init; }
+        public int Stones { get; init; }
+    }
+
     /// <summary>The artifacts (balance.json « artifacts », L4f, user decisions 2026-10-03 — interpretations).</summary>
     public sealed record ArtifactSettings
     {
+        public Dictionary<CultivationRealm, ArtifactForging> Forging { get; init; } = new Dictionary<CultivationRealm, ArtifactForging>();
+        public double RaiseShare { get; init; } = 0.6; // raising one costs this share of forging it anew
         public Dictionary<CultivationRealm, ArtifactScale> Ranks { get; init; } = new Dictionary<CultivationRealm, ArtifactScale>();
         public Dictionary<ArtifactClass, double> ClassFactor { get; init; } = new Dictionary<ArtifactClass, double>();
         public double LineageFactor { get; init; } = 1.5;

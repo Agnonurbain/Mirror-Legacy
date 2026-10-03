@@ -531,6 +531,12 @@
       "PurpleMansion": { "strength": 6, "protection": 0.35, "cultivation": 0.15 }
     },
     "classFactor": { "DharmaArtifact": 1.0, "SpiritualArtifact": 1.0, "SpiritualTreasure": 1.5 },
+    "forging": {
+      "QiRefinement": { "forgeLevel": 1, "ores": 20, "stones": 100 },
+      "Foundation": { "forgeLevel": 2, "ores": 60, "stones": 400 },
+      "PurpleMansion": { "forgeLevel": 4, "ores": 200, "stones": 1500 }
+    },
+    "raiseShare": 0.6,
     "lineageFactor": 1.5
   },
   "dharma": {
