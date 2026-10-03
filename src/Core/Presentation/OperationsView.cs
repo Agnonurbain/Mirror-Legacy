@@ -66,7 +66,7 @@ namespace MirrorChronicles.Presentation
         {
             var t = session.Talismans;
             var settings = session.Context.Content.Balance.Talismans;
-            var beasts = session.Resources.Beasts
+            var beasts = session.Resources.Beasts.Where(b => Mirror.TalismanRules.RankOf(b) != null) // a beast below the Qi Cultivation gives no talisman
                 .Select(b => new BeastLine(b.Id, Strength(b.Realm, b.Stage), b.OwnerFaction ?? "solitaire")).ToList();
             var bearers = session.Clan.LivingMembers
                 .Where(m => m.TalismanQiId == null && SpiritualOrificeRules.CanCultivate(m))
@@ -83,7 +83,7 @@ namespace MirrorChronicles.Presentation
 
             string refusal = session.Clock.Year != t.NextRitualYear ? $"le rituel a lieu en l'an {t.NextRitualYear}"
                 : session.Resources.Prayers < settings.PrayersPerRitual ? "les prières ne suffisent pas"
-                : beasts.Count == 0 ? "aucune bête captive à offrir"
+                : beasts.Count == 0 ? "aucune bête captive de la Culture du Qi ou au-delà à offrir"
                 : t.PendingOffer != null ? "une offre attend déjà son choix"
                 : bearers.Count == 0 ? "aucun porteur éligible"
                 : null;

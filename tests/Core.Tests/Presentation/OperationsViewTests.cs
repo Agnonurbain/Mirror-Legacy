@@ -35,6 +35,18 @@ namespace MirrorChronicles.Tests.Presentation
         }
 
         [Test]
+        public void Ritual_OffersOnlyTheBeastsOfRank()
+        {
+            var s = NewGame();
+            s.Talismans.RestoreCalendar(s.Clock.Year);
+            s.Resources.AddPrayers(Fixtures.Content.Balance.Talismans.PrayersPerRitual);
+            s.Resources.AddBeast(new CapturedBeast("weak", CultivationRealm.Embryonic, 3, null));
+            var ritual = OperationsView.Ritual(s);
+            Assert.IsEmpty(ritual.Beasts, "a beast below the Qi Cultivation gives no talisman");
+            StringAssert.Contains("Culture du Qi", ritual.Refusal);
+        }
+
+        [Test]
         public void Ritual_ShowsTheTalismansOffered()
         {
             var s = NewGame();
