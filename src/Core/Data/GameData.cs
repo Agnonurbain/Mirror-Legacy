@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.32";
+        public const string CurrentVersion = "2.33";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }

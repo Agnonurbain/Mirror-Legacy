@@ -10,7 +10,10 @@ namespace MirrorChronicles.Data
     public enum DemonTier { Lesser, Ascent, Realization }
 
     /// <summary>A demon of the clan: awaiting the clan's choice, or let be and ravaging until <see cref="UntilYear"/>.</summary>
-    public sealed record MetalEssenceDemon(string Id, string Name, DemonTier Tier, int Year, int UntilYear);
+    public sealed record MetalEssenceDemon(string Id, string Name, DemonTier Tier, int Year, int UntilYear)
+    {
+        public string RegionId { get; init; } // where it ravages (null: the clan's home, for a demon of the clan's saved before 2.33)
+    }
 
     /// <summary>What a demon let be does each year, by its rank: how long it ravages, whom it kills, what it ruins.</summary>
     public sealed record DemonTierSettings
@@ -19,6 +22,7 @@ namespace MirrorChronicles.Data
         public double KillChance { get; init; }
         public int StonesLost { get; init; }
         public int PowerLoss { get; init; } // each power of the region
+        public double ElderKillChance { get; init; } // a power's elder of the region, below the Golden Core
     }
 
     /// <summary>
@@ -29,5 +33,7 @@ namespace MirrorChronicles.Data
     {
         public Dictionary<DemonTier, DemonTierSettings> Tiers { get; init; } = new Dictionary<DemonTier, DemonTierSettings>();
         public int GrudgeYears { get; init; } = 50;
+        public double WorldRavageChance { get; init; } = 0.5; // a power's demon ravages its region, unless the Underworld claims it at once
+        public double WorldSubdueChance { get; init; } = 0.3; // a year's odds a True Monarch of the region subdues it
     }
 }

@@ -76,6 +76,7 @@ namespace MirrorChronicles.Events
         public event Action<RankDesignation> OnRankDesignation;            // a treasure mortgaged on its Fruition
         public event Action<MetalEssenceDemon> OnDemonBorn;                 // a demon of the clan, awaiting its choice (L4e, 2026-10-03)
         public event Action<MetalEssenceDemon> OnDemonSubdued;
+        public event Action<MetalEssenceDemon> OnWorldDemon;              // a demon born of a power's elder ravages its region
         public event Action OnUnderworldProvoked;                           // the clan kept an essence against the custom
         public event Action<RegionalPhenomenon> OnPhenomenon;              // a phenomenon over a region (L4c, 2026-10-03)
         public event Action OnClanKingdomFounded;                          // the clan founds its kingdom (R20, 2026-10-03)
@@ -152,6 +153,7 @@ namespace MirrorChronicles.Events
         public void TriggerArtifactForged(ArtifactInstance artifact, CharacterData smith) => OnArtifactForged?.Invoke(artifact, smith);
         public void TriggerRankDesignation(RankDesignation d) => OnRankDesignation?.Invoke(d);
         public void TriggerDemonSubdued(MetalEssenceDemon demon) => OnDemonSubdued?.Invoke(demon);
+        public void TriggerWorldDemon(MetalEssenceDemon demon) => OnWorldDemon?.Invoke(demon);
         public void TriggerUnderworldProvoked() => OnUnderworldProvoked?.Invoke();
         public void TriggerClanWarWon(string enemy) => OnClanWarWon?.Invoke(enemy);
         public void TriggerRuinsRevealed(ShardDefinition shard) => OnRuinsRevealed?.Invoke(shard);

@@ -31,6 +31,26 @@ namespace MirrorChronicles.Characters
             this.resources = resources;
             this.factions = factions;
             ctx.Events.OnMetalEssenceDemon += Born;
+            ctx.Events.OnElderDied += (power, elder, demon) => { if (demon) BornInTheWorld(power, elder); };
+        }
+
+        private string Home => ctx.Content.Clan.HomeRegion;
+
+        private string RegionOf(MetalEssenceDemon d) => d.RegionId ?? Home;
+
+        /// <summary>
+        /// A demon born of a power's elder (the user's rule, 2026-10-03: what befalls the clan befalls the world): it ravages
+        /// its power's region, unless the Underworld's emissaries claim it at once.
+        /// </summary>
+        private void BornInTheWorld(Data.FactionData power, Data.FactionElder elder)
+        {
+            if (power?.RegionId == null || !ctx.Rng.Chance(Settings.WorldRavageChance)) return;
+            var tier = elder.FruitionId != null ? DemonTier.Realization : elder.Realm >= CultivationRealm.PurpleMansion ? DemonTier.Ascent : DemonTier.Lesser;
+            var demon = new MetalEssenceDemon(ctx.Rng.NextId(), elder.Name, tier, ctx.Clock.Year, ctx.Clock.Year + Settings.Tiers[tier].RavageYears)
+                { RegionId = power.RegionId };
+            ravaging.Add(demon);
+            ctx.Log.Warning($"[Demons] {elder.Name} of {power.Name} becomes a demon ({tier}): it ravages {power.RegionId}.");
+            ctx.Events.TriggerWorldDemon(demon);
         }
 
         private DemonSettings Settings => ctx.Content.Balance.Demons;
@@ -105,7 +125,7 @@ namespace MirrorChronicles.Characters
         {
             var demon = Take(id);
             if (demon == null) return "aucun démon n'attend ce choix";
-            ravaging.Add(demon with { UntilYear = ctx.Clock.Year + Settings.Tiers[demon.Tier].RavageYears });
+            ravaging.Add(demon with { UntilYear = ctx.Clock.Year + Settings.Tiers[demon.Tier].RavageYears, RegionId = Home });
             ctx.Log.Warning($"[Demons] {demon.Name}'s demon is let be: it ravages the region.");
             return null;
         }
@@ -115,6 +135,7 @@ namespace MirrorChronicles.Characters
         {
             var demon = ravaging.FirstOrDefault(d => d.Id == id);
             if (demon == null) return "aucun démon ne ravage la région";
+            if (RegionOf(demon) != Home) return "ce démon ravage une autre région que celle du clan";
             if (!HasAGoldenCoreForce) return "seule une force de Noyau d'Or peut soumettre un démon";
             ravaging.Remove(demon);
             ctx.Log.Info($"[Demons] The clan subdues {demon.Name}'s demon.");
@@ -144,16 +165,39 @@ namespace MirrorChronicles.Characters
                     ravaging.Remove(demon); // the Underworld claims it in the end
                     continue;
                 }
+                if (SubduedByTheRegion(demon)) continue;
                 Ravage(demon);
             }
+        }
+
+        /// <summary>A True Monarch of a power of the region subdues the demon, by the year's odds.</summary>
+        private bool SubduedByTheRegion(MetalEssenceDemon demon)
+        {
+            var monarch = factions.Factions.Where(f => f.RegionId == RegionOf(demon) && f.Elders.Any(e => e.Realm >= CultivationRealm.GoldenCore)).FirstOrDefault();
+            if (monarch == null || !ctx.Rng.Chance(Settings.WorldSubdueChance)) return false;
+            ravaging.Remove(demon);
+            ctx.Log.Info($"[Demons] {monarch.Name} subdues {demon.Name}'s demon.");
+            ctx.Events.TriggerDemonSubdued(demon);
+            return true;
         }
 
         private void Ravage(MetalEssenceDemon demon)
         {
             var tier = Settings.Tiers[demon.Tier];
-            resources.ConsumeSpiritStones(System.Math.Min(resources.SpiritStones, tier.StonesLost));
-            foreach (var power in factions.Factions.Where(f => f.RegionId == ctx.Content.Clan.HomeRegion))
+            string region = RegionOf(demon);
+            foreach (var power in factions.Factions.Where(f => f.RegionId == region).ToList())
+            {
                 power.PowerLevel = System.Math.Max(0, power.PowerLevel - tier.PowerLoss);
+                var elders = power.Elders.Where(e => e.Realm < CultivationRealm.GoldenCore).ToList();
+                if (elders.Count == 0 || !ctx.Rng.Chance(tier.ElderKillChance)) continue;
+                var victim = elders[ctx.Rng.Next(elders.Count)];
+                power.Elders.Remove(victim);
+                World.ElderSystem.Sync(power);
+                ctx.Log.Warning($"[Demons] {demon.Name}'s demon kills {victim.Name} of {power.Name}.");
+                ctx.Events.TriggerElderDied(power, victim, false);
+            }
+            if (region != Home) return; // the clan, elsewhere, is untouched
+            resources.ConsumeSpiritStones(System.Math.Min(resources.SpiritStones, tier.StonesLost));
             if (!ctx.Rng.Chance(tier.KillChance)) return;
             var prey = clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm < CultivationRealm.GoldenCore).ToList();
             if (prey.Count > 0) clan.Kill(prey[ctx.Rng.Next(prey.Count)], DeathCause.DemonRavaged);

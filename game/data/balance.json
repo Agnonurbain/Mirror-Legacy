@@ -567,11 +567,13 @@
   },
   "demons": {
     "tiers": {
-      "Lesser": { "ravageYears": 5, "killChance": 0.2, "stonesLost": 100, "powerLoss": 10 },
-      "Ascent": { "ravageYears": 15, "killChance": 0.4, "stonesLost": 300, "powerLoss": 30 },
-      "Realization": { "ravageYears": 40, "killChance": 0.7, "stonesLost": 800, "powerLoss": 80 }
+      "Lesser": { "ravageYears": 5, "killChance": 0.2, "stonesLost": 100, "powerLoss": 10, "elderKillChance": 0.05 },
+      "Ascent": { "ravageYears": 15, "killChance": 0.4, "stonesLost": 300, "powerLoss": 30, "elderKillChance": 0.15 },
+      "Realization": { "ravageYears": 40, "killChance": 0.7, "stonesLost": 800, "powerLoss": 80, "elderKillChance": 0.3 }
     },
-    "grudgeYears": 50
+    "grudgeYears": 50,
+    "worldRavageChance": 0.5,
+    "worldSubdueChance": 0.3
   },
   "phenomena": {
     "deaths": {

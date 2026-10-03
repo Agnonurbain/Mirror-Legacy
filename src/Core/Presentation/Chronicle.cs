@@ -90,7 +90,8 @@ namespace MirrorChronicles.Presentation
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
-            bus.OnDemonSubdued += d => Add($"le clan soumet le démon né de {d.Name}.");
+            bus.OnWorldDemon += d => Add($"{d.Name} devient un Démon d'Essence Métallique, qui ravage {RegionName(session, d.RegionId)}.");
+            bus.OnDemonSubdued += d => Add($"le démon né de {d.Name} est soumis.");
             bus.OnUnderworldProvoked += () => Add("le clan garde une essence au mépris de la coutume : le Monde Souterrain s'en souviendra.");
             bus.OnPhenomenon += p => { if (p.RegionId == session.Context.Content.Clan.HomeRegion) Add(p.Kind == PhenomenonKind.Failure
                 ? $"un phénomène céleste durable couvre {RegionName(session, p.RegionId)} après l'échec de {p.Source} : la cultivation y ralentit."
