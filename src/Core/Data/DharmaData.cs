@@ -16,6 +16,9 @@ namespace MirrorChronicles.Data
         public double UnsealChance { get; init; } = 0.2;
         public double ForgeChance { get; init; } = 0.15;
         public double FamilyForgeChance { get; init; } = 0.05;
+        public double TreasureFindChance { get; init; } = 0.01;  // a power of the Purple Mansion finds a Spiritual Treasure (its tombs, its ruins)
+        public double BondChance { get; init; } = 0.02;          // a peak Foundation binds itself to its power's Spiritual Treasure
+        public double TransmuteChance { get; init; } = 0.001;    // a holder tries a Transmutation to a free Realization of its Virtue
     }
 
     /// <summary>

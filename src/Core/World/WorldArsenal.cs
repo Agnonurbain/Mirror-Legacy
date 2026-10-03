@@ -18,9 +18,11 @@ namespace MirrorChronicles.World
         private readonly GameContext ctx;
         private readonly FactionManager factions;
         private readonly ArtifactArmoury forge;
+        private readonly FruitionRegistry registry;
 
-        public WorldArsenal(GameContext ctx, FactionManager factions, ArtifactArmoury forge)
+        public WorldArsenal(GameContext ctx, FactionManager factions, ArtifactArmoury forge, FruitionRegistry registry = null)
         {
+            this.registry = registry;
             this.ctx = ctx;
             this.factions = factions;
             this.forge = forge;
@@ -35,6 +37,9 @@ namespace MirrorChronicles.World
                 Treasures(power);
                 Designations(power);
                 Forge(power);
+                FindATreasure(power);
+                Bind(power);
+                Transmute(power);
                 power.DomainStrength = Strength(power);
             }
         }
@@ -82,6 +87,65 @@ namespace MirrorChronicles.World
             var rank = power.HighestRealm > CultivationRealm.PurpleMansion ? CultivationRealm.PurpleMansion : power.HighestRealm;
             var forms = ctx.Content.ArtifactForms;
             power.Artifacts.Add(forge.Shape(forms[ctx.Rng.Next(forms.Count)].Id, rank, null));
+        }
+
+        private void FindATreasure(FactionData power)
+        {
+            if (power.HighestRealm < CultivationRealm.PurpleMansion || power.Artifacts.Count >= power.Elders.Count || !ctx.Rng.Chance(Settings.TreasureFindChance)) return;
+            var forms = ctx.Content.ArtifactForms;
+            var lineages = ctx.Content.Fruitions.Where(f => f.Abilities.Count > 0).ToList();
+            power.Artifacts.Add(forge.Shape(forms[ctx.Rng.Next(forms.Count)].Id, CultivationRealm.PurpleMansion,
+                lineages.Count == 0 ? null : lineages[ctx.Rng.Next(lineages.Count)].Id, ArtifactClass.SpiritualTreasure));
+        }
+
+        /// <summary>A peak Foundation binds itself to its power's Spiritual Treasure (LORE.md §5.4.2): a Purple Mansion's power, never further.</summary>
+        private void Bind(FactionData power)
+        {
+            var treasure = power.Artifacts.FirstOrDefault(a => a.Class == ArtifactClass.SpiritualTreasure && a.LentBy != ArtifactTrade.ClanLender);
+            if (treasure == null) return;
+            var peak = power.Elders.FirstOrDefault(e => e.Realm == CultivationRealm.Foundation && e.Stage >= PowerLadder.StageCount(CultivationRealm.Foundation));
+            if (peak == null || !ctx.Rng.Chance(Settings.BondChance)) return;
+            power.Artifacts.Remove(treasure);
+            peak.TreasureBound = true;
+            peak.Realm = CultivationRealm.PurpleMansion;
+            peak.Stage = 1;
+            peak.RealmSinceYear = ctx.Clock.Year;
+            peak.MaxLifespan = System.Math.Max(peak.MaxLifespan, PowerLadder.MaxLifespan(CultivationRealm.PurpleMansion, 1));
+            ElderSystem.Sync(power);
+            ctx.Log.Info($"[Arsenal] {peak.Name} of {power.Name} binds itself to {treasure.Name}.");
+        }
+
+        private static readonly Element[] Virtues = { Element.Water, Element.Fire, Element.Earth, Element.Metal, Element.Wood };
+
+        /// <summary>A world holder rarely tries a Transmutation to a free Realization of its Virtue; a failure births a holder's demon.</summary>
+        private void Transmute(FactionData power)
+        {
+            if (registry == null) return;
+            foreach (var holder in power.Elders.Where(e => e.FruitionId != null).ToList())
+            {
+                var origin = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == holder.FruitionId);
+                if (origin == null || !Virtues.Contains(origin.Element)) continue;
+                var targets = ctx.Content.Fruitions.Where(f => f.Id != origin.Id && f.Element == origin.Element
+                    && registry.State(f.Id)?.Status == FruitionStatus.Free).ToList();
+                if (targets.Count == 0 || !ctx.Rng.Chance(Settings.TransmuteChance)) continue;
+                var target = targets[ctx.Rng.Next(targets.Count)];
+                var gc = ctx.Content.Balance.GoldenCore;
+                int chance = System.Math.Max(1, gc.TransmutationChance - (origin.Manifestation == Manifestation.Orthodox ? gc.AxiomPenalty : 0));
+                if (ctx.Rng.Next(1, 101) > chance)
+                {
+                    power.Elders.Remove(holder);
+                    ElderSystem.Sync(power);
+                    ctx.Log.Warning($"[Arsenal] {holder.Name} of {power.Name} fails its Transmutation: the branch breaks.");
+                    ctx.Events.TriggerElderDied(power, holder, true);
+                    continue;
+                }
+                registry.Vacate(origin.Id);
+                registry.Claim(target.Id, holder.Name);
+                holder.FruitionId = target.Id;
+                ctx.Log.Info($"[Arsenal] {holder.Name} of {power.Name} transmutes to {target.Id}.");
+                ctx.Events.TriggerFruitionFreed(origin.Id, holder.Name, false);
+                ctx.Events.TriggerFruitionTaken(target.Id, holder.Name);
+            }
         }
 
         /// <summary>

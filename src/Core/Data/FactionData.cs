@@ -90,6 +90,7 @@ namespace MirrorChronicles.Data
         public bool Perfected { get; set; }              // reached the Grand Perfection (five abilities): only then may it try the Golden Core
         public string FruitionId { get; set; }           // the lineage whose Realization it holds, or null (2026-10-01)
         public bool HasDharmaTreasure { get; set; }      // a True Monarch's treasure of its foundation (the world's, 2026-10-03)
+        public bool TreasureBound { get; set; }          // bound for life to a Spiritual Treasure: a Purple Mansion's power, never further
         public bool ImperialCore { get; set; }           // its Golden Core forged by governing its kingdom: no Realization asked
 
         public int Age(int year) => year - BornYear;

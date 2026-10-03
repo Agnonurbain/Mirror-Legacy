@@ -148,7 +148,7 @@ namespace MirrorChronicles.World
         /// <summary>A precious Purple Mansion at its peak dares only from good odds, or with nothing left to lose.</summary>
         private void TryTheGoldenCore(FactionData power, FactionElder elder, int year)
         {
-            if (!elder.Perfected || year - elder.RealmSinceYear < MinYears(CultivationRealm.PurpleMansion)) return;
+            if (elder.TreasureBound || !elder.Perfected || year - elder.RealmSinceYear < MinYears(CultivationRealm.PurpleMansion)) return; // bound: never further
             elder.GoldenCoreOdds = Math.Min(1.0, elder.GoldenCoreOdds + Settings.OddsGainPerYear); // it prepares
             double governing = GoverningBonus?.Invoke(power, elder) ?? 0;
             double odds = Math.Min(0.99, elder.GoldenCoreOdds + governing);

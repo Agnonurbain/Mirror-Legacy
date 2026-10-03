@@ -196,7 +196,7 @@ namespace MirrorChronicles.Session
             Wars.DomainGuard = () => Dharma.DomainStrength; // the treasures and Designations weigh in the clan's wars (L4e)
             Artifacts = new ArtifactArmoury(Context, Clan);
             Forge = new ArtifactForge(Context, Clan, Resources, Buildings, Artifacts);
-            Arsenal = new WorldArsenal(Context, Factions, Artifacts);
+            Arsenal = new WorldArsenal(Context, Factions, Artifacts, Fruitions);
             Rebirths = new WorldRebirths(Context, Factions, Fruitions);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
