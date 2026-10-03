@@ -276,6 +276,7 @@ namespace MirrorChronicles.Data
         public DharmaSettings Dharma { get; init; } = new DharmaSettings();
         public ArtifactSettings Artifacts { get; init; } = new ArtifactSettings();
         public MinorAbilitySettings MinorAbilities { get; init; } = new MinorAbilitySettings();
+        public PositionBridgeSettings PositionBridges { get; init; } = new PositionBridgeSettings();
 
         /// <summary>The trials of the chakras and of the Foundation wall, their failures, the Talisman Seeds (L1-L2 interpretations).</summary>
         public TrialSettings Trials { get; init; }
@@ -472,6 +473,9 @@ namespace MirrorChronicles.Data
         public int SurplusChance { get; init; }
         public int IntercalaryFourOneChance { get; init; }
         public int IntercalaryThreeTwoChance { get; init; }
+
+        /// <summary>Chance (%) of the bridge Intercalary, 4A+1B=C (R6; an interpretation).</summary>
+        public int IntercalaryBridgeChance { get; init; }
 
         /// <summary>Percent lost by an Intercalary into an orthodox position or a Surplus of a gathered one.</summary>
         public int AxiomPenalty { get; init; }

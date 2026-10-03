@@ -384,7 +384,7 @@ namespace MirrorChronicles.Session
             var content = session.Context.Content;
             string own = FoundationRef.Parse(FoundationOf(master)).FruitionId;
             var target = content.Fruitions.OrderBy(f => f.Id == own ? 0 : 1)
-                .Select(f => (f.Id, Route: GoldenCoreRules.RouteTo(master.DivineAbilities, f.Id, content.Fruitions)))
+                .Select(f => (f.Id, Route: GoldenCoreRules.RouteTo(master.DivineAbilities, f.Id, content, session.Bridges.Corrupted)))
                 .FirstOrDefault(x => x.Route != PositionRoute.None);
             if (target.Id == null || (session.GoldenCore.ForgeOdds(master) < RiseOdds * 100 && !NothingToLose(master))) return;
             bool specialised = target.Route == PositionRoute.IntercalaryThreeTwo;
@@ -399,7 +399,7 @@ namespace MirrorChronicles.Session
             var content = session.Context.Content;
             var target = content.Fruitions.FirstOrDefault(f => f.Id == essence.FruitionId);
             if (target == null || essence.Retreat != Retreat.None) return;
-            var route = GoldenCoreRules.RouteTo(essence.DivineAbilities, target.Id, content.Fruitions);
+            var route = GoldenCoreRules.RouteTo(essence.DivineAbilities, target.Id, content, session.Bridges.Corrupted);
             if (route == PositionRoute.None || (GoldenCoreRules.ClaimChance(essence, route, target, content) < RiseOdds * 100 && !NothingToLose(essence))) return;
             var state = session.Fruitions.State(target.Id);
             if (route != PositionRoute.Realization && state?.Status == FruitionStatus.Occupied

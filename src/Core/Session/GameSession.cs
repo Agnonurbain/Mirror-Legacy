@@ -107,6 +107,7 @@ namespace MirrorChronicles.Session
         public ArtifactFinds Finds { get; }
         public ArtifactTrade ArtifactTrade { get; }
         public MinorAbilities Minors { get; }
+        public PositionBridges Bridges { get; }
         public ImperialWay Imperial { get; }
         public RegionalPhenomena Phenomena { get; }
 
@@ -195,6 +196,8 @@ namespace MirrorChronicles.Session
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
             Intrigues.Armoury = Artifacts;
+            Bridges = new PositionBridges(Context);
+            GoldenCore.CorruptedVirtues = () => Bridges.Corrupted; // the bridges of the corrupted Virtues (R6)
             Minors = new MinorAbilities(Context, Clan, Resources, Factions, Suspicion, Mirror, Knowledge);
             Schemes.Guard = m => 1 - (1 - Dharma.GuardChance(m)) * (1 - Dharma.DomainGuardChance) * (1 - ArtifactRules.Protection(m));
             Place.Phenomena = Phenomena; // a death's weather, a failure's lasting phenomenon (L4c)
@@ -345,6 +348,7 @@ namespace MirrorChronicles.Session
             session.Phenomena.Restore(data.Phenomena); // none before 2.28
             session.Dharma.Restore(data.RankDesignations); // none before 2.30
             session.Artifacts.Restore(data.ArtifactArmoury); // none before 2.31
+            session.Bridges.Restore(data.CorruptedVirtues);  // before 2.32: those of the start
             session.Demons.Restore(data.PendingDemons, data.RavagingDemons, data.Essences, data.UnderworldGrudgeUntil); // none before 2.29
             session.Sect.Restore(data.SectFoundedYear, session.Karma.GenerationCount); // none before 2.21
             session.Absorption.Restore(data.AbsorbedPowers);
@@ -431,6 +435,7 @@ namespace MirrorChronicles.Session
                 Essences = Demons.Essences,
                 RankDesignations = Dharma.Designations.ToList(),
                 ArtifactArmoury = Artifacts.Armoury.ToList(),
+                CorruptedVirtues = Bridges.Corrupted.ToList(),
                 UnderworldGrudgeUntil = Demons.GrudgeUntil,
                 AbsorbedPowers = Absorption.Absorbed.ToList(),
                 KnowledgeDebts = Accords.Debts.ToList(),

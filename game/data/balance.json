@@ -44,6 +44,7 @@
 	"surplusChance": 70,
 	"intercalaryFourOneChance": 35,
 	"intercalaryThreeTwoChance": 55,
+	"intercalaryBridgeChance": 30,
 	"axiomPenalty": 30,
 	"permissionStones": 5000,
 	"permissionChance": 0.3,
@@ -523,6 +524,16 @@
 	"oddsGainPerYear": 0.0005,
 	"perfectionChance": 0.1,
 	"lastYears": 20
+  },
+  "positionBridges": {
+    "corruptedAtStart": [ "Water" ],
+    "bridges": [
+      { "from": "mutable-water", "bridge": "nourishing-water", "ability": "winter-drizzle", "to": "hidden-water", "virtue": "Water", "source": "LORE.md §5.5.1 (Bruine Hivernale entre l'Eau Muable et l'Eau Cachée, possible par la corruption de la vertu de l'Eau)", "provenance": "Lore" },
+      { "from": "mutable-fire", "bridge": "nourishing-fire", "to": "hidden-fire", "virtue": "Fire", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" },
+      { "from": "mutable-earth", "bridge": "nourishing-earth", "to": "hidden-earth", "virtue": "Earth", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" },
+      { "from": "mutable-metal", "bridge": "wandering-metal", "to": "hidden-metal", "virtue": "Metal", "source": "Analogie avec le pont de l'Eau ; le Métal Errant tient la place nourricière (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" },
+      { "from": "mutable-wood", "bridge": "nourishing-wood", "to": "hidden-wood", "virtue": "Wood", "source": "Analogie avec le pont de l'Eau (décision de l'utilisateur, 2026-10-03)", "provenance": "Interpretation" }
+    ]
   },
   "minorAbilities": { "tombRevealChance": 0.5, "ruinsRevealChance": 0.2, "mirrorCost": 40, "price": 2000, "buyRelation": 20, "caughtEvidence": 20, "caughtRelation": -25 },
   "artifacts": {

@@ -41,6 +41,29 @@ namespace MirrorChronicles.Characters
             return PositionRoute.None;
         }
 
+        /// <summary>
+        /// The position five abilities lead to, with the bridges of the corrupted Virtues (R6): four of a lineage and one bridge
+        /// ability lead to the Intercalary of a third.
+        /// </summary>
+        public static PositionRoute RouteTo(IEnumerable<string> abilities, string fruitionId, GameContent content, IEnumerable<Element> corrupted)
+        {
+            var route = RouteTo(abilities, fruitionId, content.Fruitions);
+            if (route != PositionRoute.None) return route;
+            var held = abilities?.Distinct().Select(FoundationRef.Parse).ToList();
+            if (held == null || held.Count != AbilitiesToForge || corrupted == null) return PositionRoute.None;
+            var open = corrupted.ToHashSet();
+            foreach (var bridge in content.Balance.PositionBridges.Bridges.Where(b => b.To == fruitionId && open.Contains(b.Virtue)))
+            {
+                int from = held.Count(h => h.FruitionId == bridge.From);
+                var others = held.Where(h => h.FruitionId != bridge.From).ToList();
+                if (from == AbilitiesToForge - 1 && others.Count == 1 && others[0].FruitionId == bridge.Bridge
+                    && (bridge.Ability == null || others[0].AbilityId == bridge.Ability)
+                    && held.All(h => Definition($"{h.FruitionId}:{h.AbilityId}", content.Fruitions).Ability != null))
+                    return PositionRoute.IntercalaryBridge;
+            }
+            return PositionRoute.None;
+        }
+
         /// <summary>The Golden Core standing a position route grants.</summary>
         public static GoldenCoreState PositionOf(PositionRoute route)
         {
@@ -49,7 +72,8 @@ namespace MirrorChronicles.Characters
                 case PositionRoute.Realization: return GoldenCoreState.Realization;
                 case PositionRoute.Surplus: return GoldenCoreState.Surplus;
                 case PositionRoute.IntercalaryFourOne:
-                case PositionRoute.IntercalaryThreeTwo: return GoldenCoreState.Intercalary;
+                case PositionRoute.IntercalaryThreeTwo:
+                case PositionRoute.IntercalaryBridge: return GoldenCoreState.Intercalary;
                 default: return GoldenCoreState.None;
             }
         }
@@ -58,7 +82,7 @@ namespace MirrorChronicles.Characters
         public static bool BreaksTheAxiom(PositionRoute route, FruitionDefinition target)
         {
             if (target == null) return false;
-            bool intercalary = route == PositionRoute.IntercalaryFourOne || route == PositionRoute.IntercalaryThreeTwo;
+            bool intercalary = route == PositionRoute.IntercalaryFourOne || route == PositionRoute.IntercalaryThreeTwo || route == PositionRoute.IntercalaryBridge;
             return (intercalary && target.Manifestation == Manifestation.Orthodox)
                 || (route == PositionRoute.Surplus && target.Manifestation == Manifestation.Gathered);
         }
@@ -114,6 +138,7 @@ namespace MirrorChronicles.Characters
                 case PositionRoute.Surplus: chance = s.SurplusChance; break;
                 case PositionRoute.IntercalaryFourOne: chance = s.IntercalaryFourOneChance; break;
                 case PositionRoute.IntercalaryThreeTwo: chance = s.IntercalaryThreeTwoChance; break;
+                case PositionRoute.IntercalaryBridge: chance = s.IntercalaryBridgeChance; break;
                 default: return 0;
             }
             return Clamp(chance + RootBonus(member, content) - (BreaksTheAxiom(route, target) ? s.AxiomPenalty : 0));

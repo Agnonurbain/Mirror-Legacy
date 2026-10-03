@@ -77,6 +77,11 @@ namespace MirrorChronicles.Characters
             return true;
         }
 
+        /// <summary>The Virtues corrupted in the world, whose bridges open (R6; set by the session).</summary>
+        public Func<IEnumerable<Element>> CorruptedVirtues { get; set; }
+
+        private IEnumerable<Element> Corrupted => CorruptedVirtues?.Invoke() ?? ctx.Content.Balance.PositionBridges.CorruptedAtStart;
+
         /// <summary>What governing the clan's kingdom adds to a sovereign's forge (R20; set by the session).</summary>
         public Func<CharacterData, int> GovernanceBonus { get; set; }
 
@@ -109,7 +114,7 @@ namespace MirrorChronicles.Characters
             if (member == null || !member.IsAlive || member.Realm != CultivationRealm.GoldenCore
                 || member.GoldenCore != GoldenCoreState.MetallicEssenceOnly || member.Retreat != Retreat.None) return false;
 
-            var route = GoldenCoreRules.RouteTo(member.DivineAbilities, member.FruitionId, ctx.Content.Fruitions);
+            var route = GoldenCoreRules.RouteTo(member.DivineAbilities, member.FruitionId, ctx.Content, Corrupted);
             if (route == PositionRoute.None || !IsOpen(route, member.FruitionId))
             {
                 ctx.Log.Warning($"[Golden Core] {member.FullName} cannot ask for a position in \"{member.FruitionId}\".");
@@ -325,7 +330,7 @@ namespace MirrorChronicles.Characters
         {
             if (!IsReadyToRise(member, GoldenCoreRules.AbilitiesToForge)) return PositionRoute.None;
 
-            var route = GoldenCoreRules.RouteTo(member.DivineAbilities, fruitionId, ctx.Content.Fruitions);
+            var route = GoldenCoreRules.RouteTo(member.DivineAbilities, fruitionId, ctx.Content, Corrupted);
             if (route == PositionRoute.None) return route;
             string method = route == PositionRoute.IntercalaryThreeTwo ? GoldenCoreRules.SpecialisedMethod(fruitionId) : fruitionId;
             return knowledge.Knows(FactKind.GoldSeeking, method) ? route : PositionRoute.None;

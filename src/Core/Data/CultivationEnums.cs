@@ -71,5 +71,5 @@ namespace MirrorChronicles.Data
     /// (Realization), a substitute among them (Surplus), or a complete change of lineage (Intercalary: four of
     /// another lineage and one of this one, or three and two with a specialised gold-seeking method).
     /// </summary>
-    public enum PositionRoute { None, Realization, Surplus, IntercalaryFourOne, IntercalaryThreeTwo }
+    public enum PositionRoute { None, Realization, Surplus, IntercalaryFourOne, IntercalaryThreeTwo, IntercalaryBridge }
 }
