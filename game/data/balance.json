@@ -524,6 +524,7 @@
 	"perfectionChance": 0.1,
 	"lastYears": 20
   },
+  "minorAbilities": { "tombRevealChance": 0.5, "ruinsRevealChance": 0.2, "mirrorCost": 40, "price": 2000, "buyRelation": 20, "caughtEvidence": 20, "caughtRelation": -25 },
   "artifacts": {
     "ranks": {
       "QiRefinement": { "strength": 2, "protection": 0.15, "cultivation": 0.05 },

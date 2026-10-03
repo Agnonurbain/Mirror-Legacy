@@ -14,8 +14,24 @@ namespace MirrorChronicles.Session
     {
         private const int MostArtifactsInStore = 2; // the forge rests while the armoury holds this many unborne
 
+        /// <summary>
+        /// The mirror deduces the minor abilities of its Purple Mansions' lineages, never from its reserve: a Surplus may
+        /// need one when the fifth orthodox ability is out of reach (R2, 2026-10-03).
+        /// </summary>
+        private static void LearnTheMinors(GameSession session)
+        {
+            int cost = session.Context.Content.Balance.MinorAbilities.MirrorCost;
+            foreach (var lineage in session.Clan.LivingMembers.Where(m => m.Realm == CultivationRealm.PurpleMansion)
+                         .Select(m => FoundationRef.Parse(m.FoundationId).FruitionId).Where(l => l != null).Distinct().ToList())
+            {
+                if (session.Mirror.MirrorPower - cost < MirrorReserve(session)) return;
+                session.Minors.Deduce(lineage);
+            }
+        }
+
         private static void ArmTheClan(GameSession session)
         {
+            LearnTheMinors(session);
             BorrowAnArtifact(session);
             ForgeAnArtifact(session);
             HandOutTheArtifacts(session);

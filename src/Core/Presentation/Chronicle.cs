@@ -28,6 +28,14 @@ namespace MirrorChronicles.Presentation
         private static string FruitionName(GameSession session, string fruitionId) =>
             session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == fruitionId)?.Name ?? fruitionId;
 
+        private static string AbilityName(GameSession session, string reference)
+        {
+            var (lineage, id) = FoundationRef.Parse(reference);
+            var fruition = session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == lineage);
+            var ability = fruition?.Abilities.FirstOrDefault(a => a.Id == id);
+            return ability == null ? reference : $"« {ability.Name} » ({fruition.Name})";
+        }
+
         private static string RegionName(GameSession session, string regionId) =>
             session.Context.Content.Regions.FirstOrDefault(r => r.Id == regionId)?.Name ?? regionId;
 
@@ -72,6 +80,7 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronDesignResisted += (s, d) => Add($"le clan résiste à {s.Power}, qui ne l'oubliera pas.");
             bus.OnPatronOffer += offer => Add($"{offer.Power} offre au clan une méthode qui mène au Manoir Pourpre. Que cache ce don ?");
             bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
+            bus.OnMinorAbilityLearnt += ability => Add($"le clan apprend {AbilityName(session, ability)}, une capacité mineure d'un ancien Vrai Monarque.");
             bus.OnArtifactFound += (a, where) => Add($"{where} : {a.Name} ({ArtifactView.ClassLabel(a.Class)}).");
             bus.OnTreasureBound += (m, a) => Add($"{m.FullName} lie son destin à {a.Name} : la puissance d'un Manoir Pourpre, et plus jamais un pas au-delà.");
             bus.OnArtifactForged += (a, smith) => Add($"{smith.FullName} forge {a.Name} ({ArtifactView.ClassLabel(a.Class)}).");

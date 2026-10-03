@@ -488,5 +488,17 @@ namespace MirrorChronicles.Tests.Session
             BalanceRun.Act(s);
             Assert.IsEmpty(s.Dharma.Designations, "a masterless Designation is dangerous: it returns to its Fruition");
         }
+    
+        [Test]
+        public void ThePilot_HasTheMirrorDeduceTheMinorsOfItsMansionsLineage()
+        {
+            var s = Session();
+            var m = Mansion(s, 0, FiveOrthodoxWater);
+            foreach (var a in FiveOrthodoxWater) s.Knowledge.Reveal(FactKind.Ability, a, KnowledgeSource.Formed);
+            BalanceRun.Act(s);
+            var water = s.Context.Content.Fruitions.Single(f => f.Id == "orthodox-water");
+            Assert.IsTrue(water.Abilities.Where(a => a.Substitute).All(a => s.Knowledge.Knows(FactKind.Ability, $"orthodox-water:{a.Id}")),
+                "a Surplus may need them when the fifth orthodox is out of reach");
+        }
     }
 }

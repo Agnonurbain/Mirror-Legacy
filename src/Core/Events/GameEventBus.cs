@@ -65,6 +65,7 @@ namespace MirrorChronicles.Events
         public event Action<Diplomacy.Sponsorship, PatronDesign> OnPatronDesignResisted;
         public event Action<string, string> OnAccordDenounced;              // rival, patron (§11.10)
         public event Action<CharacterData, string> OnMemberLured;           // a practitioner bought away by a rival
+        public event Action<string> OnMinorAbilityLearnt;                 // « lineage:ability », a former True Monarch's minor ability (R2)
         public event Action OnTombLooted;                                  // a tomb's guardian falls (C5)
         public event Action<ArtifactInstance, string> OnArtifactFound;      // an artifact found, and where (L4f)
         public event Action<CharacterData, ArtifactInstance> OnTreasureBound; // a Foundation binds itself to a Spiritual Treasure
@@ -141,6 +142,7 @@ namespace MirrorChronicles.Events
         public void TriggerDemonBorn(MetalEssenceDemon demon) => OnDemonBorn?.Invoke(demon);
         public void TriggerDharmaTreasure(CharacterData member) => OnDharmaTreasure?.Invoke(member);
         public void TriggerTombLooted() => OnTombLooted?.Invoke();
+        public void TriggerMinorAbilityLearnt(string ability) => OnMinorAbilityLearnt?.Invoke(ability);
         public void TriggerArtifactFound(ArtifactInstance a, string where) => OnArtifactFound?.Invoke(a, where);
         public void TriggerTreasureBound(CharacterData m, ArtifactInstance a) => OnTreasureBound?.Invoke(m, a);
         public void TriggerArtifactForged(ArtifactInstance artifact, CharacterData smith) => OnArtifactForged?.Invoke(artifact, smith);

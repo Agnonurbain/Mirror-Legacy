@@ -41,6 +41,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Sceau du Midi Éternel",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -203,6 +211,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Braise du Couchant",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -264,6 +280,14 @@
 		  "types": [],
 		  "provenance": "Wiki",
 		  "interpretedFields": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Voile de la Lune Profonde",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -321,6 +345,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Ombre sous le Voile",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -378,6 +410,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Rosée du Clair de Lune",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -456,6 +496,14 @@
 		  "types": [
             "Magic"
 		  ]
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Marée des Anciens Rivages",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Free",
@@ -524,6 +572,14 @@
 		  "id": "corrupted-river",
 		  "name": "Fleuve Corrompu",
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Bassin des Mille Sources",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Occupied",
@@ -589,6 +645,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Pluie sur les Rizières",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Free",
@@ -741,6 +805,14 @@
 		  "id": "embryo-vigil",
 		  "name": "Veille sur l'Embryon",
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Source sous la Pierre",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Occupied",
@@ -813,6 +885,14 @@
 		  "types": [
             "Magic"
 		  ]
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Flambeau du Premier Autel",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -883,6 +963,14 @@
 		  "types": [
             "Magic"
 		  ]
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Brasier des Cent Foyers",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -942,6 +1030,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Chaleur du Four Patient",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Broken",
@@ -1004,6 +1100,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Flamme du Masque Changeant",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1061,6 +1165,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Braise sous la Cendre",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1116,6 +1228,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Coulée du Creuset",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1173,6 +1293,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Bannière Incandescente",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1231,6 +1359,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Socle des Montagnes Droites",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1288,6 +1424,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Tertre des Ancêtres",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1346,6 +1490,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Limon Fertile",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1403,6 +1555,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Dune Errante",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1460,6 +1620,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Caverne sans Entrée",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1519,6 +1687,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Lame du Juste Tranchant",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1578,6 +1754,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Cloche des Mille Anneaux",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Hidden",
@@ -1637,6 +1821,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Fer du Voyageur",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1697,6 +1889,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Alliage aux Sept Visages",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1755,6 +1955,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Veine Endormie",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Broken",
@@ -1813,6 +2021,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Carillon de l'Accord",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Hidden",
@@ -1869,6 +2085,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Pièce du Bon Augure",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -1925,6 +2149,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Patine de l'Origine",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Occupied",
@@ -2004,6 +2236,14 @@
 		  "id": "wood-makes-the-square",
 		  "name": "Le Bois Fait l'Équerre",
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Tronc du Vieux Cèdre",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2063,6 +2303,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Bosquet Entrelacé",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Free",
@@ -2122,6 +2370,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Sève du Printemps",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2179,6 +2435,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Liane Changeante",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2238,6 +2502,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Racine sous la Mousse",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2297,6 +2569,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Souffle sans Mélange",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2352,6 +2632,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Haleine Véritable",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2407,6 +2695,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Éclat du Matin Pur",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2469,6 +2765,14 @@
 		  "id": "warm-precious-vase",
 		  "name": "Vase Tiède et Précieux",
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Brume Violette de l'Est",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Hidden",
@@ -2530,6 +2834,14 @@
 		  "id": "eight-exemptions-debate",
 		  "name": "Débat des Huit Exemptions",
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Vent du Désert Blanc",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Free",
@@ -2585,6 +2897,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Offrande au Ciel Haut",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2640,6 +2960,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Libation aux Profondeurs",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2695,6 +3023,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Givre du Col",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2750,6 +3086,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Nuée Propice",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2806,6 +3150,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Miasme du Mauvais Présage",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2861,6 +3213,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Abîme Silencieux",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -2916,6 +3276,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Brume des Bannis",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Suspected",
@@ -2971,6 +3339,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Roulement du Ciel",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -3026,6 +3402,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Grondement Souterrain",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -3082,6 +3466,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Aimant des Origines",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -3151,6 +3543,14 @@
 		  "id": "continuous-expansion",
 		  "name": "Expansion Continue",
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Registre des Astres",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Free",
@@ -3209,6 +3609,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Cadence des Champs",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Occupied",
@@ -3277,6 +3685,14 @@
 		  "types": [
             "Magic"
 		  ]
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Veille des Remparts",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Free",
@@ -3399,6 +3815,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Pas du Tambour",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -3535,6 +3959,14 @@
 		  "types": [
             "Life"
 		  ]
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Œil du Seuil Nocturne",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -3660,6 +4092,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Balance des Rites",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Unspecified",
@@ -3784,6 +4224,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Fil de l'Épée Ancienne",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Free",
@@ -3848,6 +4296,14 @@
 		  "id": "unrevealed-5",
 		  "name": null,
 		  "types": []
+		},
+		{
+		  "id": "former-monarchs-legacy",
+		  "name": "Première Clarté",
+		  "types": [],
+		  "substitute": true,
+		  "provenance": "Interpretation",
+		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
 	  "status": "Occupied",

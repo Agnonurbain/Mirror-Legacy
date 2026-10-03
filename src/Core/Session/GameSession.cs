@@ -106,6 +106,7 @@ namespace MirrorChronicles.Session
         public ArtifactForge Forge { get; }
         public ArtifactFinds Finds { get; }
         public ArtifactTrade ArtifactTrade { get; }
+        public MinorAbilities Minors { get; }
         public ImperialWay Imperial { get; }
         public RegionalPhenomena Phenomena { get; }
 
@@ -194,6 +195,7 @@ namespace MirrorChronicles.Session
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
             Intrigues.Armoury = Artifacts;
+            Minors = new MinorAbilities(Context, Clan, Resources, Factions, Suspicion, Mirror, Knowledge);
             Schemes.Guard = m => 1 - (1 - Dharma.GuardChance(m)) * (1 - Dharma.DomainGuardChance) * (1 - ArtifactRules.Protection(m));
             Place.Phenomena = Phenomena; // a death's weather, a failure's lasting phenomenon (L4c)
             GoldenCore.GovernanceBonus = Imperial.BonusFor; // a sovereign cultivates by governing (R20)
