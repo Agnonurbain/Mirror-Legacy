@@ -106,6 +106,7 @@ namespace MirrorChronicles.Session
         public ArtifactForge Forge { get; }
         public WorldArsenal Arsenal { get; }
         public WorldRebirths Rebirths { get; }
+        public PowerSchemeSystem PowerSchemes { get; }
         public ArtifactFinds Finds { get; }
         public ArtifactTrade ArtifactTrade { get; }
         public MinorAbilities Minors { get; }
@@ -198,6 +199,7 @@ namespace MirrorChronicles.Session
             Forge = new ArtifactForge(Context, Clan, Resources, Buildings, Artifacts);
             Arsenal = new WorldArsenal(Context, Factions, Artifacts, Fruitions);
             Rebirths = new WorldRebirths(Context, Factions, Fruitions);
+            PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
             Intrigues.Armoury = Artifacts;
@@ -360,6 +362,7 @@ namespace MirrorChronicles.Session
             session.Phenomena.Restore(data.Phenomena); // none before 2.28
             session.Dharma.Restore(data.RankDesignations); // none before 2.30
             session.Artifacts.Restore(data.ArtifactArmoury); // none before 2.31
+            session.PowerSchemes.Restore(data.PowerCaptives); // none before 2.35
             session.Rebirths.Restore(data.WorldRebirths);   // none before 2.34
             session.Bridges.Restore(data.CorruptedVirtues);  // before 2.32: those of the start
             session.Demons.Restore(data.PendingDemons, data.RavagingDemons, data.Essences, data.UnderworldGrudgeUntil); // none before 2.29
@@ -450,6 +453,7 @@ namespace MirrorChronicles.Session
                 ArtifactArmoury = Artifacts.Armoury.ToList(),
                 CorruptedVirtues = Bridges.Corrupted.ToList(),
                 WorldRebirths = Rebirths.Pending.ToList(),
+                PowerCaptives = PowerSchemes.Captives.ToList(),
                 UnderworldGrudgeUntil = Demons.GrudgeUntil,
                 AbsorbedPowers = Absorption.Absorbed.ToList(),
                 KnowledgeDebts = Accords.Debts.ToList(),
@@ -529,6 +533,7 @@ namespace MirrorChronicles.Session
                     Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)
                     Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)
                     Phenomena.ProcessYear();           // the weathers of the dead pass (L4c)
+                    PowerSchemes.ProcessYear();        // the powers scheme against each other (the world's, 2026-10-03)
                     Rebirths.ProcessYear();            // the powers' ancestors come back (the world's, 2026-10-03)
                     Arsenal.ProcessYear();             // the powers' treasures, Designations and artifacts (the world's, 2026-10-03)
                     ArtifactTrade.ProcessYear();       // loans of artifacts end (L4f)

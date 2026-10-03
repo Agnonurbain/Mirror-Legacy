@@ -90,6 +90,12 @@ namespace MirrorChronicles.Presentation
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
+            bus.OnPowerScheme += (what, schemer, victim) =>
+            {
+                string home = session.Context.Content.Clan.HomeRegion;
+                if (session.Factions.GetFactionByName(schemer)?.RegionId == home || session.Factions.GetFactionByName(victim)?.RegionId == home)
+                    Add($"{schemer} ourdit contre {victim} : {what}.");
+            };
             bus.OnWorldDemon += d => Add($"{d.Name} devient un Démon d'Essence Métallique, qui ravage {RegionName(session, d.RegionId)}.");
             bus.OnDemonSubdued += d => Add($"le démon né de {d.Name} est soumis.");
             bus.OnUnderworldProvoked += () => Add("le clan garde une essence au mépris de la coutume : le Monde Souterrain s'en souviendra.");

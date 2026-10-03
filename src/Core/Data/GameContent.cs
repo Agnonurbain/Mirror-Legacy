@@ -275,6 +275,7 @@ namespace MirrorChronicles.Data
         public DemonSettings Demons { get; init; } = new DemonSettings();
         public DharmaSettings Dharma { get; init; } = new DharmaSettings();
         public WorldArsenalSettings WorldArsenal { get; init; } = new WorldArsenalSettings();
+        public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
         public ArtifactSettings Artifacts { get; init; } = new ArtifactSettings();
         public MinorAbilitySettings MinorAbilities { get; init; } = new MinorAbilitySettings();
         public PositionBridgeSettings PositionBridges { get; init; } = new PositionBridgeSettings();
