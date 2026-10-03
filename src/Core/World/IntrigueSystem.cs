@@ -196,6 +196,7 @@ namespace MirrorChronicles.World
             if (techniques.Known.Any()) yield return IntrigueTarget.Manual;
             if (resources.SpiritStones > 0) yield return IntrigueTarget.Stones;
             if (resources.SpiritualQi.Any(q => q.Value > 0)) yield return IntrigueTarget.Qi;
+            if (Armoury?.Armoury.Count > 0) yield return IntrigueTarget.Artifact;
         }
 
         /// <summary>A theft; patrols may catch the thief. Returns what was taken, or null when there was nothing to take.</summary>
@@ -232,10 +233,18 @@ namespace MirrorChronicles.World
                     // the first Qi by its id: a thief grabs what lies at hand, not the rarest
                     var qi = resources.SpiritualQi.Where(q => q.Value > 0).OrderBy(q => q.Key, StringComparer.Ordinal).Select(q => q.Key).FirstOrDefault();
                     return qi != null && resources.ConsumeQi(qi, 1) ? "une portion de Qi" : null;
+                case IntrigueTarget.Artifact:
+                    var artifact = Armoury?.Armoury.OrderByDescending(a => a.Rank).ThenBy(a => a.Id, StringComparer.Ordinal).FirstOrDefault();
+                    if (artifact == null || Armoury.TakeAway(artifact.Id) == null) return null;
+                    thief.Artifacts.Add(artifact with { LentBy = null, DueYear = 0 }); // a loan stolen is the thief's now
+                    return artifact.Name;
                 default:
                     return null;
             }
         }
+
+        /// <summary>The clan's armoury, a thief's prey too (L4f; set by the session).</summary>
+        public Characters.ArtifactArmoury Armoury { get; set; }
 
         // ---- Spies ----
 

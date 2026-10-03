@@ -41,12 +41,33 @@ namespace MirrorChronicles.Characters
         /// <summary>Makes an artifact (it goes to the armoury) — the forge's, a tomb's, a trade's.</summary>
         public ArtifactInstance Create(string formId, CultivationRealm rank, string lineage, ArtifactClass? cls = null)
         {
-            var form = ctx.Content.ArtifactForms.First(f => f.Id == formId);
-            var made = Make(form, rank, lineage, cls ?? ClassOf(rank));
+            var made = Shape(formId, rank, lineage, cls);
             armoury.Add(made);
             ctx.Log.Info($"[Artifacts] The clan gains {made.Name} ({made.Class}, {made.Rank}).");
             return made;
         }
+
+        /// <summary>An artifact shaped, not yet the clan's (a power's own arsenal, a loan to mark).</summary>
+        public ArtifactInstance Shape(string formId, CultivationRealm rank, string lineage, ArtifactClass? cls = null) =>
+            Make(ctx.Content.ArtifactForms.First(f => f.Id == formId), rank, lineage, cls ?? ClassOf(rank));
+
+        /// <summary>An artifact comes into the armoury (a loan, a theft, a purchase).</summary>
+        public void Add(ArtifactInstance artifact) => armoury.Add(artifact);
+
+        /// <summary>An artifact leaves the clan, from the armoury or from its bearer; null when the clan has it not.</summary>
+        public ArtifactInstance TakeAway(string artifactId)
+        {
+            var kept = armoury.FirstOrDefault(a => a.Id == artifactId);
+            if (kept != null) { armoury.Remove(kept); return kept; }
+            var bearer = clan.LivingMembers.FirstOrDefault(m => m.Artifact?.Id == artifactId);
+            if (bearer == null || bearer.TreasureBound) return null;
+            var borne = bearer.Artifact;
+            bearer.Artifact = null;
+            return borne;
+        }
+
+        /// <summary>Every artifact of the clan: the armoury's and the borne.</summary>
+        public IEnumerable<ArtifactInstance> All => armoury.Concat(clan.LivingMembers.Where(m => m.Artifact != null).Select(m => m.Artifact));
 
         private ArtifactInstance Make(ArtifactForm form, CultivationRealm rank, string lineage, ArtifactClass cls)
         {

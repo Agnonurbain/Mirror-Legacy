@@ -9,7 +9,7 @@ namespace MirrorChronicles.Data
     public sealed record Demand(string Faction, int Stones, int Year, DemandKind Kind = DemandKind.Silence);
 
     /// <summary>What a thief may take from the clan.</summary>
-    public enum IntrigueTarget { Beast, Manual, Stones, Qi }
+    public enum IntrigueTarget { Beast, Manual, Stones, Qi, Artifact }
 
     /// <summary>
     /// The powers' intrigues (balance.json « intrigues »; user decision 2026-09-27; interpretations of D7): blackmail

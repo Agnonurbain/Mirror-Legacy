@@ -29,7 +29,11 @@ namespace MirrorChronicles.Data
     /// its guard, its help to cultivate — and how much more a bearer of its lineage draws from it.
     /// </summary>
     public sealed record ArtifactInstance(string Id, string FormId, string Name, ArtifactClass Class, CultivationRealm Rank, string Lineage,
-        ArtifactEffect Effect, int Strength, double Protection, double Cultivation, double LineageFactor);
+        ArtifactEffect Effect, int Strength, double Protection, double Cultivation, double LineageFactor)
+    {
+        public string LentBy { get; init; }  // the power that lent it to the clan (« clan »: the clan's own, lent to a power); null: owned
+        public int DueYear { get; init; }    // the year a loan ends
+    }
 
     /// <summary>What an artifact of a rank gives (by its effect).</summary>
     public sealed record ArtifactScale
@@ -47,6 +51,22 @@ namespace MirrorChronicles.Data
         public int Stones { get; init; }
     }
 
+    /// <summary>The artifacts between the clan and the powers: commissions, sales, loans, thefts.</summary>
+    public sealed record ArtifactTradeSettings
+    {
+        public double CommissionMarkup { get; init; } = 2.0; // a sect's work, dearer than the clan's own forge
+        public int OreValue { get; init; } = 5;              // stones an ore is worth in a price
+        public int CommissionRelation { get; init; }         // a power works for the clan only from this relation
+        public double SellShare { get; init; } = 0.5;        // what a power pays of an artifact's worth
+        public int LoanRelation { get; init; } = 50;         // a power lends from this relation
+        public int LoanYears { get; init; } = 10;
+        public int LendRelationGain { get; init; } = 10;
+        public int KeepRelation { get; init; }               // a borrower below this relation keeps the clan's loan
+        public int CaughtEvidence { get; init; } = 20;
+        public int CaughtRelation { get; init; } = -25;
+        public double CaughtDeathChance { get; init; } = 0.1;
+    }
+
     /// <summary>The odds of finding artifacts: in ruins, in a tomb, in a yielding enemy's halls, after a Purple Mansion's death.</summary>
     public sealed record ArtifactFinding
     {
@@ -61,6 +81,7 @@ namespace MirrorChronicles.Data
     public sealed record ArtifactSettings
     {
         public ArtifactFinding Finding { get; init; } = new ArtifactFinding();
+        public ArtifactTradeSettings Trade { get; init; } = new ArtifactTradeSettings();
         public Dictionary<CultivationRealm, ArtifactForging> Forging { get; init; } = new Dictionary<CultivationRealm, ArtifactForging>();
         public double RaiseShare { get; init; } = 0.6; // raising one costs this share of forging it anew
         public Dictionary<CultivationRealm, ArtifactScale> Ranks { get; init; } = new Dictionary<CultivationRealm, ArtifactScale>();

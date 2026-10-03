@@ -30,6 +30,7 @@ namespace MirrorChronicles.Data
         public string RegionId { get; set; }                  // a regions.json id
         public CultivationPath Path { get; set; }
         public CultivationRealm HighestRealm { get; set; }    // the strongest cultivator it counts
+        public List<ArtifactInstance> Artifacts { get; set; } = new List<ArtifactInstance>(); // stolen, bought or borrowed from the clan (L4f)
         public List<string> Techniques { get; set; } = new List<string>(); // techniques.json ids it holds (LORE.md §2.4)
         public List<FactionElder> Elders { get; set; } = new List<FactionElder>(); // who it counts: they age, die and rise (2026-10-01)
         public int BaselinePower { get; set; }       // its size when its elders were first weighed (PowerEconomy)
@@ -51,6 +52,7 @@ namespace MirrorChronicles.Data
         {
             var copy = (FactionData)MemberwiseClone();
             copy.Techniques = new List<string>(Techniques ?? new List<string>());
+            copy.Artifacts = new List<ArtifactInstance>(Artifacts ?? new List<ArtifactInstance>());
             copy.Elders = (Elders ?? new List<FactionElder>()).Select(e => e.Clone()).ToList();
             copy.InterpretedFields = new List<string>(InterpretedFields ?? new List<string>());
             return copy;

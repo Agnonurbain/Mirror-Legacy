@@ -105,6 +105,7 @@ namespace MirrorChronicles.Session
         public ArtifactArmoury Artifacts { get; }
         public ArtifactForge Forge { get; }
         public ArtifactFinds Finds { get; }
+        public ArtifactTrade ArtifactTrade { get; }
         public ImperialWay Imperial { get; }
         public RegionalPhenomena Phenomena { get; }
 
@@ -191,6 +192,8 @@ namespace MirrorChronicles.Session
             Artifacts = new ArtifactArmoury(Context, Clan);
             Forge = new ArtifactForge(Context, Clan, Resources, Buildings, Artifacts);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
+            ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
+            Intrigues.Armoury = Artifacts;
             Schemes.Guard = m => 1 - (1 - Dharma.GuardChance(m)) * (1 - Dharma.DomainGuardChance) * (1 - ArtifactRules.Protection(m));
             Place.Phenomena = Phenomena; // a death's weather, a failure's lasting phenomenon (L4c)
             GoldenCore.GovernanceBonus = Imperial.BonusFor; // a sovereign cultivates by governing (R20)
@@ -505,6 +508,7 @@ namespace MirrorChronicles.Session
                     Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)
                     Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)
                     Phenomena.ProcessYear();           // the weathers of the dead pass (L4c)
+                    ArtifactTrade.ProcessYear();       // loans of artifacts end (L4f)
                     Dharma.ProcessYear();              // treasures condensed; a masterless Designation may strike (L4e)
                     Demons.ProcessYear();              // a demon let be ravages; an unanswered one goes to the Underworld (L4e)
                     Upkeep.PayUpkeep();                 // the year's income in, every member costs its upkeep; short, a poor year
