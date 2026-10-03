@@ -14,6 +14,10 @@ Before any task, load the matching ECC skill or agent (e.g. `ecc:csharp-testing`
 
 ECC's C# rules target generic .NET (xUnit, async/CancellationToken). This is a Godot 4.7.2 .NET game (C#, net8.0) — engine chosen 2026-09-25, replacing Unity: game rules and the whole simulation live engine-free in `src/Core` (NUnit 3 via `dotnet test`, no Godot types), the Godot layer in `game/` stays thin (partial `Node` classes, autoloads, text `.tscn` scenes). The Unity tree was removed at the end of phase G (history in git): never reintroduce MonoBehaviour-style singletons or ScriptableObjects. Static content lives in `game/data/*.json` (loaded and validated by `GameContentLoader`); the conventions are in `BRAIN_CLAUDE/MEMORY.md`.
 
+## godot-ai
+
+Always use the godot-ai MCP tools whenever they are available (the Godot editor open with the plugin in `game/addons`). Verify every gameplay or UI change in the game launched from the editor: `project_run`, `game_manage` (`get_scene_tree`, `get_ui_elements`, `input_mouse` clicks), `logs_read`, then `project_manage stop`. Tests alone are not enough. If the tools are not available, say so instead of silently skipping the check.
+
 ## Project
 
 - Pilot docs live in `BRAIN_CLAUDE/` — start with `BRAINSTORMING.md`, remaining work in `NOT_DONE.md`.
