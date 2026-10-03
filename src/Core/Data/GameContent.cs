@@ -475,6 +475,9 @@ namespace MirrorChronicles.Data
         public int IntercalaryFourOneChance { get; init; }
         public int IntercalaryThreeTwoChance { get; init; }
 
+        /// <summary>Chance (%) of a Transmutation to another Realization of the same Virtue (R8; an interpretation, 2026-10-03).</summary>
+        public int TransmutationChance { get; init; }
+
         /// <summary>Chance (%) of the bridge Intercalary, 4A+1B=C (R6; an interpretation).</summary>
         public int IntercalaryBridgeChance { get; init; }
 

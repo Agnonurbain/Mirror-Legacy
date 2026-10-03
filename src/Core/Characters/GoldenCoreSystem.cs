@@ -237,6 +237,49 @@ namespace MirrorChronicles.Characters
         /// <summary>Transformation (R8): an Intercalary seizes its lineage's sovereign position by a deep plan. True once tried.</summary>
         public bool Transform(CharacterData member) => MoveToRealization(member, GoldenCoreState.Intercalary, Settings.TransformationChance, "Transformation");
 
+        private static readonly Element[] Virtues = { Element.Water, Element.Fire, Element.Earth, Element.Metal, Element.Wood };
+
+        /// <summary>Chance (%) of a Transmutation: its base and talent, less the axiom's danger from an orthodox position.</summary>
+        public int TransmutationOdds(CharacterData member)
+        {
+            var s = Settings;
+            var origin = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == member?.FruitionId);
+            int root = (member.SpiritualRoot - ctx.Content.Balance.TrialModifiers.AverageRoot) / ctx.Content.Balance.TrialModifiers.RootPointsPerPercent;
+            return Math.Max(1, Math.Min(99, s.TransmutationChance + root - (origin?.Manifestation == Manifestation.Orthodox ? s.AxiomPenalty : 0)));
+        }
+
+        /// <summary>
+        /// Transmutation (R8; the user's rule, 2026-10-03): a Realization's holder moves to the free Realization of another
+        /// lineage of its Virtue. A failure breaks the branch: its foundation corrupts and a demon is born — a holder's, a
+        /// catastrophe. Null when done; else why not, or « la branche rompt » (French).
+        /// </summary>
+        public string Transmute(CharacterData member, string targetId)
+        {
+            if (member == null || !member.IsAlive || member.CaptorFaction != null || member.Retreat != Retreat.None
+                || member.GoldenCore != GoldenCoreState.Realization || member.FruitionId == null)
+                return "seul le détenteur libre d'une Réalisation peut tenter la Transmutation";
+            var origin = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == member.FruitionId);
+            var target = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == targetId);
+            if (origin == null || target == null || target.Id == origin.Id || !Virtues.Contains(origin.Element) || target.Element != origin.Element)
+                return "on ne se transmue que vers une autre lignée de sa Vertu";
+            if (fruitions.State(targetId)?.Status != FruitionStatus.Free) return "la Réalisation visée n'est pas libre";
+
+            int chance = TransmutationOdds(member);
+            if (ctx.Rng.Next(1, 101) > chance)
+            {
+                BecomeDemon(member, $"fails the Transmutation towards {targetId} ({chance}%): the branch breaks");
+                return "la branche rompt";
+            }
+            string former = member.FruitionId;
+            fruitions.Vacate(former);
+            fruitions.Claim(targetId, member.FullName);
+            member.FruitionId = targetId;
+            ctx.Log.Info($"[Golden Core] {member.FullName} transmutes from {former} to the Realization of {targetId}.");
+            ctx.Events.TriggerFruitionFreed(former, member.FullName, false);
+            ctx.Events.TriggerPositionTaken(member, GoldenCoreState.Realization, GoldenCoreState.Realization);
+            return null;
+        }
+
         /// <summary>
         /// A position's holder rises to the Realization of their lineage when it is free; a failure wounds their Dao (a
         /// fifth of their lifespan, LORE.md §5.3) in the war of positions.

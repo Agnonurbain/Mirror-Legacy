@@ -45,6 +45,7 @@
 	"intercalaryFourOneChance": 35,
 	"intercalaryThreeTwoChance": 55,
 	"intercalaryBridgeChance": 30,
+	"transmutationChance": 25,
 	"axiomPenalty": 30,
 	"permissionStones": 5000,
 	"permissionChance": 0.3,
