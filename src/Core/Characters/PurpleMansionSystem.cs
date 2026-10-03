@@ -166,6 +166,7 @@ namespace MirrorChronicles.Characters
             cultivation.ApplyStep(member, step);
             member.RealmStage = Math.Max(1, PowerLadder.PurpleMansionStageFromAbilities(member.DivineAbilities.Count)); // never below the first stage
             ctx.Events.TriggerBreakthroughSuccess(member, member.Realm);
+            ctx.Events.TriggerPurpleMansionAscent(member);
         }
 
         /// <summary>Back to a body with an orifice and nothing more, with a mortal's lifespan.</summary>

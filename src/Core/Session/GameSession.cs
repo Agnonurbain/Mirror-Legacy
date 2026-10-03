@@ -52,6 +52,9 @@ namespace MirrorChronicles.Session
         public KnowledgeExchange Exchange { get; }
         public BeastRegistry Bestiary { get; }
         public SuspicionLedger Suspicion { get; }
+
+        /// <summary>A new Purple Mansion draws the old powers' eyes (audit §1.9).</summary>
+        public AscentWatch AscentWatch { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
@@ -201,6 +204,7 @@ namespace MirrorChronicles.Session
             Rebirths = new WorldRebirths(Context, Factions, Fruitions);
             Rebirths.Clan = Clan;
             Rebirths.Suspicion = Suspicion;
+            AscentWatch = new AscentWatch(Context, Factions, Suspicion, Wounds);
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);

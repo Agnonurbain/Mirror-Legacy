@@ -155,6 +155,7 @@ namespace MirrorChronicles.Characters
             chosen.MaxLifespan = System.Math.Max(chosen.MaxLifespan, PowerLadder.MaxLifespan(realm, stage));
             ctx.Log.Info($"[Ancestors] {chosen.FullName}, reborn from {chosen.RebornFrom}, regains {realm}.");
             ctx.Events.TriggerBreakthroughSuccess(chosen, realm);
+            if (realm == CultivationRealm.PurpleMansion) ctx.Events.TriggerPurpleMansionAscent(chosen);
         }
     }
 }

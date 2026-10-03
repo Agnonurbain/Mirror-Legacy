@@ -6008,7 +6008,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 350,
+      "community": 183,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -6018,7 +6018,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 350,
+      "community": 183,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -6128,7 +6128,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 82,
+      "community": 424,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -6138,7 +6138,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 82,
+      "community": 424,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -9555,7 +9555,7 @@
       "label": ".LoseAllCultivation()",
       "file_type": "code",
       "source_file": "src/Core/Characters/PurpleMansionSystem.cs",
-      "source_location": "L172",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "characters_purplemansionsystem_purplemansionsystem_loseallcultivation",
       "community": 81,
@@ -10588,7 +10588,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 82,
+      "community": 424,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -10598,7 +10598,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 82,
+      "community": 424,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -10608,7 +10608,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 82,
+      "community": 424,
       "norm_label": "clankarmasystem"
     },
     {
@@ -10618,7 +10618,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 82,
+      "community": 424,
       "norm_label": "double"
     },
     {
@@ -10628,7 +10628,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 82,
+      "community": 424,
       "norm_label": "int"
     },
     {
@@ -10638,7 +10638,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 82,
+      "community": 424,
       "norm_label": "gamecontext"
     },
     {
@@ -10648,7 +10648,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 82,
+      "community": 424,
       "norm_label": "clanmanager"
     },
     {
@@ -10658,7 +10658,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 82,
+      "community": 424,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -10668,7 +10668,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 82,
+      "community": 424,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -10678,7 +10678,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 82,
+      "community": 424,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -10688,7 +10688,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 82,
+      "community": 424,
       "norm_label": ".restore()"
     },
     {
@@ -10698,7 +10698,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 82,
+      "community": 424,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -11078,7 +11078,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 420,
+      "community": 293,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -11088,7 +11088,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 420,
+      "community": 293,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -13658,7 +13658,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 350,
+      "community": 183,
       "norm_label": "combatunit.cs"
     },
     {
@@ -13668,7 +13668,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 350,
+      "community": 183,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -13970,6 +13970,26 @@
       "id": "data_artifactdata_artifactform",
       "community": 389,
       "norm_label": "artifactform"
+    },
+    {
+      "label": "AscentWatchData.cs",
+      "file_type": "code",
+      "source_file": "src/Core/Data/AscentWatchData.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_ascentwatchdata",
+      "community": 430,
+      "norm_label": "ascentwatchdata.cs"
+    },
+    {
+      "label": "MirrorChronicles.Data",
+      "file_type": "code",
+      "source_file": "src/Core/Data/AscentWatchData.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_ascentwatchdata_mirrorchronicles_data",
+      "community": 430,
+      "norm_label": "mirrorchronicles.data"
     },
     {
       "label": "AtmosphereData.cs",
@@ -14448,7 +14468,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 333,
+      "community": 293,
       "norm_label": "enums.cs"
     },
     {
@@ -14458,7 +14478,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 333,
+      "community": 293,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -14755,7 +14775,7 @@
       "label": "TrialModifiers",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L387",
+      "source_location": "L390",
       "_origin": "ast",
       "id": "data_gamecontent_trialmodifiers",
       "community": 121,
@@ -14765,7 +14785,7 @@
       "label": "TechniqueSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L409",
+      "source_location": "L412",
       "_origin": "ast",
       "id": "data_gamecontent_techniquesettings",
       "community": 121,
@@ -14775,7 +14795,7 @@
       "label": "DivineAbilitySettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L444",
+      "source_location": "L447",
       "_origin": "ast",
       "id": "data_gamecontent_divineabilitysettings",
       "community": 121,
@@ -14785,7 +14805,7 @@
       "label": "PurpleMansionSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L540",
+      "source_location": "L543",
       "_origin": "ast",
       "id": "data_gamecontent_purplemansionsettings",
       "community": 121,
@@ -14795,7 +14815,7 @@
       "label": "VoidBand",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L567",
+      "source_location": "L570",
       "_origin": "ast",
       "id": "data_gamecontent_voidband",
       "community": 121,
@@ -14805,7 +14825,7 @@
       "label": "OrificeOdds",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L575",
+      "source_location": "L578",
       "_origin": "ast",
       "id": "data_gamecontent_orificeodds",
       "community": 121,
@@ -17148,7 +17168,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 379,
+      "community": 420,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -17158,7 +17178,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 379,
+      "community": 420,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -17288,7 +17308,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 333,
+      "community": 423,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -17298,7 +17318,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 333,
+      "community": 423,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18168,7 +18188,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 333,
+      "community": 293,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -18178,7 +18198,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 333,
+      "community": 293,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -21428,7 +21448,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
-      "community": 33,
+      "community": 425,
       "norm_label": ".assigntask()"
     },
     {
@@ -21438,7 +21458,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 33,
+      "community": 425,
       "norm_label": "characterdata"
     },
     {
@@ -21448,7 +21468,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
-      "community": 33,
+      "community": 425,
       "norm_label": "tasktype"
     },
     {
@@ -21458,7 +21478,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 33,
+      "community": 425,
       "norm_label": ".processyearlytasks()"
     },
     {
@@ -21468,7 +21488,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 33,
+      "community": 425,
       "norm_label": "yearlytaskreport"
     },
     {
@@ -21478,7 +21498,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 33,
+      "community": 427,
       "norm_label": ".gatherqi()"
     },
     {
@@ -21488,7 +21508,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_sentfor",
-      "community": 33,
+      "community": 427,
       "norm_label": ".sentfor()"
     },
     {
@@ -21498,7 +21518,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 33,
+      "community": 427,
       "norm_label": "qidefinition"
     },
     {
@@ -21508,7 +21528,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 33,
+      "community": 427,
       "norm_label": ".harvestable()"
     },
     {
@@ -21518,7 +21538,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 33,
+      "community": 427,
       "norm_label": "techniquedata"
     },
     {
@@ -21528,7 +21548,7 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
-      "community": 33,
+      "community": 428,
       "norm_label": ".miningyield()"
     },
     {
@@ -21538,7 +21558,7 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ienumerable",
-      "community": 33,
+      "community": 428,
       "norm_label": "ienumerable"
     },
     {
@@ -21548,7 +21568,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_veinyield",
-      "community": 33,
+      "community": 428,
       "norm_label": ".veinyield()"
     },
     {
@@ -21558,7 +21578,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_list",
-      "community": 33,
+      "community": 428,
       "norm_label": "list"
     },
     {
@@ -21568,7 +21588,7 @@
       "source_location": "L194",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 33,
+      "community": 425,
       "norm_label": ".mineyield()"
     },
     {
@@ -21578,7 +21598,7 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 33,
+      "community": 425,
       "norm_label": ".study()"
     },
     {
@@ -21588,7 +21608,7 @@
       "source_location": "L231",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 33,
+      "community": 425,
       "norm_label": ".diplomacy()"
     },
     {
@@ -21598,7 +21618,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 33,
+      "community": 425,
       "norm_label": ".teach()"
     },
     {
@@ -21608,7 +21628,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 33,
+      "community": 425,
       "norm_label": "ireadonlylist"
     },
     {
@@ -21618,7 +21638,7 @@
       "source_location": "L258",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
-      "community": 33,
+      "community": 425,
       "norm_label": ".scoutbeasts()"
     },
     {
@@ -21985,7 +22005,7 @@
       "label": ".TriggerYearStarted()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L103",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggeryearstarted",
       "community": 38,
@@ -21995,7 +22015,7 @@
       "label": ".TriggerPhaseChanged()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L104",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerphasechanged",
       "community": 320,
@@ -22005,7 +22025,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L104",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_gamephase",
       "community": 320,
@@ -22015,7 +22035,7 @@
       "label": ".TriggerCharacterBorn()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L105",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggercharacterborn",
       "community": 300,
@@ -22025,7 +22045,7 @@
       "label": ".TriggerCharacterDied()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L106",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggercharacterdied",
       "community": 300,
@@ -22035,7 +22055,7 @@
       "label": "DeathCause",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L106",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_deathcause",
       "community": 300,
@@ -22045,7 +22065,7 @@
       "label": ".TriggerBreakthroughSuccess()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L107",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerbreakthroughsuccess",
       "community": 300,
@@ -22055,7 +22075,7 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L107",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_cultivationrealm",
       "community": 300,
@@ -22065,7 +22085,7 @@
       "label": ".TriggerMetalEssenceDemon()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L108",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggermetalessencedemon",
       "community": 300,
@@ -22075,7 +22095,7 @@
       "label": ".TriggerPositionTaken()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L109",
+      "source_location": "L110",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpositiontaken",
       "community": 300,
@@ -22085,7 +22105,7 @@
       "label": "GoldenCoreState",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L109",
+      "source_location": "L110",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_goldencorestate",
       "community": 300,
@@ -22095,7 +22115,7 @@
       "label": ".TriggerMirrorSeized()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L110",
+      "source_location": "L111",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggermirrorseized",
       "community": 38,
@@ -22105,7 +22125,7 @@
       "label": ".TriggerMemberCaptured()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L111",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggermembercaptured",
       "community": 300,
@@ -22115,7 +22135,7 @@
       "label": ".TriggerMemberFreed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L112",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggermemberfreed",
       "community": 300,
@@ -22125,7 +22145,7 @@
       "label": ".TriggerAgentCaught()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L113",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggeragentcaught",
       "community": 38,
@@ -22135,7 +22155,7 @@
       "label": ".TriggerClanAbsorbed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L114",
+      "source_location": "L115",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerclanabsorbed",
       "community": 38,
@@ -22145,7 +22165,7 @@
       "label": ".TriggerPowerAbsorbed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L115",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpowerabsorbed",
       "community": 38,
@@ -22155,7 +22175,7 @@
       "label": ".TriggerCoalitionFormed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L116",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggercoalitionformed",
       "community": 318,
@@ -22165,7 +22185,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L116",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_ireadonlylist",
       "community": 318,
@@ -22175,7 +22195,7 @@
       "label": ".TriggerCallToArms()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L117",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggercalltoarms",
       "community": 38,
@@ -22185,7 +22205,7 @@
       "label": ".TriggerTheft()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L118",
+      "source_location": "L119",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggertheft",
       "community": 38,
@@ -22195,7 +22215,7 @@
       "label": ".TriggerDeed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L119",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerdeed",
       "community": 38,
@@ -22205,7 +22225,7 @@
       "label": ".TriggerProbeSpotted()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L120",
+      "source_location": "L121",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerprobespotted",
       "community": 38,
@@ -22215,7 +22235,7 @@
       "label": ".TriggerClanStruck()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L121",
+      "source_location": "L122",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerclanstruck",
       "community": 38,
@@ -22225,7 +22245,7 @@
       "label": ".TriggerTreatyBetrayed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L122",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggertreatybetrayed",
       "community": 38,
@@ -22235,7 +22255,7 @@
       "label": ".TriggerBlackmail()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L123",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerblackmail",
       "community": 38,
@@ -22245,7 +22265,7 @@
       "label": ".TriggerSpyUnmasked()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L124",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerspyunmasked",
       "community": 38,
@@ -22255,7 +22275,7 @@
       "label": ".TriggerPatronWrath()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L125",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpatronwrath",
       "community": 38,
@@ -22265,7 +22285,7 @@
       "label": ".TriggerWarBegun()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L126",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerwarbegun",
       "community": 38,
@@ -22275,7 +22295,7 @@
       "label": ".TriggerPeace()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L127",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpeace",
       "community": 38,
@@ -22285,7 +22305,7 @@
       "label": ".TriggerChallengeSettled()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L128",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerchallengesettled",
       "community": 314,
@@ -22295,7 +22315,7 @@
       "label": "ChallengeOutcome",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L128",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "challengeoutcome",
       "community": 314,
@@ -22305,7 +22325,7 @@
       "label": ".TriggerExtortion()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L129",
+      "source_location": "L130",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerextortion",
       "community": 38,
@@ -22315,7 +22335,7 @@
       "label": ".TriggerExtortionRefused()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L130",
+      "source_location": "L131",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerextortionrefused",
       "community": 38,
@@ -22325,7 +22345,7 @@
       "label": ".TriggerDaoHuntFoiled()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L131",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerdaohuntfoiled",
       "community": 38,
@@ -22335,17 +22355,27 @@
       "label": ".TriggerHunt()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L132",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerhunt",
       "community": 38,
       "norm_label": ".triggerhunt()"
     },
     {
+      "label": ".TriggerPurpleMansionAscent()",
+      "file_type": "code",
+      "source_file": "src/Core/Events/GameEventBus.cs",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "events_gameeventbus_gameeventbus_triggerpurplemansionascent",
+      "community": 300,
+      "norm_label": ".triggerpurplemansionascent()"
+    },
+    {
       "label": ".TriggerBreakthroughFailed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L133",
+      "source_location": "L136",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerbreakthroughfailed",
       "community": 300,
@@ -22355,7 +22385,7 @@
       "label": ".TriggerSpiritStonesChanged()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L134",
+      "source_location": "L137",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerspiritstoneschanged",
       "community": 38,
@@ -22365,7 +22395,7 @@
       "label": ".TriggerRandomEventOccurred()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L135",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerrandomeventoccurred",
       "community": 321,
@@ -22375,7 +22405,7 @@
       "label": "RandomEventData",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L135",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_randomeventdata",
       "community": 321,
@@ -22385,7 +22415,7 @@
       "label": ".TriggerStoryEventRaised()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L136",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerstoryeventraised",
       "community": 322,
@@ -22395,7 +22425,7 @@
       "label": "StoryEventData",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L136",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_storyeventdata",
       "community": 322,
@@ -22405,7 +22435,7 @@
       "label": ".TriggerPatronOffer()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L137",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpatronoffer",
       "community": 316,
@@ -22415,7 +22445,7 @@
       "label": "SponsorOffer",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L137",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_sponsoroffer",
       "community": 316,
@@ -22425,7 +22455,7 @@
       "label": ".TriggerPatronDesignDue()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L138",
+      "source_location": "L141",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpatrondesigndue",
       "community": 312,
@@ -22435,7 +22465,7 @@
       "label": "Sponsorship",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L138",
+      "source_location": "L141",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_sponsorship",
       "community": 312,
@@ -22445,7 +22475,7 @@
       "label": "PatronDesign",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L138",
+      "source_location": "L141",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_patrondesign",
       "community": 312,
@@ -22455,7 +22485,7 @@
       "label": ".TriggerPatronDemand()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L139",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpatrondemand",
       "community": 312,
@@ -22465,7 +22495,7 @@
       "label": ".TriggerPatronDesignResisted()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L140",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpatrondesignresisted",
       "community": 312,
@@ -22475,7 +22505,7 @@
       "label": ".TriggerAccordDenounced()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L141",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggeraccorddenounced",
       "community": 38,
@@ -22485,7 +22515,7 @@
       "label": ".TriggerMemberLured()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L142",
+      "source_location": "L145",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggermemberlured",
       "community": 300,
@@ -22495,7 +22525,7 @@
       "label": ".TriggerSectFounded()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L143",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggersectfounded",
       "community": 38,
@@ -22505,7 +22535,7 @@
       "label": ".TriggerClanKingdomFounded()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L144",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerclankingdomfounded",
       "community": 38,
@@ -22515,7 +22545,7 @@
       "label": ".TriggerPhenomenon()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L145",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerphenomenon",
       "community": 367,
@@ -22525,7 +22555,7 @@
       "label": "RegionalPhenomenon",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L145",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_regionalphenomenon",
       "community": 367,
@@ -22535,7 +22565,7 @@
       "label": ".TriggerDemonBorn()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L146",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerdemonborn",
       "community": 363,
@@ -22545,7 +22575,7 @@
       "label": "MetalEssenceDemon",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L146",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_metalessencedemon",
       "community": 363,
@@ -22555,7 +22585,7 @@
       "label": ".TriggerDharmaTreasure()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L147",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerdharmatreasure",
       "community": 300,
@@ -22565,7 +22595,7 @@
       "label": ".TriggerTombLooted()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L148",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggertomblooted",
       "community": 38,
@@ -22575,7 +22605,7 @@
       "label": ".TriggerMemberImperilled()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L149",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggermemberimperilled",
       "community": 300,
@@ -22585,7 +22615,7 @@
       "label": ".TriggerMandateEmbodied()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L150",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggermandateembodied",
       "community": 300,
@@ -22595,7 +22625,7 @@
       "label": ".TriggerMinorAbilityLearnt()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L151",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerminorabilitylearnt",
       "community": 38,
@@ -22605,47 +22635,47 @@
       "label": ".TriggerArtifactFound()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L152",
+      "source_location": "L155",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerartifactfound",
-      "community": 300,
+      "community": 429,
       "norm_label": ".triggerartifactfound()"
     },
     {
       "label": "ArtifactInstance",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L152",
+      "source_location": "L155",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_artifactinstance",
-      "community": 300,
+      "community": 429,
       "norm_label": "artifactinstance"
     },
     {
       "label": ".TriggerTreasureBound()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L153",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggertreasurebound",
-      "community": 300,
+      "community": 429,
       "norm_label": ".triggertreasurebound()"
     },
     {
       "label": ".TriggerArtifactForged()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L154",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerartifactforged",
-      "community": 300,
+      "community": 429,
       "norm_label": ".triggerartifactforged()"
     },
     {
       "label": ".TriggerRankDesignation()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L155",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerrankdesignation",
       "community": 368,
@@ -22655,7 +22685,7 @@
       "label": "RankDesignation",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L155",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_rankdesignation",
       "community": 368,
@@ -22665,7 +22695,7 @@
       "label": ".TriggerDemonSubdued()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L156",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerdemonsubdued",
       "community": 363,
@@ -22675,7 +22705,7 @@
       "label": ".TriggerWorldDemon()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L157",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerworlddemon",
       "community": 363,
@@ -22685,7 +22715,7 @@
       "label": ".TriggerPowerScheme()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L158",
+      "source_location": "L161",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpowerscheme",
       "community": 38,
@@ -22695,7 +22725,7 @@
       "label": ".TriggerUnderworldProvoked()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L159",
+      "source_location": "L162",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerunderworldprovoked",
       "community": 38,
@@ -22705,7 +22735,7 @@
       "label": ".TriggerClanWarWon()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L160",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerclanwarwon",
       "community": 38,
@@ -22715,7 +22745,7 @@
       "label": ".TriggerRuinsRevealed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L161",
+      "source_location": "L164",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerruinsrevealed",
       "community": 313,
@@ -22725,7 +22755,7 @@
       "label": "ShardDefinition",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L161",
+      "source_location": "L164",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_sharddefinition",
       "community": 313,
@@ -22735,7 +22765,7 @@
       "label": ".TriggerShardRecovered()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L162",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggershardrecovered",
       "community": 313,
@@ -22745,7 +22775,7 @@
       "label": ".TriggerFruitionFreed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L163",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerfruitionfreed",
       "community": 38,
@@ -22755,7 +22785,7 @@
       "label": ".TriggerFruitionRevealed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L164",
+      "source_location": "L167",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerfruitionrevealed",
       "community": 38,
@@ -22765,7 +22795,7 @@
       "label": ".TriggerAncestorReborn()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L165",
+      "source_location": "L168",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerancestorreborn",
       "community": 300,
@@ -22775,7 +22805,7 @@
       "label": ".TriggerChosenHarvested()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L166",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerchosenharvested",
       "community": 300,
@@ -22785,7 +22815,7 @@
       "label": ".TriggerFruitionTaken()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L167",
+      "source_location": "L170",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerfruitiontaken",
       "community": 38,
@@ -22795,7 +22825,7 @@
       "label": ".TriggerPowerFell()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L168",
+      "source_location": "L171",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpowerfell",
       "community": 38,
@@ -22805,7 +22835,7 @@
       "label": ".TriggerPowerRose()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L169",
+      "source_location": "L172",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerpowerrose",
       "community": 339,
@@ -22815,7 +22845,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L169",
+      "source_location": "L172",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_factiondata",
       "community": 339,
@@ -22825,7 +22855,7 @@
       "label": ".TriggerKingdomFounded()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L170",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerkingdomfounded",
       "community": 339,
@@ -22835,7 +22865,7 @@
       "label": ".TriggerElderDied()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L171",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerelderdied",
       "community": 339,
@@ -22845,7 +22875,7 @@
       "label": "FactionElder",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L171",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_factionelder",
       "community": 339,
@@ -22855,7 +22885,7 @@
       "label": ".TriggerElderRose()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L172",
+      "source_location": "L175",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerelderrose",
       "community": 339,
@@ -22865,7 +22895,7 @@
       "label": ".TriggerShardSensed()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L173",
+      "source_location": "L176",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggershardsensed",
       "community": 313,
@@ -22875,7 +22905,7 @@
       "label": ".TriggerClanProbe()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L174",
+      "source_location": "L177",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerclanprobe",
       "community": 318,
@@ -22885,7 +22915,7 @@
       "label": ".TriggerEndingReached()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L175",
+      "source_location": "L178",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggerendingreached",
       "community": 319,
@@ -22895,7 +22925,7 @@
       "label": "EndingDefinition",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L175",
+      "source_location": "L178",
       "_origin": "ast",
       "id": "src_core_events_gameeventbus_cs_endingdefinition",
       "community": 319,
@@ -22905,7 +22935,7 @@
       "label": ".TriggerGameOver()",
       "file_type": "code",
       "source_file": "src/Core/Events/GameEventBus.cs",
-      "source_location": "L176",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "events_gameeventbus_gameeventbus_triggergameover",
       "community": 38,
@@ -23778,7 +23808,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_mirrorsystem",
-      "community": 350,
+      "community": 333,
       "norm_label": "mirrorsystem.cs"
     },
     {
@@ -23788,7 +23818,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorchronicles_mirror",
-      "community": 350,
+      "community": 333,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -25978,7 +26008,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "presentation_buildingsview",
-      "community": 248,
+      "community": 250,
       "norm_label": "buildingsview.cs"
     },
     {
@@ -25988,7 +26018,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "presentation_buildingsview_mirrorchronicles_presentation",
-      "community": 248,
+      "community": 250,
       "norm_label": "mirrorchronicles.presentation"
     },
     {
@@ -30855,7 +30885,7 @@
       "label": ".NewGame()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L226",
+      "source_location": "L230",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_newgame",
       "community": 251,
@@ -30865,7 +30895,7 @@
       "label": "GameSetup",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L226",
+      "source_location": "L230",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamesetup",
       "community": 251,
@@ -30875,7 +30905,7 @@
       "label": ".TryLoad()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L260",
+      "source_location": "L264",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tryload",
       "community": 251,
@@ -30885,7 +30915,7 @@
       "label": ".FromSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L277",
+      "source_location": "L281",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_fromsavedata",
       "community": 251,
@@ -30895,7 +30925,7 @@
       "label": "GameData",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L277",
+      "source_location": "L281",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
       "community": 251,
@@ -30905,7 +30935,7 @@
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L383",
+      "source_location": "L387",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 251,
@@ -30915,7 +30945,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L482",
+      "source_location": "L486",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -30925,7 +30955,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L482",
+      "source_location": "L486",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 251,
@@ -30935,7 +30965,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L486",
+      "source_location": "L490",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -30945,7 +30975,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L497",
+      "source_location": "L501",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -30955,7 +30985,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L504",
+      "source_location": "L508",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -30965,7 +30995,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L504",
+      "source_location": "L508",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -30975,7 +31005,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L560",
+      "source_location": "L564",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -31460,6 +31490,166 @@
       "id": "defeatcause",
       "community": 112,
       "norm_label": "defeatcause"
+    },
+    {
+      "label": "AscentWatch.cs",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "world_ascentwatch",
+      "community": 350,
+      "norm_label": "ascentwatch.cs"
+    },
+    {
+      "label": "MirrorChronicles.World",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "world_ascentwatch_mirrorchronicles_world",
+      "community": 350,
+      "norm_label": "mirrorchronicles.world"
+    },
+    {
+      "label": "AscentWatch",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "world_ascentwatch_ascentwatch",
+      "community": 350,
+      "norm_label": "ascentwatch"
+    },
+    {
+      "label": "GameContext",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "src_core_world_ascentwatch_cs_gamecontext",
+      "community": 350,
+      "norm_label": "gamecontext"
+    },
+    {
+      "label": "FactionManager",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_core_world_ascentwatch_cs_factionmanager",
+      "community": 350,
+      "norm_label": "factionmanager"
+    },
+    {
+      "label": "SuspicionLedger",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "src_core_world_ascentwatch_cs_suspicionledger",
+      "community": 350,
+      "norm_label": "suspicionledger"
+    },
+    {
+      "label": "WoundSystem",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "src_core_world_ascentwatch_cs_woundsystem",
+      "community": 350,
+      "norm_label": "woundsystem"
+    },
+    {
+      "label": ".Watchers()",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "world_ascentwatch_ascentwatch_watchers",
+      "community": 350,
+      "norm_label": ".watchers()"
+    },
+    {
+      "label": "FactionData",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "src_core_world_ascentwatch_cs_factiondata",
+      "community": 350,
+      "norm_label": "factiondata"
+    },
+    {
+      "label": "List",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "src_core_world_ascentwatch_cs_list",
+      "community": 350,
+      "norm_label": "list"
+    },
+    {
+      "label": ".HoldChance()",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "world_ascentwatch_ascentwatch_holdchance",
+      "community": 350,
+      "norm_label": ".holdchance()"
+    },
+    {
+      "label": ".ClanAscent()",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "world_ascentwatch_ascentwatch_clanascent",
+      "community": 350,
+      "norm_label": ".clanascent()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "src_core_world_ascentwatch_cs_characterdata",
+      "community": 350,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".ElderAscent()",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "world_ascentwatch_ascentwatch_elderascent",
+      "community": 350,
+      "norm_label": ".elderascent()"
+    },
+    {
+      "label": "FactionElder",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "src_core_world_ascentwatch_cs_factionelder",
+      "community": 350,
+      "norm_label": "factionelder"
+    },
+    {
+      "label": ".Wound()",
+      "file_type": "code",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "world_ascentwatch_ascentwatch_wound",
+      "community": 350,
+      "norm_label": ".wound()"
     },
     {
       "label": "BeastRegistry.cs",
@@ -64852,6 +65042,116 @@
       "norm_label": ".afinishedgame_staysfinished()"
     },
     {
+      "label": "AscentWatchTests.cs",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "world_ascentwatchtests",
+      "community": 426,
+      "norm_label": "ascentwatchtests.cs"
+    },
+    {
+      "label": "MirrorChronicles.Tests.World",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "world_ascentwatchtests_mirrorchronicles_tests_world",
+      "community": 426,
+      "norm_label": "mirrorchronicles.tests.world"
+    },
+    {
+      "label": "AscentWatchTests",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "world_ascentwatchtests_ascentwatchtests",
+      "community": 426,
+      "norm_label": "ascentwatchtests"
+    },
+    {
+      "label": ".Session()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "world_ascentwatchtests_ascentwatchtests_session",
+      "community": 426,
+      "norm_label": ".session()"
+    },
+    {
+      "label": "GameSession",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_ascentwatchtests_cs_gamesession",
+      "community": 426,
+      "norm_label": "gamesession"
+    },
+    {
+      "label": ".Newcomer()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "world_ascentwatchtests_ascentwatchtests_newcomer",
+      "community": 426,
+      "norm_label": ".newcomer()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_ascentwatchtests_cs_characterdata",
+      "community": 426,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".ANewPurpleMansion_MakesThePowersInReach_Wary()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "world_ascentwatchtests_ascentwatchtests_anewpurplemansion_makesthepowersinreach_wary",
+      "community": 426,
+      "norm_label": ".anewpurplemansion_makesthepowersinreach_wary()"
+    },
+    {
+      "label": "Test",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_ascentwatchtests_cs_test",
+      "community": 426,
+      "norm_label": "test"
+    },
+    {
+      "label": ".ATest_ByAStrongerPower_WoundsTheNewcomer()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "world_ascentwatchtests_ascentwatchtests_atest_byastrongerpower_woundsthenewcomer",
+      "community": 426,
+      "norm_label": ".atest_byastrongerpower_woundsthenewcomer()"
+    },
+    {
+      "label": ".APowersNewPurpleMansion_IsWatchedByTheOthers()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "world_ascentwatchtests_ascentwatchtests_apowersnewpurplemansion_iswatchedbytheothers",
+      "community": 426,
+      "norm_label": ".apowersnewpurplemansion_iswatchedbytheothers()"
+    },
+    {
       "label": "BestiaryTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/BestiaryTests.cs",
@@ -73624,7 +73924,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 423,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -73678,7 +73978,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 350,
+      "community": 183,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -73692,7 +73992,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player controls no character directly; observes, guides and influences a mortal family over generations to become the strongest cultivator clan of Mount Dali.",
-      "community": 350,
+      "community": 333,
       "norm_label": "player as consciousness trapped in ancestral bronze mirror",
       "id": "brain_claude_memory_mirror_consciousness_premise"
     },
@@ -73799,7 +74099,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 333,
+      "community": 293,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -74039,7 +74339,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 333,
+      "community": 293,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -74107,7 +74407,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 333,
+      "community": 423,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -74133,7 +74433,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 82,
+      "community": 424,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -74307,7 +74607,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 333,
+      "community": 293,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -74433,7 +74733,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 333,
+      "community": 423,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -74473,7 +74773,7 @@
       "author": null,
       "contributor": null,
       "rationale": "2D multigenerational clan-management RPG with Xianxia cultivation, turn-based tactical combat, faction diplomacy and inheritance over 10+ generations.",
-      "community": 350,
+      "community": 333,
       "norm_label": "reflets de lignee: les chroniques du miroir (mirror chronicles)",
       "id": "readme_mirror_chronicles"
     },
@@ -74486,7 +74786,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 350,
+      "community": 333,
       "norm_label": "the mirror legacy (xuanjian xianzu) - inspiration",
       "id": "readme_the_mirror_legacy"
     },
@@ -81217,9 +81517,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L458",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations",
-      "target": "scripts_operations_operations_showchosen",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_showchosen"
     },
     {
       "relation": "method",
@@ -81391,9 +81691,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_refresh",
-      "target": "scripts_operations_operations_showchosen",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_showchosen"
     },
     {
       "relation": "calls",
@@ -82557,9 +82857,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L469",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showchosen",
-      "target": "scripts_operations_operations_act",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_act"
     },
     {
       "relation": "references",
@@ -82579,9 +82879,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L462",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showchosen",
-      "target": "scripts_operations_operations_add",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_add"
     },
     {
       "relation": "calls",
@@ -82590,9 +82890,9 @@
       "source_file": "game/scripts/Operations.cs",
       "source_location": "L460",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_operations_operations_showchosen",
-      "target": "scripts_operations_operations_clear",
-      "confidence_score": 1.0
+      "target": "scripts_operations_operations_clear"
     },
     {
       "relation": "references",
@@ -100173,6 +100473,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Data/AscentWatchData.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "data_ascentwatchdata",
+      "target": "data_ascentwatchdata_mirrorchronicles_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/Core/Data/AtmosphereData.cs",
       "source_location": "L11",
       "weight": 1.0,
@@ -112782,6 +113092,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Events/GameEventBus.cs",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "events_gameeventbus_gameeventbus",
+      "target": "events_gameeventbus_gameeventbus_triggerpurplemansionascent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L42",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -113123,6 +113443,17 @@
       "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus_triggerpositiontaken",
       "target": "src_core_events_gameeventbus_cs_characterdata"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Events/GameEventBus.cs",
+      "source_location": "L134",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "events_gameeventbus_gameeventbus_triggerpurplemansionascent",
+      "target": "src_core_events_gameeventbus_cs_characterdata",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -121635,9 +121966,9 @@
       "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview",
-      "target": "presentation_operationsview_operationsview_chosen",
-      "confidence_score": 1.0
+      "target": "presentation_operationsview_operationsview_chosen"
     },
     {
       "relation": "method",
@@ -121776,9 +122107,9 @@
       "source_location": "L72",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_chosen",
-      "target": "chosenline",
-      "confidence_score": 1.0
+      "target": "chosenline"
     },
     {
       "relation": "references",
@@ -121787,9 +122118,9 @@
       "source_location": "L72",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_chosen",
-      "target": "src_core_presentation_operationsview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -121798,9 +122129,9 @@
       "source_location": "L72",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_chosen",
-      "target": "src_core_presentation_operationsview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_operationsview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -128388,6 +128719,263 @@
       "confidence_score": 1.0,
       "source": "session_victoryconditionsystem_victoryconditionsystem_lose",
       "target": "defeatcause"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "world_ascentwatch",
+      "target": "world_ascentwatch_ascentwatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "world_ascentwatch",
+      "target": "world_ascentwatch_mirrorchronicles_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "field",
+      "source": "world_ascentwatch_ascentwatch",
+      "target": "src_core_world_ascentwatch_cs_factionmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "field",
+      "source": "world_ascentwatch_ascentwatch",
+      "target": "src_core_world_ascentwatch_cs_gamecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "field",
+      "source": "world_ascentwatch_ascentwatch",
+      "target": "src_core_world_ascentwatch_cs_suspicionledger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "field",
+      "source": "world_ascentwatch_ascentwatch",
+      "target": "src_core_world_ascentwatch_cs_woundsystem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch",
+      "target": "world_ascentwatch_ascentwatch_clanascent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch",
+      "target": "world_ascentwatch_ascentwatch_elderascent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch",
+      "target": "world_ascentwatch_ascentwatch_holdchance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch",
+      "target": "world_ascentwatch_ascentwatch_watchers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch",
+      "target": "world_ascentwatch_ascentwatch_wound",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch_clanascent",
+      "target": "world_ascentwatch_ascentwatch_watchers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch_elderascent",
+      "target": "world_ascentwatch_ascentwatch_watchers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "world_ascentwatch_ascentwatch_watchers",
+      "target": "src_core_world_ascentwatch_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_ascentwatch_ascentwatch_watchers",
+      "target": "src_core_world_ascentwatch_cs_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L65",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_ascentwatch_ascentwatch_elderascent",
+      "target": "src_core_world_ascentwatch_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L42",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_ascentwatch_ascentwatch_holdchance",
+      "target": "src_core_world_ascentwatch_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L78",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_ascentwatch_ascentwatch_wound",
+      "target": "src_core_world_ascentwatch_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch_clanascent",
+      "target": "world_ascentwatch_ascentwatch_holdchance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch_elderascent",
+      "target": "world_ascentwatch_ascentwatch_holdchance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_ascentwatch_ascentwatch_clanascent",
+      "target": "src_core_world_ascentwatch_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch_clanascent",
+      "target": "world_ascentwatch_ascentwatch_wound",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L65",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_ascentwatch_ascentwatch_elderascent",
+      "target": "src_core_world_ascentwatch_cs_factionelder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/AscentWatch.cs",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "world_ascentwatch_ascentwatch_elderascent",
+      "target": "world_ascentwatch_ascentwatch_wound",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -139449,9 +140037,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths",
-      "target": "world_worldrebirths_worldrebirths_free",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_free"
     },
     {
       "relation": "method",
@@ -139459,9 +140047,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths",
-      "target": "world_worldrebirths_worldrebirths_harvest",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_harvest"
     },
     {
       "relation": "method",
@@ -139469,9 +140057,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths",
-      "target": "world_worldrebirths_worldrebirths_harvestchance",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_harvestchance"
     },
     {
       "relation": "method",
@@ -139509,9 +140097,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths",
-      "target": "world_worldrebirths_worldrebirths_sensedbyclan",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_sensedbyclan"
     },
     {
       "relation": "references",
@@ -139520,9 +140108,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_free",
-      "target": "src_core_world_worldrebirths_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_worldrebirths_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -139531,9 +140119,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_harvest",
-      "target": "world_worldrebirths_worldrebirths_free",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_free"
     },
     {
       "relation": "calls",
@@ -139542,9 +140130,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_sensedbyclan",
-      "target": "world_worldrebirths_worldrebirths_free",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_free"
     },
     {
       "relation": "references",
@@ -139553,9 +140141,9 @@
       "source_location": "L63",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_harvestchance",
-      "target": "src_core_world_worldrebirths_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_world_worldrebirths_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -139564,9 +140152,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_harvest",
-      "target": "world_worldrebirths_worldrebirths_sensedbyclan",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_sensedbyclan"
     },
     {
       "relation": "references",
@@ -139575,9 +140163,9 @@
       "source_location": "L52",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_sensedbyclan",
-      "target": "src_core_world_worldrebirths_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_world_worldrebirths_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -139586,9 +140174,9 @@
       "source_location": "L52",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_sensedbyclan",
-      "target": "worldrebirth",
-      "confidence_score": 1.0
+      "target": "worldrebirth"
     },
     {
       "relation": "references",
@@ -139619,9 +140207,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_harvest",
-      "target": "world_worldrebirths_worldrebirths_harvestchance",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_harvestchance"
     },
     {
       "relation": "references",
@@ -191870,9 +192458,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L245",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests",
-      "target": "presentation_operationsviewtests_operationsviewtests_thepowerschosen_areshown_onlytoapurplemansion_withtheirodds",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_thepowerschosen_areshown_onlytoapurplemansion_withtheirodds"
     },
     {
       "relation": "calls",
@@ -192046,9 +192634,9 @@
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
       "source_location": "L248",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_thepowerschosen_areshown_onlytoapurplemansion_withtheirodds",
-      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame"
     },
     {
       "relation": "references",
@@ -192222,9 +192810,9 @@
       "source_location": "L245",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_thepowerschosen_areshown_onlytoapurplemansion_withtheirodds",
-      "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
     },
     {
       "relation": "contains",
@@ -200391,6 +200979,197 @@
       "confidence_score": 1.0,
       "source": "session_victoryconditionsystemtests_victoryconditionsystemtests_tengenerations_nolongerendthegame",
       "target": "tests_core_tests_session_victoryconditionsystemtests_cs_test"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests",
+      "target": "world_ascentwatchtests_ascentwatchtests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests",
+      "target": "world_ascentwatchtests_mirrorchronicles_tests_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests",
+      "target": "world_ascentwatchtests_ascentwatchtests_anewpurplemansion_makesthepowersinreach_wary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests",
+      "target": "world_ascentwatchtests_ascentwatchtests_apowersnewpurplemansion_iswatchedbytheothers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests",
+      "target": "world_ascentwatchtests_ascentwatchtests_atest_byastrongerpower_woundsthenewcomer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests",
+      "target": "world_ascentwatchtests_ascentwatchtests_newcomer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests",
+      "target": "world_ascentwatchtests_ascentwatchtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests_anewpurplemansion_makesthepowersinreach_wary",
+      "target": "world_ascentwatchtests_ascentwatchtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests_apowersnewpurplemansion_iswatchedbytheothers",
+      "target": "world_ascentwatchtests_ascentwatchtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests_atest_byastrongerpower_woundsthenewcomer",
+      "target": "world_ascentwatchtests_ascentwatchtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_ascentwatchtests_ascentwatchtests_session",
+      "target": "tests_core_tests_world_ascentwatchtests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_ascentwatchtests_ascentwatchtests_newcomer",
+      "target": "tests_core_tests_world_ascentwatchtests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests_anewpurplemansion_makesthepowersinreach_wary",
+      "target": "world_ascentwatchtests_ascentwatchtests_newcomer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "world_ascentwatchtests_ascentwatchtests_atest_byastrongerpower_woundsthenewcomer",
+      "target": "world_ascentwatchtests_ascentwatchtests_newcomer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_ascentwatchtests_ascentwatchtests_newcomer",
+      "target": "tests_core_tests_world_ascentwatchtests_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_ascentwatchtests_ascentwatchtests_anewpurplemansion_makesthepowersinreach_wary",
+      "target": "tests_core_tests_world_ascentwatchtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_ascentwatchtests_ascentwatchtests_apowersnewpurplemansion_iswatchedbytheothers",
+      "target": "tests_core_tests_world_ascentwatchtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/AscentWatchTests.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_ascentwatchtests_ascentwatchtests_atest_byastrongerpower_woundsthenewcomer",
+      "target": "tests_core_tests_world_ascentwatchtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -215818,9 +216597,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests",
-      "target": "world_worldrebirthtests_worldrebirthtests_mansion",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_mansion"
     },
     {
       "relation": "method",
@@ -215838,9 +216617,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests",
-      "target": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen"
     },
     {
       "relation": "method",
@@ -215868,9 +216647,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests",
-      "target": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion"
     },
     {
       "relation": "method",
@@ -215961,9 +216740,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
-      "target": "world_worldrebirthtests_worldrebirthtests_with",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_with"
     },
     {
       "relation": "calls",
@@ -215983,9 +216762,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
-      "target": "world_worldrebirthtests_worldrebirthtests_with",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_with"
     },
     {
       "relation": "calls",
@@ -216071,9 +216850,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
-      "target": "world_worldrebirthtests_worldrebirthtests_session",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_session"
     },
     {
       "relation": "references",
@@ -216104,9 +216883,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
-      "target": "world_worldrebirthtests_worldrebirthtests_session",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_session"
     },
     {
       "relation": "calls",
@@ -216148,9 +216927,9 @@
       "source_location": "L93",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_mansion",
-      "target": "tests_core_tests_world_worldrebirthtests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_worldrebirthtests_cs_gamesession"
     },
     {
       "relation": "references",
@@ -216302,9 +217081,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
-      "target": "world_worldrebirthtests_worldrebirthtests_monarch",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_monarch"
     },
     {
       "relation": "calls",
@@ -216324,9 +217103,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
-      "target": "world_worldrebirthtests_worldrebirthtests_monarch",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_monarch"
     },
     {
       "relation": "calls",
@@ -216390,9 +217169,9 @@
       "source_location": "L100",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
-      "target": "tests_core_tests_world_worldrebirthtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_worldrebirthtests_cs_test"
     },
     {
       "relation": "references",
@@ -216412,9 +217191,9 @@
       "source_location": "L111",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
-      "target": "tests_core_tests_world_worldrebirthtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_worldrebirthtests_cs_test"
     },
     {
       "relation": "references",
@@ -216456,9 +217235,9 @@
       "source_location": "L93",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_mansion",
-      "target": "tests_core_tests_world_worldrebirthtests_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_worldrebirthtests_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -216467,9 +217246,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
-      "target": "world_worldrebirthtests_worldrebirthtests_mansion",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_mansion"
     },
     {
       "relation": "calls",
@@ -216478,9 +217257,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L126",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
-      "target": "world_worldrebirthtests_worldrebirthtests_mansion",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_mansion"
     },
     {
       "relation": "contains",
@@ -219814,5 +220593,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "f460f2d0adf53470b8665c5c6bb441dc15903651"
+  "built_at_commit": "fdbcaf490aac6d041f39c4081aa6ac274c94b44e"
 }

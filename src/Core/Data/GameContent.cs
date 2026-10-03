@@ -280,6 +280,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>How far a realm goes from home (AUDIT_LORE.md §1.5, 2026-10-03; interpretations).</summary>
         public TravelSettings Travel { get; init; } = new TravelSettings();
+
+        /// <summary>A new Purple Mansion draws the old powers' eyes (audit §1.9, 2026-10-03; interpretations).</summary>
+        public AscentWatchSettings AscentWatch { get; init; } = new AscentWatchSettings();
         public WorldArsenalSettings WorldArsenal { get; init; } = new WorldArsenalSettings();
         public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();

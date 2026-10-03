@@ -27,6 +27,7 @@ namespace MirrorChronicles.Events
         // Cultivation
         public event Action<CharacterData, CultivationRealm> OnBreakthroughSuccess;
         public event Action<CharacterData> OnBreakthroughFailed;
+        public event Action<CharacterData> OnPurpleMansionAscent;          // a member of the clan newly stands at the Purple Mansion
         public event Action<CharacterData> OnMetalEssenceDemon;
         public event Action<CharacterData, GoldenCoreState, GoldenCoreState> OnPositionTaken; // member, position, the standing it rose from
         public event Action<string> OnMirrorSeized;                          // a power seized the mirror: the game is lost (§11.9)
@@ -130,6 +131,8 @@ namespace MirrorChronicles.Events
         public void TriggerExtortionRefused(string power) => OnExtortionRefused?.Invoke(power);
         public void TriggerDaoHuntFoiled(string power) => OnDaoHuntFoiled?.Invoke(power);
         public void TriggerHunt(string beastId, bool captured) => OnHunt?.Invoke(beastId, captured);
+        public void TriggerPurpleMansionAscent(CharacterData member) => OnPurpleMansionAscent?.Invoke(member);
+
         public void TriggerBreakthroughFailed(CharacterData character) => OnBreakthroughFailed?.Invoke(character);
         public void TriggerSpiritStonesChanged(int total) => OnSpiritStonesChanged?.Invoke(total);
         public void TriggerRandomEventOccurred(RandomEventData evt) => OnRandomEventOccurred?.Invoke(evt);
