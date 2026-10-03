@@ -17,7 +17,7 @@ namespace MirrorChronicles.Game
         private const string None = "—";
 
         private GameRoot root;
-        private VBoxContainer ritual, hunt, secret, captives, probes;
+        private VBoxContainer ritual, hunt, secret, captives, probes, chosen;
         private Label status;
 
         // the plan being built
@@ -44,6 +44,7 @@ namespace MirrorChronicles.Game
             secret = GetNode<VBoxContainer>("%Secret");
             captives = GetNode<VBoxContainer>("%Captives");
             probes = GetNode<VBoxContainer>("%Probes");
+            chosen = GetNode<VBoxContainer>("%Chosen");
             status = GetNode<Label>("%Status");
             GetNode<Button>("%Back").Pressed += () => root.GoTo(ClanDomain.ScenePath);
             // OPS_TAB=<0-4> opens a tab (screenshots of a smoke run)
@@ -59,6 +60,7 @@ namespace MirrorChronicles.Game
             ShowSecret();
             ShowCaptives();
             ShowProbes();
+            ShowChosen();
         }
 
         // ---- The ritual ----
@@ -448,6 +450,25 @@ namespace MirrorChronicles.Game
                 Report(refusal == null ? done : $"Refusé : {refusal}.");
             };
             box.AddChild(button);
+        }
+
+        // ---- The powers' Chosen (audit §1.8) ----
+
+        /// <summary>The powers' young Chosen a free Purple Mansion of the clan senses, and the harvests it may try.</summary>
+        private void ShowChosen()
+        {
+            Clear(chosen);
+            var session = root.Session;
+            Add(chosen, "Les Élus du Destin des puissances : un Vrai Monarque renaît chez elles ; tant qu'il est jeune, un Manoir Pourpre peut le récolter.");
+            var lines = OperationsView.Chosen(session);
+            if (lines.Count == 0) Add(chosen, "Le clan ne sent aucun Élu (seul un Manoir Pourpre libre du clan lit le destin).");
+            foreach (var line in lines)
+            {
+                Add(chosen, $"{line.Name}, l'Élu de {line.Power} — {line.Age} an{(line.Age > 1 ? "s" : "")}");
+                foreach (var harvest in line.Harvests)
+                    Act(chosen, harvest.Label, () => session.Rebirths.Harvest(line.Power, harvest.HarvesterId),
+                        $"{line.Name} ne reviendra pas : l'Élu de {line.Power} est récolté.");
+            }
         }
 
         // ---- Widgets ----

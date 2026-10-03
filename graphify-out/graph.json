@@ -3665,7 +3665,7 @@
       "label": ".Refresh()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L55",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "scripts_operations_operations_refresh",
       "community": 74,
@@ -3675,7 +3675,7 @@
       "label": ".ShowRitual()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L66",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "scripts_operations_operations_showritual",
       "community": 74,
@@ -3685,7 +3685,7 @@
       "label": ".ShowHunt()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L98",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "scripts_operations_operations_showhunt",
       "community": 74,
@@ -3695,7 +3695,7 @@
       "label": ".ShowTeam()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L122",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "scripts_operations_operations_showteam",
       "community": 74,
@@ -3705,7 +3705,7 @@
       "label": "GameSession",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L122",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_gamesession",
       "community": 74,
@@ -3715,7 +3715,7 @@
       "label": ".ShowDiversion()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L142",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "scripts_operations_operations_showdiversion",
       "community": 74,
@@ -3725,7 +3725,7 @@
       "label": ".ShowFalseTrail()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L159",
+      "source_location": "L161",
       "_origin": "ast",
       "id": "scripts_operations_operations_showfalsetrail",
       "community": 74,
@@ -3735,7 +3735,7 @@
       "label": ".ShowLaunch()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L169",
+      "source_location": "L171",
       "_origin": "ast",
       "id": "scripts_operations_operations_showlaunch",
       "community": 74,
@@ -3745,7 +3745,7 @@
       "label": ".ShowSpouses()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L192",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "scripts_operations_operations_showspouses",
       "community": 74,
@@ -3755,7 +3755,7 @@
       "label": ".AddAction()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L214",
+      "source_location": "L216",
       "_origin": "ast",
       "id": "scripts_operations_operations_addaction",
       "community": 74,
@@ -3765,7 +3765,7 @@
       "label": "Container",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L214",
+      "source_location": "L216",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_container",
       "community": 74,
@@ -3775,7 +3775,7 @@
       "label": "Action",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L214",
+      "source_location": "L216",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_action",
       "community": 74,
@@ -3785,7 +3785,7 @@
       "label": ".ShowFalseProof()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L222",
+      "source_location": "L224",
       "_origin": "ast",
       "id": "scripts_operations_operations_showfalseproof",
       "community": 74,
@@ -3795,7 +3795,7 @@
       "label": ".Plan()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L240",
+      "source_location": "L242",
       "_origin": "ast",
       "id": "scripts_operations_operations_plan",
       "community": 74,
@@ -3805,7 +3805,7 @@
       "label": "HuntPlan",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L240",
+      "source_location": "L242",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_huntplan",
       "community": 74,
@@ -3815,7 +3815,7 @@
       "label": ".ShowSecret()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L254",
+      "source_location": "L256",
       "_origin": "ast",
       "id": "scripts_operations_operations_showsecret",
       "community": 74,
@@ -3825,7 +3825,7 @@
       "label": ".ShowCaptives()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L293",
+      "source_location": "L295",
       "_origin": "ast",
       "id": "scripts_operations_operations_showcaptives",
       "community": 74,
@@ -3835,7 +3835,7 @@
       "label": ".ShowHeld()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L308",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "scripts_operations_operations_showheld",
       "community": 74,
@@ -3845,7 +3845,7 @@
       "label": "HeldLine",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L308",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "heldline",
       "community": 74,
@@ -3855,7 +3855,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L308",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_ireadonlylist",
       "community": 74,
@@ -3865,7 +3865,7 @@
       "label": "AgentLine",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L308",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "agentline",
       "community": 74,
@@ -3875,7 +3875,7 @@
       "label": ".ShowAgent()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L330",
+      "source_location": "L332",
       "_origin": "ast",
       "id": "scripts_operations_operations_showagent",
       "community": 74,
@@ -3885,7 +3885,7 @@
       "label": ".ShowProbes()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L350",
+      "source_location": "L352",
       "_origin": "ast",
       "id": "scripts_operations_operations_showprobes",
       "community": 74,
@@ -3895,7 +3895,7 @@
       "label": ".ShowProbePlan()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L362",
+      "source_location": "L364",
       "_origin": "ast",
       "id": "scripts_operations_operations_showprobeplan",
       "community": 74,
@@ -3905,7 +3905,7 @@
       "label": ".LaunchProbe()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L394",
+      "source_location": "L396",
       "_origin": "ast",
       "id": "scripts_operations_operations_launchprobe",
       "community": 74,
@@ -3915,7 +3915,7 @@
       "label": ".ShowKnownSecrets()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L416",
+      "source_location": "L418",
       "_origin": "ast",
       "id": "scripts_operations_operations_showknownsecrets",
       "community": 74,
@@ -3925,7 +3925,7 @@
       "label": ".Act()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L442",
+      "source_location": "L444",
       "_origin": "ast",
       "id": "scripts_operations_operations_act",
       "community": 74,
@@ -3935,17 +3935,27 @@
       "label": "Func",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L442",
+      "source_location": "L444",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_func",
       "community": 74,
       "norm_label": "func"
     },
     {
+      "label": ".ShowChosen()",
+      "file_type": "code",
+      "source_file": "game/scripts/Operations.cs",
+      "source_location": "L458",
+      "_origin": "ast",
+      "id": "scripts_operations_operations_showchosen",
+      "community": 74,
+      "norm_label": ".showchosen()"
+    },
+    {
       "label": ".Report()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L455",
+      "source_location": "L476",
       "_origin": "ast",
       "id": "scripts_operations_operations_report",
       "community": 74,
@@ -3955,7 +3965,7 @@
       "label": ".Add()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L461",
+      "source_location": "L482",
       "_origin": "ast",
       "id": "scripts_operations_operations_add",
       "community": 74,
@@ -3965,7 +3975,7 @@
       "label": ".AddButton()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L464",
+      "source_location": "L485",
       "_origin": "ast",
       "id": "scripts_operations_operations_addbutton",
       "community": 74,
@@ -3975,7 +3985,7 @@
       "label": "Button",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L464",
+      "source_location": "L485",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_button",
       "community": 74,
@@ -3985,7 +3995,7 @@
       "label": ".Picker()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L473",
+      "source_location": "L494",
       "_origin": "ast",
       "id": "scripts_operations_operations_picker",
       "community": 74,
@@ -3995,7 +4005,7 @@
       "label": "Value",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L473",
+      "source_location": "L494",
       "_origin": "ast",
       "id": "value",
       "community": 74,
@@ -4005,7 +4015,7 @@
       "label": "OptionButton",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L473",
+      "source_location": "L494",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_optionbutton",
       "community": 74,
@@ -4015,7 +4025,7 @@
       "label": ".EnumPicker()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L489",
+      "source_location": "L510",
       "_origin": "ast",
       "id": "scripts_operations_operations_enumpicker",
       "community": 74,
@@ -4025,7 +4035,7 @@
       "label": "T",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L489",
+      "source_location": "L510",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_t",
       "community": 74,
@@ -4035,7 +4045,7 @@
       "label": ".Selected()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L496",
+      "source_location": "L517",
       "_origin": "ast",
       "id": "scripts_operations_operations_selected",
       "community": 74,
@@ -4045,7 +4055,7 @@
       "label": ".Clear()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L499",
+      "source_location": "L520",
       "_origin": "ast",
       "id": "scripts_operations_operations_clear",
       "community": 74,
@@ -4055,7 +4065,7 @@
       "label": "Node",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L499",
+      "source_location": "L520",
       "_origin": "ast",
       "id": "game_scripts_operations_cs_node",
       "community": 74,
@@ -4065,7 +4075,7 @@
       "label": ".RunSmoke()",
       "file_type": "code",
       "source_file": "game/scripts/Operations.cs",
-      "source_location": "L508",
+      "source_location": "L529",
       "_origin": "ast",
       "id": "scripts_operations_operations_runsmoke",
       "community": 74,
@@ -5998,7 +6008,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 224,
+      "community": 350,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -6008,7 +6018,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 224,
+      "community": 350,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -6118,7 +6128,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 413,
+      "community": 82,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -6128,7 +6138,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 413,
+      "community": 82,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -10378,7 +10388,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 183,
+      "community": 413,
       "norm_label": "woundsystem"
     },
     {
@@ -10388,7 +10398,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 183,
+      "community": 413,
       "norm_label": "double"
     },
     {
@@ -10398,7 +10408,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 183,
+      "community": 413,
       "norm_label": "int"
     },
     {
@@ -10408,7 +10418,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 183,
+      "community": 413,
       "norm_label": "gamecontext"
     },
     {
@@ -10418,7 +10428,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 183,
+      "community": 413,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -10428,7 +10438,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 183,
+      "community": 413,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -10438,7 +10448,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 183,
+      "community": 413,
       "norm_label": "characterdata"
     },
     {
@@ -10448,7 +10458,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 183,
+      "community": 413,
       "norm_label": ".applydaowound()"
     },
     {
@@ -10458,7 +10468,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 183,
+      "community": 413,
       "norm_label": ".applywound()"
     },
     {
@@ -10578,7 +10588,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 413,
+      "community": 82,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -10588,7 +10598,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 413,
+      "community": 82,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -10598,7 +10608,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 413,
+      "community": 82,
       "norm_label": "clankarmasystem"
     },
     {
@@ -10608,7 +10618,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 413,
+      "community": 82,
       "norm_label": "double"
     },
     {
@@ -10618,7 +10628,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 413,
+      "community": 82,
       "norm_label": "int"
     },
     {
@@ -10628,7 +10638,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 413,
+      "community": 82,
       "norm_label": "gamecontext"
     },
     {
@@ -10638,7 +10648,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 413,
+      "community": 82,
       "norm_label": "clanmanager"
     },
     {
@@ -10648,7 +10658,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 413,
+      "community": 82,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -10658,7 +10668,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 413,
+      "community": 82,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -10668,7 +10678,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 413,
+      "community": 82,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -10678,7 +10688,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 413,
+      "community": 82,
       "norm_label": ".restore()"
     },
     {
@@ -10688,7 +10698,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 413,
+      "community": 82,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -13648,7 +13658,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 224,
+      "community": 350,
       "norm_label": "combatunit.cs"
     },
     {
@@ -13658,7 +13668,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 224,
+      "community": 350,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -14438,7 +14448,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 193,
+      "community": 333,
       "norm_label": "enums.cs"
     },
     {
@@ -14448,7 +14458,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 193,
+      "community": 333,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -14458,7 +14468,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_factiondata",
-      "community": 333,
+      "community": 423,
       "norm_label": "factiondata.cs"
     },
     {
@@ -14468,7 +14478,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "data_factiondata_mirrorchronicles_data",
-      "community": 333,
+      "community": 423,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -14478,7 +14488,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "data_factiondata_factiondata",
-      "community": 333,
+      "community": 423,
       "norm_label": "factiondata"
     },
     {
@@ -14488,7 +14498,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "data_factiondata_factiondata_clone",
-      "community": 333,
+      "community": 423,
       "norm_label": ".clone()"
     },
     {
@@ -14498,7 +14508,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "data_factiondata_factionelder",
-      "community": 333,
+      "community": 423,
       "norm_label": "factionelder"
     },
     {
@@ -14508,7 +14518,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_age",
-      "community": 333,
+      "community": 423,
       "norm_label": ".age()"
     },
     {
@@ -14518,7 +14528,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_clone",
-      "community": 333,
+      "community": 423,
       "norm_label": ".clone()"
     },
     {
@@ -17138,7 +17148,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 420,
+      "community": 379,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -17148,7 +17158,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 420,
+      "community": 379,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18158,7 +18168,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 193,
+      "community": 333,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -18168,7 +18178,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 193,
+      "community": 333,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -21418,7 +21428,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
-      "community": 350,
+      "community": 33,
       "norm_label": ".assigntask()"
     },
     {
@@ -21428,7 +21438,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 350,
+      "community": 33,
       "norm_label": "characterdata"
     },
     {
@@ -21438,7 +21448,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
-      "community": 350,
+      "community": 33,
       "norm_label": "tasktype"
     },
     {
@@ -21448,7 +21458,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 350,
+      "community": 33,
       "norm_label": ".processyearlytasks()"
     },
     {
@@ -21458,7 +21468,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 350,
+      "community": 33,
       "norm_label": "yearlytaskreport"
     },
     {
@@ -21468,7 +21478,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 350,
+      "community": 33,
       "norm_label": ".gatherqi()"
     },
     {
@@ -21478,7 +21488,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_sentfor",
-      "community": 350,
+      "community": 33,
       "norm_label": ".sentfor()"
     },
     {
@@ -21488,7 +21498,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 350,
+      "community": 33,
       "norm_label": "qidefinition"
     },
     {
@@ -21498,7 +21508,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 350,
+      "community": 33,
       "norm_label": ".harvestable()"
     },
     {
@@ -21508,7 +21518,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 350,
+      "community": 33,
       "norm_label": "techniquedata"
     },
     {
@@ -21558,7 +21568,7 @@
       "source_location": "L194",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 350,
+      "community": 33,
       "norm_label": ".mineyield()"
     },
     {
@@ -21568,7 +21578,7 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 350,
+      "community": 33,
       "norm_label": ".study()"
     },
     {
@@ -21578,7 +21588,7 @@
       "source_location": "L231",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 350,
+      "community": 33,
       "norm_label": ".diplomacy()"
     },
     {
@@ -21588,7 +21598,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 350,
+      "community": 33,
       "norm_label": ".teach()"
     },
     {
@@ -21598,7 +21608,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 350,
+      "community": 33,
       "norm_label": "ireadonlylist"
     },
     {
@@ -21608,7 +21618,7 @@
       "source_location": "L258",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
-      "community": 350,
+      "community": 33,
       "norm_label": ".scoutbeasts()"
     },
     {
@@ -23768,7 +23778,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_mirrorsystem",
-      "community": 190,
+      "community": 350,
       "norm_label": "mirrorsystem.cs"
     },
     {
@@ -23778,7 +23788,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorchronicles_mirror",
-      "community": 190,
+      "community": 350,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -25968,7 +25978,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "presentation_buildingsview",
-      "community": 250,
+      "community": 248,
       "norm_label": "buildingsview.cs"
     },
     {
@@ -25978,7 +25988,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "presentation_buildingsview_mirrorchronicles_presentation",
-      "community": 250,
+      "community": 248,
       "norm_label": "mirrorchronicles.presentation"
     },
     {
@@ -27805,37 +27815,67 @@
       "label": "OperationsView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L63",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview",
       "community": 152,
       "norm_label": "operationsview"
     },
     {
-      "label": ".Ritual()",
+      "label": ".Chosen()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L65",
+      "source_location": "L72",
       "_origin": "ast",
-      "id": "presentation_operationsview_operationsview_ritual",
+      "id": "presentation_operationsview_operationsview_chosen",
       "community": 152,
-      "norm_label": ".ritual()"
+      "norm_label": ".chosen()"
     },
     {
       "label": "GameSession",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L65",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_gamesession",
       "community": 152,
       "norm_label": "gamesession"
     },
     {
+      "label": "IReadOnlyList",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "src_core_presentation_operationsview_cs_ireadonlylist",
+      "community": 152,
+      "norm_label": "ireadonlylist"
+    },
+    {
+      "label": "ChosenLine",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "chosenline",
+      "community": 152,
+      "norm_label": "chosenline"
+    },
+    {
+      "label": ".Ritual()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L84",
+      "_origin": "ast",
+      "id": "presentation_operationsview_operationsview_ritual",
+      "community": 152,
+      "norm_label": ".ritual()"
+    },
+    {
       "label": "RitualView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L65",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "ritualview",
       "community": 152,
@@ -27845,27 +27885,17 @@
       "label": ".HuntTargets()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L96",
+      "source_location": "L115",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_hunttargets",
       "community": 152,
       "norm_label": ".hunttargets()"
     },
     {
-      "label": "IReadOnlyList",
-      "file_type": "code",
-      "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L96",
-      "_origin": "ast",
-      "id": "src_core_presentation_operationsview_cs_ireadonlylist",
-      "community": 152,
-      "norm_label": "ireadonlylist"
-    },
-    {
       "label": "HuntTarget",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L96",
+      "source_location": "L115",
       "_origin": "ast",
       "id": "hunttarget",
       "community": 152,
@@ -27875,7 +27905,7 @@
       "label": ".HuntCandidates()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L109",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_huntcandidates",
       "community": 152,
@@ -27885,7 +27915,7 @@
       "label": "MemberChoice",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L109",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_memberchoice",
       "community": 152,
@@ -27895,7 +27925,7 @@
       "label": ".HuntPreview()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L113",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_huntpreview",
       "community": 152,
@@ -27905,7 +27935,7 @@
       "label": "HuntPlan",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L113",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_huntplan",
       "community": 152,
@@ -27915,7 +27945,7 @@
       "label": "HuntPreviewView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L113",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "huntpreviewview",
       "community": 152,
@@ -27925,7 +27955,7 @@
       "label": ".Signs()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L125",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_signs",
       "community": 152,
@@ -27935,7 +27965,7 @@
       "label": "PowerSign",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L125",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "powersign",
       "community": 152,
@@ -27945,7 +27975,7 @@
       "label": ".FalseProofRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L140",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_falseproofrefusal",
       "community": 152,
@@ -27955,7 +27985,7 @@
       "label": ".Keepers()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L143",
+      "source_location": "L162",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_keepers",
       "community": 152,
@@ -27965,7 +27995,7 @@
       "label": "KeeperLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L143",
+      "source_location": "L162",
       "_origin": "ast",
       "id": "keeperline",
       "community": 152,
@@ -27975,7 +28005,7 @@
       "label": ".RoleLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L147",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_rolelabel",
       "community": 152,
@@ -27985,7 +28015,7 @@
       "label": "HuntRole",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L147",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "huntrole",
       "community": 152,
@@ -27995,7 +28025,7 @@
       "label": ".TimingLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L156",
+      "source_location": "L175",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_timinglabel",
       "community": 152,
@@ -28005,7 +28035,7 @@
       "label": "HuntTiming",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L156",
+      "source_location": "L175",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_hunttiming",
       "community": 152,
@@ -28015,7 +28045,7 @@
       "label": ".CoverLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L164",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_coverlabel",
       "community": 152,
@@ -28025,7 +28055,7 @@
       "label": "CoverStory",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L164",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_coverstory",
       "community": 152,
@@ -28035,7 +28065,7 @@
       "label": ".AidLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L173",
+      "source_location": "L192",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_aidlabel",
       "community": 152,
@@ -28045,7 +28075,7 @@
       "label": "MirrorAid",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L173",
+      "source_location": "L192",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_mirroraid",
       "community": 152,
@@ -28055,7 +28085,7 @@
       "label": ".Unwed()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L183",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_unwed",
       "community": 152,
@@ -28065,7 +28095,7 @@
       "label": "UnwedLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L183",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "unwedline",
       "community": 152,
@@ -28075,7 +28105,7 @@
       "label": ".Spouses()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L199",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_spouses",
       "community": 152,
@@ -28085,7 +28115,7 @@
       "label": "SpouseLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L199",
+      "source_location": "L218",
       "_origin": "ast",
       "id": "spouseline",
       "community": 152,
@@ -28095,7 +28125,7 @@
       "label": ".Captives()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L205",
+      "source_location": "L224",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_captives",
       "community": 152,
@@ -28105,7 +28135,7 @@
       "label": "CaptivesView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L205",
+      "source_location": "L224",
       "_origin": "ast",
       "id": "captivesview",
       "community": 152,
@@ -28115,7 +28145,7 @@
       "label": ".Choice()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L218",
+      "source_location": "L237",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_choice",
       "community": 152,
@@ -28125,7 +28155,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L218",
+      "source_location": "L237",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_characterdata",
       "community": 152,
@@ -28135,7 +28165,7 @@
       "label": ".Strength()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L220",
+      "source_location": "L239",
       "_origin": "ast",
       "id": "presentation_operationsview_operationsview_strength",
       "community": 152,
@@ -28145,7 +28175,7 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L220",
+      "source_location": "L239",
       "_origin": "ast",
       "id": "src_core_presentation_operationsview_cs_cultivationrealm",
       "community": 152,
@@ -30825,7 +30855,7 @@
       "label": ".NewGame()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L224",
+      "source_location": "L226",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_newgame",
       "community": 251,
@@ -30835,7 +30865,7 @@
       "label": "GameSetup",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L224",
+      "source_location": "L226",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamesetup",
       "community": 251,
@@ -30845,7 +30875,7 @@
       "label": ".TryLoad()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L258",
+      "source_location": "L260",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tryload",
       "community": 251,
@@ -30855,7 +30885,7 @@
       "label": ".FromSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L275",
+      "source_location": "L277",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_fromsavedata",
       "community": 251,
@@ -30865,7 +30895,7 @@
       "label": "GameData",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L275",
+      "source_location": "L277",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
       "community": 251,
@@ -30875,7 +30905,7 @@
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L381",
+      "source_location": "L383",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 251,
@@ -30885,7 +30915,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L480",
+      "source_location": "L482",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -30895,7 +30925,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L480",
+      "source_location": "L482",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 251,
@@ -30905,7 +30935,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L484",
+      "source_location": "L486",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -30915,7 +30945,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L495",
+      "source_location": "L497",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -30925,7 +30955,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L502",
+      "source_location": "L504",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -30935,7 +30965,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L502",
+      "source_location": "L504",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -30945,7 +30975,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L558",
+      "source_location": "L560",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -37892,10 +37922,80 @@
       "norm_label": "list"
     },
     {
+      "label": ".Free()",
+      "file_type": "code",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "world_worldrebirths_worldrebirths_free",
+      "community": 407,
+      "norm_label": ".free()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "src_core_world_worldrebirths_cs_characterdata",
+      "community": 407,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".SensedByClan()",
+      "file_type": "code",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "world_worldrebirths_worldrebirths_sensedbyclan",
+      "community": 407,
+      "norm_label": ".sensedbyclan()"
+    },
+    {
+      "label": "IReadOnlyList",
+      "file_type": "code",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "src_core_world_worldrebirths_cs_ireadonlylist",
+      "community": 407,
+      "norm_label": "ireadonlylist"
+    },
+    {
+      "label": "WorldRebirth",
+      "file_type": "code",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "worldrebirth",
+      "community": 407,
+      "norm_label": "worldrebirth"
+    },
+    {
+      "label": ".HarvestChance()",
+      "file_type": "code",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "world_worldrebirths_worldrebirths_harvestchance",
+      "community": 407,
+      "norm_label": ".harvestchance()"
+    },
+    {
+      "label": ".Harvest()",
+      "file_type": "code",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "world_worldrebirths_worldrebirths_harvest",
+      "community": 407,
+      "norm_label": ".harvest()"
+    },
+    {
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L38",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "world_worldrebirths_worldrebirths_restore",
       "community": 407,
@@ -37905,27 +38005,17 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L38",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "src_core_world_worldrebirths_cs_ienumerable",
       "community": 407,
       "norm_label": "ienumerable"
     },
     {
-      "label": "WorldRebirth",
-      "file_type": "code",
-      "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "worldrebirth",
-      "community": 407,
-      "norm_label": "worldrebirth"
-    },
-    {
       "label": ".Died()",
       "file_type": "code",
       "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L47",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "world_worldrebirths_worldrebirths_died",
       "community": 407,
@@ -37935,7 +38025,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L47",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "src_core_world_worldrebirths_cs_factiondata",
       "community": 407,
@@ -37945,7 +38035,7 @@
       "label": "FactionElder",
       "file_type": "code",
       "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L47",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "src_core_world_worldrebirths_cs_factionelder",
       "community": 407,
@@ -37955,7 +38045,7 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L54",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "world_worldrebirths_worldrebirths_processyear",
       "community": 407,
@@ -37965,7 +38055,7 @@
       "label": ".AHarvesterReaches()",
       "file_type": "code",
       "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L73",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "world_worldrebirths_worldrebirths_aharvesterreaches",
       "community": 407,
@@ -37975,7 +38065,7 @@
       "label": ".Return()",
       "file_type": "code",
       "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L76",
+      "source_location": "L145",
       "_origin": "ast",
       "id": "world_worldrebirths_worldrebirths_return",
       "community": 407,
@@ -56708,7 +56798,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionenginetests",
-      "community": 5,
+      "community": 248,
       "norm_label": "deductionenginetests.cs"
     },
     {
@@ -56718,7 +56808,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_mirrorchronicles_tests_mirror",
-      "community": 5,
+      "community": 248,
       "norm_label": "mirrorchronicles.tests.mirror"
     },
     {
@@ -61380,6 +61470,16 @@
       "id": "presentation_operationsviewtests_operationsviewtests_spouses_fromthepowers_arelisted_theirsecretonlyoncesounded",
       "community": 157,
       "norm_label": ".spouses_fromthepowers_arelisted_theirsecretonlyoncesounded()"
+    },
+    {
+      "label": ".ThePowersChosen_AreShown_OnlyToAPurpleMansion_WithTheirOdds()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L245",
+      "_origin": "ast",
+      "id": "presentation_operationsviewtests_operationsviewtests_thepowerschosen_areshown_onlytoapurplemansion_withtheirodds",
+      "community": 157,
+      "norm_label": ".thepowerschosen_areshown_onlytoapurplemansion_withtheirodds()"
     },
     {
       "label": "PortraitViewTests.cs",
@@ -70972,10 +71072,50 @@
       "norm_label": ".withoutanotherpurplemansioninreach_apowerschosenissafe()"
     },
     {
-      "label": ".TheReborn_TakesItsRealizationBack_IfFree()",
+      "label": ".Mansion()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L93",
+      "_origin": "ast",
+      "id": "world_worldrebirthtests_worldrebirthtests_mansion",
+      "community": 404,
+      "norm_label": ".mansion()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_worldrebirthtests_cs_characterdata",
+      "community": 404,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".OnlyAPurpleMansionOfTheClan_SensesAPowersYoungChosen()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
+      "community": 404,
+      "norm_label": ".onlyapurplemansionoftheclan_sensesapowersyoungchosen()"
+    },
+    {
+      "label": ".TheClan_MayHarvestAPowersChosen_WithAPurpleMansion()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L111",
+      "_origin": "ast",
+      "id": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
+      "community": 404,
+      "norm_label": ".theclan_mayharvestapowerschosen_withapurplemansion()"
+    },
+    {
+      "label": ".TheReborn_TakesItsRealizationBack_IfFree()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "world_worldrebirthtests_worldrebirthtests_thereborn_takesitsrealizationback_iffree",
       "community": 404,
@@ -70985,7 +71125,7 @@
       "label": ".ThePendingRebirths_SurviveASave()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
-      "source_location": "L114",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "world_worldrebirthtests_worldrebirthtests_thependingrebirths_surviveasave",
       "community": 404,
@@ -72638,7 +72778,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "brain_claude_plan_syst\u00e8mes_du_jeu_d\u00e9tail",
-      "community": 423,
+      "community": 41,
       "norm_label": "\ud83e\udde9 systemes du jeu (detail)"
     },
     {
@@ -72648,7 +72788,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "brain_claude_plan_1_core_boucle_principale",
-      "community": 423,
+      "community": 41,
       "norm_label": "1. core \u2014 boucle principale"
     },
     {
@@ -72658,7 +72798,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "brain_claude_plan_2_mirror_interface_joueur",
-      "community": 423,
+      "community": 41,
       "norm_label": "2. mirror \u2014 interface joueur"
     },
     {
@@ -72668,7 +72808,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "brain_claude_plan_3_clan_lign\u00e9e",
-      "community": 423,
+      "community": 41,
       "norm_label": "3. clan \u2014 lignee"
     },
     {
@@ -72678,7 +72818,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "brain_claude_plan_4_characters_individus",
-      "community": 423,
+      "community": 41,
       "norm_label": "4. characters \u2014 individus"
     },
     {
@@ -72688,7 +72828,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "brain_claude_plan_5_combat_tactique_tour_par_tour",
-      "community": 423,
+      "community": 41,
       "norm_label": "5. combat \u2014 tactique tour par tour"
     },
     {
@@ -72698,7 +72838,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "brain_claude_plan_6_diplomacy_monde_ext\u00e9rieur",
-      "community": 423,
+      "community": 41,
       "norm_label": "6. diplomacy \u2014 monde exterieur"
     },
     {
@@ -72708,7 +72848,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "brain_claude_plan_7_economy_ressources_t\u00e2ches",
-      "community": 423,
+      "community": 41,
       "norm_label": "7. economy \u2014 ressources & taches"
     },
     {
@@ -72718,7 +72858,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "brain_claude_plan_8_events_al\u00e9atoire_sc\u00e9naris\u00e9",
-      "community": 423,
+      "community": 41,
       "norm_label": "8. events \u2014 aleatoire + scenarise"
     },
     {
@@ -73484,7 +73624,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 333,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -73538,7 +73678,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 224,
+      "community": 350,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -73552,7 +73692,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player controls no character directly; observes, guides and influences a mortal family over generations to become the strongest cultivator clan of Mount Dali.",
-      "community": 190,
+      "community": 350,
       "norm_label": "player as consciousness trapped in ancestral bronze mirror",
       "id": "brain_claude_memory_mirror_consciousness_premise"
     },
@@ -73659,7 +73799,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 193,
+      "community": 333,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -73899,7 +74039,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 193,
+      "community": 333,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -73967,7 +74107,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 193,
+      "community": 333,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -73993,7 +74133,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 413,
+      "community": 82,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -74167,7 +74307,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 193,
+      "community": 333,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -74293,7 +74433,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 193,
+      "community": 333,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -74333,7 +74473,7 @@
       "author": null,
       "contributor": null,
       "rationale": "2D multigenerational clan-management RPG with Xianxia cultivation, turn-based tactical combat, faction diplomacy and inheritance over 10+ generations.",
-      "community": 190,
+      "community": 350,
       "norm_label": "reflets de lignee: les chroniques du miroir (mirror chronicles)",
       "id": "readme_mirror_chronicles"
     },
@@ -74346,7 +74486,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 190,
+      "community": 350,
       "norm_label": "the mirror legacy (xuanjian xianzu) - inspiration",
       "id": "readme_the_mirror_legacy"
     },
@@ -81075,6 +81215,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/Operations.cs",
+      "source_location": "L458",
+      "weight": 1.0,
+      "source": "scripts_operations_operations",
+      "target": "scripts_operations_operations_showchosen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Operations.cs",
       "source_location": "L130",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -81233,6 +81383,17 @@
       "confidence_score": 1.0,
       "source": "scripts_operations_operations_refresh",
       "target": "scripts_operations_operations_showcaptives"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Operations.cs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "scripts_operations_operations_refresh",
+      "target": "scripts_operations_operations_showchosen",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -82390,6 +82551,17 @@
       "target": "scripts_operations_operations_report"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Operations.cs",
+      "source_location": "L469",
+      "weight": 1.0,
+      "source": "scripts_operations_operations_showchosen",
+      "target": "scripts_operations_operations_act",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/Operations.cs",
@@ -82399,6 +82571,28 @@
       "confidence_score": 1.0,
       "source": "scripts_operations_operations_enumpicker",
       "target": "game_scripts_operations_cs_func"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Operations.cs",
+      "source_location": "L462",
+      "weight": 1.0,
+      "source": "scripts_operations_operations_showchosen",
+      "target": "scripts_operations_operations_add",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Operations.cs",
+      "source_location": "L460",
+      "weight": 1.0,
+      "source": "scripts_operations_operations_showchosen",
+      "target": "scripts_operations_operations_clear",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -83338,9 +83532,9 @@
       "source_file": "src/Core/Characters/AncestorReturn.cs",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturn_ancestorreturn",
-      "target": "characters_ancestorreturn_ancestorreturn_aharvesterreaches",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturn_ancestorreturn_aharvesterreaches"
     },
     {
       "relation": "method",
@@ -83462,9 +83656,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturn_ancestorreturn",
-      "target": "src_core_characters_ancestorreturn_cs_factionmanager",
-      "confidence_score": 1.0
+      "target": "src_core_characters_ancestorreturn_cs_factionmanager"
     },
     {
       "relation": "references",
@@ -83638,9 +83832,9 @@
       "source_file": "src/Core/Characters/AncestorReturn.cs",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturn_ancestorreturn_harvested",
-      "target": "characters_ancestorreturn_ancestorreturn_aharvesterreaches",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturn_ancestorreturn_aharvesterreaches"
     },
     {
       "relation": "calls",
@@ -92513,9 +92707,9 @@
       "source_file": "src/Core/Characters/RealmGap.cs",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgap_realmgap",
-      "target": "characters_realmgap_realmgap_suppressed",
-      "confidence_score": 1.0
+      "target": "characters_realmgap_realmgap_suppressed"
     },
     {
       "relation": "method",
@@ -92666,9 +92860,9 @@
       "source_location": "L36",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_realmgap_realmgap_suppressed",
-      "target": "src_core_characters_realmgap_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_realmgap_cs_characterdata"
     },
     {
       "relation": "contains",
@@ -121439,6 +121633,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "presentation_operationsview_operationsview",
+      "target": "presentation_operationsview_operationsview_chosen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L141",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -121566,37 +121770,37 @@
       "target": "presentation_operationsview_operationsview_unwed"
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L50",
+      "source_location": "L72",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "presentation_operationsview_operationsview_ritual",
-      "target": "presentation_operationsview_operationsview_strength"
+      "context": "generic_arg",
+      "source": "presentation_operationsview_operationsview_chosen",
+      "target": "chosenline",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L45",
-      "weight": 1.0,
-      "context": "return_type",
-      "confidence_score": 1.0,
-      "source": "presentation_operationsview_operationsview_ritual",
-      "target": "ritualview"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L45",
+      "source_location": "L72",
       "weight": 1.0,
       "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "presentation_operationsview_operationsview_ritual",
-      "target": "src_core_presentation_operationsview_cs_gamesession"
+      "source": "presentation_operationsview_operationsview_chosen",
+      "target": "src_core_presentation_operationsview_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L72",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "presentation_operationsview_operationsview_chosen",
+      "target": "src_core_presentation_operationsview_cs_ireadonlylist",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -121668,6 +121872,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "presentation_operationsview_operationsview_ritual",
+      "target": "src_core_presentation_operationsview_cs_gamesession"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
       "source_location": "L106",
       "weight": 1.0,
       "context": "parameter_type",
@@ -121701,44 +121916,22 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L75",
-      "weight": 1.0,
-      "context": "generic_arg",
-      "confidence_score": 1.0,
-      "source": "presentation_operationsview_operationsview_hunttargets",
-      "target": "hunttarget"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L82",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "presentation_operationsview_operationsview_hunttargets",
-      "target": "presentation_operationsview_operationsview_strength"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L75",
+      "source_location": "L88",
       "weight": 1.0,
       "context": "return_type",
       "confidence_score": 1.0,
-      "source": "presentation_operationsview_operationsview_hunttargets",
+      "source": "presentation_operationsview_operationsview_huntcandidates",
       "target": "src_core_presentation_operationsview_cs_ireadonlylist"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/OperationsView.cs",
-      "source_location": "L88",
+      "source_location": "L75",
       "weight": 1.0,
       "context": "return_type",
       "confidence_score": 1.0,
-      "source": "presentation_operationsview_operationsview_huntcandidates",
+      "source": "presentation_operationsview_operationsview_hunttargets",
       "target": "src_core_presentation_operationsview_cs_ireadonlylist"
     },
     {
@@ -121784,6 +121977,50 @@
       "confidence_score": 1.0,
       "source": "presentation_operationsview_operationsview_unwed",
       "target": "src_core_presentation_operationsview_cs_ireadonlylist"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "presentation_operationsview_operationsview_ritual",
+      "target": "presentation_operationsview_operationsview_strength"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "presentation_operationsview_operationsview_ritual",
+      "target": "ritualview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L75",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "presentation_operationsview_operationsview_hunttargets",
+      "target": "hunttarget"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/OperationsView.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "presentation_operationsview_operationsview_hunttargets",
+      "target": "presentation_operationsview_operationsview_strength"
     },
     {
       "relation": "references",
@@ -139192,9 +139429,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths",
-      "target": "world_worldrebirths_worldrebirths_aharvesterreaches",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_aharvesterreaches"
     },
     {
       "relation": "method",
@@ -139205,6 +139442,36 @@
       "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths",
       "target": "world_worldrebirths_worldrebirths_died"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "world_worldrebirths_worldrebirths",
+      "target": "world_worldrebirths_worldrebirths_free",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "world_worldrebirths_worldrebirths",
+      "target": "world_worldrebirths_worldrebirths_harvest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "world_worldrebirths_worldrebirths",
+      "target": "world_worldrebirths_worldrebirths_harvestchance",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -139237,15 +139504,91 @@
       "target": "world_worldrebirths_worldrebirths_return"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "world_worldrebirths_worldrebirths",
+      "target": "world_worldrebirths_worldrebirths_sensedbyclan",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/WorldRebirths.cs",
-      "source_location": "L38",
+      "source_location": "L45",
       "weight": 1.0,
       "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "world_worldrebirths_worldrebirths_restore",
-      "target": "src_core_world_worldrebirths_cs_ienumerable"
+      "source": "world_worldrebirths_worldrebirths_free",
+      "target": "src_core_world_worldrebirths_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "world_worldrebirths_worldrebirths_harvest",
+      "target": "world_worldrebirths_worldrebirths_free",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "world_worldrebirths_worldrebirths_sensedbyclan",
+      "target": "world_worldrebirths_worldrebirths_free",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_worldrebirths_worldrebirths_harvestchance",
+      "target": "src_core_world_worldrebirths_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "world_worldrebirths_worldrebirths_harvest",
+      "target": "world_worldrebirths_worldrebirths_sensedbyclan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L52",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_worldrebirths_worldrebirths_sensedbyclan",
+      "target": "src_core_world_worldrebirths_cs_ireadonlylist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L52",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "world_worldrebirths_worldrebirths_sensedbyclan",
+      "target": "worldrebirth",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -139268,6 +139611,28 @@
       "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_return",
       "target": "worldrebirth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "world_worldrebirths_worldrebirths_harvest",
+      "target": "world_worldrebirths_worldrebirths_harvestchance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/WorldRebirths.cs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "world_worldrebirths_worldrebirths_restore",
+      "target": "src_core_world_worldrebirths_cs_ienumerable"
     },
     {
       "relation": "references",
@@ -139298,9 +139663,9 @@
       "source_location": "L73",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_aharvesterreaches",
-      "target": "src_core_world_worldrebirths_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_worldrebirths_cs_factiondata"
     },
     {
       "relation": "references",
@@ -139320,9 +139685,9 @@
       "source_file": "src/Core/World/WorldRebirths.cs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirths_worldrebirths_processyear",
-      "target": "world_worldrebirths_worldrebirths_aharvesterreaches",
-      "confidence_score": 1.0
+      "target": "world_worldrebirths_worldrebirths_aharvesterreaches"
     },
     {
       "relation": "calls",
@@ -139649,9 +140014,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests",
-      "target": "characters_ancestorreturntests_ancestorreturntests_withoutapurplemansioninreach_nopowercanharvestthechosen",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_withoutapurplemansioninreach_nopowercanharvestthechosen"
     },
     {
       "relation": "method",
@@ -139736,9 +140101,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_withoutapurplemansioninreach_nopowercanharvestthechosen",
-      "target": "characters_ancestorreturntests_ancestorreturntests_with",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_with"
     },
     {
       "relation": "references",
@@ -139868,9 +140233,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_withoutapurplemansioninreach_nopowercanharvestthechosen",
-      "target": "characters_ancestorreturntests_ancestorreturntests_session",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_session"
     },
     {
       "relation": "references",
@@ -140022,9 +140387,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_withoutapurplemansioninreach_nopowercanharvestthechosen",
-      "target": "characters_ancestorreturntests_ancestorreturntests_monarch",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_monarch"
     },
     {
       "relation": "references",
@@ -140121,9 +140486,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L149",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_withoutapurplemansioninreach_nopowercanharvestthechosen",
-      "target": "characters_ancestorreturntests_ancestorreturntests_child",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_child"
     },
     {
       "relation": "calls",
@@ -140176,9 +140541,9 @@
       "source_file": "tests/Core.Tests/Characters/AncestorReturnTests.cs",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_withoutapurplemansioninreach_nopowercanharvestthechosen",
-      "target": "characters_ancestorreturntests_ancestorreturntests_years",
-      "confidence_score": 1.0
+      "target": "characters_ancestorreturntests_ancestorreturntests_years"
     },
     {
       "relation": "references",
@@ -140286,9 +140651,9 @@
       "source_location": "L141",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_ancestorreturntests_ancestorreturntests_withoutapurplemansioninreach_nopowercanharvestthechosen",
-      "target": "tests_core_tests_characters_ancestorreturntests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_ancestorreturntests_cs_test"
     },
     {
       "relation": "contains",
@@ -153298,9 +153663,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests",
-      "target": "characters_realmgaptests_realmgaptests_agoldencoresessence_leavesthoseofitsfoundation_powerless",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_agoldencoresessence_leavesthoseofitsfoundation_powerless"
     },
     {
       "relation": "method",
@@ -153480,9 +153845,9 @@
       "source_file": "tests/Core.Tests/Characters/RealmGapTests.cs",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_agoldencoresessence_leavesthoseofitsfoundation_powerless",
-      "target": "characters_realmgaptests_realmgaptests_member",
-      "confidence_score": 1.0
+      "target": "characters_realmgaptests_realmgaptests_member"
     },
     {
       "relation": "calls",
@@ -153601,9 +153966,9 @@
       "source_location": "L118",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_realmgaptests_realmgaptests_agoldencoresessence_leavesthoseofitsfoundation_powerless",
-      "target": "tests_core_tests_characters_realmgaptests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_realmgaptests_cs_test"
     },
     {
       "relation": "references",
@@ -191500,6 +191865,16 @@
       "target": "presentation_operationsviewtests_operationsviewtests_spouses_fromthepowers_arelisted_theirsecretonlyoncesounded"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L245",
+      "weight": 1.0,
+      "source": "presentation_operationsviewtests_operationsviewtests",
+      "target": "presentation_operationsviewtests_operationsviewtests_thepowerschosen_areshown_onlytoapurplemansion_withtheirodds",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -191665,6 +192040,17 @@
       "target": "presentation_operationsviewtests_operationsviewtests_newgame"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "presentation_operationsviewtests_operationsviewtests_thepowerschosen_areshown_onlytoapurplemansion_withtheirodds",
+      "target": "presentation_operationsviewtests_operationsviewtests_newgame",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
@@ -191828,6 +192214,17 @@
       "confidence_score": 1.0,
       "source": "presentation_operationsviewtests_operationsviewtests_spouses_fromthepowers_arelisted_theirsecretonlyoncesounded",
       "target": "tests_core_tests_presentation_operationsviewtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/OperationsViewTests.cs",
+      "source_location": "L245",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_operationsviewtests_operationsviewtests_thepowerschosen_areshown_onlytoapurplemansion_withtheirodds",
+      "target": "tests_core_tests_presentation_operationsviewtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -215419,11 +215816,31 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests",
+      "target": "world_worldrebirthtests_worldrebirthtests_mansion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L48",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests",
       "target": "world_worldrebirthtests_worldrebirthtests_monarch"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests",
+      "target": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -215444,6 +215861,16 @@
       "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests",
       "target": "world_worldrebirthtests_worldrebirthtests_thechosen_maybeharvested_whileyoung"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests",
+      "target": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -215481,9 +215908,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests",
-      "target": "world_worldrebirthtests_worldrebirthtests_withoutanotherpurplemansioninreach_apowerschosenissafe",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_withoutanotherpurplemansioninreach_apowerschosenissafe"
     },
     {
       "relation": "method",
@@ -215532,11 +215959,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
+      "target": "world_worldrebirthtests_worldrebirthtests_with",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L75",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_thechosen_maybeharvested_whileyoung",
       "target": "world_worldrebirthtests_worldrebirthtests_with"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
+      "target": "world_worldrebirthtests_worldrebirthtests_with",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -215578,9 +216027,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_withoutanotherpurplemansioninreach_apowerschosenissafe",
-      "target": "world_worldrebirthtests_worldrebirthtests_with",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_with"
     },
     {
       "relation": "references",
@@ -215616,6 +216065,17 @@
       "target": "world_worldrebirthtests_worldrebirthtests_session"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
+      "target": "world_worldrebirthtests_worldrebirthtests_session",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
@@ -215636,6 +216096,17 @@
       "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_thechosen_maybeharvested_whileyoung",
       "target": "world_worldrebirthtests_worldrebirthtests_session"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
+      "target": "world_worldrebirthtests_worldrebirthtests_session",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -215666,8 +216137,19 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_withoutanotherpurplemansioninreach_apowerschosenissafe",
-      "target": "world_worldrebirthtests_worldrebirthtests_session",
+      "target": "world_worldrebirthtests_worldrebirthtests_session"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L93",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_worldrebirthtests_worldrebirthtests_mansion",
+      "target": "tests_core_tests_world_worldrebirthtests_cs_gamesession",
       "confidence_score": 1.0
     },
     {
@@ -215732,9 +216214,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_withoutanotherpurplemansioninreach_apowerschosenissafe",
-      "target": "world_worldrebirthtests_worldrebirthtests_yearstoreturn",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_yearstoreturn"
     },
     {
       "relation": "calls",
@@ -215776,9 +216258,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_withoutanotherpurplemansioninreach_apowerschosenissafe",
-      "target": "world_worldrebirthtests_worldrebirthtests_years",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_years"
     },
     {
       "relation": "calls",
@@ -215818,11 +216300,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
+      "target": "world_worldrebirthtests_worldrebirthtests_monarch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L77",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_thechosen_maybeharvested_whileyoung",
       "target": "world_worldrebirthtests_worldrebirthtests_monarch"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
+      "target": "world_worldrebirthtests_worldrebirthtests_monarch",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -215853,9 +216357,9 @@
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_withoutanotherpurplemansioninreach_apowerschosenissafe",
-      "target": "world_worldrebirthtests_worldrebirthtests_monarch",
-      "confidence_score": 1.0
+      "target": "world_worldrebirthtests_worldrebirthtests_monarch"
     },
     {
       "relation": "references",
@@ -215883,12 +216387,34 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L100",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
+      "target": "tests_core_tests_world_worldrebirthtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
       "source_location": "L72",
       "weight": 1.0,
       "context": "attribute",
       "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_thechosen_maybeharvested_whileyoung",
       "target": "tests_core_tests_world_worldrebirthtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L111",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
+      "target": "tests_core_tests_world_worldrebirthtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -215919,8 +216445,41 @@
       "source_location": "L82",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_worldrebirthtests_worldrebirthtests_withoutanotherpurplemansioninreach_apowerschosenissafe",
-      "target": "tests_core_tests_world_worldrebirthtests_cs_test",
+      "target": "tests_core_tests_world_worldrebirthtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L93",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_worldrebirthtests_worldrebirthtests_mansion",
+      "target": "tests_core_tests_world_worldrebirthtests_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests_onlyapurplemansionoftheclan_sensesapowersyoungchosen",
+      "target": "world_worldrebirthtests_worldrebirthtests_mansion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/WorldRebirthTests.cs",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "world_worldrebirthtests_worldrebirthtests_theclan_mayharvestapowerschosen_withapurplemansion",
+      "target": "world_worldrebirthtests_worldrebirthtests_mansion",
       "confidence_score": 1.0
     },
     {
@@ -219255,5 +219814,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "ffa015d7d5360936ef69dfbc82e6cef8bb10ee73"
+  "built_at_commit": "f460f2d0adf53470b8665c5c6bb441dc15903651"
 }

@@ -35,6 +35,75 @@ namespace MirrorChronicles.World
 
         public IReadOnlyList<WorldRebirth> Pending => pending;
 
+        /// <summary>The clan, to harvest a power's Chosen (set by the session).</summary>
+        public Clan.ClanManager Clan { get; set; }
+
+        /// <summary>Who remembers the clan's deeds (set by the session).</summary>
+        public SuspicionLedger Suspicion { get; set; }
+
+        /// <summary>A member who may go this year: alive, free, not in retreat, no operation yet.</summary>
+        private bool Free(CharacterData m) =>
+            m != null && m.IsAlive && m.CaptorFaction == null && m.Retreat == Retreat.None && m.LastOperationYear != ctx.Clock.Year;
+
+        /// <summary>
+        /// The powers' young Chosen the clan senses: only a free Purple Mansion of the clan reads fate (LORE.md §5.4; audit
+        /// §1.8, the user's decision 2026-10-03), and only those it can reach.
+        /// </summary>
+        public IReadOnlyList<WorldRebirth> SensedByClan()
+        {
+            var seers = Clan?.LivingMembers.Where(m => Free(m) && m.Realm >= CultivationRealm.PurpleMansion).ToList() ?? new List<CharacterData>();
+            if (seers.Count == 0) return new List<WorldRebirth>();
+            int year = ctx.Clock.Year;
+            return pending.Where(r => year - r.BornYear < HiddenAge && factions.GetFactionByName(r.Power) is { } p
+                && seers.Any(m => TravelRules.CanReach(m.Realm, ctx.Content.Clan.HomeRegion, p.RegionId, ctx.Content.Regions, ctx.Content.Balance.Travel)))
+                .ToList();
+        }
+
+        /// <summary>The clan's odds of harvesting this power's Chosen with this Purple Mansion: its strength against the power's guard.</summary>
+        public double HarvestChance(string power, CharacterData harvester)
+        {
+            var p = factions.GetFactionByName(power);
+            if (p == null || harvester == null) return 0;
+            var s = Settings;
+            var gap = ctx.Content.Balance.RealmGap;
+            if (!RealmGap.Reaches(new[] { harvester }, p.HighestRealm, gap)) return 0;
+            double strength = RealmGap.TeamStrength(new[] { harvester }, p.HighestRealm, 1.0, gap);
+            return System.Math.Clamp(s.ClanHarvestBase + (strength - Mirror.HuntRules.Power(p.HighestRealm, 5)) * s.ClanHarvestPerPower,
+                s.ClanHarvestMin, s.ClanHarvestMax);
+        }
+
+        /// <summary>
+        /// The clan's Purple Mansion harvests a power's young Chosen: its True Monarch will not come back. Seen, the power
+        /// distrusts the clan and holds it a grudge. Null when done; else why not, or « la récolte échoue » (French).
+        /// </summary>
+        public string Harvest(string power, string harvesterId)
+        {
+            var harvester = Clan?.FindById(harvesterId);
+            if (harvester == null || !Free(harvester)) return "ce membre ne peut pas partir";
+            if (harvester.Realm < CultivationRealm.PurpleMansion) return "seul un Manoir Pourpre manipule le destin";
+            var chosen = SensedByClan().FirstOrDefault(r => r.Power == power);
+            if (chosen == null) return "le clan ne sent aucun Élu de cette puissance";
+            var p = factions.GetFactionByName(power);
+            double chance = HarvestChance(power, harvester);
+            if (chance <= 0) return $"{power} est d'un royaume hors de sa portée";
+            harvester.LastOperationYear = ctx.Clock.Year;
+            var s = Settings;
+            bool seen = ctx.Rng.Chance(s.ClanHarvestSeenChance);
+            if (seen)
+            {
+                Suspicion?.AddToClan(power, s.ClanHarvestDistrust);
+                factions.ChangeRelation(p.ID, s.ClanHarvestRelation);
+            }
+            if (!ctx.Rng.Chance(chance))
+            {
+                ctx.Log.Info($"[Rebirths] The clan fails to harvest {chosen.Name} of {power}{(seen ? ", and is seen" : "")}.");
+                return "la récolte échoue" + (seen ? ", et le clan est vu" : "");
+            }
+            pending.Remove(chosen);
+            ctx.Log.Warning($"[Rebirths] {harvester.FullName} harvests {chosen.Name}, the Chosen of {power}{(seen ? ", and is seen" : "")}.");
+            return null;
+        }
+
         public void Restore(IEnumerable<WorldRebirth> saved)
         {
             pending.Clear();

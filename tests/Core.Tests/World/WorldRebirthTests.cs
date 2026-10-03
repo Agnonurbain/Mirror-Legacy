@@ -90,6 +90,45 @@ namespace MirrorChronicles.Tests.World
             Assert.IsTrue(power.Elders.Any(e => e.Name == "ancien"), "no one could reach its fate");
         }
 
+        private static CharacterData Mansion(GameSession s)
+        {
+            var m = Fixtures.Cultivator(age: 200, realm: CultivationRealm.PurpleMansion, stage: 2);
+            s.Clan.AddMember(m);
+            return m;
+        }
+
+        [Test]
+        public void OnlyAPurpleMansionOfTheClan_SensesAPowersYoungChosen()
+        {
+            var s = Session(With(rebirth: 1.0));
+            var power = s.Factions.Factions.First();
+            s.Events.TriggerElderDied(power, Monarch("ancien"), false);
+            Assert.IsEmpty(s.Rebirths.SensedByClan(), "without a Purple Mansion, fate is closed to the clan");
+            Mansion(s);
+            Assert.AreEqual("ancien", s.Rebirths.SensedByClan().Single().Name);
+        }
+
+        [Test]
+        public void TheClan_MayHarvestAPowersChosen_WithAPurpleMansion()
+        {
+            var b = With(rebirth: 1.0).Balance;
+            var content = With(rebirth: 1.0) with
+            {
+                Balance = b with { Ancestors = b.Ancestors with { ClanHarvestBase = 1.0, ClanHarvestMax = 1.0, ClanHarvestSeenChance = 0 } }
+            };
+            var s = Session(content);
+            var power = s.Factions.Factions.First();
+            power.HighestRealm = CultivationRealm.PurpleMansion;
+            s.Events.TriggerElderDied(power, Monarch("ancien"), false);
+            var helper = Fixtures.Cultivator(realm: CultivationRealm.Foundation);
+            s.Clan.AddMember(helper);
+            StringAssert.Contains("Manoir Pourpre", s.Rebirths.Harvest(power.Name, helper.ID));
+            var mansion = Mansion(s);
+            Assert.IsNull(s.Rebirths.Harvest(power.Name, mansion.ID));
+            Assert.IsEmpty(s.Rebirths.Pending, "its True Monarch will not come back");
+            Assert.AreEqual(s.Clock.Year, mansion.LastOperationYear);
+        }
+
         [Test]
         public void TheReborn_TakesItsRealizationBack_IfFree()
         {

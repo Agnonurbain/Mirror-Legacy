@@ -606,7 +606,14 @@
 	"harvestChance": 0.03,
 	"foundationYears": 2,
 	"purpleMansionYears": 10,
-	"goldenCoreYears": 10
+	"goldenCoreYears": 10,
+	"clanHarvestBase": 0.5,
+	"clanHarvestPerPower": 0.02,
+	"clanHarvestMin": 0.05,
+	"clanHarvestMax": 0.9,
+	"clanHarvestSeenChance": 0.3,
+	"clanHarvestDistrust": 30,
+	"clanHarvestRelation": -20
   },
   "worldFruitions": {
 	"holderPassChance": 0.002,

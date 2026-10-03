@@ -199,6 +199,8 @@ namespace MirrorChronicles.Session
             Forge = new ArtifactForge(Context, Clan, Resources, Buildings, Artifacts);
             Arsenal = new WorldArsenal(Context, Factions, Artifacts, Fruitions);
             Rebirths = new WorldRebirths(Context, Factions, Fruitions);
+            Rebirths.Clan = Clan;
+            Rebirths.Suspicion = Suspicion;
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);

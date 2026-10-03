@@ -22,6 +22,12 @@ namespace MirrorChronicles.Presentation
     /// <summary>A member the player may pick (bearer, hunter, keeper).</summary>
     public sealed record MemberChoice(string Id, string Name, string Rank);
 
+    /// <summary>A power's young Chosen the clan senses, and each Purple Mansion of the clan who may harvest it, at its odds.</summary>
+    public sealed record ChosenLine(string Power, string Name, int Age, IReadOnlyList<ChosenHarvest> Harvests);
+
+    /// <summary>A harvest the clan may try: its Purple Mansion, the button's text, its odds in percent.</summary>
+    public sealed record ChosenHarvest(string HarvesterId, string Label, int Percent);
+
     /// <summary>The mirror's ritual: its year, the hunt's window, the prayers, the beasts, the offer, and why it cannot be done now.</summary>
     public sealed record RitualView(int Year, bool HuntOpen, int Prayers, int PrayersNeeded, IReadOnlyList<BeastLine> Beasts,
         IReadOnlyList<MemberChoice> Bearers, OfferView Offer, string Refusal);
@@ -62,6 +68,19 @@ namespace MirrorChronicles.Presentation
     /// </summary>
     public static class OperationsView
     {
+        /// <summary>The powers' young Chosen a free Purple Mansion of the clan senses (audit §1.8, 2026-10-03).</summary>
+        public static IReadOnlyList<ChosenLine> Chosen(GameSession session)
+        {
+            var seers = session.Clan.LivingMembers.Where(m => m.IsAlive && m.CaptorFaction == null && m.Retreat == Retreat.None
+                && m.Realm >= CultivationRealm.PurpleMansion && m.LastOperationYear != session.Clock.Year).ToList();
+            return session.Rebirths.SensedByClan().Select(r => new ChosenLine(r.Power, r.Name, session.Clock.Year - r.BornYear,
+                seers.Select(m =>
+                {
+                    int percent = (int)System.Math.Round(session.Rebirths.HarvestChance(r.Power, m) * 100);
+                    return new ChosenHarvest(m.ID, $"Récolter {r.Name}, l'Élu de {r.Power} — par {m.FullName} ({percent} %)", percent);
+                }).Where(h => h.Percent > 0).ToList())).ToList();
+        }
+
         public static RitualView Ritual(GameSession session)
         {
             var t = session.Talismans;

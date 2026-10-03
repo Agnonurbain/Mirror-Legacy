@@ -241,5 +241,22 @@ namespace MirrorChronicles.Tests.Presentation
             s.Intrigues.Unmask(member.ID);
             Assert.AreEqual("Porte du Chrysanthème Noir", OperationsView.Spouses(s).Single().SpyFor);
         }
+
+        [Test]
+        public void ThePowersChosen_AreShown_OnlyToAPurpleMansion_WithTheirOdds()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var power = s.Factions.Factions.First();
+            power.HighestRealm = CultivationRealm.PurpleMansion;
+            s.Events.TriggerElderDied(power, new FactionElder { Id = "a", Name = "ancien", Realm = CultivationRealm.GoldenCore, Stage = 1, MaxLifespan = 1000 }, false);
+            if (s.Rebirths.Pending.Count == 0) Assert.Inconclusive("no rebirth at these odds");
+            Assert.IsEmpty(OperationsView.Chosen(s));
+            var mansion = Fixtures.Cultivator(age: 200, realm: CultivationRealm.PurpleMansion, stage: 2);
+            s.Clan.AddMember(mansion);
+            var line = OperationsView.Chosen(s).Single();
+            Assert.AreEqual(power.Name, line.Power);
+            StringAssert.Contains(mansion.FullName, line.Harvests.Single().Label);
+            Assert.Greater(line.Harvests.Single().Percent, 0);
+        }
     }
 }

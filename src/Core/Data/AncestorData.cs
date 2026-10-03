@@ -17,6 +17,16 @@ namespace MirrorChronicles.Data
         public int FoundationYears { get; init; } = 2;
         public int PurpleMansionYears { get; init; } = 10;
         public int GoldenCoreYears { get; init; } = 10;
+
+        // The clan harvests a power's young Chosen (audit §1.8, the user's decision 2026-10-03): only a Purple Mansion of the
+        // clan senses and reaches it; its strength against the power's guard; seen, the power distrusts the clan.
+        public double ClanHarvestBase { get; init; } = 0.5;
+        public double ClanHarvestPerPower { get; init; } = 0.02;
+        public double ClanHarvestMin { get; init; } = 0.05;
+        public double ClanHarvestMax { get; init; } = 0.9;
+        public double ClanHarvestSeenChance { get; init; } = 0.3;
+        public int ClanHarvestDistrust { get; init; } = 30;
+        public int ClanHarvestRelation { get; init; } = -20;
     }
 
     /// <summary>
