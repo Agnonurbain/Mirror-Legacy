@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.29";
+        public const string CurrentVersion = "2.30";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -50,6 +50,7 @@ namespace MirrorChronicles.Data
         public List<MetalEssenceDemon> RavagingDemons { get; set; }   // 2.29: those let be
         public int Essences { get; set; }                             // 2.29: the essences the clan keeps
         public int UnderworldGrudgeUntil { get; set; }                // 2.29: the year the Underworld's grudge ends
+        public List<RankDesignation> RankDesignations { get; set; }   // 2.30: the treasures mortgaged on their Fruitions
         public Dictionary<string, string> ShardDirections { get; set; } // 2.23: the shards the mirror sensed → the region where each lies
         public int MirrorAsleepUntil { get; set; }          // 2.21: the year the spirit wakes from integrating a shard
         public List<FragmentData> Fragments { get; set; }

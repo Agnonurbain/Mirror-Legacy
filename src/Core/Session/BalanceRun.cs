@@ -129,6 +129,7 @@ namespace MirrorChronicles.Session
             if (session.Sect.FoundingRefusal() == null) session.Sect.Found(); // the Double House as soon as it can
             if (session.Imperial.FoundingRefusal() == null) session.Imperial.Found(); // then the kingdom: the Imperial Way (R20)
             AnswerTheDemons(session);
+            KeepTheTreasures(session);
             OfferToTheMirror(session);
             foreach (var prey in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None
                 && m.CurrentTask != TaskType.Seclusion && FoundationRules.IsPrey(m, session.Context.Content) && session.DaoHunts.IsCoveted(m)).ToList())
@@ -537,6 +538,21 @@ namespace MirrorChronicles.Session
             SendABearerAbroad(session, huntOpen);
             FeedTheClan(session, huntOpen);
             HideTheChosen(session);
+        }
+
+        /// <summary>
+        /// Each True Monarch condenses its Dharma Treasure; a position's holder mortgages it on its Fruition to guard the
+        /// domain; a Designation without master is unsealed before it strikes (L4e, 2026-10-03).
+        /// </summary>
+        private static void KeepTheTreasures(GameSession session)
+        {
+            foreach (var monarch in session.Clan.LivingMembers.Where(m => m.Realm >= CultivationRealm.GoldenCore).ToList())
+            {
+                if (session.Dharma.CondenseRefusal(monarch) == null) session.Dharma.Condense(monarch);
+                else if (monarch.HasDharmaTreasure) session.Dharma.MakeDesignation(monarch);
+            }
+            foreach (var d in session.Dharma.Designations.Where(d => session.Dharma.MasterOf(d) == null).ToList())
+                session.Dharma.Unseal(d.Id);
         }
 
         /// <summary>

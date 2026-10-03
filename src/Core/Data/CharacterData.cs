@@ -57,6 +57,8 @@ namespace MirrorChronicles.Data
         public string ReincarnationOfId { get; set; }   // reincarnated True Monarch (R9)
         public string RebornFrom { get; set; }          // the clan's True Monarch reborn in this child (R9, 2026-10-01)
         public AncestorEssence RebornEssence { get; set; } // what it regains as it grows; null once it has it all
+        public int? TreasureReadyYear { get; set; }     // the year its Dharma Treasure is condensed (L4e, 2026-10-03)
+        public bool HasDharmaTreasure { get; set; }     // a True Monarch's treasure of its foundation, lost with it
         public bool ImperialCore { get; set; }          // its Golden Core forged by governing the clan's kingdom (R20, 2026-10-03)
         public string FragmentOfId { get; set; }        // fragment of a split Golden Core (R21)
 

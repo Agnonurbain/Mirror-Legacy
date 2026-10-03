@@ -469,5 +469,24 @@ namespace MirrorChronicles.Tests.Session
             Assert.IsEmpty(s.Demons.Ravaging, "a Golden Core of the clan subdues it");
             Assert.AreEqual(0, s.Demons.Grudge);
         }
+    
+        [Test]
+        public void ThePilot_CondensesATreasure_MortgagesIt_AndUnsealsAMasterlessDesignation()
+        {
+            var s = Session();
+            s.Resources.AddOres(5_000);
+            var monarch = Fixtures.Cultivator(age: 400, realm: CultivationRealm.GoldenCore);
+            monarch.GoldenCore = GoldenCoreState.Realization;
+            monarch.FruitionId = "orthodox-water";
+            s.Clan.AddMember(monarch);
+            BalanceRun.Act(s);
+            Assert.IsNotNull(monarch.TreasureReadyYear, "a True Monarch condenses its treasure");
+            monarch.HasDharmaTreasure = true;
+            BalanceRun.Act(s);
+            Assert.AreEqual(1, s.Dharma.Designations.Count, "a holder mortgages it: it guards the domain");
+            s.Clan.Kill(monarch, DeathCause.OldAge);
+            BalanceRun.Act(s);
+            Assert.IsEmpty(s.Dharma.Designations, "a masterless Designation is dangerous: it returns to its Fruition");
+        }
     }
 }

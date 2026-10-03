@@ -72,6 +72,8 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronDesignResisted += (s, d) => Add($"le clan résiste à {s.Power}, qui ne l'oubliera pas.");
             bus.OnPatronOffer += offer => Add($"{offer.Power} offre au clan une méthode qui mène au Manoir Pourpre. Que cache ce don ?");
             bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
+            bus.OnDharmaTreasure += m => Add($"{m.FullName} condense son Trésor de Dharma.");
+            bus.OnRankDesignation += d => Add($"{d.MasterName} hypothèque son trésor sur sa Fruition : une Désignation de Rang garde désormais le domaine.");
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");

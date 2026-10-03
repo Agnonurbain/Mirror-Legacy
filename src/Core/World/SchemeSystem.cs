@@ -58,6 +58,9 @@ namespace MirrorChronicles.World
         /// could ransom, or — for a power hostile enough — a hostage against the quarrel; false when nobody worth it was within
         /// reach (a poor young clan was taken twelve times in sixty years, and died out).
         /// </summary>
+        /// <summary>The chance the clan's Dharma Treasures and Rank Designations foil an ambush on this member (L4e; set by the session).</summary>
+        public System.Func<CharacterData, double> Guard { get; set; }
+
         public bool Ambush(FactionData power)
         {
             var exposed = clan.LivingMembers.Where(IsAway).Where(m => WorthTaking(power, m)).ToList();
@@ -68,6 +71,11 @@ namespace MirrorChronicles.World
             if (guardian != null && ctx.Rng.Chance(ctx.Content.Balance.Treaties.DefenceGuardChance))
             {
                 ctx.Log.Info($"[Schemes] {guardian}'s escort foils {power.Name}'s ambush on {target.FullName}.");
+                return true;
+            }
+            if (Guard?.Invoke(target) is double treasure && treasure > 0 && ctx.Rng.Chance(treasure))
+            {
+                ctx.Log.Info($"[Schemes] A Dharma Treasure foils {power.Name}'s ambush on {target.FullName}.");
                 return true;
             }
             if (patrons != null && patrons.GuardChance > 0 && ctx.Rng.Chance(patrons.GuardChance))

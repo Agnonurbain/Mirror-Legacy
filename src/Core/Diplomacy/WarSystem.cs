@@ -174,7 +174,10 @@ namespace MirrorChronicles.Diplomacy
         }
 
         /// <summary>The clan's own war strength, without its allies: its strongest free member, and the others' weight.</summary>
-        public double ClanWarStrength() => WarRules.ClanWarStrength(clan.LivingMembers, Settings);
+        public double ClanWarStrength() => WarRules.ClanWarStrength(clan.LivingMembers, Settings) + (DomainGuard?.Invoke() ?? 0);
+
+        /// <summary>What the clan's Dharma Treasures and Rank Designations add to its war strength (L4e; set by the session).</summary>
+        public System.Func<double> DomainGuard { get; set; }
 
         private double ClanStrength(ClanWar war)
         {
