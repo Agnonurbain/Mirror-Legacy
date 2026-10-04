@@ -1388,7 +1388,7 @@
       "source_location": "L478",
       "_origin": "ast",
       "id": "game_scripts_clandomain_cs_node",
-      "community": 1,
+      "community": 196,
       "norm_label": "node"
     },
     {
@@ -4952,6 +4952,336 @@
       "norm_label": "cultivationrealm"
     },
     {
+      "label": "ArtRules.cs",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "characters_artrules",
+      "community": 439,
+      "norm_label": "artrules.cs"
+    },
+    {
+      "label": "MirrorChronicles.Characters",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "characters_artrules_mirrorchronicles_characters",
+      "community": 439,
+      "norm_label": "mirrorchronicles.characters"
+    },
+    {
+      "label": "ImmortalArtRules",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "characters_artrules_immortalartrules",
+      "community": 439,
+      "norm_label": "immortalartrules"
+    },
+    {
+      "label": ".Gift()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "characters_artrules_immortalartrules_gift",
+      "community": 439,
+      "norm_label": ".gift()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_core_characters_artrules_cs_characterdata",
+      "community": 439,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": "ImmortalArt",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_core_characters_artrules_cs_immortalart",
+      "community": 439,
+      "norm_label": "immortalart"
+    },
+    {
+      "label": "ArtSettings",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "artsettings",
+      "community": 439,
+      "norm_label": "artsettings"
+    },
+    {
+      "label": "ArtGift",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_core_characters_artrules_cs_artgift",
+      "community": 439,
+      "norm_label": "artgift"
+    },
+    {
+      "label": ".Born()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "characters_artrules_immortalartrules_born",
+      "community": 439,
+      "norm_label": ".born()"
+    },
+    {
+      "label": ".MayPractise()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "characters_artrules_immortalartrules_maypractise",
+      "community": 439,
+      "norm_label": ".maypractise()"
+    },
+    {
+      "label": ".CultivationFactor()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "characters_artrules_immortalartrules_cultivationfactor",
+      "community": 439,
+      "norm_label": ".cultivationfactor()"
+    },
+    {
+      "label": ".YearlyMastery()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "characters_artrules_immortalartrules_yearlymastery",
+      "community": 439,
+      "norm_label": ".yearlymastery()"
+    },
+    {
+      "label": ".Rank()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "characters_artrules_immortalartrules_rank",
+      "community": 439,
+      "norm_label": ".rank()"
+    },
+    {
+      "label": ".GiftLabel()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "characters_artrules_immortalartrules_giftlabel",
+      "community": 439,
+      "norm_label": ".giftlabel()"
+    },
+    {
+      "label": "ArtSystem.cs",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "characters_artsystem",
+      "community": 420,
+      "norm_label": "artsystem.cs"
+    },
+    {
+      "label": "MirrorChronicles.Characters",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "characters_artsystem_mirrorchronicles_characters",
+      "community": 420,
+      "norm_label": "mirrorchronicles.characters"
+    },
+    {
+      "label": "ArtSystem",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem",
+      "community": 420,
+      "norm_label": "artsystem"
+    },
+    {
+      "label": "GameContext",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "src_core_characters_artsystem_cs_gamecontext",
+      "community": 420,
+      "norm_label": "gamecontext"
+    },
+    {
+      "label": "ClanManager",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "src_core_characters_artsystem_cs_clanmanager",
+      "community": 420,
+      "norm_label": "clanmanager"
+    },
+    {
+      "label": "CultivationSystem",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "src_core_characters_artsystem_cs_cultivationsystem",
+      "community": 420,
+      "norm_label": "cultivationsystem"
+    },
+    {
+      "label": "HashSet",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_core_characters_artsystem_cs_hashset",
+      "community": 420,
+      "norm_label": "hashset"
+    },
+    {
+      "label": ".HoldsLegacy()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_holdslegacy",
+      "community": 420,
+      "norm_label": ".holdslegacy()"
+    },
+    {
+      "label": "ImmortalArt",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "src_core_characters_artsystem_cs_immortalart",
+      "community": 420,
+      "norm_label": "immortalart"
+    },
+    {
+      "label": ".GainLegacy()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_gainlegacy",
+      "community": 420,
+      "norm_label": ".gainlegacy()"
+    },
+    {
+      "label": ".Restore()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_restore",
+      "community": 420,
+      "norm_label": ".restore()"
+    },
+    {
+      "label": "IEnumerable",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "src_core_characters_artsystem_cs_ienumerable",
+      "community": 420,
+      "norm_label": "ienumerable"
+    },
+    {
+      "label": ".MasteryOf()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_masteryof",
+      "community": 420,
+      "norm_label": ".masteryof()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "src_core_characters_artsystem_cs_characterdata",
+      "community": 420,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".MasterOf()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_masterof",
+      "community": 420,
+      "norm_label": ".masterof()"
+    },
+    {
+      "label": ".PracticeRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_practicerefusal",
+      "community": 420,
+      "norm_label": ".practicerefusal()"
+    },
+    {
+      "label": ".Practise()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_practise",
+      "community": 420,
+      "norm_label": ".practise()"
+    },
+    {
+      "label": ".ProcessYear()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_processyear",
+      "community": 420,
+      "norm_label": ".processyear()"
+    },
+    {
+      "label": ".LoseWithTheLastMaster()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_losewiththelastmaster",
+      "community": 420,
+      "norm_label": ".losewiththelastmaster()"
+    },
+    {
       "label": "ArtifactArmoury.cs",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtifactArmoury.cs",
@@ -6138,7 +6468,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 420,
+      "community": 82,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -6148,7 +6478,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 420,
+      "community": 82,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -6255,7 +6585,7 @@
       "label": ".SpeedOf()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L60",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_speedof",
       "community": 82,
@@ -6265,7 +6595,7 @@
       "label": ".PlaceBreakthroughBonus()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L79",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_placebreakthroughbonus",
       "community": 82,
@@ -6275,7 +6605,7 @@
       "label": ".GrantXp()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L82",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_grantxp",
       "community": 82,
@@ -6285,7 +6615,7 @@
       "label": ".AdvanceSubLevels()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L93",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_advancesublevels",
       "community": 82,
@@ -6295,7 +6625,7 @@
       "label": ".IsReadyForTrial()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L119",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_isreadyfortrial",
       "community": 82,
@@ -6305,7 +6635,7 @@
       "label": ".HasTrialQi()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L134",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_hastrialqi",
       "community": 82,
@@ -6315,7 +6645,7 @@
       "label": "TrialKind",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L134",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "src_core_characters_cultivationsystem_cs_trialkind",
       "community": 82,
@@ -6325,7 +6655,7 @@
       "label": ".PayTrialQi()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L138",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_paytrialqi",
       "community": 82,
@@ -6335,7 +6665,7 @@
       "label": ".AllowsNextStep()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L142",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_allowsnextstep",
       "community": 82,
@@ -6345,7 +6675,7 @@
       "label": "AdvancementStep",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L142",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "src_core_characters_cultivationsystem_cs_advancementstep",
       "community": 82,
@@ -6355,7 +6685,7 @@
       "label": ".ApplyStep()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L154",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_applystep",
       "community": 82,
@@ -6365,7 +6695,7 @@
       "label": ".EntersQiCultivation()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L169",
+      "source_location": "L175",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_entersqicultivation",
       "community": 82,
@@ -6375,7 +6705,7 @@
       "label": ".TryAbsorbQi()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L177",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_tryabsorbqi",
       "community": 82,
@@ -6385,7 +6715,7 @@
       "label": ".CanEnter()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L198",
+      "source_location": "L204",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_canenter",
       "community": 82,
@@ -6395,7 +6725,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L198",
+      "source_location": "L204",
       "_origin": "ast",
       "id": "src_core_characters_cultivationsystem_cs_techniquedata",
       "community": 82,
@@ -10648,7 +10978,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 420,
+      "community": 82,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -10658,7 +10988,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 420,
+      "community": 82,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -10668,7 +10998,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 420,
+      "community": 82,
       "norm_label": "clankarmasystem"
     },
     {
@@ -10678,7 +11008,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 420,
+      "community": 82,
       "norm_label": "double"
     },
     {
@@ -10688,7 +11018,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 420,
+      "community": 82,
       "norm_label": "int"
     },
     {
@@ -10698,7 +11028,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 420,
+      "community": 82,
       "norm_label": "gamecontext"
     },
     {
@@ -10708,7 +11038,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 420,
+      "community": 82,
       "norm_label": "clanmanager"
     },
     {
@@ -10718,7 +11048,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 420,
+      "community": 82,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -10728,7 +11058,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 420,
+      "community": 82,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -10738,7 +11068,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 420,
+      "community": 82,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -10748,7 +11078,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 420,
+      "community": 82,
       "norm_label": ".restore()"
     },
     {
@@ -10758,7 +11088,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 420,
+      "community": 82,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -11558,7 +11888,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_legacysystem",
-      "community": 434,
+      "community": 333,
       "norm_label": "legacysystem.cs"
     },
     {
@@ -11568,7 +11898,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "clan_legacysystem_mirrorchronicles_clan",
-      "community": 434,
+      "community": 333,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11578,7 +11908,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "clan_legacysystem_legacysystem",
-      "community": 434,
+      "community": 333,
       "norm_label": "legacysystem"
     },
     {
@@ -11588,7 +11918,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_clan_legacysystem_cs_int",
-      "community": 434,
+      "community": 333,
       "norm_label": "int"
     },
     {
@@ -14002,6 +14332,26 @@
       "norm_label": "mirrorchronicles.data"
     },
     {
+      "label": "ArtData.cs",
+      "file_type": "code",
+      "source_file": "src/Core/Data/ArtData.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_artdata",
+      "community": 440,
+      "norm_label": "artdata.cs"
+    },
+    {
+      "label": "MirrorChronicles.Data",
+      "file_type": "code",
+      "source_file": "src/Core/Data/ArtData.cs",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "data_artdata_mirrorchronicles_data",
+      "community": 440,
+      "norm_label": "mirrorchronicles.data"
+    },
+    {
       "label": "ArtifactData.cs",
       "file_type": "code",
       "source_file": "src/Core/Data/ArtifactData.cs",
@@ -14255,7 +14605,7 @@
       "label": ".Clone()",
       "file_type": "code",
       "source_file": "src/Core/Data/CharacterData.cs",
-      "source_location": "L132",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "data_characterdata_characterdata_clone",
       "community": 183,
@@ -14548,7 +14898,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 333,
+      "community": 434,
       "norm_label": "enums.cs"
     },
     {
@@ -14558,7 +14908,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 333,
+      "community": 434,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -14855,7 +15205,7 @@
       "label": "TrialModifiers",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L402",
+      "source_location": "L405",
       "_origin": "ast",
       "id": "data_gamecontent_trialmodifiers",
       "community": 121,
@@ -14865,7 +15215,7 @@
       "label": "TechniqueSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L424",
+      "source_location": "L427",
       "_origin": "ast",
       "id": "data_gamecontent_techniquesettings",
       "community": 121,
@@ -14875,7 +15225,7 @@
       "label": "DivineAbilitySettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L459",
+      "source_location": "L462",
       "_origin": "ast",
       "id": "data_gamecontent_divineabilitysettings",
       "community": 121,
@@ -14885,7 +15235,7 @@
       "label": "PurpleMansionSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L555",
+      "source_location": "L558",
       "_origin": "ast",
       "id": "data_gamecontent_purplemansionsettings",
       "community": 121,
@@ -14895,7 +15245,7 @@
       "label": "VoidBand",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L582",
+      "source_location": "L585",
       "_origin": "ast",
       "id": "data_gamecontent_voidband",
       "community": 121,
@@ -14905,7 +15255,7 @@
       "label": "OrificeOdds",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L590",
+      "source_location": "L593",
       "_origin": "ast",
       "id": "data_gamecontent_orificeodds",
       "community": 121,
@@ -15968,7 +16318,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_randomeventdata",
-      "community": 434,
+      "community": 333,
       "norm_label": "randomeventdata.cs"
     },
     {
@@ -15978,7 +16328,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_randomeventdata_mirrorchronicles_data",
-      "community": 434,
+      "community": 333,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -15988,7 +16338,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "data_randomeventdata_randomeventdata",
-      "community": 434,
+      "community": 333,
       "norm_label": "randomeventdata"
     },
     {
@@ -17288,7 +17638,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 333,
+      "community": 423,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -17298,7 +17648,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 333,
+      "community": 423,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -17428,7 +17778,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 333,
+      "community": 434,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -17438,7 +17788,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 333,
+      "community": 434,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18308,7 +18658,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 333,
+      "community": 423,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -18318,7 +18668,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 333,
+      "community": 423,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -21615,7 +21965,7 @@
       "label": ".GatherQi()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L142",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
       "community": 33,
@@ -21625,7 +21975,7 @@
       "label": ".SentFor()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L162",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_sentfor",
       "community": 33,
@@ -21635,7 +21985,7 @@
       "label": "QiDefinition",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L162",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
       "community": 33,
@@ -21645,7 +21995,7 @@
       "label": ".Harvestable()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L166",
+      "source_location": "L167",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
       "community": 33,
@@ -21655,7 +22005,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L166",
+      "source_location": "L167",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
       "community": 33,
@@ -21665,7 +22015,7 @@
       "label": ".MiningYield()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L183",
+      "source_location": "L184",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
       "community": 33,
@@ -21675,7 +22025,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L183",
+      "source_location": "L184",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ienumerable",
       "community": 33,
@@ -21685,7 +22035,7 @@
       "label": ".VeinYield()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L186",
+      "source_location": "L187",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_veinyield",
       "community": 33,
@@ -21695,7 +22045,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L186",
+      "source_location": "L187",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_list",
       "community": 33,
@@ -21705,7 +22055,7 @@
       "label": ".MineYield()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L194",
+      "source_location": "L195",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
       "community": 33,
@@ -21715,7 +22065,7 @@
       "label": ".Study()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L201",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
       "community": 33,
@@ -21725,7 +22075,7 @@
       "label": ".Diplomacy()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L231",
+      "source_location": "L232",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
       "community": 33,
@@ -21735,7 +22085,7 @@
       "label": ".Teach()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L244",
+      "source_location": "L245",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
       "community": 33,
@@ -21745,7 +22095,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L244",
+      "source_location": "L245",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
       "community": 33,
@@ -21755,7 +22105,7 @@
       "label": ".ScoutBeasts()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L258",
+      "source_location": "L259",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
       "community": 33,
@@ -21765,7 +22115,7 @@
       "label": ".SetHuntingGround()",
       "file_type": "code",
       "source_file": "src/Core/Economy/TaskAssignmentSystem.cs",
-      "source_location": "L272",
+      "source_location": "L273",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_sethuntingground",
       "community": 33,
@@ -21888,7 +22238,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_eventmanager",
-      "community": 434,
+      "community": 333,
       "norm_label": "eventmanager.cs"
     },
     {
@@ -21898,7 +22248,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "events_eventmanager_mirrorchronicles_events",
-      "community": 434,
+      "community": 333,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -27015,7 +27365,7 @@
       "label": ".RitualLine()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L69",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_ritualline",
       "community": 95,
@@ -27025,7 +27375,7 @@
       "label": ".RipeLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L78",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_ripelabel",
       "community": 95,
@@ -27035,7 +27385,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L78",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "src_core_presentation_clandomainview_cs_characterdata",
       "community": 95,
@@ -27045,7 +27395,7 @@
       "label": ".FoundationLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L85",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_foundationlabel",
       "community": 95,
@@ -27055,7 +27405,7 @@
       "label": ".PositionLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_positionlabel",
       "community": 95,
@@ -27065,7 +27415,7 @@
       "label": ".RetreatLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L113",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_retreatlabel",
       "community": 95,
@@ -27075,7 +27425,7 @@
       "label": ".AbilitiesLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L123",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_abilitieslabel",
       "community": 95,
@@ -27085,7 +27435,7 @@
       "label": ".TemperamentLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L127",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_temperamentlabel",
       "community": 95,
@@ -27095,7 +27445,7 @@
       "label": "Temperament",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L127",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "src_core_presentation_clandomainview_cs_temperament",
       "community": 95,
@@ -27105,7 +27455,7 @@
       "label": ".QiStock()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L139",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_qistock",
       "community": 95,
@@ -27115,7 +27465,7 @@
       "label": "QiLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L139",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "qiline",
       "community": 95,
@@ -27125,7 +27475,7 @@
       "label": ".MethodLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L147",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_methodlabel",
       "community": 95,
@@ -27135,7 +27485,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L147",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "src_core_presentation_clandomainview_cs_techniquedata",
       "community": 95,
@@ -27145,7 +27495,7 @@
       "label": ".PractisedMethod()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L151",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_practisedmethod",
       "community": 95,
@@ -27155,7 +27505,7 @@
       "label": ".PhaseLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L159",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_phaselabel",
       "community": 95,
@@ -27165,7 +27515,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L159",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "src_core_presentation_clandomainview_cs_gamephase",
       "community": 95,
@@ -27175,7 +27525,7 @@
       "label": ".TaskLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L168",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_tasklabel",
       "community": 95,
@@ -27185,7 +27535,7 @@
       "label": "TaskType",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L168",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "src_core_presentation_clandomainview_cs_tasktype",
       "community": 95,
@@ -27195,7 +27545,7 @@
       "label": ".DeathLabel()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L189",
+      "source_location": "L191",
       "_origin": "ast",
       "id": "presentation_clandomainview_clandomainview_deathlabel",
       "community": 95,
@@ -27205,7 +27555,7 @@
       "label": "DeathCause",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ClanDomainView.cs",
-      "source_location": "L189",
+      "source_location": "L191",
       "_origin": "ast",
       "id": "src_core_presentation_clandomainview_cs_deathcause",
       "community": 95,
@@ -31545,7 +31895,7 @@
       "label": ".NewGame()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L249",
+      "source_location": "L253",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_newgame",
       "community": 251,
@@ -31555,7 +31905,7 @@
       "label": "GameSetup",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L249",
+      "source_location": "L253",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamesetup",
       "community": 251,
@@ -31565,7 +31915,7 @@
       "label": ".TryLoad()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L283",
+      "source_location": "L287",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tryload",
       "community": 251,
@@ -31575,7 +31925,7 @@
       "label": ".FromSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L300",
+      "source_location": "L304",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_fromsavedata",
       "community": 251,
@@ -31585,7 +31935,7 @@
       "label": "GameData",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L300",
+      "source_location": "L304",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
       "community": 251,
@@ -31595,7 +31945,7 @@
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L407",
+      "source_location": "L412",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 251,
@@ -31605,7 +31955,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L507",
+      "source_location": "L513",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -31615,7 +31965,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L507",
+      "source_location": "L513",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 251,
@@ -31625,7 +31975,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L511",
+      "source_location": "L517",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -31635,7 +31985,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L522",
+      "source_location": "L528",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -31645,7 +31995,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L529",
+      "source_location": "L535",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -31655,7 +32005,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L529",
+      "source_location": "L535",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -31665,7 +32015,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L587",
+      "source_location": "L594",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -39460,6 +39810,176 @@
       "id": "characters_ancestorreturntests_ancestorreturntests_thechronicle_tellstherebirth",
       "community": 351,
       "norm_label": ".thechronicle_tellstherebirth()"
+    },
+    {
+      "label": "ArtSystemTests.cs",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "characters_artsystemtests",
+      "community": 438,
+      "norm_label": "artsystemtests.cs"
+    },
+    {
+      "label": "MirrorChronicles.Tests.Characters",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_mirrorchronicles_tests_characters",
+      "community": 438,
+      "norm_label": "mirrorchronicles.tests.characters"
+    },
+    {
+      "label": "ArtSystemTests",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests",
+      "community": 438,
+      "norm_label": "artsystemtests"
+    },
+    {
+      "label": ".Session()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_session",
+      "community": 438,
+      "norm_label": ".session()"
+    },
+    {
+      "label": "GameSession",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_artsystemtests_cs_gamesession",
+      "community": 438,
+      "norm_label": "gamesession"
+    },
+    {
+      "label": ".Born()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_born",
+      "community": 438,
+      "norm_label": ".born()"
+    },
+    {
+      "label": "ArtGift",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_artsystemtests_cs_artgift",
+      "community": 438,
+      "norm_label": "artgift"
+    },
+    {
+      "label": "ImmortalArt",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_artsystemtests_cs_immortalart",
+      "community": 438,
+      "norm_label": "immortalart"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_artsystemtests_cs_characterdata",
+      "community": 438,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".TheGift_IsRare_AndStable()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_thegift_israre_andstable",
+      "community": 438,
+      "norm_label": ".thegift_israre_andstable()"
+    },
+    {
+      "label": "Test",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_artsystemtests_cs_test",
+      "community": 438,
+      "norm_label": "test"
+    },
+    {
+      "label": ".TheUndergroundForge_MakesAGeniusOfTheForge()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_theundergroundforge_makesageniusoftheforge",
+      "community": 438,
+      "norm_label": ".theundergroundforge_makesageniusoftheforge()"
+    },
+    {
+      "label": ".WithoutTheLegacy_OrTheGift_NoOnePractises()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_withoutthelegacy_orthegift_noonepractises",
+      "community": 438,
+      "norm_label": ".withoutthelegacy_orthegift_noonepractises()"
+    },
+    {
+      "label": ".AnOrdinaryTalent_CultivatesLess_AGenius_More()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_anordinarytalent_cultivatesless_agenius_more",
+      "community": 438,
+      "norm_label": ".anordinarytalent_cultivatesless_agenius_more()"
+    },
+    {
+      "label": ".AMaster_TeachesAtFullPace()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_amaster_teachesatfullpace",
+      "community": 438,
+      "norm_label": ".amaster_teachesatfullpace()"
+    },
+    {
+      "label": ".ALegacy_DiesWithItsLastMaster_IfNoOneTookItUp()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_alegacy_dieswithitslastmaster_ifnoonetookitup",
+      "community": 438,
+      "norm_label": ".alegacy_dieswithitslastmaster_ifnoonetookitup()"
+    },
+    {
+      "label": ".TheLegacies_AndTheMastery_SurviveASave()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_thelegacies_andthemastery_surviveasave",
+      "community": 438,
+      "norm_label": ".thelegacies_andthemastery_surviveasave()"
     },
     {
       "label": "ArtifactFindTests.cs",
@@ -75244,7 +75764,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 434,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -75419,7 +75939,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 333,
+      "community": 434,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -75471,7 +75991,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 423,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -75645,7 +76165,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 434,
+      "community": 333,
       "norm_label": "annual 4-phase cycle (management -> events -> breakthrough -> inheritance)",
       "id": "brain_claude_plan_annual_cycle"
     },
@@ -75659,7 +76179,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 333,
+      "community": 434,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -75727,7 +76247,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 333,
+      "community": 434,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -75753,7 +76273,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 420,
+      "community": 82,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -75766,7 +76286,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 423,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -75792,7 +76312,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 434,
+      "community": 333,
       "norm_label": "phase 2 - combat & events",
       "id": "brain_claude_plan_phase_2_combat_events"
     },
@@ -75805,7 +76325,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 423,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -75927,7 +76447,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 333,
+      "community": 434,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -76053,7 +76573,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 333,
+      "community": 434,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -85542,6 +86062,712 @@
       "confidence_score": 1.0,
       "source": "characters_ancestorreturn_ancestorreturn_rise",
       "target": "src_core_characters_ancestorreturn_cs_cultivationrealm"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "characters_artrules",
+      "target": "characters_artrules_immortalartrules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "characters_artrules",
+      "target": "characters_artrules_mirrorchronicles_characters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules",
+      "target": "characters_artrules_immortalartrules_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules",
+      "target": "characters_artrules_immortalartrules_cultivationfactor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules",
+      "target": "characters_artrules_immortalartrules_gift",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules",
+      "target": "characters_artrules_immortalartrules_giftlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules",
+      "target": "characters_artrules_immortalartrules_maypractise",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules",
+      "target": "characters_artrules_immortalartrules_rank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules",
+      "target": "characters_artrules_immortalartrules_yearlymastery",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules_cultivationfactor",
+      "target": "characters_artrules_immortalartrules_gift",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_gift",
+      "target": "artsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules_gift",
+      "target": "characters_artrules_immortalartrules_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_artrules_immortalartrules_gift",
+      "target": "src_core_characters_artrules_cs_artgift",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_gift",
+      "target": "src_core_characters_artrules_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_gift",
+      "target": "src_core_characters_artrules_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules_maypractise",
+      "target": "characters_artrules_immortalartrules_gift",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules_yearlymastery",
+      "target": "characters_artrules_immortalartrules_gift",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_born",
+      "target": "src_core_characters_artrules_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_cultivationfactor",
+      "target": "src_core_characters_artrules_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_maypractise",
+      "target": "src_core_characters_artrules_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L41",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_yearlymastery",
+      "target": "src_core_characters_artrules_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_born",
+      "target": "src_core_characters_artrules_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_cultivationfactor",
+      "target": "src_core_characters_artrules_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_maypractise",
+      "target": "src_core_characters_artrules_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L41",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_yearlymastery",
+      "target": "src_core_characters_artrules_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_born",
+      "target": "artsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_cultivationfactor",
+      "target": "artsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_maypractise",
+      "target": "artsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L48",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_rank",
+      "target": "artsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L41",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_yearlymastery",
+      "target": "artsettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_artrules_immortalartrules_born",
+      "target": "src_core_characters_artrules_cs_artgift",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_giftlabel",
+      "target": "src_core_characters_artrules_cs_artgift",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "characters_artsystem",
+      "target": "characters_artsystem_artsystem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "characters_artsystem",
+      "target": "characters_artsystem_mirrorchronicles_characters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_gainlegacy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_holdslegacy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_losewiththelastmaster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_masterof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_masteryof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_practicerefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_practise",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_processyear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_restore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "field",
+      "source": "characters_artsystem_artsystem",
+      "target": "src_core_characters_artsystem_cs_clanmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "field",
+      "source": "characters_artsystem_artsystem",
+      "target": "src_core_characters_artsystem_cs_cultivationsystem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "field",
+      "source": "characters_artsystem_artsystem",
+      "target": "src_core_characters_artsystem_cs_gamecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "field",
+      "source": "characters_artsystem_artsystem",
+      "target": "src_core_characters_artsystem_cs_hashset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_holdslegacy",
+      "target": "src_core_characters_artsystem_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_gainlegacy",
+      "target": "src_core_characters_artsystem_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L54",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_masterof",
+      "target": "src_core_characters_artsystem_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_masteryof",
+      "target": "src_core_characters_artsystem_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_practicerefusal",
+      "target": "src_core_characters_artsystem_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_practise",
+      "target": "src_core_characters_artsystem_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "characters_artsystem_artsystem_restore",
+      "target": "src_core_characters_artsystem_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_restore",
+      "target": "src_core_characters_artsystem_cs_ienumerable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem_losewiththelastmaster",
+      "target": "characters_artsystem_artsystem_masteryof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem_masterof",
+      "target": "characters_artsystem_artsystem_masteryof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_masteryof",
+      "target": "src_core_characters_artsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem_processyear",
+      "target": "characters_artsystem_artsystem_masteryof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L97",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_losewiththelastmaster",
+      "target": "src_core_characters_artsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L54",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_artsystem_artsystem_masterof",
+      "target": "src_core_characters_artsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_practicerefusal",
+      "target": "src_core_characters_artsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_practise",
+      "target": "src_core_characters_artsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem_processyear",
+      "target": "characters_artsystem_artsystem_masterof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem_practise",
+      "target": "characters_artsystem_artsystem_practicerefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem_processyear",
+      "target": "characters_artsystem_artsystem_practicerefusal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -101922,6 +103148,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Data/ArtData.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "data_artdata",
+      "target": "data_artdata_mirrorchronicles_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/Core/Data/ArtifactData.cs",
       "source_location": "L17",
       "weight": 1.0,
@@ -104797,9 +106033,9 @@
       "source_file": "src/Core/Data/TechniqueMarkData.cs",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_techniquemarkdata",
-      "target": "data_techniquemarkdata_mirrorchronicles_data",
-      "confidence_score": 1.0
+      "target": "data_techniquemarkdata_mirrorchronicles_data"
     },
     {
       "relation": "contains",
@@ -114383,9 +115619,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggermanualstolen",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggermanualstolen"
     },
     {
       "relation": "method",
@@ -119557,9 +120793,9 @@
       "source_file": "src/Core/Mirror/TechniqueMarks.cs",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks",
-      "target": "mirror_techniquemarks_mirrorchronicles_mirror",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarks_mirrorchronicles_mirror"
     },
     {
       "relation": "contains",
@@ -119567,9 +120803,9 @@
       "source_file": "src/Core/Mirror/TechniqueMarks.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks",
-      "target": "mirror_techniquemarks_techniquemarks",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarks_techniquemarks"
     },
     {
       "relation": "method",
@@ -119577,9 +120813,9 @@
       "source_file": "src/Core/Mirror/TechniqueMarks.cs",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks",
-      "target": "mirror_techniquemarks_techniquemarks_cleanse",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarks_techniquemarks_cleanse"
     },
     {
       "relation": "method",
@@ -119587,9 +120823,9 @@
       "source_file": "src/Core/Mirror/TechniqueMarks.cs",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks",
-      "target": "mirror_techniquemarks_techniquemarks_markof",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarks_techniquemarks_markof"
     },
     {
       "relation": "method",
@@ -119597,9 +120833,9 @@
       "source_file": "src/Core/Mirror/TechniqueMarks.cs",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks",
-      "target": "mirror_techniquemarks_techniquemarks_processyear",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarks_techniquemarks_processyear"
     },
     {
       "relation": "method",
@@ -119607,9 +120843,9 @@
       "source_file": "src/Core/Mirror/TechniqueMarks.cs",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks",
-      "target": "mirror_techniquemarks_techniquemarks_restore",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarks_techniquemarks_restore"
     },
     {
       "relation": "references",
@@ -119618,9 +120854,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks",
-      "target": "src_core_mirror_techniquemarks_cs_dictionary",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_techniquemarks_cs_dictionary"
     },
     {
       "relation": "references",
@@ -119629,9 +120865,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks",
-      "target": "src_core_mirror_techniquemarks_cs_factionmanager",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_techniquemarks_cs_factionmanager"
     },
     {
       "relation": "references",
@@ -119640,9 +120876,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks",
-      "target": "src_core_mirror_techniquemarks_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_techniquemarks_cs_gamecontext"
     },
     {
       "relation": "references",
@@ -119651,9 +120887,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks",
-      "target": "src_core_mirror_techniquemarks_cs_mirrorsystem",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_techniquemarks_cs_mirrorsystem"
     },
     {
       "relation": "references",
@@ -119662,9 +120898,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks",
-      "target": "src_core_mirror_techniquemarks_cs_suspicionledger",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_techniquemarks_cs_suspicionledger"
     },
     {
       "relation": "calls",
@@ -119673,9 +120909,9 @@
       "source_file": "src/Core/Mirror/TechniqueMarks.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks_cleanse",
-      "target": "mirror_techniquemarks_techniquemarks_markof",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarks_techniquemarks_markof"
     },
     {
       "relation": "references",
@@ -119684,9 +120920,9 @@
       "source_location": "L39",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarks_techniquemarks_restore",
-      "target": "idictionary",
-      "confidence_score": 1.0
+      "target": "idictionary"
     },
     {
       "relation": "contains",
@@ -143667,6 +144903,369 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "characters_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "characters_artsystemtests",
+      "target": "characters_artsystemtests_mirrorchronicles_tests_characters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_alegacy_dieswithitslastmaster_ifnoonetookitup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_amaster_teachesatfullpace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_anordinarytalent_cultivatesless_agenius_more",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_thegift_israre_andstable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_thelegacies_andthemastery_surviveasave",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_theundergroundforge_makesageniusoftheforge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_withoutthelegacy_orthegift_noonepractises",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_alegacy_dieswithitslastmaster_ifnoonetookitup",
+      "target": "characters_artsystemtests_artsystemtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_amaster_teachesatfullpace",
+      "target": "characters_artsystemtests_artsystemtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_anordinarytalent_cultivatesless_agenius_more",
+      "target": "characters_artsystemtests_artsystemtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_artsystemtests_artsystemtests_session",
+      "target": "tests_core_tests_characters_artsystemtests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_thelegacies_andthemastery_surviveasave",
+      "target": "characters_artsystemtests_artsystemtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_withoutthelegacy_orthegift_noonepractises",
+      "target": "characters_artsystemtests_artsystemtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystemtests_artsystemtests_born",
+      "target": "tests_core_tests_characters_artsystemtests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_alegacy_dieswithitslastmaster_ifnoonetookitup",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_amaster_teachesatfullpace",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_anordinarytalent_cultivatesless_agenius_more",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystemtests_artsystemtests_born",
+      "target": "tests_core_tests_characters_artsystemtests_cs_artgift",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_artsystemtests_artsystemtests_born",
+      "target": "tests_core_tests_characters_artsystemtests_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystemtests_artsystemtests_born",
+      "target": "tests_core_tests_characters_artsystemtests_cs_immortalart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_thegift_israre_andstable",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_thelegacies_andthemastery_surviveasave",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_withoutthelegacy_orthegift_noonepractises",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_thegift_israre_andstable",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_alegacy_dieswithitslastmaster_ifnoonetookitup",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L86",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_amaster_teachesatfullpace",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_anordinarytalent_cultivatesless_agenius_more",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L121",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_thelegacies_andthemastery_surviveasave",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_theundergroundforge_makesageniusoftheforge",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_withoutthelegacy_orthegift_noonepractises",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/ArtifactFindTests.cs",
       "source_location": "L14",
       "weight": 1.0,
@@ -154339,9 +155938,9 @@
       "source_location": "L93",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_minorabilitytests_minorabilitytests_aholder",
-      "target": "tests_core_tests_characters_minorabilitytests_cs_power",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_minorabilitytests_cs_power"
     },
     {
       "relation": "calls",
@@ -190725,9 +192324,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests",
-      "target": "mirror_techniquemarkstests_mirrorchronicles_tests_mirror",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_mirrorchronicles_tests_mirror"
     },
     {
       "relation": "contains",
@@ -190735,9 +192334,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests",
-      "target": "mirror_techniquemarkstests_techniquemarkstests",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests"
     },
     {
       "relation": "method",
@@ -190745,9 +192344,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests",
-      "target": "mirror_techniquemarkstests_techniquemarkstests_astolenart_bearsitspowersmark_andthepowerrecognizesit",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests_astolenart_bearsitspowersmark_andthepowerrecognizesit"
     },
     {
       "relation": "method",
@@ -190755,9 +192354,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests",
-      "target": "mirror_techniquemarkstests_techniquemarkstests_session",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests_session"
     },
     {
       "relation": "method",
@@ -190765,9 +192364,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests",
-      "target": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests_stolen"
     },
     {
       "relation": "method",
@@ -190775,9 +192374,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests",
-      "target": "mirror_techniquemarkstests_techniquemarkstests_themarks_surviveasave",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests_themarks_surviveasave"
     },
     {
       "relation": "method",
@@ -190785,9 +192384,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests",
-      "target": "mirror_techniquemarkstests_techniquemarkstests_themirror_cleansesthemark",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests_themirror_cleansesthemark"
     },
     {
       "relation": "references",
@@ -190796,9 +192395,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_session",
-      "target": "tests_core_tests_mirror_techniquemarkstests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_techniquemarkstests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -190807,9 +192406,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "target": "mirror_techniquemarkstests_techniquemarkstests_session",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests_session"
     },
     {
       "relation": "references",
@@ -190818,9 +192417,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "target": "tests_core_tests_mirror_techniquemarkstests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_techniquemarkstests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -190829,9 +192428,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_astolenart_bearsitspowersmark_andthepowerrecognizesit",
-      "target": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests_stolen"
     },
     {
       "relation": "references",
@@ -190840,9 +192439,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "target": "art",
-      "confidence_score": 1.0
+      "target": "art"
     },
     {
       "relation": "references",
@@ -190851,9 +192450,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "target": "tests_core_tests_mirror_techniquemarkstests_cs_power",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_techniquemarkstests_cs_power"
     },
     {
       "relation": "references",
@@ -190862,9 +192461,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "target": "tests_core_tests_mirror_techniquemarkstests_cs_s",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_techniquemarkstests_cs_s"
     },
     {
       "relation": "calls",
@@ -190873,9 +192472,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_themarks_surviveasave",
-      "target": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests_stolen"
     },
     {
       "relation": "calls",
@@ -190884,9 +192483,9 @@
       "source_file": "tests/Core.Tests/Mirror/TechniqueMarksTests.cs",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_themirror_cleansesthemark",
-      "target": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "confidence_score": 1.0
+      "target": "mirror_techniquemarkstests_techniquemarkstests_stolen"
     },
     {
       "relation": "references",
@@ -190895,9 +192494,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_astolenart_bearsitspowersmark_andthepowerrecognizesit",
-      "target": "tests_core_tests_mirror_techniquemarkstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_techniquemarkstests_cs_test"
     },
     {
       "relation": "references",
@@ -190906,9 +192505,9 @@
       "source_location": "L57",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_themarks_surviveasave",
-      "target": "tests_core_tests_mirror_techniquemarkstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_techniquemarkstests_cs_test"
     },
     {
       "relation": "references",
@@ -190917,9 +192516,9 @@
       "source_location": "L46",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_themirror_cleansesthemark",
-      "target": "tests_core_tests_mirror_techniquemarkstests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_techniquemarkstests_cs_test"
     },
     {
       "relation": "contains",
@@ -223904,5 +225503,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "1dabf7aa444215441f70bdc69f29cb33ea7fe95c"
+  "built_at_commit": "d0707eb8facb59e11d8e23e143c8093c7d35819b"
 }

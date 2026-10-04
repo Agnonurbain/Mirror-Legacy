@@ -67,6 +67,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>The marks the clan's stolen arts keep of their power (audit §3.9).</summary>
         public TechniqueMarks Marks { get; }
+
+        /// <summary>The clan's Immortal Arts: legacies, practitioners, mastery (audit §2).</summary>
+        public ArtSystem Arts { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
@@ -224,6 +227,7 @@ namespace MirrorChronicles.Session
             Light = new LightStrike(Context, Mirror, Factions, Suspicion);
             Moonlight = new MoonlightGift(Context, Mirror, Clan, Resources, Suspicion);
             Marks = new TechniqueMarks(Context, Mirror, Factions, Suspicion);
+            Arts = new ArtSystem(Context, Clan, Cultivation);
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
@@ -322,6 +326,7 @@ namespace MirrorChronicles.Session
             session.Shards.RestoreRuins(data.RevealedRuins);
             session.ShardSense.Restore(data.ShardDirections); // none before 2.23
             session.Marks.Restore(data.TechniqueMarks);      // none before 2.36
+            session.Arts.Restore(data.ArtLegacies);          // none before 2.37
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
@@ -425,6 +430,7 @@ namespace MirrorChronicles.Session
                 RevealedRuins = Shards.RevealedRuins.ToList(),
                 ShardDirections = new Dictionary<string, string>(ShardSense.Directions),
                 TechniqueMarks = new Dictionary<string, string>(Marks.Marks),
+                ArtLegacies = Arts.Legacies.ToList(),
                 MirrorAsleepUntil = Mirror.AsleepUntil,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
@@ -532,6 +538,7 @@ namespace MirrorChronicles.Session
             {
                 case GamePhase.Events: // the Management phase is over
                     Tasks.ProcessYearlyTasks();
+                    Arts.ProcessYear();               // the Immortal Arts practised this year (audit §2)
                     Factions.ProcessYearlyFactionAI();
                     Secrets.ProcessYear();            // those who know may talk (L2c.4b)
                     Plots.ProcessYear();              // the powers investigate, and strike what they suspect (D7)

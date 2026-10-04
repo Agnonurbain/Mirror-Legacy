@@ -292,6 +292,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>The mark a stolen art keeps of its power (AUDIT_LORE.md §3.9, 2026-10-04; interpretations).</summary>
         public TechniqueMarkSettings TechniqueMarks { get; init; } = new TechniqueMarkSettings();
+
+        /// <summary>The Immortal Arts (AUDIT_LORE.md §2, 2026-10-04; interpretations).</summary>
+        public ArtSettings Arts { get; init; } = new ArtSettings();
         public WorldArsenalSettings WorldArsenal { get; init; } = new WorldArsenalSettings();
         public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();

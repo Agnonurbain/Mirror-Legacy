@@ -121,6 +121,7 @@ namespace MirrorChronicles.Economy
                     case TaskType.Seclusion: break; // hidden away (DaoHuntSystem): nothing else
                     case TaskType.ScoutBeasts: ScoutBeasts(member); break;
                     case TaskType.SearchLake: lakeSearchers++; break;
+                    case TaskType.ArtPractice: break; // the arts' year (ArtSystem): mastery, and cultivation by one's gift
                         // Teaching needs this year's students: resolved below
                 }
             }

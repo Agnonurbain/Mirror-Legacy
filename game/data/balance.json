@@ -580,6 +580,16 @@
 	"giftClues": 15
   },
   "techniqueMarks": { "recognizeChance": 0.1, "evidence": 10, "cleanseCost": 40 },
+  "arts": {
+	"ordinaryChance": 0.08, "geniusChance": 0.01, "yearlyMastery": 10, "geniusMasteryFactor": 2.0, "ungiftedMasteryFactor": 0.5,
+	"withoutMasterFactor": 0.5, "geniusCultivation": 1.1, "adeptAt": 40, "masterAt": 80,
+	"arts": [
+	  { "art": "Forge", "name": "le raffinement d'artefacts", "ordinaryCultivation": 0.5, "geniusAbilities": [ "hidden-metal:underground-forge" ], "giftTalismans": [ "holding-profit" ] },
+	  { "art": "Alchemy", "name": "l'alchimie", "ordinaryCultivation": 0.5, "geniusAbilities": [], "giftTalismans": [ "holding-profit", "valley-wind-leading-fire" ] },
+	  { "art": "Talismans", "name": "le dessin de talismans", "ordinaryCultivation": 0.5, "geniusAbilities": [], "giftTalismans": [ "holding-profit" ] },
+	  { "art": "Formations", "name": "les formations", "ordinaryCultivation": 0.3, "geniusAbilities": [], "giftTalismans": [ "holding-profit" ] }
+	]
+  },
   "travel": { "hopsByRealm": { "Embryonic": 0, "QiRefinement": 2 }, "wholeStateFrom": "Foundation", "anywhereFrom": "PurpleMansion" },
   "dharma": {
 	"condenseOres": 300,

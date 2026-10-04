@@ -40,9 +40,15 @@ namespace MirrorChronicles.Characters
         /// A cultivating member gains 10 + half their root, plus the clan's karma, at the speed of their
         /// method (common breathing in Embryonic without one); low stability slows them.
         /// </summary>
-        public void ProcessYearlyCultivation(CharacterData character)
+        public void ProcessYearlyCultivation(CharacterData character) => ProcessYearlyCultivation(character, 1.0);
+
+        /// <summary>
+        /// A year of cultivation at a share of the usual pace: while practising an Immortal Art (audit §2), an ordinary talent
+        /// keeps less of its cultivation, a genius of the art even gains.
+        /// </summary>
+        public void ProcessYearlyCultivation(CharacterData character, double share)
         {
-            if (!character.IsAlive || character.CurrentTask != TaskType.Cultivation) return;
+            if (!character.IsAlive || (character.CurrentTask != TaskType.Cultivation && character.CurrentTask != TaskType.ArtPractice)) return;
             if (!SpiritualOrificeRules.CanCultivate(character)) return; // a mortal gathers no Qi
             if (character.ProgressionSealed) return;                     // a consumed Dao Partner: no further, even cultivating
 
@@ -50,7 +56,7 @@ namespace MirrorChronicles.Characters
             if (multiplier <= 0) return; // no method guides this realm
 
             int gain = BaseYearlyXp + character.SpiritualRoot / 2 + karma.GetBonusXP();
-            GrantXp(character, (int)Math.Round(gain * multiplier));
+            GrantXp(character, (int)Math.Round(gain * multiplier * share));
         }
 
         /// <summary>

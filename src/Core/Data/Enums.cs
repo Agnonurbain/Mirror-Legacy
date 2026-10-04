@@ -47,7 +47,8 @@ namespace MirrorChronicles.Data
         ScoutBeasts, // find the beasts of the hunting ground before the hunt (L2c.2)
         Diversion,   // seen elsewhere while the hunt strikes (L2c.3: « seen going left while going right »)
         Seclusion,   // hidden away: a ripe Dao is hardly seen, and does nothing else (2026-09-29)
-        SearchLake   // dredge the lake for the mirror's first shard (B3c, LORE.md §11.5)
+        SearchLake,  // dredge the lake for the mirror's first shard (B3c, LORE.md §11.5)
+        ArtPractice  // practise an Immortal Art (audit §2, 2026-10-04): mastery, and cultivation by one's gift
     }
 
     public enum Element 
