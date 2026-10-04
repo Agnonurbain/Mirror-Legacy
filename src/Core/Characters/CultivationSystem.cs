@@ -71,6 +71,7 @@ namespace MirrorChronicles.Characters
                 multiplier *= LowStabilityMultiplier;
             if (place != null) multiplier *= place.SpeedFactor(character); // the Qi of the place, its atmosphere (L5b)
             multiplier *= ArtifactRules.CultivationSpeed(character);        // an artifact of its lineage (L4f)
+            multiplier *= SpiritualOrificeRules.SeedSpeed(character, ctx.Content.Balance.Trials.SeedConduitSpeed); // the seed's halo, or its conduit (§3.8)
             return multiplier;
         }
 

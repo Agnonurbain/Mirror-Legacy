@@ -14,7 +14,11 @@ namespace MirrorChronicles.Presentation
     public sealed record InterventionLine(string Id, string Name, int Cost, string Effect, string Refusal);
 
     /// <summary>A member the Talisman Seed could take root in, and why not (null when it could).</summary>
-    public sealed record SeedCandidate(string Id, string Name, int Age, string Refusal);
+    public sealed record SeedCandidate(string Id, string Name, int Age, string Refusal)
+    {
+        public string Halo { get; init; }    // the compatibility the mirror sees above one's head (📚)
+        public bool Conduit { get; init; }   // born with an orifice: the seed is a conduit
+    }
 
     /// <summary>A member the Judgment could strike; an in-law shows the power that sent them.</summary>
     public sealed record JudgmentTarget(string Id, string Name, string Realm, string Origin)
@@ -68,13 +72,15 @@ namespace MirrorChronicles.Presentation
             bool full = ActiveSeeds(session) >= session.Mirror.TalismanSeedCapacity;
             bool weak = session.Mirror.MirrorPower < MirrorSystem.TalismanSeedCost;
             return session.Clan.LivingMembers
-                .Where(m => !m.HasTalismanSeed && !(m.OrificeKnown && SpiritualOrificeRules.CanCultivate(m)))
-                .OrderByDescending(m => m.OrificeKnown).ThenBy(m => m.FullName, StringComparer.Ordinal)
+                .Where(m => !m.HasTalismanSeed && m.Species == Species.Human)
+                .OrderByDescending(m => m.OrificeKnown && !m.HasSpiritualOrifice) // the examined mortals first, then the conduits
+                .ThenByDescending(m => SpiritualOrificeRules.SeedCompatibility(m)).ThenBy(m => m.FullName, StringComparer.Ordinal)
                 .Select(m => new SeedCandidate(m.ID, m.FullName, m.Age,
                     !m.OrificeKnown ? "orifice non examiné"
                     : full ? "le miroir est à sa capacité"
-                    : weak ? "puissance insuffisante"
-                    : null))
+                    : weak ? "Clair de Lune insuffisant"
+                    : null)
+                    { Halo = SpiritualOrificeRules.SeedHalo(SpiritualOrificeRules.SeedCompatibility(m)), Conduit = m.OrificeKnown && m.HasSpiritualOrifice })
                 .ToList();
         }
 

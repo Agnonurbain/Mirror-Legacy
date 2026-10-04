@@ -1,3 +1,4 @@
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
@@ -92,13 +93,27 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
-        public void CanReceiveTalismanSeed_ReturnsFalse_WhenAlreadyHasOrifice()
+        public void ASeed_MayAlsoGoToOneBornWithAnOrifice_AsAConduit()
         {
-            Assert.IsFalse(SpiritualOrificeRules.CanReceiveTalismanSeed(Cultivator(), activeSeeds: 0, capacity: 2));
+            // 📚 the Li born with an orifice received seeds too (AUDIT_LORE.md §3.8)
+            Assert.IsTrue(SpiritualOrificeRules.CanReceiveTalismanSeed(Cultivator(), activeSeeds: 0, capacity: 6));
+            Assert.Greater(SpiritualOrificeRules.SeedSpeed(new CharacterData { ID = "x", HasSpiritualOrifice = true, HasTalismanSeed = true }, 0.1), 1.0);
         }
 
-        [TestCase(0, 2)]
-        [TestCase(3, 5)]
+        [Test]
+        public void TheSeedsHalo_RangesFromACunToAChi_AndSetsAMortalsCultivation()
+        {
+            var halos = Enumerable.Range(0, 400).Select(i => SpiritualOrificeRules.SeedCompatibility(new CharacterData { ID = $"m{i}" })).ToList();
+            Assert.IsTrue(halos.All(h => h >= 0.1 && h <= 1.0));
+            Assert.Less(halos.Count(h => h >= 0.995), halos.Count / 10, "few are perfect");
+            var mortal = new CharacterData { ID = "m7", HasTalismanSeed = true };
+            Assert.AreEqual(SpiritualOrificeRules.SeedCompatibility(mortal), SpiritualOrificeRules.SeedSpeed(mortal, 0.1), 1e-9);
+            Assert.AreEqual("un chi", SpiritualOrificeRules.SeedHalo(1.0));
+            Assert.AreEqual("1 cun", SpiritualOrificeRules.SeedHalo(0.1));
+        }
+
+        [TestCase(0, 6)]
+        [TestCase(3, 9)]
         public void TalismanSeedCapacity_GrowsWithMirrorFragments(int fragments, int expected)
         {
             Assert.AreEqual(expected, SpiritualOrificeRules.TalismanSeedCapacity(fragments, Fixtures.Content.Balance.Trials.BaseTalismanSeedCapacity));

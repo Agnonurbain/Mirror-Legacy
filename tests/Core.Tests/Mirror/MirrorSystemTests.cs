@@ -84,16 +84,18 @@ namespace MirrorChronicles.Tests.Mirror
         {
             var w = new TestWorld();
             w.Mirror.AddPower(50);
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < w.Mirror.TalismanSeedCapacity; i++)
                 w.Join(Fixtures.Mortal()).HasTalismanSeed = true;
             Assert.IsFalse(w.Mirror.GrantTalismanSeed(w.Join(Fixtures.Mortal())));
         }
 
         [Test]
-        public void GrantTalismanSeed_Refuses_ACultivator()
+        public void GrantTalismanSeed_Plants_AConduitInACultivator()
         {
             var w = new TestWorld();
-            Assert.IsFalse(w.Mirror.GrantTalismanSeed(w.Join(Fixtures.Cultivator())));
+            var cultivator = w.Join(Fixtures.Cultivator());
+            Assert.IsTrue(w.Mirror.GrantTalismanSeed(cultivator), "📚 a seed in one born with an orifice is a hidden conduit");
+            Assert.IsFalse(w.Mirror.GrantTalismanSeed(cultivator), "one seed each");
         }
 
         [Test]
@@ -115,7 +117,7 @@ namespace MirrorChronicles.Tests.Mirror
         {
             var w = new TestWorld();
             w.Mirror.Restore(80, 3);
-            Assert.IsTrue(w.Mirror.MirrorPower == 80 && w.Mirror.TalismanSeedCapacity == 5);
+            Assert.IsTrue(w.Mirror.MirrorPower == 80 && w.Mirror.TalismanSeedCapacity == Fixtures.Content.Balance.Trials.BaseTalismanSeedCapacity + 3);
         }
     }
 }

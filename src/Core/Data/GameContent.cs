@@ -387,6 +387,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>Talisman Seeds the mirror sustains before any fragment is restored (§11.5).</summary>
         public int BaseTalismanSeedCapacity { get; init; }
+
+        /// <summary>A seed in one born with an orifice: a hidden conduit, and a little help (🔎 AUDIT_LORE.md §3.8, 2026-10-04).</summary>
+        public double SeedConduitSpeed { get; init; } = 0.1;
     }
 
     /// <summary>

@@ -3435,7 +3435,7 @@
       "label": ".ShowJudgment()",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L164",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "scripts_mirrorscreen_mirrorscreen_showjudgment",
       "community": 242,
@@ -3445,7 +3445,7 @@
       "label": ".Judge()",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L181",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "scripts_mirrorscreen_mirrorscreen_judge",
       "community": 242,
@@ -3455,7 +3455,7 @@
       "label": "JudgmentTarget",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L181",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "game_scripts_mirrorscreen_cs_judgmenttarget",
       "community": 242,
@@ -3465,7 +3465,7 @@
       "label": ".ShowDeduction()",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L199",
+      "source_location": "L201",
       "_origin": "ast",
       "id": "scripts_mirrorscreen_mirrorscreen_showdeduction",
       "community": 242,
@@ -3475,7 +3475,7 @@
       "label": ".Text()",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L255",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "scripts_mirrorscreen_mirrorscreen_text",
       "community": 242,
@@ -3485,7 +3485,7 @@
       "label": ".Add()",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L258",
+      "source_location": "L260",
       "_origin": "ast",
       "id": "scripts_mirrorscreen_mirrorscreen_add",
       "community": 242,
@@ -3495,7 +3495,7 @@
       "label": "Container",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L258",
+      "source_location": "L260",
       "_origin": "ast",
       "id": "game_scripts_mirrorscreen_cs_container",
       "community": 242,
@@ -3505,7 +3505,7 @@
       "label": ".Clear()",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L261",
+      "source_location": "L263",
       "_origin": "ast",
       "id": "scripts_mirrorscreen_mirrorscreen_clear",
       "community": 242,
@@ -3515,7 +3515,7 @@
       "label": "Node",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L261",
+      "source_location": "L263",
       "_origin": "ast",
       "id": "game_scripts_mirrorscreen_cs_node",
       "community": 242,
@@ -3525,7 +3525,7 @@
       "label": ".RunSmoke()",
       "file_type": "code",
       "source_file": "game/scripts/MirrorScreen.cs",
-      "source_location": "L270",
+      "source_location": "L272",
       "_origin": "ast",
       "id": "scripts_mirrorscreen_mirrorscreen_runsmoke",
       "community": 242,
@@ -6138,7 +6138,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 420,
+      "community": 82,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -6148,7 +6148,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 420,
+      "community": 82,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -6265,7 +6265,7 @@
       "label": ".PlaceBreakthroughBonus()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L78",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_placebreakthroughbonus",
       "community": 82,
@@ -6275,7 +6275,7 @@
       "label": ".GrantXp()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L81",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_grantxp",
       "community": 82,
@@ -6285,7 +6285,7 @@
       "label": ".AdvanceSubLevels()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L92",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_advancesublevels",
       "community": 82,
@@ -6295,7 +6295,7 @@
       "label": ".IsReadyForTrial()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L118",
+      "source_location": "L119",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_isreadyfortrial",
       "community": 82,
@@ -6305,7 +6305,7 @@
       "label": ".HasTrialQi()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L133",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_hastrialqi",
       "community": 82,
@@ -6315,7 +6315,7 @@
       "label": "TrialKind",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L133",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "src_core_characters_cultivationsystem_cs_trialkind",
       "community": 82,
@@ -6325,7 +6325,7 @@
       "label": ".PayTrialQi()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L137",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_paytrialqi",
       "community": 82,
@@ -6335,7 +6335,7 @@
       "label": ".AllowsNextStep()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L141",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_allowsnextstep",
       "community": 82,
@@ -6345,7 +6345,7 @@
       "label": "AdvancementStep",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L141",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "src_core_characters_cultivationsystem_cs_advancementstep",
       "community": 82,
@@ -6355,7 +6355,7 @@
       "label": ".ApplyStep()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L153",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_applystep",
       "community": 82,
@@ -6365,7 +6365,7 @@
       "label": ".EntersQiCultivation()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L168",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_entersqicultivation",
       "community": 82,
@@ -6375,7 +6375,7 @@
       "label": ".TryAbsorbQi()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L176",
+      "source_location": "L177",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_tryabsorbqi",
       "community": 82,
@@ -6385,7 +6385,7 @@
       "label": ".CanEnter()",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L197",
+      "source_location": "L198",
       "_origin": "ast",
       "id": "characters_cultivationsystem_cultivationsystem_canenter",
       "community": 82,
@@ -6395,7 +6395,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Characters/CultivationSystem.cs",
-      "source_location": "L197",
+      "source_location": "L198",
       "_origin": "ast",
       "id": "src_core_characters_cultivationsystem_cs_techniquedata",
       "community": 82,
@@ -9985,17 +9985,47 @@
       "label": ".CanReceiveTalismanSeed()",
       "file_type": "code",
       "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
-      "source_location": "L63",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "characters_spiritualorificerules_spiritualorificerules_canreceivetalismanseed",
       "community": 48,
       "norm_label": ".canreceivetalismanseed()"
     },
     {
+      "label": ".SeedCompatibility()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "characters_spiritualorificerules_spiritualorificerules_seedcompatibility",
+      "community": 48,
+      "norm_label": ".seedcompatibility()"
+    },
+    {
+      "label": ".SeedHalo()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "characters_spiritualorificerules_spiritualorificerules_seedhalo",
+      "community": 48,
+      "norm_label": ".seedhalo()"
+    },
+    {
+      "label": ".SeedSpeed()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "characters_spiritualorificerules_spiritualorificerules_seedspeed",
+      "community": 48,
+      "norm_label": ".seedspeed()"
+    },
+    {
       "label": ".TalismanSeedCapacity()",
       "file_type": "code",
       "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
-      "source_location": "L69",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "characters_spiritualorificerules_spiritualorificerules_talismanseedcapacity",
       "community": 48,
@@ -10005,7 +10035,7 @@
       "label": ".Normalize()",
       "file_type": "code",
       "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
-      "source_location": "L78",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "characters_spiritualorificerules_spiritualorificerules_normalize",
       "community": 48,
@@ -10015,7 +10045,7 @@
       "label": ".RevealOrifices()",
       "file_type": "code",
       "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
-      "source_location": "L91",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "characters_spiritualorificerules_spiritualorificerules_revealorifices",
       "community": 48,
@@ -10025,7 +10055,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
-      "source_location": "L91",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "src_core_characters_spiritualorificerules_cs_ireadonlylist",
       "community": 48,
@@ -10618,7 +10648,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 420,
+      "community": 82,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -10628,7 +10658,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 420,
+      "community": 82,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -10638,7 +10668,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 420,
+      "community": 82,
       "norm_label": "clankarmasystem"
     },
     {
@@ -10648,7 +10678,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 420,
+      "community": 82,
       "norm_label": "double"
     },
     {
@@ -10658,7 +10688,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 420,
+      "community": 82,
       "norm_label": "int"
     },
     {
@@ -10668,7 +10698,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 420,
+      "community": 82,
       "norm_label": "gamecontext"
     },
     {
@@ -10678,7 +10708,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 420,
+      "community": 82,
       "norm_label": "clanmanager"
     },
     {
@@ -10688,7 +10718,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 420,
+      "community": 82,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -10698,7 +10728,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 420,
+      "community": 82,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -10708,7 +10738,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 420,
+      "community": 82,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -10718,7 +10748,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 420,
+      "community": 82,
       "norm_label": ".restore()"
     },
     {
@@ -10728,7 +10758,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 420,
+      "community": 82,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -12858,7 +12888,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatai",
-      "community": 436,
+      "community": 4,
       "norm_label": "combatai.cs"
     },
     {
@@ -12868,7 +12898,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "combat_combatai_mirrorchronicles_combat",
-      "community": 436,
+      "community": 4,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -12878,7 +12908,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "combat_combatai_iaistrategy",
-      "community": 436,
+      "community": 4,
       "norm_label": "iaistrategy"
     },
     {
@@ -12998,7 +13028,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "combat_combatai_aggressivestrategy",
-      "community": 436,
+      "community": 4,
       "norm_label": "aggressivestrategy"
     },
     {
@@ -13018,7 +13048,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "combat_combatai_defensivestrategy",
-      "community": 436,
+      "community": 4,
       "norm_label": "defensivestrategy"
     },
     {
@@ -13038,7 +13068,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "combat_combatai_strategicstrategy",
-      "community": 436,
+      "community": 4,
       "norm_label": "strategicstrategy"
     },
     {
@@ -13068,7 +13098,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "combat_combatai_berserkerstrategy",
-      "community": 436,
+      "community": 4,
       "norm_label": "berserkerstrategy"
     },
     {
@@ -13088,7 +13118,7 @@
       "source_location": "L134",
       "_origin": "ast",
       "id": "combat_combatai_cautiousstrategy",
-      "community": 436,
+      "community": 4,
       "norm_label": "cautiousstrategy"
     },
     {
@@ -13098,7 +13128,7 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "src_core_combat_combatai_cs_double",
-      "community": 436,
+      "community": 4,
       "norm_label": "double"
     },
     {
@@ -14538,7 +14568,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_factiondata",
-      "community": 423,
+      "community": 333,
       "norm_label": "factiondata.cs"
     },
     {
@@ -14548,7 +14578,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "data_factiondata_mirrorchronicles_data",
-      "community": 423,
+      "community": 333,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -14558,7 +14588,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "data_factiondata_factiondata",
-      "community": 423,
+      "community": 333,
       "norm_label": "factiondata"
     },
     {
@@ -14568,7 +14598,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "data_factiondata_factiondata_clone",
-      "community": 423,
+      "community": 333,
       "norm_label": ".clone()"
     },
     {
@@ -14578,7 +14608,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "data_factiondata_factionelder",
-      "community": 423,
+      "community": 333,
       "norm_label": "factionelder"
     },
     {
@@ -14588,7 +14618,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_age",
-      "community": 423,
+      "community": 333,
       "norm_label": ".age()"
     },
     {
@@ -14598,7 +14628,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_clone",
-      "community": 423,
+      "community": 333,
       "norm_label": ".clone()"
     },
     {
@@ -14825,7 +14855,7 @@
       "label": "TrialModifiers",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L396",
+      "source_location": "L399",
       "_origin": "ast",
       "id": "data_gamecontent_trialmodifiers",
       "community": 121,
@@ -14835,7 +14865,7 @@
       "label": "TechniqueSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L418",
+      "source_location": "L421",
       "_origin": "ast",
       "id": "data_gamecontent_techniquesettings",
       "community": 121,
@@ -14845,7 +14875,7 @@
       "label": "DivineAbilitySettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L453",
+      "source_location": "L456",
       "_origin": "ast",
       "id": "data_gamecontent_divineabilitysettings",
       "community": 121,
@@ -14855,7 +14885,7 @@
       "label": "PurpleMansionSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L549",
+      "source_location": "L552",
       "_origin": "ast",
       "id": "data_gamecontent_purplemansionsettings",
       "community": 121,
@@ -14865,7 +14895,7 @@
       "label": "VoidBand",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L576",
+      "source_location": "L579",
       "_origin": "ast",
       "id": "data_gamecontent_voidband",
       "community": 121,
@@ -14875,7 +14905,7 @@
       "label": "OrificeOdds",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L584",
+      "source_location": "L587",
       "_origin": "ast",
       "id": "data_gamecontent_orificeodds",
       "community": 121,
@@ -16398,7 +16428,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem",
-      "community": 193,
+      "community": 423,
       "norm_label": "alliancesystem.cs"
     },
     {
@@ -16408,7 +16438,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_mirrorchronicles_diplomacy",
-      "community": 193,
+      "community": 423,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -16418,7 +16448,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem",
-      "community": 193,
+      "community": 423,
       "norm_label": "alliancesystem"
     },
     {
@@ -16428,7 +16458,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_double",
-      "community": 193,
+      "community": 423,
       "norm_label": "double"
     },
     {
@@ -16438,7 +16468,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_gamecontext",
-      "community": 193,
+      "community": 423,
       "norm_label": "gamecontext"
     },
     {
@@ -16448,7 +16478,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_factionmanager",
-      "community": 193,
+      "community": 423,
       "norm_label": "factionmanager"
     },
     {
@@ -16458,7 +16488,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_resourcemanager",
-      "community": 193,
+      "community": 423,
       "norm_label": "resourcemanager"
     },
     {
@@ -16468,7 +16498,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_offertribute",
-      "community": 193,
+      "community": 423,
       "norm_label": ".offertribute()"
     },
     {
@@ -16478,7 +16508,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_declarewar",
-      "community": 193,
+      "community": 423,
       "norm_label": ".declarewar()"
     },
     {
@@ -17238,7 +17268,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 193,
+      "community": 333,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -17248,7 +17278,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 193,
+      "community": 333,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -28105,7 +28135,7 @@
       "label": "MirrorView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L36",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "presentation_mirrorview_mirrorview",
       "community": 249,
@@ -28115,7 +28145,7 @@
       "label": "string",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L38",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "src_core_presentation_mirrorview_cs_string",
       "community": 249,
@@ -28125,7 +28155,7 @@
       "label": ".Header()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L43",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "presentation_mirrorview_mirrorview_header",
       "community": 249,
@@ -28135,7 +28165,7 @@
       "label": "GameSession",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L43",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "src_core_presentation_mirrorview_cs_gamesession",
       "community": 249,
@@ -28145,7 +28175,7 @@
       "label": "MirrorHeader",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L43",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "mirrorheader",
       "community": 249,
@@ -28155,7 +28185,7 @@
       "label": ".ActiveSeeds()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L46",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "presentation_mirrorview_mirrorview_activeseeds",
       "community": 249,
@@ -28165,7 +28195,7 @@
       "label": ".Interventions()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L48",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "presentation_mirrorview_mirrorview_interventions",
       "community": 249,
@@ -28175,7 +28205,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L48",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "src_core_presentation_mirrorview_cs_ireadonlylist",
       "community": 249,
@@ -28185,7 +28215,7 @@
       "label": "InterventionLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L48",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "src_core_presentation_mirrorview_cs_interventionline",
       "community": 249,
@@ -28195,7 +28225,7 @@
       "label": ".SeedCandidates()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L66",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "presentation_mirrorview_mirrorview_seedcandidates",
       "community": 249,
@@ -28205,7 +28235,7 @@
       "label": "SeedCandidate",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L66",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "seedcandidate",
       "community": 249,
@@ -28215,7 +28245,7 @@
       "label": ".JudgmentTargets()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L85",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "presentation_mirrorview_mirrorview_judgmenttargets",
       "community": 249,
@@ -28225,7 +28255,7 @@
       "label": "JudgmentTarget",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L85",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "src_core_presentation_mirrorview_cs_judgmenttarget",
       "community": 249,
@@ -28235,7 +28265,7 @@
       "label": ".Fragments()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L100",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "presentation_mirrorview_mirrorview_fragments",
       "community": 249,
@@ -28245,7 +28275,7 @@
       "label": "FragmentLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L100",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "fragmentline",
       "community": 249,
@@ -28255,7 +28285,7 @@
       "label": ".DeductionPreview()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L106",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "presentation_mirrorview_mirrorview_deductionpreview",
       "community": 249,
@@ -28265,7 +28295,7 @@
       "label": "DeductionPreviewLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/MirrorView.cs",
-      "source_location": "L106",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "deductionpreviewline",
       "community": 249,
@@ -45035,7 +45065,7 @@
       "label": "MirrorChronicles.Tests.Characters",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_mirrorchronicles_tests_characters",
       "community": 19,
@@ -45045,7 +45075,7 @@
       "label": "SpiritualOrificeRulesTests",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L12",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests",
       "community": 19,
@@ -45055,7 +45085,7 @@
       "label": "OrificeOdds",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "tests_core_tests_characters_spiritualorificerulestests_cs_orificeodds",
       "community": 19,
@@ -45065,7 +45095,7 @@
       "label": ".Cultivator()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_cultivator",
       "community": 19,
@@ -45075,7 +45105,7 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "tests_core_tests_characters_spiritualorificerulestests_cs_cultivationrealm",
       "community": 19,
@@ -45085,7 +45115,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "tests_core_tests_characters_spiritualorificerulestests_cs_characterdata",
       "community": 19,
@@ -45095,7 +45125,7 @@
       "label": ".OrificeChance_RisesWithParentsWhoHaveOne()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_orificechance_riseswithparentswhohaveone",
       "community": 19,
@@ -45105,7 +45135,7 @@
       "label": "TestCase",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "tests_core_tests_characters_spiritualorificerulestests_cs_testcase",
       "community": 19,
@@ -45115,7 +45145,7 @@
       "label": ".HasOrificeAtBirth_ComparesRollToChance()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_hasorificeatbirth_comparesrolltochance",
       "community": 19,
@@ -45125,7 +45155,7 @@
       "label": ".CountParentsWithOrifice_IgnoresMissingParents()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L42",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_countparentswithorifice_ignoresmissingparents",
       "community": 19,
@@ -45135,7 +45165,7 @@
       "label": "Test",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L42",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "tests_core_tests_characters_spiritualorificerulestests_cs_test",
       "community": 19,
@@ -45145,7 +45175,7 @@
       "label": ".CanCultivate_ReturnsFalse_WhenHumanMortal()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L48",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_cancultivate_returnsfalse_whenhumanmortal",
       "community": 19,
@@ -45155,7 +45185,7 @@
       "label": ".CanCultivate_ReturnsTrue_WhenTalismanSeedReplacesOrifice()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L54",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_cancultivate_returnstrue_whentalismanseedreplacesorifice",
       "community": 19,
@@ -45165,7 +45195,7 @@
       "label": ".CanCultivate_ReturnsTrue_WhenSpiritBeastAwakensNaturally()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L60",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_cancultivate_returnstrue_whenspiritbeastawakensnaturally",
       "community": 19,
@@ -45175,7 +45205,7 @@
       "label": ".CanDetectOrifice_NeedsTheSummitEyeChakra()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L66",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_candetectorifice_needsthesummiteyechakra",
       "community": 19,
@@ -45185,7 +45215,7 @@
       "label": ".MortalLifespan_StaysBetweenSixtyAndEighty()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L74",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_mortallifespan_staysbetweensixtyandeighty",
       "community": 19,
@@ -45195,7 +45225,7 @@
       "label": ".CanReceiveTalismanSeed_ReturnsTrue_WhenMortalAndCapacityLeft()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L82",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_canreceivetalismanseed_returnstrue_whenmortalandcapacityleft",
       "community": 19,
@@ -45205,27 +45235,37 @@
       "label": ".CanReceiveTalismanSeed_ReturnsFalse_WhenCapacityIsFull()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L88",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_canreceivetalismanseed_returnsfalse_whencapacityisfull",
       "community": 19,
       "norm_label": ".canreceivetalismanseed_returnsfalse_whencapacityisfull()"
     },
     {
-      "label": ".CanReceiveTalismanSeed_ReturnsFalse_WhenAlreadyHasOrifice()",
+      "label": ".ASeed_MayAlsoGoToOneBornWithAnOrifice_AsAConduit()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L94",
+      "source_location": "L95",
       "_origin": "ast",
-      "id": "characters_spiritualorificerulestests_spiritualorificerulestests_canreceivetalismanseed_returnsfalse_whenalreadyhasorifice",
+      "id": "characters_spiritualorificerulestests_spiritualorificerulestests_aseed_mayalsogotoonebornwithanorifice_asaconduit",
       "community": 19,
-      "norm_label": ".canreceivetalismanseed_returnsfalse_whenalreadyhasorifice()"
+      "norm_label": ".aseed_mayalsogotoonebornwithanorifice_asaconduit()"
+    },
+    {
+      "label": ".TheSeedsHalo_RangesFromACunToAChi_AndSetsAMortalsCultivation()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
+      "source_location": "L103",
+      "_origin": "ast",
+      "id": "characters_spiritualorificerulestests_spiritualorificerulestests_theseedshalo_rangesfromacuntoachi_andsetsamortalscultivation",
+      "community": 19,
+      "norm_label": ".theseedshalo_rangesfromacuntoachi_andsetsamortalscultivation()"
     },
     {
       "label": ".TalismanSeedCapacity_GrowsWithMirrorFragments()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L100",
+      "source_location": "L115",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_talismanseedcapacity_growswithmirrorfragments",
       "community": 19,
@@ -45235,7 +45275,7 @@
       "label": ".Normalize_GivesKnownOrifice_WhenOldSaveHasACultivator()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L107",
+      "source_location": "L122",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_normalize_givesknownorifice_whenoldsavehasacultivator",
       "community": 19,
@@ -45245,7 +45285,7 @@
       "label": ".RevealOrifices_MarksEveryoneKnown_WhenADetectorIsPresent()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L115",
+      "source_location": "L130",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_revealorifices_markseveryoneknown_whenadetectorispresent",
       "community": 19,
@@ -45255,7 +45295,7 @@
       "label": ".RevealOrifices_ChangesNothing_WhenNoDetector()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L124",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "characters_spiritualorificerulestests_spiritualorificerulestests_revealorifices_changesnothing_whennodetector",
       "community": 19,
@@ -57638,7 +57678,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionenginetests",
-      "community": 248,
+      "community": 5,
       "norm_label": "deductionenginetests.cs"
     },
     {
@@ -57648,7 +57688,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_mirrorchronicles_tests_mirror",
-      "community": 248,
+      "community": 5,
       "norm_label": "mirrorchronicles.tests.mirror"
     },
     {
@@ -58422,20 +58462,20 @@
       "norm_label": ".granttalismanseed_refuses_wheneveryseedisinuse()"
     },
     {
-      "label": ".GrantTalismanSeed_Refuses_ACultivator()",
+      "label": ".GrantTalismanSeed_Plants_AConduitInACultivator()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
       "source_location": "L92",
       "_origin": "ast",
-      "id": "mirror_mirrorsystemtests_mirrorsystemtests_granttalismanseed_refuses_acultivator",
+      "id": "mirror_mirrorsystemtests_mirrorsystemtests_granttalismanseed_plants_aconduitinacultivator",
       "community": 90,
-      "norm_label": ".granttalismanseed_refuses_acultivator()"
+      "norm_label": ".granttalismanseed_plants_aconduitinacultivator()"
     },
     {
       "label": ".UseQiPulse_RestoresThirtyPercentOfTheQiAndSomeVitality()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L99",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "mirror_mirrorsystemtests_mirrorsystemtests_useqipulse_restoresthirtypercentoftheqiandsomevitality",
       "community": 90,
@@ -58445,7 +58485,7 @@
       "label": ".Restore_SetsPowerAndFragments()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L113",
+      "source_location": "L115",
       "_origin": "ast",
       "id": "mirror_mirrorsystemtests_mirrorsystemtests_restore_setspowerandfragments",
       "community": 90,
@@ -59392,20 +59432,20 @@
       "norm_label": "test"
     },
     {
-      "label": ".TheSleep_GrowsFromOneYear_ToThree()",
+      "label": ".TheFirstShard_TakesThreeYearsToDigest()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "mirror_shardtests_shardtests_thesleep_growsfromoneyear_tothree",
+      "id": "mirror_shardtests_shardtests_thefirstshard_takesthreeyearstodigest",
       "community": 292,
-      "norm_label": ".thesleep_growsfromoneyear_tothree()"
+      "norm_label": ".thefirstshard_takesthreeyearstodigest()"
     },
     {
       "label": ".TheLakeShard_ComesFirst_AndHoldsTheSupremeYinSutra()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L40",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_thelakeshard_comesfirst_andholdsthesupremeyinsutra",
       "community": 292,
@@ -59415,7 +59455,7 @@
       "label": ".ARecoveredShard_RestoresTheMirror_AndGivesBackItsMemory()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L50",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_arecoveredshard_restoresthemirror_andgivesbackitsmemory",
       "community": 292,
@@ -59425,7 +59465,7 @@
       "label": ".AShard_IsRecoveredOnlyOnce()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L61",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_ashard_isrecoveredonlyonce",
       "community": 292,
@@ -59435,7 +59475,7 @@
       "label": ".ARecoveredShard_IsTold_InTheAnnals()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L70",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_arecoveredshard_istold_intheannals",
       "community": 292,
@@ -59445,7 +59485,7 @@
       "label": ".TheMirror_SleepsWhileItIntegratesAShard_AndCannotIntervene()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L85",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_themirror_sleepswhileitintegratesashard_andcannotintervene",
       "community": 292,
@@ -59455,7 +59495,7 @@
       "label": ".TheMirror_WakesOnceTheSleepIsOver()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L98",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_themirror_wakesoncethesleepisover",
       "community": 292,
@@ -59465,7 +59505,7 @@
       "label": ".TheTalismanRitual_WaitsForTheMirrorToWake()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L107",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_thetalismanritual_waitsforthemirrortowake",
       "community": 292,
@@ -59475,7 +59515,7 @@
       "label": ".SearchingTheLake_IsOpenToQiCultivators_UntilItsShardIsFound()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L123",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_searchingthelake_isopentoqicultivators_untilitsshardisfound",
       "community": 292,
@@ -59485,7 +59525,7 @@
       "label": ".ASearcherOfTheLake_MayFindItsShard()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L133",
+      "source_location": "L135",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_asearcherofthelake_mayfinditsshard",
       "community": 292,
@@ -59495,7 +59535,7 @@
       "label": ".ASearcherOfTheLake_UsuallyFindsNothingInAYear()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L145",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_asearcherofthelake_usuallyfindsnothinginayear",
       "community": 292,
@@ -59505,7 +59545,7 @@
       "label": ".TheShardsAndTheSleep_SurviveASave()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L157",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_theshardsandthesleep_surviveasave",
       "community": 292,
@@ -59515,7 +59555,7 @@
       "label": ".SevenShards_RestoreTheMirror_AndTellItsEnding()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L166",
+      "source_location": "L168",
       "_origin": "ast",
       "id": "mirror_shardtests_shardtests_sevenshards_restorethemirror_andtellitsending",
       "community": 292,
@@ -62235,7 +62275,7 @@
       "label": ".TheSeed_IsRefused_WhenTheMirrorSustainsNoMore()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L73",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_theseed_isrefused_whenthemirrorsustainsnomore",
       "community": 254,
@@ -62245,7 +62285,7 @@
       "label": ".TheJudgment_TellsAnInLaw_FromBlood()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L84",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_thejudgment_tellsaninlaw_fromblood",
       "community": 254,
@@ -62255,7 +62295,7 @@
       "label": ".ADeduction_GivesItsCost_OrWhyNot()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L96",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_adeduction_givesitscost_orwhynot",
       "community": 254,
@@ -62265,7 +62305,7 @@
       "label": ".TheJudgment_NamesAMortal_AsTheOtherScreensDo()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L116",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_thejudgment_namesamortal_astheotherscreensdo",
       "community": 254,
@@ -62275,7 +62315,7 @@
       "label": ".TheShield_IsNotInvokedTwice()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L127",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_theshield_isnotinvokedtwice",
       "community": 254,
@@ -62285,7 +62325,7 @@
       "label": ".TheSeedIntervention_SaysWhyNot()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L139",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_theseedintervention_sayswhynot",
       "community": 254,
@@ -74068,7 +74108,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "brain_claude_plan_syst\u00e8mes_du_jeu_d\u00e9tail",
-      "community": 41,
+      "community": 420,
       "norm_label": "\ud83e\udde9 systemes du jeu (detail)"
     },
     {
@@ -74078,7 +74118,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "brain_claude_plan_1_core_boucle_principale",
-      "community": 41,
+      "community": 420,
       "norm_label": "1. core \u2014 boucle principale"
     },
     {
@@ -74088,7 +74128,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "brain_claude_plan_2_mirror_interface_joueur",
-      "community": 41,
+      "community": 420,
       "norm_label": "2. mirror \u2014 interface joueur"
     },
     {
@@ -74098,7 +74138,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "brain_claude_plan_3_clan_lign\u00e9e",
-      "community": 41,
+      "community": 420,
       "norm_label": "3. clan \u2014 lignee"
     },
     {
@@ -74108,7 +74148,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "brain_claude_plan_4_characters_individus",
-      "community": 41,
+      "community": 420,
       "norm_label": "4. characters \u2014 individus"
     },
     {
@@ -74118,7 +74158,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "brain_claude_plan_5_combat_tactique_tour_par_tour",
-      "community": 41,
+      "community": 420,
       "norm_label": "5. combat \u2014 tactique tour par tour"
     },
     {
@@ -74128,7 +74168,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "brain_claude_plan_6_diplomacy_monde_ext\u00e9rieur",
-      "community": 41,
+      "community": 420,
       "norm_label": "6. diplomacy \u2014 monde exterieur"
     },
     {
@@ -74138,7 +74178,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "brain_claude_plan_7_economy_ressources_t\u00e2ches",
-      "community": 41,
+      "community": 420,
       "norm_label": "7. economy \u2014 ressources & taches"
     },
     {
@@ -74148,7 +74188,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "brain_claude_plan_8_events_al\u00e9atoire_sc\u00e9naris\u00e9",
-      "community": 41,
+      "community": 420,
       "norm_label": "8. events \u2014 aleatoire + scenarise"
     },
     {
@@ -74901,7 +74941,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Strict English code and French docs; mandatory Singleton/Observer/Strategy/Command/State Machine/MVC; no SendMessage, no FindObjectOfType in loops, no StartCoroutine timers (use async/await or GameEvents); ScriptableObjects for all static data; null checks + try/catch on Save/Load; Play Mode tests per heavy system; one system at a time with user validation.",
-      "community": 433,
+      "community": 4,
       "norm_label": "golden rules (en code / fr docs, mandatory patterns)",
       "id": "brain_claude_brainstorming_golden_rules"
     },
@@ -74995,7 +75035,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 4,
       "norm_label": "singleton pattern (manager instance)",
       "id": "brain_claude_memory_singleton_pattern"
     },
@@ -75008,7 +75048,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 4,
       "norm_label": "observer pattern (c# events bus)",
       "id": "brain_claude_memory_observer_pattern"
     },
@@ -75021,7 +75061,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 4,
       "norm_label": "state machine pattern (gamestate, gamephase, combatstate)",
       "id": "brain_claude_memory_state_machine_pattern"
     },
@@ -75034,7 +75074,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 4,
       "norm_label": "strategy pattern (iaistrategy)",
       "id": "brain_claude_memory_strategy_pattern"
     },
@@ -75047,7 +75087,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 4,
       "norm_label": "command pattern (icombataction)",
       "id": "brain_claude_memory_command_pattern"
     },
@@ -75061,7 +75101,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Only theoretical so far: POCO data separated from managers, but UI logic still lives in MonoBehaviours (NOT_DONE #102).",
-      "community": 433,
+      "community": 4,
       "norm_label": "mvc pattern (data pocos vs managers vs ui)",
       "id": "brain_claude_memory_mvc_pattern"
     },
@@ -75075,7 +75115,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Singletons expose static Instance with Awake duplicate-destroy; events subscribed in OnEnable and unsubscribed in OnDisable (never Awake/Start); Debug.Log prefixed with [System]; POCOs [Serializable] with parameterless ctor and Guid IDs.",
-      "community": 433,
+      "community": 4,
       "norm_label": "code conventions (mirrorchronicles.<module> namespaces, xml docs, onenable/ondisable subscriptions)",
       "id": "brain_claude_memory_code_conventions"
     },
@@ -75141,7 +75181,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 333,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -75180,7 +75220,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 4,
       "norm_label": "strict mvc for ui (#102)",
       "id": "brain_claude_not_done_mvc_ui"
     },
@@ -75302,7 +75342,7 @@
       "author": null,
       "contributor": null,
       "rationale": "GameManager(-100) -> TimeManager(-90) -> GameEvents(-80) -> ClanManager(-70) -> BloodRegistry(-60) to guarantee singleton Awake order (WL-009).",
-      "community": 433,
+      "community": 4,
       "norm_label": "script execution order configuration",
       "id": "brain_claude_package_script_execution_order"
     },
@@ -75410,7 +75450,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 4,
       "norm_label": "[systems] dontdestroyonload gameobject hosting all singletons",
       "id": "brain_claude_plan_systems_gameobject"
     },
@@ -75423,7 +75463,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 420,
+      "community": 82,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -75436,7 +75476,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 333,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -75475,7 +75515,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 333,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -75681,7 +75721,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Unity does not order Awake across GameObjects; fix via single [Systems] object, Script Execution Order, or RuntimeInitializeOnLoadMethod bootstrapper; null-check cross-singleton calls.",
-      "community": 433,
+      "community": 4,
       "norm_label": "wl-009: singleton initialization order not guaranteed",
       "id": "brain_claude_worked_lesson_wl_009"
     },
@@ -75804,7 +75844,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Scripts organised by domain folder (Core, Clan, Characters, Combat, Mirror, Diplomacy, Economy, Events, Data) mirroring MirrorChronicles.<Module> namespaces.",
-      "community": 433,
+      "community": 4,
       "norm_label": "assets/_project domain-module architecture",
       "id": "readme_module_architecture"
     }
@@ -81804,9 +81844,9 @@
       "source_file": "game/scripts/MirrorScreen.cs",
       "source_location": "L126",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_mirrorscreen_mirrorscreen",
-      "target": "scripts_mirrorscreen_mirrorscreen_showmoonlightgift",
-      "confidence_score": 1.0
+      "target": "scripts_mirrorscreen_mirrorscreen_showmoonlightgift"
     },
     {
       "relation": "method",
@@ -81953,9 +81993,9 @@
       "source_file": "game/scripts/MirrorScreen.cs",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_mirrorscreen_mirrorscreen_showmoonlightgift",
-      "target": "scripts_mirrorscreen_mirrorscreen_refresh",
-      "confidence_score": 1.0
+      "target": "scripts_mirrorscreen_mirrorscreen_refresh"
     },
     {
       "relation": "calls",
@@ -82008,9 +82048,9 @@
       "source_file": "game/scripts/MirrorScreen.cs",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_mirrorscreen_mirrorscreen_showmoonlightgift",
-      "target": "scripts_mirrorscreen_mirrorscreen_take",
-      "confidence_score": 1.0
+      "target": "scripts_mirrorscreen_mirrorscreen_take"
     },
     {
       "relation": "references",
@@ -82096,9 +82136,9 @@
       "source_file": "game/scripts/MirrorScreen.cs",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_mirrorscreen_mirrorscreen_showinterventions",
-      "target": "scripts_mirrorscreen_mirrorscreen_showmoonlightgift",
-      "confidence_score": 1.0
+      "target": "scripts_mirrorscreen_mirrorscreen_showmoonlightgift"
     },
     {
       "relation": "calls",
@@ -82118,9 +82158,9 @@
       "source_file": "game/scripts/MirrorScreen.cs",
       "source_location": "L131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_mirrorscreen_mirrorscreen_showmoonlightgift",
-      "target": "scripts_mirrorscreen_mirrorscreen_add",
-      "confidence_score": 1.0
+      "target": "scripts_mirrorscreen_mirrorscreen_add"
     },
     {
       "relation": "calls",
@@ -94353,6 +94393,36 @@
     {
       "relation": "method",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "characters_spiritualorificerules_spiritualorificerules",
+      "target": "characters_spiritualorificerules_spiritualorificerules_seedcompatibility",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "characters_spiritualorificerules_spiritualorificerules",
+      "target": "characters_spiritualorificerules_spiritualorificerules_seedhalo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "characters_spiritualorificerules_spiritualorificerules",
+      "target": "characters_spiritualorificerules_spiritualorificerules_seedspeed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
       "source_file": "Assets/_Project/Scripts/Characters/SpiritualOrificeRules.cs",
       "source_location": "L73",
       "weight": 1.0,
@@ -94471,6 +94541,28 @@
       "target": "src_core_characters_spiritualorificerules_cs_characterdata"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
+      "source_location": "L76",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_spiritualorificerules_spiritualorificerules_seedcompatibility",
+      "target": "src_core_characters_spiritualorificerules_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
+      "source_location": "L92",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_spiritualorificerules_spiritualorificerules_seedspeed",
+      "target": "src_core_characters_spiritualorificerules_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -94502,6 +94594,17 @@
       "confidence_score": 1.0,
       "source": "characters_spiritualorificerules_spiritualorificerules_normalize",
       "target": "characters_spiritualorificerules_spiritualorificerules_cancultivate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/SpiritualOrificeRules.cs",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "characters_spiritualorificerules_spiritualorificerules_seedspeed",
+      "target": "characters_spiritualorificerules_spiritualorificerules_seedcompatibility",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -117030,9 +117133,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift",
-      "target": "mirror_moonlightgift_mirrorchronicles_mirror",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_mirrorchronicles_mirror"
     },
     {
       "relation": "contains",
@@ -117040,9 +117143,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift",
-      "target": "mirror_moonlightgift_moonlightgift",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_moonlightgift"
     },
     {
       "relation": "method",
@@ -117050,9 +117153,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift",
-      "target": "mirror_moonlightgift_moonlightgift_noticed",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_moonlightgift_noticed"
     },
     {
       "relation": "method",
@@ -117060,9 +117163,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift",
-      "target": "mirror_moonlightgift_moonlightgift_nourish",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_moonlightgift_nourish"
     },
     {
       "relation": "method",
@@ -117070,9 +117173,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift",
-      "target": "mirror_moonlightgift_moonlightgift_refusal",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_moonlightgift_refusal"
     },
     {
       "relation": "method",
@@ -117080,9 +117183,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift",
-      "target": "mirror_moonlightgift_moonlightgift_sealqi",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_moonlightgift_sealqi"
     },
     {
       "relation": "references",
@@ -117091,9 +117194,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift",
-      "target": "src_core_mirror_moonlightgift_cs_clanmanager",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_moonlightgift_cs_clanmanager"
     },
     {
       "relation": "references",
@@ -117102,9 +117205,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift",
-      "target": "src_core_mirror_moonlightgift_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_moonlightgift_cs_gamecontext"
     },
     {
       "relation": "references",
@@ -117113,9 +117216,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift",
-      "target": "src_core_mirror_moonlightgift_cs_mirrorsystem",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_moonlightgift_cs_mirrorsystem"
     },
     {
       "relation": "references",
@@ -117124,9 +117227,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift",
-      "target": "src_core_mirror_moonlightgift_cs_resourcemanager",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_moonlightgift_cs_resourcemanager"
     },
     {
       "relation": "references",
@@ -117135,9 +117238,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift",
-      "target": "src_core_mirror_moonlightgift_cs_suspicionledger",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_moonlightgift_cs_suspicionledger"
     },
     {
       "relation": "calls",
@@ -117146,9 +117249,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift_nourish",
-      "target": "mirror_moonlightgift_moonlightgift_refusal",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_moonlightgift_refusal"
     },
     {
       "relation": "calls",
@@ -117157,9 +117260,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift_sealqi",
-      "target": "mirror_moonlightgift_moonlightgift_refusal",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_moonlightgift_refusal"
     },
     {
       "relation": "calls",
@@ -117168,9 +117271,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift_sealqi",
-      "target": "mirror_moonlightgift_moonlightgift_noticed",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_moonlightgift_noticed"
     },
     {
       "relation": "calls",
@@ -117179,9 +117282,9 @@
       "source_file": "src/Core/Mirror/MoonlightGift.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgift_moonlightgift_nourish",
-      "target": "mirror_moonlightgift_moonlightgift_noticed",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgift_moonlightgift_noticed"
     },
     {
       "relation": "contains",
@@ -156760,6 +156863,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "characters_spiritualorificerulestests_spiritualorificerulestests",
+      "target": "characters_spiritualorificerulestests_spiritualorificerulestests_aseed_mayalsogotoonebornwithanorifice_asaconduit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
       "source_location": "L48",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -156795,16 +156908,6 @@
       "confidence_score": 1.0,
       "source": "characters_spiritualorificerulestests_spiritualorificerulestests",
       "target": "characters_spiritualorificerulestests_spiritualorificerulestests_candetectorifice_needsthesummiteyechakra"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L94",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "characters_spiritualorificerulestests_spiritualorificerulestests",
-      "target": "characters_spiritualorificerulestests_spiritualorificerulestests_canreceivetalismanseed_returnsfalse_whenalreadyhasorifice"
     },
     {
       "relation": "method",
@@ -156917,6 +157020,16 @@
       "target": "characters_spiritualorificerulestests_spiritualorificerulestests_talismanseedcapacity_growswithmirrorfragments"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "characters_spiritualorificerulestests_spiritualorificerulestests",
+      "target": "characters_spiritualorificerulestests_spiritualorificerulestests_theseedshalo_rangesfromacuntoachi_andsetsamortalscultivation",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
@@ -156932,21 +157045,21 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L71",
+      "source_location": "L99",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "characters_spiritualorificerulestests_spiritualorificerulestests_candetectorifice_needsthesummiteyechakra",
-      "target": "characters_spiritualorificerulestests_spiritualorificerulestests_cultivator"
+      "source": "characters_spiritualorificerulestests_spiritualorificerulestests_aseed_mayalsogotoonebornwithanorifice_asaconduit",
+      "target": "characters_spiritualorificerulestests_spiritualorificerulestests_cultivator",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L97",
+      "source_location": "L71",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "characters_spiritualorificerulestests_spiritualorificerulestests_canreceivetalismanseed_returnsfalse_whenalreadyhasorifice",
+      "source": "characters_spiritualorificerulestests_spiritualorificerulestests_candetectorifice_needsthesummiteyechakra",
       "target": "characters_spiritualorificerulestests_spiritualorificerulestests_cultivator"
     },
     {
@@ -157085,6 +157198,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
+      "source_location": "L95",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_spiritualorificerulestests_spiritualorificerulestests_aseed_mayalsogotoonebornwithanorifice_asaconduit",
+      "target": "tests_core_tests_characters_spiritualorificerulestests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
       "source_location": "L48",
       "weight": 1.0,
       "context": "attribute",
@@ -157112,17 +157236,6 @@
       "context": "attribute",
       "confidence_score": 1.0,
       "source": "characters_spiritualorificerulestests_spiritualorificerulestests_cancultivate_returnstrue_whentalismanseedreplacesorifice",
-      "target": "tests_core_tests_characters_spiritualorificerulestests_cs_test"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
-      "source_location": "L94",
-      "weight": 1.0,
-      "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "characters_spiritualorificerulestests_spiritualorificerulestests_canreceivetalismanseed_returnsfalse_whenalreadyhasorifice",
       "target": "tests_core_tests_characters_spiritualorificerulestests_cs_test"
     },
     {
@@ -157179,6 +157292,17 @@
       "confidence_score": 1.0,
       "source": "characters_spiritualorificerulestests_spiritualorificerulestests_revealorifices_markseveryoneknown_whenadetectorispresent",
       "target": "tests_core_tests_characters_spiritualorificerulestests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/SpiritualOrificeRulesTests.cs",
+      "source_location": "L103",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_spiritualorificerulestests_spiritualorificerulestests_theseedshalo_rangesfromacuntoachi_andsetsamortalscultivation",
+      "target": "tests_core_tests_characters_spiritualorificerulestests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -186208,9 +186332,9 @@
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_mirrorsystemtests_mirrorsystemtests",
-      "target": "mirror_mirrorsystemtests_mirrorsystemtests_abreakthrough_nolongerfeedsthemirror",
-      "confidence_score": 1.0
+      "target": "mirror_mirrorsystemtests_mirrorsystemtests_abreakthrough_nolongerfeedsthemirror"
     },
     {
       "relation": "method",
@@ -186246,11 +186370,11 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L85",
+      "source_location": "L92",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "mirror_mirrorsystemtests_mirrorsystemtests",
-      "target": "mirror_mirrorsystemtests_mirrorsystemtests_granttalismanseed_refuses_acultivator"
+      "target": "mirror_mirrorsystemtests_mirrorsystemtests_granttalismanseed_plants_aconduitinacultivator",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -186278,9 +186402,9 @@
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_mirrorsystemtests_mirrorsystemtests",
-      "target": "mirror_mirrorsystemtests_mirrorsystemtests_newyear_condensesitstiersmoonlight",
-      "confidence_score": 1.0
+      "target": "mirror_mirrorsystemtests_mirrorsystemtests_newyear_condensesitstiersmoonlight"
     },
     {
       "relation": "method",
@@ -186340,9 +186464,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "mirror_mirrorsystemtests_mirrorsystemtests_abreakthrough_nolongerfeedsthemirror",
-      "target": "tests_core_tests_mirror_mirrorsystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_mirrorsystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -186381,12 +186505,12 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L85",
+      "source_location": "L92",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "mirror_mirrorsystemtests_mirrorsystemtests_granttalismanseed_refuses_acultivator",
-      "target": "tests_core_tests_mirror_mirrorsystemtests_cs_test"
+      "source": "mirror_mirrorsystemtests_mirrorsystemtests_granttalismanseed_plants_aconduitinacultivator",
+      "target": "tests_core_tests_mirror_mirrorsystemtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -186406,9 +186530,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "mirror_mirrorsystemtests_mirrorsystemtests_newyear_condensesitstiersmoonlight",
-      "target": "tests_core_tests_mirror_mirrorsystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_mirrorsystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -186564,9 +186688,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests",
-      "target": "mirror_moonlightgifttests_mirrorchronicles_tests_mirror",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_mirrorchronicles_tests_mirror"
     },
     {
       "relation": "contains",
@@ -186574,9 +186698,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests",
-      "target": "mirror_moonlightgifttests_moonlightgifttests",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests"
     },
     {
       "relation": "method",
@@ -186584,9 +186708,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests",
-      "target": "mirror_moonlightgifttests_moonlightgifttests_aspyintheclan_noticessorareaqi",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests_aspyintheclan_noticessorareaqi"
     },
     {
       "relation": "method",
@@ -186594,9 +186718,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests",
-      "target": "mirror_moonlightgifttests_moonlightgifttests_session",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests_session"
     },
     {
       "relation": "method",
@@ -186604,9 +186728,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests",
-      "target": "mirror_moonlightgifttests_moonlightgifttests_themirror_sealsaportionofsupremeyinqi_fortheclan",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests_themirror_sealsaportionofsupremeyinqi_fortheclan"
     },
     {
       "relation": "method",
@@ -186614,9 +186738,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests",
-      "target": "mirror_moonlightgifttests_moonlightgifttests_themoonlight_nourishesamemberscultivation",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests_themoonlight_nourishesamemberscultivation"
     },
     {
       "relation": "method",
@@ -186624,9 +186748,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests",
-      "target": "mirror_moonlightgifttests_moonlightgifttests_withoutenoughmoonlight_nothingisgiven",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests_withoutenoughmoonlight_nothingisgiven"
     },
     {
       "relation": "calls",
@@ -186635,9 +186759,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests_aspyintheclan_noticessorareaqi",
-      "target": "mirror_moonlightgifttests_moonlightgifttests_session",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests_session"
     },
     {
       "relation": "references",
@@ -186646,9 +186770,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests_session",
-      "target": "tests_core_tests_mirror_moonlightgifttests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_moonlightgifttests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -186657,9 +186781,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests_themirror_sealsaportionofsupremeyinqi_fortheclan",
-      "target": "mirror_moonlightgifttests_moonlightgifttests_session",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests_session"
     },
     {
       "relation": "calls",
@@ -186668,9 +186792,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests_themoonlight_nourishesamemberscultivation",
-      "target": "mirror_moonlightgifttests_moonlightgifttests_session",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests_session"
     },
     {
       "relation": "calls",
@@ -186679,9 +186803,9 @@
       "source_file": "tests/Core.Tests/Mirror/MoonlightGiftTests.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests_withoutenoughmoonlight_nothingisgiven",
-      "target": "mirror_moonlightgifttests_moonlightgifttests_session",
-      "confidence_score": 1.0
+      "target": "mirror_moonlightgifttests_moonlightgifttests_session"
     },
     {
       "relation": "references",
@@ -186690,9 +186814,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests_themirror_sealsaportionofsupremeyinqi_fortheclan",
-      "target": "tests_core_tests_mirror_moonlightgifttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_moonlightgifttests_cs_test"
     },
     {
       "relation": "references",
@@ -186701,9 +186825,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests_aspyintheclan_noticessorareaqi",
-      "target": "tests_core_tests_mirror_moonlightgifttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_moonlightgifttests_cs_test"
     },
     {
       "relation": "references",
@@ -186712,9 +186836,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests_themoonlight_nourishesamemberscultivation",
-      "target": "tests_core_tests_mirror_moonlightgifttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_moonlightgifttests_cs_test"
     },
     {
       "relation": "references",
@@ -186723,9 +186847,9 @@
       "source_location": "L56",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "mirror_moonlightgifttests_moonlightgifttests_withoutenoughmoonlight_nothingisgiven",
-      "target": "tests_core_tests_mirror_moonlightgifttests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_moonlightgifttests_cs_test"
     },
     {
       "relation": "contains",
@@ -188341,6 +188465,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "mirror_shardtests_shardtests",
+      "target": "mirror_shardtests_shardtests_thefirstshard_takesthreeyearstodigest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
       "source_location": "L24",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -188386,16 +188520,6 @@
       "confidence_score": 1.0,
       "source": "mirror_shardtests_shardtests",
       "target": "mirror_shardtests_shardtests_theshardsandthesleep_surviveasave"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mirror_shardtests_shardtests",
-      "target": "mirror_shardtests_shardtests_thesleep_growsfromoneyear_tothree"
     },
     {
       "relation": "method",
@@ -188609,6 +188733,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "mirror_shardtests_shardtests_thefirstshard_takesthreeyearstodigest",
+      "target": "tests_core_tests_mirror_shardtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
       "source_location": "L40",
       "weight": 1.0,
       "context": "attribute",
@@ -188647,17 +188782,6 @@
       "context": "attribute",
       "confidence_score": 1.0,
       "source": "mirror_shardtests_shardtests_theshardsandthesleep_surviveasave",
-      "target": "tests_core_tests_mirror_shardtests_cs_test"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Mirror/ShardTests.cs",
-      "source_location": "L33",
-      "weight": 1.0,
-      "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "mirror_shardtests_shardtests_thesleep_growsfromoneyear_tothree",
       "target": "tests_core_tests_mirror_shardtests_cs_test"
     },
     {
@@ -223131,5 +223255,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "d5e30e0a18816350dbb589bf2bb6abc0c961fafa"
+  "built_at_commit": "4f433692639bd884d42c12de3755ecae8b4a778b"
 }

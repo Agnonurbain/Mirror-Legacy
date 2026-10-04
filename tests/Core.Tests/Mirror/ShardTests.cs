@@ -31,10 +31,12 @@ namespace MirrorChronicles.Tests.Mirror
         }
 
         [Test]
-        public void TheSleep_GrowsFromOneYear_ToThree()
+        public void TheFirstShard_TakesThreeYearsToDigest()
         {
+            // 📚 Lu Jiangxian: « it then took him three years to digest the information in the jade » (the user's choice, 2026-10-04)
             var sleeps = Fixtures.Content.Shards.Select(s => s.SleepYears).ToList();
-            Assert.IsTrue(sleeps.First() == 1 && sleeps.Last() == 3 && sleeps.Zip(sleeps.Skip(1), (a, b) => a <= b).All(x => x));
+            Assert.AreEqual(3, sleeps.First());
+            Assert.IsTrue(sleeps.All(y => y >= 1));
         }
 
         [Test]
@@ -99,8 +101,8 @@ namespace MirrorChronicles.Tests.Mirror
         public void TheMirror_WakesOnceTheSleepIsOver()
         {
             var s = Quiet();
-            s.Shards.Recover(LakeShard); // the first: one year
-            s.Clock.Restore(s.Clock.Year + 1, GamePhase.Management);
+            s.Shards.Recover(LakeShard); // the first: three years (📚 three years to digest the first jade)
+            s.Clock.Restore(s.Clock.Year + Fixtures.Content.Shards.First().SleepYears, GamePhase.Management);
             Assert.IsFalse(s.Mirror.IsAsleep);
         }
 

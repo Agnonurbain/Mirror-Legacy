@@ -144,11 +144,13 @@ namespace MirrorChronicles.Game
         {
             Clear(seeds);
             var candidates = MirrorView.SeedCandidates(root.Session);
-            if (candidates.Count == 0) Add(seeds, "Aucun mortel du clan n'attend de Graine de Sceau.");
+            if (candidates.Count == 0) Add(seeds, "Personne du clan n'attend de Graine de Sceau.");
+            else Add(seeds, "L'auréole que le miroir voit : d'un cun (un dixième) à un chi (parfaite, comme un orifice de naissance). Chez qui est né avec l'orifice, la graine est un conduit.");
             foreach (var candidate in candidates)
             {
                 var row = new HBoxContainer();
-                row.AddChild(Text($"{candidate.Name}, {candidate.Age} ans{(candidate.Refusal == null ? "" : $" ({candidate.Refusal})")}"));
+                string kind = candidate.Conduit ? " — conduit" : "";
+                row.AddChild(Text($"{candidate.Name}, {candidate.Age} ans — auréole : {candidate.Halo}{kind}{(candidate.Refusal == null ? "" : $" ({candidate.Refusal})")}"));
                 var plant = new Button { Text = "Planter la graine", Disabled = candidate.Refusal != null, TooltipText = candidate.Refusal ?? "" };
                 plant.Pressed += () =>
                 {

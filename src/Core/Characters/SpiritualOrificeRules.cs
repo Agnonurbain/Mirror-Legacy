@@ -60,10 +60,37 @@ namespace MirrorChronicles.Characters
             return Math.Min(MortalMaxLifespan, MortalMinLifespan + (int)(roll * span));
         }
 
+        /// <summary>
+        /// A seed takes root in anyone alive without one (📚 the Li born with an orifice received seeds too: a hidden conduit,
+        /// AUDIT_LORE.md §3.8), while the mirror sustains another.
+        /// </summary>
         public static bool CanReceiveTalismanSeed(CharacterData character, int activeSeeds, int capacity)
         {
-            return character.IsAlive && !CanCultivate(character) && activeSeeds < capacity;
+            return character.IsAlive && !character.HasTalismanSeed && character.Species == Species.Human && activeSeeds < capacity;
         }
+
+        /// <summary>
+        /// One's compatibility with the Profound Pearl seed, the halo the mirror's divine sense sees above one's head (📚: a halo
+        /// of one chi is perfect, one cun about a tenth): stable for a person, between a tenth and a whole; few are perfect.
+        /// </summary>
+        public static double SeedCompatibility(CharacterData character)
+        {
+            uint hash = 2166136261;
+            foreach (char c in character.ID ?? "") hash = (hash ^ c) * 16777619;
+            double u = (hash % 1000) / 999.0;
+            return Math.Round(0.1 + 0.9 * u * u, 2);
+        }
+
+        /// <summary>The halo as the mirror sees it: « un chi » when whole, else so many cun (French).</summary>
+        public static string SeedHalo(double compatibility) =>
+            compatibility >= 0.995 ? "un chi" : $"{Math.Max(1, (int)Math.Round(compatibility * 10))} cun";
+
+        /// <summary>
+        /// A seed's effect on cultivation: a mortal cultivates at its compatibility (one chi: as if born with an orifice); one born
+        /// with an orifice is helped a little, the seed a conduit besides (AUDIT_LORE.md §3.8).
+        /// </summary>
+        public static double SeedSpeed(CharacterData character, double conduitBonus) =>
+            !character.HasTalismanSeed ? 1.0 : character.HasSpiritualOrifice ? 1.0 + conduitBonus : SeedCompatibility(character);
 
         /// <summary>Each restored mirror fragment sustains one more active seed (LORE.md §11.5).</summary>
         public static int TalismanSeedCapacity(int mirrorFragments, int baseCapacity)

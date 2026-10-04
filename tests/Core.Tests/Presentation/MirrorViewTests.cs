@@ -66,8 +66,9 @@ namespace MirrorChronicles.Tests.Presentation
 
             Assert.IsNull(candidates.Single(c => c.Id == known.ID).Refusal);
             StringAssert.Contains("non examiné", candidates.Single(c => c.Id == unknown.ID).Refusal, "never guess an orifice");
-            Assert.IsFalse(candidates.Select(c => s.Clan.FindById(c.Id)).Any(m => m.HasTalismanSeed || (m.OrificeKnown && m.HasSpiritualOrifice)),
-                "a known cultivator needs no seed");
+            Assert.IsFalse(candidates.Select(c => s.Clan.FindById(c.Id)).Any(m => m.HasTalismanSeed), "one seed each");
+            Assert.IsTrue(candidates.Where(c => c.Conduit).All(c => s.Clan.FindById(c.Id).HasSpiritualOrifice), "a known cultivator may take a conduit");
+            Assert.IsNotNull(candidates.Single(c => c.Id == known.ID).Halo, "the mirror sees its halo");
         }
 
         [Test]
@@ -108,7 +109,7 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.AreEqual(ids.Count * DeductionEngine.PowerPerFragment, preview.Cost);
 
             s.Mirror.Restore(DeductionEngine.PowerPerFragment, 0);
-            StringAssert.Contains("puissance", MirrorView.DeductionPreview(s, ids).Refusal);
+            StringAssert.Contains("Clair de Lune", MirrorView.DeductionPreview(s, ids).Refusal);
         }
 
         // ---- Review ----

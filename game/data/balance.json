@@ -732,7 +732,8 @@
 	"oldAgePenalty": 10,
 	"minorFailureMaxRoll": 70,
 	"majorFailureMaxRoll": 95,
-	"baseTalismanSeedCapacity": 2
+	"baseTalismanSeedCapacity": 6,
+	"seedConduitSpeed": 0.1
   },
   "trialModifiers": {
 	"rootPointsPerPercent": 5,
