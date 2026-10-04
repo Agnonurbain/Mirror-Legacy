@@ -289,6 +289,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>The mirror's restoration tiers (AUDIT_LORE.md §3, 2026-10-04; the wiki's steps, interpreted bounds).</summary>
         public MirrorTierSettings MirrorTiers { get; init; } = new MirrorTierSettings();
+
+        /// <summary>The mark a stolen art keeps of its power (AUDIT_LORE.md §3.9, 2026-10-04; interpretations).</summary>
+        public TechniqueMarkSettings TechniqueMarks { get; init; } = new TechniqueMarkSettings();
         public WorldArsenalSettings WorldArsenal { get; init; } = new WorldArsenalSettings();
         public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();

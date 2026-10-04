@@ -284,7 +284,16 @@ namespace MirrorChronicles.Game
                 if (art.Kind != kind) Add(arts, $"— {kind = art.Kind} —");
                 string qi = art.Qi == null ? "" : $" · {art.Qi} : {art.QiInStore} portion{(art.QiInStore > 1 ? "s" : "")} en réserve";
                 string who = art.Practitioners.Count == 0 ? "" : $" · pratiquée par {string.Join(", ", art.Practitioners)}";
-                Add(arts, $"{art.Name} — grade {(art.Grade >= MirrorChronicles.Characters.TechniqueRules.MaxGrade ? "7+" : art.Grade.ToString())}, {art.Category}, {art.Element}, dès {art.FirstRealm}{qi}{who}");
+                string mark = art.Mark == null ? "" : $" · porte encore la marque de {art.Mark}";
+                Add(arts, $"{art.Name} — grade {(art.Grade >= MirrorChronicles.Characters.TechniqueRules.MaxGrade ? "7+" : art.Grade.ToString())}, {art.Category}, {art.Element}, dès {art.FirstRealm}{qi}{who}{mark}");
+                if (art.Mark != null)
+                {
+                    int cost = root.Session.Context.Content.Balance.TechniqueMarks.CleanseCost;
+                    var cleanse = new Button { Text = $"Purifier cet art de sa marque (miroir, {cost} de Clair de Lune)" };
+                    string id = art.Id, name = art.Name;
+                    cleanse.Pressed += () => { status.Text = root.Session.Marks.Cleanse(id) is { } r ? $"Refusé : {r}." : $"Le miroir efface de « {name} » la touche de son origine."; Refresh(); };
+                    arts.AddChild(cleanse);
+                }
             }
         }
 

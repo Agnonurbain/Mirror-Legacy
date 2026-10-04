@@ -64,6 +64,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>The Supreme Yin Moonlight given to the clan (audit §3.7).</summary>
         public MoonlightGift Moonlight { get; }
+
+        /// <summary>The marks the clan's stolen arts keep of their power (audit §3.9).</summary>
+        public TechniqueMarks Marks { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
@@ -220,6 +223,7 @@ namespace MirrorChronicles.Session
             Mirror.EssencesHeld = () => Demons.Essences;
             Light = new LightStrike(Context, Mirror, Factions, Suspicion);
             Moonlight = new MoonlightGift(Context, Mirror, Clan, Resources, Suspicion);
+            Marks = new TechniqueMarks(Context, Mirror, Factions, Suspicion);
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
@@ -317,6 +321,7 @@ namespace MirrorChronicles.Session
             session.Shards.Restore(data.RecoveredShards); // none before 2.21
             session.Shards.RestoreRuins(data.RevealedRuins);
             session.ShardSense.Restore(data.ShardDirections); // none before 2.23
+            session.Marks.Restore(data.TechniqueMarks);      // none before 2.36
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
@@ -419,6 +424,7 @@ namespace MirrorChronicles.Session
                 RecoveredShards = Shards.Recovered.ToList(),
                 RevealedRuins = Shards.RevealedRuins.ToList(),
                 ShardDirections = new Dictionary<string, string>(ShardSense.Directions),
+                TechniqueMarks = new Dictionary<string, string>(Marks.Marks),
                 MirrorAsleepUntil = Mirror.AsleepUntil,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
@@ -557,6 +563,7 @@ namespace MirrorChronicles.Session
                     PowerSchemes.ProcessYear();        // the powers scheme against each other (the world's, 2026-10-03)
                     Rebirths.ProcessYear();            // the powers' ancestors come back (the world's, 2026-10-03)
             Enthrallment.ProcessYear();        // a reborn True Monarch bends lesser minds (audit §1.8)
+            Marks.ProcessYear();               // a power recognizes its style in a stolen art (audit §3.9)
                     Arsenal.ProcessYear();             // the powers' treasures, Designations and artifacts (the world's, 2026-10-03)
                     ArtifactTrade.ProcessYear();       // loans of artifacts end (L4f)
                     Mandate.ProcessYear();             // a reign, a seclusion feed the images they embody (§5.4.3)

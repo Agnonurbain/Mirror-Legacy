@@ -9,7 +9,10 @@ namespace MirrorChronicles.Presentation
 {
     /// <summary>An art the clan knows: what it is, the Qi a method needs and the portions in store, who practises it.</summary>
     public sealed record TechniqueLine(string Id, string Name, string Kind, int Grade, string Category, string Element, string FirstRealm,
-        string Qi, int QiInStore, IReadOnlyList<string> Practitioners);
+        string Qi, int QiInStore, IReadOnlyList<string> Practitioners)
+    {
+        public string Mark { get; init; } // the power whose style a stolen art still bears (null: none)
+    }
 
     /// <summary>An art a power would sell: its price, and why not now (null when it would).</summary>
     public sealed record MarketLine(string Power, string TechniqueId, string Name, string Kind, int Grade, int Price, string Refusal);
@@ -29,7 +32,8 @@ namespace MirrorChronicles.Presentation
                     int inStore = qi != null && session.Resources.SpiritualQi.TryGetValue(qi.Id, out var n) ? n : 0;
                     var practitioners = living.Where(m => m.CultivationMethodId == t.ID).Select(m => m.FullName).ToList();
                     return new TechniqueLine(t.ID, t.Name, KindLabel(t.Kind), t.Grade, CategoryLabel(t.Category),
-                        WorldMapView.ElementLabel(t.DominantElement), RankCatalog.RealmName(t.RequiredRealm), qi?.Name, inStore, practitioners);
+                        WorldMapView.ElementLabel(t.DominantElement), RankCatalog.RealmName(t.RequiredRealm), qi?.Name, inStore, practitioners)
+                        { Mark = session.Marks.MarkOf(t.ID) };
                 })
                 .ToList();
         }

@@ -63,6 +63,7 @@ namespace MirrorChronicles.Diplomacy
                 {
                     string stolen = ctx.Rng.Pick(unknown);
                     techniques.Learn(stolen);
+                    ctx.Events.TriggerManualStolen(target.Name, stolen); // it bears its power's mark (audit §3.9)
                     ctx.Log.Info($"[Espionage] {spy.FullName} steals the manual « {stolen} » from {target.Name}.");
                     return new EspionageResult { Success = true, TargetFaction = target.Name, StolenTechniqueId = stolen };
                 }

@@ -54,7 +54,11 @@ namespace MirrorChronicles.Diplomacy
             this.wounds = wounds;
             ctx.Events.OnClanWarWon += enemy =>
             {
-                if (factions.GetFactionByName(enemy) is { } power && AscentMethodOf(power) is { } loot) techniques.Learn(loot.ID); // the loot of war (C4)
+                if (factions.GetFactionByName(enemy) is { } power && AscentMethodOf(power) is { } loot)
+                {
+                    techniques.Learn(loot.ID); // the loot of war (C4)
+                    ctx.Events.TriggerManualStolen(power.Name, loot.ID); // it bears its power's mark (audit §3.9)
+                }
             };
             ctx.Events.OnRandomEventOccurred += e => { if (e.EventType == RandomEventType.RuinsDiscovery) MaybeRevealTomb(); };
         }
