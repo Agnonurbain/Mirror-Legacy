@@ -14,7 +14,7 @@ namespace MirrorChronicles.Tests.Characters
     public class SpiritualOrificeRulesTests
     {
         /// <summary>The odds of decision D3 (LORE.md §4).</summary>
-        private static readonly OrificeOdds D3 = new OrificeOdds { Commoner = 0.003, OneParent = 0.35, TwoParents = 0.5 };
+        private static readonly OrificeOdds D3 = new OrificeOdds { Commoner = 0.003, OneParent = 0.35, TwoParents = 0.5, SeedParentWeight = 0.5 };
 
         private static CharacterData Cultivator(CultivationRealm realm = CultivationRealm.QiRefinement, int stage = 1)
         {
@@ -38,6 +38,19 @@ namespace MirrorChronicles.Tests.Characters
         public void HasOrificeAtBirth_ComparesRollToChance(int parents, double roll, bool expected)
         {
             Assert.AreEqual(expected, SpiritualOrificeRules.HasOrificeAtBirth(parents, roll, D3));
+        }
+
+        [Test]
+        public void ASeededParent_PassesOnHalfAnOrifice()
+        {
+            // the user's decision (2026-10-04, audit §4.3; 📚 Li Xuanfeng, born with an orifice to a seeded father)
+            var seeded = new CharacterData { HasTalismanSeed = true };
+            Assert.AreEqual(0.5, SpiritualOrificeRules.ParentWeight(seeded, null, D3), 1e-9);
+            Assert.AreEqual(1.5, SpiritualOrificeRules.ParentWeight(seeded, Cultivator(), D3), 1e-9);
+            double half = SpiritualOrificeRules.OrificeChance(0.5, D3);
+            Assert.That(half, Is.GreaterThan(D3.Commoner).And.LessThan(D3.OneParent));
+            Assert.AreEqual(D3.Commoner + (D3.OneParent - D3.Commoner) * 0.5, half, 1e-9);
+            Assert.AreEqual(D3.OneParent + (D3.TwoParents - D3.OneParent) * 0.5, SpiritualOrificeRules.OrificeChance(1.5, D3), 1e-9);
         }
 
         [Test]

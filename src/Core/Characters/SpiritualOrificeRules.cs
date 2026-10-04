@@ -19,11 +19,27 @@ namespace MirrorChronicles.Characters
 
         public const int DetectionChakraStage = 5; // Summit Eye: first chakra that sees another's orifice
 
-        public static double OrificeChance(int parentsWithOrifice, OrificeOdds odds)
+        public static double OrificeChance(int parentsWithOrifice, OrificeOdds odds) => OrificeChance((double)parentsWithOrifice, odds);
+
+        /// <summary>The chance from the parents' weight (an endowed parent 1, a seeded one a share): between the steps, a straight line.</summary>
+        public static double OrificeChance(double parentWeight, OrificeOdds odds)
         {
-            if (parentsWithOrifice <= 0) return odds.Commoner;
-            return parentsWithOrifice == 1 ? odds.OneParent : odds.TwoParents;
+            if (parentWeight <= 0) return odds.Commoner;
+            if (parentWeight <= 1) return odds.Commoner + (odds.OneParent - odds.Commoner) * parentWeight;
+            return odds.OneParent + (odds.TwoParents - odds.OneParent) * Math.Min(1, parentWeight - 1);
         }
+
+        /// <summary>
+        /// What the parents pass on: an endowed parent counts whole, a seeded one by <see cref="OrificeOdds.SeedParentWeight"/> — the
+        /// seed's channels leave a trace in the blood (the user's decision 2026-10-04; 📚 Li Xuanfeng, born with an orifice to a seeded father).
+        /// </summary>
+        public static double ParentWeight(CharacterData father, CharacterData mother, OrificeOdds odds)
+        {
+            double Weight(CharacterData p) => p == null ? 0 : p.HasSpiritualOrifice ? 1 : p.HasTalismanSeed ? odds.SeedParentWeight : 0;
+            return Weight(father) + Weight(mother);
+        }
+
+        public static bool HasOrificeAtBirth(double parentWeight, double roll, OrificeOdds odds) => roll < OrificeChance(parentWeight, odds);
 
         /// <param name="roll">Uniform draw in [0, 1]; 1 never succeeds.</param>
         public static bool HasOrificeAtBirth(int parentsWithOrifice, double roll, OrificeOdds odds)
@@ -31,7 +47,7 @@ namespace MirrorChronicles.Characters
             return roll < OrificeChance(parentsWithOrifice, odds);
         }
 
-        /// <summary>A Talisman Seed grafts artificial channels; it is not inherited.</summary>
+        /// <summary>The parents born with an orifice (a seed's share is <see cref="ParentWeight"/>'s).</summary>
         public static int CountParentsWithOrifice(CharacterData father, CharacterData mother)
         {
             int count = 0;

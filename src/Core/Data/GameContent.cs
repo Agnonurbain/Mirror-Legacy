@@ -601,5 +601,8 @@ namespace MirrorChronicles.Data
         public double Commoner { get; init; }
         public double OneParent { get; init; }
         public double TwoParents { get; init; }
+
+        /// <summary>What a seeded parent passes on, as a share of an endowed one (the user's decision 2026-10-04, 🔎).</summary>
+        public double SeedParentWeight { get; init; }
     }
 }

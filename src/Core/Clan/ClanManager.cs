@@ -107,7 +107,7 @@ namespace MirrorChronicles.Clan
                 MotherID = mother?.ID
             };
             child.HasSpiritualOrifice = SpiritualOrificeRules.HasOrificeAtBirth(
-                SpiritualOrificeRules.CountParentsWithOrifice(father, mother), rng.NextDouble(), ctx.Content.Balance.OrificeOdds);
+                SpiritualOrificeRules.ParentWeight(father, mother, ctx.Content.Balance.OrificeOdds), rng.NextDouble(), ctx.Content.Balance.OrificeOdds);
             child.Temperament = FoundationRules.InheritTemperament(father, mother, rng, ctx.Content.Balance.TemperamentInheritanceChance);
             child.TransformedLineage = new[] { father, mother }.Any(p => p != null
                 && (p.TransformedLineage || p.GoldenCore == GoldenCoreState.Realization)); // a Realization's descendants (§5.5.2)

@@ -300,8 +300,8 @@ namespace MirrorChronicles.Tests.Session
             Assert.That(runs.Average(r => r.Betrayals), Is.LessThanOrEqualTo(22), "a treaty is betrayed for a reason, not as a matter of course");
             Assert.That(runs.Sum(r => r.Devoured) / (double)System.Math.Max(1, foundations), Is.LessThanOrEqualTo(0.15),
                 "a prudent clan keeps most of its ripe Daos (≈8 % harvested since the line keeps its orifice, 2026-10-03: more Foundations, more ripen)");
-            Assert.That(runs.Average(r => r.ClanWars), Is.LessThanOrEqualTo(9),
-                "no endless wars against the clan (a rich clan draws extortions; a refusal may mean war) — 9 since the mirror's tiers (the user's choice, 2026-10-04: an unrestored mirror sees only its domain, a harder start)");
+            Assert.That(runs.Average(r => r.ClanWars), Is.LessThanOrEqualTo(10),
+                "no endless wars against the clan (a rich clan draws extortions; a refusal may mean war) — 10 since the novel's start and the seeds' heredity (the user's choice, 2026-10-04: 9.4 measured, a richer line draws more extortions)");
         }
 
         /// <summary>

@@ -1,5 +1,5 @@
 {
-  "orificeOdds": { "commoner": 0.003, "oneParent": 0.35, "twoParents": 0.5 },
+  "orificeOdds": { "commoner": 0.003, "oneParent": 0.35, "twoParents": 0.5, "seedParentWeight": 0.5 },
   "annualBirthChance": 0.25,
   "minMotherAge": 16,
   "maxMotherAge": 45,
