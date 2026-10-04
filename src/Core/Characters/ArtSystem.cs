@@ -17,13 +17,15 @@ namespace MirrorChronicles.Characters
         private readonly GameContext ctx;
         private readonly ClanManager clan;
         private readonly CultivationSystem cultivation;
+        private readonly Economy.ResourceManager resources;
         private readonly HashSet<ImmortalArt> legacies = new HashSet<ImmortalArt>();
 
-        public ArtSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation)
+        public ArtSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation, Economy.ResourceManager resources)
         {
             this.ctx = ctx;
             this.clan = clan;
             this.cultivation = cultivation;
+            this.resources = resources;
             ctx.Events.OnCharacterDied += (dead, cause) => LoseWithTheLastMaster(dead);
         }
 
@@ -85,12 +87,21 @@ namespace MirrorChronicles.Characters
                     member.PracticedArt = null;
                     continue;
                 }
+                if (art == ImmortalArt.Talismans) SellTheTalismans(member);
                 var master = MasterOf(art);
                 bool taught = master != null; // a master of the clan teaches (or the member is one)
                 member.ArtMastery ??= new Dictionary<ImmortalArt, int>();
                 member.ArtMastery[art] = System.Math.Min(100, MasteryOf(member, art) + ImmortalArtRules.YearlyMastery(member, art, taught, Settings));
                 cultivation.ProcessYearlyCultivation(member, ImmortalArtRules.CultivationFactor(member, art, Settings));
             }
+        }
+
+        /// <summary>The year's talismans are sold (📚 « one of the few ways to earn stones »): by the drawer's mastery, before the year's gain.</summary>
+        private void SellTheTalismans(CharacterData drawer)
+        {
+            int stones = ImmortalArtRules.TalismanStones(drawer, Settings);
+            resources.AddSpiritStones(stones);
+            ctx.Log.Info($"[Arts] {drawer.FullName}'s talismans sell for {stones} stones.");
         }
 
         /// <summary>A legacy is lost with its last master if no one has taken it up (📚 Li Quantao failed to inherit the alchemy).</summary>

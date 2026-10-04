@@ -13,7 +13,10 @@ namespace MirrorChronicles.Presentation
     public sealed record ArtMemberLine(string Id, string Name, string Rank, string Practising, IReadOnlyList<ArtMemberSkill> Skills);
 
     /// <summary>One art for one member: the gift, the mastery's rank, and why it cannot practise it (null when it can).</summary>
-    public sealed record ArtMemberSkill(ImmortalArt Art, string Name, string Gift, int Mastery, string MasteryRank, string Refusal);
+    public sealed record ArtMemberSkill(ImmortalArt Art, string Name, string Gift, int Mastery, string MasteryRank, string Refusal)
+    {
+        public string Yield { get; init; } // what a year of it sells for (the talismans, audit §2.4), else null
+    }
 
     /// <summary>An Essence Gathering Pill the clan's best alchemist may refine, of an element its Qi Cultivators need, and why not (null: it can).</summary>
     public sealed record PillOffer(Element Element, string AlchemistId, string Label, string Refusal);
@@ -38,7 +41,10 @@ namespace MirrorChronicles.Presentation
                     {
                         int mastery = ArtSystem.MasteryOf(m, d.Art);
                         return new ArtMemberSkill(d.Art, d.Name, ImmortalArtRules.GiftLabel(ImmortalArtRules.Gift(m, d.Art, set)), mastery,
-                            ImmortalArtRules.Rank(mastery, set), s.Arts.PracticeRefusal(m, d.Art));
+                            ImmortalArtRules.Rank(mastery, set), s.Arts.PracticeRefusal(m, d.Art))
+                        {
+                            Yield = d.Art == ImmortalArt.Talismans ? $"≈ {ImmortalArtRules.TalismanStones(m, set)} pierres l'an" : null
+                        };
                     }).ToList()))
                 .OrderByDescending(l => l.Practising != null).ThenByDescending(l => l.Skills.Count(k => k.Gift != "sans don"))
                 .ThenBy(l => l.Name, System.StringComparer.Ordinal).ToList();

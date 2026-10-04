@@ -593,6 +593,7 @@
 	  "adeptFromLevel": 3, "masterFromLevel": 5, "hireRelation": 30, "hireFeeShare": 0.5,
 	  "powerCapByRealm": { "QiRefinement": 1, "Foundation": 3, "PurpleMansion": 5 }, "powerRiseChance": 0.05
 	},
+	"talisman": { "stonesBase": 10, "stonesPerMastery": 0.5, "geniusFactor": 1.5 },
 	"arts": [
 	  { "art": "Forge", "name": "le raffinement d'artefacts", "ordinaryCultivation": 0.5, "geniusAbilities": [ "hidden-metal:underground-forge" ], "giftTalismans": [ "holding-profit" ] },
 	  { "art": "Alchemy", "name": "l'alchimie", "ordinaryCultivation": 0.5, "geniusAbilities": [], "giftTalismans": [ "holding-profit", "valley-wind-leading-fire" ] },

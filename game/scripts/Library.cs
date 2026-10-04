@@ -92,7 +92,7 @@ namespace MirrorChronicles.Game
                 var row = new HBoxContainer();
                 foreach (var skill in line.Skills.Where(k => k.Refusal == null))
                 {
-                    var practise = new Button { Text = $"Pratiquer {skill.Name}" };
+                    var practise = new Button { Text = $"Pratiquer {skill.Name}" + (skill.Yield == null ? "" : $" ({skill.Yield})") };
                     string id = line.Id;
                     var art = skill.Art;
                     string name = line.Name, artName = skill.Name;

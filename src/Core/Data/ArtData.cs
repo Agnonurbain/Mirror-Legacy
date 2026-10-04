@@ -43,6 +43,19 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<ArtDefinition> Arts { get; init; } = new List<ArtDefinition>();
         public EssencePillSettings EssencePill { get; init; } = new EssencePillSettings();
         public FormationSettings Formation { get; init; } = new FormationSettings();
+        public TalismanDrawingSettings Talisman { get; init; } = new TalismanDrawingSettings();
+    }
+
+    /// <summary>
+    /// Drawing talismans (balance.json « arts.talisman », AUDIT_LORE.md §2.4, 📚 wiki Li_Xuanxuan: « one of the few ways to earn
+    /// stones » — 🔎 the amounts): a year's practice sells its talismans for <see cref="StonesBase"/> and
+    /// <see cref="StonesPerMastery"/> a point of mastery, a genius's dearer by <see cref="GeniusFactor"/>.
+    /// </summary>
+    public sealed record TalismanDrawingSettings
+    {
+        public int StonesBase { get; init; } = 10;
+        public double StonesPerMastery { get; init; } = 0.5;
+        public double GeniusFactor { get; init; } = 1.5;
     }
 
     /// <summary>

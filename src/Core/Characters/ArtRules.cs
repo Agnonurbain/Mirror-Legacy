@@ -45,6 +45,14 @@ namespace MirrorChronicles.Characters
             return (int)System.Math.Round(s.YearlyMastery * factor * (taught ? 1.0 : s.WithoutMasterFactor));
         }
 
+        /// <summary>The stones a year's talismans sell for (audit §2.4, 🔎): by mastery, a genius's dearer.</summary>
+        public static int TalismanStones(CharacterData member, ArtSettings s)
+        {
+            int mastery = member.ArtMastery != null && member.ArtMastery.TryGetValue(ImmortalArt.Talismans, out int m) ? m : 0;
+            double stones = s.Talisman.StonesBase + mastery * s.Talisman.StonesPerMastery;
+            return (int)System.Math.Round(stones * (Gift(member, ImmortalArt.Talismans, s) == ArtGift.Genius ? s.Talisman.GeniusFactor : 1.0));
+        }
+
         public static string Rank(int mastery, ArtSettings s) =>
             mastery >= s.MasterAt ? "maître" : mastery >= s.AdeptAt ? "adepte" : mastery > 0 ? "apprenti" : "novice";
 

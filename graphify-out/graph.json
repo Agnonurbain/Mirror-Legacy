@@ -5402,10 +5402,20 @@
       "norm_label": ".yearlymastery()"
     },
     {
+      "label": ".TalismanStones()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "characters_artrules_immortalartrules_talismanstones",
+      "community": 439,
+      "norm_label": ".talismanstones()"
+    },
+    {
       "label": ".Rank()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtRules.cs",
-      "source_location": "L48",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "characters_artrules_immortalartrules_rank",
       "community": 439,
@@ -5415,7 +5425,7 @@
       "label": ".GiftLabel()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtRules.cs",
-      "source_location": "L51",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "characters_artrules_immortalartrules_giftlabel",
       "community": 439,
@@ -5482,10 +5492,20 @@
       "norm_label": "cultivationsystem"
     },
     {
-      "label": "HashSet",
+      "label": "ResourceManager",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_core_characters_artsystem_cs_resourcemanager",
+      "community": 420,
+      "norm_label": "resourcemanager"
+    },
+    {
+      "label": "HashSet",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "src_core_characters_artsystem_cs_hashset",
       "community": 420,
@@ -5495,7 +5515,7 @@
       "label": ".HoldsLegacy()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L34",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "characters_artsystem_artsystem_holdslegacy",
       "community": 420,
@@ -5505,7 +5525,7 @@
       "label": "ImmortalArt",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L34",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "src_core_characters_artsystem_cs_immortalart",
       "community": 420,
@@ -5515,7 +5535,7 @@
       "label": ".GainLegacy()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L37",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "characters_artsystem_artsystem_gainlegacy",
       "community": 420,
@@ -5525,7 +5545,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L44",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "characters_artsystem_artsystem_restore",
       "community": 420,
@@ -5535,7 +5555,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L44",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "src_core_characters_artsystem_cs_ienumerable",
       "community": 420,
@@ -5545,7 +5565,7 @@
       "label": ".MasteryOf()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L50",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "characters_artsystem_artsystem_masteryof",
       "community": 420,
@@ -5555,7 +5575,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L50",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "src_core_characters_artsystem_cs_characterdata",
       "community": 420,
@@ -5565,7 +5585,7 @@
       "label": ".MasterOf()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L54",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "characters_artsystem_artsystem_masterof",
       "community": 420,
@@ -5575,7 +5595,7 @@
       "label": ".PracticeRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L59",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "characters_artsystem_artsystem_practicerefusal",
       "community": 420,
@@ -5585,7 +5605,7 @@
       "label": ".Practise()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L69",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "characters_artsystem_artsystem_practise",
       "community": 420,
@@ -5595,17 +5615,27 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L78",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "characters_artsystem_artsystem_processyear",
       "community": 420,
       "norm_label": ".processyear()"
     },
     {
+      "label": ".SellTheTalismans()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "characters_artsystem_artsystem_sellthetalismans",
+      "community": 420,
+      "norm_label": ".sellthetalismans()"
+    },
+    {
       "label": ".LoseWithTheLastMaster()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtSystem.cs",
-      "source_location": "L97",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "characters_artsystem_artsystem_losewiththelastmaster",
       "community": 420,
@@ -6698,7 +6728,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 447,
+      "community": 434,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -6708,7 +6738,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 447,
+      "community": 434,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -11828,7 +11858,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 448,
+      "community": 441,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -11838,7 +11868,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 448,
+      "community": 441,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -14408,7 +14438,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 447,
+      "community": 434,
       "norm_label": "combatunit.cs"
     },
     {
@@ -14418,7 +14448,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 447,
+      "community": 434,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -15258,7 +15288,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 434,
+      "community": 441,
       "norm_label": "enums.cs"
     },
     {
@@ -15268,7 +15298,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 434,
+      "community": 441,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -17158,7 +17188,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem",
-      "community": 441,
+      "community": 447,
       "norm_label": "alliancesystem.cs"
     },
     {
@@ -17168,7 +17198,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_mirrorchronicles_diplomacy",
-      "community": 441,
+      "community": 447,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -17178,7 +17208,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem",
-      "community": 441,
+      "community": 447,
       "norm_label": "alliancesystem"
     },
     {
@@ -17188,7 +17218,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_double",
-      "community": 441,
+      "community": 447,
       "norm_label": "double"
     },
     {
@@ -17198,7 +17228,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_gamecontext",
-      "community": 441,
+      "community": 447,
       "norm_label": "gamecontext"
     },
     {
@@ -17208,7 +17238,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_factionmanager",
-      "community": 441,
+      "community": 447,
       "norm_label": "factionmanager"
     },
     {
@@ -17218,7 +17248,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_resourcemanager",
-      "community": 441,
+      "community": 447,
       "norm_label": "resourcemanager"
     },
     {
@@ -17228,7 +17258,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_offertribute",
-      "community": 441,
+      "community": 447,
       "norm_label": ".offertribute()"
     },
     {
@@ -17238,7 +17268,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_declarewar",
-      "community": 441,
+      "community": 447,
       "norm_label": ".declarewar()"
     },
     {
@@ -17998,7 +18028,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 444,
+      "community": 441,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -18008,7 +18038,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 444,
+      "community": 441,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18138,7 +18168,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 434,
+      "community": 441,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -18148,7 +18178,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 434,
+      "community": 441,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -22158,7 +22188,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 448,
+      "community": 441,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -22168,7 +22198,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 448,
+      "community": 441,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -24828,7 +24858,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_mirrorsystem",
-      "community": 447,
+      "community": 434,
       "norm_label": "mirrorsystem.cs"
     },
     {
@@ -24838,7 +24868,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorchronicles_mirror",
-      "community": 447,
+      "community": 434,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -26995,7 +27025,7 @@
       "label": "ArtView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L25",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "presentation_artview_artview",
       "community": 212,
@@ -27005,7 +27035,7 @@
       "label": ".Legacies()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L27",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "presentation_artview_artview_legacies",
       "community": 212,
@@ -27015,7 +27045,7 @@
       "label": "GameSession",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L27",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "src_core_presentation_artview_cs_gamesession",
       "community": 212,
@@ -27025,7 +27055,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L27",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "src_core_presentation_artview_cs_ireadonlylist",
       "community": 212,
@@ -27035,7 +27065,7 @@
       "label": "ArtLegacyLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L27",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "artlegacyline",
       "community": 212,
@@ -27045,7 +27075,7 @@
       "label": ".Members()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L31",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "presentation_artview_artview_members",
       "community": 212,
@@ -27055,7 +27085,7 @@
       "label": "ArtMemberLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L31",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "artmemberline",
       "community": 212,
@@ -27065,7 +27095,7 @@
       "label": ".PillStock()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L48",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "presentation_artview_artview_pillstock",
       "community": 212,
@@ -27075,7 +27105,7 @@
       "label": ".PillOffers()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L53",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "presentation_artview_artview_pilloffers",
       "community": 212,
@@ -27085,7 +27115,7 @@
       "label": "PillOffer",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L53",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "pilloffer",
       "community": 212,
@@ -27095,7 +27125,7 @@
       "label": ".ExamineOffer()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L67",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "presentation_artview_artview_examineoffer",
       "community": 212,
@@ -27105,7 +27135,7 @@
       "label": "ExamineOffer",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L67",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "examineoffer",
       "community": 212,
@@ -40920,6 +40950,36 @@
       "id": "characters_artsystemtests_artsystemtests_thelegacies_andthemastery_surviveasave",
       "community": 438,
       "norm_label": ".thelegacies_andthemastery_surviveasave()"
+    },
+    {
+      "label": ".ATalismanDrawer_SellsItsYearsTalismans_ForStones()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_atalismandrawer_sellsitsyearstalismans_forstones",
+      "community": 438,
+      "norm_label": ".atalismandrawer_sellsitsyearstalismans_forstones()"
+    },
+    {
+      "label": ".AMasterOrAGenius_DrawsDearerTalismans()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L150",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_amasteroragenius_drawsdearertalismans",
+      "community": 438,
+      "norm_label": ".amasteroragenius_drawsdearertalismans()"
+    },
+    {
+      "label": ".TheOtherArts_SellNothing()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L165",
+      "_origin": "ast",
+      "id": "characters_artsystemtests_artsystemtests_theotherarts_sellnothing",
+      "community": 438,
+      "norm_label": ".theotherarts_sellnothing()"
     },
     {
       "label": "ArtifactFindTests.cs",
@@ -62352,6 +62412,16 @@
       "norm_label": ".theexamination_isoffered_tothebestalchemist_orsayswhynot()"
     },
     {
+      "label": ".TheTalismans_SayWhatTheYearWouldSell()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "presentation_artviewtests_artviewtests_thetalismans_saywhattheyearwouldsell",
+      "community": 333,
+      "norm_label": ".thetalismans_saywhattheyearwouldsell()"
+    },
+    {
       "label": "ArtifactViewTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/ArtifactViewTests.cs",
@@ -77288,7 +77358,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 447,
+      "community": 434,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -77302,7 +77372,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player controls no character directly; observes, guides and influences a mortal family over generations to become the strongest cultivator clan of Mount Dali.",
-      "community": 447,
+      "community": 434,
       "norm_label": "player as consciousness trapped in ancestral bronze mirror",
       "id": "brain_claude_memory_mirror_consciousness_premise"
     },
@@ -77422,7 +77492,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 441,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -77435,7 +77505,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 441,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -77448,7 +77518,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 441,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -77608,7 +77678,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 441,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -77769,7 +77839,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 441,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -77917,7 +77987,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 434,
+      "community": 441,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -78083,7 +78153,7 @@
       "author": null,
       "contributor": null,
       "rationale": "2D multigenerational clan-management RPG with Xianxia cultivation, turn-based tactical combat, faction diplomacy and inheritance over 10+ generations.",
-      "community": 447,
+      "community": 434,
       "norm_label": "reflets de lignee: les chroniques du miroir (mirror chronicles)",
       "id": "readme_mirror_chronicles"
     },
@@ -78096,7 +78166,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 447,
+      "community": 434,
       "norm_label": "the mirror legacy (xuanjian xianzu) - inspiration",
       "id": "readme_the_mirror_legacy"
     },
@@ -88250,6 +88320,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules",
+      "target": "characters_artrules_immortalartrules_talismanstones",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
       "source_location": "L41",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -88338,6 +88418,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "characters_artrules_immortalartrules_talismanstones",
+      "target": "characters_artrules_immortalartrules_gift",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
       "source_location": "L43",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -88376,6 +88467,17 @@
       "confidence_score": 1.0,
       "source": "characters_artrules_immortalartrules_maypractise",
       "target": "src_core_characters_artrules_cs_characterdata"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L49",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_talismanstones",
+      "target": "src_core_characters_artrules_cs_characterdata",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -88475,6 +88577,17 @@
       "confidence_score": 1.0,
       "source": "characters_artrules_immortalartrules_rank",
       "target": "artsettings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtRules.cs",
+      "source_location": "L49",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artrules_immortalartrules_talismanstones",
+      "target": "artsettings",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -88620,6 +88733,16 @@
       "target": "characters_artsystem_artsystem_restore"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem",
+      "target": "characters_artsystem_artsystem_sellthetalismans",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/ArtSystem.cs",
@@ -88662,6 +88785,17 @@
       "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem",
       "target": "src_core_characters_artsystem_cs_hashset"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "field",
+      "source": "characters_artsystem_artsystem",
+      "target": "src_core_characters_artsystem_cs_resourcemanager",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -88840,6 +88974,17 @@
       "target": "src_core_characters_artsystem_cs_characterdata"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L100",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artsystem_artsystem_sellthetalismans",
+      "target": "src_core_characters_artsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -88871,6 +89016,17 @@
       "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_processyear",
       "target": "characters_artsystem_artsystem_practicerefusal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtSystem.cs",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "characters_artsystem_artsystem_processyear",
+      "target": "characters_artsystem_artsystem_sellthetalismans",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -134082,9 +134238,9 @@
       "source_file": "src/Core/Session/GameSession.cs",
       "source_location": "L311",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession",
-      "target": "session_gamesession_gamesession_savedbefore",
-      "confidence_score": 1.0
+      "target": "session_gamesession_gamesession_savedbefore"
     },
     {
       "relation": "method",
@@ -134180,9 +134336,9 @@
       "source_file": "src/Core/Session/GameSession.cs",
       "source_location": "L347",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_fromsavedata",
-      "target": "session_gamesession_gamesession_savedbefore",
-      "confidence_score": 1.0
+      "target": "session_gamesession_gamesession_savedbefore"
     },
     {
       "relation": "references",
@@ -134191,9 +134347,9 @@
       "source_location": "L311",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_savedbefore",
-      "target": "src_core_session_gamesession_cs_gamedata",
-      "confidence_score": 1.0
+      "target": "src_core_session_gamesession_cs_gamedata"
     },
     {
       "relation": "references",
@@ -136738,9 +136894,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L157",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_raisetheformation",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_raisetheformation"
     },
     {
       "relation": "method",
@@ -137030,9 +137186,9 @@
       "source_location": "L157",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_raisetheformation",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -137305,9 +137461,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_processyear",
-      "target": "world_eldersystem_eldersystem_raisetheformation",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_raisetheformation"
     },
     {
       "relation": "calls",
@@ -139902,9 +140058,9 @@
       "source_file": "src/Core/World/PowerFormation.cs",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformation",
-      "target": "world_powerformation_mirrorchronicles_world",
-      "confidence_score": 1.0
+      "target": "world_powerformation_mirrorchronicles_world"
     },
     {
       "relation": "contains",
@@ -139912,9 +140068,9 @@
       "source_file": "src/Core/World/PowerFormation.cs",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformation",
-      "target": "world_powerformation_powerformation",
-      "confidence_score": 1.0
+      "target": "world_powerformation_powerformation"
     },
     {
       "relation": "method",
@@ -139922,9 +140078,9 @@
       "source_file": "src/Core/World/PowerFormation.cs",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation",
-      "target": "world_powerformation_powerformation_cap",
-      "confidence_score": 1.0
+      "target": "world_powerformation_powerformation_cap"
     },
     {
       "relation": "method",
@@ -139932,9 +140088,9 @@
       "source_file": "src/Core/World/PowerFormation.cs",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation",
-      "target": "world_powerformation_powerformation_guard",
-      "confidence_score": 1.0
+      "target": "world_powerformation_powerformation_guard"
     },
     {
       "relation": "method",
@@ -139942,9 +140098,9 @@
       "source_file": "src/Core/World/PowerFormation.cs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation",
-      "target": "world_powerformation_powerformation_start",
-      "confidence_score": 1.0
+      "target": "world_powerformation_powerformation_start"
     },
     {
       "relation": "references",
@@ -139953,9 +140109,9 @@
       "source_location": "L14",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation_cap",
-      "target": "src_core_world_powerformation_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_powerformation_cs_factiondata"
     },
     {
       "relation": "references",
@@ -139964,9 +140120,9 @@
       "source_location": "L14",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation_cap",
-      "target": "src_core_world_powerformation_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_world_powerformation_cs_gamecontent"
     },
     {
       "relation": "calls",
@@ -139975,9 +140131,9 @@
       "source_file": "src/Core/World/PowerFormation.cs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation_start",
-      "target": "world_powerformation_powerformation_cap",
-      "confidence_score": 1.0
+      "target": "world_powerformation_powerformation_cap"
     },
     {
       "relation": "references",
@@ -139986,9 +140142,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation_guard",
-      "target": "src_core_world_powerformation_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_powerformation_cs_factiondata"
     },
     {
       "relation": "references",
@@ -139997,9 +140153,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation_start",
-      "target": "src_core_world_powerformation_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_powerformation_cs_factiondata"
     },
     {
       "relation": "references",
@@ -140008,9 +140164,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation_guard",
-      "target": "src_core_world_powerformation_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_world_powerformation_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -140019,9 +140175,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powerformation_powerformation_start",
-      "target": "src_core_world_powerformation_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_world_powerformation_cs_gamecontent"
     },
     {
       "relation": "contains",
@@ -148565,11 +148721,31 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_amasteroragenius_drawsdearertalismans",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
       "source_location": "L67",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "characters_artsystemtests_artsystemtests",
       "target": "characters_artsystemtests_artsystemtests_anordinarytalent_cultivatesless_agenius_more"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_atalismandrawer_sellsitsyearstalismans_forstones",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -148610,6 +148786,16 @@
       "confidence_score": 1.0,
       "source": "characters_artsystemtests_artsystemtests",
       "target": "characters_artsystemtests_artsystemtests_thelegacies_andthemastery_surviveasave"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L165",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests",
+      "target": "characters_artsystemtests_artsystemtests_theotherarts_sellnothing",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -148658,11 +148844,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_amasteroragenius_drawsdearertalismans",
+      "target": "characters_artsystemtests_artsystemtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
       "source_location": "L70",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "characters_artsystemtests_artsystemtests_anordinarytalent_cultivatesless_agenius_more",
       "target": "characters_artsystemtests_artsystemtests_session"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_atalismandrawer_sellsitsyearstalismans_forstones",
+      "target": "characters_artsystemtests_artsystemtests_session",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -148685,6 +148893,17 @@
       "confidence_score": 1.0,
       "source": "characters_artsystemtests_artsystemtests_thelegacies_andthemastery_surviveasave",
       "target": "characters_artsystemtests_artsystemtests_session"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_theotherarts_sellnothing",
+      "target": "characters_artsystemtests_artsystemtests_session",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -148735,11 +148954,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L159",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_amasteroragenius_drawsdearertalismans",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
       "source_location": "L72",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "characters_artsystemtests_artsystemtests_anordinarytalent_cultivatesless_agenius_more",
       "target": "characters_artsystemtests_artsystemtests_born"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L140",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_atalismandrawer_sellsitsyearstalismans_forstones",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -148801,6 +149042,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "characters_artsystemtests_artsystemtests_theotherarts_sellnothing",
+      "target": "characters_artsystemtests_artsystemtests_born",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
       "source_location": "L57",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -148844,6 +149096,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L150",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_amasteroragenius_drawsdearertalismans",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
       "source_location": "L67",
       "weight": 1.0,
       "context": "attribute",
@@ -148855,12 +149118,34 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L135",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_atalismandrawer_sellsitsyearstalismans_forstones",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
       "source_location": "L121",
       "weight": 1.0,
       "context": "attribute",
       "confidence_score": 1.0,
       "source": "characters_artsystemtests_artsystemtests_thelegacies_andthemastery_surviveasave",
       "target": "tests_core_tests_characters_artsystemtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/ArtSystemTests.cs",
+      "source_location": "L165",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_artsystemtests_artsystemtests_theotherarts_sellnothing",
+      "target": "tests_core_tests_characters_artsystemtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -186994,9 +187279,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests",
-      "target": "economy_formationmastertests_formationmastertests_theformationsheight_isbeyondafoundationpowersmaster",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_theformationsheight_isbeyondafoundationpowersmaster"
     },
     {
       "relation": "method",
@@ -187058,9 +187343,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_theformationsheight_isbeyondafoundationpowersmaster",
-      "target": "economy_formationmastertests_formationmastertests_session",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_session"
     },
     {
       "relation": "calls",
@@ -187168,9 +187453,9 @@
       "source_location": "L85",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_theformationsheight_isbeyondafoundationpowersmaster",
-      "target": "tests_core_tests_economy_formationmastertests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_economy_formationmastertests_cs_test"
     },
     {
       "relation": "references",
@@ -196957,6 +197242,16 @@
       "target": "presentation_artviewtests_artviewtests_thescreen_showsthelegacies_thegifts_andwhynot"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "presentation_artviewtests_artviewtests",
+      "target": "presentation_artviewtests_artviewtests_thetalismans_saywhattheyearwouldsell",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
@@ -196988,6 +197283,17 @@
       "confidence_score": 1.0,
       "source": "presentation_artviewtests_artviewtests_thepills_arecounted_andoffered_fortheelementstheclanneeds",
       "target": "tests_core_tests_presentation_artviewtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_artviewtests_artviewtests_thetalismans_saywhattheyearwouldsell",
+      "target": "tests_core_tests_presentation_artviewtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -219230,9 +219536,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests",
-      "target": "world_powerformationtests_mirrorchronicles_tests_world",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_mirrorchronicles_tests_world"
     },
     {
       "relation": "contains",
@@ -219240,9 +219546,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests",
-      "target": "world_powerformationtests_powerformationtests",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests"
     },
     {
       "relation": "method",
@@ -219250,9 +219556,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests",
-      "target": "world_powerformationtests_powerformationtests_aformation_guardsapower_againsttheclansthefts",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_aformation_guardsapower_againsttheclansthefts"
     },
     {
       "relation": "method",
@@ -219260,9 +219566,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests",
-      "target": "world_powerformationtests_powerformationtests_ahiredmaster_setsnohigherformation_thanitsown",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_ahiredmaster_setsnohigherformation_thanitsown"
     },
     {
       "relation": "method",
@@ -219270,9 +219576,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests",
-      "target": "world_powerformationtests_powerformationtests_anoldersave_givesthepowers_theirformations",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_anoldersave_givesthepowers_theirformations"
     },
     {
       "relation": "method",
@@ -219280,9 +219586,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests",
-      "target": "world_powerformationtests_powerformationtests_everypower_beginswithaformation_belowwhatitsrealmknows",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_everypower_beginswithaformation_belowwhatitsrealmknows"
     },
     {
       "relation": "method",
@@ -219290,9 +219596,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests",
-      "target": "world_powerformationtests_powerformationtests_itsmasters_raiseit_uptoitsrealmsknowledge",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_itsmasters_raiseit_uptoitsrealmsknowledge"
     },
     {
       "relation": "method",
@@ -219300,9 +219606,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests",
-      "target": "world_powerformationtests_powerformationtests_session",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_session"
     },
     {
       "relation": "calls",
@@ -219311,9 +219617,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_aformation_guardsapower_againsttheclansthefts",
-      "target": "world_powerformationtests_powerformationtests_session",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_session"
     },
     {
       "relation": "calls",
@@ -219322,9 +219628,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_ahiredmaster_setsnohigherformation_thanitsown",
-      "target": "world_powerformationtests_powerformationtests_session",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_session"
     },
     {
       "relation": "calls",
@@ -219333,9 +219639,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_anoldersave_givesthepowers_theirformations",
-      "target": "world_powerformationtests_powerformationtests_session",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_session"
     },
     {
       "relation": "calls",
@@ -219344,9 +219650,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_everypower_beginswithaformation_belowwhatitsrealmknows",
-      "target": "world_powerformationtests_powerformationtests_session",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_session"
     },
     {
       "relation": "calls",
@@ -219355,9 +219661,9 @@
       "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_itsmasters_raiseit_uptoitsrealmsknowledge",
-      "target": "world_powerformationtests_powerformationtests_session",
-      "confidence_score": 1.0
+      "target": "world_powerformationtests_powerformationtests_session"
     },
     {
       "relation": "references",
@@ -219366,9 +219672,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_session",
-      "target": "tests_core_tests_world_powerformationtests_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powerformationtests_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -219377,9 +219683,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_session",
-      "target": "tests_core_tests_world_powerformationtests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powerformationtests_cs_gamesession"
     },
     {
       "relation": "references",
@@ -219388,9 +219694,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_everypower_beginswithaformation_belowwhatitsrealmknows",
-      "target": "tests_core_tests_world_powerformationtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powerformationtests_cs_test"
     },
     {
       "relation": "references",
@@ -219399,9 +219705,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_aformation_guardsapower_againsttheclansthefts",
-      "target": "tests_core_tests_world_powerformationtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powerformationtests_cs_test"
     },
     {
       "relation": "references",
@@ -219410,9 +219716,9 @@
       "source_location": "L63",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_ahiredmaster_setsnohigherformation_thanitsown",
-      "target": "tests_core_tests_world_powerformationtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powerformationtests_cs_test"
     },
     {
       "relation": "references",
@@ -219421,9 +219727,9 @@
       "source_location": "L77",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_anoldersave_givesthepowers_theirformations",
-      "target": "tests_core_tests_world_powerformationtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powerformationtests_cs_test"
     },
     {
       "relation": "references",
@@ -219432,9 +219738,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_powerformationtests_powerformationtests_itsmasters_raiseit_uptoitsrealmsknowledge",
-      "target": "tests_core_tests_world_powerformationtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_powerformationtests_cs_test"
     },
     {
       "relation": "contains",
@@ -230123,5 +230429,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "a93ea30c91fec774bb21ea9e555dd9f2fd365d6f"
+  "built_at_commit": "2bd34b4be2f5c707d290cd894c836e4d67c3d97d"
 }

@@ -228,7 +228,7 @@ namespace MirrorChronicles.Session
             Light = new LightStrike(Context, Mirror, Factions, Suspicion);
             Moonlight = new MoonlightGift(Context, Mirror, Clan, Resources, Suspicion);
             Marks = new TechniqueMarks(Context, Mirror, Factions, Suspicion);
-            Arts = new ArtSystem(Context, Clan, Cultivation);
+            Arts = new ArtSystem(Context, Clan, Cultivation, Resources);
             Forge.Arts = Arts;
             Buildings.Arts = Arts;
             Buildings.Factions = Factions;

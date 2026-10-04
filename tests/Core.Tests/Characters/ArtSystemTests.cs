@@ -129,5 +129,49 @@ namespace MirrorChronicles.Tests.Characters
             Assert.IsTrue(back.Arts.HoldsLegacy(ImmortalArt.Formations));
             Assert.AreEqual(33, ArtSystem.MasteryOf(back.Clan.FindById(m.ID), ImmortalArt.Formations));
         }
+
+        // ---- Talismans (audit §2.4: « one of the few ways to earn stones », wiki Li_Xuanxuan) ----
+
+        [Test]
+        public void ATalismanDrawer_SellsItsYearsTalismans_ForStones()
+        {
+            var s = Session();
+            s.Arts.GainLegacy(ImmortalArt.Talismans);
+            var drawer = Born(s, ArtGift.Ordinary, ImmortalArt.Talismans);
+            drawer.ArtMastery[ImmortalArt.Talismans] = 40;
+            int expected = ImmortalArtRules.TalismanStones(drawer, S);
+            Assert.Greater(expected, 0);
+            Assert.IsNull(s.Arts.Practise(drawer, ImmortalArt.Talismans));
+            int stones = s.Resources.SpiritStones;
+            s.Arts.ProcessYear();
+            Assert.AreEqual(stones + expected, s.Resources.SpiritStones);
+        }
+
+        [Test]
+        public void AMasterOrAGenius_DrawsDearerTalismans()
+        {
+            var apprentice = new CharacterData { ID = "a", TalismanQiId = "holding-profit" };
+            apprentice.ArtMastery[ImmortalArt.Talismans] = 10;
+            var master = new CharacterData { ID = "m", TalismanQiId = "holding-profit" };
+            master.ArtMastery[ImmortalArt.Talismans] = 80;
+            Assert.Greater(ImmortalArtRules.TalismanStones(master, S), ImmortalArtRules.TalismanStones(apprentice, S));
+            var s = Session();
+            var genius = Born(s, ArtGift.Genius, ImmortalArt.Talismans);
+            var ordinary = Born(s, ArtGift.Ordinary, ImmortalArt.Talismans);
+            genius.ArtMastery[ImmortalArt.Talismans] = ordinary.ArtMastery[ImmortalArt.Talismans] = 40;
+            Assert.Greater(ImmortalArtRules.TalismanStones(genius, S), ImmortalArtRules.TalismanStones(ordinary, S));
+        }
+
+        [Test]
+        public void TheOtherArts_SellNothing()
+        {
+            var s = Session();
+            s.Arts.GainLegacy(ImmortalArt.Alchemy);
+            var m = Born(s, ArtGift.Ordinary);
+            Assert.IsNull(s.Arts.Practise(m, ImmortalArt.Alchemy));
+            int stones = s.Resources.SpiritStones;
+            s.Arts.ProcessYear();
+            Assert.AreEqual(stones, s.Resources.SpiritStones);
+        }
     }
 }

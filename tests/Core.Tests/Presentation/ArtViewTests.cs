@@ -64,5 +64,20 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.AreEqual(adept.ID, offer.AlchemistId);
             StringAssert.Contains(adept.FullName, offer.Label);
         }
+
+        [Test]
+        public void TheTalismans_SayWhatTheYearWouldSell()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            s.Arts.GainLegacy(ImmortalArt.Talismans);
+            var drawer = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5);
+            drawer.TalismanQiId = "holding-profit";
+            drawer.ArtMastery[ImmortalArt.Talismans] = 40;
+            s.Clan.AddMember(drawer);
+            var skills = ArtView.Members(s).Single(l => l.Id == drawer.ID).Skills;
+            int stones = ImmortalArtRules.TalismanStones(drawer, s.Context.Content.Balance.Arts);
+            StringAssert.Contains($"{stones} pierres", skills.Single(k => k.Art == ImmortalArt.Talismans).Yield);
+            Assert.IsNull(skills.Single(k => k.Art == ImmortalArt.Forge).Yield, "only the talismans sell");
+        }
     }
 }
