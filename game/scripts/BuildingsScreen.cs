@@ -43,6 +43,23 @@ namespace MirrorChronicles.Game
                 text.AddChild(new Label { Text = $"{building.Name} — niveau {building.Level}/{building.MaxLevel}" });
                 text.AddChild(Detail(building.Effect == null ? "Pas encore bâti." : $"Aujourd'hui : {building.Effect}."));
                 if (building.NextEffect != null) text.AddChild(Detail($"Au niveau {building.Level + 1} : {building.NextEffect}."));
+                if (building.HirePower != null) // a friendly power's formation master (audit §2.3): under the text, the row stays narrow
+                {
+                    var hire = new Button
+                    {
+                        Text = building.HireLabel, Disabled = building.HireRefusal != null, TooltipText = building.HireRefusal ?? "",
+                        SizeFlagsHorizontal = SizeFlags.ShrinkBegin
+                    };
+                    string power = building.HirePower;
+                    hire.Pressed += () =>
+                    {
+                        status.Text = root.Session.Buildings.HireFormation(power) is { } why
+                            ? $"Refusé : {why}." : $"Le maître de {power} élève la formation au niveau {building.Level + 1}.";
+                        Refresh();
+                    };
+                    text.AddChild(hire);
+                    if (building.HireRefusal != null) text.AddChild(Detail($"(location : {building.HireRefusal})"));
+                }
                 row.AddChild(text);
                 if (building.Cost is int cost)
                 {

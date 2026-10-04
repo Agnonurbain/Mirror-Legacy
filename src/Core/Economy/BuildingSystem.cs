@@ -4,6 +4,7 @@ using System.Linq;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
+using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Economy
@@ -48,6 +49,68 @@ namespace MirrorChronicles.Economy
 
         public BuildingData GetBuilding(BuildingType type) => buildings.Find(b => b.Type == type);
 
+        /// <summary>The clan's Immortal Arts and the powers (set by the session): the Protective Formation asks a formation master (audit §2.3).</summary>
+        public ArtSystem Arts { get; set; }
+        public FactionManager Factions { get; set; }
+
+        private FormationSettings Formation => ctx.Content.Balance.Arts.Formation;
+
+        /// <summary>The mastery of the formations the formation's next level asks (🔎): apprentice, then adept, then master.</summary>
+        private int FormationMasteryFor(int level) =>
+            level >= Formation.MasterFromLevel ? ctx.Content.Balance.Arts.MasterAt
+            : level >= Formation.AdeptFromLevel ? ctx.Content.Balance.Arts.AdeptAt : 1;
+
+        /// <summary>The clan's free formation master able to raise the formation's next level, or null.</summary>
+        public CharacterData FormationMaster()
+        {
+            if (Arts == null || !Arts.HoldsLegacy(ImmortalArt.Formations)) return null;
+            int needed = FormationMasteryFor(FormationLevel + 1);
+            return clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None && m.LastOperationYear != ctx.Clock.Year
+                    && ImmortalArtRules.MayPractise(m, ImmortalArt.Formations, ctx.Content.Balance.Arts) && ArtSystem.MasteryOf(m, ImmortalArt.Formations) >= needed)
+                .OrderBy(m => ArtSystem.MasteryOf(m, ImmortalArt.Formations)).FirstOrDefault(); // the least master that suffices
+        }
+
+        private string FormationRefusal()
+        {
+            if (FormationMaster() != null) return null;
+            string rank = ImmortalArtRules.Rank(FormationMasteryFor(FormationLevel + 1), ctx.Content.Balance.Arts);
+            return Arts.HoldsLegacy(ImmortalArt.Formations)
+                ? $"il faut un {rank} des formations libre cette année ; ou louer celui d'une puissance amie"
+                : "le clan ne tient pas l'héritage des formations ; on peut louer le maître d'une puissance amie";
+        }
+
+        /// <summary>The stones a power's formation master asks for the next level: the building's own, and its fee.</summary>
+        public int HireCost()
+        {
+            var building = GetBuilding(BuildingType.ProtectiveFormation);
+            return (int)(building.UpgradeCost * (1 + Formation.HireFeeShare));
+        }
+
+        /// <summary>Why this power cannot lend its formation master for the next level (French), or null.</summary>
+        public string HireRefusal(string powerName)
+        {
+            var building = GetBuilding(BuildingType.ProtectiveFormation);
+            if (building.Level >= MaxLevel) return "niveau maximal";
+            var power = Factions?.GetFactionByName(powerName);
+            if (power == null) return "puissance inconnue";
+            if (power.RelationWithPlayer < Formation.HireRelation) return $"il faut une relation de {Formation.HireRelation} au moins";
+            var realm = building.Level + 1 >= Formation.MasterFromLevel ? CultivationRealm.PurpleMansion : CultivationRealm.Foundation;
+            if (power.HighestRealm < realm) return realm == CultivationRealm.PurpleMansion
+                ? "seule une puissance du Manoir Pourpre a un maître pour ce niveau" : "cette puissance n'a pas de maître des formations";
+            if (resources.SpiritStones < HireCost()) return $"pierres insuffisantes ({resources.SpiritStones}/{HireCost()})";
+            return null;
+        }
+
+        /// <summary>A friendly power's formation master raises the formation by one level, for its fee. Null when done, else why not.</summary>
+        public string HireFormation(string powerName)
+        {
+            if (HireRefusal(powerName) is { } why) return why;
+            resources.ConsumeSpiritStones(HireCost());
+            GetBuilding(BuildingType.ProtectiveFormation).Level++;
+            ctx.Log.Info($"[Buildings] {powerName}'s formation master raises the Protective Formation to level {FormationLevel}.");
+            return null;
+        }
+
         public bool CanUpgrade(BuildingType type) => UpgradeRefusal(type) == null;
 
         /// <summary>Why the building cannot rise now, or null when it can: its height, a master at home to raise it, the stones.</summary>
@@ -56,10 +119,17 @@ namespace MirrorChronicles.Economy
             var building = GetBuilding(type);
             if (building.Level >= MaxLevel) return "niveau maximal";
 
-            var requiredRealm = BuildingData.GetRequiredRealm(type);
-            if (requiredRealm != CultivationRealm.Embryonic
-                && !clan.LivingMembers.Any(m => m.CaptorFaction == null && m.Realm >= requiredRealm)) // a captive raises nothing at home
-                return $"demande au domaine un cultivateur de rang {RankCatalog.RealmName(requiredRealm)} ou plus";
+            if (type == BuildingType.ProtectiveFormation && Arts != null) // an Immortal Art, not a realm (audit §2.3)
+            {
+                if (FormationRefusal() is { } noMaster) return noMaster;
+            }
+            else
+            {
+                var requiredRealm = BuildingData.GetRequiredRealm(type);
+                if (requiredRealm != CultivationRealm.Embryonic
+                    && !clan.LivingMembers.Any(m => m.CaptorFaction == null && m.Realm >= requiredRealm)) // a captive raises nothing at home
+                    return $"demande au domaine un cultivateur de rang {RankCatalog.RealmName(requiredRealm)} ou plus";
+            }
             if (resources.SpiritStones < building.UpgradeCost) return $"pierres insuffisantes ({resources.SpiritStones}/{building.UpgradeCost})";
             return null;
         }
@@ -69,7 +139,9 @@ namespace MirrorChronicles.Economy
             if (!CanUpgrade(type)) return false;
 
             var building = GetBuilding(type);
+            var master = type == BuildingType.ProtectiveFormation && Arts != null ? FormationMaster() : null;
             if (!resources.ConsumeSpiritStones(building.UpgradeCost)) return false;
+            if (master != null) master.LastOperationYear = ctx.Clock.Year; // its year's work
 
             building.Level++;
             ctx.Log.Info($"[Buildings] {type} rises to level {building.Level}.");

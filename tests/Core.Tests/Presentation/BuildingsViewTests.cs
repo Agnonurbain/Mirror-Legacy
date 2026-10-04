@@ -49,5 +49,20 @@ namespace MirrorChronicles.Tests.Presentation
             StringAssert.Contains("25 %", forge.Effect);
             StringAssert.Contains("affectés à la mine", forge.Effect, "not to be mistaken for the Mine building");
         }
+
+        [Test]
+        public void TheFormation_OffersAFriendlyPowersMaster()
+        {
+            var s = Session();
+            foreach (var f in s.Factions.Factions) f.RelationWithPlayer = 0;
+            var friend = s.Factions.Factions.First(f => f.HighestRealm >= CultivationRealm.Foundation);
+            friend.RelationWithPlayer = 60;
+            var line = BuildingsView.Buildings(s).Single(b => b.Type == BuildingType.ProtectiveFormation);
+            Assert.AreEqual(friend.Name, line.HirePower);
+            StringAssert.Contains(friend.Name, line.HireLabel);
+            StringAssert.Contains($"{s.Buildings.HireCost()} pierres", line.HireLabel);
+            Assert.AreEqual(s.Buildings.HireRefusal(friend.Name), line.HireRefusal);
+            Assert.IsNull(BuildingsView.Buildings(s).Single(b => b.Type == BuildingType.Mine).HirePower, "only the formation is hired");
+        }
     }
 }

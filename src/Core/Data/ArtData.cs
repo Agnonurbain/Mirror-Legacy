@@ -42,6 +42,21 @@ namespace MirrorChronicles.Data
         public int MasterAt { get; init; } = 80;
         public IReadOnlyList<ArtDefinition> Arts { get; init; } = new List<ArtDefinition>();
         public EssencePillSettings EssencePill { get; init; } = new EssencePillSettings();
+        public FormationSettings Formation { get; init; } = new FormationSettings();
+    }
+
+    /// <summary>
+    /// The Protective Formation as an Immortal Art (balance.json « arts.formation », AUDIT_LORE.md §2.3 — 🔎 interpretations): an
+    /// apprentice of the formations raises its first levels, an adept from <see cref="AdeptFromLevel"/>, a master from
+    /// <see cref="MasterFromLevel"/>; or a power at <see cref="HireRelation"/> or more lends its own for a fee (a share of the
+    /// stones on top), a Purple Mansion power for the formation's height.
+    /// </summary>
+    public sealed record FormationSettings
+    {
+        public int AdeptFromLevel { get; init; } = 3;
+        public int MasterFromLevel { get; init; } = 5;
+        public int HireRelation { get; init; } = 30;
+        public double HireFeeShare { get; init; } = 0.5;
     }
 
     /// <summary>

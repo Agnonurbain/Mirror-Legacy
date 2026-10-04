@@ -9,7 +9,12 @@ using MirrorChronicles.Session;
 namespace MirrorChronicles.Presentation
 {
     /// <summary>A building: its level, what it gives now (null at level 0) and at the next level (null at its height), the cost, and why not.</summary>
-    public sealed record BuildingLine(BuildingType Type, string Name, int Level, int MaxLevel, string Effect, string NextEffect, int? Cost, string Refusal);
+    public sealed record BuildingLine(BuildingType Type, string Name, int Level, int MaxLevel, string Effect, string NextEffect, int? Cost, string Refusal)
+    {
+        public string HirePower { get; init; }   // the formation: the friendly power whose master may be hired (null: none)
+        public string HireLabel { get; init; }
+        public string HireRefusal { get; init; }
+    }
 
     /// <summary>The clan's buildings (G6): eight of them, five levels each; the refusal is the upgrade's own.</summary>
     public static class BuildingsView
@@ -21,13 +26,28 @@ namespace MirrorChronicles.Presentation
                 .Select(b =>
                 {
                     bool atHeight = b.Level >= BuildingSystem.MaxLevel;
-                    return new BuildingLine(b.Type, Name(b.Type), b.Level, BuildingSystem.MaxLevel,
+                    var line = new BuildingLine(b.Type, Name(b.Type), b.Level, BuildingSystem.MaxLevel,
                         b.Level == 0 ? null : Effect(b.Type, b.Level, veins),
                         atHeight ? null : Effect(b.Type, b.Level + 1, veins),
                         atHeight ? null : b.UpgradeCost,
                         session.Buildings.UpgradeRefusal(b.Type));
+                    return b.Type == BuildingType.ProtectiveFormation && !atHeight ? Hire(session, line) : line;
                 })
                 .ToList();
+        }
+
+        /// <summary>The friendliest power able to lend its formation master (audit §2.3), else the friendliest at all, to say why not.</summary>
+        private static BuildingLine Hire(GameSession s, BuildingLine line)
+        {
+            var friends = s.Factions.Factions.Where(f => f.RelationWithPlayer > 0).OrderByDescending(f => f.RelationWithPlayer).ToList();
+            var power = friends.FirstOrDefault(f => s.Buildings.HireRefusal(f.Name) == null) ?? friends.FirstOrDefault();
+            if (power == null) return line;
+            return line with
+            {
+                HirePower = power.Name,
+                HireLabel = $"Louer le maître des formations de {power.Name} ({s.Buildings.HireCost()} pierres)",
+                HireRefusal = s.Buildings.HireRefusal(power.Name),
+            };
         }
 
         public static string Name(BuildingType type) => type switch

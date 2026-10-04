@@ -875,7 +875,7 @@
       "label": ".Detail()",
       "file_type": "code",
       "source_file": "game/scripts/BuildingsScreen.cs",
-      "source_location": "L72",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "scripts_buildingsscreen_buildingsscreen_detail",
       "community": 256,
@@ -885,7 +885,7 @@
       "label": ".RunSmoke()",
       "file_type": "code",
       "source_file": "game/scripts/BuildingsScreen.cs",
-      "source_location": "L75",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "scripts_buildingsscreen_buildingsscreen_runsmoke",
       "community": 256,
@@ -6698,7 +6698,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 434,
+      "community": 447,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -6708,7 +6708,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 434,
+      "community": 447,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -11138,7 +11138,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 183,
+      "community": 450,
       "norm_label": "woundsystem"
     },
     {
@@ -11148,7 +11148,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 183,
+      "community": 450,
       "norm_label": "double"
     },
     {
@@ -11158,7 +11158,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 183,
+      "community": 450,
       "norm_label": "int"
     },
     {
@@ -11168,7 +11168,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 183,
+      "community": 450,
       "norm_label": "gamecontext"
     },
     {
@@ -11178,7 +11178,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 183,
+      "community": 450,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -11188,7 +11188,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 183,
+      "community": 450,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -11198,7 +11198,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 183,
+      "community": 450,
       "norm_label": "characterdata"
     },
     {
@@ -11208,7 +11208,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 183,
+      "community": 450,
       "norm_label": ".applydaowound()"
     },
     {
@@ -11218,7 +11218,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 183,
+      "community": 450,
       "norm_label": ".applywound()"
     },
     {
@@ -11828,7 +11828,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 444,
+      "community": 448,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -11838,7 +11838,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 444,
+      "community": 448,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -14408,7 +14408,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 263,
+      "community": 447,
       "norm_label": "combatunit.cs"
     },
     {
@@ -14418,7 +14418,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 263,
+      "community": 447,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -16868,7 +16868,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_storyeventdata",
-      "community": 0,
+      "community": 451,
       "norm_label": "storyeventdata.cs"
     },
     {
@@ -16878,7 +16878,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "data_storyeventdata_mirrorchronicles_data",
-      "community": 0,
+      "community": 451,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -16888,7 +16888,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "data_storyeventdata_storyeventdata",
-      "community": 0,
+      "community": 451,
       "norm_label": "storyeventdata"
     },
     {
@@ -16898,7 +16898,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "data_storyeventdata_storychoice",
-      "community": 0,
+      "community": 451,
       "norm_label": "storychoice"
     },
     {
@@ -16908,7 +16908,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "data_storyeventdata_storyoutcome",
-      "community": 0,
+      "community": 451,
       "norm_label": "storyoutcome"
     },
     {
@@ -17998,7 +17998,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 444,
+      "community": 441,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -18008,7 +18008,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 444,
+      "community": 441,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -21555,7 +21555,7 @@
       "label": "MirrorChronicles.Economy",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L9",
+      "source_location": "L10",
       "_origin": "ast",
       "id": "economy_buildingsystem_mirrorchronicles_economy",
       "community": 25,
@@ -21565,7 +21565,7 @@
       "label": "BuildingSystem",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "economy_buildingsystem_buildingsystem",
       "community": 25,
@@ -21575,7 +21575,7 @@
       "label": "int",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_int",
       "community": 25,
@@ -21585,7 +21585,7 @@
       "label": "double",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_double",
       "community": 25,
@@ -21595,7 +21595,7 @@
       "label": "GameContext",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_gamecontext",
       "community": 25,
@@ -21605,7 +21605,7 @@
       "label": "ClanManager",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_clanmanager",
       "community": 25,
@@ -21615,7 +21615,7 @@
       "label": "ResourceManager",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_resourcemanager",
       "community": 25,
@@ -21625,7 +21625,7 @@
       "label": "MentalStabilitySystem",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_mentalstabilitysystem",
       "community": 25,
@@ -21635,7 +21635,7 @@
       "label": "CultivationSystem",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_cultivationsystem",
       "community": 25,
@@ -21645,7 +21645,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_list",
       "community": 25,
@@ -21655,7 +21655,7 @@
       "label": ".GetBuilding()",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "economy_buildingsystem_buildingsystem_getbuilding",
       "community": 25,
@@ -21665,7 +21665,7 @@
       "label": "BuildingType",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_buildingtype",
       "community": 25,
@@ -21675,17 +21675,87 @@
       "label": "BuildingData",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "buildingdata",
       "community": 25,
       "norm_label": "buildingdata"
     },
     {
+      "label": ".FormationMasteryFor()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "economy_buildingsystem_buildingsystem_formationmasteryfor",
+      "community": 25,
+      "norm_label": ".formationmasteryfor()"
+    },
+    {
+      "label": ".FormationMaster()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "economy_buildingsystem_buildingsystem_formationmaster",
+      "community": 25,
+      "norm_label": ".formationmaster()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "src_core_economy_buildingsystem_cs_characterdata",
+      "community": 25,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".FormationRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "economy_buildingsystem_buildingsystem_formationrefusal",
+      "community": 25,
+      "norm_label": ".formationrefusal()"
+    },
+    {
+      "label": ".HireCost()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L83",
+      "_origin": "ast",
+      "id": "economy_buildingsystem_buildingsystem_hirecost",
+      "community": 25,
+      "norm_label": ".hirecost()"
+    },
+    {
+      "label": ".HireRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L90",
+      "_origin": "ast",
+      "id": "economy_buildingsystem_buildingsystem_hirerefusal",
+      "community": 25,
+      "norm_label": ".hirerefusal()"
+    },
+    {
+      "label": ".HireFormation()",
+      "file_type": "code",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "economy_buildingsystem_buildingsystem_hireformation",
+      "community": 25,
+      "norm_label": ".hireformation()"
+    },
+    {
       "label": ".CanUpgrade()",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L51",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "economy_buildingsystem_buildingsystem_canupgrade",
       "community": 25,
@@ -21695,7 +21765,7 @@
       "label": ".UpgradeRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L54",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "economy_buildingsystem_buildingsystem_upgraderefusal",
       "community": 25,
@@ -21705,7 +21775,7 @@
       "label": ".Upgrade()",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L67",
+      "source_location": "L137",
       "_origin": "ast",
       "id": "economy_buildingsystem_buildingsystem_upgrade",
       "community": 25,
@@ -21715,7 +21785,7 @@
       "label": ".ApplyPassiveBonuses()",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L82",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "economy_buildingsystem_buildingsystem_applypassivebonuses",
       "community": 25,
@@ -21725,7 +21795,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L111",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "economy_buildingsystem_buildingsystem_restore",
       "community": 25,
@@ -21735,7 +21805,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
-      "source_location": "L111",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "src_core_economy_buildingsystem_cs_ienumerable",
       "community": 25,
@@ -22088,7 +22158,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 444,
+      "community": 448,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -22098,7 +22168,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 444,
+      "community": 448,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -23788,7 +23858,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_storyeventmanager",
-      "community": 0,
+      "community": 451,
       "norm_label": "storyeventmanager.cs"
     },
     {
@@ -23798,7 +23868,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "events_storyeventmanager_mirrorchronicles_events",
-      "community": 0,
+      "community": 451,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -24758,7 +24828,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_mirrorsystem",
-      "community": 263,
+      "community": 447,
       "norm_label": "mirrorsystem.cs"
     },
     {
@@ -24768,7 +24838,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorchronicles_mirror",
-      "community": 263,
+      "community": 447,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -27498,7 +27568,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "presentation_buildingsview",
-      "community": 250,
+      "community": 248,
       "norm_label": "buildingsview.cs"
     },
     {
@@ -27508,14 +27578,14 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "presentation_buildingsview_mirrorchronicles_presentation",
-      "community": 250,
+      "community": 248,
       "norm_label": "mirrorchronicles.presentation"
     },
     {
       "label": "BuildingsView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
-      "source_location": "L15",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "presentation_buildingsview_buildingsview",
       "community": 250,
@@ -27525,7 +27595,7 @@
       "label": ".Buildings()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
-      "source_location": "L17",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "presentation_buildingsview_buildingsview_buildings",
       "community": 250,
@@ -27535,7 +27605,7 @@
       "label": "GameSession",
       "file_type": "code",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
-      "source_location": "L17",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "src_core_presentation_buildingsview_cs_gamesession",
       "community": 250,
@@ -27545,7 +27615,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
-      "source_location": "L17",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "src_core_presentation_buildingsview_cs_ireadonlylist",
       "community": 250,
@@ -27555,17 +27625,27 @@
       "label": "BuildingLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
-      "source_location": "L17",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "buildingline",
       "community": 250,
       "norm_label": "buildingline"
     },
     {
+      "label": ".Hire()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/BuildingsView.cs",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "presentation_buildingsview_buildingsview_hire",
+      "community": 250,
+      "norm_label": ".hire()"
+    },
+    {
       "label": ".Name()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
-      "source_location": "L33",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "presentation_buildingsview_buildingsview_name",
       "community": 250,
@@ -27575,7 +27655,7 @@
       "label": "BuildingType",
       "file_type": "code",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
-      "source_location": "L33",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "src_core_presentation_buildingsview_cs_buildingtype",
       "community": 250,
@@ -27585,7 +27665,7 @@
       "label": ".Effect()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
-      "source_location": "L48",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "presentation_buildingsview_buildingsview_effect",
       "community": 250,
@@ -27595,7 +27675,7 @@
       "label": ".Percent()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
-      "source_location": "L61",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "presentation_buildingsview_buildingsview_percent",
       "community": 250,
@@ -32395,7 +32475,7 @@
       "label": ".NewGame()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L257",
+      "source_location": "L259",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_newgame",
       "community": 251,
@@ -32405,7 +32485,7 @@
       "label": "GameSetup",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L257",
+      "source_location": "L259",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamesetup",
       "community": 251,
@@ -32415,7 +32495,7 @@
       "label": ".TryLoad()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L291",
+      "source_location": "L293",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tryload",
       "community": 251,
@@ -32425,7 +32505,7 @@
       "label": ".FromSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L308",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_fromsavedata",
       "community": 251,
@@ -32435,7 +32515,7 @@
       "label": "GameData",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L308",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
       "community": 251,
@@ -32445,7 +32525,7 @@
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L419",
+      "source_location": "L421",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 251,
@@ -32455,7 +32535,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L522",
+      "source_location": "L524",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -32465,7 +32545,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L522",
+      "source_location": "L524",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 251,
@@ -32475,7 +32555,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L526",
+      "source_location": "L528",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -32485,7 +32565,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L537",
+      "source_location": "L539",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -32495,7 +32575,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L544",
+      "source_location": "L546",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -32505,7 +32585,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L544",
+      "source_location": "L546",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -32515,7 +32595,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L604",
+      "source_location": "L606",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -57542,6 +57622,136 @@
       "norm_label": ".acaptivecultivator_cannotraiseabuildingathome()"
     },
     {
+      "label": "FormationMasterTests.cs",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "economy_formationmastertests",
+      "community": 446,
+      "norm_label": "formationmastertests.cs"
+    },
+    {
+      "label": "MirrorChronicles.Tests.Economy",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "economy_formationmastertests_mirrorchronicles_tests_economy",
+      "community": 446,
+      "norm_label": "mirrorchronicles.tests.economy"
+    },
+    {
+      "label": "FormationMasterTests",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "economy_formationmastertests_formationmastertests",
+      "community": 446,
+      "norm_label": "formationmastertests"
+    },
+    {
+      "label": ".Session()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "economy_formationmastertests_formationmastertests_session",
+      "community": 446,
+      "norm_label": ".session()"
+    },
+    {
+      "label": "GameSession",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "tests_core_tests_economy_formationmastertests_cs_gamesession",
+      "community": 446,
+      "norm_label": "gamesession"
+    },
+    {
+      "label": ".Master()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "economy_formationmastertests_formationmastertests_master",
+      "community": 446,
+      "norm_label": ".master()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "tests_core_tests_economy_formationmastertests_cs_characterdata",
+      "community": 446,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".WithoutAFormationMaster_TheFormationDoesNotRise()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "economy_formationmastertests_formationmastertests_withoutaformationmaster_theformationdoesnotrise",
+      "community": 446,
+      "norm_label": ".withoutaformationmaster_theformationdoesnotrise()"
+    },
+    {
+      "label": "Test",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "tests_core_tests_economy_formationmastertests_cs_test",
+      "community": 446,
+      "norm_label": "test"
+    },
+    {
+      "label": ".AnApprentice_RaisesTheFirstLevels_AndSpendsItsYear()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear",
+      "community": 446,
+      "norm_label": ".anapprentice_raisesthefirstlevels_andspendsitsyear()"
+    },
+    {
+      "label": ".TheHigherLevels_AskAnAdept_ThenAMaster()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster",
+      "community": 446,
+      "norm_label": ".thehigherlevels_askanadept_thenamaster()"
+    },
+    {
+      "label": ".AFriendlyPower_LendsItsMaster_ForAFee()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "economy_formationmastertests_formationmastertests_afriendlypower_lendsitsmaster_forafee",
+      "community": 446,
+      "norm_label": ".afriendlypower_lendsitsmaster_forafee()"
+    },
+    {
+      "label": ".TheFormationsHeight_AsksAPurpleMansionPower()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "economy_formationmastertests_formationmastertests_theformationsheight_asksapurplemansionpower",
+      "community": 446,
+      "norm_label": ".theformationsheight_asksapurplemansionpower()"
+    },
+    {
       "label": "ResourceManagerTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/ResourceManagerTests.cs",
@@ -62420,6 +62630,16 @@
       "id": "presentation_buildingsviewtests_buildingsviewtests_abuildingatitsheight_hasnonextlevel",
       "community": 258,
       "norm_label": ".abuildingatitsheight_hasnonextlevel()"
+    },
+    {
+      "label": ".TheFormation_OffersAFriendlyPowersMaster()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/BuildingsViewTests.cs",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "presentation_buildingsviewtests_buildingsviewtests_theformation_offersafriendlypowersmaster",
+      "community": 258,
+      "norm_label": ".theformation_offersafriendlypowersmaster()"
     },
     {
       "label": "ChronicleTests.cs",
@@ -75948,7 +76168,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "brain_claude_plan_syst\u00e8mes_du_jeu_d\u00e9tail",
-      "community": 41,
+      "community": 449,
       "norm_label": "\ud83e\udde9 systemes du jeu (detail)"
     },
     {
@@ -75958,7 +76178,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "brain_claude_plan_1_core_boucle_principale",
-      "community": 41,
+      "community": 449,
       "norm_label": "1. core \u2014 boucle principale"
     },
     {
@@ -75968,7 +76188,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "brain_claude_plan_2_mirror_interface_joueur",
-      "community": 41,
+      "community": 449,
       "norm_label": "2. mirror \u2014 interface joueur"
     },
     {
@@ -75978,7 +76198,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "brain_claude_plan_3_clan_lign\u00e9e",
-      "community": 41,
+      "community": 449,
       "norm_label": "3. clan \u2014 lignee"
     },
     {
@@ -75988,7 +76208,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "brain_claude_plan_4_characters_individus",
-      "community": 41,
+      "community": 449,
       "norm_label": "4. characters \u2014 individus"
     },
     {
@@ -75998,7 +76218,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "brain_claude_plan_5_combat_tactique_tour_par_tour",
-      "community": 41,
+      "community": 449,
       "norm_label": "5. combat \u2014 tactique tour par tour"
     },
     {
@@ -76008,7 +76228,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "brain_claude_plan_6_diplomacy_monde_ext\u00e9rieur",
-      "community": 41,
+      "community": 449,
       "norm_label": "6. diplomacy \u2014 monde exterieur"
     },
     {
@@ -76018,7 +76238,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "brain_claude_plan_7_economy_ressources_t\u00e2ches",
-      "community": 41,
+      "community": 449,
       "norm_label": "7. economy \u2014 ressources & taches"
     },
     {
@@ -76028,7 +76248,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "brain_claude_plan_8_events_al\u00e9atoire_sc\u00e9naris\u00e9",
-      "community": 41,
+      "community": 449,
       "norm_label": "8. events \u2014 aleatoire + scenarise"
     },
     {
@@ -76278,7 +76498,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_worked_lesson_md_bugs_identifi\u00e9s_le\u00e7ons_apprises",
-      "community": 45,
+      "community": 452,
       "norm_label": "\ud83d\udcda worked_lesson.md \u2014 bugs identifies & lecons apprises"
     },
     {
@@ -76288,7 +76508,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_comment_utiliser_ce_fichier",
-      "community": 45,
+      "community": 452,
       "norm_label": "\ud83d\udcd6 comment utiliser ce fichier"
     },
     {
@@ -76478,7 +76698,7 @@
       "source_location": "L292",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_le\u00e7ons_d_architecture_design",
-      "community": 45,
+      "community": 452,
       "norm_label": "\ud83d\udcd0 lecons d'architecture & design"
     },
     {
@@ -76488,7 +76708,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_100_pivot_unity_web_unity_cause_de_la_dette",
-      "community": 45,
+      "community": 452,
       "norm_label": "wl-100 \u2014 pivot unity \u2192 web \u2192 unity : cause de la dette"
     },
     {
@@ -76498,7 +76718,7 @@
       "source_location": "L308",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_101_factions_hardcod\u00e9es_au_lieu_de_scriptableobjects",
-      "community": 45,
+      "community": 452,
       "norm_label": "wl-101 \u2014 factions hardcodees au lieu de scriptableobjects"
     },
     {
@@ -76508,7 +76728,7 @@
       "source_location": "L322",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_template_pour_nouvelles_entr\u00e9es",
-      "community": 45,
+      "community": 452,
       "norm_label": "\ud83d\udcdd template pour nouvelles entrees"
     },
     {
@@ -76848,7 +77068,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 263,
+      "community": 447,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -76862,7 +77082,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player controls no character directly; observes, guides and influences a mortal family over generations to become the strongest cultivator clan of Mount Dali.",
-      "community": 263,
+      "community": 447,
       "norm_label": "player as consciousness trapped in ancestral bronze mirror",
       "id": "brain_claude_memory_mirror_consciousness_premise"
     },
@@ -76982,7 +77202,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 448,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -76995,7 +77215,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 448,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -77008,7 +77228,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 448,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -77168,7 +77388,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 448,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -77329,7 +77549,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 448,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -77449,7 +77669,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Inconsistent AI-generated renames; prevention: IDE Refactor->Rename, treat CS0103 as error.",
-      "community": 441,
+      "community": 434,
       "norm_label": "wl-001: deceased.rootelement does not exist (use affinity)",
       "id": "brain_claude_worked_lesson_wl_001"
     },
@@ -77463,7 +77683,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Avoid repeating the type prefix in method names.",
-      "community": 441,
+      "community": 434,
       "norm_label": "wl-002: mirrorsystem.consumemirrorpower does not exist (consumepower)",
       "id": "brain_claude_worked_lesson_wl_002"
     },
@@ -77491,7 +77711,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Write real NUnit tests so signature drift is caught immediately.",
-      "community": 441,
+      "community": 434,
       "norm_label": "wl-004: eventmanager.generateyearlyevent missing / triggeryearlyevent private",
       "id": "brain_claude_worked_lesson_wl_004"
     },
@@ -77505,7 +77725,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Separate test assembly + InternalsVisibleTo strategy from the start.",
-      "community": 441,
+      "community": 434,
       "norm_label": "wl-005: private factionmanager.processyearlyfactionai called from test",
       "id": "brain_claude_worked_lesson_wl_005"
     },
@@ -77589,7 +77809,7 @@
       "author": null,
       "contributor": null,
       "rationale": "AI Studio forced a web format and C# was generated alongside without ever being compiled, causing WL-001..005; pick one framework and execute after every AI prompt.",
-      "community": 441,
+      "community": 434,
       "norm_label": "wl-100: unity -> web -> unity pivot debt",
       "id": "brain_claude_worked_lesson_wl_100"
     },
@@ -77643,7 +77863,7 @@
       "author": null,
       "contributor": null,
       "rationale": "2D multigenerational clan-management RPG with Xianxia cultivation, turn-based tactical combat, faction diplomacy and inheritance over 10+ generations.",
-      "community": 263,
+      "community": 447,
       "norm_label": "reflets de lignee: les chroniques du miroir (mirror chronicles)",
       "id": "readme_mirror_chronicles"
     },
@@ -77656,7 +77876,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 263,
+      "community": 447,
       "norm_label": "the mirror legacy (xuanjian xianzu) - inspiration",
       "id": "readme_the_mirror_legacy"
     },
@@ -86830,9 +87050,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_examine",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_examine"
     },
     {
       "relation": "method",
@@ -86840,9 +87060,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_examinerefusal",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_examinerefusal"
     },
     {
       "relation": "method",
@@ -86870,9 +87090,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_poison",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_poison"
     },
     {
       "relation": "method",
@@ -86880,9 +87100,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_processyear",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_processyear"
     },
     {
       "relation": "method",
@@ -86910,9 +87130,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_remove",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_remove"
     },
     {
       "relation": "method",
@@ -86963,9 +87183,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "src_core_characters_alchemysystem_cs_factionmanager",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_factionmanager"
     },
     {
       "relation": "references",
@@ -86985,9 +87205,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "src_core_characters_alchemysystem_cs_list",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_list"
     },
     {
       "relation": "references",
@@ -87007,9 +87227,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "src_core_characters_alchemysystem_cs_suspicionledger",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_suspicionledger"
     },
     {
       "relation": "references",
@@ -87051,9 +87271,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_poison",
-      "target": "characters_alchemysystem_alchemysystem_essencepillsof",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_essencepillsof"
     },
     {
       "relation": "calls",
@@ -87062,9 +87282,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L173",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_restore",
-      "target": "characters_alchemysystem_alchemysystem_essencepillsof",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_essencepillsof"
     },
     {
       "relation": "calls",
@@ -87106,9 +87326,9 @@
       "source_location": "L93",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_poison",
-      "target": "src_core_characters_alchemysystem_cs_element",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_element"
     },
     {
       "relation": "references",
@@ -87128,9 +87348,9 @@
       "source_location": "L86",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_remove",
-      "target": "src_core_characters_alchemysystem_cs_element",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_element"
     },
     {
       "relation": "references",
@@ -87194,9 +87414,9 @@
       "source_location": "L113",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_examinerefusal",
-      "target": "src_core_characters_alchemysystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -87260,9 +87480,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_takeessencepill",
-      "target": "characters_alchemysystem_alchemysystem_remove",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_remove"
     },
     {
       "relation": "references",
@@ -87271,9 +87491,9 @@
       "source_location": "L70",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_takeessencepill",
-      "target": "pilltaken",
-      "confidence_score": 1.0
+      "target": "pilltaken"
     },
     {
       "relation": "calls",
@@ -87282,9 +87502,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_examine",
-      "target": "characters_alchemysystem_alchemysystem_remove",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_remove"
     },
     {
       "relation": "calls",
@@ -87293,9 +87513,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L109",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_processyear",
-      "target": "characters_alchemysystem_alchemysystem_poison",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_poison"
     },
     {
       "relation": "calls",
@@ -87304,9 +87524,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_examine",
-      "target": "characters_alchemysystem_alchemysystem_examinerefusal",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_examinerefusal"
     },
     {
       "relation": "references",
@@ -87315,9 +87535,9 @@
       "source_location": "L128",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_examine",
-      "target": "src_core_characters_alchemysystem_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_ireadonlylist"
     },
     {
       "relation": "calls",
@@ -87337,9 +87557,9 @@
       "source_location": "L167",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_restore",
-      "target": "poisonedpill",
-      "confidence_score": 1.0
+      "target": "poisonedpill"
     },
     {
       "relation": "references",
@@ -87348,9 +87568,9 @@
       "source_location": "L167",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_restore",
-      "target": "src_core_characters_alchemysystem_cs_ienumerable",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_ienumerable"
     },
     {
       "relation": "references",
@@ -115221,12 +115441,72 @@
     {
       "relation": "method",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem",
+      "target": "economy_buildingsystem_buildingsystem_formationmaster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem",
+      "target": "economy_buildingsystem_buildingsystem_formationmasteryfor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem",
+      "target": "economy_buildingsystem_buildingsystem_formationrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
       "source_file": "Assets/_Project/Scripts/Economy/BuildingSystem.cs",
       "source_location": "L51",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem",
       "target": "economy_buildingsystem_buildingsystem_getbuilding"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem",
+      "target": "economy_buildingsystem_buildingsystem_hirecost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem",
+      "target": "economy_buildingsystem_buildingsystem_hireformation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem",
+      "target": "economy_buildingsystem_buildingsystem_hirerefusal",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -115384,6 +115664,39 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_hirecost",
+      "target": "economy_buildingsystem_buildingsystem_getbuilding",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_hireformation",
+      "target": "economy_buildingsystem_buildingsystem_getbuilding",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_hirerefusal",
+      "target": "economy_buildingsystem_buildingsystem_getbuilding",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L105",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -115455,6 +115768,105 @@
       "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_restore",
       "target": "buildingdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_formationmaster",
+      "target": "economy_buildingsystem_buildingsystem_formationmasteryfor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_formationrefusal",
+      "target": "economy_buildingsystem_buildingsystem_formationmasteryfor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L64",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "economy_buildingsystem_buildingsystem_formationmaster",
+      "target": "src_core_economy_buildingsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_formationrefusal",
+      "target": "economy_buildingsystem_buildingsystem_formationmaster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_upgrade",
+      "target": "economy_buildingsystem_buildingsystem_formationmaster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_upgraderefusal",
+      "target": "economy_buildingsystem_buildingsystem_formationrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_hireformation",
+      "target": "economy_buildingsystem_buildingsystem_hirecost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_hirerefusal",
+      "target": "economy_buildingsystem_buildingsystem_hirecost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Economy/BuildingSystem.cs",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "economy_buildingsystem_buildingsystem_hireformation",
+      "target": "economy_buildingsystem_buildingsystem_hirerefusal",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -123267,9 +123679,9 @@
       "source_file": "src/Core/Presentation/ArtView.cs",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview",
-      "target": "presentation_artview_artview_examineoffer",
-      "confidence_score": 1.0
+      "target": "presentation_artview_artview_examineoffer"
     },
     {
       "relation": "method",
@@ -123351,9 +123763,9 @@
       "source_location": "L67",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_examineoffer",
-      "target": "src_core_presentation_artview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_artview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -123439,9 +123851,9 @@
       "source_location": "L67",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_examineoffer",
-      "target": "examineoffer",
-      "confidence_score": 1.0
+      "target": "examineoffer"
     },
     {
       "relation": "contains",
@@ -124345,6 +124757,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "presentation_buildingsview_buildingsview",
+      "target": "presentation_buildingsview_buildingsview_hire",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/BuildingsView.cs",
       "source_location": "L30",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -124388,6 +124810,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/BuildingsView.cs",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "presentation_buildingsview_buildingsview_buildings",
+      "target": "presentation_buildingsview_buildingsview_hire",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/BuildingsView.cs",
       "source_location": "L22",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -124415,6 +124848,28 @@
       "confidence_score": 1.0,
       "source": "presentation_buildingsview_buildingsview_buildings",
       "target": "src_core_presentation_buildingsview_cs_ireadonlylist"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/BuildingsView.cs",
+      "source_location": "L40",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_buildingsview_buildingsview_hire",
+      "target": "src_core_presentation_buildingsview_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/BuildingsView.cs",
+      "source_location": "L40",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "presentation_buildingsview_buildingsview_hire",
+      "target": "buildingline",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -135921,9 +136376,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_crossesthewall",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_crossesthewall"
     },
     {
       "relation": "method",
@@ -136031,9 +136486,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_refinepills",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_refinepills"
     },
     {
       "relation": "method",
@@ -136258,9 +136713,9 @@
       "source_location": "L141",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_crossesthewall",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -136313,9 +136768,9 @@
       "source_location": "L155",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_refinepills",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -136412,9 +136867,9 @@
       "source_location": "L141",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_crossesthewall",
-      "target": "src_core_world_eldersystem_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factionelder"
     },
     {
       "relation": "references",
@@ -136577,9 +137032,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_processyear",
-      "target": "world_eldersystem_eldersystem_refinepills",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_refinepills"
     },
     {
       "relation": "calls",
@@ -136632,9 +137087,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_rise",
-      "target": "world_eldersystem_eldersystem_crossesthewall",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_crossesthewall"
     },
     {
       "relation": "calls",
@@ -136643,9 +137098,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_crossesthewall",
-      "target": "world_eldersystem_eldersystem_die",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_die"
     },
     {
       "relation": "calls",
@@ -146208,9 +146663,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests",
-      "target": "characters_alchemysystemtests_alchemysystemtests_ahostilepower_mayslipapoisonedpill_intothestore",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_ahostilepower_mayslipapoisonedpill_intothestore"
     },
     {
       "relation": "method",
@@ -146228,9 +146683,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L169",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests",
-      "target": "characters_alchemysystemtests_alchemysystemtests_anadeptalchemist_findsthepoison_andwhoseitis",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_anadeptalchemist_findsthepoison_andwhoseitis"
     },
     {
       "relation": "method",
@@ -146248,9 +146703,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests",
-      "target": "characters_alchemysystemtests_alchemysystemtests_apoisonedpill_failsthewall",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_apoisonedpill_failsthewall"
     },
     {
       "relation": "method",
@@ -146278,9 +146733,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L130",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests",
-      "target": "characters_alchemysystemtests_alchemysystemtests_hostile",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_hostile"
     },
     {
       "relation": "method",
@@ -146328,9 +146783,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests",
-      "target": "characters_alchemysystemtests_alchemysystemtests_thepoisonedpills_aresaved",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_thepoisonedpills_aresaved"
     },
     {
       "relation": "method",
@@ -146370,9 +146825,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L172",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_anadeptalchemist_findsthepoison_andwhoseitis",
-      "target": "characters_alchemysystemtests_alchemysystemtests_session",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_session"
     },
     {
       "relation": "calls",
@@ -146392,9 +146847,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_apoisonedpill_failsthewall",
-      "target": "characters_alchemysystemtests_alchemysystemtests_session",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_session"
     },
     {
       "relation": "calls",
@@ -146447,9 +146902,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L189",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_thepoisonedpills_aresaved",
-      "target": "characters_alchemysystemtests_alchemysystemtests_session",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_session"
     },
     {
       "relation": "calls",
@@ -146502,9 +146957,9 @@
       "source_location": "L130",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_hostile",
-      "target": "tests_core_tests_characters_alchemysystemtests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_alchemysystemtests_cs_gamesession"
     },
     {
       "relation": "references",
@@ -146535,9 +146990,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_apoisonedpill_failsthewall",
-      "target": "characters_alchemysystemtests_alchemysystemtests_atthewall",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_atthewall"
     },
     {
       "relation": "references",
@@ -146634,9 +147089,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L173",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_anadeptalchemist_findsthepoison_andwhoseitis",
-      "target": "characters_alchemysystemtests_alchemysystemtests_alchemist",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_alchemist"
     },
     {
       "relation": "calls",
@@ -146667,9 +147122,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_apoisonedpill_failsthewall",
-      "target": "characters_alchemysystemtests_alchemysystemtests_elementof",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_elementof"
     },
     {
       "relation": "references",
@@ -146733,9 +147188,9 @@
       "source_location": "L138",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_ahostilepower_mayslipapoisonedpill_intothestore",
-      "target": "tests_core_tests_characters_alchemysystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_alchemysystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -146744,9 +147199,9 @@
       "source_location": "L169",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_anadeptalchemist_findsthepoison_andwhoseitis",
-      "target": "tests_core_tests_characters_alchemysystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_alchemysystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -146766,9 +147221,9 @@
       "source_location": "L155",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_apoisonedpill_failsthewall",
-      "target": "tests_core_tests_characters_alchemysystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_alchemysystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -146810,9 +147265,9 @@
       "source_location": "L186",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_thepoisonedpills_aresaved",
-      "target": "tests_core_tests_characters_alchemysystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_alchemysystemtests_cs_test"
     },
     {
       "relation": "calls",
@@ -146821,9 +147276,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_ahostilepower_mayslipapoisonedpill_intothestore",
-      "target": "characters_alchemysystemtests_alchemysystemtests_hostile",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_hostile"
     },
     {
       "relation": "calls",
@@ -146832,9 +147287,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L174",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_anadeptalchemist_findsthepoison_andwhoseitis",
-      "target": "characters_alchemysystemtests_alchemysystemtests_hostile",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_hostile"
     },
     {
       "relation": "calls",
@@ -146843,9 +147298,9 @@
       "source_file": "tests/Core.Tests/Characters/AlchemySystemTests.cs",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_apoisonedpill_failsthewall",
-      "target": "characters_alchemysystemtests_alchemysystemtests_hostile",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystemtests_alchemysystemtests_hostile"
     },
     {
       "relation": "references",
@@ -146854,9 +147309,9 @@
       "source_location": "L130",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystemtests_alchemysystemtests_hostile",
-      "target": "tests_core_tests_characters_alchemysystemtests_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_alchemysystemtests_cs_factiondata"
     },
     {
       "relation": "contains",
@@ -186065,6 +186520,261 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "economy_formationmastertests",
+      "target": "economy_formationmastertests_formationmastertests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "economy_formationmastertests",
+      "target": "economy_formationmastertests_mirrorchronicles_tests_economy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests",
+      "target": "economy_formationmastertests_formationmastertests_afriendlypower_lendsitsmaster_forafee",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests",
+      "target": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests",
+      "target": "economy_formationmastertests_formationmastertests_master",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests",
+      "target": "economy_formationmastertests_formationmastertests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests",
+      "target": "economy_formationmastertests_formationmastertests_theformationsheight_asksapurplemansionpower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests",
+      "target": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests",
+      "target": "economy_formationmastertests_formationmastertests_withoutaformationmaster_theformationdoesnotrise",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests_afriendlypower_lendsitsmaster_forafee",
+      "target": "economy_formationmastertests_formationmastertests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear",
+      "target": "economy_formationmastertests_formationmastertests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "economy_formationmastertests_formationmastertests_session",
+      "target": "tests_core_tests_economy_formationmastertests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests_theformationsheight_asksapurplemansionpower",
+      "target": "economy_formationmastertests_formationmastertests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster",
+      "target": "economy_formationmastertests_formationmastertests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests_withoutaformationmaster_theformationdoesnotrise",
+      "target": "economy_formationmastertests_formationmastertests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "economy_formationmastertests_formationmastertests_master",
+      "target": "tests_core_tests_economy_formationmastertests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear",
+      "target": "economy_formationmastertests_formationmastertests_master",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "economy_formationmastertests_formationmastertests_master",
+      "target": "tests_core_tests_economy_formationmastertests_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster",
+      "target": "economy_formationmastertests_formationmastertests_master",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_formationmastertests_formationmastertests_withoutaformationmaster_theformationdoesnotrise",
+      "target": "tests_core_tests_economy_formationmastertests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_formationmastertests_formationmastertests_afriendlypower_lendsitsmaster_forafee",
+      "target": "tests_core_tests_economy_formationmastertests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear",
+      "target": "tests_core_tests_economy_formationmastertests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L85",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_formationmastertests_formationmastertests_theformationsheight_asksapurplemansionpower",
+      "target": "tests_core_tests_economy_formationmastertests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster",
+      "target": "tests_core_tests_economy_formationmastertests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Economy/ResourceManagerTests.cs",
       "source_location": "L5",
       "weight": 1.0,
@@ -195811,9 +196521,9 @@
       "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_artviewtests_artviewtests",
-      "target": "presentation_artviewtests_artviewtests_theexamination_isoffered_tothebestalchemist_orsayswhynot",
-      "confidence_score": 1.0
+      "target": "presentation_artviewtests_artviewtests_theexamination_isoffered_tothebestalchemist_orsayswhynot"
     },
     {
       "relation": "method",
@@ -195853,9 +196563,9 @@
       "source_location": "L51",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_artviewtests_artviewtests_theexamination_isoffered_tothebestalchemist_orsayswhynot",
-      "target": "tests_core_tests_presentation_artviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_artviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -196441,6 +197151,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Presentation/BuildingsViewTests.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "presentation_buildingsviewtests_buildingsviewtests",
+      "target": "presentation_buildingsviewtests_buildingsviewtests_theformation_offersafriendlypowersmaster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/BuildingsViewTests.cs",
       "source_location": "L33",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -196485,6 +197205,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Presentation/BuildingsViewTests.cs",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "presentation_buildingsviewtests_buildingsviewtests_theformation_offersafriendlypowersmaster",
+      "target": "presentation_buildingsviewtests_buildingsviewtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/BuildingsViewTests.cs",
       "source_location": "L36",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -196512,6 +197243,17 @@
       "confidence_score": 1.0,
       "source": "presentation_buildingsviewtests_buildingsviewtests_abuildingatitsheight_hasnonextlevel",
       "target": "tests_core_tests_presentation_buildingsviewtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/BuildingsViewTests.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_buildingsviewtests_buildingsviewtests_theformation_offersafriendlypowersmaster",
+      "target": "tests_core_tests_presentation_buildingsviewtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -211868,9 +212610,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests",
-      "target": "world_elderessencepilltests_elderessencepilltests",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests"
     },
     {
       "relation": "contains",
@@ -211878,9 +212620,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests",
-      "target": "world_elderessencepilltests_mirrorchronicles_tests_world",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_mirrorchronicles_tests_world"
     },
     {
       "relation": "references",
@@ -211889,9 +212631,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_string",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_string"
     },
     {
       "relation": "method",
@@ -211899,9 +212641,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests",
-      "target": "world_elderessencepilltests_elderessencepilltests_anoldersave_givesthepowers_theirfirststore",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_anoldersave_givesthepowers_theirfirststore"
     },
     {
       "relation": "method",
@@ -211909,9 +212651,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests",
-      "target": "world_elderessencepilltests_elderessencepilltests_apoisonedpill_failsthewall",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_apoisonedpill_failsthewall"
     },
     {
       "relation": "method",
@@ -211919,9 +212661,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests",
-      "target": "world_elderessencepilltests_elderessencepilltests_atthewall",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_atthewall"
     },
     {
       "relation": "method",
@@ -211929,9 +212671,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests",
-      "target": "world_elderessencepilltests_elderessencepilltests_ayear",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_ayear"
     },
     {
       "relation": "method",
@@ -211939,9 +212681,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests",
-      "target": "world_elderessencepilltests_elderessencepilltests_session",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_session"
     },
     {
       "relation": "method",
@@ -211949,9 +212691,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests",
-      "target": "world_elderessencepilltests_elderessencepilltests_thepowersalchemists_refinetheirpills",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_thepowersalchemists_refinetheirpills"
     },
     {
       "relation": "method",
@@ -211959,9 +212701,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests",
-      "target": "world_elderessencepilltests_elderessencepilltests_withapill_theeldercrossesthewall_andthepillisspent",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_withapill_theeldercrossesthewall_andthepillisspent"
     },
     {
       "relation": "method",
@@ -211969,9 +212711,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests",
-      "target": "world_elderessencepilltests_elderessencepilltests_withoutapill_thewallisagamble_thatmaykill",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_withoutapill_thewallisagamble_thatmaykill"
     },
     {
       "relation": "calls",
@@ -211980,9 +212722,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_apoisonedpill_failsthewall",
-      "target": "world_elderessencepilltests_elderessencepilltests_session",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_session"
     },
     {
       "relation": "references",
@@ -211991,9 +212733,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_session",
-      "target": "func_essencepillsettings_essencepillsettings",
-      "confidence_score": 1.0
+      "target": "func_essencepillsettings_essencepillsettings"
     },
     {
       "relation": "references",
@@ -212002,9 +212744,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_session",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -212013,9 +212755,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_thepowersalchemists_refinetheirpills",
-      "target": "world_elderessencepilltests_elderessencepilltests_session",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_session"
     },
     {
       "relation": "calls",
@@ -212024,9 +212766,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_withapill_theeldercrossesthewall_andthepillisspent",
-      "target": "world_elderessencepilltests_elderessencepilltests_session",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_session"
     },
     {
       "relation": "calls",
@@ -212035,9 +212777,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_withoutapill_thewallisagamble_thatmaykill",
-      "target": "world_elderessencepilltests_elderessencepilltests_session",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_session"
     },
     {
       "relation": "references",
@@ -212046,9 +212788,9 @@
       "source_location": "L39",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_atthewall",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_gamesession"
     },
     {
       "relation": "references",
@@ -212057,9 +212799,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_ayear",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -212068,9 +212810,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_apoisonedpill_failsthewall",
-      "target": "world_elderessencepilltests_elderessencepilltests_atthewall",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_atthewall"
     },
     {
       "relation": "references",
@@ -212079,9 +212821,9 @@
       "source_location": "L39",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_atthewall",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_factiondata"
     },
     {
       "relation": "references",
@@ -212090,9 +212832,9 @@
       "source_location": "L39",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_atthewall",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_factionelder"
     },
     {
       "relation": "calls",
@@ -212101,9 +212843,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_withapill_theeldercrossesthewall_andthepillisspent",
-      "target": "world_elderessencepilltests_elderessencepilltests_atthewall",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_atthewall"
     },
     {
       "relation": "calls",
@@ -212112,9 +212854,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_withoutapill_thewallisagamble_thatmaykill",
-      "target": "world_elderessencepilltests_elderessencepilltests_atthewall",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_atthewall"
     },
     {
       "relation": "calls",
@@ -212123,9 +212865,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_apoisonedpill_failsthewall",
-      "target": "world_elderessencepilltests_elderessencepilltests_ayear",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_ayear"
     },
     {
       "relation": "calls",
@@ -212134,9 +212876,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_thepowersalchemists_refinetheirpills",
-      "target": "world_elderessencepilltests_elderessencepilltests_ayear",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_ayear"
     },
     {
       "relation": "calls",
@@ -212145,9 +212887,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_withapill_theeldercrossesthewall_andthepillisspent",
-      "target": "world_elderessencepilltests_elderessencepilltests_ayear",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_ayear"
     },
     {
       "relation": "calls",
@@ -212156,9 +212898,9 @@
       "source_file": "tests/Core.Tests/World/ElderEssencePillTests.cs",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_withoutapill_thewallisagamble_thatmaykill",
-      "target": "world_elderessencepilltests_elderessencepilltests_ayear",
-      "confidence_score": 1.0
+      "target": "world_elderessencepilltests_elderessencepilltests_ayear"
     },
     {
       "relation": "references",
@@ -212167,9 +212909,9 @@
       "source_location": "L54",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_withapill_theeldercrossesthewall_andthepillisspent",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_test"
     },
     {
       "relation": "references",
@@ -212178,9 +212920,9 @@
       "source_location": "L110",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_anoldersave_givesthepowers_theirfirststore",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_test"
     },
     {
       "relation": "references",
@@ -212189,9 +212931,9 @@
       "source_location": "L85",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_apoisonedpill_failsthewall",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_test"
     },
     {
       "relation": "references",
@@ -212200,9 +212942,9 @@
       "source_location": "L97",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_thepowersalchemists_refinetheirpills",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_test"
     },
     {
       "relation": "references",
@@ -212211,9 +212953,9 @@
       "source_location": "L66",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_elderessencepilltests_elderessencepilltests_withoutapill_thewallisagamble_thatmaykill",
-      "target": "tests_core_tests_world_elderessencepilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_elderessencepilltests_cs_test"
     },
     {
       "relation": "contains",
@@ -228758,5 +229500,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "b1965d9c68a594ccd1cac00e51513e240cff482d"
+  "built_at_commit": "a61e3948f2eeacd0ab9ab542815d44f7f1c09e34"
 }
