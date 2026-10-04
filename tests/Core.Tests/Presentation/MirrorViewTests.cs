@@ -88,7 +88,7 @@ namespace MirrorChronicles.Tests.Presentation
             inLaw.FromFaction = "Famille Tao";
             s.Clan.AddMember(inLaw);
             var targets = MirrorView.JudgmentTargets(s);
-            Assert.AreEqual(s.Clan.LivingMembers.Count, targets.Count);
+            Assert.AreEqual(s.Clan.LivingMembers.Count, targets.Count(t => t.Power == null), "every member, beside the elders it perceives");
             StringAssert.Contains("Famille Tao", targets.Single(t => t.Id == inLaw.ID).Origin);
         }
 

@@ -40,6 +40,18 @@ namespace MirrorChronicles.Mirror
 
         public bool IsAsleep => ctx.Clock.Year < AsleepUntil;
 
+        /// <summary>Whether the Great Void is open to it (set by the session from the shards).</summary>
+        public System.Func<bool> VoidOpen { get; set; }
+
+        /// <summary>Its restoration tier: whom its Light kills and wounds, how far it perceives (AUDIT_LORE.md §3).</summary>
+        public MirrorTier Tier => MirrorTiers.Of(RestoredFragments, VoidOpen?.Invoke() == true, ctx.Content.Balance.MirrorTiers);
+
+        /// <summary>True when the mirror perceives the place from the clan's domain.</summary>
+        public bool Perceives(string region) => MirrorTiers.Perceives(Tier.Perception, ctx.Content.Clan.HomeRegion, region, ctx.Content.Regions);
+
+        /// <summary>The wounds its Light leaves (set by the session).</summary>
+        public WoundSystem Wounds { get; set; }
+
         public int TalismanSeedCapacity => SpiritualOrificeRules.TalismanSeedCapacity(RestoredFragments, ctx.Content.Balance.Trials.BaseTalismanSeedCapacity);
 
         public MirrorSystem(GameContext ctx, ClanManager clan, BreakthroughSystem breakthroughs)
@@ -103,12 +115,32 @@ namespace MirrorChronicles.Mirror
             return true;
         }
 
-        /// <summary>Cost 50: strikes a traitor or an enemy down with a Qi deviation.</summary>
+        /// <summary>Why the Light cannot strike this member now (French), or null: beyond its tier, or the cost.</summary>
+        public string JudgmentRefusal(CharacterData target)
+        {
+            if (target == null || !target.IsAlive) return "cible introuvable";
+            if (MirrorTiers.Effect(Tier, target.Realm) == null)
+                return $"la Lumière ne l'atteint pas encore (elle tue jusqu'à la {RankCatalog.RealmName(Tier.LightKills)}, blesse jusqu'à la {RankCatalog.RealmName(Tier.LightWounds)})";
+            return PayRefusal(MirrorJudgmentCost);
+        }
+
+        /// <summary>
+        /// Cost 50: the Supreme Yin Profound Light strikes a traitor — it kills within its tier, wounds a realm above
+        /// (📚 Lu_Jiangxian/Abilities; AUDIT_LORE.md §3.1); beyond, it cannot.
+        /// </summary>
         public bool UseMirrorJudgment(CharacterData target)
         {
-            if (target == null || !ConsumePower(MirrorJudgmentCost)) return false;
-            ctx.Log.Info($"[Mirror] Judgment falls on {target.FullName}!");
-            clan.Kill(target, DeathCause.QiDeviation);
+            if (JudgmentRefusal(target) != null || !ConsumePower(MirrorJudgmentCost)) return false;
+            if (MirrorTiers.Effect(Tier, target.Realm) == "tue")
+            {
+                ctx.Log.Info($"[Mirror] Judgment falls on {target.FullName}!");
+                clan.Kill(target, DeathCause.QiDeviation);
+            }
+            else
+            {
+                ctx.Log.Info($"[Mirror] The Light wounds {target.FullName}.");
+                Wounds?.ApplyDaoWound(target);
+            }
             return true;
         }
 

@@ -149,8 +149,10 @@ namespace MirrorChronicles.Game
             foreach (var target in MirrorView.JudgmentTargets(root.Session))
             {
                 var row = new HBoxContainer();
-                row.AddChild(Text($"{target.Name} — {target.Realm}{(target.Origin == null ? "" : $" — {target.Origin}")}"));
-                var strike = new Button { Text = judgmentArmed == target.Id ? "Confirmer le jugement" : "Juger", Disabled = refusal != null };
+                string effect = target.Effect == "tue" ? " — la Lumière tuerait" : target.Effect == "blesse" ? " — la Lumière blesserait" : "";
+                row.AddChild(Text($"{target.Name} — {target.Realm}{(target.Origin == null ? "" : $" — {target.Origin}")}{effect}"));
+                var strike = new Button { Text = judgmentArmed == target.Id ? "Confirmer le jugement" : "Juger",
+                    Disabled = refusal != null || target.Refusal != null, TooltipText = target.Refusal ?? "" };
                 strike.Pressed += () => Judge(target);
                 row.AddChild(strike);
                 judgment.AddChild(row);
@@ -167,8 +169,10 @@ namespace MirrorChronicles.Game
             else
             {
                 judgmentArmed = null;
-                bool struck = root.Session.Mirror.UseMirrorJudgment(root.Session.Clan.FindById(target.Id));
-                status.Text = struck ? $"Le jugement tombe sur {target.Name}." : "Le jugement n'a pu tomber.";
+                bool struck = target.Power == null
+                    ? root.Session.Mirror.UseMirrorJudgment(root.Session.Clan.FindById(target.Id))
+                    : root.Session.Light.StrikeElder(target.Power, target.Id) == null;
+                status.Text = !struck ? "Le jugement n'a pu tomber." : target.Effect == "tue" ? $"Le jugement tombe sur {target.Name}." : $"La Lumière blesse {target.Name}.";
             }
             Refresh();
         }

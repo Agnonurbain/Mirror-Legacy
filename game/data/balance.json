@@ -565,6 +565,16 @@
   "realmGap": { "unreachableFrom": "PurpleMansion", "maxRealmsBehind": 1 },
   "ascentWatch": { "wariness": 10, "testChance": 0.3, "testBase": 0.5, "testPerPower": 0.05, "elderLifespanLoss": 30 },
   "enthrallment": { "yearlyChance": 0.1, "breakMirrorCost": 30, "bendBase": 0.5, "bendPerPower": 0.02, "seenChance": 0.3, "seenDistrust": 30 },
+  "mirrorTiers": {
+	"tiers": [
+	  { "minShards": 0, "lightKills": "Embryonic", "lightWounds": "QiRefinement", "perception": "Domain", "illusions": false, "soulLocks": false },
+	  { "minShards": 1, "lightKills": "QiRefinement", "lightWounds": "Foundation", "perception": "Lake", "illusions": false, "soulLocks": false },
+	  { "minShards": 3, "lightKills": "Foundation", "lightWounds": "PurpleMansion", "perception": "State", "illusions": true, "soulLocks": false }
+	],
+	"greatVoid": { "lightKills": "PurpleMansion", "lightWounds": "GoldenCore", "perception": "Everywhere", "illusions": true, "soulLocks": true },
+	"elderWoundYears": 30,
+	"strikeClues": 10
+  },
   "travel": { "hopsByRealm": { "Embryonic": 0, "QiRefinement": 2 }, "wholeStateFrom": "Foundation", "anywhereFrom": "PurpleMansion" },
   "dharma": {
 	"condenseOres": 300,

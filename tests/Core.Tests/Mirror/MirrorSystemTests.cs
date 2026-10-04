@@ -58,7 +58,7 @@ namespace MirrorChronicles.Tests.Mirror
         public void UseMirrorJudgment_StrikesTheTargetDown()
         {
             var w = new TestWorld();
-            var traitor = w.Join(Fixtures.Cultivator());
+            var traitor = w.Join(Fixtures.Cultivator(realm: CultivationRealm.Embryonic)); // within the unrestored Light's kill
             w.Mirror.UseMirrorJudgment(traitor);
             Assert.IsTrue(!traitor.IsAlive && traitor.CauseOfDeath == DeathCause.QiDeviation && w.Mirror.MirrorPower == 0);
         }

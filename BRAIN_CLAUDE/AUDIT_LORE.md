@@ -45,8 +45,8 @@ Le §11.5 validé dit : la restauration fixe la portée de perception, la puissa
 
 | # | Constat | Jeu | Correction proposée |
 |---|---|---|---|
-| 3.1 | **C** Le Jugement tue n'importe quel royaume, Noyau d'Or compris, dès l'an 1. Wiki : frappe de l'Œil du Sommet au départ, puis la Culture du Qi, bien plus tard le Manoir Pourpre. | `Mirror/MirrorSystem.cs:107-113` | Royaume tué / blessé plafonné par les éclats. |
-| 3.2 | **C** Le Jugement ne vise que les membres du clan ; dans le wiki il frappe les ennemis (le démon loup, les intrus). | `Presentation/MirrorView.cs:76-81` | Viser intrus, agents, ravisseurs à portée, avec coût de secret. |
+| 3.1 | ✅ 2026-10-04 (paliers du wiki, `mirrorTiers` : la Lumière tue et blesse selon les éclats ; refus motivé au-delà) **C** Le Jugement tue n'importe quel royaume, Noyau d'Or compris, dès l'an 1. Wiki : frappe de l'Œil du Sommet au départ, puis la Culture du Qi, bien plus tard le Manoir Pourpre. | `Mirror/MirrorSystem.cs:107-113` | Royaume tué / blessé plafonné par les éclats. |
+| 3.2 | ✅ 2026-10-04 (`LightStrike` : les anciens des puissances perçues, tués ou blessés ; la puissance s'interroge — indices) **C** Le Jugement ne vise que les membres du clan ; dans le wiki il frappe les ennemis (le démon loup, les intrus). | `Presentation/MirrorView.cs:76-81` | Viser intrus, agents, ravisseurs à portée, avec coût de secret. |
 | 3.3 | **P** La déduction ordinaire produit une méthode du Manoir Pourpre sans aucun éclat (4 fragments de qualité 4 → grade 5). | `DeductionEngine.cs:49-65,133-171`, `TechniqueRules.cs:83-84,138-145` | Plafond grade 4 / sans secret tant que < 3 éclats. |
 | 3.4 | **C** Le Bouclier ancestral (+30 % à toute percée) ne demande ni essence métallique ni restauration (LORE §11.5 le lie à l'essence métallique). | `MirrorSystem.cs:98-104` | Essence détenue ou seuil d'éclats ; limité à sa Fruition. |
 | 3.5 | **C** Brouiller les souvenirs efface les indices de n'importe quelle puissance, partout, dès l'an 1. | `World/SecretSystem.cs:56-67` | Portée (graine, membre proche), cible individuelle. |

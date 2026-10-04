@@ -286,6 +286,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>A reborn True Monarch bends lesser minds (audit §1.8, 2026-10-03; interpretations).</summary>
         public EnthrallmentSettings Enthrallment { get; init; } = new EnthrallmentSettings();
+
+        /// <summary>The mirror's restoration tiers (AUDIT_LORE.md §3, 2026-10-04; the wiki's steps, interpreted bounds).</summary>
+        public MirrorTierSettings MirrorTiers { get; init; } = new MirrorTierSettings();
         public WorldArsenalSettings WorldArsenal { get; init; } = new WorldArsenalSettings();
         public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();

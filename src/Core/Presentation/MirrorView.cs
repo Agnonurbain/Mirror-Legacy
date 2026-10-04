@@ -17,7 +17,12 @@ namespace MirrorChronicles.Presentation
     public sealed record SeedCandidate(string Id, string Name, int Age, string Refusal);
 
     /// <summary>A member the Judgment could strike; an in-law shows the power that sent them.</summary>
-    public sealed record JudgmentTarget(string Id, string Name, string Realm, string Origin);
+    public sealed record JudgmentTarget(string Id, string Name, string Realm, string Origin)
+    {
+        public string Power { get; init; }    // a power's elder (null: a member of the clan)
+        public string Effect { get; init; }   // what the Light does: « tue », « blesse »
+        public string Refusal { get; init; }  // why it cannot strike (null: it can)
+    }
 
     public sealed record FragmentLine(string Id, string Name, string Element, int Quality);
 
@@ -73,12 +78,24 @@ namespace MirrorChronicles.Presentation
                 .ToList();
         }
 
-        public static IReadOnlyList<JudgmentTarget> JudgmentTargets(GameSession session) =>
-            session.Clan.LivingMembers
+        /// <summary>
+        /// Whom the Light could strike: the clan's members (a traitor) and the powers' elders the mirror perceives
+        /// (AUDIT_LORE.md §3.1-3.2), each with what the Light would do, or why it cannot.
+        /// </summary>
+        public static IReadOnlyList<JudgmentTarget> JudgmentTargets(GameSession session)
+        {
+            var tier = session.Mirror.Tier;
+            var members = session.Clan.LivingMembers
                 .OrderBy(m => m.FullName, StringComparer.Ordinal)
                 .Select(m => new JudgmentTarget(m.ID, m.FullName, RankCatalog.DisplayName(m), // an unexamined orifice stays unexamined
-                    m.FromFaction == null ? null : $"venu de {m.FromFaction}"))
-                .ToList();
+                    m.FromFaction == null ? null : $"venu de {m.FromFaction}")
+                    { Effect = MirrorTiers.Effect(tier, m.Realm), Refusal = session.Mirror.JudgmentRefusal(m) });
+            var elders = session.Light.ElderTargets()
+                .OrderBy(t => t.Power, StringComparer.Ordinal).ThenBy(t => t.ElderName, StringComparer.Ordinal)
+                .Select(t => new JudgmentTarget(t.ElderId, t.ElderName, RankCatalog.RealmName(t.Realm), $"ancien de {t.Power}")
+                    { Power = t.Power, Effect = t.Effect, Refusal = session.Mirror.PayRefusal(MirrorSystem.MirrorJudgmentCost) });
+            return members.Concat(elders).ToList();
+        }
 
         public static IReadOnlyList<FragmentLine> Fragments(GameSession session) =>
             session.Deduction.Fragments

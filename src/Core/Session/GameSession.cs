@@ -58,6 +58,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>A reborn True Monarch bends lesser minds (audit §1.8).</summary>
         public Enthrallment Enthrallment { get; }
+
+        /// <summary>The mirror's Light against the powers' elders (audit §3.2).</summary>
+        public LightStrike Light { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
@@ -209,6 +212,9 @@ namespace MirrorChronicles.Session
             Rebirths.Suspicion = Suspicion;
             AscentWatch = new AscentWatch(Context, Factions, Suspicion, Wounds);
             Enthrallment = new Enthrallment(Context, Clan, Factions, Mirror, Suspicion);
+            Mirror.VoidOpen = () => Shards.CanTraverseVoid;
+            Mirror.Wounds = Wounds;
+            Light = new LightStrike(Context, Mirror, Factions, Suspicion);
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);

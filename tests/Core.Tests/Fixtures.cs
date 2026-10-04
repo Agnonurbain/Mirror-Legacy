@@ -128,6 +128,7 @@ namespace MirrorChronicles.Tests
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions, Mirror, Sect);
             Wounds = new WoundSystem(Ctx, Stability);
+            Mirror.Wounds = Wounds;
             Shards = new ShardSystem(Ctx, Clan, Mirror, Techniques, Knowledge, Wounds);
             Bestiary = new BeastRegistry(Ctx);
             Suspicion = new SuspicionLedger();
