@@ -28,11 +28,11 @@ Décisions de l'utilisateur du 2026-10-03 (mémoire `immortal-arts`) : quatre ar
 
 | # | Constat | Jeu | Correction proposée |
 |---|---|---|---|
-| 2.1 | **P** Forge : seul le royaume du forgeron est vérifié (même chose pour élever un artefact). | `Characters/ArtifactForge.cs:35-43,59-66` | Don + héritage + maître ; *Forge Souterraine* (Métal Caché) donne le don et un bonus. |
+| 2.1 | ✅ 2026-10-04 (la forge est un art immortel : héritage, don — ou Manoir Pourpre —, maîtrise par rang 🔎 apprenti / adepte / maître ; `ArtSystem`, onglet « Arts immortels ») **P** Forge : seul le royaume du forgeron est vérifié (même chose pour élever un artefact). | `Characters/ArtifactForge.cs:35-43,59-66` | Don + héritage + maître ; *Forge Souterraine* (Métal Caché) donne le don et un bonus. |
 | 2.2 | **P** Pilules : condenser une capacité « par pilules » et purifier un démon du cœur dépensent herbes et pierres, personne ne fabrique les pilules. | `DivineAbilitySystem.cs:82-99`, `OathSystem.cs:115-124` | Étape d'alchimiste (doué ou Manoir Pourpre), ou achat. |
 | 2.3 | **P** Formation protectrice : il suffit d'une Fondation vivante. | `Data/BuildingData.cs:48` | Maître des formations doué, ou loué à une puissance. |
 | 2.4 | **A** Dessin de talismans (« un des rares moyens de gagner des pierres », wiki *Li_Xuanxuan*). | `Data/Enums.cs` (TaskType) | Tâche gated par le don. |
-| 2.5 | **A** Aucun art immortel dans les données (`TechniqueKind.ImmortalArt` existe, `techniques.json` n'en a aucun ; le miroir les exclut). | `Data/TechniqueData.cs:14`, `DeductionEngine.cs:24-26` | Héritages des quatre arts comme techniques. |
+| 2.5 | ✅ 2026-10-04 en partie (les quatre arts existent : dons, héritages, maîtrise, pratique ; leurs effets propres — pilules, formations, talismans — suivent) **A** Aucun art immortel dans les données (`TechniqueKind.ImmortalArt` existe, `techniques.json` n'en a aucun ; le miroir les exclut). | `Data/TechniqueData.cs:14`, `DeductionEngine.cs:24-26` | Héritages des quatre arts comme techniques. |
 | 2.6 | **A** Pilule de Rassemblement d'Essence pour la Fondation : quotas, usage rapporté aux anciens, percée « sans pilule » = pari (wiki *Li_Chenghui*, *Li_Jiangxia*). | `CultivationSystem.PayTrialQi` (seul le Qi) ; `ItemData.cs` | Ressource de percée ; sans elle, chances en chute ; son attribution est un dilemme du clan. |
 | 2.7 | **A** Une pilule doit être de l'élément du cultivateur ; une essence opposée fait échouer, un Qi incompatible empoisonne (wiki *Li_Chengliao*, *Spiritual_Energy*). | — | Élément / lignée par pilule ; ouvre un sabotage. |
 | 2.8 | **A** Poudre d'Esprit Lumineux pour le 5e chakra (wiki). | `BreakthroughRules` | Ressource ou forte pénalité. |

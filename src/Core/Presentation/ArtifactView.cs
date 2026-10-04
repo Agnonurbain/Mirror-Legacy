@@ -84,7 +84,8 @@ namespace MirrorChronicles.Presentation
             var settings = s.Context.Content.Balance.Artifacts;
             if (!settings.Forging.TryGetValue(next, out var cost)) return row;
             var smith = s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None && m.Realm >= next)
-                .OrderBy(m => m.LastOperationYear == s.Clock.Year ? 1 : 0).ThenByDescending(m => m.Realm).FirstOrDefault();
+                .OrderBy(m => m.LastOperationYear == s.Clock.Year ? 1 : 0).ThenByDescending(m => ArtSystem.MasteryOf(m, ImmortalArt.Forge)) // the forge's masters first (audit §2.1)
+                .ThenByDescending(m => m.Realm).FirstOrDefault();
             string price = $"{(int)(cost.Ores * settings.RaiseShare)} minerais, {(int)(cost.Stones * settings.RaiseShare)} pierres";
             return row with
             {
@@ -99,7 +100,8 @@ namespace MirrorChronicles.Presentation
         {
             var forging = s.Context.Content.Balance.Artifacts.Forging;
             var smith = s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None && m.Realm >= CultivationRealm.QiRefinement)
-                .OrderBy(m => m.LastOperationYear == s.Clock.Year ? 1 : 0).ThenByDescending(m => m.Realm).FirstOrDefault();
+                .OrderBy(m => m.LastOperationYear == s.Clock.Year ? 1 : 0).ThenByDescending(m => ArtSystem.MasteryOf(m, ImmortalArt.Forge)) // the forge's masters first (audit §2.1)
+                .ThenByDescending(m => m.Realm).FirstOrDefault();
             if (smith == null) return new List<ForgeOffer>();
             var rank = forging.Keys.Where(r => r <= smith.Realm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
             if (rank < CultivationRealm.QiRefinement) return new List<ForgeOffer>();

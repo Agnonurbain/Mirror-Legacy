@@ -42,7 +42,7 @@ namespace MirrorChronicles.Tests.Session
             s.Buildings.GetBuilding(BuildingType.Forge).Level = 2;
             s.Resources.AddOres(1_000);
             s.Resources.AddSpiritStones(50_000);
-            var smith = Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation);
+            var smith = Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation).AsSmith(s);
             s.Clan.AddMember(smith);
             BalanceRun.Act(s);
             Assert.IsTrue(s.Artifacts.All.Any(), "the forge works");

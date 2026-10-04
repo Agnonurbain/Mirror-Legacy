@@ -29,7 +29,7 @@ namespace MirrorChronicles.Tests.Characters
             var lineage = s.Context.Content.Fruitions.First(f => f.Abilities.Count > 0);
             if (realm >= CultivationRealm.Foundation) m.FoundationId = $"{lineage.Id}:{lineage.Abilities[0].Id}";
             s.Clan.AddMember(m);
-            return m;
+            return m.AsSmith(s); // the forge is an Immortal Art: its legacy, a gift, a master (audit §2.1)
         }
 
         private static string Sword(GameSession s) => s.Context.Content.ArtifactForms.First(f => f.Effect == ArtifactEffect.Combat).Id;
@@ -46,6 +46,24 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(FoundationRef.Parse(smith.FoundationId).FruitionId, made.Lineage, "it takes the smith's lineage");
             Assert.Less(s.Resources.SpiritualOres, ores);
             StringAssert.Contains("année", s.Forge.Make(Sword(s), CultivationRealm.Foundation, smith.ID), "one work a year");
+        }
+
+        [Test]
+        public void TheForge_IsAnImmortalArt_LegacyGiftAndMastery()
+        {
+            // Miror.txt: below the Purple Mansion, only the naturally gifted practise the 101 Immortal Arts (audit §2.1)
+            var s = Session();
+            var m = Fixtures.Cultivator(age: 100, realm: CultivationRealm.Foundation);
+            s.Clan.AddMember(m);
+            StringAssert.Contains("héritage", s.Forge.MakeRefusal(CultivationRealm.QiRefinement, m.ID));
+            s.Arts.GainLegacy(ImmortalArt.Forge);
+            if (MirrorChronicles.Characters.ImmortalArtRules.Gift(m, ImmortalArt.Forge, s.Context.Content.Balance.Arts) == ArtGift.None)
+                StringAssert.Contains("don", s.Forge.MakeRefusal(CultivationRealm.QiRefinement, m.ID));
+            m.TalismanQiId = "holding-profit"; // gifted
+            StringAssert.Contains("apprenti", s.Forge.MakeRefusal(CultivationRealm.QiRefinement, m.ID), "one learns before one forges");
+            m.ArtMastery[ImmortalArt.Forge] = 10;
+            Assert.IsNull(s.Forge.MakeRefusal(CultivationRealm.QiRefinement, m.ID), "an apprentice forges a Dharma Artifact");
+            StringAssert.Contains("adepte", s.Forge.MakeRefusal(CultivationRealm.Foundation, m.ID), "an adept, a Spiritual Artifact");
         }
 
         [Test]

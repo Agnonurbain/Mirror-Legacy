@@ -36,7 +36,7 @@ namespace MirrorChronicles.Tests.Presentation
         public void TheForgeOffers_TheHighestRankItsBestSmithCanMake()
         {
             var s = Session();
-            var smith = Fixtures.Cultivator(realm: CultivationRealm.Foundation);
+            var smith = Fixtures.Cultivator(realm: CultivationRealm.Foundation).AsSmith(s);
             s.Clan.AddMember(smith);
             var offers = ArtifactView.ForgeOffers(s);
             Assert.AreEqual(s.Context.Content.ArtifactForms.Count, offers.Count, "one offer per form");
@@ -62,7 +62,7 @@ namespace MirrorChronicles.Tests.Presentation
         public void AnArtifactInStore_OffersItsRaising_ByTheBestSmith_AtItsPrice()
         {
             var s = Session();
-            var smith = Fixtures.Cultivator(realm: CultivationRealm.Foundation);
+            var smith = Fixtures.Cultivator(realm: CultivationRealm.Foundation).AsSmith(s);
             s.Clan.AddMember(smith);
             var a = s.Artifacts.Create(s.Context.Content.ArtifactForms.First().Id, CultivationRealm.QiRefinement, null);
             var row = ArtifactView.Rows(s).Single(r => r.Id == a.Id);

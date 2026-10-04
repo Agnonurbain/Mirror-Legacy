@@ -180,6 +180,18 @@ namespace MirrorChronicles.Tests
     /// <summary>Shared builders for the simulation tests.</summary>
     internal static class Fixtures
     {
+        /// <summary>
+        /// Makes a member a master of the forge as an Immortal Art (audit §2.1): the clan holds the forge's legacy, and the
+        /// member, gifted by « Garder profit et prospérité », has mastered it.
+        /// </summary>
+        public static CharacterData AsSmith(this CharacterData member, MirrorChronicles.Session.GameSession s)
+        {
+            s.Arts.GainLegacy(ImmortalArt.Forge);
+            member.TalismanQiId ??= "holding-profit";
+            member.ArtMastery[ImmortalArt.Forge] = 100;
+            return member;
+        }
+
         private static readonly Lazy<string> DataDirectoryPath = new Lazy<string>(FindDataDirectory);
         private static readonly Lazy<GameContent> ShippedContent = new Lazy<GameContent>(() => GameContentLoader.Load(ReadDataFile));
 

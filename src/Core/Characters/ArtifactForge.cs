@@ -31,12 +31,36 @@ namespace MirrorChronicles.Characters
 
         private ArtifactSettings Settings => ctx.Content.Balance.Artifacts;
 
+        /// <summary>The clan's Immortal Arts (set by the session): a smith needs the forge's legacy, its gift, its mastery (audit §2.1).</summary>
+        public ArtSystem Arts { get; set; }
+
+        /// <summary>
+        /// The mastery of the forge a rank asks (🔎 audit §2.1, 2026-10-04): an apprentice forges a Dharma Artifact, an adept a
+        /// Spiritual Artifact, a master the Purple Mansion's.
+        /// </summary>
+        private int MasteryFor(CultivationRealm rank) =>
+            rank >= CultivationRealm.PurpleMansion ? ctx.Content.Balance.Arts.MasterAt
+            : rank >= CultivationRealm.Foundation ? ctx.Content.Balance.Arts.AdeptAt : 1;
+
+        /// <summary>Why this smith may not work the forge at this rank as an Immortal Art (French), or null.</summary>
+        private string ArtRefusal(CharacterData smith, CultivationRealm rank)
+        {
+            if (Arts == null) return null;
+            if (!Arts.HoldsLegacy(ImmortalArt.Forge)) return "le clan ne tient pas l'héritage du raffinement d'artefacts";
+            if (!ImmortalArtRules.MayPractise(smith, ImmortalArt.Forge, ctx.Content.Balance.Arts)) return "ce forgeron n'a pas le don de la forge (sans don, il faut le Manoir Pourpre)";
+            int needed = MasteryFor(rank);
+            if (ArtSystem.MasteryOf(smith, ImmortalArt.Forge) < needed)
+                return $"il faut être {ImmortalArtRules.Rank(needed, ctx.Content.Balance.Arts)} de la forge pour ce rang";
+            return null;
+        }
+
         /// <summary>Why this smith cannot work an artifact of this rank at this price (French), or null.</summary>
         private string Refusal(CharacterData smith, CultivationRealm rank, double share)
         {
             if (!Settings.Forging.TryGetValue(rank, out var cost)) return "la forge du clan ne fait pas d'artefact de ce rang";
             if (smith == null || !smith.IsAlive || smith.CaptorFaction != null || smith.Retreat != Retreat.None) return "ce forgeron ne peut travailler";
             if (smith.Realm < rank) return "un forgeron ne forge rien au-dessus de son royaume";
+            if (ArtRefusal(smith, rank) is { } art) return art;
             if (smith.LastOperationYear == ctx.Clock.Year) return "ce forgeron a déjà œuvré cette année";
             if (buildings.ForgeLevel < cost.ForgeLevel) return $"il faut une forge de niveau {cost.ForgeLevel}";
             if (resources.SpiritualOres < (int)(cost.Ores * share) || resources.SpiritStones < (int)(cost.Stones * share))
