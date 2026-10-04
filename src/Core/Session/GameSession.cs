@@ -231,6 +231,10 @@ namespace MirrorChronicles.Session
             Arts = new ArtSystem(Context, Clan, Cultivation, Resources);
             Forge.Arts = Arts;
             Buildings.Arts = Arts;
+            Arts.Factions = Factions;
+            Arts.Accords = Accords;
+            Arts.Mirror = Mirror;
+            Arts.Deduction = Deduction;
             Buildings.Factions = Factions;
             Alchemy = new AlchemySystem(Context, Clan, Resources, Arts, Factions, Suspicion);
             Breakthroughs.Alchemy = Alchemy;

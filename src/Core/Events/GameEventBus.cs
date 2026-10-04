@@ -70,6 +70,7 @@ namespace MirrorChronicles.Events
         public event Action<CharacterData> OnMemberImperilled;            // a member ambushed, or its ripe Dao struck and the blow driven off
         public event Action<CharacterData, string> OnMandateEmbodied;     // a life event embodies the ability a member condenses (§5.4.3)
         public event Action<string> OnMinorAbilityLearnt;                 // « lineage:ability », a former True Monarch's minor ability (R2)
+        public event Action<Data.ImmortalArt, string> OnArtLegacyGained;    // the clan gains an Immortal Art's legacy, and how (audit §2.5)
         public event Action OnTombLooted;                                  // a tomb's guardian falls (C5)
         public event Action<ArtifactInstance, string> OnArtifactFound;      // an artifact found, and where (L4f)
         public event Action<CharacterData, ArtifactInstance> OnTreasureBound; // a Foundation binds itself to a Spiritual Treasure
@@ -152,6 +153,7 @@ namespace MirrorChronicles.Events
         public void TriggerDemonBorn(MetalEssenceDemon demon) => OnDemonBorn?.Invoke(demon);
         public void TriggerDharmaTreasure(CharacterData member) => OnDharmaTreasure?.Invoke(member);
         public void TriggerTombLooted() => OnTombLooted?.Invoke();
+        public void TriggerArtLegacyGained(Data.ImmortalArt art, string how) => OnArtLegacyGained?.Invoke(art, how);
         public void TriggerMemberImperilled(CharacterData member) => OnMemberImperilled?.Invoke(member);
         public void TriggerMandateEmbodied(CharacterData member, string ability) => OnMandateEmbodied?.Invoke(member, ability);
         public void TriggerMinorAbilityLearnt(string ability) => OnMinorAbilityLearnt?.Invoke(ability);

@@ -79,5 +79,19 @@ namespace MirrorChronicles.Tests.Presentation
             StringAssert.Contains($"{stones} pierres", skills.Single(k => k.Art == ImmortalArt.Talismans).Yield);
             Assert.IsNull(skills.Single(k => k.Art == ImmortalArt.Forge).Yield, "only the talismans sell");
         }
+
+        [Test]
+        public void EachLackingArt_OffersItsSources_OrSaysWhyNot()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var offers = ArtView.LegacyOffers(s);
+            Assert.AreEqual(4, offers.Count(o => o.FromMirror), "the mirror may deduce each lacking art");
+            Assert.IsTrue(offers.Where(o => o.FromMirror).All(o => o.Refusal != null || o.FragmentIds.Count == s.Context.Content.Balance.Arts.Legacy.DeduceFragments));
+            var taught = offers.Where(o => !o.FromMirror).ToList();
+            Assert.IsNotEmpty(taught, "a power knows some art");
+            Assert.IsTrue(taught.All(o => PowerArts.Knows(s.Factions.GetFactionByName(o.Power), o.Art, s.Context.Content)));
+            s.Arts.GainLegacy(ImmortalArt.Forge);
+            Assert.IsFalse(ArtView.LegacyOffers(s).Any(o => o.Art == ImmortalArt.Forge), "a held art is not offered");
+        }
     }
 }

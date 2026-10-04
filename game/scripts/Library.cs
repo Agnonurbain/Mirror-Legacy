@@ -84,6 +84,23 @@ namespace MirrorChronicles.Game
             Add(immortalArts, "— Les héritages —");
             foreach (var legacy in ArtView.Legacies(s))
                 Add(immortalArts, $"{char.ToUpper(legacy.Name[0])}{legacy.Name[1..]} : {(legacy.Held ? "héritage tenu" + (legacy.Master == null ? ", sans maître" : $", maître {legacy.Master}") : "le clan n'en tient pas l'héritage")}");
+            Add(immortalArts, "— Acquérir un héritage —");
+            foreach (var offer in ArtView.LegacyOffers(s))
+            {
+                var take = new Button
+                {
+                    Text = offer.Label + (offer.Refusal == null ? "" : $" ({offer.Refusal})"), Disabled = offer.Refusal != null,
+                    AutowrapMode = TextServer.AutowrapMode.WordSmart, CustomMinimumSize = new Vector2(1100, 0) // an accord's terms run long
+                };
+                var o = offer;
+                take.Pressed += () =>
+                {
+                    string why = o.FromMirror ? s.Arts.Deduce(o.Art, o.FragmentIds) : s.Arts.LearnFrom(o.Power, o.Art, o.Terms);
+                    status.Text = why == null ? "Le clan tient un nouvel héritage." : $"Refusé : {why}.";
+                    Refresh();
+                };
+                immortalArts.AddChild(take);
+            }
             Add(immortalArts, "— Les cultivateurs (le don, tel que le miroir le perçoit) —");
             foreach (var line in ArtView.Members(s))
             {

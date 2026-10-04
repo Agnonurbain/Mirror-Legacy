@@ -27,7 +27,15 @@ namespace MirrorChronicles.Characters
             this.cultivation = cultivation;
             this.resources = resources;
             ctx.Events.OnCharacterDied += (dead, cause) => LoseWithTheLastMaster(dead);
+            ctx.Events.OnRandomEventOccurred += e => { if (e.EventType == RandomEventType.RuinsDiscovery) SearchTheRuins(); };
+            ctx.Events.OnTombLooted += () => { if (ctx.Rng.Chance(Settings.Legacy.TombChance)) Find("le tombeau d'un Manoir Pourpre livre un manuel"); };
         }
+
+        /// <summary>The powers, the accords in kind, the mirror and its fragments (set by the session): the legacies' sources (audit §2.5).</summary>
+        public Diplomacy.FactionManager Factions { get; set; }
+        public Diplomacy.KnowledgeAccords Accords { get; set; }
+        public Mirror.MirrorSystem Mirror { get; set; }
+        public Mirror.DeductionEngine Deduction { get; set; }
 
         private ArtSettings Settings => ctx.Content.Balance.Arts;
 
@@ -35,11 +43,12 @@ namespace MirrorChronicles.Characters
 
         public bool HoldsLegacy(ImmortalArt art) => legacies.Contains(art);
 
-        /// <summary>The clan gains an art's legacy (a power's teaching, a tomb, the mirror).</summary>
-        public bool GainLegacy(ImmortalArt art)
+        /// <summary>The clan gains an art's legacy (a power's teaching, a tomb, the mirror), told in the chronicle when it says how.</summary>
+        public bool GainLegacy(ImmortalArt art, string how = null)
         {
             if (!legacies.Add(art)) return false;
             ctx.Log.Info($"[Arts] The clan holds the legacy of the {art}.");
+            if (how != null) ctx.Events.TriggerArtLegacyGained(art, how);
             return true;
         }
 
@@ -94,6 +103,67 @@ namespace MirrorChronicles.Characters
                 member.ArtMastery[art] = System.Math.Min(100, MasteryOf(member, art) + ImmortalArtRules.YearlyMastery(member, art, taught, Settings));
                 cultivation.ProcessYearlyCultivation(member, ImmortalArtRules.CultivationFactor(member, art, Settings));
             }
+        }
+
+        // ---- The legacies' sources (audit §2.5, the user's decision 2026-10-04) ----
+
+        private System.Collections.Generic.List<ImmortalArt> Lacking() =>
+            System.Enum.GetValues<ImmortalArt>().Where(a => !legacies.Contains(a)).ToList();
+
+        /// <summary>A manual found: an art the clan lacks, drawn. False when it holds them all.</summary>
+        private bool Find(string how)
+        {
+            var lacking = Lacking();
+            return lacking.Count > 0 && GainLegacy(lacking[ctx.Rng.Next(lacking.Count)], how);
+        }
+
+        /// <summary>Ruins found: they may hold an art's manual.</summary>
+        public void SearchTheRuins()
+        {
+            if (Lacking().Count > 0 && ctx.Rng.Chance(Settings.Legacy.RuinsChance)) Find("les ruines livrent un manuel");
+        }
+
+        /// <summary>Why this power will not teach the art for these terms (French), or null.</summary>
+        public string LearnRefusal(string powerName, ImmortalArt art, IReadOnlyList<Diplomacy.AccordTerm> terms)
+        {
+            if (legacies.Contains(art)) return "le clan tient déjà cet héritage";
+            var power = Factions?.GetFactionByName(powerName);
+            if (power == null) return "puissance inconnue";
+            if (!PowerArts.Knows(power, art, ctx.Content)) return $"{power.Name} ne connaît pas cet art";
+            if (power.RelationWithPlayer < Settings.Legacy.TeachRelation) return $"il faut une relation de {Settings.Legacy.TeachRelation} au moins";
+            if (Accords == null) return "aucun accord possible";
+            return Accords.BarterRefusal(power.Name, Settings.Legacy.Worth, precious: true, terms);
+        }
+
+        /// <summary>A power's master teaches the art for an accord in kind (precious: never for stones). Null when done, else why not.</summary>
+        public string LearnFrom(string powerName, ImmortalArt art, IReadOnlyList<Diplomacy.AccordTerm> terms)
+        {
+            if (LearnRefusal(powerName, art, terms) is { } why) return why;
+            string name = Settings.Arts.FirstOrDefault(a => a.Art == art)?.Name ?? art.ToString();
+            Accords.Barter(powerName, terms, $"l'héritage de {name}");
+            GainLegacy(art, $"un maître de {powerName} enseigne au clan");
+            return null;
+        }
+
+        /// <summary>Why the mirror cannot deduce this art from these fragments now (French), or null.</summary>
+        public string DeduceRefusal(ImmortalArt art, IReadOnlyList<string> fragmentIds)
+        {
+            if (legacies.Contains(art)) return "le clan tient déjà cet héritage";
+            if (Mirror == null || Deduction == null) return "le miroir ne déduit rien";
+            var ids = fragmentIds ?? new List<string>();
+            if (ids.Distinct().Count() != Settings.Legacy.DeduceFragments || ids.Any(id => Deduction.Fragments.All(f => f.ID != id)))
+                return $"il faut {Settings.Legacy.DeduceFragments} fragments du clan";
+            return Mirror.PayRefusal(Settings.Legacy.DeduceMoonlight);
+        }
+
+        /// <summary>The mirror deduces the art's legacy from fragments, for its Moonlight. Null when done, else why not (French).</summary>
+        public string Deduce(ImmortalArt art, IReadOnlyList<string> fragmentIds)
+        {
+            if (DeduceRefusal(art, fragmentIds) is { } why) return why;
+            if (!Mirror.ConsumePower(Settings.Legacy.DeduceMoonlight)) return "le miroir n'a pu payer";
+            Deduction.Consume(fragmentIds);
+            GainLegacy(art, "le miroir déduit un art immortel de ses fragments");
+            return null;
         }
 
         /// <summary>The year's talismans are sold (📚 « one of the few ways to earn stones »): by the drawer's mastery, before the year's gain.</summary>

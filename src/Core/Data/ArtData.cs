@@ -44,6 +44,25 @@ namespace MirrorChronicles.Data
         public EssencePillSettings EssencePill { get; init; } = new EssencePillSettings();
         public FormationSettings Formation { get; init; } = new FormationSettings();
         public TalismanDrawingSettings Talisman { get; init; } = new TalismanDrawingSettings();
+        public LegacySettings Legacy { get; init; } = new LegacySettings();
+    }
+
+    /// <summary>
+    /// Where an art's legacy comes from (balance.json « arts.legacy », AUDIT_LORE.md §2.5, the user's decision 2026-10-04 — 🔎
+    /// interpretations): a power of the Foundation or above knows an art by its kind's chance (stable for a power), and teaches
+    /// it at <see cref="TeachRelation"/> for an accord in kind worth <see cref="Worth"/> (precious: stones weigh nothing); ruins
+    /// hold a manual at <see cref="RuinsChance"/>, a Purple Mansion's tomb at <see cref="TombChance"/>; the mirror deduces one
+    /// from <see cref="DeduceFragments"/> fragments and <see cref="DeduceMoonlight"/> of its Moonlight.
+    /// </summary>
+    public sealed record LegacySettings
+    {
+        public Dictionary<FactionKind, double> PowerArtChance { get; init; } = new Dictionary<FactionKind, double>();
+        public int TeachRelation { get; init; } = 40;
+        public int Worth { get; init; } = 1500;
+        public double RuinsChance { get; init; } = 0.1;
+        public double TombChance { get; init; } = 0.5;
+        public int DeduceFragments { get; init; } = 4;
+        public int DeduceMoonlight { get; init; } = 80;
     }
 
     /// <summary>

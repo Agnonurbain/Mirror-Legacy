@@ -82,6 +82,7 @@ namespace MirrorChronicles.Presentation
             bus.OnPatronDesignDue += (s, d) => Add(session.Sponsorships.IsRevealed(s) ? $"le dessein de {s.Power} arrive à son terme : {d.Name}." : $"{s.Power} semble attendre quelque chose du clan.");
             bus.OnMandateEmbodied += (m, ability) => Add($"la vie de {m.FullName} épouse l'image de « {ability} » : sa capacité avance d'un bond.");
             bus.OnMinorAbilityLearnt += ability => Add($"le clan apprend {AbilityName(session, ability)}, une capacité mineure d'un ancien Vrai Monarque.");
+            bus.OnArtLegacyGained += (art, how) => Add($"{how} : le clan tient désormais l'héritage de {session.Context.Content.Balance.Arts.Arts.FirstOrDefault(a => a.Art == art)?.Name ?? art.ToString()}.");
             bus.OnArtifactFound += (a, where) => Add($"{where} : {a.Name} ({ArtifactView.ClassLabel(a.Class)}).");
             bus.OnTreasureBound += (m, a) => Add($"{m.FullName} lie son destin à {a.Name} : la puissance d'un Manoir Pourpre, et plus jamais un pas au-delà.");
             bus.OnArtifactForged += (a, smith) => Add($"{smith.FullName} forge {a.Name} ({ArtifactView.ClassLabel(a.Class)}).");

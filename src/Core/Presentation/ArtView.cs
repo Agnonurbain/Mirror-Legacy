@@ -21,6 +21,10 @@ namespace MirrorChronicles.Presentation
     /// <summary>An Essence Gathering Pill the clan's best alchemist may refine, of an element its Qi Cultivators need, and why not (null: it can).</summary>
     public sealed record PillOffer(Element Element, string AlchemistId, string Label, string Refusal);
 
+    /// <summary>A way to gain an art's legacy: a power's teaching in kind, or the mirror's deduction — and why not (null: it can).</summary>
+    public sealed record LegacyOffer(ImmortalArt Art, bool FromMirror, string Power, string Label, IReadOnlyList<Diplomacy.AccordTerm> Terms,
+        IReadOnlyList<string> FragmentIds, string Refusal);
+
     /// <summary>The examination of the clan's pills by its best alchemist, and why not (null: it can).</summary>
     public sealed record ExamineOffer(string AlchemistId, string Label, string Refusal);
 
@@ -76,6 +80,36 @@ namespace MirrorChronicles.Presentation
                 .ThenByDescending(m => ArtSystem.MasteryOf(m, ImmortalArt.Alchemy)).FirstOrDefault();
             return new ExamineOffer(alchemist?.ID, "Examiner les pilules (un poison s'y cache-t-il ?)" + (alchemist == null ? "" : $" par {alchemist.FullName}"),
                 alchemist == null ? "aucun alchimiste" : s.Alchemy.ExamineRefusal(alchemist));
+        }
+
+        /// <summary>
+        /// For each art the clan lacks (audit §2.5): the friendliest power that knows it, teaching it for an accord in kind, and
+        /// the mirror's deduction from the clan's humblest fragments.
+        /// </summary>
+        public static IReadOnlyList<LegacyOffer> LegacyOffers(GameSession s)
+        {
+            var set = s.Context.Content.Balance.Arts;
+            var offers = new List<LegacyOffer>();
+            var fragments = s.Deduction.Fragments.OrderBy(f => f.Quality).Take(set.Legacy.DeduceFragments).Select(f => f.ID).ToList();
+            foreach (var def in set.Arts.Where(d => !s.Arts.HoldsLegacy(d.Art)))
+            {
+                var teacher = s.Factions.Factions.Where(p => PowerArts.Knows(p, def.Art, s.Context.Content))
+                    .OrderByDescending(p => p.RelationWithPlayer).FirstOrDefault();
+                if (teacher != null)
+                {
+                    var bundle = AccordView.Bundle(AccordView.Offerings(s.Accords, s.Clan, s.Techniques, s.Resources, s.SecretBook, s.Artifacts,
+                        teacher.Name, set.Legacy.Worth, precious: true), set.Legacy.Worth);
+                    var terms = bundle?.Select(b => b.Term).ToList();
+                    offers.Add(new LegacyOffer(def.Art, false, teacher.Name,
+                        $"Apprendre {def.Name} d'un maître de {teacher.Name} — en nature" + (bundle == null ? "" : $" : {string.Join(", ", bundle.Select(b => b.Label))}"),
+                        terms, new List<string>(),
+                        bundle == null ? "le clan n'a rien qui vaille un héritage ; les pierres n'y comptent pas" : s.Arts.LearnRefusal(teacher.Name, def.Art, terms)));
+                }
+                offers.Add(new LegacyOffer(def.Art, true, null,
+                    $"Déduire {def.Name} par le miroir — {set.Legacy.DeduceFragments} fragments, {set.Legacy.DeduceMoonlight} de Clair de Lune",
+                    null, fragments, s.Arts.DeduceRefusal(def.Art, fragments)));
+            }
+            return offers;
         }
     }
 }

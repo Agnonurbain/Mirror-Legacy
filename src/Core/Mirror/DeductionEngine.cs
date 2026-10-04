@@ -40,6 +40,15 @@ namespace MirrorChronicles.Mirror
             this.library = library;
         }
 
+        /// <summary>Takes these fragments away (spent in another deduction, an Immortal Art's). False when one is not held.</summary>
+        public bool Consume(IReadOnlyList<string> ids)
+        {
+            var taken = fragments.Where(f => ids.Contains(f.ID)).ToList();
+            if (taken.Count != ids.Distinct().Count()) return false;
+            foreach (var f in taken) fragments.Remove(f);
+            return true;
+        }
+
         public void AddFragment(Element element, int quality, string name = "Fragment inconnu")
         {
             fragments.Add(new FragmentData { ID = ctx.Rng.NextId(), Element = element, Quality = quality, Name = name });
