@@ -231,6 +231,7 @@ namespace MirrorChronicles.Tests.Diplomacy
         public void AClanWhoseSuzerainsGripFillsOnceTooOften_IsAbsorbed_AndTheGameLost()
         {
             var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            s.Treaties.End(s.Treaties.All.Single(t => t.Client).Id); // not its client (audit §4.1): its plain vassal
             s.Treaties.Propose(Peak, TreatyKind.Vassalage);
             var treaty = s.Treaties.With(Peak).Single();
             s.Treaties.RestoreTreaties(new[] { treaty with { Grip = Fixtures.Content.Balance.Treaties.GripThreshold, Absorptions = Settings.ClanAbsorptionSteps - 1 } });

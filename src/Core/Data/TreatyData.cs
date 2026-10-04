@@ -17,6 +17,9 @@ namespace MirrorChronicles.Data
         /// <summary>How many times the suzerain's grip on the vassal clan has filled; too many, and the clan is absorbed.</summary>
         public int Absorptions { get; init; }
 
+        /// <summary>The clan is the power's client (a sect over its families, audit §4.1): prodigies and levies, never absorbed.</summary>
+        public bool Client { get; init; }
+
         /// <summary>A marriage alliance: the spouse the power sent (the bond lives while the couple does).</summary>
         public string SpouseId { get; init; }
     }

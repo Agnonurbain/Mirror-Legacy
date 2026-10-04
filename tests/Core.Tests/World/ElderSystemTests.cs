@@ -79,7 +79,8 @@ namespace MirrorChronicles.Tests.World
         [Test]
         public void AJunior_RisesInTime()
         {
-            var s = Session(With(e => e with { RiseChance = new[] { 1.0, 1.0, 1.0 } }));
+            var c = With(e => e with { RiseChance = new[] { 1.0, 1.0, 1.0 } });
+            var s = Session(c with { Balance = c.Balance with { Arts = c.Balance.Arts with { EssencePill = c.Balance.Arts.EssencePill with { WorldTaintChance = 0 } } } });
             var power = s.Factions.GetFactionByName("Famille Lou");
             var junior = new FactionElder { Id = "j", Name = "J", Realm = CultivationRealm.QiRefinement, Stage = 1,
                 BornYear = s.Clock.Year - 40, MaxLifespan = 200, RealmSinceYear = s.Clock.Year - 1000 };

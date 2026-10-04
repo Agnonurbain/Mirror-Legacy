@@ -71,6 +71,7 @@ namespace MirrorChronicles.Session
         /// <summary>The clan's Immortal Arts: legacies, practitioners, mastery (audit §2).</summary>
         public ArtSystem Arts { get; }
         public AlchemySystem Alchemy { get; }
+        public ClientageSystem Clientage { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
@@ -230,6 +231,9 @@ namespace MirrorChronicles.Session
             Marks = new TechniqueMarks(Context, Mirror, Factions, Suspicion);
             Arts = new ArtSystem(Context, Clan, Cultivation, Resources);
             Forge.Arts = Arts;
+            Clientage = new ClientageSystem(Context, Clan, Resources, Suspicion);
+            Treaties.Clientage = Clientage;
+            Treaties.OnClientBroke = sect => Wars.WagedOnClan(sect);
             Buildings.Arts = Arts;
             Arts.Factions = Factions;
             Arts.Accords = Accords;
@@ -284,11 +288,25 @@ namespace MirrorChronicles.Session
             session.PowerShards.Place(PowerShards.WorldRandom(setup.Seed)); // three shards lie with three powers (B3c3)
             session.Elders.Populate(ElderSystem.WorldRandom(setup.Seed));    // the powers' elders (the living world, 2026-10-01)
             session.WorldFruitions.Link();                                   // and the Realizations some of them hold
+            BindToTheSuzerain(session, content);
             session.Deduction.AddFragment(Element.Fire, 1, "Rouleau calciné");
             session.Deduction.AddFragment(Element.Wood, 1, "Lamelle de bambou");
 
             session.Log.Info($"[Session] The {session.Clan.ClanName} clan begins its story (seed {setup.Seed}).");
             return session;
+        }
+
+        /// <summary>
+        /// The clan begins as its suzerain's client, the place's other families as its vassals (📚 the lake's families answer to
+        /// the Cloud Peak, audit §4.1).
+        /// </summary>
+        private static void BindToTheSuzerain(GameSession session, GameContent content)
+        {
+            var sect = session.Factions.GetFactionByName(content.Clan.Suzerain);
+            if (sect == null) return;
+            session.Treaties.BindAsClient(sect.Name);
+            foreach (var family in session.Factions.Factions.Where(f => f != sect && f.RegionId == content.Clan.HomeRegion))
+                session.Politics.BindVassal(sect.Name, family.Name);
         }
 
         /// <summary>

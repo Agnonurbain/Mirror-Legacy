@@ -107,5 +107,15 @@ namespace MirrorChronicles.Tests.Presentation
             s.Intrigues.RestoreDemands(new[] { new Demand("Porte du Chrysanthème Noir", 150, 1) }, null);
             Assert.AreEqual(new DemandLine("Porte du Chrysanthème Noir", 150, "pour son silence", "elle répand ses preuves"), DiplomacyView.Demands(s).Single());
         }
+
+        [Test]
+        public void TheClientage_SaysWhatItCosts()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var line = DiplomacyView.Powers(s).Single(p => p.Name == "Secte du Pic des Nuées").Treaties.Single();
+            Assert.IsTrue(line.Client);
+            StringAssert.Contains("clientèle", line.Kind);
+            StringAssert.Contains("doués", line.Kind);
+        }
     }
 }

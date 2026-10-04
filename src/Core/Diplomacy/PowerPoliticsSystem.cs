@@ -49,6 +49,13 @@ namespace MirrorChronicles.Diplomacy
         /// <summary>Every call awaiting an answer, the oldest first.</summary>
         public IReadOnlyList<CallToArms> PendingCalls => calls;
 
+        /// <summary>A power starts as another's vassal (the world as the novel opens, audit §4.1).</summary>
+        public void BindVassal(string suzerain, string vassal)
+        {
+            if (SuzerainOf(vassal) != null) return;
+            bonds.Add(new PowerBond(ctx.Rng.NextId(), BondKind.Vassalage, suzerain, vassal, ctx.Clock.Year, false));
+        }
+
         public string SuzerainOf(string power) => bonds.FirstOrDefault(b => b.Kind == BondKind.Vassalage && b.B == power)?.A;
 
         public IReadOnlyList<string> AlliesOf(string power) =>

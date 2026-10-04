@@ -96,7 +96,7 @@ namespace MirrorChronicles.Diplomacy
         {
             string home = ctx.Content.Clan.HomeRegion;
             if (faction?.RegionId == null || home == null) return false;
-            if (faction.RegionId == home) return true;
+            if (faction.RegionId == home || faction.Jurisdiction?.Contains(home) == true) return true; // it governs the clan's place (audit §4.2)
             return ctx.Content.Regions.FirstOrDefault(r => r.Id == home)?.Neighbours.Contains(faction.RegionId) == true;
         }
 
@@ -105,8 +105,10 @@ namespace MirrorChronicles.Diplomacy
         {
             if (a?.RegionId == null || b?.RegionId == null || a == b) return false;
             if (a.RegionId == b.RegionId) return true;
+            if (a.Jurisdiction?.Contains(b.RegionId) == true || b.Jurisdiction?.Contains(a.RegionId) == true) return true; // a power's jurisdiction (audit §4.2)
             regionsById ??= ctx.Content.Regions.ToDictionary(r => r.Id); // the map never changes during a game
-            return regionsById.TryGetValue(a.RegionId, out var region) && region.Neighbours.Contains(b.RegionId);
+            bool Borders(string from, string to) => regionsById.TryGetValue(from, out var region) && region.Neighbours.Contains(to);
+            return Borders(a.RegionId, b.RegionId) || Borders(b.RegionId, a.RegionId); // both ways
         }
 
         private Dictionary<string, RegionDefinition> regionsById;

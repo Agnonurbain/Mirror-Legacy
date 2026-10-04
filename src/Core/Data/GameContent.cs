@@ -91,6 +91,9 @@ namespace MirrorChronicles.Data
         public string HomeRegion { get; init; }
         public IReadOnlyList<FounderDefinition> Founders { get; init; } = Array.Empty<FounderDefinition>();
 
+        /// <summary>The power the clan starts as client of (📚 the lake's families answer to the Cloud Peak, audit §4.1), or null.</summary>
+        public string Suzerain { get; init; }
+
         /// <summary>Catalog techniques the clan knows at the start.</summary>
         public IReadOnlyList<string> StartingTechniques { get; init; } = Array.Empty<string>();
 
@@ -211,6 +214,7 @@ namespace MirrorChronicles.Data
 
         /// <summary>The powers' own politics: alliances, feuds, vassals, coalitions, calls to arms (2026-09-27; interpretations).</summary>
         public PoliticsSettings Politics { get; init; }
+        public ClientageSettings Clientage { get; init; } = new ClientageSettings();
 
         /// <summary>The powers' intrigues: blackmail, theft, spies (2026-09-27; interpretations).</summary>
         public IntrigueSettings Intrigues { get; init; }

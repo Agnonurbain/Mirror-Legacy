@@ -9,7 +9,10 @@ namespace MirrorChronicles.Presentation
 {
     /// <summary>A treaty as the diplomacy screen shows it (the years left: null for an open treaty).</summary>
     public sealed record TreatyLine(string Id, string Kind, bool Secret, bool Sealed, int? YearsLeft, bool ClanIsSuzerain, int Grip,
-        int Absorptions = 0, int AbsorptionSteps = 0, string SpouseId = null);
+        int Absorptions = 0, int AbsorptionSteps = 0, string SpouseId = null)
+    {
+        public bool Client { get; init; } // the clan, a sect's client (audit §4.1): breaking free means war
+    }
 
     /// <summary>A power as the diplomacy screen shows it: its public allies and its suzerain — never what it hides (D7).</summary>
     public sealed record PowerLine(string Name, string Kind, string HighestRealm, int Relation, IReadOnlyList<TreatyLine> Treaties,
@@ -40,9 +43,9 @@ namespace MirrorChronicles.Presentation
             session.Factions.Factions
                 .OrderByDescending(f => f.RelationWithPlayer).ThenBy(f => f.Name, StringComparer.Ordinal)
                 .Select(f => new PowerLine(f.Name, WorldMapView.KindLabel(f.Kind), RankCatalog.RealmName(f.HighestRealm), f.RelationWithPlayer,
-                    session.Treaties.With(f.Name).Select(t => new TreatyLine(t.Id, KindLabel(t.Kind), t.Secret, t.Sealed,
+                    session.Treaties.With(f.Name).Select(t => new TreatyLine(t.Id, t.Client ? ClientLabel(session) : KindLabel(t.Kind), t.Secret, t.Sealed,
                         t.EndYear.HasValue ? t.EndYear.Value - session.Clock.Year : null, t.ClanIsSuzerain, t.Grip,
-                        t.Absorptions, session.Context.Content.Balance.Politics.ClanAbsorptionSteps, t.SpouseId)).ToList(),
+                        t.Absorptions, session.Context.Content.Balance.Politics.ClanAbsorptionSteps, t.SpouseId) { Client = t.Client }).ToList(),
                     PublicAllies(session, f.Name), PublicSuzerain(session, f.Name),
                     World.ClanWatch.Sign(session.Suspicion.ClanDistrust(f.Name), session.Context.Content.Balance.ClanWatch)))
                 .ToList();
@@ -113,6 +116,11 @@ namespace MirrorChronicles.Presentation
         public static IReadOnlyList<MemberChoice> MarriageCandidates(GameSession session) =>
             session.Clan.LivingMembers.Where(Clan.MarriageMatchmaker.IsEligible)
                 .Select(m => new MemberChoice(m.ID, m.FullName, RankCatalog.DisplayName(m))).ToList();
+
+        /// <summary>What the clientage costs, as the screen says it (audit §4.1, §5.1).</summary>
+        public static string ClientLabel(GameSession s) =>
+            $"clientèle : le clan lui doit {(int)System.Math.Round(s.Context.Content.Balance.Clientage.TributeShare * 100)} % de ses pierres, "
+            + "ses enfants les plus doués et des levées pour la frontière";
 
         public static string KindLabel(TreatyKind kind) => kind switch
         {

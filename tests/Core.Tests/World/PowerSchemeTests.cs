@@ -87,7 +87,7 @@ namespace MirrorChronicles.Tests.World
                 s.PowerSchemes.ProcessYear();
             }
             Assert.IsTrue(died);
-            Assert.IsEmpty(s.PowerSchemes.Captives);
+            Assert.IsFalse(s.PowerSchemes.Captives.Contains(captive), "the world takes others meanwhile; this one is gone");
         }
 
         [Test]

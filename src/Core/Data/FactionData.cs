@@ -41,7 +41,8 @@ namespace MirrorChronicles.Data
         public double BaselineWeight { get; set; }   // and their weight then: the size its elders can lead scales from these
         public string Notes { get; set; }
         public Provenance Provenance { get; set; }
-        public List<string> InterpretedFields { get; set; } = new List<string>(); // to replace when a source speaks
+        public List<string> InterpretedFields { get; set; } = new List<string>();
+        public List<string> Jurisdiction { get; set; } = new List<string>(); // the places it governs beyond its seat (audit §4.2): its neighbours too // to replace when a source speaks
         public FactionPersonality Personality { get; set; }
         
         // Power Level represents their overall military/cultivation strength (e.g., 100 = weak, 10000 = major sect)
@@ -63,6 +64,7 @@ namespace MirrorChronicles.Data
             copy.Designations = new List<RankDesignation>(Designations ?? new List<RankDesignation>());
             copy.Elders = (Elders ?? new List<FactionElder>()).Select(e => e.Clone()).ToList();
             copy.InterpretedFields = new List<string>(InterpretedFields ?? new List<string>());
+            copy.Jurisdiction = new List<string>(Jurisdiction ?? new List<string>());
             return copy;
         }
 

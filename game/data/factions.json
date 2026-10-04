@@ -4,6 +4,7 @@
 	"familyName": null,
 	"kind": "Sect",
 	"regionId": "mount-yunfeng",
+	"jurisdiction": [ "jingshui-lake", "heshan", "wuyang", "siwei", "mount-tingsong", "haiyan" ],
 	"path": "Immortal",
 	"highestRealm": "GoldenCore",
 	"techniques": [

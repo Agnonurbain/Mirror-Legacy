@@ -153,7 +153,9 @@ namespace MirrorChronicles.Game
             {
                 Text = $"      ↳ {treaty.Kind}{side}{(treaty.Secret ? " · secret" : "")}{(treaty.Sealed ? " · scellé par serment" : "")}{term}"
             });
-            var breakIt = treaty.SpouseId != null ? new Button { Text = "Répudier le conjoint" } : new Button { Text = "Rompre" };
+            var breakIt = treaty.SpouseId != null ? new Button { Text = "Répudier le conjoint" }
+                : treaty.Client ? new Button { Text = "Rompre la tutelle", TooltipText = "La secte fera la guerre au clan." }
+                : new Button { Text = "Rompre" };
             breakIt.Pressed += () => Report(treaty.SpouseId != null ? root.Session.Matches.Repudiate(treaty.SpouseId) : root.Session.Treaties.Break(treaty.Id),
                 treaty.SpouseId != null ? "Le conjoint retourne auprès des siens." : $"Le clan rompt le traité ({treaty.Kind}).");
             row.AddChild(breakIt);

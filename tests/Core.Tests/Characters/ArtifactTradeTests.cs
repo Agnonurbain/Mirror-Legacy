@@ -122,6 +122,7 @@ namespace MirrorChronicles.Tests.Characters
         {
             var s = Session(Content(theft: 1.0));
             var sect = Sect(s);
+            sect.FormationLevel = 0; // no formation to guard it (audit §2.3)
             var thief = Fixtures.Cultivator(age: 50, realm: CultivationRealm.Foundation);
             s.Clan.AddMember(thief);
             Assert.IsNull(s.ArtifactTrade.StealFrom(sect.Name, new[] { thief.ID }));

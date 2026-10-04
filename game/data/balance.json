@@ -335,6 +335,10 @@
 	"unpaidFavorLoss": 2,
 	"safeEndFavor": 3
   },
+  "clientage": {
+	"tributeShare": 0.03, "selectionChance": 0.2, "selectionMinAge": 6, "selectionMaxAge": 16, "discipleYears": 30,
+	"levyChance": 0.15, "levyDeathChance": 0.1, "seededClueChance": 0.1, "seededClues": 5
+  },
   "politics": {
 	"allianceChance": 0.2,
 	"allianceAffinity": 25,

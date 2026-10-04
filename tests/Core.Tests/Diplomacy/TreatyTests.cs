@@ -324,7 +324,8 @@ namespace MirrorChronicles.Tests.Diplomacy
             var s = GameSession.NewGame(Fixtures.Setup(1));
             s.Treaties.Propose(Tao, TreatyKind.Trade, secret: true);
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
-            Assert.AreEqual(s.Treaties.All.Single(), reloaded.Treaties.All.Single());
+            Assert.AreEqual(s.Treaties.All.Single(t => !t.Client), reloaded.Treaties.All.Single(t => !t.Client));
+            Assert.AreEqual(s.Treaties.All.Single(t => t.Client), reloaded.Treaties.All.Single(t => t.Client), "the clientage too");
         }
 
         // ---- Review ----

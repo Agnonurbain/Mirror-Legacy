@@ -143,9 +143,24 @@ namespace MirrorChronicles.Diplomacy
             return treaty == null ? "traité inconnu" : BreakWord(treaty);
         }
 
+        /// <summary>The clientage (set by the session): what a sect's client owes; breaking free of it means war (audit §4.1).</summary>
+        public ClientageSystem Clientage { get; set; }
+
+        /// <summary>Who answers a client breaking free (set by the session): the sect makes war on it.</summary>
+        public Action<string> OnClientBroke { get; set; }
+
+        /// <summary>The clan becomes a sect's client (the novel's start, audit §4.1).</summary>
+        public Treaty BindAsClient(string sect)
+        {
+            var treaty = new Treaty(ctx.Rng.NextId(), TreatyKind.Vassalage, sect, ctx.Clock.Year, null, false, false, false) { Client = true };
+            treaties.Add(treaty);
+            return treaty;
+        }
+
         private string BreakWord(Treaty treaty)
         {
             treaties.Remove(treaty);
+            if (treaty.Client) OnClientBroke?.Invoke(treaty.Faction); // the sect strikes the client who broke away
             ChangeRelation(treaty.Faction, Settings.BreakRelation);
             if (!treaty.Secret)
                 foreach (var other in factions.Factions.Where(f => f.Name != treaty.Faction))
@@ -175,6 +190,7 @@ namespace MirrorChronicles.Diplomacy
                     continue;
                 }
                 var current = Apply(treaty, power);
+                if (current.Client) continue; // a sect does not betray its client: it reaps it, in time
                 if (ctx.Rng.Chance(TreatyRules.BetrayalChance(power, current, suspicion.OfClan(power.Name), ClanStrongest, Settings)))
                 {
                     Betray(current, power);
@@ -203,6 +219,9 @@ namespace MirrorChronicles.Diplomacy
                     return treaty;
                 case TreatyKind.Defence:
                     suspicion.AddMirrorClues(power.Name, s.AllyProximityClues); // an ally comes close
+                    return treaty;
+                case TreatyKind.Vassalage when treaty.Client:
+                    Clientage?.Serve(power); // a sect's client: prodigies and levies, never absorbed (audit §4.1, §5.1)
                     return treaty;
                 case TreatyKind.Vassalage when treaty.ClanIsSuzerain:
                     int owed = (int)(Math.Max(0, power.Wealth) * s.VassalTributeShare);
