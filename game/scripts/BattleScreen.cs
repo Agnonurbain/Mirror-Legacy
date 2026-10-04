@@ -157,7 +157,7 @@ namespace MirrorChronicles.Game
             endTurn.Disabled = !myTurn;
             auto.Disabled = !myTurn;
             var pulseRefusal = MirrorView.Interventions(root.Session).Single(i => i.Id == MirrorView.Pulse).Cost > root.Session.Mirror.MirrorPower
-                ? "puissance insuffisante" : null;
+                ? "Clair de Lune insuffisant" : null;
             pulse.Disabled = !myTurn || pulseRefusal != null;
             pulse.TooltipText = pulseRefusal ?? "";
             conclude.Visible = battle.IsOver;

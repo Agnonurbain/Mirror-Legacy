@@ -200,7 +200,7 @@ namespace MirrorChronicles.Tests.Presentation
             StringAssert.Contains("inconnue", OperationsView.FalseProofRefusal(s, peak, null));
 
             s.Mirror.ConsumePower(s.Mirror.MirrorPower);
-            StringAssert.Contains("puissance du miroir", OperationsView.FalseProofRefusal(s, peak, ruan));
+            StringAssert.Contains("Clair de Lune", OperationsView.FalseProofRefusal(s, peak, ruan));
             Assert.IsFalse(s.Secrets.PlantFalseProof(peak, ruan), "the view says no when the mirror says no");
         }
 

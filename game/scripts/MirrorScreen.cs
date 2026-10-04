@@ -50,7 +50,7 @@ namespace MirrorChronicles.Game
         private void Refresh()
         {
             var header = MirrorView.Header(root.Session);
-            power.Text = $"Puissance {header.Power}/{header.MaxPower} · Graines de Sceau {header.Seeds}/{header.SeedCapacity}";
+            power.Text = $"Clair de Lune du Yin Suprême {header.Power}/{header.MaxPower} (+{root.Session.Mirror.Tier.MoonlightPerYear}/an) · Graines de Sceau {header.Seeds}/{header.SeedCapacity}";
             var all = MirrorView.Interventions(root.Session);
             ShowInterventions(all);
             ShowSeeds();
@@ -101,7 +101,7 @@ namespace MirrorChronicles.Game
             Clear(interventions);
             foreach (var line in all)
             {
-                string text = $"{line.Name} — {line.Cost} de puissance — {line.Effect}{(line.Refusal == null ? "" : $" ({line.Refusal})")}";
+                string text = $"{line.Name} — {line.Cost} de Clair de Lune — {line.Effect}{(line.Refusal == null ? "" : $" ({line.Refusal})")}";
                 if (line.Id != MirrorView.Shield)
                 {
                     Add(interventions, text); // the others are used from their own tab, or in battle
@@ -118,6 +118,25 @@ namespace MirrorChronicles.Game
                 };
                 row.AddChild(use);
                 interventions.AddChild(row);
+            }
+            ShowMoonlightGift();
+        }
+
+        /// <summary>The Supreme Yin Moonlight given to the clan (audit §3.7): a portion of Qi sealed, or a member nourished.</summary>
+        private void ShowMoonlightGift()
+        {
+            var s = root.Session;
+            var t = s.Context.Content.Balance.MirrorTiers;
+            string refusal = s.Moonlight.Refusal();
+            Add(interventions, $"Donner du Clair de Lune au clan ({t.GiftCost} chacun) — un Qi si rare ne passe pas inaperçu des espions :");
+            var seal = new Button { Text = "Sceller une portion de Qi du Yin Suprême", Disabled = refusal != null, TooltipText = refusal ?? "" };
+            seal.Pressed += () => { status.Text = s.Moonlight.SealQi() is { } r ? $"Refusé : {r}." : "Le miroir scelle une portion de Clair de Lune pour le clan."; Refresh(); };
+            interventions.AddChild(seal);
+            foreach (var m in s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && MirrorChronicles.Characters.SpiritualOrificeRules.CanCultivate(m)).OrderByDescending(m => m.Realm).Take(8))
+            {
+                var nourish = new Button { Text = $"Nourrir la cultivation de {m.FullName}", Disabled = refusal != null, TooltipText = refusal ?? "" };
+                nourish.Pressed += () => { status.Text = s.Moonlight.Nourish(m.ID) is { } r ? $"Refusé : {r}." : $"Le Clair de Lune nourrit {m.FullName}."; Refresh(); };
+                interventions.AddChild(nourish);
             }
         }
 
@@ -219,7 +238,7 @@ namespace MirrorChronicles.Game
             }
             var preview = MirrorView.DeductionPreview(root.Session, chosenFragments.ToList());
             var row = new HBoxContainer();
-            row.AddChild(Text(preview.Refusal == null ? $"Coût : {preview.Cost} de puissance" : $"({preview.Refusal})"));
+            row.AddChild(Text(preview.Refusal == null ? $"Coût : {preview.Cost} de Clair de Lune" : $"({preview.Refusal})"));
             var deduce = new Button { Text = "Déduire", Disabled = preview.Refusal != null };
             deduce.Pressed += () =>
             {

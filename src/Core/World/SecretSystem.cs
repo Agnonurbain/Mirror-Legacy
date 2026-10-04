@@ -87,7 +87,7 @@ namespace MirrorChronicles.World
         {
             if (factions.GetFactionByName(faction) == null || factions.GetFactionByName(framed) == null) return "puissance inconnue";
             if (faction == framed) return "choisissez deux puissances différentes";
-            if (mirror.MirrorPower < Settings.FalseProofMirrorCost) return $"il faut {Settings.FalseProofMirrorCost} de puissance du miroir";
+            if (mirror.MirrorPower < Settings.FalseProofMirrorCost) return $"il faut {Settings.FalseProofMirrorCost} de Clair de Lune";
             return null;
         }
 

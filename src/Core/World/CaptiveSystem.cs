@@ -129,7 +129,7 @@ namespace MirrorChronicles.World
             var captive = HeldMember(memberId);
             if (captive == null) return "ce membre n'est pas captif";
             if (!captive.KnowsMirrorSecret) return "il ne sait rien du miroir";
-            if (!mirror.ConsumePower(Settings.SilenceMirrorCost)) return $"il faut {Settings.SilenceMirrorCost} de puissance du miroir";
+            if (!mirror.ConsumePower(Settings.SilenceMirrorCost)) return $"il faut {Settings.SilenceMirrorCost} de Clair de Lune";
             captive.KnowsMirrorSecret = false;
             ctx.Log.Info($"[Captives] The mirror blurs what {captive.FullName} knew.");
             return null;

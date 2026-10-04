@@ -172,7 +172,7 @@ namespace MirrorChronicles.Game
         {
             var plan = Plan();
             var preview = OperationsView.HuntPreview(session, plan);
-            Add(hunt, $"Approche {preview.Approach} % · capture {preview.Capture} % · traces si tout va bien : {preview.Exposure} · coût : {preview.Stones} pierres, {preview.MirrorPower} de puissance du miroir");
+            Add(hunt, $"Approche {preview.Approach} % · capture {preview.Capture} % · traces si tout va bien : {preview.Exposure} · coût : {preview.Stones} pierres, {preview.MirrorPower} de Clair de Lune");
             var launch = AddButton(hunt, "Lancer l'opération", () =>
             {
                 var outcome = session.Hunts.Execute(plan);
@@ -205,7 +205,7 @@ namespace MirrorChronicles.Game
                 line.AddChild(new Label { Text = $"{spouse.Name} ({from}) — {known}", CustomMinimumSize = new Vector2(420, 0) });
                 if (!spouse.Sounded)
                     AddAction(line, $"Sonder (miroir, {session.Context.Content.Balance.Intrigues.UnmaskMirrorCost})",
-                        () => Report(session.Intrigues.Unmask(spouse.Id) ?? "Le miroir manque de puissance."));
+                        () => Report(session.Intrigues.Unmask(spouse.Id) ?? "Le miroir manque de Clair de Lunesance."));
                 else if (spouse.Enthralled)
                     AddAction(line, $"Briser l'envoûtement (miroir, {session.Context.Content.Balance.Enthrallment.BreakMirrorCost})",
                         () => Report(session.Enthrallment.Break(spouse.Id) is { } r ? $"Refusé : {r}." : $"{spouse.Name} est délivré(e)."));

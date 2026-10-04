@@ -15,19 +15,24 @@ namespace MirrorChronicles.Tests.Mirror
         }
 
         [Test]
-        public void NewYear_RechargesOnePower()
+        public void NewYear_CondensesItsTiersMoonlight()
         {
+            // the Supreme Yin Moonlight, condensed each year by its restoration (LORE.md §11.5; audit §3.7)
             var w = new TestWorld();
             w.Ctx.Events.TriggerYearStarted(2);
-            Assert.AreEqual(51, w.Mirror.MirrorPower);
+            Assert.AreEqual(50 + w.Mirror.Tier.MoonlightPerYear, w.Mirror.MirrorPower);
+            w.Mirror.Restore(50, 1);
+            w.Ctx.Events.TriggerYearStarted(3);
+            Assert.AreEqual(50 + w.Mirror.Tier.MoonlightPerYear, w.Mirror.MirrorPower);
+            Assert.Greater(w.Mirror.Tier.MoonlightPerYear, Fixtures.Content.Balance.MirrorTiers.Tiers[0].MoonlightPerYear, "a shard: more moon");
         }
 
         [Test]
-        public void Breakthrough_RechargesFivePower()
+        public void ABreakthrough_NoLongerFeedsTheMirror()
         {
             var w = new TestWorld();
             w.Ctx.Events.TriggerBreakthroughSuccess(Fixtures.Cultivator(), CultivationRealm.QiRefinement);
-            Assert.AreEqual(55, w.Mirror.MirrorPower);
+            Assert.AreEqual(50, w.Mirror.MirrorPower, "no lore says the clan's breakthroughs feed the mirror");
         }
 
         [Test]
@@ -35,7 +40,7 @@ namespace MirrorChronicles.Tests.Mirror
         {
             var w = new TestWorld();
             w.Mirror.AddPower(500);
-            Assert.AreEqual(MirrorSystem.MaxMirrorPower, w.Mirror.MirrorPower);
+            Assert.AreEqual(w.Mirror.Cap, w.Mirror.MirrorPower);
         }
 
         [Test]

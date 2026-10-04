@@ -47,7 +47,7 @@ namespace MirrorChronicles.Tests.Presentation
 
             s.Mirror.EssencesHeld = () => 1; // a metallic essence held: the shield may watch (audit §3.4)
             s.Mirror.Restore(MirrorSystem.AncestralShieldCost - 1, 0);
-            StringAssert.Contains("puissance", MirrorView.Interventions(s).Single(i => i.Id == MirrorView.Shield).Refusal);
+            StringAssert.Contains("Clair de Lune", MirrorView.Interventions(s).Single(i => i.Id == MirrorView.Shield).Refusal);
 
             s.Mirror.Restore(MirrorSystem.MaxMirrorPower, 0);
             Assert.IsTrue(s.Mirror.UseAncestralShield());
@@ -141,7 +141,7 @@ namespace MirrorChronicles.Tests.Presentation
         {
             var s = Session();
             s.Mirror.Restore(MirrorSystem.TalismanSeedCost - 1, 0);
-            StringAssert.Contains("puissance", MirrorView.Interventions(s).Single(i => i.Id == MirrorView.Seed).Refusal);
+            StringAssert.Contains("Clair de Lune", MirrorView.Interventions(s).Single(i => i.Id == MirrorView.Seed).Refusal);
             s.Mirror.Restore(MirrorSystem.MaxMirrorPower, 0);
             for (int i = s.Clan.LivingMembers.Count(m => m.HasTalismanSeed); i < s.Mirror.TalismanSeedCapacity; i++)
                 Mortal(s, examined: true).HasTalismanSeed = true;

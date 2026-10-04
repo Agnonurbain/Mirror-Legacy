@@ -74,13 +74,16 @@ namespace MirrorChronicles.Mirror
             this.clan = clan;
             this.breakthroughs = breakthroughs;
 
-            ctx.Events.OnYearStarted += year => AddPower(YearlyRecharge);
-            ctx.Events.OnBreakthroughSuccess += (c, realm) => AddPower(BreakthroughRecharge);
+            // the Supreme Yin Moonlight it condenses each year, by its restoration — no more from the clan's breakthroughs (audit §3.7)
+            ctx.Events.OnYearStarted += year => AddPower(Tier.MoonlightPerYear);
         }
+
+        /// <summary>The most Supreme Yin Moonlight it holds at its restoration (its tier).</summary>
+        public int Cap => Math.Max(1, Tier.MoonlightCap);
 
         public void AddPower(int amount)
         {
-            MirrorPower = Math.Clamp(MirrorPower + amount, 0, MaxMirrorPower);
+            MirrorPower = Math.Clamp(MirrorPower + amount, 0, Math.Max(Cap, MirrorPower));
         }
 
         /// <summary>Why the mirror cannot pay <paramref name="amount"/> now (French, for the screens), or null when it can.</summary>
@@ -88,7 +91,7 @@ namespace MirrorChronicles.Mirror
         {
             if (amount <= 0) return null;
             if (IsAsleep) return "le miroir dort : il intègre un éclat";
-            return MirrorPower < amount ? $"il faut {amount} de puissance du miroir" : null;
+            return MirrorPower < amount ? $"il faut {amount} de Clair de Lune" : null;
         }
 
         public bool ConsumePower(int amount,
@@ -189,7 +192,7 @@ namespace MirrorChronicles.Mirror
 
         public void Restore(int power, int restoredFragments, int asleepUntil = 0)
         {
-            MirrorPower = Math.Clamp(power, 0, MaxMirrorPower);
+            MirrorPower = Math.Max(0, power); // what it held, whatever its tier on loading
             RestoredFragments = Math.Max(0, restoredFragments);
             AsleepUntil = asleepUntil;
         }

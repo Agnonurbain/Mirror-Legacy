@@ -109,8 +109,9 @@ namespace MirrorChronicles.Tests.Session
         public void AdvanceYear_RechargesTheMirror()
         {
             var s = Quiet();
+            int before = s.Mirror.MirrorPower;
             s.AdvanceYear();
-            Assert.AreEqual(51, s.Mirror.MirrorPower);
+            Assert.AreEqual(System.Math.Min(s.Mirror.Cap, before + s.Mirror.Tier.MoonlightPerYear), s.Mirror.MirrorPower);
         }
 
         [Test]

@@ -132,7 +132,7 @@ namespace MirrorChronicles.Game
             stones.Text = $"{header.SpiritStones} pierres spirituelles (entretien {upkeep.Yearly}/an)";
             stones.TooltipText = upkeep.Warning ?? "";
             if (upkeep.Warning != null) stones.Text += " — misère";
-            mirror.Text = $"Miroir {header.MirrorPower}/100";
+            mirror.Text = $"Clair de Lune {header.MirrorPower}/{session.Mirror.Cap}";
             generation.Text = $"Génération {header.Generation}";
             GetNode<Button>("%OpenBattle").Visible = session.Challenges.Pending != null || session.Challenges.Current != null;
             var stock = ClanDomainView.QiStock(session);

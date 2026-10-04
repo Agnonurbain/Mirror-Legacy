@@ -567,13 +567,17 @@
   "enthrallment": { "yearlyChance": 0.1, "breakMirrorCost": 30, "bendBase": 0.5, "bendPerPower": 0.02, "seenChance": 0.3, "seenDistrust": 30 },
   "mirrorTiers": {
 	"tiers": [
-	  { "minShards": 0, "lightKills": "Embryonic", "lightWounds": "QiRefinement", "perception": "Domain", "illusions": false, "soulLocks": false },
-	  { "minShards": 1, "lightKills": "QiRefinement", "lightWounds": "Foundation", "perception": "Lake", "illusions": false, "soulLocks": true },
-	  { "minShards": 3, "lightKills": "Foundation", "lightWounds": "PurpleMansion", "perception": "State", "illusions": true, "soulLocks": true }
+	  { "minShards": 0, "lightKills": "Embryonic", "lightWounds": "QiRefinement", "perception": "Domain", "illusions": false, "soulLocks": false, "moonlightPerYear": 10, "moonlightCap": 100 },
+	  { "minShards": 1, "lightKills": "QiRefinement", "lightWounds": "Foundation", "perception": "Lake", "illusions": false, "soulLocks": true, "moonlightPerYear": 15, "moonlightCap": 150 },
+	  { "minShards": 3, "lightKills": "Foundation", "lightWounds": "PurpleMansion", "perception": "State", "illusions": true, "soulLocks": true, "moonlightPerYear": 20, "moonlightCap": 200 }
 	],
-	"greatVoid": { "lightKills": "PurpleMansion", "lightWounds": "GoldenCore", "perception": "Everywhere", "illusions": true, "soulLocks": true },
+	"greatVoid": { "lightKills": "PurpleMansion", "lightWounds": "GoldenCore", "perception": "Everywhere", "illusions": true, "soulLocks": true, "moonlightPerYear": 30, "moonlightCap": 300 },
 	"elderWoundYears": 30,
-	"strikeClues": 10
+	"strikeClues": 10,
+	"giftCost": 30,
+	"giftQiId": "supreme-yin-moon-silk-qi",
+	"giftXpShare": 0.5,
+	"giftClues": 15
   },
   "travel": { "hopsByRealm": { "Embryonic": 0, "QiRefinement": 2 }, "wholeStateFrom": "Foundation", "anywhereFrom": "PurpleMansion" },
   "dharma": {

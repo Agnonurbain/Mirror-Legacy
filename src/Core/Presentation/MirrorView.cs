@@ -41,14 +41,14 @@ namespace MirrorChronicles.Presentation
         public const string Pulse = "qi-pulse";
 
         public static MirrorHeader Header(GameSession session) =>
-            new MirrorHeader(session.Mirror.MirrorPower, MirrorSystem.MaxMirrorPower, ActiveSeeds(session), session.Mirror.TalismanSeedCapacity);
+            new MirrorHeader(session.Mirror.MirrorPower, session.Mirror.Cap, ActiveSeeds(session), session.Mirror.TalismanSeedCapacity);
 
         private static int ActiveSeeds(GameSession session) => session.Clan.LivingMembers.Count(m => m.HasTalismanSeed);
 
         public static IReadOnlyList<InterventionLine> Interventions(GameSession session)
         {
             int power = session.Mirror.MirrorPower;
-            string Short(int cost) => power < cost ? $"puissance insuffisante ({power}/{cost})" : null;
+            string Short(int cost) => power < cost ? $"Clair de Lune insuffisant ({power}/{cost})" : null;
             return new List<InterventionLine>
             {
                 new InterventionLine(Shield, "Bouclier ancestral", MirrorSystem.AncestralShieldCost, "+30 % à la prochaine percée de Fondation (par une essence métallique)",
@@ -110,7 +110,7 @@ namespace MirrorChronicles.Presentation
             if (count < DeductionEngine.MinFragments || count > DeductionEngine.MaxFragments)
                 return new DeductionPreviewLine(cost, $"une déduction demande de {DeductionEngine.MinFragments} à {DeductionEngine.MaxFragments} fragments");
             if (session.Mirror.MirrorPower < cost)
-                return new DeductionPreviewLine(cost, $"puissance insuffisante ({session.Mirror.MirrorPower}/{cost})");
+                return new DeductionPreviewLine(cost, $"Clair de Lune insuffisant ({session.Mirror.MirrorPower}/{cost})");
             return new DeductionPreviewLine(cost, null);
         }
     }

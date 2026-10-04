@@ -61,6 +61,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>The mirror's Light against the powers' elders (audit §3.2).</summary>
         public LightStrike Light { get; }
+
+        /// <summary>The Supreme Yin Moonlight given to the clan (audit §3.7).</summary>
+        public MoonlightGift Moonlight { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
@@ -216,6 +219,7 @@ namespace MirrorChronicles.Session
             Mirror.Wounds = Wounds;
             Mirror.EssencesHeld = () => Demons.Essences;
             Light = new LightStrike(Context, Mirror, Factions, Suspicion);
+            Moonlight = new MoonlightGift(Context, Mirror, Clan, Resources, Suspicion);
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
