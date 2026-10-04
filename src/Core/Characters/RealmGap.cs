@@ -40,6 +40,14 @@ namespace MirrorChronicles.Characters
             return lineage != null && lineage == defender.FruitionId;
         }
 
+        /// <summary>True when one of the power's True Monarchs holds the lineage of the member's foundation: the member is powerless before it.</summary>
+        public static bool SuppressedBy(CharacterData member, FactionData power)
+        {
+            if (member == null || power?.Elders == null) return false;
+            var (lineage, _) = FoundationRef.Parse(member.FoundationId);
+            return lineage != null && power.Elders.Any(e => e.Realm >= CultivationRealm.GoldenCore && e.FruitionId == lineage);
+        }
+
         /// <summary>True when at least one of the team reaches a foe of this realm.</summary>
         public static bool Reaches(IEnumerable<CharacterData> team, CultivationRealm foe, RealmGapSettings gap) =>
             (team ?? Enumerable.Empty<CharacterData>()).Any(m => m != null && !OutOfReach(m.Realm, foe, gap));

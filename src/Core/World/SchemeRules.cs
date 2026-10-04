@@ -28,6 +28,7 @@ namespace MirrorChronicles.World
         /// </summary>
         public static double CaptureChance(FactionData power, CharacterData member, SchemeSettings s, RealmGapSettings gap) =>
             Characters.RealmGap.OutOfReach(power.HighestRealm, member.Realm, gap) ? 0
+                : Characters.RealmGap.SuppressedBy(member, power) ? MaxPercent / 100.0 // a True Monarch of its own foundation: it cannot resist (LORE.md §5.5.2)
                 : Percent(s.CaptureBase + ((int)power.HighestRealm - (int)member.Realm) * s.CapturePerRealm);
 
         /// <summary>A captive's yearly chance of talking under interrogation.</summary>
@@ -44,6 +45,7 @@ namespace MirrorChronicles.World
         /// </summary>
         public static double RescueChance(IEnumerable<CharacterData> team, FactionData captor, SchemeSettings s, RealmGapSettings gap)
         {
+            team = team.Where(m => !Characters.RealmGap.SuppressedBy(m, captor)).ToList(); // none of its foundation raises a hand against it
             if (!Characters.RealmGap.Reaches(team, captor.HighestRealm, gap)) return 0;
             int teamPower = (int)Characters.RealmGap.TeamStrength(team, captor.HighestRealm, 1.0, gap);
             int captorPower = HuntRules.Power(captor.HighestRealm, s.CaptorStage);

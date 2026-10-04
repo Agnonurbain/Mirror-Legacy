@@ -132,6 +132,22 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void APowersGoldenCore_LeavesThoseOfItsFoundation_Powerless_InItsSchemes()
+        {
+            var s = Fixtures.QuietContent.Balance.Schemes;
+            var power = new FactionData { Name = "p", HighestRealm = CultivationRealm.GoldenCore };
+            power.Elders.Add(new FactionElder { Id = "m", Name = "m", Realm = CultivationRealm.GoldenCore, Stage = 1, MaxLifespan = 1000, FruitionId = "orthodox-water" });
+            var kin = Member(CultivationRealm.GoldenCore, 2);
+            kin.FoundationId = "orthodox-water:boundless-sea";
+            var other = Member(CultivationRealm.GoldenCore, 2);
+            other.FoundationId = "bright-yang:x";
+            Assert.IsTrue(RealmGap.SuppressedBy(kin, power));
+            Assert.Greater(SchemeRules.CaptureChance(power, kin, s, Gap), SchemeRules.CaptureChance(power, other, s, Gap), "it cannot resist the essence");
+            Assert.AreEqual(0, SchemeRules.RescueChance(new List<CharacterData> { kin }, power, s, Gap), 1e-9, "nor raise a hand against it");
+            Assert.Greater(SchemeRules.RescueChance(new List<CharacterData> { other }, power, s, Gap), 0);
+        }
+
+        [Test]
         public void InWar_ASideOutOfReach_CannotWin()
         {
             Assert.AreEqual(1.0, MirrorChronicles.Diplomacy.WarRules.WinChance(10, CultivationRealm.PurpleMansion, 1000, CultivationRealm.Foundation, Gap), 1e-9,
