@@ -159,6 +159,8 @@ namespace MirrorChronicles.Mirror
                 RequiredRealm = isMethod ? CultivationRealm.QiRefinement : TechniqueRules.ArtRequiredRealm(grade, rules),
                 MovementSteps = kind == TechniqueKind.Movement ? TechniqueRules.MovementArtSteps(grade, rules) : 0,
                 RequiredQiId = isMethod ? QiFor(dominant)?.Id : null,
+                // a method of the Purple Mansion only from three shards (LORE.md §11.10; AUDIT_LORE.md §3.3): before, it stops at the Foundation's peak
+                HasPurpleMansionSecret = isMethod && mirror.RestoredFragments < ctx.Content.Balance.Techniques.AscentDeductionShards ? false : null,
                 PowerModifier = totalQuality * 5,
                 QiCost = totalQuality * 2,
                 Range = effect switch

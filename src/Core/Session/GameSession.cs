@@ -214,6 +214,7 @@ namespace MirrorChronicles.Session
             Enthrallment = new Enthrallment(Context, Clan, Factions, Mirror, Suspicion);
             Mirror.VoidOpen = () => Shards.CanTraverseVoid;
             Mirror.Wounds = Wounds;
+            Mirror.EssencesHeld = () => Demons.Essences;
             Light = new LightStrike(Context, Mirror, Factions, Suspicion);
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);

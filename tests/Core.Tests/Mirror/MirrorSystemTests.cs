@@ -50,6 +50,8 @@ namespace MirrorChronicles.Tests.Mirror
         public void UseAncestralShield_ArmsTheNextBreakthrough()
         {
             var w = new TestWorld();
+            Assert.IsFalse(w.Mirror.UseAncestralShield(), "without a metallic essence, the mirror bends nothing");
+            w.Mirror.EssencesHeld = () => 1;
             w.Mirror.UseAncestralShield();
             Assert.IsTrue(w.Breakthroughs.AncestralShieldActive && w.Mirror.MirrorPower == 25);
         }

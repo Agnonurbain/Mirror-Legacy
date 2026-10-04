@@ -51,9 +51,9 @@ namespace MirrorChronicles.Presentation
             string Short(int cost) => power < cost ? $"puissance insuffisante ({power}/{cost})" : null;
             return new List<InterventionLine>
             {
-                new InterventionLine(Shield, "Bouclier ancestral", MirrorSystem.AncestralShieldCost, "+30 % à la prochaine percée",
-                    session.Breakthroughs.AncestralShieldActive ? "le bouclier veille déjà sur la prochaine percée" : Short(MirrorSystem.AncestralShieldCost)),
-                new InterventionLine(Judgment, "Jugement du miroir", MirrorSystem.MirrorJudgmentCost, "un traître meurt d'une déviation du Qi",
+                new InterventionLine(Shield, "Bouclier ancestral", MirrorSystem.AncestralShieldCost, "+30 % à la prochaine percée de Fondation (par une essence métallique)",
+                    session.Mirror.ShieldRefusal()),
+                new InterventionLine(Judgment, "Jugement du miroir", MirrorSystem.MirrorJudgmentCost, "la Lumière tue ou blesse un traître, ou un ancien ennemi perçu, selon les éclats",
                     Short(MirrorSystem.MirrorJudgmentCost)),
                 new InterventionLine(Seed, "Graine de Sceau", MirrorSystem.TalismanSeedCost, "un mortel sans orifice peut cultiver",
                     ActiveSeeds(session) >= session.Mirror.TalismanSeedCapacity ? "le miroir n'en soutient pas davantage" : Short(MirrorSystem.TalismanSeedCost)),

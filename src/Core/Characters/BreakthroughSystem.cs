@@ -76,7 +76,7 @@ namespace MirrorChronicles.Characters
             }
 
             int successRate = CalculateSuccessRate(character);
-            if (AncestralShieldActive)
+            if (AncestralShieldActive && step.Trial == TrialKind.FoundationWall) // the essence bends the wall of the Foundation (📚)
             {
                 successRate = Math.Min(99, successRate + AncestralShieldBonus);
                 AncestralShieldActive = false;

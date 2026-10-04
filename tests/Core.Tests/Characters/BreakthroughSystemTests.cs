@@ -135,15 +135,15 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
-        public void AttemptBreakthrough_GrantsTheShieldBonusOnce()
+        public void TheShield_WaitsForTheFoundationWall_AndLeavesAChakraAlone()
         {
-            Build(new SequenceRandom(0.855, 0.495, 0.855, 0.495)); // roll 86 twice
-            var shielded = ReadyForInnerLake();   // 78% + 30% shield → passes
-            var unshielded = ReadyForInnerLake(); // 78% → fails
+            // 📚 the mirror's essence bends the Foundation's breakthrough (AUDIT_LORE.md §3.4): a chakra trial is not its to bend
+            Build(new SequenceRandom(0.855, 0.495)); // roll 86
+            var member = ReadyForInnerLake();         // 78% → fails, shield or not
             breakthroughs.AncestralShieldActive = true;
-            breakthroughs.AttemptBreakthrough(shielded);
-            breakthroughs.AttemptBreakthrough(unshielded);
-            Assert.IsTrue(shielded.RealmStage == 1 && unshielded.RealmStage == 0 && !breakthroughs.AncestralShieldActive);
+            breakthroughs.AttemptBreakthrough(member);
+            Assert.AreEqual(0, member.RealmStage);
+            Assert.IsTrue(breakthroughs.AncestralShieldActive, "it still watches over the wall of the Foundation");
         }
 
         [Test]

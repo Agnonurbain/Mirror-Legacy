@@ -45,6 +45,7 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.AreEqual(MirrorSystem.AncestralShieldCost, all.Single(i => i.Id == MirrorView.Shield).Cost);
             StringAssert.Contains("bataille", all.Single(i => i.Id == MirrorView.Pulse).Refusal, "a pulse is given in battle");
 
+            s.Mirror.EssencesHeld = () => 1; // a metallic essence held: the shield may watch (audit §3.4)
             s.Mirror.Restore(MirrorSystem.AncestralShieldCost - 1, 0);
             StringAssert.Contains("puissance", MirrorView.Interventions(s).Single(i => i.Id == MirrorView.Shield).Refusal);
 
@@ -127,6 +128,7 @@ namespace MirrorChronicles.Tests.Presentation
         public void TheShield_IsNotInvokedTwice()
         {
             var s = Session();
+            s.Mirror.EssencesHeld = () => 1;
             s.Mirror.Restore(MirrorSystem.MaxMirrorPower, 0);
             Assert.IsTrue(s.Mirror.UseAncestralShield());
             int power = s.Mirror.MirrorPower;

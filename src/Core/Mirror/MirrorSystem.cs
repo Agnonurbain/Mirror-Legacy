@@ -49,6 +49,20 @@ namespace MirrorChronicles.Mirror
         /// <summary>True when the mirror perceives the place from the clan's domain.</summary>
         public bool Perceives(string region) => MirrorTiers.Perceives(Tier.Perception, ctx.Content.Clan.HomeRegion, region, ctx.Content.Regions);
 
+        /// <summary>The metallic essences the clan holds (set by the session: the demons' essences taken back).</summary>
+        public System.Func<int> EssencesHeld { get; set; }
+
+        /// <summary>
+        /// Why the Ancestral Shield cannot watch now (French), or null: the mirror bends a breakthrough only through a metallic
+        /// essence it holds (📚 Lu_Jiangxian/Abilities; AUDIT_LORE.md §3.4), once until that breakthrough.
+        /// </summary>
+        public string ShieldRefusal()
+        {
+            if ((EssencesHeld?.Invoke() ?? 0) < 1) return "il faut au miroir une essence métallique (reprise à un démon d'essence)";
+            if (breakthroughs.AncestralShieldActive) return "le bouclier veille déjà sur la prochaine percée de Fondation";
+            return PayRefusal(AncestralShieldCost);
+        }
+
         /// <summary>The wounds its Light leaves (set by the session).</summary>
         public WoundSystem Wounds { get; set; }
 
@@ -106,10 +120,10 @@ namespace MirrorChronicles.Mirror
             return true;
         }
 
-        /// <summary>Cost 25: +30% on the next breakthrough attempt; once until that attempt.</summary>
+        /// <summary>Cost 25, with a metallic essence held: +30% on the next Foundation breakthrough; once until that attempt.</summary>
         public bool UseAncestralShield()
         {
-            if (breakthroughs.AncestralShieldActive || !ConsumePower(AncestralShieldCost)) return false;
+            if (ShieldRefusal() != null || !ConsumePower(AncestralShieldCost)) return false;
             breakthroughs.AncestralShieldActive = true;
             ctx.Log.Info("[Mirror] The Ancestral Shield watches over the next breakthrough.");
             return true;

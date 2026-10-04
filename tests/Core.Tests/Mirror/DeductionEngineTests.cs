@@ -174,5 +174,25 @@ namespace MirrorChronicles.Tests.Mirror
             var technique = w.Deduction.AttemptDeduction(divine);
             Assert.IsTrue(Enum.IsDefined(typeof(CultivationRealm), technique.RequiredRealm));
         }
+
+        [Test]
+        public void BeforeThreeShards_ADeducedMethod_HoldsNoSecretOfAscent()
+        {
+            // LORE.md §11.10 (validated): only from three shards does the mirror deduce a method that climbs to the Purple Mansion
+            for (int restored = 0; restored <= 3; restored += 3)
+            {
+                bool any = false;
+                for (int i = 0; i < 60; i++)
+                {
+                    var w = new TestWorld(i);
+                    w.Mirror.Restore(100, restored);
+                    var technique = w.Deduction.AttemptDeduction(Fragments(w, (Element.Water, 5), (Element.Water, 5), (Element.Water, 5), (Element.Water, 5)));
+                    if (technique?.Kind != TechniqueKind.Cultivation) continue;
+                    any = true;
+                    Assert.AreEqual(restored >= 3, MirrorChronicles.Characters.TechniqueRules.HasPurpleMansionSecret(technique), $"{restored} shard(s)");
+                }
+                Assume.That(any, "some deduction gave a method");
+            }
+        }
     }
 }

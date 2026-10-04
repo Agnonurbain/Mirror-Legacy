@@ -1388,7 +1388,7 @@
       "source_location": "L478",
       "_origin": "ast",
       "id": "game_scripts_clandomain_cs_node",
-      "community": 1,
+      "community": 196,
       "norm_label": "node"
     },
     {
@@ -4218,7 +4218,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_portraiticon",
-      "community": 302,
+      "community": 437,
       "norm_label": "portraiticon.cs"
     },
     {
@@ -4228,7 +4228,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "scripts_portraiticon_mirrorchronicles_game",
-      "community": 302,
+      "community": 437,
       "norm_label": "mirrorchronicles.game"
     },
     {
@@ -4238,7 +4238,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "scripts_portraiticon_portraiticon",
-      "community": 302,
+      "community": 437,
       "norm_label": "portraiticon"
     },
     {
@@ -4248,7 +4248,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "game_scripts_portraiticon_cs_portrait",
-      "community": 302,
+      "community": 437,
       "norm_label": "portrait"
     },
     {
@@ -4258,7 +4258,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "scripts_portraiticon_portraiticon_draw",
-      "community": 302,
+      "community": 437,
       "norm_label": "._draw()"
     },
     {
@@ -11098,7 +11098,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 434,
+      "community": 333,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -11108,7 +11108,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 434,
+      "community": 333,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11518,7 +11518,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_legacysystem",
-      "community": 333,
+      "community": 434,
       "norm_label": "legacysystem.cs"
     },
     {
@@ -11528,7 +11528,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "clan_legacysystem_mirrorchronicles_clan",
-      "community": 333,
+      "community": 434,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11538,7 +11538,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "clan_legacysystem_legacysystem",
-      "community": 333,
+      "community": 434,
       "norm_label": "legacysystem"
     },
     {
@@ -11548,7 +11548,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_clan_legacysystem_cs_int",
-      "community": 333,
+      "community": 434,
       "norm_label": "int"
     },
     {
@@ -12848,7 +12848,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatai",
-      "community": 4,
+      "community": 436,
       "norm_label": "combatai.cs"
     },
     {
@@ -12858,7 +12858,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "combat_combatai_mirrorchronicles_combat",
-      "community": 4,
+      "community": 436,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -12868,7 +12868,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "combat_combatai_iaistrategy",
-      "community": 4,
+      "community": 436,
       "norm_label": "iaistrategy"
     },
     {
@@ -12988,7 +12988,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "combat_combatai_aggressivestrategy",
-      "community": 4,
+      "community": 436,
       "norm_label": "aggressivestrategy"
     },
     {
@@ -13008,7 +13008,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "combat_combatai_defensivestrategy",
-      "community": 4,
+      "community": 436,
       "norm_label": "defensivestrategy"
     },
     {
@@ -13028,7 +13028,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "combat_combatai_strategicstrategy",
-      "community": 4,
+      "community": 436,
       "norm_label": "strategicstrategy"
     },
     {
@@ -13058,7 +13058,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "combat_combatai_berserkerstrategy",
-      "community": 4,
+      "community": 436,
       "norm_label": "berserkerstrategy"
     },
     {
@@ -13078,7 +13078,7 @@
       "source_location": "L134",
       "_origin": "ast",
       "id": "combat_combatai_cautiousstrategy",
-      "community": 4,
+      "community": 436,
       "norm_label": "cautiousstrategy"
     },
     {
@@ -13088,7 +13088,7 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "src_core_combat_combatai_cs_double",
-      "community": 4,
+      "community": 436,
       "norm_label": "double"
     },
     {
@@ -14508,7 +14508,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 434,
+      "community": 333,
       "norm_label": "enums.cs"
     },
     {
@@ -14518,7 +14518,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 434,
+      "community": 333,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -15928,7 +15928,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_randomeventdata",
-      "community": 333,
+      "community": 434,
       "norm_label": "randomeventdata.cs"
     },
     {
@@ -15938,7 +15938,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_randomeventdata_mirrorchronicles_data",
-      "community": 333,
+      "community": 434,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -15948,7 +15948,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "data_randomeventdata_randomeventdata",
-      "community": 333,
+      "community": 434,
       "norm_label": "randomeventdata"
     },
     {
@@ -17228,7 +17228,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 433,
+      "community": 434,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -17238,7 +17238,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 433,
+      "community": 434,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18248,7 +18248,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 433,
+      "community": 193,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -18258,7 +18258,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 433,
+      "community": 193,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -21828,7 +21828,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_eventmanager",
-      "community": 333,
+      "community": 434,
       "norm_label": "eventmanager.cs"
     },
     {
@@ -21838,7 +21838,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "events_eventmanager_mirrorchronicles_events",
-      "community": 333,
+      "community": 434,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -23405,7 +23405,7 @@
       "label": ".HarvestableQi()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/DeductionEngine.cs",
-      "source_location": "L175",
+      "source_location": "L177",
       "_origin": "ast",
       "id": "mirror_deductionengine_deductionengine_harvestableqi",
       "community": 83,
@@ -23415,7 +23415,7 @@
       "label": ".QiFor()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/DeductionEngine.cs",
-      "source_location": "L178",
+      "source_location": "L180",
       "_origin": "ast",
       "id": "mirror_deductionengine_deductionengine_qifor",
       "community": 83,
@@ -23425,7 +23425,7 @@
       "label": ".Name()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/DeductionEngine.cs",
-      "source_location": "L187",
+      "source_location": "L189",
       "_origin": "ast",
       "id": "mirror_deductionengine_deductionengine_name",
       "community": 83,
@@ -23435,7 +23435,7 @@
       "label": ".ElementalRisk()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/DeductionEngine.cs",
-      "source_location": "L197",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "mirror_deductionengine_deductionengine_elementalrisk",
       "community": 83,
@@ -23445,7 +23445,7 @@
       "label": "Dictionary",
       "file_type": "code",
       "source_file": "src/Core/Mirror/DeductionEngine.cs",
-      "source_location": "L197",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "src_core_mirror_deductionengine_cs_dictionary",
       "community": 83,
@@ -24062,10 +24062,20 @@
       "norm_label": ".perceives()"
     },
     {
+      "label": ".ShieldRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Mirror/MirrorSystem.cs",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "mirror_mirrorsystem_mirrorsystem_shieldrefusal",
+      "community": 190,
+      "norm_label": ".shieldrefusal()"
+    },
+    {
       "label": ".AddPower()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L67",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_addpower",
       "community": 190,
@@ -24075,7 +24085,7 @@
       "label": ".PayRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L73",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_payrefusal",
       "community": 190,
@@ -24085,7 +24095,7 @@
       "label": ".ConsumePower()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L80",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_consumepower",
       "community": 190,
@@ -24095,7 +24105,7 @@
       "label": ".UseQiPulse()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L100",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_useqipulse",
       "community": 190,
@@ -24105,7 +24115,7 @@
       "label": "CombatUnit",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L100",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "src_core_mirror_mirrorsystem_cs_combatunit",
       "community": 190,
@@ -24115,7 +24125,7 @@
       "label": ".UseAncestralShield()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L110",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_useancestralshield",
       "community": 190,
@@ -24125,7 +24135,7 @@
       "label": ".JudgmentRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L119",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_judgmentrefusal",
       "community": 190,
@@ -24135,7 +24145,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L119",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "src_core_mirror_mirrorsystem_cs_characterdata",
       "community": 190,
@@ -24145,7 +24155,7 @@
       "label": ".UseMirrorJudgment()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L131",
+      "source_location": "L145",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_usemirrorjudgment",
       "community": 190,
@@ -24155,7 +24165,7 @@
       "label": ".GrantTalismanSeed()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L151",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_granttalismanseed",
       "community": 190,
@@ -24165,7 +24175,7 @@
       "label": ".RestoreShard()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L170",
+      "source_location": "L184",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_restoreshard",
       "community": 190,
@@ -24175,7 +24185,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/MirrorSystem.cs",
-      "source_location": "L176",
+      "source_location": "L190",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorsystem_restore",
       "community": 190,
@@ -31215,7 +31225,7 @@
       "label": ".NewGame()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L240",
+      "source_location": "L241",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_newgame",
       "community": 251,
@@ -31225,7 +31235,7 @@
       "label": "GameSetup",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L240",
+      "source_location": "L241",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamesetup",
       "community": 251,
@@ -31235,7 +31245,7 @@
       "label": ".TryLoad()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L274",
+      "source_location": "L275",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tryload",
       "community": 251,
@@ -31245,7 +31255,7 @@
       "label": ".FromSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L291",
+      "source_location": "L292",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_fromsavedata",
       "community": 251,
@@ -31255,7 +31265,7 @@
       "label": "GameData",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L291",
+      "source_location": "L292",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
       "community": 251,
@@ -31265,7 +31275,7 @@
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L397",
+      "source_location": "L398",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 251,
@@ -31275,7 +31285,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L496",
+      "source_location": "L497",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -31285,7 +31295,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L496",
+      "source_location": "L497",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 251,
@@ -31295,7 +31305,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L500",
+      "source_location": "L501",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -31305,7 +31315,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L511",
+      "source_location": "L512",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -31315,7 +31325,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L518",
+      "source_location": "L519",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -31325,7 +31335,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L518",
+      "source_location": "L519",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -31335,7 +31345,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L575",
+      "source_location": "L576",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -40342,14 +40352,14 @@
       "norm_label": ".attemptbreakthrough_dissolvesthespirit_whenthefoundationwallbreaksanoldcultivator()"
     },
     {
-      "label": ".AttemptBreakthrough_GrantsTheShieldBonusOnce()",
+      "label": ".TheShield_WaitsForTheFoundationWall_AndLeavesAChakraAlone()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
       "source_location": "L137",
       "_origin": "ast",
-      "id": "characters_breakthroughsystemtests_breakthroughsystemtests_attemptbreakthrough_grantstheshieldbonusonce",
+      "id": "characters_breakthroughsystemtests_breakthroughsystemtests_theshield_waitsforthefoundationwall_andleavesachakraalone",
       "community": 30,
-      "norm_label": ".attemptbreakthrough_grantstheshieldbonusonce()"
+      "norm_label": ".theshield_waitsforthefoundationwall_andleavesachakraalone()"
     },
     {
       "label": ".ProcessBreakthroughPhase_OnlyTriesMembersReadyForATrial()",
@@ -57742,6 +57752,16 @@
       "norm_label": ".attemptdeduction_requiresanexistingrealm_evenfromdivinefragments()"
     },
     {
+      "label": ".BeforeThreeShards_ADeducedMethod_HoldsNoSecretOfAscent()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Mirror/DeductionEngineTests.cs",
+      "source_location": "L178",
+      "_origin": "ast",
+      "id": "mirror_deductionenginetests_deductionenginetests_beforethreeshards_adeducedmethod_holdsnosecretofascent",
+      "community": 5,
+      "norm_label": ".beforethreeshards_adeducedmethod_holdsnosecretofascent()"
+    },
+    {
       "label": "HuntOperationTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/HuntOperationTests.cs",
@@ -58245,7 +58265,7 @@
       "label": ".UseMirrorJudgment_StrikesTheTargetDown()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L57",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "mirror_mirrorsystemtests_mirrorsystemtests_usemirrorjudgment_strikesthetargetdown",
       "community": 90,
@@ -58255,7 +58275,7 @@
       "label": ".GrantTalismanSeed_LetsAMortalCultivate()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L66",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "mirror_mirrorsystemtests_mirrorsystemtests_granttalismanseed_letsamortalcultivate",
       "community": 90,
@@ -58265,7 +58285,7 @@
       "label": ".GrantTalismanSeed_Refuses_WhenEverySeedIsInUse()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L75",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "mirror_mirrorsystemtests_mirrorsystemtests_granttalismanseed_refuses_wheneveryseedisinuse",
       "community": 90,
@@ -58275,7 +58295,7 @@
       "label": ".GrantTalismanSeed_Refuses_ACultivator()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L85",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "mirror_mirrorsystemtests_mirrorsystemtests_granttalismanseed_refuses_acultivator",
       "community": 90,
@@ -58285,7 +58305,7 @@
       "label": ".UseQiPulse_RestoresThirtyPercentOfTheQiAndSomeVitality()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L92",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "mirror_mirrorsystemtests_mirrorsystemtests_useqipulse_restoresthirtypercentoftheqiandsomevitality",
       "community": 90,
@@ -58295,7 +58315,7 @@
       "label": ".Restore_SetsPowerAndFragments()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Mirror/MirrorSystemTests.cs",
-      "source_location": "L106",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "mirror_mirrorsystemtests_mirrorsystemtests_restore_setspowerandfragments",
       "community": 90,
@@ -61975,7 +61995,7 @@
       "label": ".TheSeed_IsOffered_OnlyToAMortalTheClanExamined()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L56",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_theseed_isoffered_onlytoamortaltheclanexamined",
       "community": 254,
@@ -61985,7 +62005,7 @@
       "label": ".TheSeed_IsRefused_WhenTheMirrorSustainsNoMore()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L72",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_theseed_isrefused_whenthemirrorsustainsnomore",
       "community": 254,
@@ -61995,7 +62015,7 @@
       "label": ".TheJudgment_TellsAnInLaw_FromBlood()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L83",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_thejudgment_tellsaninlaw_fromblood",
       "community": 254,
@@ -62005,7 +62025,7 @@
       "label": ".ADeduction_GivesItsCost_OrWhyNot()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_adeduction_givesitscost_orwhynot",
       "community": 254,
@@ -62015,7 +62035,7 @@
       "label": ".TheJudgment_NamesAMortal_AsTheOtherScreensDo()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L115",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_thejudgment_namesamortal_astheotherscreensdo",
       "community": 254,
@@ -62025,7 +62045,7 @@
       "label": ".TheShield_IsNotInvokedTwice()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L126",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_theshield_isnotinvokedtwice",
       "community": 254,
@@ -62035,7 +62055,7 @@
       "label": ".TheSeedIntervention_SaysWhyNot()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/MirrorViewTests.cs",
-      "source_location": "L137",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "presentation_mirrorviewtests_mirrorviewtests_theseedintervention_sayswhynot",
       "community": 254,
@@ -74651,7 +74671,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Strict English code and French docs; mandatory Singleton/Observer/Strategy/Command/State Machine/MVC; no SendMessage, no FindObjectOfType in loops, no StartCoroutine timers (use async/await or GameEvents); ScriptableObjects for all static data; null checks + try/catch on Save/Load; Play Mode tests per heavy system; one system at a time with user validation.",
-      "community": 4,
+      "community": 433,
       "norm_label": "golden rules (en code / fr docs, mandatory patterns)",
       "id": "brain_claude_brainstorming_golden_rules"
     },
@@ -74745,7 +74765,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 433,
       "norm_label": "singleton pattern (manager instance)",
       "id": "brain_claude_memory_singleton_pattern"
     },
@@ -74758,7 +74778,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 433,
       "norm_label": "observer pattern (c# events bus)",
       "id": "brain_claude_memory_observer_pattern"
     },
@@ -74771,7 +74791,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 433,
       "norm_label": "state machine pattern (gamestate, gamephase, combatstate)",
       "id": "brain_claude_memory_state_machine_pattern"
     },
@@ -74784,7 +74804,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 433,
       "norm_label": "strategy pattern (iaistrategy)",
       "id": "brain_claude_memory_strategy_pattern"
     },
@@ -74797,7 +74817,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 433,
       "norm_label": "command pattern (icombataction)",
       "id": "brain_claude_memory_command_pattern"
     },
@@ -74825,7 +74845,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Singletons expose static Instance with Awake duplicate-destroy; events subscribed in OnEnable and unsubscribed in OnDisable (never Awake/Start); Debug.Log prefixed with [System]; POCOs [Serializable] with parameterless ctor and Guid IDs.",
-      "community": 4,
+      "community": 433,
       "norm_label": "code conventions (mirrorchronicles.<module> namespaces, xml docs, onenable/ondisable subscriptions)",
       "id": "brain_claude_memory_code_conventions"
     },
@@ -74891,7 +74911,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 193,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -75052,7 +75072,7 @@
       "author": null,
       "contributor": null,
       "rationale": "GameManager(-100) -> TimeManager(-90) -> GameEvents(-80) -> ClanManager(-70) -> BloodRegistry(-60) to guarantee singleton Awake order (WL-009).",
-      "community": 4,
+      "community": 433,
       "norm_label": "script execution order configuration",
       "id": "brain_claude_package_script_execution_order"
     },
@@ -75065,7 +75085,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 434,
       "norm_label": "annual 4-phase cycle (management -> events -> breakthrough -> inheritance)",
       "id": "brain_claude_plan_annual_cycle"
     },
@@ -75160,7 +75180,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 433,
       "norm_label": "[systems] dontdestroyonload gameobject hosting all singletons",
       "id": "brain_claude_plan_systems_gameobject"
     },
@@ -75186,7 +75206,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 193,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -75212,7 +75232,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 333,
+      "community": 434,
       "norm_label": "phase 2 - combat & events",
       "id": "brain_claude_plan_phase_2_combat_events"
     },
@@ -75225,7 +75245,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 433,
+      "community": 193,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -75347,7 +75367,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 434,
+      "community": 333,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -75431,7 +75451,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Unity does not order Awake across GameObjects; fix via single [Systems] object, Script Execution Order, or RuntimeInitializeOnLoadMethod bootstrapper; null-check cross-singleton calls.",
-      "community": 4,
+      "community": 433,
       "norm_label": "wl-009: singleton initialization order not guaranteed",
       "id": "brain_claude_worked_lesson_wl_009"
     },
@@ -75554,7 +75574,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Scripts organised by domain folder (Core, Clan, Characters, Combat, Mirror, Diplomacy, Economy, Events, Data) mirroring MirrorChronicles.<Module> namespaces.",
-      "community": 4,
+      "community": 433,
       "norm_label": "assets/_project domain-module architecture",
       "id": "readme_module_architecture"
     }
@@ -116358,6 +116378,16 @@
     {
       "relation": "method",
       "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/MirrorSystem.cs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "mirror_mirrorsystem_mirrorsystem",
+      "target": "mirror_mirrorsystem_mirrorsystem_shieldrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
       "source_file": "Assets/_Project/Scripts/Mirror/MirrorSystem.cs",
       "source_location": "L99",
       "weight": 1.0,
@@ -116439,6 +116469,28 @@
       "confidence_score": 1.0,
       "source": "mirror_mirrorsystem_mirrorsystem",
       "target": "src_core_mirror_mirrorsystem_cs_int"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/MirrorSystem.cs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "mirror_mirrorsystem_mirrorsystem_shieldrefusal",
+      "target": "mirror_mirrorsystem_mirrorsystem_payrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Mirror/MirrorSystem.cs",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "mirror_mirrorsystem_mirrorsystem_useancestralshield",
+      "target": "mirror_mirrorsystem_mirrorsystem_shieldrefusal",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -139536,9 +139588,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem",
-      "target": "world_secretsystem_secretsystem_blurrefusal",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_blurrefusal"
     },
     {
       "relation": "method",
@@ -139638,9 +139690,9 @@
       "source_file": "src/Core/World/SecretSystem.cs",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_secretsystem_secretsystem_blurmemories",
-      "target": "world_secretsystem_secretsystem_blurrefusal",
-      "confidence_score": 1.0
+      "target": "world_secretsystem_secretsystem_blurrefusal"
     },
     {
       "relation": "calls",
@@ -145234,16 +145286,6 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
-      "source_location": "L120",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "characters_breakthroughsystemtests_breakthroughsystemtests",
-      "target": "characters_breakthroughsystemtests_breakthroughsystemtests_attemptbreakthrough_grantstheshieldbonusonce"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
       "source_location": "L33",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -145351,6 +145393,16 @@
       "target": "characters_breakthroughsystemtests_breakthroughsystemtests_readyforinnerlake"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "characters_breakthroughsystemtests_breakthroughsystemtests",
+      "target": "characters_breakthroughsystemtests_breakthroughsystemtests_theshield_waitsforthefoundationwall_andleavesachakraalone",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
@@ -145414,17 +145466,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "characters_breakthroughsystemtests_breakthroughsystemtests_attemptbreakthrough_dissolvesthespirit_whenthefoundationwallbreaksanoldcultivator",
-      "target": "characters_breakthroughsystemtests_breakthroughsystemtests_build"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
-      "source_location": "L123",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "characters_breakthroughsystemtests_breakthroughsystemtests_attemptbreakthrough_grantstheshieldbonusonce",
       "target": "characters_breakthroughsystemtests_breakthroughsystemtests_build"
     },
     {
@@ -145531,6 +145572,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "characters_breakthroughsystemtests_breakthroughsystemtests_theshield_waitsforthefoundationwall_andleavesachakraalone",
+      "target": "characters_breakthroughsystemtests_breakthroughsystemtests_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
       "source_location": "L38",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -145557,17 +145609,6 @@
       "context": "attribute",
       "confidence_score": 1.0,
       "source": "characters_breakthroughsystemtests_breakthroughsystemtests_attemptbreakthrough_dissolvesthespirit_whenthefoundationwallbreaksanoldcultivator",
-      "target": "tests_core_tests_characters_breakthroughsystemtests_cs_test"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
-      "source_location": "L120",
-      "weight": 1.0,
-      "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "characters_breakthroughsystemtests_breakthroughsystemtests_attemptbreakthrough_grantstheshieldbonusonce",
       "target": "tests_core_tests_characters_breakthroughsystemtests_cs_test"
     },
     {
@@ -145648,15 +145689,15 @@
       "target": "tests_core_tests_characters_breakthroughsystemtests_cs_test"
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
-      "source_location": "L124",
+      "source_location": "L137",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "characters_breakthroughsystemtests_breakthroughsystemtests_attemptbreakthrough_grantstheshieldbonusonce",
-      "target": "characters_breakthroughsystemtests_breakthroughsystemtests_readyforinnerlake"
+      "context": "attribute",
+      "source": "characters_breakthroughsystemtests_breakthroughsystemtests_theshield_waitsforthefoundationwall_andleavesachakraalone",
+      "target": "tests_core_tests_characters_breakthroughsystemtests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -145745,6 +145786,17 @@
       "confidence_score": 1.0,
       "source": "characters_breakthroughsystemtests_breakthroughsystemtests_readyforinnerlake",
       "target": "tests_core_tests_characters_breakthroughsystemtests_cs_characterdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/BreakthroughSystemTests.cs",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "characters_breakthroughsystemtests_breakthroughsystemtests_theshield_waitsforthefoundationwall_andleavesachakraalone",
+      "target": "characters_breakthroughsystemtests_breakthroughsystemtests_readyforinnerlake",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -183754,6 +183806,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/DeductionEngineTests.cs",
+      "source_location": "L178",
+      "weight": 1.0,
+      "source": "mirror_deductionenginetests_deductionenginetests",
+      "target": "mirror_deductionenginetests_deductionenginetests_beforethreeshards_adeducedmethod_holdsnosecretofascent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/DeductionEngineTests.cs",
       "source_location": "L85",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -184056,6 +184118,17 @@
       "target": "mirror_deductionenginetests_deductionenginetests_fragments"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/DeductionEngineTests.cs",
+      "source_location": "L189",
+      "weight": 1.0,
+      "source": "mirror_deductionenginetests_deductionenginetests_beforethreeshards_adeducedmethod_holdsnosecretofascent",
+      "target": "mirror_deductionenginetests_deductionenginetests_fragments",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Mirror/DeductionEngineTests.cs",
@@ -184219,6 +184292,17 @@
       "confidence_score": 1.0,
       "source": "mirror_deductionenginetests_deductionenginetests_attemptdeduction_yieldsnomethod_whennoqicanbeharvested",
       "target": "tests_core_tests_mirror_deductionenginetests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Mirror/DeductionEngineTests.cs",
+      "source_location": "L178",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "mirror_deductionenginetests_deductionenginetests_beforethreeshards_adeducedmethod_holdsnosecretofascent",
+      "target": "tests_core_tests_mirror_deductionenginetests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -222435,5 +222519,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "0e864cc139b63afd66c8f414ee05eb690335bc8f"
+  "built_at_commit": "6de45efbc8062334c3caeea7089d5948a81d35d1"
 }
