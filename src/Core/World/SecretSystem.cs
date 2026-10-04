@@ -54,10 +54,24 @@ namespace MirrorChronicles.World
         public void RestoreConfrontation(Confrontation saved) => Confrontation = saved;
 
         /// <summary>The mirror blurs a power's memories: its clues and proof dim (less against a Golden Core, in full against its investigator).</summary>
+        /// <summary>
+        /// Why the mirror cannot blur this power's memories now (French), or null: from afar it must lock souls (a shard) and
+        /// perceive the power; the investigator at the clan's door is always within reach (AUDIT_LORE.md §3.5, 2026-10-04).
+        /// </summary>
+        public string BlurRefusal(string faction)
+        {
+            var power = factions.GetFactionByName(faction);
+            if (power == null) return "puissance inconnue";
+            bool envoy = Confrontation?.Faction == faction; // at the clan's door, within the mirror's first 66 m: always within reach
+            if (!envoy && !mirror.Tier.SoulLocks) return "le miroir ne sait pas encore verrouiller les âmes de loin : il lui faut un éclat";
+            if (!envoy && !mirror.Perceives(power.RegionId)) return $"{faction} est hors de la perception du miroir";
+            return mirror.PayRefusal(Settings.BlurMirrorCost);
+        }
+
         public bool BlurMemories(string faction)
         {
             var power = factions.GetFactionByName(faction);
-            if (power == null || !mirror.ConsumePower(Settings.BlurMirrorCost)) return false;
+            if (power == null || BlurRefusal(faction) != null || !mirror.ConsumePower(Settings.BlurMirrorCost)) return false;
             // an elder's mind holds (today only Golden Core powers can know: mirrorLore lists no lower realm) — but the
             // investigator it sends is an envoy, whose mind the mirror blurs in full (2026-09-29)
             bool envoy = Confrontation?.Faction == faction;

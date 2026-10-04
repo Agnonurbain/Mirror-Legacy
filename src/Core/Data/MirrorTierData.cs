@@ -17,7 +17,7 @@ namespace MirrorChronicles.Data
         public CultivationRealm LightWounds { get; init; }
         public MirrorReach Perception { get; init; }
         public bool Illusions { get; init; }
-        public bool SoulLocks { get; init; }
+        public bool SoulLocks { get; init; }   // it locks souls and steals or blurs memories (🔎 from the first shard, 2026-10-04)
     }
 
     /// <summary>
@@ -32,8 +32,8 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<MirrorTier> Tiers { get; init; } = new List<MirrorTier>
         {
             new MirrorTier { MinShards = 0, LightKills = CultivationRealm.Embryonic, LightWounds = CultivationRealm.QiRefinement, Perception = MirrorReach.Domain },
-            new MirrorTier { MinShards = 1, LightKills = CultivationRealm.QiRefinement, LightWounds = CultivationRealm.Foundation, Perception = MirrorReach.Lake },
-            new MirrorTier { MinShards = 3, LightKills = CultivationRealm.Foundation, LightWounds = CultivationRealm.PurpleMansion, Perception = MirrorReach.State, Illusions = true },
+            new MirrorTier { MinShards = 1, LightKills = CultivationRealm.QiRefinement, LightWounds = CultivationRealm.Foundation, Perception = MirrorReach.Lake, SoulLocks = true },
+            new MirrorTier { MinShards = 3, LightKills = CultivationRealm.Foundation, LightWounds = CultivationRealm.PurpleMansion, Perception = MirrorReach.State, Illusions = true, SoulLocks = true },
         };
 
         /// <summary>Once the Great Void is open to it (the Jade Buckle).</summary>

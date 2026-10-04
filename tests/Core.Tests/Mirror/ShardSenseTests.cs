@@ -131,7 +131,7 @@ namespace MirrorChronicles.Tests.Mirror
         public void ThePilot_ProbesThePowersOfASensedRegion_First()
         {
             var s = Session(Near);
-            s.Mirror.Restore(MirrorSystem.MaxMirrorPower, 0); // the mirror can look and still keep its reserve
+            s.Mirror.Restore(MirrorSystem.MaxMirrorPower, 3); // the mirror can look and still keep its reserve; three shards: it perceives the state (audit §3.6)
             for (int i = 0; i < 4; i++) s.Clan.AddMember(Fixtures.Cultivator(age: 30, realm: CultivationRealm.Foundation, stage: 3));
             s.ShardSense.ProcessYear();
             var plan = BalanceRun.NextProbe(s);

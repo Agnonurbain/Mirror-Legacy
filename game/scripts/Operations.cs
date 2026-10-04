@@ -267,9 +267,10 @@ namespace MirrorChronicles.Game
             {
                 var line = new HBoxContainer();
                 line.AddChild(new Label { Text = $"{sign.Power} : {sign.Sign}", CustomMinimumSize = new Vector2(420, 0) });
-                var blur = new Button { Text = "Brouiller leurs souvenirs" };
+                string why = session.Secrets.BlurRefusal(sign.Power);
+                var blur = new Button { Text = "Brouiller leurs souvenirs", Disabled = why != null, TooltipText = why ?? "" };
                 blur.Pressed += () => Report(session.Secrets.BlurMemories(sign.Power)
-                    ? $"Le miroir brouille ce que {sign.Power} se rappelle." : "Le miroir manque de puissance.");
+                    ? $"Le miroir brouille ce que {sign.Power} se rappelle." : $"Refusé : {session.Secrets.BlurRefusal(sign.Power) ?? "le miroir n'a pu le faire"}.");
                 line.AddChild(blur);
                 secret.AddChild(line);
             }

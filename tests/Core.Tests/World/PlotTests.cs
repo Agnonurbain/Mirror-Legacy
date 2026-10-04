@@ -241,6 +241,7 @@ namespace MirrorChronicles.Tests.World
             var w = World(new FixedRandom(0.0));
             w.Suspicion.AddMirrorClues(Ruan, 80);
             w.Suspicion.AddEvidence(Ruan, 60);
+            w.Mirror.Restore(w.Mirror.MirrorPower, 1); // from afar, the soul's locks come with a shard (audit §3.5)
             w.Mirror.AddPower(100);
             int power = w.Mirror.MirrorPower;
 
@@ -257,6 +258,7 @@ namespace MirrorChronicles.Tests.World
             // the soul's locks are undetectable « even at the Purple Mansion » (§11.5): not beyond
             var w = World(new FixedRandom(0.0));
             w.Suspicion.AddMirrorClues(Peak, 80);
+            w.Mirror.Restore(w.Mirror.MirrorPower, 3); // the soul's locks, and the whole state perceived (audit §3.5)
             w.Mirror.AddPower(100);
             w.Secrets.BlurMemories(Peak);
             Assert.AreEqual(80 - (int)(Settings.BlurClues * Settings.BlurStrongFactor), w.Suspicion.MirrorClues(Peak));

@@ -568,8 +568,8 @@
   "mirrorTiers": {
 	"tiers": [
 	  { "minShards": 0, "lightKills": "Embryonic", "lightWounds": "QiRefinement", "perception": "Domain", "illusions": false, "soulLocks": false },
-	  { "minShards": 1, "lightKills": "QiRefinement", "lightWounds": "Foundation", "perception": "Lake", "illusions": false, "soulLocks": false },
-	  { "minShards": 3, "lightKills": "Foundation", "lightWounds": "PurpleMansion", "perception": "State", "illusions": true, "soulLocks": false }
+	  { "minShards": 1, "lightKills": "QiRefinement", "lightWounds": "Foundation", "perception": "Lake", "illusions": false, "soulLocks": true },
+	  { "minShards": 3, "lightKills": "Foundation", "lightWounds": "PurpleMansion", "perception": "State", "illusions": true, "soulLocks": true }
 	],
 	"greatVoid": { "lightKills": "PurpleMansion", "lightWounds": "GoldenCore", "perception": "Everywhere", "illusions": true, "soulLocks": true },
 	"elderWoundYears": 30,

@@ -80,6 +80,8 @@ namespace MirrorChronicles.Mirror
             }
             if (plan.FramedFaction != null && (factions.GetFactionByName(plan.FramedFaction) == null || plan.FramedFaction == beast.OwnerFaction))
                 return "la fausse piste doit viser une autre puissance";
+            if (plan.Aid == MirrorAid.Illusion && !mirror.Tier.Illusions) return "le miroir ne sait pas encore projeter de grandes illusions (trois éclats)";
+            if (plan.Aid == MirrorAid.MemoryTheft && !mirror.Tier.SoulLocks) return "le miroir ne sait pas encore voler les souvenirs (un éclat)";
             int aidCost = Settings.AidMirrorCost[(int)plan.Aid];
             if (aidCost > 0 && mirror.IsAsleep) return "le miroir dort : il intègre un éclat";
             if (mirror.MirrorPower < aidCost) return "le miroir manque de puissance pour aider";

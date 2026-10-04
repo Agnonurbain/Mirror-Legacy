@@ -89,6 +89,7 @@ namespace MirrorChronicles.World
             var team = (plan.TeamIds ?? new List<string>()).Select(clan.FindById).Where(m => m != null).ToList();
             var allies = alliesPrompt ? AlliesOf(plan.Target).Where(a => a != Clan).ToList() : new List<string>();
             if (BeyondReach(Clan, team, plan.Target, plan.Approach) || TooFar(team, plan)) return 0;
+            if (plan.Approach == ProbeApproach.MirrorSight && !mirror.Perceives(factions.GetFactionByName(plan.Target)?.RegionId)) return 0;
             return SuccessProbability(Factors(Clan, TeamStrength(team, plan.Target), plan.Target, plan.Approach, Partners(plan), plan.Stones, allies), plan.Target);
         }
 
@@ -126,6 +127,8 @@ namespace MirrorChronicles.World
             }
             if (plan.Approach == ProbeApproach.Bribery && (plan.Stones <= 0 || resources.SpiritStones < plan.Stones))
                 return "la corruption demande des pierres";
+            if (plan.Approach == ProbeApproach.MirrorSight && !mirror.Perceives(target.RegionId))
+                return $"{plan.Target} est hors de la perception du miroir";
             if (plan.Approach == ProbeApproach.MirrorSight && mirror.PayRefusal(MirrorSightCost(plan.Target)) is { } mirrorRefusal)
                 return mirrorRefusal;
             return null;

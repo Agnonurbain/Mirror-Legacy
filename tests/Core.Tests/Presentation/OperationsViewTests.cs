@@ -87,6 +87,7 @@ namespace MirrorChronicles.Tests.Presentation
         public void HuntPreview_GivesTheOddsTheTracesAndTheCosts_OrWhyItCannotBe()
         {
             var s = NewGame();
+            s.Mirror.Restore(s.Mirror.MirrorPower, 3); // grand illusions come with three shards (audit §3.6)
             var beast = s.Bestiary.In("heshan").First();
             s.Knowledge.Reveal(FactKind.Beast, beast.Id, KnowledgeSource.Studied);
             var striker = OperationsView.HuntCandidates(s).First();
