@@ -22,6 +22,7 @@ namespace MirrorChronicles.Game
         private VBoxContainer lineages;               // the lineages of the world, as the clan knows them (2026-10-01)
         private VBoxContainer goldenCore;             // the Golden Core's actions (L4e, G6, 2026-10-03)
         private VBoxContainer armoury;
+        private VBoxContainer immortalArts;           // the Immortal Arts: legacies, gifts, mastery (audit §2, 2026-10-04)
         private int commissionForm;                   // the form chosen for a commission                // the clan's artifacts, the forge, the powers' deals (L4f, 2026-10-03)
         private TabContainer tabs;
         private (string Power, string TechniqueId, string Name)? negotiating;
@@ -53,6 +54,10 @@ namespace MirrorChronicles.Game
             armoury = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
             armouryTab.AddChild(armoury);
             tabs.AddChild(armouryTab);
+            var artsTab = new ScrollContainer { Name = "Arts immortels" };
+            immortalArts = new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ExpandFill };
+            artsTab.AddChild(immortalArts);
+            tabs.AddChild(artsTab);
             if (int.TryParse(OS.GetEnvironment("LIB_TAB"), out int tab)) tabs.CurrentTab = tab;
             if (tab == 2 && LibraryView.Market(root.Session).FirstOrDefault() is { } first) // screenshots: an accord under way
                 negotiating = (first.Power, first.TechniqueId, first.Name);
@@ -68,6 +73,38 @@ namespace MirrorChronicles.Game
             ShowLineages();
             ShowArmoury();
             ShowGoldenCore();
+            ShowImmortalArts();
+        }
+
+        /// <summary>The Immortal Arts (audit §2): the legacies the clan holds, each cultivator's gifts and mastery, and the year's practice.</summary>
+        private void ShowImmortalArts()
+        {
+            Clear(immortalArts);
+            var s = root.Session;
+            Add(immortalArts, "— Les héritages —");
+            foreach (var legacy in ArtView.Legacies(s))
+                Add(immortalArts, $"{char.ToUpper(legacy.Name[0])}{legacy.Name[1..]} : {(legacy.Held ? "héritage tenu" + (legacy.Master == null ? ", sans maître" : $", maître {legacy.Master}") : "le clan n'en tient pas l'héritage")}");
+            Add(immortalArts, "— Les cultivateurs (le don, tel que le miroir le perçoit) —");
+            foreach (var line in ArtView.Members(s))
+            {
+                string skills = string.Join(" · ", line.Skills.Select(k => $"{k.Name} : {k.Gift}{(k.Mastery > 0 ? $", {k.MasteryRank} ({k.Mastery})" : "")}"));
+                Add(immortalArts, $"{line.Name} ({line.Rank}){(line.Practising == null ? "" : $" — pratique {line.Practising} cette année")} — {skills}");
+                var row = new HBoxContainer();
+                foreach (var skill in line.Skills.Where(k => k.Refusal == null))
+                {
+                    var practise = new Button { Text = $"Pratiquer {skill.Name}" };
+                    string id = line.Id;
+                    var art = skill.Art;
+                    string name = line.Name, artName = skill.Name;
+                    practise.Pressed += () =>
+                    {
+                        status.Text = s.Arts.Practise(s.Clan.FindById(id), art) is { } r ? $"Refusé : {r}." : $"{name} se consacre cette année à {artName}.";
+                        Refresh();
+                    };
+                    row.AddChild(practise);
+                }
+                if (row.GetChildCount() > 0) immortalArts.AddChild(row);
+            }
         }
 
         private static readonly GoldenCoreAction[] Perilous = { GoldenCoreAction.Forge, GoldenCoreAction.Claim, GoldenCoreAction.Transmute };
