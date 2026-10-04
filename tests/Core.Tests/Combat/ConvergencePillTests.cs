@@ -14,7 +14,7 @@ namespace MirrorChronicles.Tests.Combat
     [TestFixture]
     public class ConvergencePillTests
     {
-        private static ConvergenceSettings C => Fixtures.Content.Balance.Arts.Convergence;
+        private static ConvergenceSettings C => Fixtures.VeteranContent.Balance.Arts.Convergence;
 
         private static (BattleField Field, CombatUnit Unit) Fighter(Random rng = null, int pills = 10)
         {
@@ -105,7 +105,7 @@ namespace MirrorChronicles.Tests.Combat
         [Test]
         public void InAChallenge_TheClanDrawsOnItsStore_AndARivalOfAnAlchemyPower_CarriesOne()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var power = s.Factions.Factions.First(p => MirrorChronicles.Characters.PowerArts.Knows(p, ImmortalArt.Alchemy, s.Context.Content));
             s.Alchemy.GainPills(PillKind.AutumnConvergence, 1);
             Assert.IsNotNull(s.Challenges.Issue(power));
@@ -122,7 +122,7 @@ namespace MirrorChronicles.Tests.Combat
         [Test]
         public void TheBattleScreen_OffersThePill_ToTheClansFighter()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             s.Alchemy.GainPills(PillKind.AutumnConvergence, 2);
             s.Challenges.Issue(s.Factions.Factions.First());
             s.Challenges.Accept(new[] { s.Clan.LivingMembers.First(m => s.Challenges.FighterRefusal(m) == null).ID });

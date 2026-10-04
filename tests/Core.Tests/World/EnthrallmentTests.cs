@@ -17,8 +17,8 @@ namespace MirrorChronicles.Tests.World
     {
         private static GameSession Session(double yearly = 1.0)
         {
-            var b = Fixtures.QuietContent.Balance;
-            var content = Fixtures.QuietContent with { Balance = b with { Enthrallment = b.Enthrallment with { YearlyChance = yearly } } };
+            var b = Fixtures.VeteranQuietContent.Balance;
+            var content = Fixtures.VeteranQuietContent with { Balance = b with { Enthrallment = b.Enthrallment with { YearlyChance = yearly } } };
             return GameSession.NewGame(new GameSetup { Seed = 1, Content = content });
         }
 
@@ -92,8 +92,8 @@ namespace MirrorChronicles.Tests.World
         [Test]
         public void TheClansReturnedAncestor_BendsAPowersLesserElder()
         {
-            var b = Fixtures.QuietContent.Balance;
-            var content = Fixtures.QuietContent with { Balance = b with { Enthrallment = b.Enthrallment with { BendBase = 1.0, SeenChance = 0 } } };
+            var b = Fixtures.VeteranQuietContent.Balance;
+            var content = Fixtures.VeteranQuietContent with { Balance = b with { Enthrallment = b.Enthrallment with { BendBase = 1.0, SeenChance = 0 } } };
             var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = content });
             var power = s.Factions.Factions.First(f => f.Elders.Any(e => e.Realm < CultivationRealm.PurpleMansion));
             var ordinary = Fixtures.Cultivator(age: 400, realm: CultivationRealm.GoldenCore);

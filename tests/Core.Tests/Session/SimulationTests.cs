@@ -59,6 +59,10 @@ namespace MirrorChronicles.Tests.Session
         public void Century_BringsMarriagesBirthsAndBreakthroughs(int seed)
         {
             var s = GameSession.NewGame(Fixtures.Setup(seed));
+            // the novel's start is mortal (audit §4.3): the mirror — the player — sows its first seeds in the sons
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
+            foreach (var son in s.Clan.LivingMembers.Where(m => m.FatherID == s.Clan.PatriarchID).OrderByDescending(m => m.SpiritualRoot).ToList())
+                s.Mirror.GrantTalismanSeed(son);
             int breakthroughs = 0;
             s.Events.OnBreakthroughSuccess += (c, realm) => breakthroughs++;
 

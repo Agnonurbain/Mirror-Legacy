@@ -8,8 +8,9 @@ namespace MirrorChronicles.Clan
 {
     /// <summary>
     /// Founds the clan of a new game from clan.json: the patriarch and the matriarch are married, the
-    /// children are theirs, kin are the patriarch's brothers and sisters (their forebears remembered, not recorded). Every founder cultivates, so their orifices
-    /// are known; each practises the method clan.json names, and a Qi cultivator holds its Qi.
+    /// children are theirs, kin are the patriarch's brothers and sisters (their forebears remembered, not recorded). The mirror
+    /// sees each founder's orifice (the novel's start: mortal peasants, audit §4.3); a cultivating founder practises the method
+    /// clan.json names, and a Qi cultivator holds its Qi.
     /// </summary>
     public static class FoundingClan
     {
@@ -72,10 +73,10 @@ namespace MirrorChronicles.Clan
                 Affinity = f.Affinity,
                 Realm = f.Realm,
                 RealmStage = f.RealmStage,
-                MaxLifespan = PowerLadder.MaxLifespan(f.Realm, f.RealmStage),
+                MaxLifespan = f.MaxLifespan ?? PowerLadder.MaxLifespan(f.Realm, f.RealmStage),
                 MentalStability = f.MentalStability,
-                HasSpiritualOrifice = true,
-                OrificeKnown = true,
+                HasSpiritualOrifice = f.HasOrifice,
+                OrificeKnown = true, // the mirror sees each founder's orifice — or its absence (🔎 audit §4.3)
                 Temperament = f.Temperament != Temperament.None ? f.Temperament : FoundationRules.RandomTemperament(rng)
             };
         }

@@ -85,7 +85,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void APendingChallenge_ShowsTheMembersWhoMayAnswer()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             Assert.IsNull(BattleView.Pending(s));
             s.Challenges.Issue(s.Factions.GetFactionByName("Famille Ruan"));
             var pending = BattleView.Pending(s);

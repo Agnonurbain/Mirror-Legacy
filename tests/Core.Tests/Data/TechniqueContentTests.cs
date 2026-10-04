@@ -156,8 +156,9 @@ namespace MirrorChronicles.Tests.Data
             // LORE.md §5.2: nobody reaches Qi Cultivation without the matching method
             AssertRefused(GameContentLoader.ClanFile, ClanWith(c =>
             {
-                foreach (var f in c["founders"])
-                    if ((string)f["realm"] == "QiRefinement") f["cultivationMethod"] = null;
+                var f = c["founders"][0]; // a Qi Cultivator among the founders (the novel's start has none, audit §4.3)
+                f["realm"] = "QiRefinement"; f["realmStage"] = 1; f["hasOrifice"] = true;
+                f["cultivationMethod"] = null;
             }));
         }
 
@@ -166,8 +167,9 @@ namespace MirrorChronicles.Tests.Data
         {
             AssertRefused(GameContentLoader.ClanFile, ClanWith(c =>
             {
-                foreach (var f in c["founders"])
-                    if ((string)f["realm"] == "QiRefinement") f["cultivationMethod"] = "seven-terraces-canon";
+                var f = c["founders"][0];
+                f["realm"] = "QiRefinement"; f["realmStage"] = 1; f["hasOrifice"] = true;
+                f["cultivationMethod"] = "seven-terraces-canon";
             }));
         }
 

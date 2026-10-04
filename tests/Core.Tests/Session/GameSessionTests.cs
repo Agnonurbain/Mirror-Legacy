@@ -16,11 +16,16 @@ namespace MirrorChronicles.Tests.Session
             GameSession.NewGame(new GameSetup { Seed = seed, Content = Fixtures.QuietContent });
 
         [Test]
-        public void NewGame_FoundsTheClanWithFiveExaminedCultivators()
+        public void NewGame_FoundsTheNovelsFamily_OfMortalPeasants()
         {
+            // 📚 the novel's start (audit §4.3): a former soldier of sixty, his wife, four sons — the third, thirteen, finds the mirror
             var s = Quiet();
-            Assert.IsTrue(s.Clan.LivingMembers.Count == 5
-                && s.Clan.LivingMembers.All(m => m.OrificeKnown && SpiritualOrificeRules.CanCultivate(m)));
+            Assert.AreEqual(6, s.Clan.LivingMembers.Count);
+            Assert.IsTrue(s.Clan.LivingMembers.All(m => m.OrificeKnown && !SpiritualOrificeRules.CanCultivate(m)), "mortals, as the mirror sees them");
+            var sons = s.Clan.LivingMembers.Where(m => m.FatherID == s.Clan.PatriarchID).OrderByDescending(m => m.Age).ToList();
+            Assert.AreEqual(4, sons.Count);
+            Assert.IsTrue(sons.All(m => m.IsMale));
+            Assert.AreEqual(("Jian", 13), (sons[2].FirstName, sons[2].Age), "Mo Jian, the third son, thirteen");
         }
 
         [Test]
@@ -31,10 +36,11 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
-        public void NewGame_AppointsTheQiCultivatorFounderAsPatriarch()
+        public void NewGame_AppointsTheOldSoldier_AsPatriarch()
         {
             var patriarch = Quiet().Clan.GetPatriarch();
-            Assert.IsTrue(patriarch.Realm == CultivationRealm.QiRefinement && patriarch.RealmStage == 3);
+            Assert.AreEqual(("Wei", 60), (patriarch.FirstName, patriarch.Age));
+            Assert.IsFalse(patriarch.HasSpiritualOrifice, "never a cultivator himself");
         }
 
         [Test]
@@ -52,14 +58,20 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
-        public void NewGame_KnowsTheClansTechniquesAndHoldsItsQi()
+        public void NewGame_KnowsTheMirrorsMethods_ButHoldsNoQi()
         {
             var s = Quiet();
-            Assert.IsTrue(s.Techniques.Knows("clear-spring-sutra") && s.Techniques.Knows("common-breath-method"));
-            Assert.AreEqual(2, s.Resources.QiPortions("clear-spring-qi"));
-            Assert.IsTrue(s.Clan.LivingMembers.Where(m => m.Realm >= CultivationRealm.QiRefinement)
-                .All(m => m.CultivationMethodId == "clear-spring-sutra" && m.QiId == "clear-spring-qi"
-                    && m.KnownTechniqueIDs.Contains("clear-spring-sutra")));
+            Assert.IsTrue(s.Techniques.Knows("clear-spring-sutra") && s.Techniques.Knows("common-breath-method"), "the mirror's gift");
+            Assert.AreEqual(0, s.Resources.QiPortions("clear-spring-qi"), "peasants hold no spiritual Qi");
+        }
+
+        [Test]
+        public void TheMirror_MaySeedTheSons_FromTheFirstYear()
+        {
+            var s = Quiet();
+            s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
+            var candidates = MirrorChronicles.Presentation.MirrorView.SeedCandidates(s);
+            Assert.IsTrue(candidates.Any(c => c.Refusal == null), "the mirror sees who it may seed");
         }
 
         [Test]

@@ -16,7 +16,7 @@ namespace MirrorChronicles.Tests.Presentation
     {
         private const string Peak = "Secte du Pic des Nuées";
 
-        private static GameSession NewGame() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+        private static GameSession NewGame() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
 
         [Test]
         public void Library_ListsTheKnownArts_WithTheirQi_AndWhoPractisesThem()
@@ -53,7 +53,7 @@ namespace MirrorChronicles.Tests.Presentation
         public void Market_ListsWhatThePowersWouldSell_AndWhyNotNow()
         {
             var s = NewGame();
-            var trade = Fixtures.Content.Balance.KnowledgeTrade;
+            var trade = Fixtures.VeteranContent.Balance.KnowledgeTrade;
 
             var method = LibraryView.Market(s).Single(m => m.Power == Peak && m.TechniqueId == "measured-rain-method");
             var canon = LibraryView.Market(s).Single(m => m.Power == Peak && m.TechniqueId == "night-frost-canon");

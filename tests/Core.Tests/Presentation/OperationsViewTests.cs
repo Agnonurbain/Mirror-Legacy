@@ -15,7 +15,7 @@ namespace MirrorChronicles.Tests.Presentation
     [TestFixture]
     public class OperationsViewTests
     {
-        private static GameSession NewGame() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+        private static GameSession NewGame() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
 
         // ---- The ritual ----
 
@@ -29,7 +29,7 @@ namespace MirrorChronicles.Tests.Presentation
 
             Assert.AreEqual(20, ritual.Year);
             Assert.IsFalse(ritual.HuntOpen);
-            Assert.AreEqual(Fixtures.Content.Balance.Talismans.PrayersPerRitual, ritual.PrayersNeeded);
+            Assert.AreEqual(Fixtures.VeteranContent.Balance.Talismans.PrayersPerRitual, ritual.PrayersNeeded);
             Assert.AreEqual(new BeastLine("b1", "Culture du Qi, stade 4", "Famille Ruan"), ritual.Beasts.Single());
             StringAssert.Contains("an 20", ritual.Refusal, "no ritual before its year");
         }
@@ -39,7 +39,7 @@ namespace MirrorChronicles.Tests.Presentation
         {
             var s = NewGame();
             s.Talismans.RestoreCalendar(s.Clock.Year);
-            s.Resources.AddPrayers(Fixtures.Content.Balance.Talismans.PrayersPerRitual);
+            s.Resources.AddPrayers(Fixtures.VeteranContent.Balance.Talismans.PrayersPerRitual);
             s.Resources.AddBeast(new CapturedBeast("weak", CultivationRealm.Embryonic, 3, null));
             var ritual = OperationsView.Ritual(s);
             Assert.IsEmpty(ritual.Beasts, "a beast below the Qi Cultivation gives no talisman");
@@ -104,8 +104,8 @@ namespace MirrorChronicles.Tests.Presentation
             StringAssert.Contains("fenêtre", preview.Refusal, "the first ritual is years away");
             Assert.That(preview.Approach, Is.InRange(1, 99));
             Assert.That(preview.Capture, Is.InRange(1, 99));
-            Assert.AreEqual(Fixtures.Content.Balance.Hunt.CoverStones[(int)CoverStory.Trade], preview.Stones);
-            Assert.AreEqual(Fixtures.Content.Balance.Hunt.AidMirrorCost[(int)MirrorAid.Illusion], preview.MirrorPower);
+            Assert.AreEqual(Fixtures.VeteranContent.Balance.Hunt.CoverStones[(int)CoverStory.Trade], preview.Stones);
+            Assert.AreEqual(Fixtures.VeteranContent.Balance.Hunt.AidMirrorCost[(int)MirrorAid.Illusion], preview.MirrorPower);
 
             s.Talismans.RestoreCalendar(s.Clock.Year);
             Assert.IsNull(OperationsView.HuntPreview(s, plan).Refusal);
@@ -182,7 +182,7 @@ namespace MirrorChronicles.Tests.Presentation
         {
             var s = NewGame();
             s.Talismans.RestoreCalendar(s.Clock.Year);
-            s.Resources.AddPrayers(Fixtures.Content.Balance.Talismans.PrayersPerRitual);
+            s.Resources.AddPrayers(Fixtures.VeteranContent.Balance.Talismans.PrayersPerRitual);
             s.Resources.AddBeast(new CapturedBeast("b1", CultivationRealm.QiRefinement, 1, null));
             foreach (var m in s.Clan.LivingMembers) m.TalismanQiId = "prolong-life";
 
@@ -214,7 +214,7 @@ namespace MirrorChronicles.Tests.Presentation
             member.KnowsMirrorSecret = true;
             s.Captives.Take(member, "Famille Ruan");
             s.Captives.RestorePrisoners(new[] { new Prisoner("agent-1", "Famille Lou", CultivationRealm.Foundation, 1) { Interrogated = true } });
-            var schemes = Fixtures.Content.Balance.Schemes;
+            var schemes = Fixtures.VeteranContent.Balance.Schemes;
 
             var captives = OperationsView.Captives(s);
 
@@ -246,7 +246,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void ThePowersChosen_AreShown_OnlyToAPurpleMansion_WithTheirOdds()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var power = s.Factions.Factions.First();
             power.HighestRealm = CultivationRealm.PurpleMansion;
             s.Events.TriggerElderDied(power, new FactionElder { Id = "a", Name = "ancien", Realm = CultivationRealm.GoldenCore, Stage = 1, MaxLifespan = 1000 }, false);
@@ -263,7 +263,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void OnlyAReturnedAncestor_IsOfferedToBendAPowersMind()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             Assert.IsEmpty(OperationsView.Bends(s));
             var ancestor = Fixtures.Cultivator(age: 40, realm: CultivationRealm.GoldenCore);
             ancestor.RebornFrom = "Mo l'Ancien";

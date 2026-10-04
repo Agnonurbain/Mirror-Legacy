@@ -12,7 +12,7 @@ namespace MirrorChronicles.Tests.Presentation
     public class ClanDomainViewTests
     {
         private static GameSession NewGame() =>
-            GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
 
         [Test]
         public void Header_ShowsTheTurnTheTreasuryAndTheMirror()

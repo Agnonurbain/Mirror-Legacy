@@ -23,7 +23,7 @@ namespace MirrorChronicles.Tests.World
         private const string Tao = "Famille Tao";
         private const string Ruan = "Famille Ruan";
         private static string Clan => SecretBook.ClanHolder;
-        private static DealingSettings Settings => Fixtures.Content.Balance.Dealings;
+        private static DealingSettings Settings => Fixtures.VeteranContent.Balance.Dealings;
 
         private static TestWorld World(System.Random rng, CultivationRealm strongest = CultivationRealm.Foundation)
         {
@@ -132,7 +132,7 @@ namespace MirrorChronicles.Tests.World
         [Test]
         public void TheKnownSecrets_AndTheClansOwn_AreShown_WithSigns()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var theirs = s.SecretBook.Create("hidden-treasure", Fang, null);
             s.SecretBook.Grant(Clan, theirs.Id);
             var ours = s.SecretBook.Create("planted-false-proof", Clan, Tao);
@@ -150,7 +150,7 @@ namespace MirrorChronicles.Tests.World
         [Test]
         public void AProbesPreview_GivesItsOdds_OrWhyNot()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var team = new List<string> { s.Clan.GetPatriarch().ID };
             var preview = SecretsView.Preview(s, new ProbePlan(Fang, ProbeApproach.Infiltration, team, new List<string>(), 0));
             Assert.IsNull(preview.Refusal);
@@ -161,11 +161,11 @@ namespace MirrorChronicles.Tests.World
         [Test]
         public void RoundTrip_KeepsWhatWasAlreadySpent()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             var secret = s.SecretBook.Create("internal-feud", Fang, null);
             s.SecretBook.Grant(Clan, secret.Id);
             s.Dealings.Blackmail(secret.Id);
-            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.VeteranSetup());
             Assert.IsNotNull(reloaded.Dealings.Blackmail(secret.Id), "already spent");
         }
 
@@ -191,7 +191,7 @@ namespace MirrorChronicles.Tests.World
 
             w.Dealings.ProcessYear();
 
-            int full = Fixtures.Content.Balance.Secrets.KnownEvidenceByRank[2];
+            int full = Fixtures.VeteranContent.Balance.Secrets.KnownEvidenceByRank[2];
             Assert.AreEqual((int)(full * Settings.ExposedEvidenceShare), w.Suspicion.Evidence(Tao));
         }
     }

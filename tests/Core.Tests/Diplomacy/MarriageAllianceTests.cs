@@ -19,7 +19,7 @@ namespace MirrorChronicles.Tests.Diplomacy
     {
         private const string Tao = "Famille Tao";  // relation +20
         private const string Lou = "Famille Lou";  // relation -15
-        private static TreatySettings Settings => Fixtures.Content.Balance.Treaties;
+        private static TreatySettings Settings => Fixtures.VeteranContent.Balance.Treaties;
 
         private static TestWorld World(System.Random rng)
         {
@@ -121,7 +121,7 @@ namespace MirrorChronicles.Tests.Diplomacy
         [Test]
         public void TheScreens_NameTheAlliance_AndTheMembersToWed()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             Assert.AreEqual("alliance matrimoniale", DiplomacyView.KindLabel(TreatyKind.Marriage));
             Assert.IsTrue(DiplomacyView.MarriageCandidates(s).All(c => s.Clan.FindById(c.Id).SpouseID == null));
         }
@@ -129,10 +129,10 @@ namespace MirrorChronicles.Tests.Diplomacy
         [Test]
         public void RoundTrip_KeepsTheBondOfBlood()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             var single = DiplomacyView.MarriageCandidates(s).First();
             Assert.IsNull(s.Matches.Propose(Tao, single.Id));
-            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.VeteranSetup());
             Assert.AreEqual(s.Treaties.With(Tao).Single(), reloaded.Treaties.With(Tao).Single());
         }
 
@@ -176,7 +176,7 @@ namespace MirrorChronicles.Tests.Diplomacy
         [Test]
         public void TheTree_TellsTheDeparted_FromTheLivingAndTheDead()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var single = DiplomacyView.MarriageCandidates(s).First();
             s.Matches.Propose(Tao, single.Id);
             var spouseId = s.Clan.FindById(single.Id).SpouseID;

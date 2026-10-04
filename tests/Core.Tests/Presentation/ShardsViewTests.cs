@@ -15,7 +15,7 @@ namespace MirrorChronicles.Tests.Presentation
     [TestFixture]
     public class ShardsViewTests
     {
-        private static GameSession Quiet() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+        private static GameSession Quiet() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
 
         [Test]
         public void TheHeader_TellsTheRestoration_AndTheSleep()
@@ -75,7 +75,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void TheEndingScreen_TellsTheEnding_AndWhoReachedIt()
         {
-            var ending = Fixtures.Content.Endings.Single(e => e.Id == "ascension");
+            var ending = Fixtures.VeteranContent.Endings.Single(e => e.Id == "ascension");
             var screen = EndingView.Of(ending, "Mo Jian", 312);
             Assert.AreEqual("L'Ascension", screen.Title);
             StringAssert.StartsWith("An 312 · Mo Jian", screen.Byline);
@@ -94,7 +94,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void AShardTheMirrorSensed_ShowsItsDirection()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             s.PowerShards.Hide("pale-seal-jade", "Famille Ruan");
             s.ShardSense.Restore(new System.Collections.Generic.Dictionary<string, string> { ["pale-seal-jade"] = "heshan" });
             var line = ShardsView.Lines(s).Single(l => l.Id == "pale-seal-jade");

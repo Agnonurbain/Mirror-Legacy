@@ -17,7 +17,7 @@ namespace MirrorChronicles.Tests.Presentation
         [SetUp]
         public void SetUp()
         {
-            session = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            session = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             chronicle = new Chronicle(session);
         }
 
@@ -110,13 +110,13 @@ namespace MirrorChronicles.Tests.Presentation
         {
             // a save may hold a fact about an ability whose id the content later renamed (unrevealed-1 → great-li-codex)
             Assert.AreEqual("la capacité non révélée (Feu Orthodoxe)",
-                KnowledgeView.Describe(new Fact(FactKind.Ability, "orthodox-fire:unrevealed-1"), Fixtures.Content));
+                KnowledgeView.Describe(new Fact(FactKind.Ability, "orthodox-fire:unrevealed-1"), Fixtures.VeteranContent));
         }
 
         [Test]
         public void ABeastsSpecies_IsFoundByItsFullId_NotAShorterPrefix()
         {
-            var content = Fixtures.Content with
+            var content = Fixtures.VeteranContent with
             {
                 BeastSpecies = new[]
                 {

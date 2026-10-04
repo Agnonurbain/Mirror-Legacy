@@ -17,7 +17,7 @@ namespace MirrorChronicles.Tests.Clan
     [TestFixture]
     public class LineageTests
     {
-        private static LineageSettings Settings => Fixtures.Content.Balance.Lineage;
+        private static LineageSettings Settings => Fixtures.VeteranContent.Balance.Lineage;
 
         private static CharacterData Cultivator(TestWorld w, bool isMale, int age = 25, CultivationRealm realm = CultivationRealm.QiRefinement) =>
             w.Join(Fixtures.Cultivator(isMale: isMale, age: age, realm: realm));
@@ -61,7 +61,7 @@ namespace MirrorChronicles.Tests.Clan
         [Test]
         public void AFoundingKinsman_IsKin_ToTheFoundingFamily()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var kinsman = s.Clan.LivingMembers.Single(m => m.FirstName == "Shan");   // clan.json: role « Kin »
             var niece = s.Clan.LivingMembers.Single(m => m.FirstName == "Mei");      // a child of the patriarch
             StringAssert.Contains("parenté", s.Marriages.MarriageRefusal(kinsman, niece));
@@ -118,7 +118,7 @@ namespace MirrorChronicles.Tests.Clan
         [Test]
         public void TheScreen_ListsTheUnwedCultivators_AndWhomTheyMayWed()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var a = Fixtures.Cultivator(isMale: true, age: 25);
             var b = Fixtures.Cultivator(isMale: false, age: 24);
             s.Clan.AddMember(a);
@@ -131,7 +131,7 @@ namespace MirrorChronicles.Tests.Clan
         [Test]
         public void ThePilot_MarriesItsCultivators()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 3, Content = Fixtures.Content });
+            var s = GameSession.NewGame(new GameSetup { Seed = 3, Content = Fixtures.VeteranContent });
             s.Resources.SetSpiritStones(100000);
             var a = Fixtures.Cultivator(isMale: true, age: 25);
             var b = Fixtures.Cultivator(isMale: false, age: 24);
@@ -160,7 +160,7 @@ namespace MirrorChronicles.Tests.Clan
         {
             var w = new TestWorld();
             w.Buildings.Restore(new[] { new BuildingData(BuildingType.Forge) { Level = 3 } });
-            var miners = Enumerable.Range(0, Fixtures.Content.Balance.Upkeep.VeinMiners + 4)
+            var miners = Enumerable.Range(0, Fixtures.VeteranContent.Balance.Upkeep.VeinMiners + 4)
                 .Select(_ => w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement))).ToList();
             foreach (var m in miners) w.Tasks.AssignTask(m, TaskType.Mine);
             int estimate = w.Tasks.MiningYield(miners);

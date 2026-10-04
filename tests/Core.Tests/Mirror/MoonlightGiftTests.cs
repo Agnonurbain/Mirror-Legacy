@@ -14,7 +14,7 @@ namespace MirrorChronicles.Tests.Mirror
     {
         private static GameSession Session()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             s.Mirror.Restore(100, 0);
             return s;
         }

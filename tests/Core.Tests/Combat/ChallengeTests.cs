@@ -16,7 +16,7 @@ namespace MirrorChronicles.Tests.Combat
     public class ChallengeTests
     {
         private const string Ruan = "Famille Ruan";
-        private static ChallengeSettings Settings => Fixtures.Content.Balance.Challenges;
+        private static ChallengeSettings Settings => Fixtures.VeteranContent.Balance.Challenges;
 
         private static (TestWorld w, CharacterData champion) World(System.Random rng)
         {
@@ -150,16 +150,16 @@ namespace MirrorChronicles.Tests.Combat
         [Test]
         public void RoundTrip_KeepsThePendingChallenge()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             var challenge = s.Challenges.Issue(s.Factions.GetFactionByName(Ruan));
-            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.VeteranSetup());
             Assert.AreEqual(challenge, reloaded.Challenges.Pending);
         }
 
         [Test]
         public void TheYear_WaitsForTheBattleUnderWay()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             s.Challenges.Issue(s.Factions.GetFactionByName(Ruan));
             var fighter = MirrorChronicles.Presentation.BattleView.Pending(s).Candidates.First(c => c.Refusal == null);
             Assert.IsNull(s.Challenges.Accept(new[] { fighter.Id }));
@@ -208,7 +208,7 @@ namespace MirrorChronicles.Tests.Combat
         [Test]
         public void TheScreen_SaysItIsToTheDeath()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             s.Challenges.Restore(new Challenge(Ruan, s.Clock.Year, CultivationRealm.QiRefinement, 1, 1, 7, ToTheDeath: true));
             Assert.IsTrue(MirrorChronicles.Presentation.BattleView.Pending(s).ToTheDeath);
         }
@@ -216,7 +216,7 @@ namespace MirrorChronicles.Tests.Combat
         [Test]
         public void ThePilot_FightsToTheDeath_OnlyWhenStronger()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var best = s.Clan.LivingMembers.Where(m => s.Challenges.FighterRefusal(m) == null).OrderByDescending(m => (int)m.Realm).First();
             s.Challenges.Restore(new Challenge(Ruan, s.Clock.Year, best.Realm, best.RealmStage, 1, 7, ToTheDeath: true));
             ChallengeOutcome? outcome = null;
@@ -228,9 +228,9 @@ namespace MirrorChronicles.Tests.Combat
         [Test]
         public void RoundTrip_KeepsAChallengeToTheDeath()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             s.Challenges.Restore(new Challenge(Ruan, 1, CultivationRealm.QiRefinement, 1, 1, 7, ToTheDeath: true));
-            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.VeteranSetup());
             Assert.IsTrue(reloaded.Challenges.Pending.ToTheDeath);
         }
     }

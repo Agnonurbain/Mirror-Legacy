@@ -16,7 +16,7 @@ namespace MirrorChronicles.Tests.World
     [TestFixture]
     public class PowerSchemeTests
     {
-        private static GameSession Session() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+        private static GameSession Session() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
 
         private static (FactionData Thief, FactionData Victim) Pair(GameSession s)
         {
@@ -116,7 +116,7 @@ namespace MirrorChronicles.Tests.World
             var s = Session();
             var (thief, victim) = Pair(s);
             s.PowerSchemes.Ambush(thief, victim);
-            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), new GameSetup { Content = Fixtures.QuietContent });
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), new GameSetup { Content = Fixtures.VeteranQuietContent });
             Assert.AreEqual(1, reloaded.PowerSchemes.Captives.Count);
         }
     }

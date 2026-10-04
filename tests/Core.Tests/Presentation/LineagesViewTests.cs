@@ -10,7 +10,7 @@ namespace MirrorChronicles.Tests.Presentation
     [TestFixture]
     public class LineagesViewTests
     {
-        private static GameSession Session() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+        private static GameSession Session() => GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
 
         [Test]
         public void EveryLineage_IsListed_WithItsStatusAndHolder()
@@ -34,12 +34,12 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void ARaceAndAReturn_AreShown()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent with
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent with
             {
-                Balance = Fixtures.QuietContent.Balance with
+                Balance = Fixtures.VeteranQuietContent.Balance with
                 {
-                    WorldFruitions = Fixtures.QuietContent.Balance.WorldFruitions with { HolderPassChance = 1.0, ReincarnationChance = 1.0 },
-                    GoldenCore = Fixtures.QuietContent.Balance.GoldenCore with { TransferChance = 0, TransformationChance = 0 } // nobody rises meanwhile
+                    WorldFruitions = Fixtures.VeteranQuietContent.Balance.WorldFruitions with { HolderPassChance = 1.0, ReincarnationChance = 1.0 },
+                    GoldenCore = Fixtures.VeteranQuietContent.Balance.GoldenCore with { TransferChance = 0, TransformationChance = 0 } // nobody rises meanwhile
                 }
             } });
             s.Clock.Restore(s.Clock.Year + 1, s.Clock.Phase);

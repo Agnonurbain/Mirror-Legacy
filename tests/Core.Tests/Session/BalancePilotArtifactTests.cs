@@ -15,7 +15,7 @@ namespace MirrorChronicles.Tests.Session
     {
         private static GameSession Session()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             foreach (var f in s.Factions.Factions) f.RelationWithPlayer = 0;
             return s;
         }

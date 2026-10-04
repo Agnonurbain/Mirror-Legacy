@@ -1,14 +1,16 @@
 {
   "clanName": "Mo",
   "homeRegion": "jingshui-lake",
+  "_note": "📚 The novel's start (audit §4.3, the user's choice 2026-10-03): mortal peasants — the patriarch a former soldier of sixty, his wife, four sons (Mo Jian the third, thirteen, finds the mirror). The mirror gives the seeds and the methods (startingTechniques); peasants hold no Qi. 🔎 the names of the mother and of the 1st, 2nd and 4th sons are the game's own; their roots follow the novel's destinies (the 2nd and 4th reach the Foundation); the patriarch's lifespan (he dies of age some fifteen years on).",
   "startingTechniques": [ "clear-spring-sutra", "common-breath-method" ],
-  "startingQi": { "clear-spring-qi": 2 },
+  "startingQi": {},
   "knowledge": [],
   "founders": [
-	{ "firstName": "Wei",  "role": "Patriarch", "isMale": true,  "age": 45, "spiritualRoot": 65, "affinity": "Fire",      "realm": "QiRefinement", "realmStage": 3, "mentalStability": 80, "cultivationMethod": "clear-spring-sutra" },
-	{ "firstName": "Xue",  "role": "Matriarch", "isMale": false, "age": 42, "spiritualRoot": 55, "affinity": "Water",     "realm": "QiRefinement", "realmStage": 2, "mentalStability": 85, "cultivationMethod": "clear-spring-sutra" },
-	{ "firstName": "Jian", "role": "Child",     "isMale": true,  "age": 20, "spiritualRoot": 75, "affinity": "Lightning", "realm": "Embryonic",    "realmStage": 2, "mentalStability": 70 },
-	{ "firstName": "Mei",  "role": "Child",     "isMale": false, "age": 16, "spiritualRoot": 45, "affinity": "Wood",      "realm": "Embryonic",    "realmStage": 1, "mentalStability": 70 },
-	{ "firstName": "Shan", "role": "Kin",       "isMale": true,  "age": 40, "spiritualRoot": 25, "affinity": "Earth",     "realm": "Embryonic",    "realmStage": 1, "mentalStability": 60 }
+	{ "firstName": "Wei",  "role": "Patriarch", "isMale": true,  "age": 60, "spiritualRoot": 30, "affinity": "Metal",  "realm": "Embryonic", "realmStage": 0, "mentalStability": 85, "hasOrifice": false, "maxLifespan": 75 },
+	{ "firstName": "Xue",  "role": "Matriarch", "isMale": false, "age": 55, "spiritualRoot": 30, "affinity": "Water",  "realm": "Embryonic", "realmStage": 0, "mentalStability": 80, "hasOrifice": false, "maxLifespan": 72 },
+	{ "firstName": "Shan", "role": "Child",     "isMale": true,  "age": 17, "spiritualRoot": 45, "affinity": "Earth",  "realm": "Embryonic", "realmStage": 0, "mentalStability": 75, "hasOrifice": false },
+	{ "firstName": "Yuan", "role": "Child",     "isMale": true,  "age": 16, "spiritualRoot": 70, "affinity": "Water",  "realm": "Embryonic", "realmStage": 0, "mentalStability": 75, "hasOrifice": false },
+	{ "firstName": "Jian", "role": "Child",     "isMale": true,  "age": 13, "spiritualRoot": 50, "affinity": "Metal",  "realm": "Embryonic", "realmStage": 0, "mentalStability": 70, "hasOrifice": false },
+	{ "firstName": "Lin",  "role": "Child",     "isMale": true,  "age": 6,  "spiritualRoot": 75, "affinity": "Wood",   "realm": "Embryonic", "realmStage": 0, "mentalStability": 70, "hasOrifice": false }
   ]
 }

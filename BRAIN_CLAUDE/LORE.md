@@ -868,8 +868,10 @@ Les personnages cités en exemple par la source deviennent des **figures du mond
 
 | Personnage | Rôle |
 |---|---|
-| **Mo Jian** | Fils aîné du patriarche ; **trouve le miroir** (an 0) |
-| **Mo Wei** | Patriarche ; s'est engagé dans l'armée il y a ~50 ans |
+| **Mo Jian** | 📚 Troisième des quatre fils du patriarche, **13 ans** ; **trouve le miroir** (an 0) |
+| **Mo Wei** | Patriarche, 📚 **60 ans**, ancien soldat, **jamais cultivateur** ; s'est engagé dans l'armée il y a ~50 ans |
+| **Mo Xue** | 🔎 Son épouse (55 ans), mortelle |
+| **Mo Shan · Mo Yuan · Mo Lin** | 📚 Les fils aîné (17), cadet (16) et benjamin (6) ; 🔎 noms du jeu — le 2e et le 4e atteindront la Fondation |
 | **Mo Qianshui** | Ancêtre tué dans une embuscade des Douze Portes (~400 ans) |
 | **Empereur Zhen Guangling** | Fondateur de l'Empire Zhen ; détenteur de la Réalisation du Yang Lumineux |
 | **Empereur Martial Zhen** | Campagne vers le sud ; ancêtre légendaire des Mo |
@@ -1202,7 +1204,7 @@ La victoire « 10 générations + 1 ascension » disparaît : les générations 
   - 🎮 L6 (à faire) : à la naissance d'un démon (`GameEventBus.OnMetalEssenceDemon`, L4b), le joueur choisit : **le laisser au Monde Souterrain** (sûr, conforme à la coutume), **sceller ou reprendre l'essence** (ressource : réincarnation, Désignation de Rang, pot-de-vin ; provoque le Monde Souterrain), ou **ne rien faire** (le démon ravage la région selon sa place dans la hiérarchie) ; un **Immortel de Jade Tressé** du clan (Main Gauche vraie, L4b) peut le soumettre.
 - 📚 L'histoire du roman en était à **l'an 136** du miroir en novembre 2025.
 🎮 Phase 6 : introduction (an 0), faits historiques exposés par le miroir et les événements scénarisés, état initial des Fruitions (§6.8), phénomènes régionaux hérités (le Lac Jingshui est né quand la Réalisation de l'Eau Nourricière est devenue vacante → 💡 bonus de cultivation d'Eau au lac ?).
-⚠️ `ClanManager` : patriarche de 45 ans ; s'il s'est engagé dans l'armée il y a ~50 ans, il doit avoir ~65-70 ans (à ajuster en phase 6).
+✅ 2026-10-04 (audit §4.3) : départ fidèle au roman — `clan.json` fonde des paysans mortels (Mo Wei 60 ans, son épouse, quatre fils de 17, 16, 13 et 6 ans), sans Qi ; le miroir voit leurs orifices et leur donne graines et méthodes.
 
 ---
 

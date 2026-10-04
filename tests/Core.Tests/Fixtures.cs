@@ -198,6 +198,34 @@ namespace MirrorChronicles.Tests
         /// <summary>The content the game ships (game/data/*.json).</summary>
         public static GameContent Content => ShippedContent.Value;
 
+        /// <summary>
+        /// A veteran clan (the founders before the novel's start, audit §4.3): two Qi Cultivators married, their children breathing,
+        /// a kinsman, the clan's methods and its Qi — for the tests of a feature that needs cultivators from the first year, not of
+        /// the start itself.
+        /// </summary>
+        private const string VeteranClan = @"{
+  ""clanName"": ""Mo"", ""homeRegion"": ""jingshui-lake"",
+  ""startingTechniques"": [ ""clear-spring-sutra"", ""common-breath-method"" ],
+  ""startingQi"": { ""clear-spring-qi"": 2 }, ""knowledge"": [],
+  ""founders"": [
+    { ""firstName"": ""Wei"",  ""role"": ""Patriarch"", ""isMale"": true,  ""age"": 45, ""spiritualRoot"": 65, ""affinity"": ""Fire"",      ""realm"": ""QiRefinement"", ""realmStage"": 3, ""mentalStability"": 80, ""cultivationMethod"": ""clear-spring-sutra"" },
+    { ""firstName"": ""Xue"",  ""role"": ""Matriarch"", ""isMale"": false, ""age"": 42, ""spiritualRoot"": 55, ""affinity"": ""Water"",     ""realm"": ""QiRefinement"", ""realmStage"": 2, ""mentalStability"": 85, ""cultivationMethod"": ""clear-spring-sutra"" },
+    { ""firstName"": ""Jian"", ""role"": ""Child"",     ""isMale"": true,  ""age"": 20, ""spiritualRoot"": 75, ""affinity"": ""Lightning"", ""realm"": ""Embryonic"",    ""realmStage"": 2, ""mentalStability"": 70 },
+    { ""firstName"": ""Mei"",  ""role"": ""Child"",     ""isMale"": false, ""age"": 16, ""spiritualRoot"": 45, ""affinity"": ""Wood"",      ""realm"": ""Embryonic"",    ""realmStage"": 1, ""mentalStability"": 70 },
+    { ""firstName"": ""Shan"", ""role"": ""Kin"",       ""isMale"": true,  ""age"": 40, ""spiritualRoot"": 25, ""affinity"": ""Earth"",     ""realm"": ""Embryonic"",    ""realmStage"": 1, ""mentalStability"": 60 }
+  ]
+}";
+
+        private static readonly Lazy<GameContent> VeteranShipped = new Lazy<GameContent>(() =>
+            GameContentLoader.Load(file => file == GameContentLoader.ClanFile ? VeteranClan : ReadDataFile(file)));
+
+        /// <summary>The shipped content with the veteran clan.</summary>
+        public static GameContent VeteranContent => VeteranShipped.Value;
+
+        public static GameContent VeteranQuietContent => VeteranContent with { RandomEvents = Array.Empty<RandomEventData>() };
+
+        public static GameSetup VeteranSetup(int seed = 1) => new GameSetup { Seed = seed, Content = VeteranContent };
+
         /// <summary>The shipped content without random events, so a test sees only what it provokes.</summary>
         public static GameContent QuietContent => Content with { RandomEvents = Array.Empty<RandomEventData>() };
 

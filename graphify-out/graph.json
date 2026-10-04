@@ -7028,7 +7028,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 263,
+      "community": 434,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -7038,7 +7038,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 263,
+      "community": 434,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -12165,7 +12165,7 @@
       "label": "FoundingClan",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "clan_foundingclan_foundingclan",
       "community": 113,
@@ -12175,7 +12175,7 @@
       "label": ".Found()",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "clan_foundingclan_foundingclan_found",
       "community": 113,
@@ -12185,7 +12185,7 @@
       "label": "ClanManager",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "src_core_clan_foundingclan_cs_clanmanager",
       "community": 113,
@@ -12195,7 +12195,7 @@
       "label": "ClanDefinition",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "src_core_clan_foundingclan_cs_clandefinition",
       "community": 113,
@@ -12205,7 +12205,7 @@
       "label": "TechniqueLibrary",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "src_core_clan_foundingclan_cs_techniquelibrary",
       "community": 113,
@@ -12215,7 +12215,7 @@
       "label": "Random",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "src_core_clan_foundingclan_cs_random",
       "community": 113,
@@ -12225,7 +12225,7 @@
       "label": ".Create()",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L62",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "clan_foundingclan_foundingclan_create",
       "community": 113,
@@ -12235,7 +12235,7 @@
       "label": "FounderDefinition",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L62",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "founderdefinition",
       "community": 113,
@@ -12245,7 +12245,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Clan/FoundingClan.cs",
-      "source_location": "L62",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "src_core_clan_foundingclan_cs_characterdata",
       "community": 113,
@@ -14908,7 +14908,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 263,
+      "community": 434,
       "norm_label": "combatunit.cs"
     },
     {
@@ -14918,7 +14918,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 263,
+      "community": 434,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -15768,7 +15768,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 434,
+      "community": 448,
       "norm_label": "enums.cs"
     },
     {
@@ -15778,7 +15778,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 434,
+      "community": 448,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -16065,7 +16065,7 @@
       "label": "NamePools",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L133",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "data_gamecontent_namepools",
       "community": 121,
@@ -16075,7 +16075,7 @@
       "label": "TrialModifiers",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L405",
+      "source_location": "L411",
       "_origin": "ast",
       "id": "data_gamecontent_trialmodifiers",
       "community": 121,
@@ -16085,7 +16085,7 @@
       "label": "TechniqueSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L427",
+      "source_location": "L433",
       "_origin": "ast",
       "id": "data_gamecontent_techniquesettings",
       "community": 121,
@@ -16095,7 +16095,7 @@
       "label": "DivineAbilitySettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L462",
+      "source_location": "L468",
       "_origin": "ast",
       "id": "data_gamecontent_divineabilitysettings",
       "community": 121,
@@ -16105,7 +16105,7 @@
       "label": "PurpleMansionSettings",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L558",
+      "source_location": "L564",
       "_origin": "ast",
       "id": "data_gamecontent_purplemansionsettings",
       "community": 121,
@@ -16115,7 +16115,7 @@
       "label": "VoidBand",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L585",
+      "source_location": "L591",
       "_origin": "ast",
       "id": "data_gamecontent_voidband",
       "community": 121,
@@ -16125,7 +16125,7 @@
       "label": "OrificeOdds",
       "file_type": "code",
       "source_file": "src/Core/Data/GameContent.cs",
-      "source_location": "L593",
+      "source_location": "L599",
       "_origin": "ast",
       "id": "data_gamecontent_orificeodds",
       "community": 121,
@@ -17378,7 +17378,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_storyeventdata",
-      "community": 457,
+      "community": 0,
       "norm_label": "storyeventdata.cs"
     },
     {
@@ -17388,7 +17388,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "data_storyeventdata_mirrorchronicles_data",
-      "community": 457,
+      "community": 0,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -17398,7 +17398,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "data_storyeventdata_storyeventdata",
-      "community": 457,
+      "community": 0,
       "norm_label": "storyeventdata"
     },
     {
@@ -17408,7 +17408,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "data_storyeventdata_storychoice",
-      "community": 457,
+      "community": 0,
       "norm_label": "storychoice"
     },
     {
@@ -17418,7 +17418,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "data_storyeventdata_storyoutcome",
-      "community": 457,
+      "community": 0,
       "norm_label": "storyoutcome"
     },
     {
@@ -18648,7 +18648,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 434,
+      "community": 448,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -18658,7 +18658,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 434,
+      "community": 448,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -19528,7 +19528,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 434,
+      "community": 448,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -19538,7 +19538,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 434,
+      "community": 448,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -22058,7 +22058,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_buildingsystem",
-      "community": 25,
+      "community": 9,
       "norm_label": "buildingsystem.cs"
     },
     {
@@ -22068,7 +22068,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "economy_buildingsystem_mirrorchronicles_economy",
-      "community": 25,
+      "community": 9,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -22858,7 +22858,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
-      "community": 33,
+      "community": 456,
       "norm_label": ".assigntask()"
     },
     {
@@ -22868,7 +22868,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 33,
+      "community": 456,
       "norm_label": "characterdata"
     },
     {
@@ -22878,7 +22878,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
-      "community": 33,
+      "community": 456,
       "norm_label": "tasktype"
     },
     {
@@ -22888,7 +22888,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 33,
+      "community": 456,
       "norm_label": ".processyearlytasks()"
     },
     {
@@ -22898,7 +22898,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 33,
+      "community": 456,
       "norm_label": "yearlytaskreport"
     },
     {
@@ -22908,7 +22908,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 33,
+      "community": 457,
       "norm_label": ".gatherqi()"
     },
     {
@@ -22918,7 +22918,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_sentfor",
-      "community": 33,
+      "community": 457,
       "norm_label": ".sentfor()"
     },
     {
@@ -22928,7 +22928,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 33,
+      "community": 457,
       "norm_label": "qidefinition"
     },
     {
@@ -22938,7 +22938,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 33,
+      "community": 457,
       "norm_label": ".harvestable()"
     },
     {
@@ -22948,7 +22948,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 33,
+      "community": 457,
       "norm_label": "techniquedata"
     },
     {
@@ -22958,7 +22958,7 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
-      "community": 33,
+      "community": 458,
       "norm_label": ".miningyield()"
     },
     {
@@ -22968,7 +22968,7 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ienumerable",
-      "community": 33,
+      "community": 458,
       "norm_label": "ienumerable"
     },
     {
@@ -22978,7 +22978,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_veinyield",
-      "community": 33,
+      "community": 458,
       "norm_label": ".veinyield()"
     },
     {
@@ -22988,7 +22988,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_list",
-      "community": 33,
+      "community": 458,
       "norm_label": "list"
     },
     {
@@ -22998,7 +22998,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 33,
+      "community": 456,
       "norm_label": ".mineyield()"
     },
     {
@@ -23008,7 +23008,7 @@
       "source_location": "L202",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 33,
+      "community": 456,
       "norm_label": ".study()"
     },
     {
@@ -23018,7 +23018,7 @@
       "source_location": "L232",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 33,
+      "community": 456,
       "norm_label": ".diplomacy()"
     },
     {
@@ -23028,7 +23028,7 @@
       "source_location": "L245",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 33,
+      "community": 456,
       "norm_label": ".teach()"
     },
     {
@@ -23038,7 +23038,7 @@
       "source_location": "L245",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 33,
+      "community": 456,
       "norm_label": "ireadonlylist"
     },
     {
@@ -23048,7 +23048,7 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
-      "community": 33,
+      "community": 456,
       "norm_label": ".scoutbeasts()"
     },
     {
@@ -24388,7 +24388,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_storyeventmanager",
-      "community": 457,
+      "community": 0,
       "norm_label": "storyeventmanager.cs"
     },
     {
@@ -24398,7 +24398,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "events_storyeventmanager_mirrorchronicles_events",
-      "community": 457,
+      "community": 0,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -54855,7 +54855,7 @@
       "label": ".Load_Refuses_AFounderPractisingAMethodTheClanDoesNotKnow()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Data/TechniqueContentTests.cs",
-      "source_location": "L164",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "data_techniquecontenttests_techniquecontenttests_load_refuses_afounderpractisingamethodtheclandoesnotknow",
       "community": 21,
@@ -54865,7 +54865,7 @@
       "label": ".Load_Refuses_ASpeedTableWithoutOneValuePerGrade()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Data/TechniqueContentTests.cs",
-      "source_location": "L174",
+      "source_location": "L176",
       "_origin": "ast",
       "id": "data_techniquecontenttests_techniquecontenttests_load_refuses_aspeedtablewithoutonevaluepergrade",
       "community": 21,
@@ -54875,7 +54875,7 @@
       "label": ".Load_Refuses_AMovementArtWithoutSteps()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Data/TechniqueContentTests.cs",
-      "source_location": "L182",
+      "source_location": "L184",
       "_origin": "ast",
       "id": "data_techniquecontenttests_techniquecontenttests_load_refuses_amovementartwithoutsteps",
       "community": 21,
@@ -54885,7 +54885,7 @@
       "label": ".Load_Refuses_NegativeManifestationBonuses()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Data/TechniqueContentTests.cs",
-      "source_location": "L195",
+      "source_location": "L197",
       "_origin": "ast",
       "id": "data_techniquecontenttests_techniquecontenttests_load_refuses_negativemanifestationbonuses",
       "community": 21,
@@ -54895,7 +54895,7 @@
       "label": ".Load_Refuses_ATrialWithoutItsModifiers()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Data/TechniqueContentTests.cs",
-      "source_location": "L203",
+      "source_location": "L205",
       "_origin": "ast",
       "id": "data_techniquecontenttests_techniquecontenttests_load_refuses_atrialwithoutitsmodifiers",
       "community": 21,
@@ -54905,7 +54905,7 @@
       "label": ".Load_Refuses_DeductionNamesMissingAKind()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Data/TechniqueContentTests.cs",
-      "source_location": "L212",
+      "source_location": "L214",
       "_origin": "ast",
       "id": "data_techniquecontenttests_techniquecontenttests_load_refuses_deductionnamesmissingakind",
       "community": 21,
@@ -60752,10 +60752,40 @@
       "norm_label": "lazy"
     },
     {
-      "label": ".ReadDataFile()",
+      "label": "string",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Fixtures.cs",
       "source_location": "L206",
+      "_origin": "ast",
+      "id": "tests_core_tests_fixtures_cs_string",
+      "community": 27,
+      "norm_label": "string"
+    },
+    {
+      "label": ".VeteranSetup()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Fixtures.cs",
+      "source_location": "L227",
+      "_origin": "ast",
+      "id": "core_tests_fixtures_fixtures_veteransetup",
+      "community": 27,
+      "norm_label": ".veteransetup()"
+    },
+    {
+      "label": "GameSetup",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Fixtures.cs",
+      "source_location": "L227",
+      "_origin": "ast",
+      "id": "tests_core_tests_fixtures_cs_gamesetup",
+      "community": 27,
+      "norm_label": "gamesetup"
+    },
+    {
+      "label": ".ReadDataFile()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Fixtures.cs",
+      "source_location": "L234",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_readdatafile",
       "community": 27,
@@ -60765,27 +60795,17 @@
       "label": ".Setup()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Fixtures.cs",
-      "source_location": "L208",
+      "source_location": "L236",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_setup",
       "community": 27,
       "norm_label": ".setup()"
     },
     {
-      "label": "GameSetup",
-      "file_type": "code",
-      "source_file": "tests/Core.Tests/Fixtures.cs",
-      "source_location": "L208",
-      "_origin": "ast",
-      "id": "tests_core_tests_fixtures_cs_gamesetup",
-      "community": 27,
-      "norm_label": "gamesetup"
-    },
-    {
       "label": ".Context()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Fixtures.cs",
-      "source_location": "L210",
+      "source_location": "L238",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_context",
       "community": 27,
@@ -60795,7 +60815,7 @@
       "label": "GameContext",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Fixtures.cs",
-      "source_location": "L210",
+      "source_location": "L238",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_gamecontext",
       "community": 27,
@@ -60805,27 +60825,17 @@
       "label": ".FindDataDirectory()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Fixtures.cs",
-      "source_location": "L216",
+      "source_location": "L244",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_finddatadirectory",
       "community": 27,
       "norm_label": ".finddatadirectory()"
     },
     {
-      "label": "string",
-      "file_type": "code",
-      "source_file": "tests/Core.Tests/Fixtures.cs",
-      "source_location": "L226",
-      "_origin": "ast",
-      "id": "tests_core_tests_fixtures_cs_string",
-      "community": 27,
-      "norm_label": "string"
-    },
-    {
       "label": ".Cultivator()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Fixtures.cs",
-      "source_location": "L233",
+      "source_location": "L261",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_cultivator",
       "community": 27,
@@ -60835,7 +60845,7 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Fixtures.cs",
-      "source_location": "L233",
+      "source_location": "L261",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_cultivationrealm",
       "community": 27,
@@ -60845,7 +60855,7 @@
       "label": ".Mortal()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Fixtures.cs",
-      "source_location": "L255",
+      "source_location": "L283",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_mortal",
       "community": 27,
@@ -68772,14 +68782,14 @@
       "norm_label": "gamesession"
     },
     {
-      "label": ".NewGame_FoundsTheClanWithFiveExaminedCultivators()",
+      "label": ".NewGame_FoundsTheNovelsFamily_OfMortalPeasants()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "session_gamesessiontests_gamesessiontests_newgame_foundstheclanwithfiveexaminedcultivators",
+      "id": "session_gamesessiontests_gamesessiontests_newgame_foundsthenovelsfamily_ofmortalpeasants",
       "community": 56,
-      "norm_label": ".newgame_foundstheclanwithfiveexaminedcultivators()"
+      "norm_label": ".newgame_foundsthenovelsfamily_ofmortalpeasants()"
     },
     {
       "label": "Test",
@@ -68795,27 +68805,27 @@
       "label": ".NewGame_NamesTheClanFromTheLexicon()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L26",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "session_gamesessiontests_gamesessiontests_newgame_namestheclanfromthelexicon",
       "community": 56,
       "norm_label": ".newgame_namestheclanfromthelexicon()"
     },
     {
-      "label": ".NewGame_AppointsTheQiCultivatorFounderAsPatriarch()",
+      "label": ".NewGame_AppointsTheOldSoldier_AsPatriarch()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L33",
+      "source_location": "L38",
       "_origin": "ast",
-      "id": "session_gamesessiontests_gamesessiontests_newgame_appointstheqicultivatorfounderaspatriarch",
+      "id": "session_gamesessiontests_gamesessiontests_newgame_appointstheoldsoldier_aspatriarch",
       "community": 56,
-      "norm_label": ".newgame_appointstheqicultivatorfounderaspatriarch()"
+      "norm_label": ".newgame_appointstheoldsoldier_aspatriarch()"
     },
     {
       "label": ".NewGame_StartsInYearOneManagement()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L40",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "session_gamesessiontests_gamesessiontests_newgame_startsinyearonemanagement",
       "community": 56,
@@ -68825,27 +68835,37 @@
       "label": ".NewGame_KnowsTheWorldAndHoldsTwoFragments()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L47",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "session_gamesessiontests_gamesessiontests_newgame_knowstheworldandholdstwofragments",
       "community": 56,
       "norm_label": ".newgame_knowstheworldandholdstwofragments()"
     },
     {
-      "label": ".NewGame_KnowsTheClansTechniquesAndHoldsItsQi()",
+      "label": ".NewGame_KnowsTheMirrorsMethods_ButHoldsNoQi()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L54",
+      "source_location": "L60",
       "_origin": "ast",
-      "id": "session_gamesessiontests_gamesessiontests_newgame_knowstheclanstechniquesandholdsitsqi",
+      "id": "session_gamesessiontests_gamesessiontests_newgame_knowsthemirrorsmethods_butholdsnoqi",
       "community": 56,
-      "norm_label": ".newgame_knowstheclanstechniquesandholdsitsqi()"
+      "norm_label": ".newgame_knowsthemirrorsmethods_butholdsnoqi()"
+    },
+    {
+      "label": ".TheMirror_MaySeedTheSons_FromTheFirstYear()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "session_gamesessiontests_gamesessiontests_themirror_mayseedthesons_fromthefirstyear",
+      "community": 56,
+      "norm_label": ".themirror_mayseedthesons_fromthefirstyear()"
     },
     {
       "label": ".AdvancePhase_WalksThroughTheYear()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L65",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "session_gamesessiontests_gamesessiontests_advancephase_walksthroughtheyear",
       "community": 56,
@@ -68855,7 +68875,7 @@
       "label": ".AdvancePhase_AnnouncesEveryPhase()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L78",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "session_gamesessiontests_gamesessiontests_advancephase_announceseveryphase",
       "community": 56,
@@ -68865,7 +68885,7 @@
       "label": ".EnteringTheEventsPhase_ResolvesTheTasks()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L88",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "session_gamesessiontests_gamesessiontests_enteringtheeventsphase_resolvesthetasks",
       "community": 56,
@@ -68875,7 +68895,7 @@
       "label": ".AdvanceYear_AgesEveryFounderOnce()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L99",
+      "source_location": "L111",
       "_origin": "ast",
       "id": "session_gamesessiontests_gamesessiontests_advanceyear_ageseveryfounderonce",
       "community": 56,
@@ -68885,7 +68905,7 @@
       "label": ".AdvanceYear_RechargesTheMirror()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L108",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "session_gamesessiontests_gamesessiontests_advanceyear_rechargesthemirror",
       "community": 56,
@@ -68895,7 +68915,7 @@
       "label": ".AdvancePhase_DoesNothing_OnceTheGameIsOver()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L117",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "session_gamesessiontests_gamesessiontests_advancephase_doesnothing_oncethegameisover",
       "community": 56,
@@ -68905,7 +68925,7 @@
       "label": "int",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L126",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "tests_core_tests_session_gamesessiontests_cs_int",
       "community": 56,
@@ -69345,7 +69365,7 @@
       "label": ".Decade_KeepsTheClanAlive()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/SimulationTests.cs",
-      "source_location": "L72",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "session_simulationtests_simulationtests_decade_keepstheclanalive",
       "community": 92,
@@ -69355,7 +69375,7 @@
       "label": ".SameSeed_WritesTheSameHistory()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/SimulationTests.cs",
-      "source_location": "L84",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "session_simulationtests_simulationtests_sameseed_writesthesamehistory",
       "community": 92,
@@ -69365,7 +69385,7 @@
       "label": "Test",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/SimulationTests.cs",
-      "source_location": "L84",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "tests_core_tests_session_simulationtests_cs_test",
       "community": 92,
@@ -69375,7 +69395,7 @@
       "label": ".Invariants()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/SimulationTests.cs",
-      "source_location": "L100",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "session_simulationtests_simulationtests_invariants",
       "community": 92,
@@ -69385,7 +69405,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/SimulationTests.cs",
-      "source_location": "L100",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "tests_core_tests_session_simulationtests_cs_ienumerable",
       "community": 92,
@@ -77425,7 +77445,7 @@
       "label": "10. Ordres et lieux sacr\u00e9s (renomm\u00e9s)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L905",
+      "source_location": "L907",
       "_origin": "ast",
       "id": "brain_claude_lore_10_ordres_et_lieux_sacr\u00e9s_renomm\u00e9s",
       "community": 53,
@@ -77435,7 +77455,7 @@
       "label": "11. L'espace des possibles \u2014 pourquoi chaque partie est unique (D4)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L922",
+      "source_location": "L924",
       "_origin": "ast",
       "id": "brain_claude_lore_11_l_espace_des_possibles_pourquoi_chaque_partie_est_unique_d4",
       "community": 62,
@@ -77445,7 +77465,7 @@
       "label": "11.1 Combinatoire d'un seul cultivateur",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L936",
+      "source_location": "L938",
       "_origin": "ast",
       "id": "brain_claude_lore_11_1_combinatoire_d_un_seul_cultivateur",
       "community": 62,
@@ -77455,7 +77475,7 @@
       "label": "11.2 Raccourcis et leur prix (tous tir\u00e9s du lore)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L949",
+      "source_location": "L951",
       "_origin": "ast",
       "id": "brain_claude_lore_11_2_raccourcis_et_leur_prix_tous_tir\u00e9s_du_lore",
       "community": 62,
@@ -77465,7 +77485,7 @@
       "label": "11.3 Les dilemmes du clan (reviennent \u00e0 chaque g\u00e9n\u00e9ration)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L970",
+      "source_location": "L972",
       "_origin": "ast",
       "id": "brain_claude_lore_11_3_les_dilemmes_du_clan_reviennent_\u00e0_chaque_g\u00e9n\u00e9ration",
       "community": 62,
@@ -77475,7 +77495,7 @@
       "label": "11.4 Un monde vivant",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L982",
+      "source_location": "L984",
       "_origin": "ast",
       "id": "brain_claude_lore_11_4_un_monde_vivant",
       "community": 62,
@@ -77485,7 +77505,7 @@
       "label": "11.5 Le miroir \u2014 le r\u00f4le du joueur",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L990",
+      "source_location": "L992",
       "_origin": "ast",
       "id": "brain_claude_lore_11_5_le_miroir_le_r\u00f4le_du_joueur",
       "community": 62,
@@ -77495,7 +77515,7 @@
       "label": "11.6 G\u00e9n\u00e9rations et h\u00e9ritage",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1046",
+      "source_location": "L1048",
       "_origin": "ast",
       "id": "brain_claude_lore_11_6_g\u00e9n\u00e9rations_et_h\u00e9ritage",
       "community": 62,
@@ -77505,7 +77525,7 @@
       "label": "11.7 Rejouabilit\u00e9",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1053",
+      "source_location": "L1055",
       "_origin": "ast",
       "id": "brain_claude_lore_11_7_rejouabilit\u00e9",
       "community": 62,
@@ -77515,7 +77535,7 @@
       "label": "11.8 Ce que l'on s'interdit",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1062",
+      "source_location": "L1064",
       "_origin": "ast",
       "id": "brain_claude_lore_11_8_ce_que_l_on_s_interdit",
       "community": 62,
@@ -77525,7 +77545,7 @@
       "label": "11.9 Conditions de victoire et de d\u00e9faite",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1067",
+      "source_location": "L1069",
       "_origin": "ast",
       "id": "brain_claude_lore_11_9_conditions_de_victoire_et_de_d\u00e9faite",
       "community": 62,
@@ -77535,7 +77555,7 @@
       "label": "11.10 Obtenir une m\u00e9thode \u2014 le savoir se paie en complots, pas en pierres",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1093",
+      "source_location": "L1095",
       "_origin": "ast",
       "id": "brain_claude_lore_11_10_obtenir_une_m\u00e9thode_le_savoir_se_paie_en_complots_pas_en_pierres",
       "community": 62,
@@ -77545,7 +77565,7 @@
       "label": "A. Les monnaies du savoir (m\u00e9thodes de grade 4 et moins ; et, plus lourdes, les accords d'ascension)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1099",
+      "source_location": "L1101",
       "_origin": "ast",
       "id": "brain_claude_lore_a_les_monnaies_du_savoir_m\u00e9thodes_de_grade_4_et_moins_et_plus_lourdes_les_accords_d_ascension",
       "community": 62,
@@ -77555,7 +77575,7 @@
       "label": "B. Les chemins vers une m\u00e9thode d'ascension (grade 5 et plus : jamais en pierres)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1115",
+      "source_location": "L1117",
       "_origin": "ast",
       "id": "brain_claude_lore_b_les_chemins_vers_une_m\u00e9thode_d_ascension_grade_5_et_plus_jamais_en_pierres",
       "community": 62,
@@ -77565,7 +77585,7 @@
       "label": "C. Les desseins cach\u00e9s d'un parrain (le joueur ne voit que l'offre ; un sondage peut percer le dessein, rang\u00e9 comme un secret de rang 3 ou 4 ; le miroir peut nettoyer un manuel de ses marques)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1129",
+      "source_location": "L1131",
       "_origin": "ast",
       "id": "brain_claude_lore_c_les_desseins_cach\u00e9s_d_un_parrain_le_joueur_ne_voit_que_l_offre_un_sondage_peut_percer_le_dessein_rang\u00e9_comme_un_secret_de_rang_3_ou_4_le_miroir_peut_nettoyer_un_manuel_de_ses_marques",
       "community": 62,
@@ -77575,7 +77595,7 @@
       "label": "12. Chronologie (renomm\u00e9e)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1170",
+      "source_location": "L1172",
       "_origin": "ast",
       "id": "brain_claude_lore_12_chronologie_renomm\u00e9e",
       "community": 53,
@@ -77585,7 +77605,7 @@
       "label": "12.1 Compl\u00e9ments historiques (\ud83d\udcda)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1191",
+      "source_location": "L1193",
       "_origin": "ast",
       "id": "brain_claude_lore_12_1_compl\u00e9ments_historiques",
       "community": 53,
@@ -77595,7 +77615,7 @@
       "label": "13. Lexique de renommage (\u26a0\ufe0f document interne \u2014 seul endroit o\u00f9 figurent les noms d'origine)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1209",
+      "source_location": "L1211",
       "_origin": "ast",
       "id": "brain_claude_lore_13_lexique_de_renommage_document_interne_seul_endroit_o\u00f9_figurent_les_noms_d_origine",
       "community": 63,
@@ -77605,7 +77625,7 @@
       "label": "13.1 Clan du joueur et personnages du d\u00e9part",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1213",
+      "source_location": "L1215",
       "_origin": "ast",
       "id": "brain_claude_lore_13_1_clan_du_joueur_et_personnages_du_d\u00e9part",
       "community": 63,
@@ -77615,7 +77635,7 @@
       "label": "13.2 \u00c9tats et r\u00e9gions",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1222",
+      "source_location": "L1224",
       "_origin": "ast",
       "id": "brain_claude_lore_13_2_\u00e9tats_et_r\u00e9gions",
       "community": 63,
@@ -77625,7 +77645,7 @@
       "label": "13.3 Sectes, portes, ordres",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1265",
+      "source_location": "L1267",
       "_origin": "ast",
       "id": "brain_claude_lore_13_3_sectes_portes_ordres",
       "community": 63,
@@ -77635,7 +77655,7 @@
       "label": "13.4 Familles",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1283",
+      "source_location": "L1285",
       "_origin": "ast",
       "id": "brain_claude_lore_13_4_familles",
       "community": 63,
@@ -77645,7 +77665,7 @@
       "label": "13.5 Personnages",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1299",
+      "source_location": "L1301",
       "_origin": "ast",
       "id": "brain_claude_lore_13_5_personnages",
       "community": 63,
@@ -77655,7 +77675,7 @@
       "label": "13.6 Chakras, techniques, objets, termes propres au roman",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1331",
+      "source_location": "L1333",
       "_origin": "ast",
       "id": "brain_claude_lore_13_6_chakras_techniques_objets_termes_propres_au_roman",
       "community": 63,
@@ -77665,7 +77685,7 @@
       "label": "13.7 Ajouts du 2026-09-24 tir\u00e9s du wiki (\u2705 valid\u00e9)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1427",
+      "source_location": "L1429",
       "_origin": "ast",
       "id": "brain_claude_lore_13_7_ajouts_du_2026_09_24_tir\u00e9s_du_wiki_valid\u00e9",
       "community": 63,
@@ -77675,7 +77695,7 @@
       "label": "13.9 Ajouts de l'analyse de la carte et des personnages du wiki (\u2705 valid\u00e9 par l'utilisateur le 2026-09-26)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1467",
+      "source_location": "L1469",
       "_origin": "ast",
       "id": "brain_claude_lore_13_9_ajouts_de_l_analyse_de_la_carte_et_des_personnages_du_wiki_valid\u00e9_par_l_utilisateur_le_2026_09_26",
       "community": 63,
@@ -77685,7 +77705,7 @@
       "label": "13.8 Ajouts de la passe compl\u00e8te du wiki (\u2705 valid\u00e9)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1476",
+      "source_location": "L1478",
       "_origin": "ast",
       "id": "brain_claude_lore_13_8_ajouts_de_la_passe_compl\u00e8te_du_wiki_valid\u00e9",
       "community": 63,
@@ -77988,7 +78008,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "brain_claude_plan_syst\u00e8mes_du_jeu_d\u00e9tail",
-      "community": 456,
+      "community": 41,
       "norm_label": "\ud83e\udde9 systemes du jeu (detail)"
     },
     {
@@ -77998,7 +78018,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "brain_claude_plan_1_core_boucle_principale",
-      "community": 456,
+      "community": 41,
       "norm_label": "1. core \u2014 boucle principale"
     },
     {
@@ -78008,7 +78028,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "brain_claude_plan_2_mirror_interface_joueur",
-      "community": 456,
+      "community": 41,
       "norm_label": "2. mirror \u2014 interface joueur"
     },
     {
@@ -78018,7 +78038,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "brain_claude_plan_3_clan_lign\u00e9e",
-      "community": 456,
+      "community": 41,
       "norm_label": "3. clan \u2014 lignee"
     },
     {
@@ -78028,7 +78048,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "brain_claude_plan_4_characters_individus",
-      "community": 456,
+      "community": 41,
       "norm_label": "4. characters \u2014 individus"
     },
     {
@@ -78038,7 +78058,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "brain_claude_plan_5_combat_tactique_tour_par_tour",
-      "community": 456,
+      "community": 41,
       "norm_label": "5. combat \u2014 tactique tour par tour"
     },
     {
@@ -78048,7 +78068,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "brain_claude_plan_6_diplomacy_monde_ext\u00e9rieur",
-      "community": 456,
+      "community": 41,
       "norm_label": "6. diplomacy \u2014 monde exterieur"
     },
     {
@@ -78058,7 +78078,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "brain_claude_plan_7_economy_ressources_t\u00e2ches",
-      "community": 456,
+      "community": 41,
       "norm_label": "7. economy \u2014 ressources & taches"
     },
     {
@@ -78068,7 +78088,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "brain_claude_plan_8_events_al\u00e9atoire_sc\u00e9naris\u00e9",
-      "community": 456,
+      "community": 41,
       "norm_label": "8. events \u2014 aleatoire + scenarise"
     },
     {
@@ -78318,7 +78338,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_worked_lesson_md_bugs_identifi\u00e9s_le\u00e7ons_apprises",
-      "community": 458,
+      "community": 45,
       "norm_label": "\ud83d\udcda worked_lesson.md \u2014 bugs identifies & lecons apprises"
     },
     {
@@ -78328,7 +78348,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_comment_utiliser_ce_fichier",
-      "community": 458,
+      "community": 45,
       "norm_label": "\ud83d\udcd6 comment utiliser ce fichier"
     },
     {
@@ -78518,7 +78538,7 @@
       "source_location": "L292",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_le\u00e7ons_d_architecture_design",
-      "community": 458,
+      "community": 45,
       "norm_label": "\ud83d\udcd0 lecons d'architecture & design"
     },
     {
@@ -78528,7 +78548,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_100_pivot_unity_web_unity_cause_de_la_dette",
-      "community": 458,
+      "community": 45,
       "norm_label": "wl-100 \u2014 pivot unity \u2192 web \u2192 unity : cause de la dette"
     },
     {
@@ -78538,7 +78558,7 @@
       "source_location": "L308",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_wl_101_factions_hardcod\u00e9es_au_lieu_de_scriptableobjects",
-      "community": 458,
+      "community": 45,
       "norm_label": "wl-101 \u2014 factions hardcodees au lieu de scriptableobjects"
     },
     {
@@ -78548,7 +78568,7 @@
       "source_location": "L322",
       "_origin": "ast",
       "id": "brain_claude_worked_lesson_template_pour_nouvelles_entr\u00e9es",
-      "community": 458,
+      "community": 45,
       "norm_label": "\ud83d\udcdd template pour nouvelles entrees"
     },
     {
@@ -78834,7 +78854,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 434,
+      "community": 448,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -78888,7 +78908,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 263,
+      "community": 434,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -79009,7 +79029,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 434,
+      "community": 448,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -79061,7 +79081,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 441,
+      "community": 448,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -79249,7 +79269,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 434,
+      "community": 448,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -79317,7 +79337,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 82,
+      "community": 448,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -79356,7 +79376,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 441,
+      "community": 448,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -79395,7 +79415,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 441,
+      "community": 448,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -79517,7 +79537,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 434,
+      "community": 448,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -79643,7 +79663,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 434,
+      "community": 448,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -88993,9 +89013,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L322",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_humanpill",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_humanpill"
     },
     {
       "relation": "method",
@@ -89003,9 +89023,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L301",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_humanpillrefusal",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_humanpillrefusal"
     },
     {
       "relation": "method",
@@ -89013,9 +89033,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L315",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_humanpillyears",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_humanpillyears"
     },
     {
       "relation": "method",
@@ -89073,9 +89093,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L280",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_recastfoundation",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_recastfoundation"
     },
     {
       "relation": "method",
@@ -89083,9 +89103,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L263",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
-      "target": "characters_alchemysystem_alchemysystem_recastrefusal",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_recastrefusal"
     },
     {
       "relation": "method",
@@ -89439,9 +89459,9 @@
       "source_location": "L301",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_humanpillrefusal",
-      "target": "src_core_characters_alchemysystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -89450,9 +89470,9 @@
       "source_location": "L315",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_humanpillyears",
-      "target": "src_core_characters_alchemysystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -89472,9 +89492,9 @@
       "source_location": "L263",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_recastrefusal",
-      "target": "src_core_characters_alchemysystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_characterdata"
     },
     {
       "relation": "references",
@@ -89659,9 +89679,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L268",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_recastrefusal",
-      "target": "characters_alchemysystem_alchemysystem_pillsof",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_pillsof"
     },
     {
       "relation": "calls",
@@ -89813,9 +89833,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L284",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_recastfoundation",
-      "target": "characters_alchemysystem_alchemysystem_takepill",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_takepill"
     },
     {
       "relation": "calls",
@@ -89890,9 +89910,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L268",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_recastrefusal",
-      "target": "characters_alchemysystem_alchemysystem_pillname",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_pillname"
     },
     {
       "relation": "calls",
@@ -89945,9 +89965,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L283",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_recastfoundation",
-      "target": "characters_alchemysystem_alchemysystem_recastrefusal",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_recastrefusal"
     },
     {
       "relation": "calls",
@@ -89956,9 +89976,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L326",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_humanpill",
-      "target": "characters_alchemysystem_alchemysystem_humanpillrefusal",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_humanpillrefusal"
     },
     {
       "relation": "calls",
@@ -89967,9 +89987,9 @@
       "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L329",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_humanpill",
-      "target": "characters_alchemysystem_alchemysystem_humanpillyears",
-      "confidence_score": 1.0
+      "target": "characters_alchemysystem_alchemysystem_humanpillyears"
     },
     {
       "relation": "references",
@@ -89978,9 +89998,9 @@
       "source_location": "L315",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_humanpillyears",
-      "target": "src_core_characters_alchemysystem_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_characters_alchemysystem_cs_cultivationrealm"
     },
     {
       "relation": "references",
@@ -126891,9 +126911,9 @@
       "source_file": "src/Core/Presentation/ArtView.cs",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview",
-      "target": "presentation_artview_artview_humanpilloffers",
-      "confidence_score": 1.0
+      "target": "presentation_artview_artview_humanpilloffers"
     },
     {
       "relation": "method",
@@ -126981,9 +127001,9 @@
       "source_file": "src/Core/Presentation/ArtView.cs",
       "source_location": "L173",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview",
-      "target": "presentation_artview_artview_recastoffers",
-      "confidence_score": 1.0
+      "target": "presentation_artview_artview_recastoffers"
     },
     {
       "relation": "references",
@@ -127036,9 +127056,9 @@
       "source_location": "L186",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_humanpilloffers",
-      "target": "src_core_presentation_artview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_artview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -127124,9 +127144,9 @@
       "source_location": "L173",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_recastoffers",
-      "target": "src_core_presentation_artview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_artview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -127135,9 +127155,9 @@
       "source_location": "L186",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_humanpilloffers",
-      "target": "src_core_presentation_artview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_artview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -127201,9 +127221,9 @@
       "source_location": "L173",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_recastoffers",
-      "target": "src_core_presentation_artview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_artview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -127278,9 +127298,9 @@
       "source_location": "L173",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_recastoffers",
-      "target": "recastoffer",
-      "confidence_score": 1.0
+      "target": "recastoffer"
     },
     {
       "relation": "references",
@@ -127289,9 +127309,9 @@
       "source_location": "L186",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_humanpilloffers",
-      "target": "humanpilloffer",
-      "confidence_score": 1.0
+      "target": "humanpilloffer"
     },
     {
       "relation": "contains",
@@ -138741,9 +138761,9 @@
       "source_file": "src/Core/World/CaptiveSystem.cs",
       "source_location": "L197",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_captivesystem_captivesystem",
-      "target": "world_captivesystem_captivesystem_consume",
-      "confidence_score": 1.0
+      "target": "world_captivesystem_captivesystem_consume"
     },
     {
       "relation": "method",
@@ -138977,9 +138997,9 @@
       "source_location": "L197",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_captivesystem_captivesystem_consume",
-      "target": "src_core_world_captivesystem_cs_prisoner",
-      "confidence_score": 1.0
+      "target": "src_core_world_captivesystem_cs_prisoner"
     },
     {
       "relation": "references",
@@ -139230,9 +139250,9 @@
       "source_file": "src/Core/World/CaptiveSystem.cs",
       "source_location": "L199",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_captivesystem_captivesystem_consume",
-      "target": "world_captivesystem_captivesystem_prisonerof",
-      "confidence_score": 1.0
+      "target": "world_captivesystem_captivesystem_prisonerof"
     },
     {
       "relation": "calls",
@@ -140093,9 +140113,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_swallowahumanpill",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_swallowahumanpill"
     },
     {
       "relation": "method",
@@ -140398,9 +140418,9 @@
       "source_location": "L158",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_swallowahumanpill",
-      "target": "src_core_world_eldersystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -140541,9 +140561,9 @@
       "source_location": "L158",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_swallowahumanpill",
-      "target": "src_core_world_eldersystem_cs_factionelder",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_factionelder"
     },
     {
       "relation": "references",
@@ -140695,9 +140715,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_processyear",
-      "target": "world_eldersystem_eldersystem_swallowahumanpill",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_swallowahumanpill"
     },
     {
       "relation": "calls",
@@ -161654,9 +161674,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests"
     },
     {
       "relation": "contains",
@@ -161664,9 +161684,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests",
-      "target": "characters_longevitypilltests_mirrorchronicles_tests_characters",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_mirrorchronicles_tests_characters"
     },
     {
       "relation": "method",
@@ -161674,9 +161694,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests_afailedrecasting_sealsthepath",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_afailedrecasting_sealsthepath"
     },
     {
       "relation": "method",
@@ -161684,9 +161704,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests_afoundation",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_afoundation"
     },
     {
       "relation": "method",
@@ -161694,9 +161714,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests_anotherqi",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_anotherqi"
     },
     {
       "relation": "method",
@@ -161704,9 +161724,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests_aprisoner_isrefined_intoyearsoflife_foraheartdemon",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_aprisoner_isrefined_intoyearsoflife_foraheartdemon"
     },
     {
       "relation": "method",
@@ -161714,9 +161734,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests_eachhumanpill_givesless",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_eachhumanpill_givesless"
     },
     {
       "relation": "method",
@@ -161724,9 +161744,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests_session",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_session"
     },
     {
       "relation": "method",
@@ -161734,9 +161754,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests_therecastingpill_givesasecondfoundation_andayoungerbody",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_therecastingpill_givesasecondfoundation_andayoungerbody"
     },
     {
       "relation": "method",
@@ -161744,9 +161764,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests_theworldsoldelders_swallowhumanpills_tooattheirdisciplescost",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_theworldsoldelders_swallowhumanpills_tooattheirdisciplescost"
     },
     {
       "relation": "method",
@@ -161754,9 +161774,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests",
-      "target": "characters_longevitypilltests_longevitypilltests_with",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_with"
     },
     {
       "relation": "calls",
@@ -161765,9 +161785,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_afailedrecasting_sealsthepath",
-      "target": "characters_longevitypilltests_longevitypilltests_session",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_session"
     },
     {
       "relation": "calls",
@@ -161776,9 +161796,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_aprisoner_isrefined_intoyearsoflife_foraheartdemon",
-      "target": "characters_longevitypilltests_longevitypilltests_session",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_session"
     },
     {
       "relation": "calls",
@@ -161787,9 +161807,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_eachhumanpill_givesless",
-      "target": "characters_longevitypilltests_longevitypilltests_session",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_session"
     },
     {
       "relation": "references",
@@ -161798,9 +161818,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_session",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -161809,9 +161829,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_session",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -161820,9 +161840,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_therecastingpill_givesasecondfoundation_andayoungerbody",
-      "target": "characters_longevitypilltests_longevitypilltests_session",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_session"
     },
     {
       "relation": "calls",
@@ -161831,9 +161851,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_theworldsoldelders_swallowhumanpills_tooattheirdisciplescost",
-      "target": "characters_longevitypilltests_longevitypilltests_session",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_session"
     },
     {
       "relation": "references",
@@ -161842,9 +161862,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_with",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -161853,9 +161873,9 @@
       "source_location": "L34",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_afoundation",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_gamesession"
     },
     {
       "relation": "references",
@@ -161864,9 +161884,9 @@
       "source_location": "L44",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_anotherqi",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -161875,9 +161895,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_afailedrecasting_sealsthepath",
-      "target": "characters_longevitypilltests_longevitypilltests_with",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_with"
     },
     {
       "relation": "calls",
@@ -161886,9 +161906,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_aprisoner_isrefined_intoyearsoflife_foraheartdemon",
-      "target": "characters_longevitypilltests_longevitypilltests_with",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_with"
     },
     {
       "relation": "calls",
@@ -161897,9 +161917,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_eachhumanpill_givesless",
-      "target": "characters_longevitypilltests_longevitypilltests_with",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_with"
     },
     {
       "relation": "calls",
@@ -161908,9 +161928,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_therecastingpill_givesasecondfoundation_andayoungerbody",
-      "target": "characters_longevitypilltests_longevitypilltests_with",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_with"
     },
     {
       "relation": "calls",
@@ -161919,9 +161939,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_theworldsoldelders_swallowhumanpills_tooattheirdisciplescost",
-      "target": "characters_longevitypilltests_longevitypilltests_with",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_with"
     },
     {
       "relation": "references",
@@ -161930,9 +161950,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_with",
-      "target": "func_longevitysettings_longevitysettings",
-      "confidence_score": 1.0
+      "target": "func_longevitysettings_longevitysettings"
     },
     {
       "relation": "calls",
@@ -161941,9 +161961,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_afailedrecasting_sealsthepath",
-      "target": "characters_longevitypilltests_longevitypilltests_afoundation",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_afoundation"
     },
     {
       "relation": "references",
@@ -161952,9 +161972,9 @@
       "source_location": "L34",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_afoundation",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -161963,9 +161983,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_aprisoner_isrefined_intoyearsoflife_foraheartdemon",
-      "target": "characters_longevitypilltests_longevitypilltests_afoundation",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_afoundation"
     },
     {
       "relation": "calls",
@@ -161974,9 +161994,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_eachhumanpill_givesless",
-      "target": "characters_longevitypilltests_longevitypilltests_afoundation",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_afoundation"
     },
     {
       "relation": "calls",
@@ -161985,9 +162005,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_therecastingpill_givesasecondfoundation_andayoungerbody",
-      "target": "characters_longevitypilltests_longevitypilltests_afoundation",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_afoundation"
     },
     {
       "relation": "references",
@@ -161996,9 +162016,9 @@
       "source_location": "L44",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_anotherqi",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -162007,9 +162027,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_afailedrecasting_sealsthepath",
-      "target": "characters_longevitypilltests_longevitypilltests_anotherqi",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_anotherqi"
     },
     {
       "relation": "references",
@@ -162018,9 +162038,9 @@
       "source_location": "L44",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_anotherqi",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_qidefinition",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_qidefinition"
     },
     {
       "relation": "calls",
@@ -162029,9 +162049,9 @@
       "source_file": "tests/Core.Tests/Characters/LongevityPillTests.cs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_therecastingpill_givesasecondfoundation_andayoungerbody",
-      "target": "characters_longevitypilltests_longevitypilltests_anotherqi",
-      "confidence_score": 1.0
+      "target": "characters_longevitypilltests_longevitypilltests_anotherqi"
     },
     {
       "relation": "references",
@@ -162040,9 +162060,9 @@
       "source_location": "L51",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_therecastingpill_givesasecondfoundation_andayoungerbody",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_test"
     },
     {
       "relation": "references",
@@ -162051,9 +162071,9 @@
       "source_location": "L66",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_afailedrecasting_sealsthepath",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_test"
     },
     {
       "relation": "references",
@@ -162062,9 +162082,9 @@
       "source_location": "L79",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_aprisoner_isrefined_intoyearsoflife_foraheartdemon",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_test"
     },
     {
       "relation": "references",
@@ -162073,9 +162093,9 @@
       "source_location": "L101",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_eachhumanpill_givesless",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_test"
     },
     {
       "relation": "references",
@@ -162084,9 +162104,9 @@
       "source_location": "L117",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_longevitypilltests_longevitypilltests_theworldsoldelders_swallowhumanpills_tooattheirdisciplescost",
-      "target": "tests_core_tests_characters_longevitypilltests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_longevitypilltests_cs_test"
     },
     {
       "relation": "contains",
@@ -195009,6 +195029,16 @@
       "target": "core_tests_fixtures_fixtures_setup"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Fixtures.cs",
+      "source_location": "L227",
+      "weight": 1.0,
+      "source": "core_tests_fixtures_fixtures",
+      "target": "core_tests_fixtures_fixtures_veteransetup",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Fixtures.cs",
@@ -195040,6 +195070,17 @@
       "confidence_score": 1.0,
       "source": "core_tests_fixtures_fixtures_assmith",
       "target": "tests_core_tests_fixtures_cs_gamesession"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Fixtures.cs",
+      "source_location": "L227",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "core_tests_fixtures_fixtures_veteransetup",
+      "target": "tests_core_tests_fixtures_cs_gamesetup",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -202011,9 +202052,9 @@
       "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_artviewtests_artviewtests",
-      "target": "presentation_artviewtests_artviewtests_afoundation_mayrecast_onaqitheclanholds",
-      "confidence_score": 1.0
+      "target": "presentation_artviewtests_artviewtests_afoundation_mayrecast_onaqitheclanholds"
     },
     {
       "relation": "method",
@@ -202031,9 +202072,9 @@
       "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_artviewtests_artviewtests",
-      "target": "presentation_artviewtests_artviewtests_aprisoner_mayberefined_forthememberwiththefewestyears",
-      "confidence_score": 1.0
+      "target": "presentation_artviewtests_artviewtests_aprisoner_mayberefined_forthememberwiththefewestyears"
     },
     {
       "relation": "method",
@@ -202113,9 +202154,9 @@
       "source_location": "L129",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_artviewtests_artviewtests_afoundation_mayrecast_onaqitheclanholds",
-      "target": "tests_core_tests_presentation_artviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_artviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -202135,9 +202176,9 @@
       "source_location": "L144",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_artviewtests_artviewtests_aprisoner_mayberefined_forthememberwiththefewestyears",
-      "target": "tests_core_tests_presentation_artviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_artviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -213561,11 +213602,11 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L33",
+      "source_location": "L38",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "session_gamesessiontests_gamesessiontests",
-      "target": "session_gamesessiontests_gamesessiontests_newgame_appointstheqicultivatorfounderaspatriarch"
+      "target": "session_gamesessiontests_gamesessiontests_newgame_appointstheoldsoldier_aspatriarch",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -213573,19 +213614,19 @@
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
       "source_location": "L18",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "session_gamesessiontests_gamesessiontests",
-      "target": "session_gamesessiontests_gamesessiontests_newgame_foundstheclanwithfiveexaminedcultivators"
+      "target": "session_gamesessiontests_gamesessiontests_newgame_foundsthenovelsfamily_ofmortalpeasants",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L54",
+      "source_location": "L60",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "session_gamesessiontests_gamesessiontests",
-      "target": "session_gamesessiontests_gamesessiontests_newgame_knowstheclanstechniquesandholdsitsqi"
+      "target": "session_gamesessiontests_gamesessiontests_newgame_knowsthemirrorsmethods_butholdsnoqi",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -213626,6 +213667,16 @@
       "confidence_score": 1.0,
       "source": "session_gamesessiontests_gamesessiontests",
       "target": "session_gamesessiontests_gamesessiontests_quiet"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "session_gamesessiontests_gamesessiontests",
+      "target": "session_gamesessiontests_gamesessiontests_themirror_mayseedthesons_fromthefirstyear",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -213709,33 +213760,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L36",
+      "source_location": "L41",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "session_gamesessiontests_gamesessiontests_newgame_appointstheqicultivatorfounderaspatriarch",
-      "target": "session_gamesessiontests_gamesessiontests_quiet"
+      "source": "session_gamesessiontests_gamesessiontests_newgame_appointstheoldsoldier_aspatriarch",
+      "target": "session_gamesessiontests_gamesessiontests_quiet",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "session_gamesessiontests_gamesessiontests_newgame_foundstheclanwithfiveexaminedcultivators",
-      "target": "session_gamesessiontests_gamesessiontests_quiet"
+      "source": "session_gamesessiontests_gamesessiontests_newgame_foundsthenovelsfamily_ofmortalpeasants",
+      "target": "session_gamesessiontests_gamesessiontests_quiet",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L57",
+      "source_location": "L63",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "session_gamesessiontests_gamesessiontests_newgame_knowstheclanstechniquesandholdsitsqi",
-      "target": "session_gamesessiontests_gamesessiontests_quiet"
+      "source": "session_gamesessiontests_gamesessiontests_newgame_knowsthemirrorsmethods_butholdsnoqi",
+      "target": "session_gamesessiontests_gamesessiontests_quiet",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -213782,15 +213833,26 @@
       "target": "tests_core_tests_session_gamesessiontests_cs_gamesession"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "session_gamesessiontests_gamesessiontests_themirror_mayseedthesons_fromthefirstyear",
+      "target": "session_gamesessiontests_gamesessiontests_quiet",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
       "source_location": "L18",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "session_gamesessiontests_gamesessiontests_newgame_foundstheclanwithfiveexaminedcultivators",
-      "target": "tests_core_tests_session_gamesessiontests_cs_test"
+      "source": "session_gamesessiontests_gamesessiontests_newgame_foundsthenovelsfamily_ofmortalpeasants",
+      "target": "tests_core_tests_session_gamesessiontests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -213862,23 +213924,23 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L33",
+      "source_location": "L38",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "session_gamesessiontests_gamesessiontests_newgame_appointstheqicultivatorfounderaspatriarch",
-      "target": "tests_core_tests_session_gamesessiontests_cs_test"
+      "source": "session_gamesessiontests_gamesessiontests_newgame_appointstheoldsoldier_aspatriarch",
+      "target": "tests_core_tests_session_gamesessiontests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L54",
+      "source_location": "L60",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "session_gamesessiontests_gamesessiontests_newgame_knowstheclanstechniquesandholdsitsqi",
-      "target": "tests_core_tests_session_gamesessiontests_cs_test"
+      "source": "session_gamesessiontests_gamesessiontests_newgame_knowsthemirrorsmethods_butholdsnoqi",
+      "target": "tests_core_tests_session_gamesessiontests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -213912,6 +213974,17 @@
       "confidence_score": 1.0,
       "source": "session_gamesessiontests_gamesessiontests_newgame_startsinyearonemanagement",
       "target": "tests_core_tests_session_gamesessiontests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
+      "source_location": "L68",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "session_gamesessiontests_gamesessiontests_themirror_mayseedthesons_fromthefirstyear",
+      "target": "tests_core_tests_session_gamesessiontests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -235425,5 +235498,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "9fade45cc2103240496710cd73b17a27299d7240"
+  "built_at_commit": "c0423afd69900b38b09872029dc5da8af0b40a8a"
 }

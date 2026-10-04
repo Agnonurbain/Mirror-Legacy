@@ -18,8 +18,8 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ARun_IsReproducible_AndReflectsTheSession()
         {
-            var first = BalanceRun.Play(Fixtures.Content, seed: 3, years: 15, out var session);
-            var again = BalanceRun.Play(Fixtures.Content, seed: 3, years: 15, out _);
+            var first = BalanceRun.Play(Fixtures.VeteranContent, seed: 3, years: 15, out var session);
+            var again = BalanceRun.Play(Fixtures.VeteranContent, seed: 3, years: 15, out _);
 
             Assert.AreEqual(first, again, "the same seed, the same story");
             Assert.AreEqual(session.Clan.LivingMembers.Count, first.Members);
@@ -30,7 +30,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void TheAutopilot_SetsTheIdleToWork()
         {
-            var session = GameSession.NewGame(Fixtures.Setup(3));
+            var session = GameSession.NewGame(Fixtures.VeteranSetup(3));
             BalanceRun.SetTheIdleToWork(session);
             var free = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
             Assert.IsTrue(free.Any(m => m.CurrentTask == TaskType.Cultivation), "those who can, cultivate");
@@ -41,7 +41,7 @@ namespace MirrorChronicles.Tests.Session
 
         private static GameSession Rich(int seed = 3)
         {
-            var session = GameSession.NewGame(Fixtures.Setup(seed));
+            var session = GameSession.NewGame(Fixtures.VeteranSetup(seed));
             session.Resources.SetSpiritStones(100_000);
             foreach (var f in session.Factions.Factions) f.RelationWithPlayer = 60;
             return session;
@@ -51,7 +51,7 @@ namespace MirrorChronicles.Tests.Session
         private static GameSession Knowing(int seed = 3)
         {
             var session = Rich(seed);
-            var rules = Fixtures.Content.Balance.Techniques;
+            var rules = Fixtures.VeteranContent.Balance.Techniques;
             session.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, rules.AscentDeductionShards);
             for (int i = 0; i < rules.AscentDeductionFragments; i++) session.Deduction.AddFragment(Element.Water, rules.AscentDeductionQuality);
             session.Knowledge.Reveal(new Fact(FactKind.Lineage, "orthodox-water"), KnowledgeSource.Mirror);
@@ -110,7 +110,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_SendsOnlyTheLeastGiftedToTheMine_WhenTheCoffersRunLow()
         {
-            var session = GameSession.NewGame(Fixtures.Setup(3));
+            var session = GameSession.NewGame(Fixtures.VeteranSetup(3));
             foreach (var m in session.Clan.LivingMembers.Where(m => !SpiritualOrificeRules.CanCultivate(m)).ToList())
                 session.Clan.Kill(m, DeathCause.Illness); // a clan of cultivators only
             var dull = session.Clan.LivingMembers.First(m => m.ID != session.Clan.PatriarchID);
@@ -125,7 +125,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void TheAutopilot_GathersTheQi_TheFoundationWallAbsorbs()
         {
-            var session = GameSession.NewGame(Fixtures.Setup(3));
+            var session = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var peak = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 9);
             session.Clan.AddMember(peak);
             session.Resources.ConsumeQi(peak.QiId, session.Resources.QiPortions(peak.QiId));
@@ -141,7 +141,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_PaysADemandItCanAfford_AndRefusesOneItCannot()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             s.Resources.SetSpiritStones(100000);
             s.Intrigues.RestoreDemands(new[] { new Demand("Famille Ruan", 500, s.Clock.Year, DemandKind.Protection) }, null);
             BalanceRun.Act(s);
@@ -159,7 +159,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_AnswersAChallenge_AndFightsItOut()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             s.Challenges.Issue(s.Factions.GetFactionByName("Famille Ruan"));
             ChallengeOutcome? outcome = null;
             s.Events.OnChallengeSettled += (_, o) => outcome = o;
@@ -172,7 +172,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_SuesForPeace_InALongWar()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             Assert.IsNull(s.Wars.DeclareOn("Famille Ruan"));
             s.Context.Clock.Restore(s.Clock.Year + 3, s.Clock.Phase);
             BalanceRun.Act(s);
@@ -182,7 +182,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_PlantsATalismanSeed_WhenTheMirrorCan()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
             var mortal = Fixtures.Mortal(age: 14);
             s.Clan.AddMember(mortal);
@@ -203,7 +203,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_SoundsTheNewcomerOfTheStrongestPower_First()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var weak = Newcomer(s, "Porte du Fer Ardent");        // a Foundation power
             var strong = Newcomer(s, "Secte du Pic des Nuées");   // a Golden Core one
             strong.SpyFor = "Secte du Pic des Nuées";
@@ -217,7 +217,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_SoundsBeforeItPlantsASeed()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var spy = Newcomer(s, "Secte du Pic des Nuées");
             spy.SpyFor = "Secte du Pic des Nuées";
             s.Clan.AddMember(Fixtures.Mortal(age: 14)); // a seed candidate
@@ -229,7 +229,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_SoundsANewcomer_AsSoonAsTheMirrorCanPay_WithoutAReserve()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var spy = Newcomer(s, "Secte du Pic des Nuées");
             spy.SpyFor = "Secte du Pic des Nuées";
             s.Mirror.Restore(s.Context.Content.Balance.Intrigues.UnmaskMirrorCost, 0); // just the sounding's price
@@ -240,7 +240,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_SetsItsMostGiftedToStudy_WhileItKnowsNoAscentMethod()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var gifted = Fixtures.Cultivator(age: 30, stage: 6); // not the lowest Qi cultivator: that one dredges the lake
             gifted.SpiritualRoot = 90; // the fragments the mirror needs come from a gifted mind (quality 3 from a root of 75)
             s.Clan.AddMember(gifted);
@@ -264,7 +264,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_SoundsOnlyThoseComeFromAPower_NeverTheFounders()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             Assume.That(s.Clan.LivingMembers.Any(m => m.FatherID == null && m.MotherID == null), "founders without parents");
             int power = s.Context.Content.Balance.Intrigues.UnmaskMirrorCost + 20;
             s.Mirror.Restore(power, 0);
@@ -319,7 +319,7 @@ namespace MirrorChronicles.Tests.Session
 
         private static GameSession InTheHuntWindow()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             s.Talismans.RestoreCalendar(s.Clock.Year); // the ritual's year: the window is open
             return s;
         }
@@ -379,7 +379,7 @@ namespace MirrorChronicles.Tests.Session
 
         private static (GameSession s, CharacterData captive) Captive(bool knowsTheMirror = false)
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var captive = s.Clan.LivingMembers.First(m => SpiritualOrificeRules.CanCultivate(m) && m.ID != s.Clan.PatriarchID);
             captive.KnowsMirrorSecret = knowsTheMirror;
             s.Captives.Take(captive, "Famille Ruan");
@@ -409,7 +409,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_RansomsAFoundation_EvenIntoItsReserve()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var captive = Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation, stage: 3);
             s.Clan.AddMember(captive);
             s.Captives.Take(captive, "Famille Ruan");
@@ -422,7 +422,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_SendsARescue_WhenItsTeamOutmatchesTheCaptor()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var captive = Fixtures.Cultivator(age: 30);
             s.Clan.AddMember(captive);
             s.Captives.Take(captive, "Famille Lou"); // a Foundation family
@@ -437,7 +437,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_SwearsItsKeepersToSecrecy()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var keeper = s.Clan.LivingMembers.First(m => m.ID != s.Clan.PatriarchID && SpiritualOrificeRules.CanCultivate(m));
             keeper.KnowsMirrorSecret = true; // they saw the mirror at work
             BalanceRun.Act(s);
@@ -447,7 +447,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_KeepsWhatItTakesToBlurAnInvestigator()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             s.Clan.AddMember(Fixtures.Mortal(age: 14)); // a seed candidate
             int blur = s.Context.Content.Balance.Plots.BlurMirrorCost;
             s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.TalismanSeedCost + blur - 1, 0); // a seed would leave less than a blur
@@ -458,7 +458,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_NeverAsksAgain_AHolderThatRefusedWithInterest()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             var knower = s.Factions.Factions.FirstOrDefault(f => s.Lore.Knows(f.Name));
             Assume.That(knower, Is.Not.Null, "a power whose elder knows the mirror");
             var secret = s.PowerShards.Hide("pale-seal-jade", knower.Name);
@@ -484,7 +484,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ThePilot_MakesAnInvestigatorDoubt()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             s.Mirror.Restore(MirrorChronicles.Mirror.MirrorSystem.MaxMirrorPower, 0);
             s.Suspicion.AddMirrorClues("Secte du Pic des Nuées", 100);
             s.Secrets.RestoreConfrontation(new Confrontation("Secte du Pic des Nuées", 1));

@@ -19,9 +19,9 @@ namespace MirrorChronicles.Tests.Mirror
     [TestFixture]
     public class TalismanTests
     {
-        private static TalismanSettings Settings => Fixtures.Content.Balance.Talismans;
+        private static TalismanSettings Settings => Fixtures.VeteranContent.Balance.Talismans;
 
-        private static TalismanDefinition Talisman(string id) => Fixtures.Content.Talismans.Single(t => t.Id == id);
+        private static TalismanDefinition Talisman(string id) => Fixtures.VeteranContent.Talismans.Single(t => t.Id == id);
 
         /// <summary>A world whose clan has gathered the prayers a ritual needs.</summary>
         private static TestWorld Devout()
@@ -53,8 +53,8 @@ namespace MirrorChronicles.Tests.Mirror
         [Test]
         public void ShippedTalismans_HoldTheFourteenOfTheLore()
         {
-            Assert.AreEqual(6, Fixtures.Content.Talismans.Count(t => t.Rank == TalismanRank.Grey));
-            Assert.AreEqual(8, Fixtures.Content.Talismans.Count(t => t.Rank == TalismanRank.White));
+            Assert.AreEqual(6, Fixtures.VeteranContent.Talismans.Count(t => t.Rank == TalismanRank.Grey));
+            Assert.AreEqual(8, Fixtures.VeteranContent.Talismans.Count(t => t.Rank == TalismanRank.White));
         }
 
         [Test]
@@ -82,14 +82,14 @@ namespace MirrorChronicles.Tests.Mirror
         public void Offer_GivesMoreChoices_ToAGreaterTalent(int root, int choices)
         {
             var w = new TestWorld();
-            Assert.AreEqual(choices, TalismanRules.Offer(Bearer(w, root), TalismanRank.White, Fixtures.Content.Talismans, Settings, w.Ctx.Rng).Count);
+            Assert.AreEqual(choices, TalismanRules.Offer(Bearer(w, root), TalismanRank.White, Fixtures.VeteranContent.Talismans, Settings, w.Ctx.Rng).Count);
         }
 
         [Test]
         public void Offer_PutsTheTalismansOfTheBearersTemperFirst()
         {
             var w = new TestWorld();
-            var offer = TalismanRules.Offer(Bearer(w, root: 20, temper: Temperament.Fiery), TalismanRank.Grey, Fixtures.Content.Talismans, Settings, w.Ctx.Rng);
+            var offer = TalismanRules.Offer(Bearer(w, root: 20, temper: Temperament.Fiery), TalismanRank.Grey, Fixtures.VeteranContent.Talismans, Settings, w.Ctx.Rng);
             CollectionAssert.Contains(Talisman(offer.Single()).Temperaments, Temperament.Fiery);
         }
 
@@ -97,7 +97,7 @@ namespace MirrorChronicles.Tests.Mirror
         public void Offer_HoldsOnlyTheRankOfTheSacrifice()
         {
             var w = new TestWorld();
-            var offer = TalismanRules.Offer(Bearer(w, root: 90), TalismanRank.Grey, Fixtures.Content.Talismans, Settings, w.Ctx.Rng);
+            var offer = TalismanRules.Offer(Bearer(w, root: 90), TalismanRank.Grey, Fixtures.VeteranContent.Talismans, Settings, w.Ctx.Rng);
             Assert.IsTrue(offer.All(id => Talisman(id).Rank == TalismanRank.Grey));
         }
 
@@ -200,7 +200,7 @@ namespace MirrorChronicles.Tests.Mirror
         {
             var w = Devout();
             w.Talismans.PerformRitual(Bearer(w), Sacrifice(w));
-            string notOffered = Fixtures.Content.Talismans.First(t => !w.Talismans.PendingOffer.Choices.Contains(t.Id)).Id;
+            string notOffered = Fixtures.VeteranContent.Talismans.First(t => !w.Talismans.PendingOffer.Choices.Contains(t.Id)).Id;
             Assert.IsFalse(w.Talismans.Choose(notOffered));
         }
 
@@ -245,7 +245,7 @@ namespace MirrorChronicles.Tests.Mirror
             var calm = Fixtures.Cultivator(realm: CultivationRealm.Foundation, stage: 4);
             calm.TalismanQiId = "radiant-snow-pine-ridge";
             plain.MentalStability = calm.MentalStability = 40; // below the 99 % ceiling
-            var content = Fixtures.Content;
+            var content = Fixtures.VeteranContent;
             int bonus = Talisman("radiant-snow-pine-ridge").IllusionsBonus;
             Assert.Greater(bonus, 0);
             Assert.AreEqual(PurpleMansionRules.IllusionsChance(plain, content) + bonus, PurpleMansionRules.IllusionsChance(calm, content));
@@ -285,13 +285,13 @@ namespace MirrorChronicles.Tests.Mirror
         [Test]
         public void RoundTrip_KeepsThePrayersTheOfferAndTheTalismans()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             var bearer = s.Clan.GetPatriarch();
             bearer.TalismanQiId = "holding-profit";
             s.Resources.AddPrayers(1234);
             s.Talismans.Restore(new TalismanOffer(bearer.ID, new System.Collections.Generic.List<string> { "prolong-life" }));
 
-            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.VeteranSetup());
 
             Assert.AreEqual("holding-profit", reloaded.Clan.GetPatriarch().TalismanQiId);
             Assert.AreEqual(s.Resources.Prayers, reloaded.Resources.Prayers);
@@ -381,11 +381,11 @@ namespace MirrorChronicles.Tests.Mirror
         [Test]
         public void RoundTrip_KeepsTheBeastsAndTheHuntingGround()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             s.Resources.AddBeast(new CapturedBeast("b1", CultivationRealm.Foundation, 2, "Famille Ruan"));
             s.Tasks.SetHuntingGround("heshan");
 
-            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.VeteranSetup());
 
             Assert.AreEqual(new CapturedBeast("b1", CultivationRealm.Foundation, 2, "Famille Ruan"), reloaded.Resources.Beasts.Single());
             Assert.AreEqual("heshan", reloaded.Tasks.HuntingGround);
@@ -396,7 +396,7 @@ namespace MirrorChronicles.Tests.Mirror
         [Test]
         public void ANewGame_SetsTheFirstRitual_OneCycleAhead()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             Assert.AreEqual(Settings.RitualPeriodYears, s.Talismans.NextRitualYear);
             Assert.AreEqual(20, Settings.RitualPeriodYears);
             Assert.AreEqual(3, Settings.HuntWindowYears);
@@ -445,7 +445,7 @@ namespace MirrorChronicles.Tests.Mirror
         [Test]
         public void TheRoster_OffersTheHunt_OnlyInsideTheWindow()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var cultivator = MirrorChronicles.Presentation.ClanDomainView.Roster(s).First(r => r.Rank.StartsWith("Culture du Qi"));
             CollectionAssert.DoesNotContain(cultivator.AllowedTasks, TaskType.HuntBeast);
 
@@ -458,9 +458,9 @@ namespace MirrorChronicles.Tests.Mirror
         [Test]
         public void RoundTrip_KeepsTheRitualsCalendar()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             s.Talismans.RestoreCalendar(60);
-            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.VeteranSetup());
             Assert.AreEqual(60, reloaded.Talismans.NextRitualYear);
         }
     }

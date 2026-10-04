@@ -127,6 +127,12 @@ namespace MirrorChronicles.Data
 
         /// <summary>The founder's temper; drawn when the data leaves it out.</summary>
         public Temperament Temperament { get; init; }
+
+        /// <summary>Born with a spiritual orifice (false: a mortal, whom only a Talisman Seed makes a cultivator).</summary>
+        public bool HasOrifice { get; init; } = true;
+
+        /// <summary>The founder's lifespan when the data sets it (an old mortal's last years), else the realm's.</summary>
+        public int? MaxLifespan { get; init; }
     }
 
     /// <summary>First names by sex and the family names of wandering cultivators (names.json).</summary>

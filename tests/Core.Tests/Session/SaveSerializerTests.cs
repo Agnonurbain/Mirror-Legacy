@@ -24,7 +24,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void RoundTrip_KeepsTheTechniquesAndTheQi()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(4));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(4));
             s.Techniques.AddDeduced(new TechniqueData { ID = "deduced-1", Name = "Sutra de l'Onde", Kind = TechniqueKind.Cultivation, Grade = 3 });
             s.Resources.AddHarvestWork("seven-terraces-qi", 20);
 
@@ -37,13 +37,13 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void FromSaveData_GivesAnOlderSaveTheClansKnowledge_AndItsQiCultivatorsTheirMethod()
         {
-            var data = GameSession.NewGame(Fixtures.Setup(5)).ToSaveData();
+            var data = GameSession.NewGame(Fixtures.VeteranSetup(5)).ToSaveData();
             data.KnownTechniqueIds = null; // saved before phase L3
             data.SpiritualQi = null;
             data.QiHarvestProgress = null;
             foreach (var r in data.HistoricalRecords) { r.CultivationMethodId = null; r.QiId = null; }
 
-            var s = GameSession.FromSaveData(data, Fixtures.Setup());
+            var s = GameSession.FromSaveData(data, Fixtures.VeteranSetup());
 
             Assert.IsTrue(s.Techniques.Knows("clear-spring-sutra") && s.Resources.QiPortions("clear-spring-qi") == 2);
             Assert.IsTrue(s.Clan.LivingMembers.Where(m => m.Realm >= CultivationRealm.QiRefinement)
@@ -51,12 +51,12 @@ namespace MirrorChronicles.Tests.Session
         }
 
         private static GameSession Reload(GameSession s) =>
-            GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
+            GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.VeteranSetup());
 
         [Test]
         public void RoundTrip_RestoresTheWholeGame()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(3));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(3));
             s.Buildings.Upgrade(BuildingType.Mine);
             s.Tasks.AssignTask(s.Clan.GetPatriarch(), TaskType.Mine);
             for (int y = 0; y < 3; y++) s.AdvanceYear();
@@ -68,7 +68,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void ToSaveData_IsASnapshot_ThatLaterPlayLeavesUntouched()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(2));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(2));
             var saved = s.ToSaveData();
             int savedAge = saved.HistoricalRecords[0].Age;
             int savedRelation = saved.Factions[0].RelationWithPlayer;
@@ -82,9 +82,9 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void FromSaveData_CopiesTheSave_SoTwoLoadsStayIndependent()
         {
-            var data = GameSession.NewGame(Fixtures.Setup(2)).ToSaveData();
-            var first = GameSession.FromSaveData(data, Fixtures.Setup());
-            var second = GameSession.FromSaveData(data, Fixtures.Setup());
+            var data = GameSession.NewGame(Fixtures.VeteranSetup(2)).ToSaveData();
+            var first = GameSession.FromSaveData(data, Fixtures.VeteranSetup());
+            var second = GameSession.FromSaveData(data, Fixtures.VeteranSetup());
 
             first.Clan.LivingMembers[0].Age += 10;
 
@@ -94,7 +94,7 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void Serialize_WritesEnumsByName()
         {
-            var json = SaveSerializer.Serialize(GameSession.NewGame(Fixtures.Setup(1)).ToSaveData());
+            var json = SaveSerializer.Serialize(GameSession.NewGame(Fixtures.VeteranSetup(1)).ToSaveData());
             StringAssert.Contains("\"CurrentPhase\": \"Management\"", json);
         }
 
@@ -115,19 +115,19 @@ namespace MirrorChronicles.Tests.Session
                     ""Age"": 50, ""MaxLifespan"": 0, ""IsAlive"": true, ""Realm"": ""QiRefinement"", ""RealmStage"": 0, ""MentalStability"": 70 } ]
             }";
 
-            var s = GameSession.FromSaveData(SaveSerializer.Deserialize(versionOne), Fixtures.Setup());
+            var s = GameSession.FromSaveData(SaveSerializer.Deserialize(versionOne), Fixtures.VeteranSetup());
 
             var elder = s.Clan.GetPatriarch();
             Assert.IsTrue(elder.ID == "elder" && elder.RealmStage == 1 && elder.HasSpiritualOrifice && elder.OrificeKnown
-                && elder.MaxLifespan == 200 && s.Factions.Factions.Count == Fixtures.Content.Factions.Count && s.Resources.SpiritStones == 640 && s.Clock.Year == 7);
+                && elder.MaxLifespan == 200 && s.Factions.Factions.Count == Fixtures.VeteranContent.Factions.Count && s.Resources.SpiritStones == 640 && s.Clock.Year == 7);
         }
 
         [Test]
         public void FromSaveData_RestoresTheFamilyName_OfFactionsSavedWithoutIt()
         {
-            var data = GameSession.NewGame(Fixtures.Setup(1)).ToSaveData();
+            var data = GameSession.NewGame(Fixtures.VeteranSetup(1)).ToSaveData();
             foreach (var faction in data.Factions) faction.FamilyName = null; // a save from before FamilyName
-            var s = GameSession.FromSaveData(data, Fixtures.Setup());
+            var s = GameSession.FromSaveData(data, Fixtures.VeteranSetup());
             Assert.AreEqual("Ruan", s.Factions.Factions.First(f => f.Name == "Famille Ruan").FamilyName);
         }
 
@@ -135,9 +135,9 @@ namespace MirrorChronicles.Tests.Session
         public void FromSaveData_TakesTheFactionsPlaceFromTheContent()
         {
             // the map belongs to the content: a save keeps a power's standing, not an outdated region
-            var data = GameSession.NewGame(Fixtures.Setup(1)).ToSaveData();
+            var data = GameSession.NewGame(Fixtures.VeteranSetup(1)).ToSaveData();
             data.Factions.First(f => f.Name == "Porte du Fer Ardent").RegionId = "northwest-hills"; // an L5 save
-            var s = GameSession.FromSaveData(data, Fixtures.Setup());
+            var s = GameSession.FromSaveData(data, Fixtures.VeteranSetup());
             Assert.AreEqual("fiery-iron-lands", s.Factions.GetFactionByName("Porte du Fer Ardent").RegionId);
         }
 
@@ -145,16 +145,16 @@ namespace MirrorChronicles.Tests.Session
         public void FromSaveData_KeepsAPlaceStillOnTheMap()
         {
             // a power moved during the game (conquest, flight) keeps its new place; only a place gone from the map is repaired
-            var data = GameSession.NewGame(Fixtures.Setup(1)).ToSaveData();
+            var data = GameSession.NewGame(Fixtures.VeteranSetup(1)).ToSaveData();
             data.Factions.First(f => f.Name == "Porte du Fer Ardent").RegionId = "heshan";
-            var s = GameSession.FromSaveData(data, Fixtures.Setup());
+            var s = GameSession.FromSaveData(data, Fixtures.VeteranSetup());
             Assert.AreEqual("heshan", s.Factions.GetFactionByName("Porte du Fer Ardent").RegionId);
         }
 
         [Test]
         public void FromSaveData_KeepsTheStoryEventsStillWaitingForAChoice()
         {
-            var s = GameSession.NewGame(Fixtures.Setup(1));
+            var s = GameSession.NewGame(Fixtures.VeteranSetup(1));
             s.Events.TriggerBreakthroughSuccess(s.Clan.GetPatriarch(), CultivationRealm.Foundation);
             Assert.AreEqual(StoryTriggerType.FirstFoundation, Reload(s).Story.PendingEvent.TriggerType);
         }

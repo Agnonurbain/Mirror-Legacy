@@ -14,7 +14,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void TheScreen_ShowsTheLegacies_TheGifts_AndWhyNot()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             Assert.AreEqual(4, ArtView.Legacies(s).Count);
             Assert.IsFalse(ArtView.Legacies(s).Any(l => l.Held), "no legacy at the start (the user's decision)");
             var line = ArtView.Members(s).First();
@@ -27,7 +27,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void ThePills_AreCounted_AndOffered_ForTheElementsTheClanNeeds()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var needy = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 8);
             s.Clan.AddMember(needy);
             var element = AlchemySystem.ElementFor(needy, s.Context.Content).Value;
@@ -51,7 +51,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void TheExamination_IsOffered_ToTheBestAlchemist_OrSaysWhyNot()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             StringAssert.Contains("aucune pilule", ArtView.ExamineOffer(s).Refusal);
             s.Arts.GainLegacy(ImmortalArt.Alchemy);
             s.Alchemy.GainEssencePills(Element.Fire, 1);
@@ -68,7 +68,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void TheTalismans_SayWhatTheYearWouldSell()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             s.Arts.GainLegacy(ImmortalArt.Talismans);
             var drawer = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5);
             drawer.TalismanQiId = "holding-profit";
@@ -83,7 +83,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void EachLackingArt_OffersItsSources_OrSaysWhyNot()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var offers = ArtView.LegacyOffers(s);
             Assert.AreEqual(4, offers.Count(o => o.FromMirror), "the mirror may deduce each lacking art");
             Assert.IsTrue(offers.Where(o => o.FromMirror).All(o => o.Refusal != null || o.FragmentIds.Count == s.Context.Content.Balance.Arts.Legacy.DeduceFragments));
@@ -97,7 +97,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void EachPill_OffersItsRefining_AndItsPurchase_OrSaysWhyNot()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             StringAssert.Contains("aucune", ArtView.OtherPillStock(s));
             var offers = ArtView.PillKindOffers(s);
             Assert.AreEqual(s.Context.Content.Balance.Arts.Pills.Count, offers.Count);
@@ -116,7 +116,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void AHeartDemon_OffersItsPurification()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var haunted = s.Clan.LivingMembers.First();
             haunted.HeartDemonYearsLeft = 4;
             var offer = ArtView.PurifyOffers(s).Single();
@@ -129,7 +129,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void AFoundation_MayRecast_OnAQiTheClanHolds()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var m = Fixtures.Cultivator(realm: CultivationRealm.Foundation);
             m.FoundationId = s.Context.Content.Qi.First(q => q.Id == m.QiId).Foundation;
             s.Clan.AddMember(m);
@@ -144,7 +144,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void APrisoner_MayBeRefined_ForTheMemberWithTheFewestYears()
         {
-            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent });
             var old = Fixtures.Cultivator(age: 95, realm: CultivationRealm.Foundation);
             old.MaxLifespan = 100;
             s.Clan.AddMember(old);
