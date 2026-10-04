@@ -112,11 +112,24 @@ namespace MirrorChronicles.Characters
             return true;
         }
 
-        /// <summary>Pills and calm may lift a Heart Demon (a loophole): herbs spent, a chance.</summary>
+        /// <summary>The clan's alchemy (set by the session): the Heart's Purification Pill replaces the herbs (audit §2.2).</summary>
+        public AlchemySystem Alchemy { get; set; }
+
+        /// <summary>Why the member's Heart Demon cannot be fought with a pill now (French), or null.</summary>
+        public string PurifyRefusal(CharacterData member)
+        {
+            if (member == null || member.HeartDemonYearsLeft <= 0) return "aucun Démon du Cœur à purifier";
+            if (!Allows(LoopholeKind.Purification)) return "la purification n'est pas permise";
+            if (Alchemy != null) return Alchemy.PillsOf(PillKind.Purification) > 0 ? null : $"il faut une {Alchemy.PillName(PillKind.Purification)}";
+            return resources.MedicinalHerbs < Settings.PurificationHerbs ? $"il faut {Settings.PurificationHerbs} herbes" : null;
+        }
+
+        /// <summary>Pills and calm may lift a Heart Demon (a loophole): the pill (or, without alchemy, herbs) spent, a chance.</summary>
         public bool Purify(CharacterData member)
         {
-            if (member == null || member.HeartDemonYearsLeft <= 0 || !Allows(LoopholeKind.Purification)
-                || !resources.ConsumeHerbs(Settings.PurificationHerbs)) return false;
+            if (PurifyRefusal(member) != null) return false;
+            if (Alchemy != null) Alchemy.TakePill(PillKind.Purification);
+            else resources.ConsumeHerbs(Settings.PurificationHerbs);
             if (!ctx.Rng.Chance(Settings.PurificationChance)) return false;
             member.HeartDemonYearsLeft = 0;
             ctx.Log.Info($"[Oaths] {member.FullName}'s Heart Demon is lifted.");

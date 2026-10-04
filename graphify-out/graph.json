@@ -2692,10 +2692,30 @@
       "norm_label": ".showimmortalarts()"
     },
     {
+      "label": ".AddAction()",
+      "file_type": "code",
+      "source_file": "game/scripts/Library.cs",
+      "source_location": "L169",
+      "_origin": "ast",
+      "id": "scripts_library_library_addaction",
+      "community": 197,
+      "norm_label": ".addaction()"
+    },
+    {
+      "label": "Func<string>",
+      "file_type": "code",
+      "source_file": "game/scripts/Library.cs",
+      "source_location": "L169",
+      "_origin": "ast",
+      "id": "func_string",
+      "community": 197,
+      "norm_label": "func<string>"
+    },
+    {
       "label": "GoldenCoreAction",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L150",
+      "source_location": "L186",
       "_origin": "ast",
       "id": "goldencoreaction",
       "community": 197,
@@ -2705,7 +2725,7 @@
       "label": ".ShowGoldenCore()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L153",
+      "source_location": "L189",
       "_origin": "ast",
       "id": "scripts_library_library_showgoldencore",
       "community": 197,
@@ -2715,7 +2735,7 @@
       "label": ".Act()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L178",
+      "source_location": "L214",
       "_origin": "ast",
       "id": "scripts_library_library_act",
       "community": 197,
@@ -2725,7 +2745,7 @@
       "label": ".AddButton()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L184",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "scripts_library_library_addbutton",
       "community": 197,
@@ -2735,7 +2755,7 @@
       "label": "Action",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L184",
+      "source_location": "L220",
       "_origin": "ast",
       "id": "game_scripts_library_cs_action",
       "community": 197,
@@ -2745,7 +2765,7 @@
       "label": ".ShowArmoury()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L192",
+      "source_location": "L228",
       "_origin": "ast",
       "id": "scripts_library_library_showarmoury",
       "community": 197,
@@ -2755,7 +2775,7 @@
       "label": ".ShowLineages()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L264",
+      "source_location": "L300",
       "_origin": "ast",
       "id": "scripts_library_library_showlineages",
       "community": 197,
@@ -2765,7 +2785,7 @@
       "label": ".ShowMinorAbilities()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L303",
+      "source_location": "L339",
       "_origin": "ast",
       "id": "scripts_library_library_showminorabilities",
       "community": 197,
@@ -2775,7 +2795,7 @@
       "label": ".Candidates()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L318",
+      "source_location": "L354",
       "_origin": "ast",
       "id": "scripts_library_library_candidates",
       "community": 197,
@@ -2785,7 +2805,7 @@
       "label": "IReadOnlyList<AccordCandidate>",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L318",
+      "source_location": "L354",
       "_origin": "ast",
       "id": "game_scripts_library_cs_ireadonlylist_accordcandidate",
       "community": 197,
@@ -2795,7 +2815,7 @@
       "label": ".ShowAccord()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L323",
+      "source_location": "L359",
       "_origin": "ast",
       "id": "scripts_library_library_showaccord",
       "community": 197,
@@ -2805,7 +2825,7 @@
       "label": ".ShowArts()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L355",
+      "source_location": "L391",
       "_origin": "ast",
       "id": "scripts_library_library_showarts",
       "community": 197,
@@ -2815,7 +2835,7 @@
       "label": ".ShowMarket()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L377",
+      "source_location": "L413",
       "_origin": "ast",
       "id": "scripts_library_library_showmarket",
       "community": 197,
@@ -2825,7 +2845,7 @@
       "label": ".Add()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L444",
+      "source_location": "L480",
       "_origin": "ast",
       "id": "scripts_library_library_add",
       "community": 197,
@@ -2835,7 +2855,7 @@
       "label": "Container",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L444",
+      "source_location": "L480",
       "_origin": "ast",
       "id": "game_scripts_library_cs_container",
       "community": 197,
@@ -2845,7 +2865,7 @@
       "label": ".Clear()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L447",
+      "source_location": "L483",
       "_origin": "ast",
       "id": "scripts_library_library_clear",
       "community": 197,
@@ -2855,7 +2875,7 @@
       "label": "Node",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L447",
+      "source_location": "L483",
       "_origin": "ast",
       "id": "game_scripts_library_cs_node",
       "community": 197,
@@ -2865,7 +2885,7 @@
       "label": ".RunSmoke()",
       "file_type": "code",
       "source_file": "game/scripts/Library.cs",
-      "source_location": "L456",
+      "source_location": "L492",
       "_origin": "ast",
       "id": "scripts_library_library_runsmoke",
       "community": 197,
@@ -4845,7 +4865,7 @@
       "label": ".EssencePillsOf()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L53",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_essencepillsof",
       "community": 442,
@@ -4855,7 +4875,7 @@
       "label": "Element",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L53",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "src_core_characters_alchemysystem_cs_element",
       "community": 442,
@@ -4865,7 +4885,7 @@
       "label": ".ElementFor()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L56",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_elementfor",
       "community": 442,
@@ -4875,7 +4895,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L56",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "src_core_characters_alchemysystem_cs_characterdata",
       "community": 442,
@@ -4885,7 +4905,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L56",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "src_core_characters_alchemysystem_cs_gamecontent",
       "community": 442,
@@ -4895,7 +4915,7 @@
       "label": ".HoldsEssencePillFor()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L59",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_holdsessencepillfor",
       "community": 442,
@@ -4905,7 +4925,7 @@
       "label": ".GainEssencePills()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L63",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_gainessencepills",
       "community": 442,
@@ -4915,7 +4935,7 @@
       "label": ".TakeEssencePill()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L70",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_takeessencepill",
       "community": 442,
@@ -4925,7 +4945,7 @@
       "label": "PillTaken",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L70",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "pilltaken",
       "community": 442,
@@ -4935,7 +4955,7 @@
       "label": ".Remove()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L86",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_remove",
       "community": 442,
@@ -4945,7 +4965,7 @@
       "label": ".Poison()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L93",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_poison",
       "community": 442,
@@ -4955,7 +4975,7 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L102",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_processyear",
       "community": 442,
@@ -4965,7 +4985,7 @@
       "label": ".ExamineRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L113",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_examinerefusal",
       "community": 442,
@@ -4975,7 +4995,7 @@
       "label": ".Examine()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L128",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_examine",
       "community": 442,
@@ -4985,7 +5005,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L128",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "src_core_characters_alchemysystem_cs_ireadonlylist",
       "community": 442,
@@ -4995,7 +5015,7 @@
       "label": ".RefineRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L143",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_refinerefusal",
       "community": 442,
@@ -5005,17 +5025,137 @@
       "label": ".RefineEssencePill()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L155",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_refineessencepill",
       "community": 442,
       "norm_label": ".refineessencepill()"
     },
     {
+      "label": ".PillsOf()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L175",
+      "_origin": "ast",
+      "id": "characters_alchemysystem_alchemysystem_pillsof",
+      "community": 442,
+      "norm_label": ".pillsof()"
+    },
+    {
+      "label": "PillKind",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L175",
+      "_origin": "ast",
+      "id": "src_core_characters_alchemysystem_cs_pillkind",
+      "community": 442,
+      "norm_label": "pillkind"
+    },
+    {
+      "label": ".GainPills()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L177",
+      "_origin": "ast",
+      "id": "characters_alchemysystem_alchemysystem_gainpills",
+      "community": 442,
+      "norm_label": ".gainpills()"
+    },
+    {
+      "label": ".TakePill()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "characters_alchemysystem_alchemysystem_takepill",
+      "community": 442,
+      "norm_label": ".takepill()"
+    },
+    {
+      "label": ".Definition()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L191",
+      "_origin": "ast",
+      "id": "characters_alchemysystem_alchemysystem_definition",
+      "community": 442,
+      "norm_label": ".definition()"
+    },
+    {
+      "label": "PillDefinition",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L191",
+      "_origin": "ast",
+      "id": "src_core_characters_alchemysystem_cs_pilldefinition",
+      "community": 442,
+      "norm_label": "pilldefinition"
+    },
+    {
+      "label": ".PillName()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L193",
+      "_origin": "ast",
+      "id": "characters_alchemysystem_alchemysystem_pillname",
+      "community": 442,
+      "norm_label": ".pillname()"
+    },
+    {
+      "label": ".PillRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L196",
+      "_origin": "ast",
+      "id": "characters_alchemysystem_alchemysystem_pillrefusal",
+      "community": 442,
+      "norm_label": ".pillrefusal()"
+    },
+    {
+      "label": ".RefinePill()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L211",
+      "_origin": "ast",
+      "id": "characters_alchemysystem_alchemysystem_refinepill",
+      "community": 442,
+      "norm_label": ".refinepill()"
+    },
+    {
+      "label": ".BuyRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L225",
+      "_origin": "ast",
+      "id": "characters_alchemysystem_alchemysystem_buyrefusal",
+      "community": 442,
+      "norm_label": ".buyrefusal()"
+    },
+    {
+      "label": "AccordTerm",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L225",
+      "_origin": "ast",
+      "id": "src_core_characters_alchemysystem_cs_accordterm",
+      "community": 442,
+      "norm_label": "accordterm"
+    },
+    {
+      "label": ".BuyPill()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L239",
+      "_origin": "ast",
+      "id": "characters_alchemysystem_alchemysystem_buypill",
+      "community": 442,
+      "norm_label": ".buypill()"
+    },
+    {
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L167",
+      "source_location": "L254",
       "_origin": "ast",
       "id": "characters_alchemysystem_alchemysystem_restore",
       "community": 442,
@@ -5025,7 +5165,7 @@
       "label": "IReadOnlyDictionary",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L167",
+      "source_location": "L254",
       "_origin": "ast",
       "id": "src_core_characters_alchemysystem_cs_ireadonlydictionary",
       "community": 442,
@@ -5035,7 +5175,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L167",
+      "source_location": "L254",
       "_origin": "ast",
       "id": "src_core_characters_alchemysystem_cs_ienumerable",
       "community": 442,
@@ -5045,7 +5185,7 @@
       "label": "PoisonedPill",
       "file_type": "code",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
-      "source_location": "L167",
+      "source_location": "L254",
       "_origin": "ast",
       "id": "poisonedpill",
       "community": 442,
@@ -6935,7 +7075,7 @@
       "label": ".AttemptBreakthrough()",
       "file_type": "code",
       "source_file": "src/Core/Characters/BreakthroughSystem.cs",
-      "source_location": "L66",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_breakthroughsystem_attemptbreakthrough",
       "community": 224,
@@ -6945,7 +7085,7 @@
       "label": "BreakthroughOutcome",
       "file_type": "code",
       "source_file": "src/Core/Characters/BreakthroughSystem.cs",
-      "source_location": "L66",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "src_core_characters_breakthroughsystem_cs_breakthroughoutcome",
       "community": 224,
@@ -6958,7 +7098,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 451,
+      "community": 82,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -6968,7 +7108,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 451,
+      "community": 82,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -7555,7 +7695,7 @@
       "label": ".CondenseWithResources()",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L83",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "characters_divineabilitysystem_divineabilitysystem_condensewithresources",
       "community": 140,
@@ -7565,7 +7705,7 @@
       "label": ".GraftDaoPartner()",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L110",
+      "source_location": "L115",
       "_origin": "ast",
       "id": "characters_divineabilitysystem_divineabilitysystem_graftdaopartner",
       "community": 140,
@@ -7575,7 +7715,7 @@
       "label": ".CanTake()",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L137",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "characters_divineabilitysystem_divineabilitysystem_cantake",
       "community": 140,
@@ -7585,7 +7725,7 @@
       "label": ".MayTakeAnotherLineage()",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L152",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "characters_divineabilitysystem_divineabilitysystem_maytakeanotherlineage",
       "community": 140,
@@ -7595,7 +7735,7 @@
       "label": ".CostOf()",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L159",
+      "source_location": "L164",
       "_origin": "ast",
       "id": "characters_divineabilitysystem_divineabilitysystem_costof",
       "community": 140,
@@ -7605,7 +7745,7 @@
       "label": ".AlignedQi()",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L168",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "characters_divineabilitysystem_divineabilitysystem_alignedqi",
       "community": 140,
@@ -7615,7 +7755,7 @@
       "label": "QiDefinition",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L168",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "src_core_characters_divineabilitysystem_cs_qidefinition",
       "community": 140,
@@ -7625,7 +7765,7 @@
       "label": ".FirstCultivable()",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L174",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "characters_divineabilitysystem_divineabilitysystem_firstcultivable",
       "community": 140,
@@ -7635,7 +7775,7 @@
       "label": ".PassThreshold()",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L183",
+      "source_location": "L188",
       "_origin": "ast",
       "id": "characters_divineabilitysystem_divineabilitysystem_passthreshold",
       "community": 140,
@@ -7645,7 +7785,7 @@
       "label": ".Condense()",
       "file_type": "code",
       "source_file": "src/Core/Characters/DivineAbilitySystem.cs",
-      "source_location": "L195",
+      "source_location": "L200",
       "_origin": "ast",
       "id": "characters_divineabilitysystem_divineabilitysystem_condense",
       "community": 140,
@@ -9742,10 +9882,20 @@
       "norm_label": ".veilnextbreach()"
     },
     {
+      "label": ".PurifyRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/OathSystem.cs",
+      "source_location": "L119",
+      "_origin": "ast",
+      "id": "characters_oathsystem_oathsystem_purifyrefusal",
+      "community": 11,
+      "norm_label": ".purifyrefusal()"
+    },
+    {
       "label": ".Purify()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L116",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_purify",
       "community": 11,
@@ -9755,7 +9905,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L129",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_restore",
       "community": 11,
@@ -9765,7 +9915,7 @@
       "label": ".Clause()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L137",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_clause",
       "community": 11,
@@ -9775,7 +9925,7 @@
       "label": "ClauseDefinition",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L137",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "clausedefinition",
       "community": 11,
@@ -9785,7 +9935,7 @@
       "label": ".SecrecyPartner()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L141",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_secrecypartner",
       "community": 11,
@@ -9795,7 +9945,7 @@
       "label": ".Binds()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L152",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_binds",
       "community": 11,
@@ -9805,7 +9955,7 @@
       "label": ".Punish()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L156",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_punish",
       "community": 11,
@@ -9815,7 +9965,7 @@
       "label": ".PassYear()",
       "file_type": "code",
       "source_file": "src/Core/Characters/OathSystem.cs",
-      "source_location": "L183",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "characters_oathsystem_oathsystem_passyear",
       "community": 11,
@@ -11558,7 +11708,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 451,
+      "community": 82,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -11568,7 +11718,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 451,
+      "community": 82,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11578,7 +11728,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 451,
+      "community": 82,
       "norm_label": "clankarmasystem"
     },
     {
@@ -11588,7 +11738,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 451,
+      "community": 82,
       "norm_label": "double"
     },
     {
@@ -11598,7 +11748,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 451,
+      "community": 82,
       "norm_label": "int"
     },
     {
@@ -11608,7 +11758,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 451,
+      "community": 82,
       "norm_label": "gamecontext"
     },
     {
@@ -11618,7 +11768,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 451,
+      "community": 82,
       "norm_label": "clanmanager"
     },
     {
@@ -11628,7 +11778,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 451,
+      "community": 82,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -11638,7 +11788,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 451,
+      "community": 82,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -11648,7 +11798,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 451,
+      "community": 82,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -11658,7 +11808,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 451,
+      "community": 82,
       "norm_label": ".restore()"
     },
     {
@@ -11668,7 +11818,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 451,
+      "community": 82,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -12048,7 +12198,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 448,
+      "community": 444,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -12058,7 +12208,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 448,
+      "community": 444,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -15478,7 +15628,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 448,
+      "community": 434,
       "norm_label": "enums.cs"
     },
     {
@@ -15488,7 +15638,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 448,
+      "community": 434,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -15498,7 +15648,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_factiondata",
-      "community": 441,
+      "community": 448,
       "norm_label": "factiondata.cs"
     },
     {
@@ -15508,7 +15658,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "data_factiondata_mirrorchronicles_data",
-      "community": 441,
+      "community": 448,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -15518,7 +15668,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "data_factiondata_factiondata",
-      "community": 441,
+      "community": 448,
       "norm_label": "factiondata"
     },
     {
@@ -15528,7 +15678,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "data_factiondata_factiondata_clone",
-      "community": 441,
+      "community": 448,
       "norm_label": ".clone()"
     },
     {
@@ -15538,7 +15688,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "data_factiondata_factionelder",
-      "community": 441,
+      "community": 448,
       "norm_label": "factionelder"
     },
     {
@@ -15548,7 +15698,7 @@
       "source_location": "L101",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_age",
-      "community": 441,
+      "community": 448,
       "norm_label": ".age()"
     },
     {
@@ -15558,7 +15708,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_clone",
-      "community": 441,
+      "community": 448,
       "norm_label": ".clone()"
     },
     {
@@ -17378,7 +17528,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem",
-      "community": 447,
+      "community": 441,
       "norm_label": "alliancesystem.cs"
     },
     {
@@ -17388,7 +17538,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_mirrorchronicles_diplomacy",
-      "community": 447,
+      "community": 441,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -17398,7 +17548,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem",
-      "community": 447,
+      "community": 441,
       "norm_label": "alliancesystem"
     },
     {
@@ -17408,7 +17558,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_double",
-      "community": 447,
+      "community": 441,
       "norm_label": "double"
     },
     {
@@ -17418,7 +17568,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_gamecontext",
-      "community": 447,
+      "community": 441,
       "norm_label": "gamecontext"
     },
     {
@@ -17428,7 +17578,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_factionmanager",
-      "community": 447,
+      "community": 441,
       "norm_label": "factionmanager"
     },
     {
@@ -17438,7 +17588,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_resourcemanager",
-      "community": 447,
+      "community": 441,
       "norm_label": "resourcemanager"
     },
     {
@@ -17448,7 +17598,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_offertribute",
-      "community": 447,
+      "community": 441,
       "norm_label": ".offertribute()"
     },
     {
@@ -17458,7 +17608,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_declarewar",
-      "community": 447,
+      "community": 441,
       "norm_label": ".declarewar()"
     },
     {
@@ -18358,7 +18508,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 441,
+      "community": 434,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -18368,7 +18518,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 441,
+      "community": 434,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -21768,7 +21918,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_buildingsystem",
-      "community": 25,
+      "community": 9,
       "norm_label": "buildingsystem.cs"
     },
     {
@@ -21778,7 +21928,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "economy_buildingsystem_mirrorchronicles_economy",
-      "community": 25,
+      "community": 9,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -24268,7 +24418,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionengine",
-      "community": 448,
+      "community": 434,
       "norm_label": "deductionengine.cs"
     },
     {
@@ -24278,7 +24428,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_deductionengine_mirrorchronicles_mirror",
-      "community": 448,
+      "community": 434,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -25078,7 +25228,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_mirrorsystem",
-      "community": 448,
+      "community": 434,
       "norm_label": "mirrorsystem.cs"
     },
     {
@@ -25088,7 +25238,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_mirrorsystem_mirrorchronicles_mirror",
-      "community": 448,
+      "community": 434,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -27245,7 +27395,7 @@
       "label": "ArtView",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L32",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "presentation_artview_artview",
       "community": 212,
@@ -27255,7 +27405,7 @@
       "label": ".Legacies()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L34",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "presentation_artview_artview_legacies",
       "community": 212,
@@ -27265,7 +27415,7 @@
       "label": "GameSession",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L34",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "src_core_presentation_artview_cs_gamesession",
       "community": 212,
@@ -27275,7 +27425,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L34",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "src_core_presentation_artview_cs_ireadonlylist",
       "community": 212,
@@ -27285,7 +27435,7 @@
       "label": "ArtLegacyLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L34",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "artlegacyline",
       "community": 212,
@@ -27295,7 +27445,7 @@
       "label": ".Members()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L38",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "presentation_artview_artview_members",
       "community": 212,
@@ -27305,7 +27455,7 @@
       "label": "ArtMemberLine",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L38",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "artmemberline",
       "community": 212,
@@ -27315,7 +27465,7 @@
       "label": ".PillStock()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L58",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "presentation_artview_artview_pillstock",
       "community": 212,
@@ -27325,7 +27475,7 @@
       "label": ".PillOffers()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L63",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "presentation_artview_artview_pilloffers",
       "community": 212,
@@ -27335,7 +27485,7 @@
       "label": "PillOffer",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L63",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "pilloffer",
       "community": 212,
@@ -27345,7 +27495,7 @@
       "label": ".ExamineOffer()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L77",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "presentation_artview_artview_examineoffer",
       "community": 212,
@@ -27355,7 +27505,7 @@
       "label": "ExamineOffer",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L77",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "examineoffer",
       "community": 212,
@@ -27365,7 +27515,7 @@
       "label": ".LegacyOffers()",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L89",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "presentation_artview_artview_legacyoffers",
       "community": 212,
@@ -27375,11 +27525,61 @@
       "label": "LegacyOffer",
       "file_type": "code",
       "source_file": "src/Core/Presentation/ArtView.cs",
-      "source_location": "L89",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "legacyoffer",
       "community": 212,
       "norm_label": "legacyoffer"
+    },
+    {
+      "label": ".OtherPillStock()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L123",
+      "_origin": "ast",
+      "id": "presentation_artview_artview_otherpillstock",
+      "community": 212,
+      "norm_label": ".otherpillstock()"
+    },
+    {
+      "label": ".PillKindOffers()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "presentation_artview_artview_pillkindoffers",
+      "community": 212,
+      "norm_label": ".pillkindoffers()"
+    },
+    {
+      "label": "PillKindOffer",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "pillkindoffer",
+      "community": 212,
+      "norm_label": "pillkindoffer"
+    },
+    {
+      "label": ".PurifyOffers()",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "presentation_artview_artview_purifyoffers",
+      "community": 212,
+      "norm_label": ".purifyoffers()"
+    },
+    {
+      "label": "PurifyOffer",
+      "file_type": "code",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "purifyoffer",
+      "community": 212,
+      "norm_label": "purifyoffer"
     },
     {
       "label": "ArtifactView.cs",
@@ -31238,7 +31438,7 @@
       "source_location": "L132",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_factiondata",
-      "community": 362,
+      "community": 449,
       "norm_label": "factiondata"
     },
     {
@@ -31388,7 +31588,7 @@
       "source_location": "L286",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_techniquedata",
-      "community": 362,
+      "community": 449,
       "norm_label": "techniquedata"
     },
     {
@@ -31438,7 +31638,7 @@
       "source_location": "L334",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_termsfor",
-      "community": 362,
+      "community": 449,
       "norm_label": ".termsfor()"
     },
     {
@@ -31448,7 +31648,7 @@
       "source_location": "L334",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_list",
-      "community": 362,
+      "community": 449,
       "norm_label": "list"
     },
     {
@@ -31458,7 +31658,7 @@
       "source_location": "L334",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_accordterm",
-      "community": 362,
+      "community": 449,
       "norm_label": "accordterm"
     },
     {
@@ -31482,10 +31682,20 @@
       "norm_label": ".condensewithresourceswhenstuck()"
     },
     {
-      "label": ".ForgeAMetalEssence()",
+      "label": ".GetACondensationPill()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
       "source_location": "L383",
+      "_origin": "ast",
+      "id": "session_balancerun_ascent_balancerun_getacondensationpill",
+      "community": 362,
+      "norm_label": ".getacondensationpill()"
+    },
+    {
+      "label": ".ForgeAMetalEssence()",
+      "file_type": "code",
+      "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
+      "source_location": "L404",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_forgeametalessence",
       "community": 362,
@@ -31495,7 +31705,7 @@
       "label": ".ClaimAPosition()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L399",
+      "source_location": "L420",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_claimaposition",
       "community": 362,
@@ -31505,7 +31715,7 @@
       "label": ".GatherTheQiOfTheAbilities()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L418",
+      "source_location": "L439",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_gathertheqioftheabilities",
       "community": 362,
@@ -31635,7 +31845,7 @@
       "label": ".SeekTheShards()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L148",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_seektheshards",
       "community": 259,
@@ -31645,7 +31855,7 @@
       "label": ".SeekAMethodToTheAscent()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L185",
+      "source_location": "L186",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_seekamethodtotheascent",
       "community": 259,
@@ -31655,7 +31865,7 @@
       "label": ".LeadsToTheAscent()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L206",
+      "source_location": "L207",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_leadstotheascent",
       "community": 259,
@@ -31665,7 +31875,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L206",
+      "source_location": "L207",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_techniquedata",
       "community": 259,
@@ -31675,7 +31885,7 @@
       "label": ".AscentMethod()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L210",
+      "source_location": "L211",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_ascentmethod",
       "community": 259,
@@ -31685,7 +31895,7 @@
       "label": ".GatherTheQiOfTheAscent()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L218",
+      "source_location": "L219",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_gathertheqioftheascent",
       "community": 259,
@@ -31695,7 +31905,7 @@
       "label": ".ProbeAPower()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L236",
+      "source_location": "L237",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_probeapower",
       "community": 259,
@@ -31705,7 +31915,7 @@
       "label": "ConditionalWeakTable<GameSession, string[]>",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L244",
+      "source_location": "L245",
       "_origin": "ast",
       "id": "conditionalweaktable_gamesession_string",
       "community": 259,
@@ -31715,7 +31925,7 @@
       "label": ".Dug()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L247",
+      "source_location": "L248",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_dug",
       "community": 259,
@@ -31725,7 +31935,7 @@
       "label": ".NextProbe()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L258",
+      "source_location": "L259",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_nextprobe",
       "community": 259,
@@ -31735,7 +31945,7 @@
       "label": "ProbePlan",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L258",
+      "source_location": "L259",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_probeplan",
       "community": 259,
@@ -31745,7 +31955,7 @@
       "label": ".MirrorSpares()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L290",
+      "source_location": "L291",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_mirrorspares",
       "community": 259,
@@ -31755,7 +31965,7 @@
       "label": "ConditionalWeakTable<GameSession, HashSet<string>>",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L304",
+      "source_location": "L305",
       "_origin": "ast",
       "id": "conditionalweaktable_gamesession_hashset_string",
       "community": 259,
@@ -31765,7 +31975,7 @@
       "label": ".UnsoundedNewcomers()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L314",
+      "source_location": "L315",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_unsoundednewcomers",
       "community": 259,
@@ -31775,7 +31985,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L314",
+      "source_location": "L315",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_ienumerable",
       "community": 259,
@@ -31785,7 +31995,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L314",
+      "source_location": "L315",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_characterdata",
       "community": 259,
@@ -31795,7 +32005,7 @@
       "label": ".SoundTheNewcomers()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L320",
+      "source_location": "L321",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_soundthenewcomers",
       "community": 259,
@@ -31805,7 +32015,7 @@
       "label": ".AnswerDemands()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L337",
+      "source_location": "L338",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_answerdemands",
       "community": 259,
@@ -31815,7 +32025,7 @@
       "label": ".AnswerChallenge()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L349",
+      "source_location": "L350",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_answerchallenge",
       "community": 259,
@@ -31825,7 +32035,7 @@
       "label": ".LineIsThin()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L377",
+      "source_location": "L378",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_lineisthin",
       "community": 259,
@@ -31835,7 +32045,7 @@
       "label": ".Spared()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L380",
+      "source_location": "L381",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_spared",
       "community": 259,
@@ -31845,17 +32055,27 @@
       "label": ".HoldForAnHeir()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L383",
+      "source_location": "L384",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_holdforanheir",
       "community": 259,
       "norm_label": ".holdforanheir()"
     },
     {
+      "label": ".BuyTheChakrasPowder()",
+      "file_type": "code",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L401",
+      "_origin": "ast",
+      "id": "session_balancerun_balancerun_buythechakraspowder",
+      "community": 259,
+      "norm_label": ".buythechakraspowder()"
+    },
+    {
       "label": ".PlantASeed()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L396",
+      "source_location": "L415",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_plantaseed",
       "community": 259,
@@ -31865,7 +32085,7 @@
       "label": ".WedTheLine()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L408",
+      "source_location": "L427",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_wedtheline",
       "community": 259,
@@ -31875,7 +32095,7 @@
       "label": ".Hunt()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L433",
+      "source_location": "L452",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_hunt",
       "community": 259,
@@ -31885,7 +32105,7 @@
       "label": ".OfferToTheMirror()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L463",
+      "source_location": "L482",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_offertothemirror",
       "community": 259,
@@ -31895,7 +32115,7 @@
       "label": ".AnswerForTheCaptives()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L482",
+      "source_location": "L501",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_answerforthecaptives",
       "community": 259,
@@ -31905,7 +32125,7 @@
       "label": ".RansomReserveYears()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L503",
+      "source_location": "L522",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_ransomreserveyears",
       "community": 259,
@@ -31915,7 +32135,7 @@
       "label": ".Rescue()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L507",
+      "source_location": "L526",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_rescue",
       "community": 259,
@@ -31925,7 +32145,7 @@
       "label": "string",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L518",
+      "source_location": "L537",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_string",
       "community": 259,
@@ -31935,7 +32155,7 @@
       "label": ".SwearTheKeepers()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L525",
+      "source_location": "L544",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_swearthekeepers",
       "community": 259,
@@ -31945,7 +32165,7 @@
       "label": ".SeekATreaty()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L537",
+      "source_location": "L556",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_seekatreaty",
       "community": 259,
@@ -31955,7 +32175,7 @@
       "label": ".SetTheIdleToWork()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L549",
+      "source_location": "L568",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_settheidletowork",
       "community": 259,
@@ -31965,7 +32185,7 @@
       "label": ".KeepTheTreasures()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L580",
+      "source_location": "L599",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_keepthetreasures",
       "community": 259,
@@ -31975,7 +32195,7 @@
       "label": ".AnswerTheDemons()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L595",
+      "source_location": "L614",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_answerthedemons",
       "community": 259,
@@ -31985,7 +32205,7 @@
       "label": ".HideTheChosen()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L605",
+      "source_location": "L624",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_hidethechosen",
       "community": 259,
@@ -31995,7 +32215,7 @@
       "label": ".SendTheScholars()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L621",
+      "source_location": "L640",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_sendthescholars",
       "community": 259,
@@ -32005,7 +32225,7 @@
       "label": ".SendASearcherToTheLake()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L639",
+      "source_location": "L658",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_sendasearchertothelake",
       "community": 259,
@@ -32015,7 +32235,7 @@
       "label": ".FeedTheClan()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L656",
+      "source_location": "L675",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_feedtheclan",
       "community": 259,
@@ -32025,7 +32245,7 @@
       "label": ".Table()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L673",
+      "source_location": "L692",
       "_origin": "ast",
       "id": "session_balancerun_balancerun_table",
       "community": 385,
@@ -32035,7 +32255,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.cs",
-      "source_location": "L673",
+      "source_location": "L692",
       "_origin": "ast",
       "id": "src_core_session_balancerun_cs_ireadonlylist",
       "community": 385,
@@ -32745,7 +32965,7 @@
       "label": ".NewGame()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L263",
+      "source_location": "L266",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_newgame",
       "community": 251,
@@ -32755,7 +32975,7 @@
       "label": "GameSetup",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L263",
+      "source_location": "L266",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamesetup",
       "community": 251,
@@ -32765,7 +32985,7 @@
       "label": ".TryLoad()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L297",
+      "source_location": "L300",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tryload",
       "community": 251,
@@ -32775,7 +32995,7 @@
       "label": ".SavedBefore()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L315",
+      "source_location": "L318",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_savedbefore",
       "community": 251,
@@ -32785,7 +33005,7 @@
       "label": "GameData",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L315",
+      "source_location": "L318",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
       "community": 251,
@@ -32795,7 +33015,7 @@
       "label": ".FromSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L318",
+      "source_location": "L321",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_fromsavedata",
       "community": 251,
@@ -32805,7 +33025,7 @@
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L431",
+      "source_location": "L434",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 251,
@@ -32815,7 +33035,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L534",
+      "source_location": "L538",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -32825,7 +33045,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L534",
+      "source_location": "L538",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 251,
@@ -32835,7 +33055,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L538",
+      "source_location": "L542",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -32845,7 +33065,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L549",
+      "source_location": "L553",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -32855,7 +33075,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L556",
+      "source_location": "L560",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -32865,7 +33085,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L556",
+      "source_location": "L560",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -32875,7 +33095,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L616",
+      "source_location": "L620",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -46170,6 +46390,206 @@
       "id": "characters_oathtests_oathtests_roundtrip_keepsthepactsandtheheartdemons",
       "community": 58,
       "norm_label": ".roundtrip_keepsthepactsandtheheartdemons()"
+    },
+    {
+      "label": "PillTests.cs",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "characters_pilltests",
+      "community": 447,
+      "norm_label": "pilltests.cs"
+    },
+    {
+      "label": "MirrorChronicles.Tests.Characters",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "characters_pilltests_mirrorchronicles_tests_characters",
+      "community": 447,
+      "norm_label": "mirrorchronicles.tests.characters"
+    },
+    {
+      "label": "PillTests",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests",
+      "community": 447,
+      "norm_label": "pilltests"
+    },
+    {
+      "label": "string",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_pilltests_cs_string",
+      "community": 447,
+      "norm_label": "string"
+    },
+    {
+      "label": ".Def()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_def",
+      "community": 447,
+      "norm_label": ".def()"
+    },
+    {
+      "label": "PillKind",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_pilltests_cs_pillkind",
+      "community": 447,
+      "norm_label": "pillkind"
+    },
+    {
+      "label": "PillDefinition",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_pilltests_cs_pilldefinition",
+      "community": 447,
+      "norm_label": "pilldefinition"
+    },
+    {
+      "label": ".Session()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_session",
+      "community": 447,
+      "norm_label": ".session()"
+    },
+    {
+      "label": "GameSession",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_pilltests_cs_gamesession",
+      "community": 447,
+      "norm_label": "gamesession"
+    },
+    {
+      "label": ".Alchemist()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_alchemist",
+      "community": 447,
+      "norm_label": ".alchemist()"
+    },
+    {
+      "label": "CharacterData",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_pilltests_cs_characterdata",
+      "community": 447,
+      "norm_label": "characterdata"
+    },
+    {
+      "label": ".AlchemyPower()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_alchemypower",
+      "community": 447,
+      "norm_label": ".alchemypower()"
+    },
+    {
+      "label": "FactionData",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_pilltests_cs_factiondata",
+      "community": 447,
+      "norm_label": "factiondata"
+    },
+    {
+      "label": ".AnAlchemist_RefinesOnlyThePillsItsMasteryAllows()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_analchemist_refinesonlythepillsitsmasteryallows",
+      "community": 447,
+      "norm_label": ".analchemist_refinesonlythepillsitsmasteryallows()"
+    },
+    {
+      "label": "Test",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "tests_core_tests_characters_pilltests_cs_test",
+      "community": 447,
+      "norm_label": "test"
+    },
+    {
+      "label": ".APower_SellsItsPills_ThePurpleMansionsOnlyInKind()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_apower_sellsitspills_thepurplemansionsonlyinkind",
+      "community": 447,
+      "norm_label": ".apower_sellsitspills_thepurplemansionsonlyinkind()"
+    },
+    {
+      "label": ".APowerWithoutAlchemy_SellsNoPill()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_apowerwithoutalchemy_sellsnopill",
+      "community": 447,
+      "norm_label": ".apowerwithoutalchemy_sellsnopill()"
+    },
+    {
+      "label": ".TheFifthChakra_WithoutTheBrightSpiritPowder_IsHarder_AndThePowderIsSpent()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_thefifthchakra_withoutthebrightspiritpowder_isharder_andthepowderisspent",
+      "community": 447,
+      "norm_label": ".thefifthchakra_withoutthebrightspiritpowder_isharder_andthepowderisspent()"
+    },
+    {
+      "label": ".AHeartDemon_IsPurified_WithThePill_NotWithHerbs()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L104",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_aheartdemon_ispurified_withthepill_notwithherbs",
+      "community": 447,
+      "norm_label": ".aheartdemon_ispurified_withthepill_notwithherbs()"
+    },
+    {
+      "label": ".ThePills_AreSaved()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L118",
+      "_origin": "ast",
+      "id": "characters_pilltests_pilltests_thepills_aresaved",
+      "community": 447,
+      "norm_label": ".thepills_aresaved()"
     },
     {
       "label": "PowerLadderTests.cs",
@@ -62922,6 +63342,26 @@
       "norm_label": ".eachlackingart_offersitssources_orsayswhynot()"
     },
     {
+      "label": ".EachPill_OffersItsRefining_AndItsPurchase_OrSaysWhyNot()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "presentation_artviewtests_artviewtests_eachpill_offersitsrefining_anditspurchase_orsayswhynot",
+      "community": 333,
+      "norm_label": ".eachpill_offersitsrefining_anditspurchase_orsayswhynot()"
+    },
+    {
+      "label": ".AHeartDemon_OffersItsPurification()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "presentation_artviewtests_artviewtests_aheartdemon_offersitspurification",
+      "community": 333,
+      "norm_label": ".aheartdemon_offersitspurification()"
+    },
+    {
       "label": "ArtifactViewTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Presentation/ArtifactViewTests.cs",
@@ -65892,10 +66332,20 @@
       "norm_label": ".thepilot_condenseswithresources_whennomethodcanbehad()"
     },
     {
+      "label": ".ThePilot_BuysTheCondensationPill_InKind_WhenItHasNone()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buysthecondensationpill_inkind_whenithasnone",
+      "community": 334,
+      "norm_label": ".thepilot_buysthecondensationpill_inkind_whenithasnone()"
+    },
+    {
       "label": ".ThePilot_ForgesAGoldenCore_WhenItsGrandPerfectionIsReady()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L120",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_forgesagoldencore_whenitsgrandperfectionisready",
       "community": 334,
@@ -65905,7 +66355,7 @@
       "label": ".ThePilot_DoesNotForge_AgainstPoorOdds()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L130",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_doesnotforge_againstpoorodds",
       "community": 334,
@@ -65915,7 +66365,7 @@
       "label": ".ThePilot_DoesNotForge_BelowSixtyPercent()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L140",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_doesnotforge_belowsixtypercent",
       "community": 334,
@@ -65925,7 +66375,7 @@
       "label": ".ThePilot_ForgesAnyway_NearTheEndOfItsLife()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L149",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_forgesanyway_neartheendofitslife",
       "community": 334,
@@ -65935,7 +66385,7 @@
       "label": ".ANearlySpentEssence_ClaimsItsPosition_WhateverTheOdds()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L159",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_anearlyspentessence_claimsitsposition_whatevertheodds",
       "community": 334,
@@ -65945,7 +66395,7 @@
       "label": ".ThePilot_WaitsForAMethod_RatherThanCondenseAShallowFoundation()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L174",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_waitsforamethod_ratherthancondenseashallowfoundation",
       "community": 334,
@@ -65955,7 +66405,7 @@
       "label": ".ThePilot_CondensesWithResources_WhenTheOnlyHolderIsOutOfReach()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L186",
+      "source_location": "L206",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_condenseswithresources_whentheonlyholderisoutofreach",
       "community": 334,
@@ -65965,7 +66415,7 @@
       "label": ".ThePilot_ClaimsThePosition_OfAForgedEssence()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L201",
+      "source_location": "L221",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_claimstheposition_ofaforgedessence",
       "community": 334,
@@ -65975,7 +66425,7 @@
       "label": ".ThePilot_ExploresAKnownTomb_WhenItsTeamOutmatchesTheGuardian()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L214",
+      "source_location": "L234",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_exploresaknowntomb_whenitsteamoutmatchestheguardian",
       "community": 334,
@@ -65985,7 +66435,7 @@
       "label": ".ThePilot_TakesAFamilyOfTheLake_AsItsVassal_FirstOfAll()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L224",
+      "source_location": "L244",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_takesafamilyofthelake_asitsvassal_firstofall",
       "community": 334,
@@ -65995,7 +66445,7 @@
       "label": ".ThePilot_SavesForTheSect_InsteadOfBuilding_OnceOnlyItsStonesAreLacking()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L235",
+      "source_location": "L255",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_savesforthesect_insteadofbuilding_onceonlyitsstonesarelacking",
       "community": 334,
@@ -66005,7 +66455,7 @@
       "label": ".Stocked()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L248",
+      "source_location": "L268",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_stocked",
       "community": 334,
@@ -66015,7 +66465,7 @@
       "label": ".ThePilot_StillCondenses_WhileSavingForTheSect()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L256",
+      "source_location": "L277",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_stillcondenses_whilesavingforthesect",
       "community": 334,
@@ -66025,7 +66475,7 @@
       "label": ".ThePilot_KeepsALifeAbility_ForTheLast()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L270",
+      "source_location": "L291",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_keepsalifeability_forthelast",
       "community": 334,
@@ -66035,7 +66485,7 @@
       "label": ".ThePilot_SpendsNoLifeAbility_BeforeTheLast()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L284",
+      "source_location": "L305",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_spendsnolifeability_beforethelast",
       "community": 334,
@@ -66045,7 +66495,7 @@
       "label": ".ThePilot_RaisesTheMineAndTheForge_ToTheFourthLevel()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L296",
+      "source_location": "L317",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_raisesthemineandtheforge_tothefourthlevel",
       "community": 334,
@@ -66055,7 +66505,7 @@
       "label": ".ARichClan_SeeksPeaceWithAStrongerPower_BeforeItCovetsTheHoard()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L308",
+      "source_location": "L329",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_arichclan_seekspeacewithastrongerpower_beforeitcovetsthehoard",
       "community": 334,
@@ -66065,7 +66515,7 @@
       "label": ".ThePilot_SendsADiplomat_ToAColdGateItCouldBow()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L322",
+      "source_location": "L343",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_sendsadiplomat_toacoldgateitcouldbow",
       "community": 334,
@@ -66075,7 +66525,7 @@
       "label": ".ThePilot_SeeksTheGatesAndSectsOfLinxi_BeforeItsFamilies()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L342",
+      "source_location": "L363",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_seeksthegatesandsectsoflinxi_beforeitsfamilies",
       "community": 334,
@@ -66085,7 +66535,7 @@
       "label": ".Prober()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L356",
+      "source_location": "L377",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_prober",
       "community": 334,
@@ -66095,7 +66545,7 @@
       "label": ".ThePilot_ProbesAVassalFirst()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L363",
+      "source_location": "L384",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_probesavassalfirst",
       "community": 334,
@@ -66105,7 +66555,7 @@
       "label": ".ThePilot_KeepsDigging_ThePowerItProbed()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L372",
+      "source_location": "L393",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_keepsdigging_thepoweritprobed",
       "community": 334,
@@ -66115,7 +66565,7 @@
       "label": ".ThePilot_KeepsTheMirror_ForANewcomerToSound_RatherThanItsSight()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L384",
+      "source_location": "L405",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_keepsthemirror_foranewcomertosound_ratherthanitssight",
       "community": 334,
@@ -66125,7 +66575,7 @@
       "label": ".ThePilot_LooksWithTheMirror_WhenItCan()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L395",
+      "source_location": "L416",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_lookswiththemirror_whenitcan",
       "community": 334,
@@ -66135,7 +66585,7 @@
       "label": ".ThePilot_SabotagesARival_InTheRaceForItsMastersLineage()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L402",
+      "source_location": "L423",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_sabotagesarival_intheraceforitsmasterslineage",
       "community": 334,
@@ -66145,7 +66595,7 @@
       "label": ".ThePilot_BuildsTheHerbGardenAndTheMine_WhenItsTreasuryAllows()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L417",
+      "source_location": "L438",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buildstheherbgardenandthemine_whenitstreasuryallows",
       "community": 334,
@@ -66155,7 +66605,7 @@
       "label": ".ThePilot_HidesTheRebornAncestor_InSeclusion_UntilItsPurpleMansion()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L428",
+      "source_location": "L449",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_hidestherebornancestor_inseclusion_untilitspurplemansion",
       "community": 334,
@@ -66165,7 +66615,7 @@
       "label": ".ThePilot_FoundsTheKingdom_AsSoonAsItMay()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L441",
+      "source_location": "L462",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_foundsthekingdom_assoonasitmay",
       "community": 334,
@@ -66175,7 +66625,7 @@
       "label": ".ThePilot_LeavesADemonToTheUnderworld_AndSubduesOneLetBe()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L456",
+      "source_location": "L477",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_leavesademontotheunderworld_andsubduesoneletbe",
       "community": 334,
@@ -66185,7 +66635,7 @@
       "label": ".ThePilot_CondensesATreasure_MortgagesIt_AndUnsealsAMasterlessDesignation()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L473",
+      "source_location": "L494",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_condensesatreasure_mortgagesit_andunsealsamasterlessdesignation",
       "community": 334,
@@ -66195,7 +66645,7 @@
       "label": ".ThePilot_HasTheMirrorDeduceTheMinorsOfItsMansionsLineage()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L492",
+      "source_location": "L513",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_hasthemirrordeducetheminorsofitsmansionslineage",
       "community": 334,
@@ -76958,7 +77408,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "brain_claude_plan_syst\u00e8mes_du_jeu_d\u00e9tail",
-      "community": 449,
+      "community": 41,
       "norm_label": "\ud83e\udde9 systemes du jeu (detail)"
     },
     {
@@ -76968,7 +77418,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "brain_claude_plan_1_core_boucle_principale",
-      "community": 449,
+      "community": 41,
       "norm_label": "1. core \u2014 boucle principale"
     },
     {
@@ -76978,7 +77428,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "brain_claude_plan_2_mirror_interface_joueur",
-      "community": 449,
+      "community": 41,
       "norm_label": "2. mirror \u2014 interface joueur"
     },
     {
@@ -76988,7 +77438,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "brain_claude_plan_3_clan_lign\u00e9e",
-      "community": 449,
+      "community": 41,
       "norm_label": "3. clan \u2014 lignee"
     },
     {
@@ -76998,7 +77448,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "brain_claude_plan_4_characters_individus",
-      "community": 449,
+      "community": 41,
       "norm_label": "4. characters \u2014 individus"
     },
     {
@@ -77008,7 +77458,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "brain_claude_plan_5_combat_tactique_tour_par_tour",
-      "community": 449,
+      "community": 41,
       "norm_label": "5. combat \u2014 tactique tour par tour"
     },
     {
@@ -77018,7 +77468,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "brain_claude_plan_6_diplomacy_monde_ext\u00e9rieur",
-      "community": 449,
+      "community": 41,
       "norm_label": "6. diplomacy \u2014 monde exterieur"
     },
     {
@@ -77028,7 +77478,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "brain_claude_plan_7_economy_ressources_t\u00e2ches",
-      "community": 449,
+      "community": 41,
       "norm_label": "7. economy \u2014 ressources & taches"
     },
     {
@@ -77038,7 +77488,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "brain_claude_plan_8_events_al\u00e9atoire_sc\u00e9naris\u00e9",
-      "community": 449,
+      "community": 41,
       "norm_label": "8. events \u2014 aleatoire + scenarise"
     },
     {
@@ -77872,7 +78322,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player controls no character directly; observes, guides and influences a mortal family over generations to become the strongest cultivator clan of Mount Dali.",
-      "community": 448,
+      "community": 434,
       "norm_label": "player as consciousness trapped in ancestral bronze mirror",
       "id": "brain_claude_memory_mirror_consciousness_premise"
     },
@@ -78273,7 +78723,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Single slot by default, auto-save at end of each year; optional Casual mode with 3 slots.",
-      "community": 448,
+      "community": 434,
       "norm_label": "ironman save (yearly auto-save json)",
       "id": "brain_claude_plan_ironman_save"
     },
@@ -78313,7 +78763,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 451,
+      "community": 82,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -78459,7 +78909,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Inconsistent AI-generated renames; prevention: IDE Refactor->Rename, treat CS0103 as error.",
-      "community": 448,
+      "community": 434,
       "norm_label": "wl-001: deceased.rootelement does not exist (use affinity)",
       "id": "brain_claude_worked_lesson_wl_001"
     },
@@ -78473,7 +78923,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Avoid repeating the type prefix in method names.",
-      "community": 448,
+      "community": 434,
       "norm_label": "wl-002: mirrorsystem.consumemirrorpower does not exist (consumepower)",
       "id": "brain_claude_worked_lesson_wl_002"
     },
@@ -78487,7 +78937,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 448,
+      "community": 434,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -78501,7 +78951,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Write real NUnit tests so signature drift is caught immediately.",
-      "community": 448,
+      "community": 434,
       "norm_label": "wl-004: eventmanager.generateyearlyevent missing / triggeryearlyevent private",
       "id": "brain_claude_worked_lesson_wl_004"
     },
@@ -78515,7 +78965,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Separate test assembly + InternalsVisibleTo strategy from the start.",
-      "community": 448,
+      "community": 434,
       "norm_label": "wl-005: private factionmanager.processyearlyfactionai called from test",
       "id": "brain_claude_worked_lesson_wl_005"
     },
@@ -78599,7 +79049,7 @@
       "author": null,
       "contributor": null,
       "rationale": "AI Studio forced a web format and C# was generated alongside without ever being compiled, causing WL-001..005; pick one framework and execute after every AI prompt.",
-      "community": 448,
+      "community": 434,
       "norm_label": "wl-100: unity -> web -> unity pivot debt",
       "id": "brain_claude_worked_lesson_wl_100"
     },
@@ -78653,7 +79103,7 @@
       "author": null,
       "contributor": null,
       "rationale": "2D multigenerational clan-management RPG with Xianxia cultivation, turn-based tactical combat, faction diplomacy and inheritance over 10+ generations.",
-      "community": 448,
+      "community": 434,
       "norm_label": "reflets de lignee: les chroniques du miroir (mirror chronicles)",
       "id": "readme_mirror_chronicles"
     },
@@ -78666,7 +79116,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 434,
       "norm_label": "the mirror legacy (xuanjian xianzu) - inspiration",
       "id": "readme_the_mirror_legacy"
     },
@@ -83152,6 +83602,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/Library.cs",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "scripts_library_library",
+      "target": "scripts_library_library_addaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Library.cs",
       "source_location": "L72",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -83339,6 +83799,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/Library.cs",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "scripts_library_library_addaction",
+      "target": "scripts_library_library_refresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Library.cs",
       "source_location": "L50",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -83427,11 +83898,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "game/scripts/Library.cs",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "scripts_library_library_showimmortalarts",
+      "target": "scripts_library_library_addaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Library.cs",
       "source_location": "L82",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "scripts_library_library_showimmortalarts",
       "target": "scripts_library_library_clear"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "game/scripts/Library.cs",
+      "source_location": "L171",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "scripts_library_library_addaction",
+      "target": "func_string",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -87818,6 +88311,36 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem",
+      "target": "characters_alchemysystem_alchemysystem_buypill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L225",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem",
+      "target": "characters_alchemysystem_alchemysystem_buyrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem",
+      "target": "characters_alchemysystem_alchemysystem_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L39",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -87868,11 +88391,51 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem",
+      "target": "characters_alchemysystem_alchemysystem_gainpills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L42",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
       "target": "characters_alchemysystem_alchemysystem_holdsessencepillfor"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem",
+      "target": "characters_alchemysystem_alchemysystem_pillname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L196",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem",
+      "target": "characters_alchemysystem_alchemysystem_pillrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem",
+      "target": "characters_alchemysystem_alchemysystem_pillsof",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -87903,6 +88466,16 @@
       "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
       "target": "characters_alchemysystem_alchemysystem_refineessencepill"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L211",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem",
+      "target": "characters_alchemysystem_alchemysystem_refinepill",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -87943,6 +88516,16 @@
       "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem",
       "target": "characters_alchemysystem_alchemysystem_takeessencepill"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem",
+      "target": "characters_alchemysystem_alchemysystem_takepill",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -88223,6 +88806,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L196",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_pillrefusal",
+      "target": "src_core_characters_alchemysystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L63",
       "weight": 1.0,
       "context": "parameter_type",
@@ -88301,6 +88895,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L187",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_takepill",
+      "target": "characters_alchemysystem_alchemysystem_remove",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
       "source_location": "L109",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -88330,6 +88935,28 @@
       "target": "src_core_characters_alchemysystem_cs_ireadonlylist"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L239",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_buypill",
+      "target": "src_core_characters_alchemysystem_cs_ireadonlylist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L225",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_buyrefusal",
+      "target": "src_core_characters_alchemysystem_cs_ireadonlylist",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -88339,6 +88966,281 @@
       "confidence_score": 1.0,
       "source": "characters_alchemysystem_alchemysystem_refineessencepill",
       "target": "characters_alchemysystem_alchemysystem_refinerefusal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L179",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_gainpills",
+      "target": "characters_alchemysystem_alchemysystem_pillsof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L175",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_pillsof",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_takepill",
+      "target": "characters_alchemysystem_alchemysystem_pillsof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L239",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_buypill",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L225",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_buyrefusal",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L191",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_definition",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L177",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_gainpills",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L193",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_pillname",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L196",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_pillrefusal",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L211",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_refinepill",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L254",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "characters_alchemysystem_alchemysystem_restore",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L183",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_alchemysystem_alchemysystem_takepill",
+      "target": "src_core_characters_alchemysystem_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L249",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_buypill",
+      "target": "characters_alchemysystem_alchemysystem_gainpills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_refinepill",
+      "target": "characters_alchemysystem_alchemysystem_gainpills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L259",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_restore",
+      "target": "characters_alchemysystem_alchemysystem_gainpills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L242",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_buypill",
+      "target": "characters_alchemysystem_alchemysystem_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L227",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_buyrefusal",
+      "target": "characters_alchemysystem_alchemysystem_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L191",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_alchemysystem_alchemysystem_definition",
+      "target": "src_core_characters_alchemysystem_cs_pilldefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_pillname",
+      "target": "characters_alchemysystem_alchemysystem_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L198",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_pillrefusal",
+      "target": "characters_alchemysystem_alchemysystem_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L215",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_refinepill",
+      "target": "characters_alchemysystem_alchemysystem_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_refinepill",
+      "target": "characters_alchemysystem_alchemysystem_pillrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L241",
+      "weight": 1.0,
+      "source": "characters_alchemysystem_alchemysystem_buypill",
+      "target": "characters_alchemysystem_alchemysystem_buyrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L225",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "characters_alchemysystem_alchemysystem_buyrefusal",
+      "target": "src_core_characters_alchemysystem_cs_accordterm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/AlchemySystem.cs",
+      "source_location": "L239",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "characters_alchemysystem_alchemysystem_buypill",
+      "target": "src_core_characters_alchemysystem_cs_accordterm",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -89148,9 +90050,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem",
-      "target": "characters_artsystem_artsystem_deduce",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_deduce"
     },
     {
       "relation": "method",
@@ -89158,9 +90060,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L149",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem",
-      "target": "characters_artsystem_artsystem_deducerefusal",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_deducerefusal"
     },
     {
       "relation": "method",
@@ -89168,9 +90070,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem",
-      "target": "characters_artsystem_artsystem_find",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_find"
     },
     {
       "relation": "method",
@@ -89198,9 +90100,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem",
-      "target": "characters_artsystem_artsystem_lacking",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_lacking"
     },
     {
       "relation": "method",
@@ -89208,9 +90110,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem",
-      "target": "characters_artsystem_artsystem_learnfrom",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_learnfrom"
     },
     {
       "relation": "method",
@@ -89218,9 +90120,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem",
-      "target": "characters_artsystem_artsystem_learnrefusal",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_learnrefusal"
     },
     {
       "relation": "method",
@@ -89298,9 +90200,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem",
-      "target": "characters_artsystem_artsystem_searchtheruins",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_searchtheruins"
     },
     {
       "relation": "method",
@@ -89385,9 +90287,9 @@
       "source_location": "L160",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_deduce",
-      "target": "src_core_characters_artsystem_cs_immortalart",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_immortalart"
     },
     {
       "relation": "references",
@@ -89396,9 +90298,9 @@
       "source_location": "L149",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_deducerefusal",
-      "target": "src_core_characters_artsystem_cs_immortalart",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_immortalart"
     },
     {
       "relation": "references",
@@ -89418,9 +90320,9 @@
       "source_location": "L139",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_learnfrom",
-      "target": "src_core_characters_artsystem_cs_immortalart",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_immortalart"
     },
     {
       "relation": "references",
@@ -89429,9 +90331,9 @@
       "source_location": "L127",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_learnrefusal",
-      "target": "src_core_characters_artsystem_cs_immortalart",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_immortalart"
     },
     {
       "relation": "references",
@@ -89495,9 +90397,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L165",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_deduce",
-      "target": "characters_artsystem_artsystem_gainlegacy",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_gainlegacy"
     },
     {
       "relation": "calls",
@@ -89506,9 +90408,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_find",
-      "target": "characters_artsystem_artsystem_gainlegacy",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_gainlegacy"
     },
     {
       "relation": "calls",
@@ -89517,9 +90419,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_learnfrom",
-      "target": "characters_artsystem_artsystem_gainlegacy",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_gainlegacy"
     },
     {
       "relation": "references",
@@ -89682,9 +90584,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_find",
-      "target": "characters_artsystem_artsystem_lacking",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_lacking"
     },
     {
       "relation": "references",
@@ -89693,9 +90595,9 @@
       "source_location": "L110",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_lacking",
-      "target": "list_immortalart",
-      "confidence_score": 1.0
+      "target": "list_immortalart"
     },
     {
       "relation": "calls",
@@ -89704,9 +90606,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L123",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_searchtheruins",
-      "target": "characters_artsystem_artsystem_lacking",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_lacking"
     },
     {
       "relation": "calls",
@@ -89715,9 +90617,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L123",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_searchtheruins",
-      "target": "characters_artsystem_artsystem_find",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_find"
     },
     {
       "relation": "calls",
@@ -89726,9 +90628,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_learnfrom",
-      "target": "characters_artsystem_artsystem_learnrefusal",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_learnrefusal"
     },
     {
       "relation": "references",
@@ -89737,9 +90639,9 @@
       "source_location": "L127",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_learnrefusal",
-      "target": "src_core_characters_artsystem_cs_accordterm",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_accordterm"
     },
     {
       "relation": "references",
@@ -89748,9 +90650,9 @@
       "source_location": "L127",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_learnrefusal",
-      "target": "src_core_characters_artsystem_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -89759,9 +90661,9 @@
       "source_location": "L160",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_deduce",
-      "target": "src_core_characters_artsystem_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -89770,9 +90672,9 @@
       "source_location": "L149",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_deducerefusal",
-      "target": "src_core_characters_artsystem_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -89781,9 +90683,9 @@
       "source_location": "L139",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_learnfrom",
-      "target": "src_core_characters_artsystem_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -89792,9 +90694,9 @@
       "source_location": "L139",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_learnfrom",
-      "target": "src_core_characters_artsystem_cs_accordterm",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artsystem_cs_accordterm"
     },
     {
       "relation": "calls",
@@ -89803,9 +90705,9 @@
       "source_file": "src/Core/Characters/ArtSystem.cs",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artsystem_artsystem_deduce",
-      "target": "characters_artsystem_artsystem_deducerefusal",
-      "confidence_score": 1.0
+      "target": "characters_artsystem_artsystem_deducerefusal"
     },
     {
       "relation": "contains",
@@ -96911,6 +97813,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/OathSystem.cs",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "characters_oathsystem_oathsystem",
+      "target": "characters_oathsystem_oathsystem_purifyrefusal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L122",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -97126,6 +98038,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/OathSystem.cs",
+      "source_location": "L119",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_oathsystem_oathsystem_purifyrefusal",
+      "target": "src_core_characters_oathsystem_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L141",
       "weight": 1.0,
       "context": "return_type",
@@ -97259,6 +98182,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/OathSystem.cs",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "characters_oathsystem_oathsystem_purifyrefusal",
+      "target": "characters_oathsystem_oathsystem_allows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/OathSystem.cs",
       "source_location": "L65",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -97332,6 +98266,17 @@
       "target": "oathact"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/OathSystem.cs",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "characters_oathsystem_oathsystem_purify",
+      "target": "characters_oathsystem_oathsystem_purifyrefusal",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/OathSystem.cs",
@@ -97370,9 +98315,9 @@
       "source_file": "src/Core/Characters/PowerArts.cs",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_powerarts",
-      "target": "characters_powerarts_mirrorchronicles_characters",
-      "confidence_score": 1.0
+      "target": "characters_powerarts_mirrorchronicles_characters"
     },
     {
       "relation": "contains",
@@ -97380,9 +98325,9 @@
       "source_file": "src/Core/Characters/PowerArts.cs",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_powerarts",
-      "target": "characters_powerarts_powerarts",
-      "confidence_score": 1.0
+      "target": "characters_powerarts_powerarts"
     },
     {
       "relation": "method",
@@ -97390,9 +98335,9 @@
       "source_file": "src/Core/Characters/PowerArts.cs",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts",
-      "target": "characters_powerarts_powerarts_knows",
-      "confidence_score": 1.0
+      "target": "characters_powerarts_powerarts_knows"
     },
     {
       "relation": "method",
@@ -97400,9 +98345,9 @@
       "source_file": "src/Core/Characters/PowerArts.cs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts",
-      "target": "characters_powerarts_powerarts_of",
-      "confidence_score": 1.0
+      "target": "characters_powerarts_powerarts_of"
     },
     {
       "relation": "references",
@@ -97411,9 +98356,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts_knows",
-      "target": "src_core_characters_powerarts_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_powerarts_cs_factiondata"
     },
     {
       "relation": "references",
@@ -97422,9 +98367,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts_knows",
-      "target": "src_core_characters_powerarts_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_characters_powerarts_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -97433,9 +98378,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts_knows",
-      "target": "src_core_characters_powerarts_cs_immortalart",
-      "confidence_score": 1.0
+      "target": "src_core_characters_powerarts_cs_immortalart"
     },
     {
       "relation": "calls",
@@ -97444,9 +98389,9 @@
       "source_file": "src/Core/Characters/PowerArts.cs",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts_of",
-      "target": "characters_powerarts_powerarts_knows",
-      "confidence_score": 1.0
+      "target": "characters_powerarts_powerarts_knows"
     },
     {
       "relation": "references",
@@ -97455,9 +98400,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts_of",
-      "target": "src_core_characters_powerarts_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_characters_powerarts_cs_factiondata"
     },
     {
       "relation": "references",
@@ -97466,9 +98411,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts_of",
-      "target": "src_core_characters_powerarts_cs_immortalart",
-      "confidence_score": 1.0
+      "target": "src_core_characters_powerarts_cs_immortalart"
     },
     {
       "relation": "references",
@@ -97477,9 +98422,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts_of",
-      "target": "src_core_characters_powerarts_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_characters_powerarts_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -97488,9 +98433,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_powerarts_powerarts_of",
-      "target": "src_core_characters_powerarts_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_characters_powerarts_cs_ireadonlylist"
     },
     {
       "relation": "contains",
@@ -118775,9 +119720,9 @@
       "source_file": "src/Core/Events/GameEventBus.cs",
       "source_location": "L156",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus",
-      "target": "events_gameeventbus_gameeventbus_triggerartlegacygained",
-      "confidence_score": 1.0
+      "target": "events_gameeventbus_gameeventbus_triggerartlegacygained"
     },
     {
       "relation": "method",
@@ -119924,9 +120869,9 @@
       "source_location": "L156",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "events_gameeventbus_gameeventbus_triggerartlegacygained",
-      "target": "src_core_events_gameeventbus_cs_immortalart",
-      "confidence_score": 1.0
+      "target": "src_core_events_gameeventbus_cs_immortalart"
     },
     {
       "relation": "references",
@@ -120390,9 +121335,9 @@
       "source_file": "src/Core/Mirror/DeductionEngine.cs",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mirror_deductionengine_deductionengine",
-      "target": "mirror_deductionengine_deductionengine_consume",
-      "confidence_score": 1.0
+      "target": "mirror_deductionengine_deductionengine_consume"
     },
     {
       "relation": "method",
@@ -120559,9 +121504,9 @@
       "source_location": "L44",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "mirror_deductionengine_deductionengine_consume",
-      "target": "src_core_mirror_deductionengine_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_mirror_deductionengine_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -125024,9 +125969,9 @@
       "source_file": "src/Core/Presentation/ArtView.cs",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview",
-      "target": "presentation_artview_artview_legacyoffers",
-      "confidence_score": 1.0
+      "target": "presentation_artview_artview_legacyoffers"
     },
     {
       "relation": "method",
@@ -125037,6 +125982,26 @@
       "confidence_score": 1.0,
       "source": "presentation_artview_artview",
       "target": "presentation_artview_artview_members"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L123",
+      "weight": 1.0,
+      "source": "presentation_artview_artview",
+      "target": "presentation_artview_artview_otherpillstock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "presentation_artview_artview",
+      "target": "presentation_artview_artview_pillkindoffers",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -125057,6 +126022,16 @@
       "confidence_score": 1.0,
       "source": "presentation_artview_artview",
       "target": "presentation_artview_artview_pillstock"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "presentation_artview_artview",
+      "target": "presentation_artview_artview_purifyoffers",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -125109,9 +126084,9 @@
       "source_location": "L89",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_legacyoffers",
-      "target": "src_core_presentation_artview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_artview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -125123,6 +126098,28 @@
       "confidence_score": 1.0,
       "source": "presentation_artview_artview_members",
       "target": "src_core_presentation_artview_cs_gamesession"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L123",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_artview_artview_otherpillstock",
+      "target": "src_core_presentation_artview_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L128",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_artview_artview_pillkindoffers",
+      "target": "src_core_presentation_artview_cs_gamesession",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -125150,12 +126147,23 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "presentation_artview_artview_purifyoffers",
+      "target": "src_core_presentation_artview_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
       "source_location": "L89",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_legacyoffers",
-      "target": "src_core_presentation_artview_cs_ireadonlylist",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_artview_cs_ireadonlylist"
     },
     {
       "relation": "references",
@@ -125172,12 +126180,34 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L128",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "presentation_artview_artview_pillkindoffers",
+      "target": "src_core_presentation_artview_cs_ireadonlylist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
       "source_location": "L50",
       "weight": 1.0,
       "context": "return_type",
       "confidence_score": 1.0,
       "source": "presentation_artview_artview_pilloffers",
       "target": "src_core_presentation_artview_cs_ireadonlylist"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "presentation_artview_artview_purifyoffers",
+      "target": "src_core_presentation_artview_cs_ireadonlylist",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -125219,8 +126249,30 @@
       "source_location": "L89",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "presentation_artview_artview_legacyoffers",
-      "target": "legacyoffer",
+      "target": "legacyoffer"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L128",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "presentation_artview_artview_pillkindoffers",
+      "target": "pillkindoffer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Presentation/ArtView.cs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "presentation_artview_artview_purifyoffers",
+      "target": "purifyoffer",
       "confidence_score": 1.0
     },
     {
@@ -131547,6 +132599,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
+      "source_location": "L383",
+      "weight": 1.0,
+      "source": "session_balancerun_ascent_balancerun",
+      "target": "session_balancerun_ascent_balancerun_getacondensationpill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
       "source_location": "L70",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -132113,6 +133175,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
+      "source_location": "L383",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "session_balancerun_ascent_balancerun_getacondensationpill",
+      "target": "src_core_session_balancerun_ascent_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
       "source_location": "L70",
       "weight": 1.0,
       "context": "parameter_type",
@@ -132475,6 +133548,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L410",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_buythechakraspowder",
+      "target": "session_balancerun_ascent_balancerun_affords"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
       "source_location": "L227",
@@ -132739,6 +133823,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
+      "source_location": "L375",
+      "weight": 1.0,
+      "source": "session_balancerun_ascent_balancerun_condensewithresourceswhenstuck",
+      "target": "session_balancerun_ascent_balancerun_getacondensationpill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "src/Core/Session/BalanceRun.cs",
@@ -132848,6 +133943,16 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun",
       "target": "session_balancerun_balancerun_ascentmethod"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L401",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun",
+      "target": "session_balancerun_balancerun_buythechakraspowder",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -133318,6 +134423,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L401",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "session_balancerun_balancerun_buythechakraspowder",
+      "target": "src_core_session_balancerun_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
       "source_location": "L220",
       "weight": 1.0,
       "context": "parameter_type",
@@ -133698,6 +134814,17 @@
       "confidence_score": 1.0,
       "source": "session_balancerun_balancerun_act",
       "target": "session_balancerun_balancerun_ascentmethod"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/BalanceRun.cs",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "session_balancerun_balancerun_act",
+      "target": "session_balancerun_balancerun_buythechakraspowder",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -149675,9 +150802,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests"
     },
     {
       "relation": "contains",
@@ -149685,9 +150812,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_mirrorchronicles_tests_characters",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_mirrorchronicles_tests_characters"
     },
     {
       "relation": "method",
@@ -149695,9 +150822,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_afriendlypower_teachesitsart_inkind_neverforstones",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_afriendlypower_teachesitsart_inkind_neverforstones"
     },
     {
       "relation": "method",
@@ -149705,9 +150832,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_againedlegacy_istoldinthechronicle",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_againedlegacy_istoldinthechronicle"
     },
     {
       "relation": "method",
@@ -149715,9 +150842,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_apowerteachesonlytheartsitknows",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_apowerteachesonlytheartsitknows"
     },
     {
       "relation": "method",
@@ -149725,9 +150852,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_ateacher",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_ateacher"
     },
     {
       "relation": "method",
@@ -149735,9 +150862,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_atomb_mayholdanartsmanual",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_atomb_mayholdanartsmanual"
     },
     {
       "relation": "method",
@@ -149745,9 +150872,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_qiworth",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_qiworth"
     },
     {
       "relation": "method",
@@ -149755,9 +150882,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_ruins_mayholdanartsmanual",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_ruins_mayholdanartsmanual"
     },
     {
       "relation": "method",
@@ -149765,9 +150892,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_session"
     },
     {
       "relation": "method",
@@ -149775,9 +150902,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_themirror_deducesanart_fromfragments_atitsprice",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_themirror_deducesanart_fromfragments_atitsprice"
     },
     {
       "relation": "method",
@@ -149785,9 +150912,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_thepowers_knowarts_bytheirkind_andonlyfromthefoundation",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_thepowers_knowarts_bytheirkind_andonlyfromthefoundation"
     },
     {
       "relation": "method",
@@ -149795,9 +150922,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_with",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_with"
     },
     {
       "relation": "references",
@@ -149806,9 +150933,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_string",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_string"
     },
     {
       "relation": "calls",
@@ -149817,9 +150944,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_afriendlypower_teachesitsart_inkind_neverforstones",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_session"
     },
     {
       "relation": "calls",
@@ -149828,9 +150955,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_againedlegacy_istoldinthechronicle",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_session"
     },
     {
       "relation": "calls",
@@ -149839,9 +150966,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_apowerteachesonlytheartsitknows",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_session"
     },
     {
       "relation": "calls",
@@ -149850,9 +150977,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_atomb_mayholdanartsmanual",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_session"
     },
     {
       "relation": "calls",
@@ -149861,9 +150988,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_ruins_mayholdanartsmanual",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_session"
     },
     {
       "relation": "references",
@@ -149872,9 +150999,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -149883,9 +151010,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -149894,9 +151021,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_themirror_deducesanart_fromfragments_atitsprice",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_session"
     },
     {
       "relation": "calls",
@@ -149905,9 +151032,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_thepowers_knowarts_bytheirkind_andonlyfromthefoundation",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_session",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_session"
     },
     {
       "relation": "references",
@@ -149916,9 +151043,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_with",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -149927,9 +151054,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_ateacher",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamesession"
     },
     {
       "relation": "references",
@@ -149938,9 +151065,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_qiworth",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -149949,9 +151076,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_atomb_mayholdanartsmanual",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_with",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_with"
     },
     {
       "relation": "calls",
@@ -149960,9 +151087,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_ruins_mayholdanartsmanual",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_with",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_with"
     },
     {
       "relation": "references",
@@ -149971,9 +151098,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_with",
-      "target": "func_legacysettings_legacysettings",
-      "confidence_score": 1.0
+      "target": "func_legacysettings_legacysettings"
     },
     {
       "relation": "calls",
@@ -149982,9 +151109,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_afriendlypower_teachesitsart_inkind_neverforstones",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_qiworth",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_qiworth"
     },
     {
       "relation": "calls",
@@ -149993,9 +151120,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_apowerteachesonlytheartsitknows",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_qiworth",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_qiworth"
     },
     {
       "relation": "references",
@@ -150004,9 +151131,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_qiworth",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_accordterm",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_accordterm"
     },
     {
       "relation": "references",
@@ -150015,9 +151142,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_qiworth",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_list",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_list"
     },
     {
       "relation": "calls",
@@ -150026,9 +151153,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_afriendlypower_teachesitsart_inkind_neverforstones",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_ateacher",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_ateacher"
     },
     {
       "relation": "references",
@@ -150037,9 +151164,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_ateacher",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_art",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_art"
     },
     {
       "relation": "references",
@@ -150048,9 +151175,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_ateacher",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_factiondata"
     },
     {
       "relation": "references",
@@ -150059,9 +151186,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_ateacher",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_immortalart",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_immortalart"
     },
     {
       "relation": "references",
@@ -150070,9 +151197,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_ateacher",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_power",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_power"
     },
     {
       "relation": "calls",
@@ -150081,9 +151208,9 @@
       "source_file": "tests/Core.Tests/Characters/ArtLegacySourcesTests.cs",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_thepowers_knowarts_bytheirkind_andonlyfromthefoundation",
-      "target": "characters_artlegacysourcestests_artlegacysourcestests_ateacher",
-      "confidence_score": 1.0
+      "target": "characters_artlegacysourcestests_artlegacysourcestests_ateacher"
     },
     {
       "relation": "references",
@@ -150092,9 +151219,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_thepowers_knowarts_bytheirkind_andonlyfromthefoundation",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test"
     },
     {
       "relation": "references",
@@ -150103,9 +151230,9 @@
       "source_location": "L56",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_afriendlypower_teachesitsart_inkind_neverforstones",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test"
     },
     {
       "relation": "references",
@@ -150114,9 +151241,9 @@
       "source_location": "L115",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_againedlegacy_istoldinthechronicle",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test"
     },
     {
       "relation": "references",
@@ -150125,9 +151252,9 @@
       "source_location": "L73",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_apowerteachesonlytheartsitknows",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test"
     },
     {
       "relation": "references",
@@ -150136,9 +151263,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_atomb_mayholdanartsmanual",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test"
     },
     {
       "relation": "references",
@@ -150147,9 +151274,9 @@
       "source_location": "L83",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_ruins_mayholdanartsmanual",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test"
     },
     {
       "relation": "references",
@@ -150158,9 +151285,9 @@
       "source_location": "L99",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "characters_artlegacysourcestests_artlegacysourcestests_themirror_deducesanart_fromfragments_atitsprice",
-      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_characters_artlegacysourcestests_cs_test"
     },
     {
       "relation": "contains",
@@ -162012,6 +163139,390 @@
       "confidence_score": 1.0,
       "source": "characters_oathtests_oathtests_withouttheexpiryloophole_atermisignored_andthepactholdsforlife",
       "target": "tests_core_tests_characters_oathtests_cs_test"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "characters_pilltests",
+      "target": "characters_pilltests_mirrorchronicles_tests_characters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "characters_pilltests",
+      "target": "characters_pilltests_pilltests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_aheartdemon_ispurified_withthepill_notwithherbs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_alchemist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_alchemypower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_analchemist_refinesonlythepillsitsmasteryallows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_apower_sellsitspills_thepurplemansionsonlyinkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_apowerwithoutalchemy_sellsnopill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_def",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_thefifthchakra_withoutthebrightspiritpowder_isharder_andthepowderisspent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests",
+      "target": "characters_pilltests_pilltests_thepills_aresaved",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "field",
+      "source": "characters_pilltests_pilltests",
+      "target": "tests_core_tests_characters_pilltests_cs_string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_analchemist_refinesonlythepillsitsmasteryallows",
+      "target": "characters_pilltests_pilltests_def",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_apower_sellsitspills_thepurplemansionsonlyinkind",
+      "target": "characters_pilltests_pilltests_def",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_pilltests_pilltests_def",
+      "target": "tests_core_tests_characters_pilltests_cs_pilldefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_pilltests_pilltests_def",
+      "target": "tests_core_tests_characters_pilltests_cs_pillkind",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_aheartdemon_ispurified_withthepill_notwithherbs",
+      "target": "characters_pilltests_pilltests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_analchemist_refinesonlythepillsitsmasteryallows",
+      "target": "characters_pilltests_pilltests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_apower_sellsitspills_thepurplemansionsonlyinkind",
+      "target": "characters_pilltests_pilltests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_apowerwithoutalchemy_sellsnopill",
+      "target": "characters_pilltests_pilltests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_pilltests_pilltests_session",
+      "target": "tests_core_tests_characters_pilltests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_thefifthchakra_withoutthebrightspiritpowder_isharder_andthepowderisspent",
+      "target": "characters_pilltests_pilltests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_thepills_aresaved",
+      "target": "characters_pilltests_pilltests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_pilltests_pilltests_alchemist",
+      "target": "tests_core_tests_characters_pilltests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_pilltests_pilltests_alchemypower",
+      "target": "tests_core_tests_characters_pilltests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_pilltests_pilltests_alchemist",
+      "target": "tests_core_tests_characters_pilltests_cs_characterdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_analchemist_refinesonlythepillsitsmasteryallows",
+      "target": "characters_pilltests_pilltests_alchemist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "characters_pilltests_pilltests_alchemypower",
+      "target": "tests_core_tests_characters_pilltests_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "characters_pilltests_pilltests_apower_sellsitspills_thepurplemansionsonlyinkind",
+      "target": "characters_pilltests_pilltests_alchemypower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_pilltests_pilltests_analchemist_refinesonlythepillsitsmasteryallows",
+      "target": "tests_core_tests_characters_pilltests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L104",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_pilltests_pilltests_aheartdemon_ispurified_withthepill_notwithherbs",
+      "target": "tests_core_tests_characters_pilltests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_pilltests_pilltests_apower_sellsitspills_thepurplemansionsonlyinkind",
+      "target": "tests_core_tests_characters_pilltests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L79",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_pilltests_pilltests_apowerwithoutalchemy_sellsnopill",
+      "target": "tests_core_tests_characters_pilltests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L88",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_pilltests_pilltests_thefifthchakra_withoutthebrightspiritpowder_isharder_andthepowderisspent",
+      "target": "tests_core_tests_characters_pilltests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Characters/PillTests.cs",
+      "source_location": "L118",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "characters_pilltests_pilltests_thepills_aresaved",
+      "target": "tests_core_tests_characters_pilltests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -198149,9 +199660,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "mirror_techniquemarkstests_techniquemarkstests_stolen",
-      "target": "tests_core_tests_mirror_techniquemarkstests_cs_art",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_mirror_techniquemarkstests_cs_art"
     },
     {
       "relation": "references",
@@ -198700,10 +200211,30 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
-      "source_location": "L83",
+      "source_location": "L116",
       "weight": 1.0,
       "source": "presentation_artviewtests_artviewtests",
-      "target": "presentation_artviewtests_artviewtests_eachlackingart_offersitssources_orsayswhynot",
+      "target": "presentation_artviewtests_artviewtests_aheartdemon_offersitspurification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "presentation_artviewtests_artviewtests",
+      "target": "presentation_artviewtests_artviewtests_eachlackingart_offersitssources_orsayswhynot"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "presentation_artviewtests_artviewtests",
+      "target": "presentation_artviewtests_artviewtests_eachpill_offersitsrefining_anditspurchase_orsayswhynot",
       "confidence_score": 1.0
     },
     {
@@ -198761,10 +200292,32 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
+      "source_location": "L116",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_artviewtests_artviewtests_aheartdemon_offersitspurification",
+      "target": "tests_core_tests_presentation_artviewtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
       "source_location": "L83",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_artviewtests_artviewtests_eachlackingart_offersitssources_orsayswhynot",
+      "target": "tests_core_tests_presentation_artviewtests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Presentation/ArtViewTests.cs",
+      "source_location": "L97",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "presentation_artviewtests_artviewtests_eachpill_offersitsrefining_anditspurchase_orsayswhynot",
       "target": "tests_core_tests_presentation_artviewtests_cs_test",
       "confidence_score": 1.0
     },
@@ -204671,6 +206224,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "session_balancepilotascenttests_balancepilotascenttests",
+      "target": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buysthecondensationpill_inkind_whenithasnone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
       "source_location": "L126",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -205032,6 +206595,17 @@
       "confidence_score": 1.0,
       "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buildstheherbgardenandthemine_whenitstreasuryallows",
       "target": "session_balancepilotascenttests_balancepilotascenttests_session"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buysthecondensationpill_inkind_whenithasnone",
+      "target": "session_balancepilotascenttests_balancepilotascenttests_session",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -205412,6 +206986,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buysthecondensationpill_inkind_whenithasnone",
+      "target": "session_balancepilotascenttests_balancepilotascenttests_mansion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
       "source_location": "L130",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -205654,6 +207239,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buysthecondensationpill_inkind_whenithasnone",
+      "target": "session_balancepilotascenttests_balancepilotascenttests_nomethodintheworld",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
       "source_location": "L110",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -205703,6 +207299,17 @@
       "confidence_score": 1.0,
       "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_stillcondenses_whilesavingforthesect",
       "target": "session_balancepilotascenttests_balancepilotascenttests_nomethodintheworld"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buysthecondensationpill_inkind_whenithasnone",
+      "target": "session_balancepilotascenttests_balancepilotascenttests_knowthepartners",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -205835,6 +207442,17 @@
       "confidence_score": 1.0,
       "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buildstheherbgardenandthemine_whenitstreasuryallows",
       "target": "tests_core_tests_session_balancepilotascenttests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
+      "source_location": "L121",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buysthecondensationpill_inkind_whenithasnone",
+      "target": "tests_core_tests_session_balancepilotascenttests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -231935,5 +233553,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "0519543d5fb23d3c74dc74fe8aeee2f1d58a659f"
+  "built_at_commit": "97e34633fdec3913a54b38dff02fdcca66388926"
 }

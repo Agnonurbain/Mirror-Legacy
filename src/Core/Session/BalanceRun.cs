@@ -123,6 +123,7 @@ namespace MirrorChronicles.Session
             foreach (var war in session.Wars.ClanWars.Where(w => session.Clock.Year - w.StartYear >= PeaceAfterYears).ToList())
                 session.Wars.SuePeace(war.Enemy);
             HoldForAnHeir(session);
+            BuyTheChakrasPowder(session);
             PlantASeed(session);
             WedTheLine(session);
             Hunt(session);
@@ -390,6 +391,24 @@ namespace MirrorChronicles.Session
                 bool heir = session.Clan.Registry.Records.Any(r => r.FatherID == m.ID || r.MotherID == m.ID);
                 bool lastYears = m.MaxLifespan - m.Age <= EndOfLifeYears;
                 m.HoldsTrial = !heir && !lastYears && odds < GoodOdds;
+            }
+        }
+
+        /// <summary>
+        /// A member ready for the fifth chakra gets the Bright Spirit Powder first (audit §2.8): from the store, else bought of the
+        /// friendliest power that knows alchemy, when the stones allow.
+        /// </summary>
+        private static void BuyTheChakrasPowder(GameSession session)
+        {
+            int ready = session.Clan.LivingMembers.Count(m => m.CaptorFaction == null && session.Cultivation.IsReadyForTrial(m)
+                && PowerLadder.Next(m.Realm, m.RealmStage).Trial == TrialKind.SummitEyeChakra);
+            var alchemy = session.Alchemy;
+            for (int i = alchemy.PillsOf(PillKind.BrightSpirit); i < ready; i++)
+            {
+                var seller = session.Factions.Factions.Where(f => alchemy.BuyRefusal(f.Name, PillKind.BrightSpirit, null) == null)
+                    .OrderByDescending(f => f.RelationWithPlayer).FirstOrDefault();
+                if (seller == null || !Affords(session, alchemy.Definition(PillKind.BrightSpirit).Worth, 1, spareTheSaving: true)) return;
+                alchemy.BuyPill(seller.Name, PillKind.BrightSpirit, null);
             }
         }
 

@@ -371,9 +371,30 @@ namespace MirrorChronicles.Session
             var wanted = WantedAbilities(session, mansion).ToList();
             if (wanted.Count == 0 || wanted.Any(a => HasAlignedMethod(session, a) || WithinReach(session, a))) return;
             var s = session.Context.Content.Balance.DivineAbilities;
-            if (!Affords(session, s.ResourceStones, CondenseReserveYears, spareTheSaving: true)
-                || session.Resources.MedicinalHerbs < s.ResourceHerbs || session.Resources.SpiritualOres < s.ResourceOres) return;
+            if (!Affords(session, s.ResourceStones, CondenseReserveYears, spareTheSaving: true) || session.Resources.SpiritualOres < s.ResourceOres) return;
+            if (!GetACondensationPill(session)) return;
             session.Abilities.CondenseWithResources(mansion, wanted[0]);
+        }
+
+        /// <summary>
+        /// A Condensation Pill (audit §2.2): one in store, else refined by the clan's alchemist, else bought in kind of the
+        /// friendliest power that knows alchemy (a Purple Mansion's pill: never for stones).
+        /// </summary>
+        private static bool GetACondensationPill(GameSession session)
+        {
+            var alchemy = session.Alchemy;
+            if (alchemy.PillsOf(PillKind.Condensation) > 0) return true;
+            var alchemist = session.Clan.LivingMembers.FirstOrDefault(m => alchemy.PillRefusal(m, PillKind.Condensation) == null);
+            if (alchemist != null) return alchemy.RefinePill(alchemist.ID, PillKind.Condensation) == null;
+            var worth = alchemy.Definition(PillKind.Condensation)?.Worth ?? 0;
+            foreach (var power in session.Factions.Factions.Where(f => PowerArts.Knows(f, ImmortalArt.Alchemy, session.Context.Content)
+                    && f.RelationWithPlayer >= session.Context.Content.Balance.Arts.PillBuyRelation).OrderByDescending(f => f.RelationWithPlayer))
+            {
+                var bundle = Presentation.AccordView.Bundle(Presentation.AccordView.Offerings(session.Accords, session.Clan, session.Techniques,
+                    session.Resources, session.SecretBook, session.Artifacts, power.Name, worth, precious: true), worth);
+                if (bundle != null && alchemy.BuyPill(power.Name, PillKind.Condensation, bundle.Select(b => b.Term).ToList()) == null) return true;
+            }
+            return false;
         }
 
         /// <summary>

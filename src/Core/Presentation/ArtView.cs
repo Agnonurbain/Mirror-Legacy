@@ -25,6 +25,13 @@ namespace MirrorChronicles.Presentation
     public sealed record LegacyOffer(ImmortalArt Art, bool FromMirror, string Power, string Label, IReadOnlyList<Diplomacy.AccordTerm> Terms,
         IReadOnlyList<string> FragmentIds, string Refusal);
 
+    /// <summary>A pill (audit §2.2, §2.8): its refining by the best alchemist, its purchase of the friendliest power that sells it — and why not.</summary>
+    public sealed record PillKindOffer(PillKind Kind, string Name, string RefineAlchemistId, string RefineLabel, string RefineRefusal,
+        string BuyPower, string BuyLabel, IReadOnlyList<Diplomacy.AccordTerm> BuyTerms, string BuyRefusal);
+
+    /// <summary>A Heart Demon the clan may fight with a pill, and why not (null: it can).</summary>
+    public sealed record PurifyOffer(string MemberId, string Label, string Refusal);
+
     /// <summary>The examination of the clan's pills by its best alchemist, and why not (null: it can).</summary>
     public sealed record ExamineOffer(string AlchemistId, string Label, string Refusal);
 
@@ -111,5 +118,49 @@ namespace MirrorChronicles.Presentation
             }
             return offers;
         }
+
+        /// <summary>The clan's other pills (French).</summary>
+        public static string OtherPillStock(GameSession s) =>
+            "Autres pilules : " + (s.Alchemy.Pills.Count == 0 ? "aucune"
+                : string.Join(", ", s.Alchemy.Pills.OrderBy(p => p.Key).Select(p => $"{s.Alchemy.PillName(p.Key)} {p.Value}")));
+
+        /// <summary>For each pill: its refining by the clan's best alchemist, its purchase of the friendliest power that sells it.</summary>
+        public static IReadOnlyList<PillKindOffer> PillKindOffers(GameSession s)
+        {
+            var offers = new List<PillKindOffer>();
+            foreach (var def in s.Context.Content.Balance.Arts.Pills)
+            {
+                var alchemist = s.Clan.LivingMembers.OrderBy(m => s.Alchemy.PillRefusal(m, def.Kind) == null ? 0 : 1)
+                    .ThenByDescending(m => ArtSystem.MasteryOf(m, ImmortalArt.Alchemy)).FirstOrDefault();
+                var sellers = s.Factions.Factions.Where(p => PowerArts.Knows(p, ImmortalArt.Alchemy, s.Context.Content))
+                    .OrderByDescending(p => p.RelationWithPlayer).ToList();
+                var seller = sellers.FirstOrDefault();
+                IReadOnlyList<Diplomacy.AccordTerm> terms = null;
+                string price = $"{def.Worth} pierres", buyRefusal = seller == null ? "aucune puissance ne connaît l'alchimie" : null;
+                if (seller != null && def.Precious)
+                {
+                    var bundle = AccordView.Bundle(AccordView.Offerings(s.Accords, s.Clan, s.Techniques, s.Resources, s.SecretBook, s.Artifacts,
+                        seller.Name, def.Worth, precious: true), def.Worth);
+                    terms = bundle?.Select(b => b.Term).ToList();
+                    price = "en nature" + (bundle == null ? "" : $" : {string.Join(", ", bundle.Select(b => b.Label))}");
+                    if (bundle == null) buyRefusal = "le clan n'a rien qui la vaille ; les pierres n'y comptent pas";
+                }
+                buyRefusal ??= s.Alchemy.BuyRefusal(seller.Name, def.Kind, terms);
+                offers.Add(new PillKindOffer(def.Kind, def.Name, alchemist?.ID,
+                    $"Raffiner une {def.Name}" + (alchemist == null ? "" : $" par {alchemist.FullName}") + $" — {def.Herbs} herbes, {def.Stones} pierres",
+                    alchemist == null ? "aucun alchimiste" : s.Alchemy.PillRefusal(alchemist, def.Kind),
+                    seller?.Name, seller == null ? $"Acheter une {def.Name}" : $"Acheter une {def.Name} à {seller.Name} — {price}", terms, buyRefusal));
+            }
+            return offers;
+        }
+
+        /// <summary>Each member haunted by a Heart Demon, and the pill that may lift it.</summary>
+        public static IReadOnlyList<PurifyOffer> PurifyOffers(GameSession s) =>
+            s.Clan.LivingMembers.Where(m => m.HeartDemonYearsLeft > 0)
+                .Select(m => new PurifyOffer(m.ID,
+                    $"Purifier le Démon du Cœur de {m.FullName} ({m.HeartDemonYearsLeft} an(s) encore) — une {s.Alchemy.PillName(PillKind.Purification)}, "
+                    + $"{(int)System.Math.Round(s.Context.Content.Balance.Oaths.PurificationChance * 100)} % de chances",
+                    s.Oaths.PurifyRefusal(m)))
+                .ToList();
     }
 }

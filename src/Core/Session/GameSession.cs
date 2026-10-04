@@ -238,6 +238,9 @@ namespace MirrorChronicles.Session
             Buildings.Factions = Factions;
             Alchemy = new AlchemySystem(Context, Clan, Resources, Arts, Factions, Suspicion);
             Breakthroughs.Alchemy = Alchemy;
+            Alchemy.Accords = Accords;
+            Oaths.Alchemy = Alchemy;
+            Abilities.Alchemy = Alchemy;
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
@@ -341,7 +344,7 @@ namespace MirrorChronicles.Session
             session.ShardSense.Restore(data.ShardDirections); // none before 2.23
             session.Marks.Restore(data.TechniqueMarks);      // none before 2.36
             session.Arts.Restore(data.ArtLegacies);          // none before 2.37
-            session.Alchemy.Restore(data.EssencePills, data.PoisonedPills); // none before 2.38 / 2.39
+            session.Alchemy.Restore(data.EssencePills, data.PoisonedPills, data.Pills); // none before 2.38 / 2.39
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
@@ -452,6 +455,7 @@ namespace MirrorChronicles.Session
                 ArtLegacies = Arts.Legacies.ToList(),
                 EssencePills = Alchemy.EssencePills.ToDictionary(p => p.Key, p => p.Value),
                 PoisonedPills = Alchemy.Poisoned.ToList(),
+                Pills = Alchemy.Pills.ToDictionary(p => p.Key, p => p.Value),
                 MirrorAsleepUntil = Mirror.AsleepUntil,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),

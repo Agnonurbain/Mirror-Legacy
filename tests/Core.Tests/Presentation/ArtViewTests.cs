@@ -93,5 +93,37 @@ namespace MirrorChronicles.Tests.Presentation
             s.Arts.GainLegacy(ImmortalArt.Forge);
             Assert.IsFalse(ArtView.LegacyOffers(s).Any(o => o.Art == ImmortalArt.Forge), "a held art is not offered");
         }
+
+        [Test]
+        public void EachPill_OffersItsRefining_AndItsPurchase_OrSaysWhyNot()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            StringAssert.Contains("aucune", ArtView.OtherPillStock(s));
+            var offers = ArtView.PillKindOffers(s);
+            Assert.AreEqual(s.Context.Content.Balance.Arts.Pills.Count, offers.Count);
+            Assert.IsTrue(offers.All(o => o.RefineRefusal != null), "no alchemy legacy at the start");
+            var seller = s.Factions.Factions.First(p => PowerArts.Knows(p, ImmortalArt.Alchemy, s.Context.Content));
+            foreach (var f in s.Factions.Factions) f.RelationWithPlayer = 0;
+            seller.RelationWithPlayer = 50;
+            s.Resources.AddSpiritStones(10_000);
+            var powder = ArtView.PillKindOffers(s).Single(o => o.Kind == PillKind.BrightSpirit);
+            Assert.AreEqual(seller.Name, powder.BuyPower);
+            Assert.IsNull(powder.BuyRefusal);
+            Assert.IsNull(s.Alchemy.BuyPill(powder.BuyPower, powder.Kind, powder.BuyTerms));
+            StringAssert.Contains("Poudre d'Esprit Lumineux 1", ArtView.OtherPillStock(s));
+        }
+
+        [Test]
+        public void AHeartDemon_OffersItsPurification()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var haunted = s.Clan.LivingMembers.First();
+            haunted.HeartDemonYearsLeft = 4;
+            var offer = ArtView.PurifyOffers(s).Single();
+            Assert.AreEqual(haunted.ID, offer.MemberId);
+            StringAssert.Contains("Pilule", offer.Refusal);
+            s.Alchemy.GainPills(PillKind.Purification, 1);
+            Assert.IsNull(ArtView.PurifyOffers(s).Single().Refusal);
+        }
     }
 }

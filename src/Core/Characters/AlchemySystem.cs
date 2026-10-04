@@ -33,6 +33,10 @@ namespace MirrorChronicles.Characters
         private readonly SuspicionLedger suspicion;
         private readonly Dictionary<Element, int> essencePills = new Dictionary<Element, int>(); // every pill, the poisoned among them
         private readonly List<PoisonedPill> poisoned = new List<PoisonedPill>();
+        private readonly Dictionary<PillKind, int> pills = new Dictionary<PillKind, int>();
+
+        /// <summary>The accords in kind (set by the session): a Purple Mansion's pill is bought only so.</summary>
+        public KnowledgeAccords Accords { get; set; }
 
         public AlchemySystem(GameContext ctx, ClanManager clan, ResourceManager resources, ArtSystem arts, FactionManager factions, SuspicionLedger suspicion)
         {
@@ -164,10 +168,95 @@ namespace MirrorChronicles.Characters
             return null;
         }
 
-        public void Restore(IReadOnlyDictionary<Element, int> saved, IEnumerable<PoisonedPill> savedPoison = null)
+        // ---- The other pills (audit §2.2, §2.8) ----
+
+        public IReadOnlyDictionary<PillKind, int> Pills => pills;
+
+        public int PillsOf(PillKind kind) => pills.TryGetValue(kind, out int n) ? n : 0;
+
+        public void GainPills(PillKind kind, int count)
+        {
+            if (count > 0) pills[kind] = PillsOf(kind) + count;
+        }
+
+        /// <summary>A pill is swallowed. False when the clan has none.</summary>
+        public bool TakePill(PillKind kind)
+        {
+            if (PillsOf(kind) == 0) return false;
+            pills[kind]--;
+            if (pills[kind] == 0) pills.Remove(kind);
+            return true;
+        }
+
+        public PillDefinition Definition(PillKind kind) => ctx.Content.Balance.Arts.Pills.FirstOrDefault(p => p.Kind == kind);
+
+        public string PillName(PillKind kind) => Definition(kind)?.Name ?? kind.ToString();
+
+        /// <summary>Why this member cannot refine this pill now (French), or null: the art's legacy and gift, the pill's mastery, a free year, herbs and stones.</summary>
+        public string PillRefusal(CharacterData alchemist, PillKind kind)
+        {
+            var def = Definition(kind);
+            if (def == null) return "pilule inconnue";
+            if (alchemist == null || !alchemist.IsAlive || alchemist.CaptorFaction != null || alchemist.Retreat != Retreat.None) return "cet alchimiste ne peut travailler";
+            if (!arts.HoldsLegacy(ImmortalArt.Alchemy)) return "le clan ne tient pas l'héritage de l'alchimie";
+            if (!ImmortalArtRules.MayPractise(alchemist, ImmortalArt.Alchemy, ctx.Content.Balance.Arts)) return "il n'a pas le don de l'alchimie (sans don, il faut le Manoir Pourpre)";
+            if (ArtSystem.MasteryOf(alchemist, ImmortalArt.Alchemy) < def.Mastery)
+                return $"il faut un {ImmortalArtRules.Rank(def.Mastery, ctx.Content.Balance.Arts)} de l'alchimie pour cette pilule";
+            if (alchemist.LastOperationYear == ctx.Clock.Year) return "cet alchimiste a déjà œuvré cette année";
+            if (resources.MedicinalHerbs < def.Herbs || resources.SpiritStones < def.Stones) return $"il faut {def.Herbs} herbes et {def.Stones} pierres";
+            return null;
+        }
+
+        /// <summary>An alchemist refines this pill (its year's work). Null when done, else why not (French).</summary>
+        public string RefinePill(string alchemistId, PillKind kind)
+        {
+            var alchemist = clan.FindById(alchemistId);
+            if (PillRefusal(alchemist, kind) is { } why) return why;
+            var def = Definition(kind);
+            resources.ConsumeHerbs(def.Herbs);
+            resources.ConsumeSpiritStones(def.Stones);
+            alchemist.LastOperationYear = ctx.Clock.Year;
+            GainPills(kind, 1);
+            ctx.Log.Info($"[Alchemy] {alchemist.FullName} refines a {kind} pill.");
+            return null;
+        }
+
+        /// <summary>Why this power will not sell this pill for these terms (French), or null: it knows alchemy, is friendly enough, is paid.</summary>
+        public string BuyRefusal(string powerName, PillKind kind, IReadOnlyList<AccordTerm> terms)
+        {
+            var def = Definition(kind);
+            if (def == null) return "pilule inconnue";
+            var power = factions.GetFactionByName(powerName);
+            if (power == null) return "puissance inconnue";
+            if (!PowerArts.Knows(power, ImmortalArt.Alchemy, ctx.Content)) return $"{power.Name} ne connaît pas l'alchimie";
+            if (power.RelationWithPlayer < ctx.Content.Balance.Arts.PillBuyRelation) return $"il faut une relation de {ctx.Content.Balance.Arts.PillBuyRelation} au moins";
+            if (!def.Precious) return resources.SpiritStones < def.Worth ? $"il faut {def.Worth} pierres" : null;
+            if (Accords == null) return "aucun accord possible";
+            return Accords.BarterRefusal(power.Name, def.Worth, precious: true, terms);
+        }
+
+        /// <summary>The clan buys a pill of a power (stones, or in kind for a Purple Mansion's). Null when done, else why not (French).</summary>
+        public string BuyPill(string powerName, PillKind kind, IReadOnlyList<AccordTerm> terms)
+        {
+            if (BuyRefusal(powerName, kind, terms) is { } why) return why;
+            var def = Definition(kind);
+            if (def.Precious) Accords.Barter(powerName, terms, def.Name);
+            else
+            {
+                resources.ConsumeSpiritStones(def.Worth);
+                factions.GetFactionByName(powerName).Wealth += def.Worth;
+            }
+            GainPills(kind, 1);
+            ctx.Log.Info($"[Alchemy] The clan buys a {kind} pill of {powerName}.");
+            return null;
+        }
+
+        public void Restore(IReadOnlyDictionary<Element, int> saved, IEnumerable<PoisonedPill> savedPoison = null, IReadOnlyDictionary<PillKind, int> savedPills = null)
         {
             essencePills.Clear();
             poisoned.Clear();
+            pills.Clear();
+            foreach (var (k, n) in savedPills ?? new Dictionary<PillKind, int>()) GainPills(k, n);
             foreach (var (e, n) in saved ?? new Dictionary<Element, int>()) GainEssencePills(e, n);
             foreach (var p in savedPoison ?? Enumerable.Empty<PoisonedPill>())
                 if (EssencePillsOf(p.Element) > poisoned.Count(x => x.Element == p.Element)) poisoned.Add(p);

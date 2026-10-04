@@ -111,10 +111,30 @@ namespace MirrorChronicles.Tests.Session
             s.Resources.SetSpiritStones(100_000);
             s.Resources.AddHerbs(500);
             s.Resources.AddOres(500);
+            s.Alchemy.GainPills(PillKind.Condensation, 1);
             foreach (var m in s.Clan.LivingMembers) m.LastOperationYear = s.Clock.Year; // nobody free to steal a manual
             BalanceRun.Act(s);
             Assert.AreEqual(2, mansion.DivineAbilities.Count);
             Assert.AreEqual(1, mansion.ShallowAbilities.Count, "its foundations stay shallow");
+        }
+
+        [Test]
+        public void ThePilot_BuysTheCondensationPill_InKind_WhenItHasNone()
+        {
+            var s = Session();
+            var mansion = Mansion(s, xp: Xp);
+            KnowThePartners(s);
+            NoMethodInTheWorld(s);
+            s.Resources.SetSpiritStones(100_000);
+            s.Resources.AddOres(500);
+            var seller = s.Factions.Factions.First(p => PowerArts.Knows(p, ImmortalArt.Alchemy, s.Context.Content));
+            foreach (var f in s.Factions.Factions) f.RelationWithPlayer = 0;
+            seller.RelationWithPlayer = 60;
+            int worth = s.Context.Content.Balance.Arts.Pills.Single(p => p.Kind == PillKind.Condensation).Worth;
+            s.Resources.AddQi("clear-spring-qi", worth / s.Context.Content.Balance.KnowledgeTrade.QiWorthPerPortion + 1); // something worth it, in kind
+            foreach (var m in s.Clan.LivingMembers) m.LastOperationYear = s.Clock.Year;
+            BalanceRun.Act(s);
+            Assert.AreEqual(1, mansion.ShallowAbilities.Count, "the pill bought, the ability condensed");
         }
 
         [Test]
@@ -250,6 +270,7 @@ namespace MirrorChronicles.Tests.Session
             s.Resources.SetSpiritStones(stones);
             s.Resources.AddHerbs(1000);
             s.Resources.AddOres(1000);
+            s.Alchemy.GainPills(PillKind.Condensation, 5); // the pills hold the herbs (audit §2.2)
             foreach (var m in s.Clan.LivingMembers) m.LastOperationYear = s.Clock.Year; // nobody free to steal a manual
         }
 

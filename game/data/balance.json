@@ -594,6 +594,12 @@
 	  "powerCapByRealm": { "QiRefinement": 1, "Foundation": 3, "PurpleMansion": 5 }, "powerRiseChance": 0.05
 	},
 	"talisman": { "stonesBase": 10, "stonesPerMastery": 0.5, "geniusFactor": 1.5 },
+	"pills": [
+	  { "kind": "BrightSpirit", "name": "Poudre d'Esprit Lumineux", "herbs": 10, "stones": 10, "mastery": 1, "worth": 60, "precious": false },
+	  { "kind": "Purification", "name": "Pilule de Purification du Cœur", "herbs": 100, "stones": 30, "mastery": 40, "worth": 300, "precious": false },
+	  { "kind": "Condensation", "name": "Pilule de Condensation", "herbs": 150, "stones": 200, "mastery": 80, "worth": 2000, "precious": true }
+	],
+	"withoutPowderPenalty": 20, "pillBuyRelation": 20,
 	"legacy": {
 	  "powerArtChance": { "Family": 0.3, "Sect": 0.75, "Gate": 0.6, "ImmortalIsland": 0.7, "Temple": 0.5, "Order": 0.5, "State": 0.6 },
 	  "teachRelation": 40, "worth": 1500, "ruinsChance": 0.1, "tombChance": 0.5, "deduceFragments": 4, "deduceMoonlight": 80

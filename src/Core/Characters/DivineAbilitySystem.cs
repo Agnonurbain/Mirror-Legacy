@@ -79,20 +79,25 @@ namespace MirrorChronicles.Characters
             }
         }
 
+        /// <summary>The clan's alchemy (set by the session): a Condensation Pill replaces the herbs (audit §2.2).</summary>
+        public AlchemySystem Alchemy { get; set; }
+
         /// <summary>Rare spiritual objects and pills condense the ability at half the XP, but its foundations stay shallow.</summary>
         public bool CondenseWithResources(CharacterData member, string ability)
         {
             var s = Settings;
             int cost = CostOf(member, ability, Xp / 2);
+            bool pill = Alchemy == null ? resources.MedicinalHerbs >= s.ResourceHerbs : Alchemy.PillsOf(PillKind.Condensation) > 0;
             if (!CanTake(member, ability) || member.CultivationXP < cost
-                || resources.SpiritStones < s.ResourceStones || resources.MedicinalHerbs < s.ResourceHerbs || resources.SpiritualOres < s.ResourceOres)
+                || resources.SpiritStones < s.ResourceStones || !pill || resources.SpiritualOres < s.ResourceOres)
             {
                 ctx.Log.Warning($"[Abilities] {member.FullName} cannot condense \"{ability}\" with resources.");
                 return false;
             }
 
             resources.ConsumeSpiritStones(s.ResourceStones);
-            resources.ConsumeHerbs(s.ResourceHerbs);
+            if (Alchemy != null) Alchemy.TakePill(PillKind.Condensation); // the pill holds the herbs
+            else resources.ConsumeHerbs(s.ResourceHerbs);
             resources.ConsumeOres(s.ResourceOres);
             member.CultivationXP -= cost;
             if (!PassThreshold(member)) return true; // paid and tried: the threshold stopped them

@@ -45,6 +45,27 @@ namespace MirrorChronicles.Data
         public FormationSettings Formation { get; init; } = new FormationSettings();
         public TalismanDrawingSettings Talisman { get; init; } = new TalismanDrawingSettings();
         public LegacySettings Legacy { get; init; } = new LegacySettings();
+        public IReadOnlyList<PillDefinition> Pills { get; init; } = new List<PillDefinition>();
+        public int WithoutPowderPenalty { get; init; } = 20;   // the fifth chakra without the Bright Spirit Powder (🔎)
+        public int PillBuyRelation { get; init; } = 20;        // a power that knows alchemy sells its pills from this relation (🔎)
+    }
+
+    /// <summary>The pills the clan's arts spend (AUDIT_LORE.md §2.2, §2.8): beside the Essence Gathering Pill, by element.</summary>
+    public enum PillKind { BrightSpirit, Purification, Condensation }
+
+    /// <summary>
+    /// A pill (balance.json « arts.pills », 🔎 the amounts): its name, what an alchemist of <see cref="Mastery"/> spends to refine
+    /// it, what a power asks (<see cref="Worth"/> stones, or an accord in kind when <see cref="Precious"/>).
+    /// </summary>
+    public sealed record PillDefinition
+    {
+        public PillKind Kind { get; init; }
+        public string Name { get; init; }
+        public int Herbs { get; init; }
+        public int Stones { get; init; }
+        public int Mastery { get; init; } = 1;
+        public int Worth { get; init; }
+        public bool Precious { get; init; }
     }
 
     /// <summary>

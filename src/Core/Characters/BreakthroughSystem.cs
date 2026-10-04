@@ -55,7 +55,10 @@ namespace MirrorChronicles.Characters
         public int TrialSuccessRate(CharacterData character)
         {
             int rate = CalculateSuccessRate(character);
-            if (PowerLadder.Next(character.Realm, character.RealmStage).Trial != TrialKind.FoundationWall) return rate;
+            var trial = PowerLadder.Next(character.Realm, character.RealmStage).Trial;
+            if (trial == TrialKind.SummitEyeChakra && Alchemy != null && Alchemy.PillsOf(PillKind.BrightSpirit) == 0) // 📚 the fifth chakra's powder
+                return Math.Max(1, rate - ctx.Content.Balance.Arts.WithoutPowderPenalty);
+            if (trial != TrialKind.FoundationWall) return rate;
             if (AncestralShieldActive) rate = Math.Min(99, rate + AncestralShieldBonus); // the essence bends the wall (📚)
             if (Alchemy != null && !Alchemy.HoldsEssencePillFor(character))
                 rate = Math.Max(1, rate - ctx.Content.Balance.Arts.EssencePill.WithoutPillPenalty);
@@ -93,6 +96,7 @@ namespace MirrorChronicles.Characters
             }
 
             int successRate = TrialSuccessRate(character);
+            if (step.Trial == TrialKind.SummitEyeChakra) Alchemy?.TakePill(PillKind.BrightSpirit);
             if (step.Trial == TrialKind.FoundationWall)
             {
                 AncestralShieldActive = false;

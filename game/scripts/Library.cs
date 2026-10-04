@@ -136,6 +136,24 @@ namespace MirrorChronicles.Game
                 };
                 immortalArts.AddChild(refine);
             }
+            Add(immortalArts, ArtView.OtherPillStock(s));
+            foreach (var pill in ArtView.PillKindOffers(s))
+            {
+                var p = pill;
+                AddAction(p.RefineLabel, p.RefineRefusal, () => s.Alchemy.RefinePill(p.RefineAlchemistId, p.Kind), $"Une {p.Name} est raffinée.");
+                if (p.BuyPower != null)
+                    AddAction(p.BuyLabel, p.BuyRefusal, () => s.Alchemy.BuyPill(p.BuyPower, p.Kind, p.BuyTerms), $"Le clan achète une {p.Name}.");
+            }
+            foreach (var purify in ArtView.PurifyOffers(s))
+            {
+                var o = purify;
+                bool lifted = false;
+                AddAction(o.Label, o.Refusal, () =>
+                {
+                    lifted = s.Oaths.Purify(s.Clan.FindById(o.MemberId));
+                    return null;
+                }, () => lifted ? "Le Démon du Cœur est levé." : "Le Démon du Cœur résiste : la pilule est perdue.");
+            }
             var exam = ArtView.ExamineOffer(s);
             var examine = new Button { Text = exam.Label + (exam.Refusal == null ? "" : $" ({exam.Refusal})"), Disabled = exam.Refusal != null };
             examine.Pressed += () =>
@@ -145,6 +163,24 @@ namespace MirrorChronicles.Game
                 Refresh();
             };
             immortalArts.AddChild(examine);
+        }
+
+        /// <summary>An action of the arts' tab: a wrapped button, greyed with its reason; its result (null: done) to the status line.</summary>
+        private void AddAction(string label, string refusal, System.Func<string> act, string done) => AddAction(label, refusal, act, () => done);
+
+        private void AddAction(string label, string refusal, System.Func<string> act, System.Func<string> done)
+        {
+            var button = new Button
+            {
+                Text = label + (refusal == null ? "" : $" ({refusal})"), Disabled = refusal != null,
+                AutowrapMode = TextServer.AutowrapMode.WordSmart, CustomMinimumSize = new Vector2(1100, 0)
+            };
+            button.Pressed += () =>
+            {
+                status.Text = act() is { } why ? $"Refusé : {why}." : done();
+                Refresh();
+            };
+            immortalArts.AddChild(button);
         }
 
         private static readonly GoldenCoreAction[] Perilous = { GoldenCoreAction.Forge, GoldenCoreAction.Claim, GoldenCoreAction.Transmute };
