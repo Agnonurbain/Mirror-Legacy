@@ -32,6 +32,12 @@ namespace MirrorChronicles.Presentation
     /// <summary>A Heart Demon the clan may fight with a pill, and why not (null: it can).</summary>
     public sealed record PurifyOffer(string MemberId, string Label, string Refusal);
 
+    /// <summary>A Foundation's recasting on a Qi the clan holds (audit §2.10), and why not (null: it can).</summary>
+    public sealed record RecastOffer(string MemberId, string QiId, string Label, string Refusal);
+
+    /// <summary>A prisoner refined into a human pill for the member with the fewest years left, and why not (null: it can).</summary>
+    public sealed record HumanPillOffer(string PrisonerId, string AlchemistId, string RecipientId, string Label, string Refusal);
+
     /// <summary>The examination of the clan's pills by its best alchemist, and why not (null: it can).</summary>
     public sealed record ExamineOffer(string AlchemistId, string Label, string Refusal);
 
@@ -162,5 +168,37 @@ namespace MirrorChronicles.Presentation
                     + $"{(int)System.Math.Round(s.Context.Content.Balance.Oaths.PurificationChance * 100)} % de chances",
                     s.Oaths.PurifyRefusal(m)))
                 .ToList();
+
+        /// <summary>Each Foundation's recasting on each Qi with a foundation the clan holds (📚 Li Xuanfeng's second foundation).</summary>
+        public static IReadOnlyList<RecastOffer> RecastOffers(GameSession s)
+        {
+            var l = s.Context.Content.Balance.Arts.Longevity;
+            var held = s.Context.Content.Qi.Where(q => q.Foundation != null && !q.Vanished && s.Resources.QiPortions(q.Id) > 0).ToList();
+            return s.Clan.LivingMembers.Where(m => m.Realm == CultivationRealm.Foundation && !m.ProgressionSealed && m.CaptorFaction == null)
+                .SelectMany(m => held.Where(q => q.Foundation != m.FoundationId).Select(q => new RecastOffer(m.ID, q.Id,
+                    $"Refondre la fondation de {m.FullName} sur le {q.Name} — une {s.Alchemy.PillName(PillKind.FoundationRecasting)}, {l.RecastQiPortions} portions "
+                    + $"(+{l.RecastYears} ans ; {(int)System.Math.Round((1 - l.RecastSuccess) * 100)} % : voie scellée)",
+                    s.Alchemy.RecastRefusal(m, q.Id))))
+                .ToList();
+        }
+
+        /// <summary>Each prisoner, refined by the clan's best alchemist for the cultivator with the fewest years left.</summary>
+        public static IReadOnlyList<HumanPillOffer> HumanPillOffers(GameSession s)
+        {
+            var recipient = s.Clan.LivingMembers.Where(m => m.Realm >= CultivationRealm.QiRefinement && m.CaptorFaction == null)
+                .OrderBy(m => m.MaxLifespan - m.Age).FirstOrDefault();
+            if (recipient == null) return new List<HumanPillOffer>();
+            var l = s.Context.Content.Balance.Arts.Longevity;
+            return s.Captives.Prisoners.Select(p =>
+            {
+                var alchemist = s.Clan.LivingMembers.OrderBy(m => s.Alchemy.HumanPillRefusal(m, p.Id, recipient) == null ? 0 : 1)
+                    .ThenByDescending(m => ArtSystem.MasteryOf(m, ImmortalArt.Alchemy)).FirstOrDefault();
+                return new HumanPillOffer(p.Id, alchemist?.ID, recipient.ID,
+                    $"Raffiner le prisonnier de {p.Faction} ({RankCatalog.RealmName(p.Realm)}) en pilule humaine pour {recipient.FullName} "
+                    + $"(+{s.Alchemy.HumanPillYears(p.Realm, recipient)} ans ; Démon du Cœur à {(int)System.Math.Round(l.HeartDemonChance * 100)} % ; "
+                    + $"{p.Faction} peut l'apprendre)",
+                    alchemist == null ? "aucun alchimiste" : s.Alchemy.HumanPillRefusal(alchemist, p.Id, recipient));
+            }).ToList();
+        }
     }
 }

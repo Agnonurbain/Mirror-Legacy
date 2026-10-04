@@ -193,6 +193,14 @@ namespace MirrorChronicles.World
             return null;
         }
 
+        /// <summary>A prisoner is taken out of the cells for good (refined into a pill, audit §2.10). Null when unknown.</summary>
+        public Prisoner Consume(string prisonerId)
+        {
+            var agent = PrisonerOf(prisonerId);
+            if (agent != null) prisoners.Remove(agent);
+            return agent;
+        }
+
         public string Release(string prisonerId)
         {
             var agent = PrisonerOf(prisonerId);

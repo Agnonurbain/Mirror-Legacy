@@ -125,5 +125,34 @@ namespace MirrorChronicles.Tests.Presentation
             s.Alchemy.GainPills(PillKind.Purification, 1);
             Assert.IsNull(ArtView.PurifyOffers(s).Single().Refusal);
         }
+
+        [Test]
+        public void AFoundation_MayRecast_OnAQiTheClanHolds()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var m = Fixtures.Cultivator(realm: CultivationRealm.Foundation);
+            m.FoundationId = s.Context.Content.Qi.First(q => q.Id == m.QiId).Foundation;
+            s.Clan.AddMember(m);
+            var qi = s.Context.Content.Qi.First(q => q.Foundation != null && !q.Vanished && q.Foundation != m.FoundationId);
+            s.Resources.AddQi(qi.Id, s.Context.Content.Balance.Arts.Longevity.RecastQiPortions);
+            var offer = ArtView.RecastOffers(s).Single(o => o.MemberId == m.ID && o.QiId == qi.Id);
+            StringAssert.Contains("Refonte", offer.Refusal);
+            s.Alchemy.GainPills(PillKind.FoundationRecasting, 1);
+            Assert.IsNull(ArtView.RecastOffers(s).Single(o => o.MemberId == m.ID && o.QiId == qi.Id).Refusal);
+        }
+
+        [Test]
+        public void APrisoner_MayBeRefined_ForTheMemberWithTheFewestYears()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var old = Fixtures.Cultivator(age: 95, realm: CultivationRealm.Foundation);
+            old.MaxLifespan = 100;
+            s.Clan.AddMember(old);
+            s.Captives.Imprison(new Prisoner("p1", s.Factions.Factions.First().Name, CultivationRealm.Foundation, s.Clock.Year));
+            var offer = ArtView.HumanPillOffers(s).Single();
+            Assert.AreEqual(old.ID, offer.RecipientId);
+            StringAssert.Contains("pilule humaine", offer.Label);
+            Assert.IsNotNull(offer.Refusal, "no alchemy at the start");
+        }
     }
 }

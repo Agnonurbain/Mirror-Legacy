@@ -50,6 +50,7 @@ namespace MirrorChronicles.Data
         public bool SpyUnmasked { get; set; }           // the mirror sounded them
         public bool DoubleAgent { get; set; }           // turned: they feed their power false reports
         public bool Enthralled { get; set; }
+        public int HumanPillsTaken { get; set; } // human pills swallowed: each gives less (audit §2.10)
         public Dictionary<ImmortalArt, int> ArtMastery { get; set; } = new Dictionary<ImmortalArt, int>(); // mastery of each Immortal Art (audit §2)
         public ImmortalArt? PracticedArt { get; set; }  // the art practised this year (task ArtPractice)            // their mind bent by a power's reborn True Monarch: its spy, unaware (audit §1.8)
         public string DiscipleOf { get; set; }          // serving a power as a disciple (LORE.md §11.10, C2): away, no task

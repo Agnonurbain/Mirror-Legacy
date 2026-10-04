@@ -154,6 +154,19 @@ namespace MirrorChronicles.Game
                     return null;
                 }, () => lifted ? "Le Démon du Cœur est levé." : "Le Démon du Cœur résiste : la pilule est perdue.");
             }
+            foreach (var recast in ArtView.RecastOffers(s))
+            {
+                var r = recast;
+                bool sealedBefore = s.Clan.FindById(r.MemberId)?.ProgressionSealed ?? false;
+                AddAction(r.Label, r.Refusal, () => s.Alchemy.RecastFoundation(r.MemberId, r.QiId),
+                    () => s.Clan.FindById(r.MemberId)?.ProgressionSealed == true && !sealedBefore
+                        ? "La refonte échoue : sa voie est scellée." : "Une seconde fondation : le corps rajeunit.");
+            }
+            foreach (var human in ArtView.HumanPillOffers(s))
+            {
+                var h = human;
+                AddAction(h.Label, h.Refusal, () => s.Alchemy.HumanPill(h.AlchemistId, h.PrisonerId, h.RecipientId), "La pilule humaine est avalée.");
+            }
             var exam = ArtView.ExamineOffer(s);
             var examine = new Button { Text = exam.Label + (exam.Refusal == null ? "" : $" ({exam.Refusal})"), Disabled = exam.Refusal != null };
             examine.Pressed += () =>

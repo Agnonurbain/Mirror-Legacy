@@ -239,6 +239,7 @@ namespace MirrorChronicles.Session
             Alchemy = new AlchemySystem(Context, Clan, Resources, Arts, Factions, Suspicion);
             Breakthroughs.Alchemy = Alchemy;
             Alchemy.Accords = Accords;
+            Alchemy.Captives = Captives;
             Oaths.Alchemy = Alchemy;
             Abilities.Alchemy = Alchemy;
             Challenges.Alchemy = Alchemy;

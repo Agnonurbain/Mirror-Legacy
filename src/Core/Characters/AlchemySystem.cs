@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Clan;
@@ -248,6 +249,94 @@ namespace MirrorChronicles.Characters
             }
             GainPills(kind, 1);
             ctx.Log.Info($"[Alchemy] The clan buys a {kind} pill of {powerName}.");
+            return null;
+        }
+
+        // ---- The second foundation and the prolonged life (audit §2.10) ----
+
+        /// <summary>The prisoners the clan holds (set by the session): the human pill's ingredient.</summary>
+        public CaptiveSystem Captives { get; set; }
+
+        private LongevitySettings Longevity => ctx.Content.Balance.Arts.Longevity;
+
+        /// <summary>Why this Foundation cannot re-form its foundation on this Qi now (French), or null.</summary>
+        public string RecastRefusal(CharacterData member, string qiId)
+        {
+            if (member == null || !member.IsAlive || member.CaptorFaction != null) return "ce membre ne peut s'y livrer";
+            if (member.Realm != CultivationRealm.Foundation) return "seule une Fondation refond sa fondation";
+            if (member.ProgressionSealed) return "sa voie est scellée";
+            if (PillsOf(PillKind.FoundationRecasting) == 0) return $"il faut une {PillName(PillKind.FoundationRecasting)}";
+            var qi = ctx.Content.Qi.FirstOrDefault(q => q.Id == qiId);
+            if (qi?.Foundation == null || qi.Vanished) return "ce Qi ne fonde rien";
+            if (qi.Foundation == member.FoundationId) return "c'est déjà sa fondation";
+            if (resources.QiPortions(qiId) < Longevity.RecastQiPortions) return $"il faut {Longevity.RecastQiPortions} portions de ce Qi";
+            return null;
+        }
+
+        /// <summary>
+        /// The Foundation swallows the Recasting Pill with another Qi (📚 Li Xuanfeng): a new foundation and a younger body — or,
+        /// failing, its path sealed. The pill and the Qi are spent either way. Null when tried, else why not (French).
+        /// </summary>
+        public string RecastFoundation(string memberId, string qiId)
+        {
+            var member = clan.FindById(memberId);
+            if (RecastRefusal(member, qiId) is { } why) return why;
+            TakePill(PillKind.FoundationRecasting);
+            resources.ConsumeQi(qiId, Longevity.RecastQiPortions);
+            if (ctx.Rng.Chance(Longevity.RecastSuccess))
+            {
+                member.FoundationId = ctx.Content.Qi.First(q => q.Id == qiId).Foundation;
+                member.MaxLifespan += Longevity.RecastYears;
+                ctx.Log.Info($"[Alchemy] {member.FullName} re-forms its foundation on {qiId}: a second foundation, a younger body.");
+            }
+            else
+            {
+                member.ProgressionSealed = true;
+                ctx.Log.Warning($"[Alchemy] {member.FullName}'s recasting fails: its path is sealed.");
+            }
+            return null;
+        }
+
+        /// <summary>Why this alchemist cannot refine this prisoner into a human pill for this member now (French), or null.</summary>
+        public string HumanPillRefusal(CharacterData alchemist, string prisonerId, CharacterData recipient)
+        {
+            if (alchemist == null || !alchemist.IsAlive || alchemist.CaptorFaction != null || alchemist.Retreat != Retreat.None) return "cet alchimiste ne peut travailler";
+            if (!arts.HoldsLegacy(ImmortalArt.Alchemy)) return "le clan ne tient pas l'héritage de l'alchimie";
+            if (!ImmortalArtRules.MayPractise(alchemist, ImmortalArt.Alchemy, ctx.Content.Balance.Arts)) return "il n'a pas le don de l'alchimie (sans don, il faut le Manoir Pourpre)";
+            if (ArtSystem.MasteryOf(alchemist, ImmortalArt.Alchemy) < Longevity.HumanPillMastery)
+                return $"il faut un {ImmortalArtRules.Rank(Longevity.HumanPillMastery, ctx.Content.Balance.Arts)} de l'alchimie";
+            if (alchemist.LastOperationYear == ctx.Clock.Year) return "cet alchimiste a déjà œuvré cette année";
+            if (Captives?.Prisoners.FirstOrDefault(p => p.Id == prisonerId) == null) return "prisonnier inconnu";
+            if (recipient == null || !recipient.IsAlive) return "nul pour l'avaler";
+            return null;
+        }
+
+        /// <summary>The years a human pill of this realm gives one who already swallowed some.</summary>
+        public int HumanPillYears(CultivationRealm realm, CharacterData recipient) =>
+            (Longevity.YearsByRealm.TryGetValue(realm, out int y) ? y : 0) / (1 + recipient.HumanPillsTaken);
+
+        /// <summary>
+        /// A prisoner is refined into a human pill (📚 the patron's longer life): years for the one who swallows it, fewer with each
+        /// pill; a Heart Demon may follow, and the prisoner's power may learn of it. Null when done, else why not (French).
+        /// </summary>
+        public string HumanPill(string alchemistId, string prisonerId, string recipientId)
+        {
+            var alchemist = clan.FindById(alchemistId);
+            var recipient = clan.FindById(recipientId);
+            if (HumanPillRefusal(alchemist, prisonerId, recipient) is { } why) return why;
+            var prisoner = Captives.Consume(prisonerId);
+            alchemist.LastOperationYear = ctx.Clock.Year;
+            int years = HumanPillYears(prisoner.Realm, recipient);
+            recipient.MaxLifespan += years;
+            recipient.HumanPillsTaken++;
+            ctx.Log.Warning($"[Alchemy] A prisoner of {prisoner.Faction} is refined into a human pill: {recipient.FullName} gains {years} years.");
+            if (ctx.Rng.Chance(Longevity.HeartDemonChance))
+                recipient.HeartDemonYearsLeft = Math.Max(recipient.HeartDemonYearsLeft, Longevity.HeartDemonYears);
+            if (ctx.Rng.Chance(Longevity.DiscoveryChance) && factions.GetFactionByName(prisoner.Faction) is { } power)
+            {
+                factions.ChangeRelation(power.ID, -Longevity.DiscoveryRelation);
+                suspicion.AddToClan(power.Name, Longevity.DiscoverySuspicion);
+            }
             return null;
         }
 

@@ -49,6 +49,31 @@ namespace MirrorChronicles.Data
         public int WithoutPowderPenalty { get; init; } = 20;   // the fifth chakra without the Bright Spirit Powder (🔎)
         public int PillBuyRelation { get; init; } = 20;        // a power that knows alchemy sells its pills from this relation (🔎)
         public ConvergenceSettings Convergence { get; init; } = new ConvergenceSettings();
+        public LongevitySettings Longevity { get; init; } = new LongevitySettings();
+    }
+
+    /// <summary>
+    /// The second foundation and the prolonged life (balance.json « arts.longevity », AUDIT_LORE.md §2.10, 📚 wiki Li_Xuanfeng and
+    /// the patron's human pills — 🔎 the amounts): the Recasting Pill and <see cref="RecastQiPortions"/> of another Qi re-form a
+    /// Foundation's foundation and give it <see cref="RecastYears"/>, at <see cref="RecastSuccess"/> — else its path is sealed; a
+    /// prisoner refined by an adept gives years by its realm, halved by each pill already taken, a Heart Demon at
+    /// <see cref="HeartDemonChance"/>, its power's grudge at <see cref="DiscoveryChance"/>; an old elder of a power that knows
+    /// alchemy swallows one at <see cref="ElderPillChance"/> a year, a share of its disciples into the cauldron.
+    /// </summary>
+    public sealed record LongevitySettings
+    {
+        public int RecastQiPortions { get; init; } = 3;
+        public int RecastYears { get; init; } = 30;
+        public double RecastSuccess { get; init; } = 0.7;
+        public int HumanPillMastery { get; init; } = 40;
+        public Dictionary<CultivationRealm, int> YearsByRealm { get; init; } = new Dictionary<CultivationRealm, int>();
+        public double HeartDemonChance { get; init; } = 0.5;
+        public int HeartDemonYears { get; init; } = 10;
+        public double DiscoveryChance { get; init; } = 0.3;
+        public int DiscoveryRelation { get; init; } = 40;
+        public int DiscoverySuspicion { get; init; } = 20;
+        public double ElderPillChance { get; init; } = 0.05;
+        public double ElderDisciplesShare { get; init; } = 0.1;
     }
 
     /// <summary>
@@ -67,7 +92,7 @@ namespace MirrorChronicles.Data
     }
 
     /// <summary>The pills the clan's arts spend (AUDIT_LORE.md §2.2, §2.8): beside the Essence Gathering Pill, by element.</summary>
-    public enum PillKind { BrightSpirit, Purification, Condensation, AutumnConvergence }
+    public enum PillKind { BrightSpirit, Purification, Condensation, AutumnConvergence, FoundationRecasting }
 
     /// <summary>
     /// A pill (balance.json « arts.pills », 🔎 the amounts): its name, what an alchemist of <see cref="Mastery"/> spends to refine

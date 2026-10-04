@@ -111,6 +111,7 @@ namespace MirrorChronicles.World
             {
                 foreach (var elder in power.Elders.ToList())
                 {
+                    SwallowAHumanPill(power, elder, year);
                     if (elder.Age(year) >= elder.MaxLifespan) Die(power, elder, demon: false);
                     else if (elder.Realm < CultivationRealm.PurpleMansion) Rise(power, elder, year);
                     else if (elder.Realm == CultivationRealm.PurpleMansion) TryTheGoldenCore(power, elder, year);
@@ -151,6 +152,19 @@ namespace MirrorChronicles.World
             else if (ctx.Rng.Chance(Pill.ElderWithoutPillFactor)) return true;
             if (ctx.Rng.Chance(Pill.ElderWallDeathChance)) Die(power, elder, demon: false, "dies at the Foundation wall");
             return false;
+        }
+
+        /// <summary>An old elder of a power that knows alchemy prolongs its life with human pills — its disciples into the cauldron (audit §2.10, parity).</summary>
+        private void SwallowAHumanPill(FactionData power, FactionElder elder, int year)
+        {
+            var l = ctx.Content.Balance.Arts.Longevity;
+            if (elder.MaxLifespan - elder.Age(year) > Settings.LastYears || !Characters.PowerArts.Knows(power, ImmortalArt.Alchemy, ctx.Content)) return;
+            if (!ctx.Rng.Chance(l.ElderPillChance)) return;
+            int years = (l.YearsByRealm.TryGetValue(elder.Realm, out int y) ? y : 0) / (1 + elder.HumanPillsTaken);
+            elder.MaxLifespan += years;
+            elder.HumanPillsTaken++;
+            power.PowerLevel -= (int)Math.Ceiling(power.PowerLevel * l.ElderDisciplesShare);
+            ctx.Log.Info($"[Elders] {elder.Name} of {power.Name} swallows a human pill: {years} more years.");
         }
 
         /// <summary>A power's formation masters raise its formation by one level now and then, up to what its realm knows.</summary>
