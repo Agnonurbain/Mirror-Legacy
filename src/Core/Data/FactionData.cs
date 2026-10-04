@@ -42,7 +42,9 @@ namespace MirrorChronicles.Data
         public string Notes { get; set; }
         public Provenance Provenance { get; set; }
         public List<string> InterpretedFields { get; set; } = new List<string>();
-        public List<string> Jurisdiction { get; set; } = new List<string>(); // the places it governs beyond its seat (audit §4.2): its neighbours too // to replace when a source speaks
+        public List<string> Jurisdiction { get; set; } = new List<string>();
+        public string Suzerain { get; set; }                  // the power it answers to as the world opens (audit §4.1, §4.4), or null
+        public Dictionary<string, int> StartingDistrust { get; set; } = new Dictionary<string, int>(); // old enmities (audit §4.9) // the places it governs beyond its seat (audit §4.2): its neighbours too // to replace when a source speaks
         public FactionPersonality Personality { get; set; }
         
         // Power Level represents their overall military/cultivation strength (e.g., 100 = weak, 10000 = major sect)
@@ -65,6 +67,7 @@ namespace MirrorChronicles.Data
             copy.Elders = (Elders ?? new List<FactionElder>()).Select(e => e.Clone()).ToList();
             copy.InterpretedFields = new List<string>(InterpretedFields ?? new List<string>());
             copy.Jurisdiction = new List<string>(Jurisdiction ?? new List<string>());
+            copy.StartingDistrust = new Dictionary<string, int>(StartingDistrust ?? new Dictionary<string, int>());
             return copy;
         }
 

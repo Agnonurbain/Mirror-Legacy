@@ -118,7 +118,7 @@ namespace MirrorChronicles.Tests.Diplomacy
         public void AnAbsorbedFamily_CountsAsBowed_ForTheLakesUnity()
         {
             var s = Quiet();
-            var lake = new[] { "Famille Lü", "Famille Tao", "Famille Lou", "Famille Fang", "Famille Kang" };
+            var lake = new[] { "Famille Lü", "Famille Tao", "Famille Lou", "Famille Fang", "Famille Xun", "Famille Kang" };
             foreach (var family in lake) MakeVassal(s, family, family == Vassal ? Steps : 0);
             s.Absorption.Absorb(Vassal);
             s.Events.TriggerYearStarted(s.Clock.Year);

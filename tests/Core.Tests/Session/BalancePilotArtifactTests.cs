@@ -42,8 +42,8 @@ namespace MirrorChronicles.Tests.Session
             s.Buildings.GetBuilding(BuildingType.Forge).Level = 2;
             s.Resources.AddOres(1_000);
             s.Resources.AddSpiritStones(50_000);
-            var smith = Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation).AsSmith(s);
-            s.Clan.AddMember(smith);
+            foreach (var _ in Enumerable.Range(0, 2)) // one may be sent on an operation first: the other forges
+                s.Clan.AddMember(Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation).AsSmith(s));
             BalanceRun.Act(s);
             Assert.IsTrue(s.Artifacts.All.Any(), "the forge works");
         }

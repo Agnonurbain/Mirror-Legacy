@@ -76,6 +76,15 @@ namespace MirrorChronicles.Characters
             smith.LastOperationYear = ctx.Clock.Year;
         }
 
+        /// <summary>Why this member cannot work the forge at this rank, whatever the price (French), or null: free, of the realm, of the art.</summary>
+        public string SmithRefusal(string smithId, CultivationRealm rank)
+        {
+            var smith = clan.FindById(smithId);
+            if (smith == null || !smith.IsAlive || smith.CaptorFaction != null || smith.Retreat != Retreat.None) return "ce forgeron ne peut travailler";
+            if (smith.Realm < rank) return "un forgeron ne forge rien au-dessus de son royaume";
+            return ArtRefusal(smith, rank);
+        }
+
         /// <summary>Why this smith cannot forge an artifact of this rank (French), or null.</summary>
         public string MakeRefusal(CultivationRealm rank, string smithId) => Refusal(clan.FindById(smithId), rank, 1.0);
 

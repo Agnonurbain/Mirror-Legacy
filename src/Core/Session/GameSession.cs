@@ -297,16 +297,17 @@ namespace MirrorChronicles.Session
         }
 
         /// <summary>
-        /// The clan begins as its suzerain's client, the place's other families as its vassals (📚 the lake's families answer to
-        /// the Cloud Peak, audit §4.1).
+        /// The world as the novel opens (📚 audit §4.1, §4.4, §4.9): the clan, its suzerain's client; each power under the one it
+        /// answers to (the lake's families under the Cloud Peak or the Fiery Iron Gate); the old enmities.
         /// </summary>
         private static void BindToTheSuzerain(GameSession session, GameContent content)
         {
-            var sect = session.Factions.GetFactionByName(content.Clan.Suzerain);
-            if (sect == null) return;
-            session.Treaties.BindAsClient(sect.Name);
-            foreach (var family in session.Factions.Factions.Where(f => f != sect && f.RegionId == content.Clan.HomeRegion))
-                session.Politics.BindVassal(sect.Name, family.Name);
+            if (session.Factions.GetFactionByName(content.Clan.Suzerain) is { } sect) session.Treaties.BindAsClient(sect.Name);
+            foreach (var power in session.Factions.Factions.Where(f => f.Suzerain != null && session.Factions.GetFactionByName(f.Suzerain) != null))
+                session.Politics.BindVassal(power.Suzerain, power.Name);
+            foreach (var power in session.Factions.Factions)
+                foreach (var (toward, amount) in power.StartingDistrust ?? new System.Collections.Generic.Dictionary<string, int>())
+                    session.Suspicion.AddDistrust(power.Name, toward, amount);
         }
 
         /// <summary>

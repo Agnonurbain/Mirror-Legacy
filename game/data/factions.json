@@ -1,6 +1,7 @@
 [
   {
 	"name": "Secte du Pic des Nuées",
+	"startingDistrust": {"Secte de la Lune Pâle": 30, "Porte du Fer Ardent": 30},
 	"familyName": null,
 	"kind": "Sect",
 	"regionId": "mount-yunfeng",
@@ -65,6 +66,7 @@
   },
   {
 	"name": "Secte de la Lune Pâle",
+	"startingDistrust": {"Secte du Pic des Nuées": 30},
 	"familyName": null,
 	"kind": "Sect",
 	"regionId": "pale-moon-lands",
@@ -94,11 +96,12 @@
   },
   {
 	"name": "Porte du Fer Ardent",
+	"startingDistrust": {"Secte du Pic des Nuées": 30},
 	"familyName": null,
 	"kind": "Gate",
 	"regionId": "fiery-iron-lands",
 	"path": "Immortal",
-	"highestRealm": "Foundation",
+	"highestRealm": "PurpleMansion",
 	"techniques": [
       "clear-edge-method"
 	],
@@ -106,7 +109,7 @@
 	"powerLevel": 1500,
 	"wealth": 1500,
 	"relationWithPlayer": 0,
-	"notes": "Nord-ouest ; liée à la famille Lü (Méthode du Tranchant Clair).",
+	"notes": "Nord-ouest ; liée à la famille Lü (Méthode du Tranchant Clair). 📚 Jusqu'à trois Manoirs Pourpres (audit §4.8).",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
@@ -391,6 +394,7 @@
   },
   {
 	"name": "Famille Ruan",
+	"startingDistrust": {"Famille Bai": 40},
 	"familyName": "Ruan",
 	"kind": "Family",
 	"regionId": "heshan",
@@ -407,11 +411,11 @@
 	  "city-sentinel-southern-sorrowful-waters-method",
       "sword-dao-nourished-celadon-sky-method"
 	],
-	"personality": "Aggressive",
+	"personality": "Manipulative",
 	"powerLevel": 400,
 	"wealth": 800,
-	"relationWithPlayer": -10,
-	"notes": "Voisins directs à l'est du lac ; Ruan Xianzhou fut piégé et tué il y a ~200 ans par Bai Chengyu avec les sectes et les portes.",
+	"relationWithPlayer": 20,
+	"notes": "Voisins directs à l'est du lac ; Ruan Xianzhou fut piégé et tué il y a ~200 ans par Bai Chengyu avec les sectes et les portes. 📚 Manipulateurs politiques de génie, alchimistes ; protecteurs intéressés du clan (audit §4.4).",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
@@ -448,6 +452,7 @@
   },
   {
 	"name": "Famille Bai",
+	"startingDistrust": {"Famille Ruan": 40},
 	"familyName": "Bai",
 	"kind": "Family",
 	"regionId": "linxi",
@@ -515,19 +520,20 @@
   },
   {
 	"name": "Famille Lü",
+	"suzerain": "Porte du Fer Ardent",
 	"familyName": "Lü",
 	"kind": "Family",
 	"regionId": "jingshui-lake",
 	"path": "Immortal",
-	"highestRealm": "Foundation",
+	"highestRealm": "QiRefinement",
 	"techniques": [
       "clear-edge-method"
 	],
-	"personality": "Merchant",
+	"personality": "Aggressive",
 	"powerLevel": 300,
 	"wealth": 500,
-	"relationWithPlayer": 5,
-	"notes": "L'un des cinq clans du lac ; liée à la Porte du Fer Ardent.",
+	"relationWithPlayer": -20,
+	"notes": "L'un des cinq clans du lac ; liée à la Porte du Fer Ardent. 📚 Petite famille gouvernée par la Porte du Fer Ardent, qui empiète sur ses voisins : le premier ennemi du clan (audit §4.4).",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
@@ -539,6 +545,8 @@
   },
   {
 	"name": "Famille Tao",
+	"suzerain": "Secte du Pic des Nuées",
+	"startingDistrust": {"Famille Lou": 40},
 	"familyName": "Tao",
 	"kind": "Family",
 	"regionId": "jingshui-lake",
@@ -564,17 +572,19 @@
   },
   {
 	"name": "Famille Lou",
+	"suzerain": "Porte du Fer Ardent",
+	"startingDistrust": {"Famille Tao": 40},
 	"familyName": "Lou",
 	"kind": "Family",
 	"regionId": "jingshui-lake",
 	"path": "Immortal",
-	"highestRealm": "Foundation",
+	"highestRealm": "QiRefinement",
 	"techniques": [],
 	"personality": "Aggressive",
 	"powerLevel": 350,
 	"wealth": 500,
 	"relationWithPlayer": -15,
-	"notes": "L'un des cinq clans du lac ; ennemie des Tao.",
+	"notes": "L'un des cinq clans du lac ; ennemie des Tao. 📚 A rejoint la Porte du Fer Ardent ; ennemie des Tao (audit §4.8-4.9).",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
@@ -586,11 +596,12 @@
   },
   {
 	"name": "Famille Xun",
+	"suzerain": "Secte du Pic des Nuées",
 	"familyName": "Xun",
 	"kind": "Family",
-	"regionId": "linxi",
+	"regionId": "jingshui-lake",
 	"path": "Immortal",
-	"highestRealm": "Foundation",
+	"highestRealm": "QiRefinement",
 	"techniques": [
       "underground-spring-method"
 	],
@@ -598,7 +609,7 @@
 	"powerLevel": 300,
 	"wealth": 400,
 	"relationWithPlayer": 0,
-	"notes": "Le lore ne situe pas la famille.",
+	"notes": "Le lore ne situe pas la famille. 📚 Au lac (Mont Tiaoyun), adossée à la secte (audit §4.8).",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
@@ -636,11 +647,12 @@
   },
   {
 	"name": "Famille Fang",
+	"suzerain": "Secte du Pic des Nuées",
 	"familyName": "Fang",
 	"kind": "Family",
 	"regionId": "jingshui-lake",
 	"path": "Immortal",
-	"highestRealm": "Foundation",
+	"highestRealm": "QiRefinement",
 	"techniques": [
       "path-watcher"
 	],
@@ -660,11 +672,12 @@
   },
   {
 	"name": "Famille Kang",
+	"suzerain": "Secte du Pic des Nuées",
 	"familyName": "Kang",
 	"kind": "Family",
 	"regionId": "jingshui-lake",
 	"path": "Immortal",
-	"highestRealm": "Foundation",
+	"highestRealm": "QiRefinement",
 	"techniques": [],
 	"personality": "Isolationist",
 	"powerLevel": 200,

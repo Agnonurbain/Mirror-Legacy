@@ -6482,10 +6482,20 @@
       "norm_label": ".pay()"
     },
     {
-      "label": ".MakeRefusal()",
+      "label": ".SmithRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtifactForge.cs",
       "source_location": "L80",
+      "_origin": "ast",
+      "id": "characters_artifactforge_artifactforge_smithrefusal",
+      "community": 377,
+      "norm_label": ".smithrefusal()"
+    },
+    {
+      "label": ".MakeRefusal()",
+      "file_type": "code",
+      "source_file": "src/Core/Characters/ArtifactForge.cs",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "characters_artifactforge_artifactforge_makerefusal",
       "community": 377,
@@ -6495,7 +6505,7 @@
       "label": ".RaiseRefusal()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtifactForge.cs",
-      "source_location": "L83",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "characters_artifactforge_artifactforge_raiserefusal",
       "community": 377,
@@ -6505,7 +6515,7 @@
       "label": ".Make()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtifactForge.cs",
-      "source_location": "L93",
+      "source_location": "L102",
       "_origin": "ast",
       "id": "characters_artifactforge_artifactforge_make",
       "community": 377,
@@ -6515,7 +6525,7 @@
       "label": ".Raise()",
       "file_type": "code",
       "source_file": "src/Core/Characters/ArtifactForge.cs",
-      "source_location": "L105",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "characters_artifactforge_artifactforge_raise",
       "community": 377,
@@ -7028,7 +7038,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 183,
+      "community": 434,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -7038,7 +7048,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 183,
+      "community": 434,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -11578,7 +11588,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 460,
+      "community": 183,
       "norm_label": "woundsystem"
     },
     {
@@ -11588,7 +11598,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 460,
+      "community": 183,
       "norm_label": "double"
     },
     {
@@ -11598,7 +11608,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 460,
+      "community": 183,
       "norm_label": "int"
     },
     {
@@ -11608,7 +11618,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 460,
+      "community": 183,
       "norm_label": "gamecontext"
     },
     {
@@ -11618,7 +11628,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 460,
+      "community": 183,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -11628,7 +11638,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 460,
+      "community": 183,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -11638,7 +11648,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 460,
+      "community": 183,
       "norm_label": "characterdata"
     },
     {
@@ -11648,7 +11658,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 460,
+      "community": 183,
       "norm_label": ".applydaowound()"
     },
     {
@@ -11658,7 +11668,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 460,
+      "community": 183,
       "norm_label": ".applywound()"
     },
     {
@@ -12268,7 +12278,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 434,
+      "community": 293,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -12278,7 +12288,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 434,
+      "community": 293,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -12688,7 +12698,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_legacysystem",
-      "community": 459,
+      "community": 434,
       "norm_label": "legacysystem.cs"
     },
     {
@@ -12698,7 +12708,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "clan_legacysystem_mirrorchronicles_clan",
-      "community": 459,
+      "community": 434,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -12708,7 +12718,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "clan_legacysystem_legacysystem",
-      "community": 459,
+      "community": 434,
       "norm_label": "legacysystem"
     },
     {
@@ -12718,7 +12728,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_clan_legacysystem_cs_int",
-      "community": 459,
+      "community": 434,
       "norm_label": "int"
     },
     {
@@ -14918,7 +14928,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 183,
+      "community": 434,
       "norm_label": "combatunit.cs"
     },
     {
@@ -14928,7 +14938,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 183,
+      "community": 434,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -15845,7 +15855,7 @@
       "label": ".Clone()",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L59",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "data_factiondata_factiondata_clone",
       "community": 448,
@@ -15855,7 +15865,7 @@
       "label": "FactionElder",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L83",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "data_factiondata_factionelder",
       "community": 448,
@@ -15865,7 +15875,7 @@
       "label": ".Age()",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L104",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_age",
       "community": 448,
@@ -15875,7 +15885,7 @@
       "label": ".Clone()",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L106",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_clone",
       "community": 448,
@@ -17218,7 +17228,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_randomeventdata",
-      "community": 459,
+      "community": 434,
       "norm_label": "randomeventdata.cs"
     },
     {
@@ -17228,7 +17238,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_randomeventdata_mirrorchronicles_data",
-      "community": 459,
+      "community": 434,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -17238,7 +17248,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "data_randomeventdata_randomeventdata",
-      "community": 459,
+      "community": 434,
       "norm_label": "randomeventdata"
     },
     {
@@ -18648,7 +18658,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 444,
+      "community": 293,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -18658,7 +18668,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 444,
+      "community": 293,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18788,7 +18798,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 448,
+      "community": 434,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -18798,7 +18808,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 448,
+      "community": 434,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -19668,7 +19678,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 448,
+      "community": 293,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -19678,7 +19688,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 448,
+      "community": 293,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -22828,7 +22838,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 444,
+      "community": 293,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -22838,7 +22848,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 444,
+      "community": 293,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -23338,7 +23348,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_eventmanager",
-      "community": 459,
+      "community": 434,
       "norm_label": "eventmanager.cs"
     },
     {
@@ -23348,7 +23358,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "events_eventmanager_mirrorchronicles_events",
-      "community": 459,
+      "community": 434,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -31595,7 +31605,7 @@
       "label": ".Worth()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Artifacts.cs",
-      "source_location": "L69",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "session_balancerun_artifacts_balancerun_worth",
       "community": 381,
@@ -31605,7 +31615,7 @@
       "label": "CharacterData",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Artifacts.cs",
-      "source_location": "L69",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "src_core_session_balancerun_artifacts_cs_characterdata",
       "community": 381,
@@ -31615,7 +31625,7 @@
       "label": "ArtifactInstance",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Artifacts.cs",
-      "source_location": "L69",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "src_core_session_balancerun_artifacts_cs_artifactinstance",
       "community": 381,
@@ -31625,7 +31635,7 @@
       "label": ".HandOutTheArtifacts()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Artifacts.cs",
-      "source_location": "L77",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "session_balancerun_artifacts_balancerun_handouttheartifacts",
       "community": 381,
@@ -33355,7 +33365,7 @@
       "label": ".TryLoad()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L320",
+      "source_location": "L321",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tryload",
       "community": 251,
@@ -33365,7 +33375,7 @@
       "label": ".SavedBefore()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L338",
+      "source_location": "L339",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_savedbefore",
       "community": 251,
@@ -33375,7 +33385,7 @@
       "label": "GameData",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L338",
+      "source_location": "L339",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
       "community": 251,
@@ -33385,7 +33395,7 @@
       "label": ".FromSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L341",
+      "source_location": "L342",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_fromsavedata",
       "community": 251,
@@ -33395,7 +33405,7 @@
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L454",
+      "source_location": "L455",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 251,
@@ -33405,7 +33415,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L558",
+      "source_location": "L559",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -33415,7 +33425,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L562",
+      "source_location": "L563",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -33425,7 +33435,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L573",
+      "source_location": "L574",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -33435,7 +33445,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L580",
+      "source_location": "L581",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -33445,7 +33455,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L580",
+      "source_location": "L581",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -33455,7 +33465,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L640",
+      "source_location": "L641",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -55985,7 +55995,7 @@
       "label": ".TheSectsJurisdiction_ReachesTheLake()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
-      "source_location": "L49",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "diplomacy_clientagetests_clientagetests_thesectsjurisdiction_reachesthelake",
       "community": 40,
@@ -55995,7 +56005,7 @@
       "label": ".TheTribute_IsSmall_AndTheSectNeverAbsorbsItsClient()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
-      "source_location": "L59",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "diplomacy_clientagetests_clientagetests_thetribute_issmall_andthesectneverabsorbsitsclient",
       "community": 40,
@@ -56005,7 +56015,7 @@
       "label": ".TheSect_TakesTheMostGiftedChildBornWithAnOrifice_NotASeededOne()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
-      "source_location": "L71",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "diplomacy_clientagetests_clientagetests_thesect_takesthemostgiftedchildbornwithanorifice_notaseededone",
       "community": 40,
@@ -56015,7 +56025,7 @@
       "label": ".ASeededCultivator_InTheOpen_GivesTheSectClues()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
-      "source_location": "L88",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "diplomacy_clientagetests_clientagetests_aseededcultivator_intheopen_givesthesectclues",
       "community": 40,
@@ -56025,7 +56035,7 @@
       "label": ".TheSect_RaisesALevy_ForTheFrontier()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
-      "source_location": "L101",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "diplomacy_clientagetests_clientagetests_thesect_raisesalevy_forthefrontier",
       "community": 40,
@@ -56035,11 +56045,21 @@
       "label": ".BreakingFree_MeansWar()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
-      "source_location": "L111",
+      "source_location": "L110",
       "_origin": "ast",
       "id": "diplomacy_clientagetests_clientagetests_breakingfree_meanswar",
       "community": 40,
       "norm_label": ".breakingfree_meanswar()"
+    },
+    {
+      "label": ".TheWorld_OpensWithItsOldEnmities_AndTheNovelsTempers()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
+      "source_location": "L118",
+      "_origin": "ast",
+      "id": "diplomacy_clientagetests_clientagetests_theworld_openswithitsoldenmities_andthenovelstempers",
+      "community": 40,
+      "norm_label": ".theworld_openswithitsoldenmities_andthenovelstempers()"
     },
     {
       "label": "DesignResponseTests.cs",
@@ -67485,7 +67505,7 @@
       "label": ".ThePilot_SeeksTheGatesAndSectsOfLinxi_BeforeItsFamilies()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L363",
+      "source_location": "L368",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_seeksthegatesandsectsoflinxi_beforeitsfamilies",
       "community": 334,
@@ -67495,7 +67515,7 @@
       "label": ".Prober()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L377",
+      "source_location": "L382",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_prober",
       "community": 334,
@@ -67505,7 +67525,7 @@
       "label": ".ThePilot_ProbesAVassalFirst()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L384",
+      "source_location": "L389",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_probesavassalfirst",
       "community": 334,
@@ -67515,7 +67535,7 @@
       "label": ".ThePilot_KeepsDigging_ThePowerItProbed()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L393",
+      "source_location": "L398",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_keepsdigging_thepoweritprobed",
       "community": 334,
@@ -67525,7 +67545,7 @@
       "label": ".ThePilot_KeepsTheMirror_ForANewcomerToSound_RatherThanItsSight()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L405",
+      "source_location": "L410",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_keepsthemirror_foranewcomertosound_ratherthanitssight",
       "community": 334,
@@ -67535,7 +67555,7 @@
       "label": ".ThePilot_LooksWithTheMirror_WhenItCan()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L416",
+      "source_location": "L421",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_lookswiththemirror_whenitcan",
       "community": 334,
@@ -67545,7 +67565,7 @@
       "label": ".ThePilot_SabotagesARival_InTheRaceForItsMastersLineage()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L423",
+      "source_location": "L428",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_sabotagesarival_intheraceforitsmasterslineage",
       "community": 334,
@@ -67555,7 +67575,7 @@
       "label": ".ThePilot_BuildsTheHerbGardenAndTheMine_WhenItsTreasuryAllows()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L438",
+      "source_location": "L443",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_buildstheherbgardenandthemine_whenitstreasuryallows",
       "community": 334,
@@ -67565,7 +67585,7 @@
       "label": ".ThePilot_HidesTheRebornAncestor_InSeclusion_UntilItsPurpleMansion()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L449",
+      "source_location": "L454",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_hidestherebornancestor_inseclusion_untilitspurplemansion",
       "community": 334,
@@ -67575,7 +67595,7 @@
       "label": ".ThePilot_FoundsTheKingdom_AsSoonAsItMay()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L462",
+      "source_location": "L467",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_foundsthekingdom_assoonasitmay",
       "community": 334,
@@ -67585,7 +67605,7 @@
       "label": ".ThePilot_LeavesADemonToTheUnderworld_AndSubduesOneLetBe()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L477",
+      "source_location": "L482",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_leavesademontotheunderworld_andsubduesoneletbe",
       "community": 334,
@@ -67595,7 +67615,7 @@
       "label": ".ThePilot_CondensesATreasure_MortgagesIt_AndUnsealsAMasterlessDesignation()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L494",
+      "source_location": "L499",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_condensesatreasure_mortgagesit_andunsealsamasterlessdesignation",
       "community": 334,
@@ -67605,7 +67625,7 @@
       "label": ".ThePilot_HasTheMirrorDeduceTheMinorsOfItsMansionsLineage()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/BalancePilotAscentTests.cs",
-      "source_location": "L513",
+      "source_location": "L518",
       "_origin": "ast",
       "id": "session_balancepilotascenttests_balancepilotascenttests_thepilot_hasthemirrordeducetheminorsofitsmansionslineage",
       "community": 334,
@@ -79221,7 +79241,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Strict English code and French docs; mandatory Singleton/Observer/Strategy/Command/State Machine/MVC; no SendMessage, no FindObjectOfType in loops, no StartCoroutine timers (use async/await or GameEvents); ScriptableObjects for all static data; null checks + try/catch on Save/Load; Play Mode tests per heavy system; one system at a time with user validation.",
-      "community": 4,
+      "community": 20,
       "norm_label": "golden rules (en code / fr docs, mandatory patterns)",
       "id": "brain_claude_brainstorming_golden_rules"
     },
@@ -79234,7 +79254,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 346,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -79288,7 +79308,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 183,
+      "community": 434,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -79315,7 +79335,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 20,
       "norm_label": "singleton pattern (manager instance)",
       "id": "brain_claude_memory_singleton_pattern"
     },
@@ -79328,7 +79348,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 20,
       "norm_label": "observer pattern (c# events bus)",
       "id": "brain_claude_memory_observer_pattern"
     },
@@ -79341,7 +79361,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 20,
       "norm_label": "state machine pattern (gamestate, gamephase, combatstate)",
       "id": "brain_claude_memory_state_machine_pattern"
     },
@@ -79354,7 +79374,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 20,
       "norm_label": "strategy pattern (iaistrategy)",
       "id": "brain_claude_memory_strategy_pattern"
     },
@@ -79367,7 +79387,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 20,
       "norm_label": "command pattern (icombataction)",
       "id": "brain_claude_memory_command_pattern"
     },
@@ -79381,7 +79401,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Only theoretical so far: POCO data separated from managers, but UI logic still lives in MonoBehaviours (NOT_DONE #102).",
-      "community": 4,
+      "community": 20,
       "norm_label": "mvc pattern (data pocos vs managers vs ui)",
       "id": "brain_claude_memory_mvc_pattern"
     },
@@ -79395,7 +79415,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Singletons expose static Instance with Awake duplicate-destroy; events subscribed in OnEnable and unsubscribed in OnDisable (never Awake/Start); Debug.Log prefixed with [System]; POCOs [Serializable] with parameterless ctor and Guid IDs.",
-      "community": 4,
+      "community": 20,
       "norm_label": "code conventions (mirrorchronicles.<module> namespaces, xml docs, onenable/ondisable subscriptions)",
       "id": "brain_claude_memory_code_conventions"
     },
@@ -79409,7 +79429,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 448,
+      "community": 346,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -79422,7 +79442,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 293,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -79435,7 +79455,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 293,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -79448,7 +79468,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 293,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -79461,7 +79481,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 293,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -79500,7 +79520,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 20,
       "norm_label": "strict mvc for ui (#102)",
       "id": "brain_claude_not_done_mvc_ui"
     },
@@ -79608,7 +79628,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 293,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -79622,7 +79642,7 @@
       "author": null,
       "contributor": null,
       "rationale": "GameManager(-100) -> TimeManager(-90) -> GameEvents(-80) -> ClanManager(-70) -> BloodRegistry(-60) to guarantee singleton Awake order (WL-009).",
-      "community": 4,
+      "community": 20,
       "norm_label": "script execution order configuration",
       "id": "brain_claude_package_script_execution_order"
     },
@@ -79635,7 +79655,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 459,
+      "community": 434,
       "norm_label": "annual 4-phase cycle (management -> events -> breakthrough -> inheritance)",
       "id": "brain_claude_plan_annual_cycle"
     },
@@ -79649,7 +79669,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 448,
+      "community": 346,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -79717,7 +79737,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 448,
+      "community": 346,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -79730,7 +79750,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 20,
       "norm_label": "[systems] dontdestroyonload gameobject hosting all singletons",
       "id": "brain_claude_plan_systems_gameobject"
     },
@@ -79756,7 +79776,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 293,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -79769,7 +79789,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 293,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -79782,7 +79802,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 459,
+      "community": 434,
       "norm_label": "phase 2 - combat & events",
       "id": "brain_claude_plan_phase_2_combat_events"
     },
@@ -79795,7 +79815,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 448,
+      "community": 293,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -80001,7 +80021,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Unity does not order Awake across GameObjects; fix via single [Systems] object, Script Execution Order, or RuntimeInitializeOnLoadMethod bootstrapper; null-check cross-singleton calls.",
-      "community": 4,
+      "community": 20,
       "norm_label": "wl-009: singleton initialization order not guaranteed",
       "id": "brain_claude_worked_lesson_wl_009"
     },
@@ -80043,7 +80063,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 448,
+      "community": 346,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -80124,7 +80144,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Scripts organised by domain folder (Core, Clan, Characters, Combat, Mirror, Diplomacy, Economy, Events, Data) mirroring MirrorChronicles.<Module> namespaces.",
-      "community": 4,
+      "community": 20,
       "norm_label": "assets/_project domain-module architecture",
       "id": "readme_module_architecture"
     }
@@ -92730,6 +92750,16 @@
       "target": "characters_artifactforge_artifactforge_refusal"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtifactForge.cs",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "characters_artifactforge_artifactforge",
+      "target": "characters_artifactforge_artifactforge_smithrefusal",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/ArtifactForge.cs",
@@ -92865,6 +92895,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Characters/ArtifactForge.cs",
+      "source_location": "L80",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "characters_artifactforge_artifactforge_smithrefusal",
+      "target": "src_core_characters_artifactforge_cs_cultivationrealm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtifactForge.cs",
       "source_location": "L46",
       "weight": 1.0,
       "context": "parameter_type",
@@ -92882,6 +92923,17 @@
       "confidence_score": 1.0,
       "source": "characters_artifactforge_artifactforge_refusal",
       "target": "characters_artifactforge_artifactforge_artrefusal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Characters/ArtifactForge.cs",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "characters_artifactforge_artifactforge_smithrefusal",
+      "target": "characters_artifactforge_artifactforge_artrefusal",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -108988,9 +109040,9 @@
       "source_file": "src/Core/Data/ClientageData.cs",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_clientagedata",
-      "target": "data_clientagedata_mirrorchronicles_data",
-      "confidence_score": 1.0
+      "target": "data_clientagedata_mirrorchronicles_data"
     },
     {
       "relation": "contains",
@@ -112916,9 +112968,9 @@
       "source_file": "src/Core/Diplomacy/ClientageSystem.cs",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem",
-      "target": "diplomacy_clientagesystem_clientagesystem",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagesystem_clientagesystem"
     },
     {
       "relation": "contains",
@@ -112926,9 +112978,9 @@
       "source_file": "src/Core/Diplomacy/ClientageSystem.cs",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem",
-      "target": "diplomacy_clientagesystem_mirrorchronicles_diplomacy",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagesystem_mirrorchronicles_diplomacy"
     },
     {
       "relation": "method",
@@ -112936,9 +112988,9 @@
       "source_file": "src/Core/Diplomacy/ClientageSystem.cs",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem",
-      "target": "diplomacy_clientagesystem_clientagesystem_levy",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagesystem_clientagesystem_levy"
     },
     {
       "relation": "method",
@@ -112946,9 +112998,9 @@
       "source_file": "src/Core/Diplomacy/ClientageSystem.cs",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem",
-      "target": "diplomacy_clientagesystem_clientagesystem_select",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagesystem_clientagesystem_select"
     },
     {
       "relation": "method",
@@ -112956,9 +113008,9 @@
       "source_file": "src/Core/Diplomacy/ClientageSystem.cs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem",
-      "target": "diplomacy_clientagesystem_clientagesystem_serve",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagesystem_clientagesystem_serve"
     },
     {
       "relation": "references",
@@ -112967,9 +113019,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem",
-      "target": "src_core_diplomacy_clientagesystem_cs_clanmanager",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_clientagesystem_cs_clanmanager"
     },
     {
       "relation": "references",
@@ -112978,9 +113030,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem",
-      "target": "src_core_diplomacy_clientagesystem_cs_gamecontext",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_clientagesystem_cs_gamecontext"
     },
     {
       "relation": "references",
@@ -112989,9 +113041,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem",
-      "target": "src_core_diplomacy_clientagesystem_cs_resourcemanager",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_clientagesystem_cs_resourcemanager"
     },
     {
       "relation": "references",
@@ -113000,9 +113052,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem",
-      "target": "src_core_diplomacy_clientagesystem_cs_suspicionledger",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_clientagesystem_cs_suspicionledger"
     },
     {
       "relation": "calls",
@@ -113011,9 +113063,9 @@
       "source_file": "src/Core/Diplomacy/ClientageSystem.cs",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem_serve",
-      "target": "diplomacy_clientagesystem_clientagesystem_levy",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagesystem_clientagesystem_levy"
     },
     {
       "relation": "calls",
@@ -113022,9 +113074,9 @@
       "source_file": "src/Core/Diplomacy/ClientageSystem.cs",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem_serve",
-      "target": "diplomacy_clientagesystem_clientagesystem_select",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagesystem_clientagesystem_select"
     },
     {
       "relation": "references",
@@ -113033,9 +113085,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem_serve",
-      "target": "src_core_diplomacy_clientagesystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_clientagesystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -113044,9 +113096,9 @@
       "source_location": "L64",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem_levy",
-      "target": "src_core_diplomacy_clientagesystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_clientagesystem_cs_factiondata"
     },
     {
       "relation": "references",
@@ -113055,9 +113107,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagesystem_clientagesystem_select",
-      "target": "src_core_diplomacy_clientagesystem_cs_factiondata",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_clientagesystem_cs_factiondata"
     },
     {
       "relation": "conceptually_related_to",
@@ -115991,9 +116043,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_bindvassal",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_bindvassal"
     },
     {
       "relation": "method",
@@ -116268,9 +116320,9 @@
       "source_file": "src/Core/Diplomacy/PowerPoliticsSystem.cs",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_powerpoliticssystem_powerpoliticssystem_bindvassal",
-      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_suzerainof",
-      "confidence_score": 1.0
+      "target": "diplomacy_powerpoliticssystem_powerpoliticssystem_suzerainof"
     },
     {
       "relation": "calls",
@@ -117426,9 +117478,9 @@
       "source_file": "src/Core/Diplomacy/TreatySystem.cs",
       "source_location": "L153",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_treatysystem_treatysystem",
-      "target": "diplomacy_treatysystem_treatysystem_bindasclient",
-      "confidence_score": 1.0
+      "target": "diplomacy_treatysystem_treatysystem_bindasclient"
     },
     {
       "relation": "method",
@@ -117789,9 +117841,9 @@
       "source_location": "L153",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_treatysystem_treatysystem_bindasclient",
-      "target": "src_core_diplomacy_treatysystem_cs_treaty",
-      "confidence_score": 1.0
+      "target": "src_core_diplomacy_treatysystem_cs_treaty"
     },
     {
       "relation": "references",
@@ -129799,9 +129851,9 @@
       "source_file": "src/Core/Presentation/DiplomacyView.cs",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview",
-      "target": "presentation_diplomacyview_diplomacyview_clientlabel",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyview_diplomacyview_clientlabel"
     },
     {
       "relation": "method",
@@ -129931,9 +129983,9 @@
       "source_file": "src/Core/Presentation/DiplomacyView.cs",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_powers",
-      "target": "presentation_diplomacyview_diplomacyview_clientlabel",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyview_diplomacyview_clientlabel"
     },
     {
       "relation": "calls",
@@ -130008,9 +130060,9 @@
       "source_location": "L121",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyview_diplomacyview_clientlabel",
-      "target": "src_core_presentation_diplomacyview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_diplomacyview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -138021,9 +138073,9 @@
       "source_location": "L303",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_bindtothesuzerain",
-      "target": "session_gamesession_gamesession",
-      "confidence_score": 1.0
+      "target": "session_gamesession_gamesession"
     },
     {
       "relation": "references",
@@ -138105,9 +138157,9 @@
       "source_file": "src/Core/Session/GameSession.cs",
       "source_location": "L291",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_newgame",
-      "target": "session_gamesession_gamesession_bindtothesuzerain",
-      "confidence_score": 1.0
+      "target": "session_gamesession_gamesession_bindtothesuzerain"
     },
     {
       "relation": "calls",
@@ -138171,9 +138223,9 @@
       "source_location": "L303",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_bindtothesuzerain",
-      "target": "src_core_session_gamesession_cs_gamecontent",
-      "confidence_score": 1.0
+      "target": "src_core_session_gamesession_cs_gamecontent"
     },
     {
       "relation": "references",
@@ -184053,9 +184105,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests"
     },
     {
       "relation": "contains",
@@ -184063,9 +184115,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests",
-      "target": "diplomacy_clientagetests_mirrorchronicles_tests_diplomacy",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_mirrorchronicles_tests_diplomacy"
     },
     {
       "relation": "method",
@@ -184073,9 +184125,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_aseededcultivator_intheopen_givesthesectclues",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_aseededcultivator_intheopen_givesthesectclues"
     },
     {
       "relation": "method",
@@ -184083,9 +184135,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_ayear",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_ayear"
     },
     {
       "relation": "method",
@@ -184093,9 +184145,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_breakingfree_meanswar",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_breakingfree_meanswar"
     },
     {
       "relation": "method",
@@ -184103,9 +184155,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_clientage",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_clientage"
     },
     {
       "relation": "method",
@@ -184113,9 +184165,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_session",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_session"
     },
     {
       "relation": "method",
@@ -184123,9 +184175,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_theclan_beginsasthecloudpeaksclient_asthelakesfamiliesitsvassals",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_theclan_beginsasthecloudpeaksclient_asthelakesfamiliesitsvassals"
     },
     {
       "relation": "method",
@@ -184133,9 +184185,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_thesect_raisesalevy_forthefrontier",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_thesect_raisesalevy_forthefrontier"
     },
     {
       "relation": "method",
@@ -184143,9 +184195,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_thesect_takesthemostgiftedchildbornwithanorifice_notaseededone",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_thesect_takesthemostgiftedchildbornwithanorifice_notaseededone"
     },
     {
       "relation": "method",
@@ -184153,9 +184205,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_thesectsjurisdiction_reachesthelake",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_thesectsjurisdiction_reachesthelake"
     },
     {
       "relation": "method",
@@ -184163,8 +184215,18 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_thetribute_issmall_andthesectneverabsorbsitsclient",
+      "target": "diplomacy_clientagetests_clientagetests_thetribute_issmall_andthesectneverabsorbsitsclient"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "diplomacy_clientagetests_clientagetests",
+      "target": "diplomacy_clientagetests_clientagetests_theworld_openswithitsoldenmities_andthenovelstempers",
       "confidence_score": 1.0
     },
     {
@@ -184174,9 +184236,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_string",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_string"
     },
     {
       "relation": "calls",
@@ -184185,9 +184247,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_aseededcultivator_intheopen_givesthesectclues",
-      "target": "diplomacy_clientagetests_clientagetests_session",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_session"
     },
     {
       "relation": "calls",
@@ -184196,9 +184258,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_breakingfree_meanswar",
-      "target": "diplomacy_clientagetests_clientagetests_session",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_session"
     },
     {
       "relation": "references",
@@ -184207,9 +184269,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_session",
-      "target": "func_clientagesettings_clientagesettings",
-      "confidence_score": 1.0
+      "target": "func_clientagesettings_clientagesettings"
     },
     {
       "relation": "references",
@@ -184218,9 +184280,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_session",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -184229,9 +184291,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_theclan_beginsasthecloudpeaksclient_asthelakesfamiliesitsvassals",
-      "target": "diplomacy_clientagetests_clientagetests_session",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_session"
     },
     {
       "relation": "calls",
@@ -184240,9 +184302,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thesect_raisesalevy_forthefrontier",
-      "target": "diplomacy_clientagetests_clientagetests_session",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_session"
     },
     {
       "relation": "calls",
@@ -184251,9 +184313,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thesect_takesthemostgiftedchildbornwithanorifice_notaseededone",
-      "target": "diplomacy_clientagetests_clientagetests_session",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_session"
     },
     {
       "relation": "calls",
@@ -184262,9 +184324,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thesectsjurisdiction_reachesthelake",
-      "target": "diplomacy_clientagetests_clientagetests_session",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_session"
     },
     {
       "relation": "calls",
@@ -184273,7 +184335,18 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thetribute_issmall_andthesectneverabsorbsitsclient",
+      "target": "diplomacy_clientagetests_clientagetests_session"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "diplomacy_clientagetests_clientagetests_theworld_openswithitsoldenmities_andthenovelstempers",
       "target": "diplomacy_clientagetests_clientagetests_session",
       "confidence_score": 1.0
     },
@@ -184284,9 +184357,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_ayear",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_gamesession"
     },
     {
       "relation": "references",
@@ -184295,9 +184368,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_clientage",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -184306,9 +184379,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_breakingfree_meanswar",
-      "target": "diplomacy_clientagetests_clientagetests_clientage",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_clientage"
     },
     {
       "relation": "references",
@@ -184317,9 +184390,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_clientage",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_treaty",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_treaty"
     },
     {
       "relation": "calls",
@@ -184328,9 +184401,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_theclan_beginsasthecloudpeaksclient_asthelakesfamiliesitsvassals",
-      "target": "diplomacy_clientagetests_clientagetests_clientage",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_clientage"
     },
     {
       "relation": "calls",
@@ -184339,9 +184412,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thetribute_issmall_andthesectneverabsorbsitsclient",
-      "target": "diplomacy_clientagetests_clientagetests_clientage",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_clientage"
     },
     {
       "relation": "calls",
@@ -184350,9 +184423,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_aseededcultivator_intheopen_givesthesectclues",
-      "target": "diplomacy_clientagetests_clientagetests_ayear",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_ayear"
     },
     {
       "relation": "calls",
@@ -184361,9 +184434,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thesect_raisesalevy_forthefrontier",
-      "target": "diplomacy_clientagetests_clientagetests_ayear",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_ayear"
     },
     {
       "relation": "calls",
@@ -184372,9 +184445,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thesect_takesthemostgiftedchildbornwithanorifice_notaseededone",
-      "target": "diplomacy_clientagetests_clientagetests_ayear",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_ayear"
     },
     {
       "relation": "calls",
@@ -184383,9 +184456,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thetribute_issmall_andthesectneverabsorbsitsclient",
-      "target": "diplomacy_clientagetests_clientagetests_ayear",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_ayear"
     },
     {
       "relation": "references",
@@ -184394,9 +184467,9 @@
       "source_location": "L37",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_theclan_beginsasthecloudpeaksclient_asthelakesfamiliesitsvassals",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
     },
     {
       "relation": "references",
@@ -184405,9 +184478,9 @@
       "source_location": "L88",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_aseededcultivator_intheopen_givesthesectclues",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
     },
     {
       "relation": "references",
@@ -184416,9 +184489,9 @@
       "source_location": "L111",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_breakingfree_meanswar",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
     },
     {
       "relation": "references",
@@ -184427,9 +184500,9 @@
       "source_location": "L101",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thesect_raisesalevy_forthefrontier",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
     },
     {
       "relation": "references",
@@ -184438,9 +184511,9 @@
       "source_location": "L71",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thesect_takesthemostgiftedchildbornwithanorifice_notaseededone",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
     },
     {
       "relation": "references",
@@ -184449,9 +184522,9 @@
       "source_location": "L49",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thesectsjurisdiction_reachesthelake",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
     },
     {
       "relation": "references",
@@ -184460,7 +184533,18 @@
       "source_location": "L59",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thetribute_issmall_andthesectneverabsorbsitsclient",
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
+      "source_location": "L118",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "diplomacy_clientagetests_clientagetests_theworld_openswithitsoldenmities_andthenovelstempers",
       "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
       "confidence_score": 1.0
     },
@@ -205409,9 +205493,9 @@
       "source_file": "tests/Core.Tests/Presentation/DiplomacyViewTests.cs",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests",
-      "target": "presentation_diplomacyviewtests_diplomacyviewtests_theclientage_sayswhatitcosts",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyviewtests_diplomacyviewtests_theclientage_sayswhatitcosts"
     },
     {
       "relation": "method",
@@ -205518,9 +205602,9 @@
       "source_file": "tests/Core.Tests/Presentation/DiplomacyViewTests.cs",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests_theclientage_sayswhatitcosts",
-      "target": "presentation_diplomacyviewtests_diplomacyviewtests_newgame",
-      "confidence_score": 1.0
+      "target": "presentation_diplomacyviewtests_diplomacyviewtests_newgame"
     },
     {
       "relation": "calls",
@@ -205617,9 +205701,9 @@
       "source_location": "L111",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_diplomacyviewtests_diplomacyviewtests_theclientage_sayswhatitcosts",
-      "target": "tests_core_tests_presentation_diplomacyviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_diplomacyviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -236679,5 +236763,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "d16414a26562c18d89d8d2f56c308c4d9ff3020c"
+  "built_at_commit": "cf00d854b0cef93b49a05805cac5372d866f6e8a"
 }

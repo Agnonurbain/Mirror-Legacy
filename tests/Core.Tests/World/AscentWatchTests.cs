@@ -45,9 +45,9 @@ namespace MirrorChronicles.Tests.World
         {
             var s = Session(testChance: 1.0);
             foreach (var f in s.Factions.Factions) f.HighestRealm = CultivationRealm.GoldenCore; // the testers far above it
-            var newcomer = Newcomer(s);
-            s.Events.TriggerPurpleMansionAscent(newcomer);
-            Assert.AreEqual(1, newcomer.DaoWounds, "tested by a True Monarch, it bears the wound");
+            var newcomers = Enumerable.Range(0, 3).Select(_ => Newcomer(s)).ToList(); // it holds at 5 % at best: most bear the wound
+            foreach (var newcomer in newcomers) s.Events.TriggerPurpleMansionAscent(newcomer);
+            Assert.That(newcomers.Count(n => n.DaoWounds == 1), Is.GreaterThanOrEqualTo(2), "tested by a True Monarch, it bears the wound");
         }
 
         [Test]

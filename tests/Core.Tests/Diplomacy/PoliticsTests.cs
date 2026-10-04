@@ -323,7 +323,7 @@ namespace MirrorChronicles.Tests.Diplomacy
             var w = World(new FixedRandom(0.999));
             foreach (var ally in new[] { Tao, "Famille Lü" })
             {
-                w.Factions.ChangeRelation(Power(w, ally).ID, 30);
+                Power(w, ally).RelationWithPlayer = 50; // warm enough for a defence pact (the Lü start as foes, audit §4.4)
                 Assert.IsNull(w.Treaties.Propose(ally, TreatyKind.Defence));
             }
             w.Politics.Feud(Power(w, Ruan), Power(w, Tao));

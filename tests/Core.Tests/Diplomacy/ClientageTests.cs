@@ -41,9 +41,8 @@ namespace MirrorChronicles.Tests.Diplomacy
             var client = Clientage(s);
             Assert.AreEqual(Peak, client.Faction);
             Assert.IsFalse(client.ClanIsSuzerain);
-            var lake = s.Factions.Factions.Where(f => f.RegionId == "jingshui-lake").ToList();
-            Assert.IsNotEmpty(lake);
-            Assert.IsTrue(lake.All(f => s.Politics.SuzerainOf(f.Name) == Peak), "the lake's families answer to the sect too");
+            Assert.AreEqual(Peak, s.Politics.SuzerainOf("Famille Tao"), "the lake's families answer to the sect too");
+            Assert.AreEqual("Porte du Fer Ardent", s.Politics.SuzerainOf("Famille Lü"), "📚 save those of the Golden Tang Gate");
         }
 
         [Test]
@@ -114,6 +113,21 @@ namespace MirrorChronicles.Tests.Diplomacy
             var s = Session();
             Assert.IsNull(s.Treaties.Break(Clientage(s).Id));
             Assert.IsTrue(s.Wars.ClanWars.Any(w => w.Enemy == Peak), "the sect strikes the client who broke away");
+        }
+
+        [Test]
+        public void TheWorld_OpensWithItsOldEnmities_AndTheNovelsTempers()
+        {
+            // 📚 audit §4.4, §4.8, §4.9
+            var s = Session();
+            Assert.Greater(s.Suspicion.Distrust("Famille Lou", "Famille Tao"), 0);
+            Assert.Greater(s.Suspicion.Distrust("Famille Bai", "Famille Ruan"), 0);
+            Assert.Greater(s.Suspicion.Distrust(Peak, "Secte de la Lune Pâle"), 0);
+            var ruan = s.Factions.GetFactionByName("Famille Ruan");
+            Assert.AreEqual(FactionPersonality.Manipulative, ruan.Personality);
+            Assert.Greater(ruan.RelationWithPlayer, 0, "the clan's (self-interested) protector");
+            Assert.Less(s.Factions.GetFactionByName("Famille Lü").RelationWithPlayer, 0, "the clan's first enemy");
+            Assert.AreEqual(CultivationRealm.PurpleMansion, s.Factions.GetFactionByName("Porte du Fer Ardent").HighestRealm);
         }
     }
 }

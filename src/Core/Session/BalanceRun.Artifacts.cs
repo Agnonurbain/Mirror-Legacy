@@ -50,13 +50,14 @@ namespace MirrorChronicles.Session
         {
             if (session.Artifacts.Armoury.Count >= MostArtifactsInStore) return;
             var settings = session.Context.Content.Balance.Artifacts;
+            CultivationRealm RankFor(CharacterData m) => settings.Forging.Keys
+                .Where(r => r <= m.Realm && settings.Forging[r].ForgeLevel <= session.Buildings.ForgeLevel).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
             var smith = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Retreat == Retreat.None && m.ID != session.Clan.PatriarchID
-                    && m.Realm >= CultivationRealm.QiRefinement && m.LastOperationYear != session.Clock.Year)
+                    && m.Realm >= CultivationRealm.QiRefinement && m.LastOperationYear != session.Clock.Year
+                    && RankFor(m) >= CultivationRealm.QiRefinement && session.Forge.SmithRefusal(m.ID, RankFor(m)) == null) // the forge's art allows him (audit §2.1)
                 .OrderByDescending(m => m.Realm).FirstOrDefault();
             if (smith == null) return;
-            var rank = settings.Forging.Keys.Where(r => r <= smith.Realm && settings.Forging[r].ForgeLevel <= session.Buildings.ForgeLevel)
-                .DefaultIfEmpty(CultivationRealm.Embryonic).Max();
-            if (rank < CultivationRealm.QiRefinement) return;
+            var rank = RankFor(smith);
             var cost = settings.Forging[rank];
             if (session.Resources.SpiritualOres < cost.Ores || !Affords(session, cost.Stones, BuildReserveYears)) return;
             bool coveted = session.Clan.LivingMembers.Any(m => FoundationRules.IsPrey(m, session.Context.Content) && session.DaoHunts.IsCoveted(m));

@@ -196,12 +196,12 @@ namespace MirrorChronicles.Tests.Session
         public void TheLakeIsUnified_WhenEveryOtherFamilyOfTheLakeIsTheClansVassal()
         {
             var s = Quiet();
-            var lake = new[] { "Famille Lü", "Famille Tao", "Famille Lou", "Famille Fang", "Famille Kang" };
-            foreach (var family in lake.Take(4)) Vassal(s, family);
+            var lake = new[] { "Famille Lü", "Famille Tao", "Famille Lou", "Famille Fang", "Famille Xun", "Famille Kang" };
+            foreach (var family in lake.Take(lake.Length - 1)) Vassal(s, family);
             NextYear(s);
             Assert.IsFalse(s.Endings.IsReached("lake-unified"));
 
-            Vassal(s, lake[4]);
+            Vassal(s, lake[^1]);
             NextYear(s);
             Assert.IsTrue(s.Endings.IsReached("lake-unified"));
         }
