@@ -21,6 +21,9 @@ namespace MirrorChronicles.Characters
         /// <summary>Set by the mirror's Ancestral Shield; protects the next attempt only.</summary>
         public bool AncestralShieldActive { get; set; }
 
+        /// <summary>The clan's alchemy (set by the session): the Foundation wall takes an Essence Gathering Pill (audit §2.6).</summary>
+        public AlchemySystem Alchemy { get; set; }
+
         public BreakthroughSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation)
         {
             this.ctx = ctx;
@@ -44,6 +47,20 @@ namespace MirrorChronicles.Characters
 
         public int CalculateSuccessRate(CharacterData character) =>
             Math.Min(99, BreakthroughRules.SuccessRate(character, ctx.Content.Balance) + cultivation.PlaceBreakthroughBonus(character)); // a favouring atmosphere (L5b)
+
+        /// <summary>
+        /// The odds of the member's next trial as it would be tried now: the mirror's shield bends the Foundation wall, and the
+        /// wall without an Essence Gathering Pill of one's own element is a gamble (🔎 audit §2.6, the user's decision 2026-10-04).
+        /// </summary>
+        public int TrialSuccessRate(CharacterData character)
+        {
+            int rate = CalculateSuccessRate(character);
+            if (PowerLadder.Next(character.Realm, character.RealmStage).Trial != TrialKind.FoundationWall) return rate;
+            if (AncestralShieldActive) rate = Math.Min(99, rate + AncestralShieldBonus); // the essence bends the wall (📚)
+            if (Alchemy != null && !Alchemy.HoldsEssencePillFor(character))
+                rate = Math.Max(1, rate - ctx.Content.Balance.Arts.EssencePill.WithoutPillPenalty);
+            return rate;
+        }
 
         /// <summary>Returns the outcome, or null when the character has no trial to attempt.</summary>
         public BreakthroughOutcome? AttemptBreakthrough(CharacterData character)
@@ -75,11 +92,11 @@ namespace MirrorChronicles.Characters
                 return null;
             }
 
-            int successRate = CalculateSuccessRate(character);
-            if (AncestralShieldActive && step.Trial == TrialKind.FoundationWall) // the essence bends the wall of the Foundation (📚)
+            int successRate = TrialSuccessRate(character);
+            if (step.Trial == TrialKind.FoundationWall)
             {
-                successRate = Math.Min(99, successRate + AncestralShieldBonus);
                 AncestralShieldActive = false;
+                Alchemy?.TakeEssencePill(character);
             }
 
             int roll = ctx.Rng.Next(1, 101);

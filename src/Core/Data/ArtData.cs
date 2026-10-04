@@ -41,5 +41,19 @@ namespace MirrorChronicles.Data
         public int AdeptAt { get; init; } = 40;
         public int MasterAt { get; init; } = 80;
         public IReadOnlyList<ArtDefinition> Arts { get; init; } = new List<ArtDefinition>();
+        public EssencePillSettings EssencePill { get; init; } = new EssencePillSettings();
+    }
+
+    /// <summary>
+    /// The Essence Gathering Pill (balance.json « arts.essencePill », AUDIT_LORE.md §2.6-2.7, the user's decision 2026-10-04 —
+    /// 🔎 interpretations): what an alchemist spends to refine one, the mastery it asks, and the odds the Foundation wall loses
+    /// when it is tried without a pill of one's own Qi element (📚 a gamble, wiki Li_Chenghui).
+    /// </summary>
+    public sealed record EssencePillSettings
+    {
+        public int Herbs { get; init; } = 30;
+        public int Stones { get; init; } = 20;
+        public int Mastery { get; init; } = 1;
+        public int WithoutPillPenalty { get; init; } = 25;
     }
 }

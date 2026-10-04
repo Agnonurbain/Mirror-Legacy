@@ -583,6 +583,7 @@
   "arts": {
 	"ordinaryChance": 0.08, "geniusChance": 0.01, "yearlyMastery": 10, "geniusMasteryFactor": 2.0, "ungiftedMasteryFactor": 0.5,
 	"withoutMasterFactor": 0.5, "geniusCultivation": 1.1, "adeptAt": 40, "masterAt": 80,
+	"essencePill": { "herbs": 30, "stones": 20, "mastery": 1, "withoutPillPenalty": 25 },
 	"arts": [
 	  { "art": "Forge", "name": "le raffinement d'artefacts", "ordinaryCultivation": 0.5, "geniusAbilities": [ "hidden-metal:underground-forge" ], "giftTalismans": [ "holding-profit" ] },
 	  { "art": "Alchemy", "name": "l'alchimie", "ordinaryCultivation": 0.5, "geniusAbilities": [], "giftTalismans": [ "holding-profit", "valley-wind-leading-fire" ] },

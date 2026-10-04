@@ -15,6 +15,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>One art for one member: the gift, the mastery's rank, and why it cannot practise it (null when it can).</summary>
     public sealed record ArtMemberSkill(ImmortalArt Art, string Name, string Gift, int Mastery, string MasteryRank, string Refusal);
 
+    /// <summary>An Essence Gathering Pill the clan's best alchemist may refine, of an element its Qi Cultivators need, and why not (null: it can).</summary>
+    public sealed record PillOffer(Element Element, string AlchemistId, string Label, string Refusal);
+
     /// <summary>The Immortal Arts' screen (audit §2, 2026-10-04): the legacies, and each cultivator's gifts and mastery.</summary>
     public static class ArtView
     {
@@ -36,6 +39,25 @@ namespace MirrorChronicles.Presentation
                     }).ToList()))
                 .OrderByDescending(l => l.Practising != null).ThenByDescending(l => l.Skills.Count(k => k.Gift != "sans don"))
                 .ThenBy(l => l.Name, System.StringComparer.Ordinal).ToList();
+        }
+
+        /// <summary>The clan's Essence Gathering Pills, by element (French).</summary>
+        public static string PillStock(GameSession s) =>
+            "Pilules de Rassemblement d'Essence : " + (s.Alchemy.EssencePills.Count == 0 ? "aucune"
+                : string.Join(", ", s.Alchemy.EssencePills.OrderBy(p => p.Key).Select(p => $"{WorldMapView.ElementLabel(p.Key)} {p.Value}")));
+
+        /// <summary>One offer per element the clan's Qi Cultivators need for the Foundation wall, by its best alchemist (audit §2.6).</summary>
+        public static IReadOnlyList<PillOffer> PillOffers(GameSession s)
+        {
+            var needs = s.Clan.LivingMembers.Where(m => m.Realm == CultivationRealm.QiRefinement)
+                .Select(m => AlchemySystem.ElementFor(m, s.Context.Content)).Where(e => e.HasValue).Select(e => e.Value).Distinct().OrderBy(e => e).ToList();
+            var alchemist = s.Clan.LivingMembers.OrderBy(m => s.Alchemy.RefineRefusal(m) == null ? 0 : 1)
+                .ThenByDescending(m => ArtSystem.MasteryOf(m, ImmortalArt.Alchemy)).FirstOrDefault();
+            var pill = s.Context.Content.Balance.Arts.EssencePill;
+            return needs.Select(e => new PillOffer(e, alchemist?.ID,
+                $"Raffiner une Pilule de Rassemblement d'Essence ({WorldMapView.ElementLabel(e)})" + (alchemist == null ? "" : $" par {alchemist.FullName}")
+                + $" — {pill.Herbs} herbes, {pill.Stones} pierres",
+                alchemist == null ? "aucun alchimiste" : s.Alchemy.RefineRefusal(alchemist))).ToList();
         }
     }
 }

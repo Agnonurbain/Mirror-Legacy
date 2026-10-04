@@ -23,5 +23,29 @@ namespace MirrorChronicles.Tests.Presentation
             s.Arts.GainLegacy(ImmortalArt.Forge);
             Assert.IsTrue(ArtView.Legacies(s).Single(l => l.Art == ImmortalArt.Forge).Held);
         }
+
+        [Test]
+        public void ThePills_AreCounted_AndOffered_ForTheElementsTheClanNeeds()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var needy = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 8);
+            s.Clan.AddMember(needy);
+            var element = AlchemySystem.ElementFor(needy, s.Context.Content).Value;
+            StringAssert.Contains("aucune", ArtView.PillStock(s));
+            var offer = ArtView.PillOffers(s).Single(o => o.Element == element);
+            StringAssert.Contains("héritage", offer.Refusal, "no alchemy without its legacy");
+
+            s.Arts.GainLegacy(ImmortalArt.Alchemy);
+            s.Resources.AddHerbs(1_000);
+            var alchemist = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5);
+            alchemist.TalismanQiId = "holding-profit";
+            alchemist.ArtMastery[ImmortalArt.Alchemy] = 50;
+            s.Clan.AddMember(alchemist);
+            offer = ArtView.PillOffers(s).Single(o => o.Element == element);
+            Assert.IsNull(offer.Refusal);
+            Assert.AreEqual(alchemist.ID, offer.AlchemistId);
+            Assert.IsNull(s.Alchemy.RefineEssencePill(offer.AlchemistId, offer.Element));
+            StringAssert.Contains(WorldMapView.ElementLabel(element) + " 1", ArtView.PillStock(s));
+        }
     }
 }

@@ -105,6 +105,20 @@ namespace MirrorChronicles.Game
                 }
                 if (row.GetChildCount() > 0) immortalArts.AddChild(row);
             }
+            Add(immortalArts, "— L'alchimie (le mur de la Fondation sans pilule de son élément est un pari) —");
+            Add(immortalArts, ArtView.PillStock(s));
+            foreach (var offer in ArtView.PillOffers(s))
+            {
+                var refine = new Button { Text = offer.Label + (offer.Refusal == null ? "" : $" ({offer.Refusal})"), Disabled = offer.Refusal != null };
+                string alchemist = offer.AlchemistId;
+                var element = offer.Element;
+                refine.Pressed += () =>
+                {
+                    status.Text = s.Alchemy.RefineEssencePill(alchemist, element) is { } r ? $"Refusé : {r}." : "Une Pilule de Rassemblement d'Essence est raffinée.";
+                    Refresh();
+                };
+                immortalArts.AddChild(refine);
+            }
         }
 
         private static readonly GoldenCoreAction[] Perilous = { GoldenCoreAction.Forge, GoldenCoreAction.Claim, GoldenCoreAction.Transmute };

@@ -70,6 +70,7 @@ namespace MirrorChronicles.Session
 
         /// <summary>The clan's Immortal Arts: legacies, practitioners, mastery (audit §2).</summary>
         public ArtSystem Arts { get; }
+        public AlchemySystem Alchemy { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
@@ -229,6 +230,8 @@ namespace MirrorChronicles.Session
             Marks = new TechniqueMarks(Context, Mirror, Factions, Suspicion);
             Arts = new ArtSystem(Context, Clan, Cultivation);
             Forge.Arts = Arts;
+            Alchemy = new AlchemySystem(Context, Clan, Resources, Arts);
+            Breakthroughs.Alchemy = Alchemy;
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
@@ -328,6 +331,7 @@ namespace MirrorChronicles.Session
             session.ShardSense.Restore(data.ShardDirections); // none before 2.23
             session.Marks.Restore(data.TechniqueMarks);      // none before 2.36
             session.Arts.Restore(data.ArtLegacies);          // none before 2.37
+            session.Alchemy.Restore(data.EssencePills);      // none before 2.38
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
@@ -432,6 +436,7 @@ namespace MirrorChronicles.Session
                 ShardDirections = new Dictionary<string, string>(ShardSense.Directions),
                 TechniqueMarks = new Dictionary<string, string>(Marks.Marks),
                 ArtLegacies = Arts.Legacies.ToList(),
+                EssencePills = Alchemy.EssencePills.ToDictionary(p => p.Key, p => p.Value),
                 MirrorAsleepUntil = Mirror.AsleepUntil,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),

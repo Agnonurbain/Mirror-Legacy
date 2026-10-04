@@ -385,7 +385,7 @@ namespace MirrorChronicles.Session
             foreach (var m in session.Clan.LivingMembers.Where(m => m.HasSpiritualOrifice && m.CaptorFaction == null).ToList())
             {
                 var trial = PowerLadder.Next(m.Realm, m.RealmStage).Trial;
-                double odds = trial == TrialKind.FoundationWall ? session.Breakthroughs.CalculateSuccessRate(m) / 100.0
+                double odds = trial == TrialKind.FoundationWall ? session.Breakthroughs.TrialSuccessRate(m) / 100.0
                     : trial == TrialKind.PurpleMansionAscension ? session.PurpleMansion.AscentChanceOf(m) / 100.0 : 1.0;
                 bool heir = session.Clan.Registry.Records.Any(r => r.FatherID == m.ID || r.MotherID == m.ID);
                 bool lastYears = m.MaxLifespan - m.Age <= EndOfLifeYears;
