@@ -30,6 +30,15 @@ namespace MirrorChronicles.Combat
         public bool HasMovedThisTurn { get; set; }
         public bool HasFled { get; private set; }
 
+        /// <summary>Swallows an Autumn Convergence Pill from its side's store (null: it carries none; false: none left).</summary>
+        public Func<bool> TakeConvergencePill { get; set; }
+        public Func<int> ConvergencePillsLeft { get; set; } // how many its store still holds (null: it does not say)
+        public int ConvergenceDoses { get; set; }
+        public double SpellBoost { get; set; }
+
+        /// <summary>How much harder its spell arts strike (the Autumn Convergence Pill, audit §2.9).</summary>
+        public double SpellFactor => 1 + SpellBoost;
+
         public bool IsDown => CurrentVitality <= 0;
         public bool IsActive => !IsDown && !HasFled;
 
@@ -77,6 +86,13 @@ namespace MirrorChronicles.Combat
         }
 
         public void RestoreQi(int amount) => CurrentQi = Math.Min(MaxQi, CurrentQi + Math.Max(0, amount));
+
+        /// <summary>Its foundation collapses (one pill too many): it falls where it stands.</summary>
+        public void Collapse()
+        {
+            CurrentVitality = 0;
+            SetCell(null);
+        }
 
         /// <summary>Leaves the battle alive.</summary>
         public void Flee()

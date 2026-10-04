@@ -124,8 +124,31 @@ namespace MirrorChronicles.Combat
 
             fought = Pending;
             Pending = null;
-            Current = Battle.Start(fighters, Rivals(fought), ctx.Rng, ctx.Log, findTechnique: techniques.Find, gap: ctx.Content.Balance.RealmGap);
+            Current = Battle.Start(fighters, Rivals(fought), ctx.Rng, ctx.Log, findTechnique: techniques.Find, gap: ctx.Content.Balance.RealmGap,
+                convergence: ctx.Content.Balance.Arts.Convergence, equip: Equip);
             return null;
+        }
+
+        /// <summary>The clan's alchemy (set by the session): its fighters draw on its Autumn Convergence Pills (audit §2.9).</summary>
+        public AlchemySystem Alchemy { get; set; }
+
+        /// <summary>
+        /// What each fighter carries: the clan's draw on its store; a rival of a power that knows alchemy, one pill of its own
+        /// (parity, 🔎).
+        /// </summary>
+        private void Equip(CombatUnit unit)
+        {
+            if (unit.IsAlly)
+            {
+                if (Alchemy == null) return;
+                unit.TakeConvergencePill = () => Alchemy.TakePill(PillKind.AutumnConvergence);
+                unit.ConvergencePillsLeft = () => Alchemy.PillsOf(PillKind.AutumnConvergence);
+                return;
+            }
+            if (!PowerArts.Knows(factions.GetFactionByName(fought?.Faction), ImmortalArt.Alchemy, ctx.Content)) return;
+            int left = 1;
+            unit.TakeConvergencePill = () => left-- > 0;
+            unit.ConvergencePillsLeft = () => left;
         }
 
         /// <summary>Once the battle is over: the wager, the fallen and the wounded, and the chronicle.</summary>

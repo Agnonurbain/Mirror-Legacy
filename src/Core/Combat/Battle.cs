@@ -44,12 +44,14 @@ namespace MirrorChronicles.Combat
         /// <param name="gap">The gap between realms (balance.json « realmGap »); the defaults when null.</param>
         public static Battle Start(IReadOnlyList<CharacterData> allyData, IReadOnlyList<CharacterData> enemyData, Random rng,
             IGameLog log, CombatGrid grid = null, AIStrategyType enemyStrategy = AIStrategyType.Aggressive,
-            Func<string, TechniqueData> findTechnique = null, RealmGapSettings gap = null)
+            Func<string, TechniqueData> findTechnique = null, RealmGapSettings gap = null, ConvergenceSettings convergence = null,
+            Action<CombatUnit> equip = null)
         {
             var field = new BattleField(grid ?? CombatGrid.Generate(DefaultSize, DefaultSize, rng), rng, log, findTechnique)
-                { Gap = gap ?? new RealmGapSettings() };
+                { Gap = gap ?? new RealmGapSettings(), Convergence = convergence ?? new ConvergenceSettings() };
             var allies = allyData.Select(d => new CombatUnit(d, isAlly: true)).ToList();
             var enemies = enemyData.Select(d => new CombatUnit(d, isAlly: false, enemyStrategy)).ToList();
+            foreach (var unit in allies.Concat(enemies)) equip?.Invoke(unit); // what each side carries (its pills, audit §2.9)
 
             Deploy(field, allies, fromWest: true);
             Deploy(field, enemies, fromWest: false);

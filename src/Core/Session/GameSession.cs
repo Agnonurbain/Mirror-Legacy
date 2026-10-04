@@ -241,6 +241,7 @@ namespace MirrorChronicles.Session
             Alchemy.Accords = Accords;
             Oaths.Alchemy = Alchemy;
             Abilities.Alchemy = Alchemy;
+            Challenges.Alchemy = Alchemy;
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);

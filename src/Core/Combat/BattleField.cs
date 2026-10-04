@@ -67,6 +67,9 @@ namespace MirrorChronicles.Combat
         /// <summary>The gap between realms the field obeys (balance.json « realmGap »; the defaults when none is given).</summary>
         public RealmGapSettings Gap { get; init; } = new RealmGapSettings();
 
+        /// <summary>The Autumn Convergence Pill's effects and dose (balance.json « arts.convergence »).</summary>
+        public ConvergenceSettings Convergence { get; init; } = new ConvergenceSettings();
+
         public IEnumerable<CombatUnit> ActiveOpponentsOf(CombatUnit unit) => units.Where(u => u.IsActive && u.IsAlly != unit.IsAlly);
 
         public IEnumerable<CombatUnit> ActiveAlliesOf(CombatUnit unit) => units.Where(u => u.IsActive && u.IsAlly == unit.IsAlly);

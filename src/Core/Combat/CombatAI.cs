@@ -27,6 +27,11 @@ namespace MirrorChronicles.Combat
 
         public static void PlayTurn(CombatUnit unit, BattleField field)
         {
+            if (!unit.IsActive) return;
+            var pill = new ConvergencePillAction(); // a faltering fighter swallows its pill, within the safe dose (audit §2.9)
+            if (unit.ConvergenceDoses < field.Convergence.SafeDoses && unit.CurrentVitality < unit.MaxVitality * field.Convergence.AiUseBelow
+                && pill.IsValid(unit, unit.CurrentCell, field))
+                pill.Execute(unit, unit.CurrentCell, field);
             if (unit.IsActive) Strategies[unit.Strategy].PlayTurn(unit, field);
         }
 

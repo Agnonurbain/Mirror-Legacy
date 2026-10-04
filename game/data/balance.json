@@ -597,8 +597,10 @@
 	"pills": [
 	  { "kind": "BrightSpirit", "name": "Poudre d'Esprit Lumineux", "herbs": 10, "stones": 10, "mastery": 1, "worth": 60, "precious": false },
 	  { "kind": "Purification", "name": "Pilule de Purification du Cœur", "herbs": 100, "stones": 30, "mastery": 40, "worth": 300, "precious": false },
-	  { "kind": "Condensation", "name": "Pilule de Condensation", "herbs": 150, "stones": 200, "mastery": 80, "worth": 2000, "precious": true }
+	  { "kind": "Condensation", "name": "Pilule de Condensation", "herbs": 150, "stones": 200, "mastery": 80, "worth": 2000, "precious": true },
+	  { "kind": "AutumnConvergence", "name": "Pilule de Convergence d'Automne", "herbs": 80, "stones": 60, "mastery": 40, "worth": 400, "precious": false }
 	],
+	"convergence": { "spellBoost": 0.5, "lifespanCost": 3, "safeDoses": 3, "collapseChance": 0.5, "collapseLifespan": 20, "aiUseBelow": 0.35 },
 	"withoutPowderPenalty": 20, "pillBuyRelation": 20,
 	"legacy": {
 	  "powerArtChance": { "Family": 0.3, "Sect": 0.75, "Gate": 0.6, "ImmortalIsland": 0.7, "Temple": 0.5, "Order": 0.5, "State": 0.6 },

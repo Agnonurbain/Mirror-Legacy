@@ -105,5 +105,19 @@ namespace MirrorChronicles.Tests.Session
             BalanceRun.Act(s);
             Assert.IsFalse(s.Clan.LivingMembers.Any(m => m.LastOperationYear == s.Clock.Year), "no expedition, no theft, no hunt: an heir first");
         }
+
+        [Test]
+        public void ThePilot_BuysTheBrightSpiritPowder_ForAMemberAtTheFifthChakra()
+        {
+            var s = Session();
+            var m = Fixtures.Cultivator(realm: CultivationRealm.Embryonic, stage: 4);
+            m.CultivationXP = MirrorChronicles.Characters.PowerLadder.XpForNextStage(CultivationRealm.Embryonic);
+            s.Clan.AddMember(m);
+            var seller = s.Factions.Factions.First(p => MirrorChronicles.Characters.PowerArts.Knows(p, ImmortalArt.Alchemy, s.Context.Content));
+            seller.RelationWithPlayer = 90;
+            s.Resources.SetSpiritStones(50_000);
+            BalanceRun.Act(s);
+            Assert.AreEqual(1, s.Alchemy.PillsOf(PillKind.BrightSpirit), "one powder for the one at the fifth chakra");
+        }
     }
 }

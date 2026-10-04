@@ -190,6 +190,38 @@ namespace MirrorChronicles.Combat
     }
 
     /// <summary>
+    /// The Autumn Convergence Pill (audit §2.9, 📚 wiki): swallowed on one's own cell, it fills the Qi and strengthens the spell
+    /// arts for the battle, for years of life; past the safe dose the foundation may collapse.
+    /// </summary>
+    public sealed class ConvergencePillAction : ICombatAction
+    {
+        public ActionType Type => ActionType.UseItem;
+        public int QiCost => 0;
+
+        public bool IsValid(CombatUnit user, GridCell target, BattleField field) =>
+            user.IsActive && !user.HasActedThisTurn && user.TakeConvergencePill != null && (user.ConvergencePillsLeft?.Invoke() ?? 1) > 0
+            && target != null && target == user.CurrentCell;
+
+        public void Execute(CombatUnit user, GridCell target, BattleField field)
+        {
+            if (!IsValid(user, target, field) || !user.TakeConvergencePill()) return;
+            var s = field.Convergence;
+            user.ConvergenceDoses++;
+            user.HasActedThisTurn = true;
+            user.RestoreQi(user.MaxQi);
+            user.SpellBoost = s.SpellBoost;
+            user.BaseData.MaxLifespan -= s.LifespanCost;
+            field.Log.Info($"[Combat] {user.BaseData.FullName} swallows an Autumn Convergence Pill (dose {user.ConvergenceDoses}).");
+            if (user.ConvergenceDoses > s.SafeDoses && field.Rng.Chance(s.CollapseChance))
+            {
+                user.BaseData.MaxLifespan -= s.CollapseLifespan;
+                user.Collapse();
+                field.Log.Warning($"[Combat] {user.BaseData.FullName}'s foundation collapses under one pill too many.");
+            }
+        }
+    }
+
+    /// <summary>
     /// A known art: a striking art hits a foe in range for power × (1 + 0.2 per realm), a healing art
     /// heals an ally for power × (1 + 0.15 per realm); +25% when the element is the user's affinity, and
     /// Water arts strike 20% harder on water. Cultivation methods and arts without an effect are not for combat.
@@ -232,6 +264,7 @@ namespace MirrorChronicles.Combat
             if (technique.Effect == TechniqueEffect.Strike)
             {
                 double raw = Math.Round(technique.PowerModifier * CombatMath.RealmFactor(user, 0.2)); // rounded before bonuses
+                if (user.SpellBoost > 0 && technique.Kind == TechniqueKind.Spell) raw = Math.Round(raw * user.SpellFactor); // the Convergence Pill (audit §2.9)
                 if (attuned) raw = Math.Round(raw * CombatMath.AffinityBonus);
                 if (technique.DominantElement == Element.Water && target.Terrain == TerrainType.Water)
                     raw = Math.Round(raw * CombatMath.WaterTerrainBonus);

@@ -31,6 +31,7 @@ namespace MirrorChronicles.Presentation
         public const string Attack = "attack";
         public const string Defend = "defend";
         public const string Flee = "flee";
+        public const string Pill = "pill";
         private const string TechniquePrefix = "tech:";
 
         public static IReadOnlyList<BattleCell> Cells(Battle battle) =>
@@ -57,6 +58,14 @@ namespace MirrorChronicles.Presentation
                 Line(battle, Defend, "Se garder", new DefendAction()),
                 Line(battle, Flee, "Fuir", new FleeAction()),
             };
+            if (unit.TakeConvergencePill != null) // the Autumn Convergence Pill (audit §2.9)
+            {
+                var s = battle.Field.Convergence;
+                int dose = unit.ConvergenceDoses + 1;
+                actions.Add(Line(battle, Pill, $"Avaler une Pilule de Convergence d'Automne ({unit.ConvergencePillsLeft?.Invoke() ?? 0} en réserve ; "
+                    + $"−{s.LifespanCost} ans de vie ; prise {dose}{(dose > s.SafeDoses ? " — au-delà de la dose sûre, la fondation peut s'effondrer" : "")})",
+                    new ConvergencePillAction()));
+            }
             foreach (var technique in unit.BaseData.KnownTechniqueIDs.Select(findTechnique).Where(t => t != null))
                 actions.Add(Line(battle, TechniquePrefix + technique.ID, technique.Name, new TechniqueAction(technique)));
             return actions;
@@ -104,7 +113,7 @@ namespace MirrorChronicles.Presentation
             return new BattleAction(id, label, action.QiCost, targets);
         }
 
-        private static bool SelfTargeted(string id) => id == Defend || id == Flee;
+        private static bool SelfTargeted(string id) => id == Defend || id == Flee || id == Pill;
 
         private static ICombatAction ActionFor(string id, Func<string, TechniqueData> findTechnique) => id switch
         {
@@ -112,6 +121,7 @@ namespace MirrorChronicles.Presentation
             Attack => new AttackAction(),
             Defend => new DefendAction(),
             Flee => new FleeAction(),
+            Pill => new ConvergencePillAction(),
             _ when id != null && id.StartsWith(TechniquePrefix, StringComparison.Ordinal)
                 && findTechnique(id.Substring(TechniquePrefix.Length)) is { } technique => new TechniqueAction(technique),
             _ => null

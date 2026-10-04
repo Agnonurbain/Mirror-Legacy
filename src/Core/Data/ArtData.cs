@@ -48,10 +48,26 @@ namespace MirrorChronicles.Data
         public IReadOnlyList<PillDefinition> Pills { get; init; } = new List<PillDefinition>();
         public int WithoutPowderPenalty { get; init; } = 20;   // the fifth chakra without the Bright Spirit Powder (🔎)
         public int PillBuyRelation { get; init; } = 20;        // a power that knows alchemy sells its pills from this relation (🔎)
+        public ConvergenceSettings Convergence { get; init; } = new ConvergenceSettings();
+    }
+
+    /// <summary>
+    /// The Autumn Convergence Pill in battle (balance.json « arts.convergence », AUDIT_LORE.md §2.9, 📚 wiki: replenishes mana,
+    /// enhances spell arts, costs about three years of lifespan, three at most; beyond, the Immortal Foundation may collapse —
+    /// 🔎 the amounts): a rival swallows its own below <see cref="AiUseBelow"/> of its vitality.
+    /// </summary>
+    public sealed record ConvergenceSettings
+    {
+        public double SpellBoost { get; init; } = 0.5;
+        public int LifespanCost { get; init; } = 3;
+        public int SafeDoses { get; init; } = 3;
+        public double CollapseChance { get; init; } = 0.5;
+        public int CollapseLifespan { get; init; } = 20;
+        public double AiUseBelow { get; init; } = 0.35;
     }
 
     /// <summary>The pills the clan's arts spend (AUDIT_LORE.md §2.2, §2.8): beside the Essence Gathering Pill, by element.</summary>
-    public enum PillKind { BrightSpirit, Purification, Condensation }
+    public enum PillKind { BrightSpirit, Purification, Condensation, AutumnConvergence }
 
     /// <summary>
     /// A pill (balance.json « arts.pills », 🔎 the amounts): its name, what an alchemist of <see cref="Mastery"/> spends to refine
