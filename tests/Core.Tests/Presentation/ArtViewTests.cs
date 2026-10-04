@@ -47,5 +47,22 @@ namespace MirrorChronicles.Tests.Presentation
             Assert.IsNull(s.Alchemy.RefineEssencePill(offer.AlchemistId, offer.Element));
             StringAssert.Contains(WorldMapView.ElementLabel(element) + " 1", ArtView.PillStock(s));
         }
+
+        [Test]
+        public void TheExamination_IsOffered_ToTheBestAlchemist_OrSaysWhyNot()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            StringAssert.Contains("aucune pilule", ArtView.ExamineOffer(s).Refusal);
+            s.Arts.GainLegacy(ImmortalArt.Alchemy);
+            s.Alchemy.GainEssencePills(Element.Fire, 1);
+            var adept = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5);
+            adept.TalismanQiId = "holding-profit";
+            adept.ArtMastery[ImmortalArt.Alchemy] = s.Context.Content.Balance.Arts.AdeptAt;
+            s.Clan.AddMember(adept);
+            var offer = ArtView.ExamineOffer(s);
+            Assert.IsNull(offer.Refusal);
+            Assert.AreEqual(adept.ID, offer.AlchemistId);
+            StringAssert.Contains(adept.FullName, offer.Label);
+        }
     }
 }

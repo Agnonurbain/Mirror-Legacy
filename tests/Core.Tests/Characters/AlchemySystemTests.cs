@@ -124,5 +124,73 @@ namespace MirrorChronicles.Tests.Characters
             var loaded = GameSession.FromSaveData(s.ToSaveData(), new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
             Assert.AreEqual(2, loaded.Alchemy.EssencePillsOf(Element.Water));
         }
+
+        // ---- Poison and sabotage (audit §2.7) ----
+
+        private static FactionData Hostile(GameSession s)
+        {
+            foreach (var f in s.Factions.Factions) f.RelationWithPlayer = 0;
+            var foe = s.Factions.Factions.First();
+            foe.RelationWithPlayer = -80;
+            return foe;
+        }
+
+        [Test]
+        public void AHostilePower_MaySlipAPoisonedPill_IntoTheStore()
+        {
+            var c = Fixtures.QuietContent;
+            var s = GameSession.NewGame(new GameSetup
+            {
+                Seed = 1,
+                Content = c with { Balance = c.Balance with { Arts = c.Balance.Arts with { EssencePill = P with { TaintChance = 1 } } } }
+            });
+            var foe = Hostile(s);
+            s.Alchemy.GainEssencePills(Element.Water, 2);
+            s.Alchemy.ProcessYear();
+            Assert.AreEqual(1, s.Alchemy.Poisoned.Count);
+            Assert.AreEqual(foe.Name, s.Alchemy.Poisoned.Single().Power);
+            Assert.AreEqual(2, s.Alchemy.EssencePillsOf(Element.Water), "a poisoned pill looks like any other");
+        }
+
+        [Test]
+        public void APoisonedPill_FailsTheWall()
+        {
+            var s = Session();
+            var c = AtTheWall(s);
+            var e = ElementOf(s, c);
+            s.Alchemy.GainEssencePills(e, 1);
+            s.Alchemy.Poison(e, Hostile(s).Name);
+            Assert.AreEqual(s.Breakthroughs.TrialSuccessRate(c), s.Breakthroughs.TrialSuccessRate(c), "the odds look whole");
+            Assert.AreNotEqual(BreakthroughOutcome.Success, s.Breakthroughs.AttemptBreakthrough(c));
+            Assert.AreEqual(0, s.Alchemy.EssencePillsOf(e));
+            Assert.IsEmpty(s.Alchemy.Poisoned);
+        }
+
+        [Test]
+        public void AnAdeptAlchemist_FindsThePoison_AndWhoseItIs()
+        {
+            var s = Session();
+            var a = Alchemist(s);
+            var foe = Hostile(s);
+            s.Alchemy.GainEssencePills(Element.Fire, 2);
+            s.Alchemy.Poison(Element.Fire, foe.Name);
+            StringAssert.Contains("adepte", s.Alchemy.Examine(a.ID, out _), "an apprentice cannot tell");
+            a.ArtMastery[ImmortalArt.Alchemy] = s.Context.Content.Balance.Arts.AdeptAt;
+            Assert.IsNull(s.Alchemy.Examine(a.ID, out var culprits));
+            CollectionAssert.AreEqual(new[] { foe.Name }, culprits);
+            Assert.AreEqual(1, s.Alchemy.EssencePillsOf(Element.Fire), "the poisoned pill is thrown away");
+            Assert.IsEmpty(s.Alchemy.Poisoned);
+            Assert.Greater(s.Suspicion.ClanDistrust(foe.Name), 0);
+        }
+
+        [Test]
+        public void ThePoisonedPills_AreSaved()
+        {
+            var s = Session();
+            s.Alchemy.GainEssencePills(Element.Water, 1);
+            s.Alchemy.Poison(Element.Water, "X");
+            var loaded = GameSession.FromSaveData(s.ToSaveData(), new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            Assert.AreEqual(1, loaded.Alchemy.Poisoned.Count);
+        }
     }
 }

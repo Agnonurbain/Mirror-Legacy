@@ -55,5 +55,20 @@ namespace MirrorChronicles.Data
         public int Stones { get; init; } = 20;
         public int Mastery { get; init; } = 1;
         public int WithoutPillPenalty { get; init; } = 25;
+
+        // Poison (audit §2.7, 📚 wiki Li_Chengliao: an opposed essence fails the wall, an incompatible Qi poisons): a power at or
+        // below TaintRelation may slip a poisoned pill into the clan's store each year; an adept finds it, and whose it is.
+        public double TaintChance { get; init; } = 0.05;
+        public int TaintRelation { get; init; } = -40;
+        public int CaughtDistrust { get; init; } = 25;
+
+        // World parity: a power's alchemists refine pills by its kind, up to a cap; its elders take one at the wall, else
+        // gamble (their odds times ElderWithoutPillFactor), and a failed wall may kill; a rival may poison its store.
+        public Dictionary<FactionKind, double> PowerPillChance { get; init; } = new Dictionary<FactionKind, double>();
+        public int PowerPillCap { get; init; } = 4;
+        public int PowerStartPills { get; init; } = 1;
+        public double ElderWithoutPillFactor { get; init; } = 0.4;
+        public double ElderWallDeathChance { get; init; } = 0.2;
+        public double WorldTaintChance { get; init; } = 0.03;
     }
 }

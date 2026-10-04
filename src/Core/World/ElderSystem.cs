@@ -29,6 +29,8 @@ namespace MirrorChronicles.World
 
         private ElderSettings Settings => ctx.Content.Balance.Elders;
 
+        private EssencePillSettings Pill => ctx.Content.Balance.Arts.EssencePill;
+
         /// <summary>The world's own draw (it never shifts the game's).</summary>
         public static Random WorldRandom(int seed) => new Random(unchecked(seed * 7919 + 17));
 
@@ -47,6 +49,7 @@ namespace MirrorChronicles.World
                 for (int i = 0; i < cadets; i++)
                     power.Elders.Add(Elder(worldRng, null, DrawName(worldRng, power), Below(power.HighestRealm, worldRng), year, null));
                 foreach (var elder in power.Elders) elder.Ancient = true; // there when the world began
+                power.EssencePills = Pill.PowerStartPills;
                 Sync(power);
             }
         }
@@ -111,6 +114,7 @@ namespace MirrorChronicles.World
                     else if (elder.Realm < CultivationRealm.PurpleMansion) Rise(power, elder, year);
                     else if (elder.Realm == CultivationRealm.PurpleMansion) TryTheGoldenCore(power, elder, year);
                 }
+                RefinePills(power);
                 RaiseACadet(power, year);
                 Sync(power);
             }
@@ -121,12 +125,37 @@ namespace MirrorChronicles.World
             int realm = (int)elder.Realm;
             if (realm >= Settings.RiseChance.Length || year - elder.RealmSinceYear < MinYears(elder.Realm)) return;
             if (!ctx.Rng.Chance(Settings.RiseChance[realm])) return;
+            if (elder.Realm == CultivationRealm.QiRefinement && !CrossesTheWall(power, elder)) return;
             Advance(power, elder, elder.Realm + 1, year);
             if (elder.Realm == CultivationRealm.PurpleMansion)
             {
                 elder.GoldenCoreOdds = DrawOdds(ctx.Rng);
                 elder.Perfected = ctx.Rng.NextDouble() < Settings.PerfectionChance; // most never gather their five abilities
             }
+        }
+
+        /// <summary>
+        /// The Foundation wall, as the clan's (audit §2.6-2.7, parity): the elder takes a pill of its power's store — unless a
+        /// rival poisoned it — else gambles; a failed wall may kill it.
+        /// </summary>
+        private bool CrossesTheWall(FactionData power, FactionElder elder)
+        {
+            if (power.EssencePills > 0)
+            {
+                power.EssencePills--;
+                if (!ctx.Rng.Chance(Pill.WorldTaintChance)) return true;
+                ctx.Log.Info($"[Elders] {elder.Name} of {power.Name} swallows a poisoned pill at the Foundation wall.");
+            }
+            else if (ctx.Rng.Chance(Pill.ElderWithoutPillFactor)) return true;
+            if (ctx.Rng.Chance(Pill.ElderWallDeathChance)) Die(power, elder, demon: false, "dies at the Foundation wall");
+            return false;
+        }
+
+        /// <summary>A power's alchemists refine an Essence Gathering Pill now and then, up to its store's cap.</summary>
+        private void RefinePills(FactionData power)
+        {
+            if (power.EssencePills >= Pill.PowerPillCap || !Pill.PowerPillChance.TryGetValue(power.Kind, out double chance)) return;
+            if (ctx.Rng.Chance(chance)) power.EssencePills++;
         }
 
         /// <summary>
@@ -172,10 +201,10 @@ namespace MirrorChronicles.World
             ctx.Events.TriggerElderRose(power, elder);
         }
 
-        private void Die(FactionData power, FactionElder elder, bool demon)
+        private void Die(FactionData power, FactionElder elder, bool demon, string how = null)
         {
             power.Elders.Remove(elder);
-            ctx.Log.Info($"[Elders] {elder.Name} of {power.Name} {(demon ? "fails the Golden Core: a demon is born" : "dies of age")}.");
+            ctx.Log.Info($"[Elders] {elder.Name} of {power.Name} {how ?? (demon ? "fails the Golden Core: a demon is born" : "dies of age")}.");
             ctx.Events.TriggerElderDied(power, elder, demon);
         }
 

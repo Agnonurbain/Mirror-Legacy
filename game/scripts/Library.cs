@@ -119,6 +119,15 @@ namespace MirrorChronicles.Game
                 };
                 immortalArts.AddChild(refine);
             }
+            var exam = ArtView.ExamineOffer(s);
+            var examine = new Button { Text = exam.Label + (exam.Refusal == null ? "" : $" ({exam.Refusal})"), Disabled = exam.Refusal != null };
+            examine.Pressed += () =>
+            {
+                status.Text = s.Alchemy.Examine(exam.AlchemistId, out var culprits) is { } r ? $"Refusé : {r}."
+                    : culprits.Count == 0 ? "Aucune pilule n'est empoisonnée." : $"Pilules empoisonnées jetées — l'œuvre de {string.Join(", ", culprits)}.";
+                Refresh();
+            };
+            immortalArts.AddChild(examine);
         }
 
         private static readonly GoldenCoreAction[] Perilous = { GoldenCoreAction.Forge, GoldenCoreAction.Claim, GoldenCoreAction.Transmute };

@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.38";
+        public const string CurrentVersion = "2.39";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -57,6 +57,7 @@ namespace MirrorChronicles.Data
         public List<Element> CorruptedVirtues { get; set; }           // 2.32: the Virtues whose bridges are open (null: those of the start)
         public List<ImmortalArt> ArtLegacies { get; set; }             // 2.37: the Immortal Arts whose legacy the clan holds
         public Dictionary<Element, int> EssencePills { get; set; }     // 2.38: the clan's Essence Gathering Pills, by element
+        public List<MirrorChronicles.Characters.PoisonedPill> PoisonedPills { get; set; } // 2.39: the poisoned among them, and whose
         public Dictionary<string, string> TechniqueMarks { get; set; } // 2.36: the arts taken by theft or war, and the power whose mark they bear
         public Dictionary<string, string> ShardDirections { get; set; } // 2.23: the shards the mirror sensed → the region where each lies
         public int MirrorAsleepUntil { get; set; }          // 2.21: the year the spirit wakes from integrating a shard

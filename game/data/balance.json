@@ -583,7 +583,12 @@
   "arts": {
 	"ordinaryChance": 0.08, "geniusChance": 0.01, "yearlyMastery": 10, "geniusMasteryFactor": 2.0, "ungiftedMasteryFactor": 0.5,
 	"withoutMasterFactor": 0.5, "geniusCultivation": 1.1, "adeptAt": 40, "masterAt": 80,
-	"essencePill": { "herbs": 30, "stones": 20, "mastery": 1, "withoutPillPenalty": 25 },
+	"essencePill": {
+	  "herbs": 30, "stones": 20, "mastery": 1, "withoutPillPenalty": 25,
+	  "taintChance": 0.05, "taintRelation": -40, "caughtDistrust": 25,
+	  "powerPillChance": { "Family": 0.1, "Sect": 0.5, "Gate": 0.3, "ImmortalIsland": 0.3, "Temple": 0.3, "Order": 0.2, "State": 0.4 },
+	  "powerPillCap": 4, "powerStartPills": 1, "elderWithoutPillFactor": 0.4, "elderWallDeathChance": 0.2, "worldTaintChance": 0.03
+	},
 	"arts": [
 	  { "art": "Forge", "name": "le raffinement d'artefacts", "ordinaryCultivation": 0.5, "geniusAbilities": [ "hidden-metal:underground-forge" ], "giftTalismans": [ "holding-profit" ] },
 	  { "art": "Alchemy", "name": "l'alchimie", "ordinaryCultivation": 0.5, "geniusAbilities": [], "giftTalismans": [ "holding-profit", "valley-wind-leading-fire" ] },

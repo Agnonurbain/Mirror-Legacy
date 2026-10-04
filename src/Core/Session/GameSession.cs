@@ -230,7 +230,7 @@ namespace MirrorChronicles.Session
             Marks = new TechniqueMarks(Context, Mirror, Factions, Suspicion);
             Arts = new ArtSystem(Context, Clan, Cultivation);
             Forge.Arts = Arts;
-            Alchemy = new AlchemySystem(Context, Clan, Resources, Arts);
+            Alchemy = new AlchemySystem(Context, Clan, Resources, Arts, Factions, Suspicion);
             Breakthroughs.Alchemy = Alchemy;
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
@@ -331,11 +331,13 @@ namespace MirrorChronicles.Session
             session.ShardSense.Restore(data.ShardDirections); // none before 2.23
             session.Marks.Restore(data.TechniqueMarks);      // none before 2.36
             session.Arts.Restore(data.ArtLegacies);          // none before 2.37
-            session.Alchemy.Restore(data.EssencePills);      // none before 2.38
+            session.Alchemy.Restore(data.EssencePills, data.PoisonedPills); // none before 2.38 / 2.39
             session.Karma.Restore(data.GenerationCount, data.TotalBirths, data.TotalDeaths, data.LastPatriarchId ?? session.Clan.PatriarchID);
             if (data.Buildings != null) session.Buildings.Restore(data.Buildings);
             if (data.Factions != null && data.Factions.Count > 0) session.Factions.Restore(data.Factions.Select(f => f.Clone()));
             else session.Factions.InitializeFactions();
+            if (data.PoisonedPills == null) // before 2.39 the powers kept no pills: their alchemists' first store
+                foreach (var power in session.Factions.Factions) power.EssencePills = session.Context.Content.Balance.Arts.EssencePill.PowerStartPills;
             session.Deduction.Restore((data.Fragments ?? new List<FragmentData>()).Select(f => f.Clone()));
             session.Knowledge.Restore(data.Knowledge);
             session.Techniques.Restore(
@@ -437,6 +439,7 @@ namespace MirrorChronicles.Session
                 TechniqueMarks = new Dictionary<string, string>(Marks.Marks),
                 ArtLegacies = Arts.Legacies.ToList(),
                 EssencePills = Alchemy.EssencePills.ToDictionary(p => p.Key, p => p.Value),
+                PoisonedPills = Alchemy.Poisoned.ToList(),
                 MirrorAsleepUntil = Mirror.AsleepUntil,
                 Fragments = Deduction.Fragments.Select(f => f.Clone()).ToList(),
                 Techniques = Techniques.Deduced.Select(t => t.Clone()).ToList(),
@@ -545,6 +548,7 @@ namespace MirrorChronicles.Session
                 case GamePhase.Events: // the Management phase is over
                     Tasks.ProcessYearlyTasks();
                     Arts.ProcessYear();               // the Immortal Arts practised this year (audit §2)
+                    Alchemy.ProcessYear();            // a hostile power may poison the clan's pills (audit §2.7)
                     Factions.ProcessYearlyFactionAI();
                     Secrets.ProcessYear();            // those who know may talk (L2c.4b)
                     Plots.ProcessYear();              // the powers investigate, and strike what they suspect (D7)

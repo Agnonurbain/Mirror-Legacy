@@ -4,14 +4,24 @@ using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Economy;
 using MirrorChronicles.Session;
+using MirrorChronicles.Diplomacy;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Characters
 {
+    /// <summary>A poisoned pill in the clan's store: one of its element's, slipped in by this power (saved).</summary>
+    public sealed record PoisonedPill(Element Element, string Power);
+
+    /// <summary>What the wall's pill was: none, a true one, or a rival's poison.</summary>
+    public enum PillTaken { None, Pure, Poisoned }
+
     /// <summary>
     /// The clan's alchemy (AUDIT_LORE.md §2.6-2.7, the user's decision 2026-10-04): its store of Essence Gathering Pills, each of
     /// an element, and the alchemists who refine them — the gifted (or the Purple Mansion) of a clan that holds alchemy's
     /// legacy, one work a year, from herbs and stones. The Foundation wall takes a pill of the cultivator's Qi element; without
-    /// one it is a gamble (📚 wiki Li_Chenghui; a pill of another essence serves nothing, Li_Chengliao).
+    /// one it is a gamble (📚 wiki Li_Chenghui; a pill of another essence serves nothing, Li_Chengliao). A hostile power may slip
+    /// a poisoned pill — an opposed essence in the guise of the store's own — that fails the wall; an adept of alchemy finds it,
+    /// and whose it is (audit §2.7).
     /// </summary>
     public sealed class AlchemySystem
     {
@@ -19,15 +29,22 @@ namespace MirrorChronicles.Characters
         private readonly ClanManager clan;
         private readonly ResourceManager resources;
         private readonly ArtSystem arts;
-        private readonly Dictionary<Element, int> essencePills = new Dictionary<Element, int>();
+        private readonly FactionManager factions;
+        private readonly SuspicionLedger suspicion;
+        private readonly Dictionary<Element, int> essencePills = new Dictionary<Element, int>(); // every pill, the poisoned among them
+        private readonly List<PoisonedPill> poisoned = new List<PoisonedPill>();
 
-        public AlchemySystem(GameContext ctx, ClanManager clan, ResourceManager resources, ArtSystem arts)
+        public AlchemySystem(GameContext ctx, ClanManager clan, ResourceManager resources, ArtSystem arts, FactionManager factions, SuspicionLedger suspicion)
         {
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
             this.arts = arts;
+            this.factions = factions;
+            this.suspicion = suspicion;
         }
+
+        public IReadOnlyList<PoisonedPill> Poisoned => poisoned;
 
         private EssencePillSettings Pill => ctx.Content.Balance.Arts.EssencePill;
 
@@ -49,14 +66,77 @@ namespace MirrorChronicles.Characters
             essencePills[element] = EssencePillsOf(element) + count;
         }
 
-        /// <summary>A pill of the member's element is swallowed at the wall. False when the clan has none.</summary>
-        public bool TakeEssencePill(CharacterData member)
+        /// <summary>A pill of the member's element is swallowed at the wall — perhaps a poisoned one, which looks the same.</summary>
+        public PillTaken TakeEssencePill(CharacterData member)
         {
-            if (ElementFor(member, ctx.Content) is not { } e || EssencePillsOf(e) == 0) return false;
+            if (ElementFor(member, ctx.Content) is not { } e || EssencePillsOf(e) == 0) return PillTaken.None;
+            int bad = poisoned.Count(p => p.Element == e);
+            bool poison = bad > 0 && ctx.Rng.Next(EssencePillsOf(e)) < bad;
+            Remove(e);
+            if (poison)
+            {
+                poisoned.Remove(poisoned.First(p => p.Element == e));
+                ctx.Log.Info($"[Alchemy] {member.FullName} swallows a poisoned pill at the Foundation wall: an opposed essence.");
+                return PillTaken.Poisoned;
+            }
+            ctx.Log.Info($"[Alchemy] {member.FullName} swallows an Essence Gathering Pill ({e}) at the Foundation wall.");
+            return PillTaken.Pure;
+        }
+
+        private void Remove(Element e)
+        {
             essencePills[e]--;
             if (essencePills[e] == 0) essencePills.Remove(e);
-            ctx.Log.Info($"[Alchemy] {member.FullName} swallows an Essence Gathering Pill ({e}) at the Foundation wall.");
+        }
+
+        /// <summary>A power turns one of the clan's true pills of this element into its poison. False when there is none to turn.</summary>
+        public bool Poison(Element element, string power)
+        {
+            if (EssencePillsOf(element) <= poisoned.Count(p => p.Element == element)) return false;
+            poisoned.Add(new PoisonedPill(element, power));
+            ctx.Log.Info($"[Alchemy] {power} slips a poisoned pill ({element}) into the clan's store.");
             return true;
+        }
+
+        /// <summary>Each year the most hostile power may poison one of the clan's pills (audit §2.7, 🔎).</summary>
+        public void ProcessYear()
+        {
+            var pill = Pill;
+            var held = essencePills.Where(p => p.Value > poisoned.Count(x => x.Element == p.Key)).Select(p => p.Key).OrderBy(e => e).ToList();
+            if (held.Count == 0) return;
+            var foe = factions.Factions.Where(f => f.RelationWithPlayer <= pill.TaintRelation).OrderBy(f => f.RelationWithPlayer).FirstOrDefault();
+            if (foe == null || !ctx.Rng.Chance(pill.TaintChance)) return;
+            Poison(held[ctx.Rng.Next(held.Count)], foe.Name);
+        }
+
+        /// <summary>Why this member cannot examine the store's pills (French), or null: an adept of alchemy tells a poisoned one.</summary>
+        public string ExamineRefusal(CharacterData alchemist)
+        {
+            if (alchemist == null || !alchemist.IsAlive || alchemist.CaptorFaction != null || alchemist.Retreat != Retreat.None) return "cet alchimiste ne peut travailler";
+            if (essencePills.Count == 0) return "le clan n'a aucune pilule à examiner";
+            if (!arts.HoldsLegacy(ImmortalArt.Alchemy)) return "le clan ne tient pas l'héritage de l'alchimie";
+            if (!ImmortalArtRules.MayPractise(alchemist, ImmortalArt.Alchemy, ctx.Content.Balance.Arts)) return "il n'a pas le don de l'alchimie (sans don, il faut le Manoir Pourpre)";
+            if (ArtSystem.MasteryOf(alchemist, ImmortalArt.Alchemy) < ctx.Content.Balance.Arts.AdeptAt) return "il faut un adepte de l'alchimie pour reconnaître un poison";
+            if (alchemist.LastOperationYear == ctx.Clock.Year) return "cet alchimiste a déjà œuvré cette année";
+            return null;
+        }
+
+        /// <summary>
+        /// An adept examines the store (its year's work): the poisoned pills are thrown away, and the clan knows whose they were.
+        /// Null when done, else why not (French).
+        /// </summary>
+        public string Examine(string alchemistId, out IReadOnlyList<string> culprits)
+        {
+            culprits = new List<string>();
+            var alchemist = clan.FindById(alchemistId);
+            if (ExamineRefusal(alchemist) is { } why) return why;
+            alchemist.LastOperationYear = ctx.Clock.Year;
+            culprits = poisoned.Select(p => p.Power).Distinct().OrderBy(p => p, System.StringComparer.Ordinal).ToList();
+            foreach (var p in poisoned) Remove(p.Element);
+            poisoned.Clear();
+            foreach (var power in culprits) suspicion.AddClanDistrust(power, Pill.CaughtDistrust);
+            ctx.Log.Info($"[Alchemy] {alchemist.FullName} examines the pills: {(culprits.Count == 0 ? "none is poisoned" : "poison of " + string.Join(", ", culprits))}.");
+            return null;
         }
 
         /// <summary>Why this member cannot refine an Essence Gathering Pill now (French), or null.</summary>
@@ -84,11 +164,13 @@ namespace MirrorChronicles.Characters
             return null;
         }
 
-        public void Restore(IReadOnlyDictionary<Element, int> saved)
+        public void Restore(IReadOnlyDictionary<Element, int> saved, IEnumerable<PoisonedPill> savedPoison = null)
         {
             essencePills.Clear();
-            if (saved == null) return;
-            foreach (var (e, n) in saved) GainEssencePills(e, n);
+            poisoned.Clear();
+            foreach (var (e, n) in saved ?? new Dictionary<Element, int>()) GainEssencePills(e, n);
+            foreach (var p in savedPoison ?? Enumerable.Empty<PoisonedPill>())
+                if (EssencePillsOf(p.Element) > poisoned.Count(x => x.Element == p.Element)) poisoned.Add(p);
         }
     }
 }

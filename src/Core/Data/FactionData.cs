@@ -51,6 +51,8 @@ namespace MirrorChronicles.Data
         // Relationship with the player's clan (-100 to +100)
         public int RelationWithPlayer { get; set; }
 
+        public int EssencePills { get; set; }           // its Essence Gathering Pills for its elders' Foundation wall (audit §2.6, parity)
+
         /// <summary>An independent copy (saves and loads never share factions with a live game).</summary>
         public FactionData Clone()
         {

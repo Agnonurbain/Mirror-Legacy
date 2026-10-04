@@ -96,7 +96,7 @@ namespace MirrorChronicles.Characters
             if (step.Trial == TrialKind.FoundationWall)
             {
                 AncestralShieldActive = false;
-                Alchemy?.TakeEssencePill(character);
+                if (Alchemy?.TakeEssencePill(character) == PillTaken.Poisoned) successRate = 0; // an opposed essence: the wall cannot hold (📚)
             }
 
             int roll = ctx.Rng.Next(1, 101);

@@ -18,6 +18,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>An Essence Gathering Pill the clan's best alchemist may refine, of an element its Qi Cultivators need, and why not (null: it can).</summary>
     public sealed record PillOffer(Element Element, string AlchemistId, string Label, string Refusal);
 
+    /// <summary>The examination of the clan's pills by its best alchemist, and why not (null: it can).</summary>
+    public sealed record ExamineOffer(string AlchemistId, string Label, string Refusal);
+
     /// <summary>The Immortal Arts' screen (audit §2, 2026-10-04): the legacies, and each cultivator's gifts and mastery.</summary>
     public static class ArtView
     {
@@ -58,6 +61,15 @@ namespace MirrorChronicles.Presentation
                 $"Raffiner une Pilule de Rassemblement d'Essence ({WorldMapView.ElementLabel(e)})" + (alchemist == null ? "" : $" par {alchemist.FullName}")
                 + $" — {pill.Herbs} herbes, {pill.Stones} pierres",
                 alchemist == null ? "aucun alchimiste" : s.Alchemy.RefineRefusal(alchemist))).ToList();
+        }
+
+        /// <summary>The store's examination for poison (audit §2.7), by the clan's best alchemist.</summary>
+        public static ExamineOffer ExamineOffer(GameSession s)
+        {
+            var alchemist = s.Clan.LivingMembers.OrderBy(m => s.Alchemy.ExamineRefusal(m) == null ? 0 : 1)
+                .ThenByDescending(m => ArtSystem.MasteryOf(m, ImmortalArt.Alchemy)).FirstOrDefault();
+            return new ExamineOffer(alchemist?.ID, "Examiner les pilules (un poison s'y cache-t-il ?)" + (alchemist == null ? "" : $" par {alchemist.FullName}"),
+                alchemist == null ? "aucun alchimiste" : s.Alchemy.ExamineRefusal(alchemist));
         }
     }
 }
