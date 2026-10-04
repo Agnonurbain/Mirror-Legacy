@@ -126,7 +126,8 @@ namespace MirrorChronicles.Mirror
             if (!Characters.RealmGap.Reaches(team, guardRealm, gap)) return 0; // numbers do not cross a realm (audit §1)
             double strength = Characters.RealmGap.TeamStrength(team, guardRealm, s.ExpeditionHelpShare, gap);
             double guard = HuntRules.Power(guardRealm, 5);
-            return Math.Clamp(s.TheftBaseChance + (strength - guard) * s.TheftChancePerPower, s.TheftMinChance, s.TheftMaxChance);
+            return Math.Clamp(s.TheftBaseChance + (strength - guard) * s.TheftChancePerPower, s.TheftMinChance, s.TheftMaxChance)
+                * World.PowerFormation.Guard(holder, ctx.Content); // its formation (audit §2.3, parity)
         }
 
         // ---- Demanding it of a vassal ----

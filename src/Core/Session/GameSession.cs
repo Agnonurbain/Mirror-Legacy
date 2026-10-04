@@ -307,6 +307,10 @@ namespace MirrorChronicles.Session
             }
         }
 
+        /// <summary>The save was written by a version older than this one (an unreadable version counts as older).</summary>
+        private static bool SavedBefore(GameData data, string version) =>
+            !System.Version.TryParse(data.SaveVersion, out var saved) || saved < System.Version.Parse(version);
+
         public static GameSession FromSaveData(GameData data, GameSetup setup)
         {
             if (data == null) throw new ArgumentNullException(nameof(data));
@@ -340,6 +344,8 @@ namespace MirrorChronicles.Session
             else session.Factions.InitializeFactions();
             if (data.PoisonedPills == null) // before 2.39 the powers kept no pills: their alchemists' first store
                 foreach (var power in session.Factions.Factions) power.EssencePills = session.Context.Content.Balance.Arts.EssencePill.PowerStartPills;
+            if (SavedBefore(data, "2.40")) // before 2.40 the powers kept no formation: the one their realm knows, a level below
+                foreach (var power in session.Factions.Factions) power.FormationLevel = World.PowerFormation.Start(power, session.Context.Content);
             session.Deduction.Restore((data.Fragments ?? new List<FragmentData>()).Select(f => f.Clone()));
             session.Knowledge.Restore(data.Knowledge);
             session.Techniques.Restore(

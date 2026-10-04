@@ -589,7 +589,10 @@
 	  "powerPillChance": { "Family": 0.1, "Sect": 0.5, "Gate": 0.3, "ImmortalIsland": 0.3, "Temple": 0.3, "Order": 0.2, "State": 0.4 },
 	  "powerPillCap": 4, "powerStartPills": 1, "elderWithoutPillFactor": 0.4, "elderWallDeathChance": 0.2, "worldTaintChance": 0.03
 	},
-	"formation": { "adeptFromLevel": 3, "masterFromLevel": 5, "hireRelation": 30, "hireFeeShare": 0.5 },
+	"formation": {
+	  "adeptFromLevel": 3, "masterFromLevel": 5, "hireRelation": 30, "hireFeeShare": 0.5,
+	  "powerCapByRealm": { "QiRefinement": 1, "Foundation": 3, "PurpleMansion": 5 }, "powerRiseChance": 0.05
+	},
 	"arts": [
 	  { "art": "Forge", "name": "le raffinement d'artefacts", "ordinaryCultivation": 0.5, "geniusAbilities": [ "hidden-metal:underground-forge" ], "giftTalismans": [ "holding-profit" ] },
 	  { "art": "Alchemy", "name": "l'alchimie", "ordinaryCultivation": 0.5, "geniusAbilities": [], "giftTalismans": [ "holding-profit", "valley-wind-leading-fire" ] },

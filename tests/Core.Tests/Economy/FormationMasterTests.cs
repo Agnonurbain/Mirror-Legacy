@@ -83,13 +83,13 @@ namespace MirrorChronicles.Tests.Economy
         }
 
         [Test]
-        public void TheFormationsHeight_AsksAPurpleMansionPower()
+        public void TheFormationsHeight_IsBeyondAFoundationPowersMaster()
         {
             var s = Session();
             var friend = s.Factions.Factions.First(f => f.HighestRealm == CultivationRealm.Foundation);
             friend.RelationWithPlayer = 100;
             s.Buildings.GetBuilding(BuildingType.ProtectiveFormation).Level = F.MasterFromLevel - 1;
-            StringAssert.Contains("Manoir Pourpre", s.Buildings.HireRefusal(friend.Name));
+            StringAssert.Contains("niveau", s.Buildings.HireRefusal(friend.Name), "its own formation is lower: the height asks a Purple Mansion power's");
         }
     }
 }

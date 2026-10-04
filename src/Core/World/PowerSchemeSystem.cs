@@ -56,7 +56,10 @@ namespace MirrorChronicles.World
                 if (targets.Count == 0) continue;
                 var victim = targets[ctx.Rng.Next(targets.Count)];
                 double roll = ctx.Rng.NextDouble();
-                if (roll < Settings.TheftWeight) Steal(thief, victim);
+                if (roll < Settings.TheftWeight)
+                {
+                    if (victim.FormationLevel == 0 || ctx.Rng.Chance(PowerFormation.Guard(victim, ctx.Content))) Steal(thief, victim); // its formation (audit §2.3)
+                }
                 else if (roll < Settings.TheftWeight + Settings.AmbushWeight) Ambush(thief, victim);
                 else Harvest(thief, victim);
             }

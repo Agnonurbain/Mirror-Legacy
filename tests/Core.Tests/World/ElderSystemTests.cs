@@ -84,6 +84,7 @@ namespace MirrorChronicles.Tests.World
             var junior = new FactionElder { Id = "j", Name = "J", Realm = CultivationRealm.QiRefinement, Stage = 1,
                 BornYear = s.Clock.Year - 40, MaxLifespan = 200, RealmSinceYear = s.Clock.Year - 1000 };
             power.Elders.Add(junior);
+            power.EssencePills = 10; // a pill for every elder at the wall (audit §2.6)
             Years(s, 1);
             Assert.AreEqual(CultivationRealm.Foundation, junior.Realm);
         }

@@ -57,6 +57,11 @@ namespace MirrorChronicles.Data
         public int MasterFromLevel { get; init; } = 5;
         public int HireRelation { get; init; } = 30;
         public double HireFeeShare { get; init; } = 0.5;
+
+        // World parity: a power's own formation, as high as its realm knows (the highest key at or below its realm), one level
+        // below at the world's start; its masters raise it by one level a year at PowerRiseChance.
+        public Dictionary<CultivationRealm, int> PowerCapByRealm { get; init; } = new Dictionary<CultivationRealm, int>();
+        public double PowerRiseChance { get; init; } = 0.05;
     }
 
     /// <summary>

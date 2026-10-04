@@ -11138,7 +11138,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 450,
+      "community": 183,
       "norm_label": "woundsystem"
     },
     {
@@ -11148,7 +11148,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 450,
+      "community": 183,
       "norm_label": "double"
     },
     {
@@ -11158,7 +11158,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 450,
+      "community": 183,
       "norm_label": "int"
     },
     {
@@ -11168,7 +11168,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 450,
+      "community": 183,
       "norm_label": "gamecontext"
     },
     {
@@ -11178,7 +11178,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 450,
+      "community": 183,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -11188,7 +11188,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 450,
+      "community": 183,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -11198,7 +11198,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 450,
+      "community": 183,
       "norm_label": "characterdata"
     },
     {
@@ -11208,7 +11208,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 450,
+      "community": 183,
       "norm_label": ".applydaowound()"
     },
     {
@@ -11218,7 +11218,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 450,
+      "community": 183,
       "norm_label": ".applywound()"
     },
     {
@@ -15258,7 +15258,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums",
-      "community": 441,
+      "community": 434,
       "norm_label": "enums.cs"
     },
     {
@@ -15268,7 +15268,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_enums_mirrorchronicles_data",
-      "community": 441,
+      "community": 434,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -15305,7 +15305,7 @@
       "label": ".Clone()",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L57",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "data_factiondata_factiondata_clone",
       "community": 436,
@@ -15315,7 +15315,7 @@
       "label": "FactionElder",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L80",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "data_factiondata_factionelder",
       "community": 436,
@@ -15325,7 +15325,7 @@
       "label": ".Age()",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L100",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_age",
       "community": 436,
@@ -15335,7 +15335,7 @@
       "label": ".Clone()",
       "file_type": "code",
       "source_file": "src/Core/Data/FactionData.cs",
-      "source_location": "L102",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "data_factiondata_factionelder_clone",
       "community": 436,
@@ -17158,7 +17158,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem",
-      "community": 193,
+      "community": 441,
       "norm_label": "alliancesystem.cs"
     },
     {
@@ -17168,7 +17168,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_mirrorchronicles_diplomacy",
-      "community": 193,
+      "community": 441,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -17178,7 +17178,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem",
-      "community": 193,
+      "community": 441,
       "norm_label": "alliancesystem"
     },
     {
@@ -17188,7 +17188,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_double",
-      "community": 193,
+      "community": 441,
       "norm_label": "double"
     },
     {
@@ -17198,7 +17198,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_gamecontext",
-      "community": 193,
+      "community": 441,
       "norm_label": "gamecontext"
     },
     {
@@ -17208,7 +17208,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_factionmanager",
-      "community": 193,
+      "community": 441,
       "norm_label": "factionmanager"
     },
     {
@@ -17218,7 +17218,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_diplomacy_alliancesystem_cs_resourcemanager",
-      "community": 193,
+      "community": 441,
       "norm_label": "resourcemanager"
     },
     {
@@ -17228,7 +17228,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_offertribute",
-      "community": 193,
+      "community": 441,
       "norm_label": ".offertribute()"
     },
     {
@@ -17238,7 +17238,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "diplomacy_alliancesystem_alliancesystem_declarewar",
-      "community": 193,
+      "community": 441,
       "norm_label": ".declarewar()"
     },
     {
@@ -17998,7 +17998,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 441,
+      "community": 444,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -18008,7 +18008,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 441,
+      "community": 444,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18138,7 +18138,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 441,
+      "community": 434,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -18148,7 +18148,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 441,
+      "community": 434,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -24028,7 +24028,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionengine",
-      "community": 441,
+      "community": 434,
       "norm_label": "deductionengine.cs"
     },
     {
@@ -24038,7 +24038,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "mirror_deductionengine_mirrorchronicles_mirror",
-      "community": 441,
+      "community": 434,
       "norm_label": "mirrorchronicles.mirror"
     },
     {
@@ -25585,7 +25585,7 @@
       "label": ".DemandOfVassal()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L135",
+      "source_location": "L136",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_demandofvassal",
       "community": 109,
@@ -25595,7 +25595,7 @@
       "label": ".TradePrice()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L150",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_tradeprice",
       "community": 109,
@@ -25605,7 +25605,7 @@
       "label": ".Trade()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L157",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_trade",
       "community": 109,
@@ -25615,7 +25615,7 @@
       "label": ".TakeAsLoot()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L179",
+      "source_location": "L180",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_takeasloot",
       "community": 109,
@@ -25625,7 +25625,7 @@
       "label": ".Take()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L187",
+      "source_location": "L188",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_take",
       "community": 109,
@@ -25635,7 +25635,7 @@
       "label": ".Wonder()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L195",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "mirror_powershards_powershards_wonder",
       "community": 109,
@@ -25645,7 +25645,7 @@
       "label": "Refused()",
       "file_type": "code",
       "source_file": "src/Core/Mirror/PowerShards.cs",
-      "source_location": "L206",
+      "source_location": "L207",
       "_origin": "ast",
       "id": "mirror_powershards_refused",
       "community": 109,
@@ -30925,7 +30925,7 @@
       "label": ".SabotageTheRivals()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L92",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_sabotagetherivals",
       "community": 362,
@@ -30935,7 +30935,7 @@
       "label": "string",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L111",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_string",
       "community": 386,
@@ -30945,7 +30945,7 @@
       "label": ".SeekAVassal()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L119",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_seekavassal",
       "community": 362,
@@ -30955,7 +30955,7 @@
       "label": ".VassalPriority()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L131",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_vassalpriority",
       "community": 362,
@@ -30965,7 +30965,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L131",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_factiondata",
       "community": 362,
@@ -30975,7 +30975,7 @@
       "label": ".SendTheDiplomats()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L144",
+      "source_location": "L145",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_sendthediplomats",
       "community": 362,
@@ -30985,7 +30985,7 @@
       "label": "Abroad",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L171",
+      "source_location": "L172",
       "_origin": "ast",
       "id": "session_balancerun_ascent_abroad",
       "community": 386,
@@ -30995,7 +30995,7 @@
       "label": "HashSet",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L171",
+      "source_location": "L172",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_hashset",
       "community": 386,
@@ -31005,7 +31005,7 @@
       "label": "ConditionalWeakTable<GameSession, Abroad>",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L173",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "conditionalweaktable_gamesession_abroad",
       "community": 362,
@@ -31015,7 +31015,7 @@
       "label": ".SendABearerAbroad()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L181",
+      "source_location": "L182",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_sendabearerabroad",
       "community": 362,
@@ -31025,7 +31025,7 @@
       "label": ".Within()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L210",
+      "source_location": "L211",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_within",
       "community": 362,
@@ -31035,7 +31035,7 @@
       "label": ".Affords()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L224",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_affords",
       "community": 362,
@@ -31045,7 +31045,7 @@
       "label": ".SavesForTheSect()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L232",
+      "source_location": "L233",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_savesforthesect",
       "community": 362,
@@ -31055,7 +31055,7 @@
       "label": ".BuildTheMaterials()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L245",
+      "source_location": "L246",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_buildthematerials",
       "community": 362,
@@ -31065,7 +31065,7 @@
       "label": ".FoundationOf()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L257",
+      "source_location": "L258",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_foundationof",
       "community": 362,
@@ -31075,7 +31075,7 @@
       "label": ".ReadThePartners()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L260",
+      "source_location": "L261",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_readthepartners",
       "community": 362,
@@ -31085,7 +31085,7 @@
       "label": ".WantedAbilities()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L272",
+      "source_location": "L273",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_wantedabilities",
       "community": 362,
@@ -31095,7 +31095,7 @@
       "label": "IEnumerable",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L272",
+      "source_location": "L273",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_ienumerable",
       "community": 362,
@@ -31105,7 +31105,7 @@
       "label": ".AlignedMethods()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L285",
+      "source_location": "L286",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_alignedmethods",
       "community": 362,
@@ -31115,7 +31115,7 @@
       "label": "TechniqueData",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L285",
+      "source_location": "L286",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_techniquedata",
       "community": 362,
@@ -31125,7 +31125,7 @@
       "label": ".HasAlignedMethod()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L289",
+      "source_location": "L290",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_hasalignedmethod",
       "community": 362,
@@ -31135,7 +31135,7 @@
       "label": ".WithinReach()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L296",
+      "source_location": "L297",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_withinreach",
       "community": 362,
@@ -31145,7 +31145,7 @@
       "label": ".SeekAnAlignedMethod()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L309",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_seekanalignedmethod",
       "community": 362,
@@ -31155,7 +31155,7 @@
       "label": "IReadOnlyList",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L309",
+      "source_location": "L310",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_ireadonlylist",
       "community": 362,
@@ -31165,7 +31165,7 @@
       "label": ".TermsFor()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L333",
+      "source_location": "L334",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_termsfor",
       "community": 362,
@@ -31175,7 +31175,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L333",
+      "source_location": "L334",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_list",
       "community": 362,
@@ -31185,7 +31185,7 @@
       "label": "AccordTerm",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L333",
+      "source_location": "L334",
       "_origin": "ast",
       "id": "src_core_session_balancerun_ascent_cs_accordterm",
       "community": 362,
@@ -31195,7 +31195,7 @@
       "label": ".PursueWhatCanBeCondensed()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L355",
+      "source_location": "L356",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_pursuewhatcanbecondensed",
       "community": 362,
@@ -31205,7 +31205,7 @@
       "label": ".CondenseWithResourcesWhenStuck()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L367",
+      "source_location": "L368",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_condensewithresourceswhenstuck",
       "community": 362,
@@ -31215,7 +31215,7 @@
       "label": ".ForgeAMetalEssence()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L382",
+      "source_location": "L383",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_forgeametalessence",
       "community": 362,
@@ -31225,7 +31225,7 @@
       "label": ".ClaimAPosition()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L398",
+      "source_location": "L399",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_claimaposition",
       "community": 362,
@@ -31235,7 +31235,7 @@
       "label": ".GatherTheQiOfTheAbilities()",
       "file_type": "code",
       "source_file": "src/Core/Session/BalanceRun.Ascent.cs",
-      "source_location": "L417",
+      "source_location": "L418",
       "_origin": "ast",
       "id": "session_balancerun_ascent_balancerun_gathertheqioftheabilities",
       "community": 362,
@@ -32502,30 +32502,40 @@
       "norm_label": ".tryload()"
     },
     {
-      "label": ".FromSaveData()",
+      "label": ".SavedBefore()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L310",
+      "source_location": "L311",
       "_origin": "ast",
-      "id": "session_gamesession_gamesession_fromsavedata",
+      "id": "session_gamesession_gamesession_savedbefore",
       "community": 251,
-      "norm_label": ".fromsavedata()"
+      "norm_label": ".savedbefore()"
     },
     {
       "label": "GameData",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L310",
+      "source_location": "L311",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamedata",
       "community": 251,
       "norm_label": "gamedata"
     },
     {
+      "label": ".FromSaveData()",
+      "file_type": "code",
+      "source_file": "src/Core/Session/GameSession.cs",
+      "source_location": "L314",
+      "_origin": "ast",
+      "id": "session_gamesession_gamesession_fromsavedata",
+      "community": 251,
+      "norm_label": ".fromsavedata()"
+    },
+    {
       "label": ".ToSaveData()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L421",
+      "source_location": "L427",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_tosavedata",
       "community": 251,
@@ -32535,7 +32545,7 @@
       "label": ".RequireContent()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L524",
+      "source_location": "L530",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_requirecontent",
       "community": 251,
@@ -32545,7 +32555,7 @@
       "label": "GameContent",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L524",
+      "source_location": "L530",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamecontent",
       "community": 251,
@@ -32555,7 +32565,7 @@
       "label": ".AdvancePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L528",
+      "source_location": "L534",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advancephase",
       "community": 251,
@@ -32565,7 +32575,7 @@
       "label": ".AdvanceYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L539",
+      "source_location": "L545",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_advanceyear",
       "community": 251,
@@ -32575,7 +32585,7 @@
       "label": ".ResolvePhase()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L546",
+      "source_location": "L552",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_resolvephase",
       "community": 251,
@@ -32585,7 +32595,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L546",
+      "source_location": "L552",
       "_origin": "ast",
       "id": "src_core_session_gamesession_cs_gamephase",
       "community": 251,
@@ -32595,7 +32605,7 @@
       "label": ".BeginYear()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L606",
+      "source_location": "L612",
       "_origin": "ast",
       "id": "session_gamesession_gamesession_beginyear",
       "community": 251,
@@ -34255,7 +34265,7 @@
       "label": ".NewElder()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_newelder",
       "community": 338,
@@ -34265,7 +34275,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "src_core_world_eldersystem_cs_factiondata",
       "community": 338,
@@ -34275,7 +34285,7 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "src_core_world_eldersystem_cs_cultivationrealm",
       "community": 338,
@@ -34285,7 +34295,7 @@
       "label": "FactionElder",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "src_core_world_eldersystem_cs_factionelder",
       "community": 338,
@@ -34295,7 +34305,7 @@
       "label": ".Below()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L66",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_below",
       "community": 338,
@@ -34305,7 +34315,7 @@
       "label": ".Elder()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L69",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_elder",
       "community": 338,
@@ -34315,7 +34325,7 @@
       "label": ".DrawOdds()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L92",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_drawodds",
       "community": 338,
@@ -34325,7 +34335,7 @@
       "label": ".MinYears()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_minyears",
       "community": 338,
@@ -34335,7 +34345,7 @@
       "label": ".DrawName()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L98",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_drawname",
       "community": 338,
@@ -34345,7 +34355,7 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L106",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_processyear",
       "community": 338,
@@ -34355,7 +34365,7 @@
       "label": ".Rise()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L123",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_rise",
       "community": 338,
@@ -34365,17 +34375,27 @@
       "label": ".CrossesTheWall()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L141",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_crossesthewall",
       "community": 338,
       "norm_label": ".crossesthewall()"
     },
     {
+      "label": ".RaiseTheFormation()",
+      "file_type": "code",
+      "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "world_eldersystem_eldersystem_raisetheformation",
+      "community": 338,
+      "norm_label": ".raisetheformation()"
+    },
+    {
       "label": ".RefinePills()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L155",
+      "source_location": "L164",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_refinepills",
       "community": 338,
@@ -34385,7 +34405,7 @@
       "label": ".Dare()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L165",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_dare",
       "community": 338,
@@ -34395,7 +34415,7 @@
       "label": ".TryTheGoldenCore()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L178",
+      "source_location": "L187",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_trythegoldencore",
       "community": 338,
@@ -34405,7 +34425,7 @@
       "label": ".Advance()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L194",
+      "source_location": "L203",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_advance",
       "community": 338,
@@ -34415,7 +34435,7 @@
       "label": ".Die()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L204",
+      "source_location": "L213",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_die",
       "community": 338,
@@ -34425,7 +34445,7 @@
       "label": ".RaiseACadet()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L212",
+      "source_location": "L221",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_raiseacadet",
       "community": 338,
@@ -34435,7 +34455,7 @@
       "label": ".Sync()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L222",
+      "source_location": "L231",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_sync",
       "community": 338,
@@ -36142,6 +36162,86 @@
       "norm_label": ".processyear()"
     },
     {
+      "label": "PowerFormation.cs",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "world_powerformation",
+      "community": 450,
+      "norm_label": "powerformation.cs"
+    },
+    {
+      "label": "MirrorChronicles.World",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "world_powerformation_mirrorchronicles_world",
+      "community": 450,
+      "norm_label": "mirrorchronicles.world"
+    },
+    {
+      "label": "PowerFormation",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "world_powerformation_powerformation",
+      "community": 450,
+      "norm_label": "powerformation"
+    },
+    {
+      "label": ".Cap()",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "world_powerformation_powerformation_cap",
+      "community": 450,
+      "norm_label": ".cap()"
+    },
+    {
+      "label": "FactionData",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_core_world_powerformation_cs_factiondata",
+      "community": 450,
+      "norm_label": "factiondata"
+    },
+    {
+      "label": "GameContent",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_core_world_powerformation_cs_gamecontent",
+      "community": 450,
+      "norm_label": "gamecontent"
+    },
+    {
+      "label": ".Start()",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "world_powerformation_powerformation_start",
+      "community": 450,
+      "norm_label": ".start()"
+    },
+    {
+      "label": ".Guard()",
+      "file_type": "code",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "world_powerformation_powerformation_guard",
+      "community": 450,
+      "norm_label": ".guard()"
+    },
+    {
       "label": "PowerLifecycle.cs",
       "file_type": "code",
       "source_file": "src/Core/World/PowerLifecycle.cs",
@@ -36425,7 +36525,7 @@
       "label": ".Steal()",
       "file_type": "code",
       "source_file": "src/Core/World/PowerSchemeSystem.cs",
-      "source_location": "L66",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "world_powerschemesystem_powerschemesystem_steal",
       "community": 402,
@@ -36435,7 +36535,7 @@
       "label": ".Ambush()",
       "file_type": "code",
       "source_file": "src/Core/World/PowerSchemeSystem.cs",
-      "source_location": "L95",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "world_powerschemesystem_powerschemesystem_ambush",
       "community": 402,
@@ -36445,7 +36545,7 @@
       "label": ".Harvest()",
       "file_type": "code",
       "source_file": "src/Core/World/PowerSchemeSystem.cs",
-      "source_location": "L109",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "world_powerschemesystem_powerschemesystem_harvest",
       "community": 402,
@@ -36455,7 +36555,7 @@
       "label": ".Ransoms()",
       "file_type": "code",
       "source_file": "src/Core/World/PowerSchemeSystem.cs",
-      "source_location": "L124",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "world_powerschemesystem_powerschemesystem_ransoms",
       "community": 402,
@@ -57742,14 +57842,14 @@
       "norm_label": ".afriendlypower_lendsitsmaster_forafee()"
     },
     {
-      "label": ".TheFormationsHeight_AsksAPurpleMansionPower()",
+      "label": ".TheFormationsHeight_IsBeyondAFoundationPowersMaster()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L85",
       "_origin": "ast",
-      "id": "economy_formationmastertests_formationmastertests_theformationsheight_asksapurplemansionpower",
+      "id": "economy_formationmastertests_formationmastertests_theformationsheight_isbeyondafoundationpowersmaster",
       "community": 446,
-      "norm_label": ".theformationsheight_asksapurplemansionpower()"
+      "norm_label": ".theformationsheight_isbeyondafoundationpowersmaster()"
     },
     {
       "label": "ResourceManagerTests.cs",
@@ -69395,7 +69495,7 @@
       "label": ".PeakMansion()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L91",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_peakmansion",
       "community": 337,
@@ -69405,7 +69505,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L91",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "tests_core_tests_world_eldersystemtests_cs_factiondata",
       "community": 337,
@@ -69415,7 +69515,7 @@
       "label": "FactionElder",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L91",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "tests_core_tests_world_eldersystemtests_cs_factionelder",
       "community": 337,
@@ -69425,7 +69525,7 @@
       "label": ".AMansionShortOfItsGrandPerfection_NeverTries_EvenAtItsEnd()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L100",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
       "community": 337,
@@ -69435,7 +69535,7 @@
       "label": ".APreciousMansion_NeverGambles_OnPoorOdds()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L111",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apreciousmansion_nevergambles_onpoorodds",
       "community": 337,
@@ -69445,7 +69545,7 @@
       "label": ".APreciousMansion_Rises_FromGoodOdds()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L121",
+      "source_location": "L122",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apreciousmansion_rises_fromgoododds",
       "community": 337,
@@ -69455,7 +69555,7 @@
       "label": ".AMansionNearItsEnd_TriesWhateverTheOdds_AndMayDie()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L132",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_amansionnearitsend_trieswhatevertheodds_andmaydie",
       "community": 337,
@@ -69465,7 +69565,7 @@
       "label": ".APower_RaisesNewElders_ToKeepItsRanks()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L142",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apower_raisesnewelders_tokeepitsranks",
       "community": 337,
@@ -69475,7 +69575,7 @@
       "label": ".ADeadFigure_KnowsNothingMore_OfTheMirror()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L152",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_adeadfigure_knowsnothingmore_ofthemirror",
       "community": 337,
@@ -69485,7 +69585,7 @@
       "label": ".TheElders_SurviveASave()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L162",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_theelders_surviveasave",
       "community": 337,
@@ -69495,7 +69595,7 @@
       "label": ".TheChronicle_TellsTheDeathOfAGreatElder()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L172",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_thechronicle_tellsthedeathofagreatelder",
       "community": 337,
@@ -69505,7 +69605,7 @@
       "label": ".ANewlyRisenTrueMonarch_KnowsNothingOfTheMirror_TheCenturiesAtTheSummitTeach()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L186",
+      "source_location": "L187",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_anewlyrisentruemonarch_knowsnothingofthemirror_thecenturiesatthesummitteach",
       "community": 337,
@@ -69515,7 +69615,7 @@
       "label": ".AnAncientElder_KeepsItsLore()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L198",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_anancientelder_keepsitslore",
       "community": 337,
@@ -69525,7 +69625,7 @@
       "label": ".AFamily_WhoseElderJustRose_DoesNotKnowTheMirror()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L208",
+      "source_location": "L209",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_afamily_whoseelderjustrose_doesnotknowthemirror",
       "community": 337,
@@ -69535,7 +69635,7 @@
       "label": ".OverFiveCenturies_TheGoldenCoresStayRare_AndThePurpleMansionsFew()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L227",
+      "source_location": "L228",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_overfivecenturies_thegoldencoresstayrare_andthepurplemansionsfew",
       "community": 337,
@@ -71590,6 +71690,126 @@
       "id": "world_powereconomytests_powereconomytests_thebaseline_survivesasave",
       "community": 343,
       "norm_label": ".thebaseline_survivesasave()"
+    },
+    {
+      "label": "PowerFormationTests.cs",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "world_powerformationtests",
+      "community": 193,
+      "norm_label": "powerformationtests.cs"
+    },
+    {
+      "label": "MirrorChronicles.Tests.World",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "world_powerformationtests_mirrorchronicles_tests_world",
+      "community": 193,
+      "norm_label": "mirrorchronicles.tests.world"
+    },
+    {
+      "label": "PowerFormationTests",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "world_powerformationtests_powerformationtests",
+      "community": 193,
+      "norm_label": "powerformationtests"
+    },
+    {
+      "label": ".Session()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "world_powerformationtests_powerformationtests_session",
+      "community": 193,
+      "norm_label": ".session()"
+    },
+    {
+      "label": "GameContent",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_powerformationtests_cs_gamecontent",
+      "community": 193,
+      "norm_label": "gamecontent"
+    },
+    {
+      "label": "GameSession",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_powerformationtests_cs_gamesession",
+      "community": 193,
+      "norm_label": "gamesession"
+    },
+    {
+      "label": ".EveryPower_BeginsWithAFormation_BelowWhatItsRealmKnows()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "world_powerformationtests_powerformationtests_everypower_beginswithaformation_belowwhatitsrealmknows",
+      "community": 193,
+      "norm_label": ".everypower_beginswithaformation_belowwhatitsrealmknows()"
+    },
+    {
+      "label": "Test",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "tests_core_tests_world_powerformationtests_cs_test",
+      "community": 193,
+      "norm_label": "test"
+    },
+    {
+      "label": ".ItsMasters_RaiseIt_UpToItsRealmsKnowledge()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "world_powerformationtests_powerformationtests_itsmasters_raiseit_uptoitsrealmsknowledge",
+      "community": 193,
+      "norm_label": ".itsmasters_raiseit_uptoitsrealmsknowledge()"
+    },
+    {
+      "label": ".AFormation_GuardsAPower_AgainstTheClansThefts()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "world_powerformationtests_powerformationtests_aformation_guardsapower_againsttheclansthefts",
+      "community": 193,
+      "norm_label": ".aformation_guardsapower_againsttheclansthefts()"
+    },
+    {
+      "label": ".AHiredMaster_SetsNoHigherFormation_ThanItsOwn()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "world_powerformationtests_powerformationtests_ahiredmaster_setsnohigherformation_thanitsown",
+      "community": 193,
+      "norm_label": ".ahiredmaster_setsnohigherformation_thanitsown()"
+    },
+    {
+      "label": ".AnOlderSave_GivesThePowers_TheirFormations()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "world_powerformationtests_powerformationtests_anoldersave_givesthepowers_theirformations",
+      "community": 193,
+      "norm_label": ".anoldersave_givesthepowers_theirformations()"
     },
     {
       "label": "PowerLifecycleTests.cs",
@@ -77483,7 +77703,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Single slot by default, auto-save at end of each year; optional Casual mode with 3 slots.",
-      "community": 441,
+      "community": 434,
       "norm_label": "ironman save (yearly auto-save json)",
       "id": "brain_claude_plan_ironman_save"
     },
@@ -77697,7 +77917,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Centralise enum->string mapping in one extension/dictionary instead of scattered switches.",
-      "community": 441,
+      "community": 434,
       "norm_label": "wl-003: element.ice missing from element enum",
       "id": "brain_claude_worked_lesson_wl_003"
     },
@@ -115444,9 +115664,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem",
-      "target": "economy_buildingsystem_buildingsystem_formationmaster",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_formationmaster"
     },
     {
       "relation": "method",
@@ -115454,9 +115674,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem",
-      "target": "economy_buildingsystem_buildingsystem_formationmasteryfor",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_formationmasteryfor"
     },
     {
       "relation": "method",
@@ -115464,9 +115684,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem",
-      "target": "economy_buildingsystem_buildingsystem_formationrefusal",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_formationrefusal"
     },
     {
       "relation": "method",
@@ -115484,9 +115704,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem",
-      "target": "economy_buildingsystem_buildingsystem_hirecost",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_hirecost"
     },
     {
       "relation": "method",
@@ -115494,9 +115714,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem",
-      "target": "economy_buildingsystem_buildingsystem_hireformation",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_hireformation"
     },
     {
       "relation": "method",
@@ -115504,9 +115724,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem",
-      "target": "economy_buildingsystem_buildingsystem_hirerefusal",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_hirerefusal"
     },
     {
       "relation": "method",
@@ -115666,9 +115886,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_hirecost",
-      "target": "economy_buildingsystem_buildingsystem_getbuilding",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_getbuilding"
     },
     {
       "relation": "calls",
@@ -115677,9 +115897,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L109",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_hireformation",
-      "target": "economy_buildingsystem_buildingsystem_getbuilding",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_getbuilding"
     },
     {
       "relation": "calls",
@@ -115688,9 +115908,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_hirerefusal",
-      "target": "economy_buildingsystem_buildingsystem_getbuilding",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_getbuilding"
     },
     {
       "relation": "calls",
@@ -115776,9 +115996,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_formationmaster",
-      "target": "economy_buildingsystem_buildingsystem_formationmasteryfor",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_formationmasteryfor"
     },
     {
       "relation": "calls",
@@ -115787,9 +116007,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_formationrefusal",
-      "target": "economy_buildingsystem_buildingsystem_formationmasteryfor",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_formationmasteryfor"
     },
     {
       "relation": "references",
@@ -115798,9 +116018,9 @@
       "source_location": "L64",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_formationmaster",
-      "target": "src_core_economy_buildingsystem_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "src_core_economy_buildingsystem_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -115809,9 +116029,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_formationrefusal",
-      "target": "economy_buildingsystem_buildingsystem_formationmaster",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_formationmaster"
     },
     {
       "relation": "calls",
@@ -115820,9 +116040,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L142",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_upgrade",
-      "target": "economy_buildingsystem_buildingsystem_formationmaster",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_formationmaster"
     },
     {
       "relation": "calls",
@@ -115831,9 +116051,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_upgraderefusal",
-      "target": "economy_buildingsystem_buildingsystem_formationrefusal",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_formationrefusal"
     },
     {
       "relation": "calls",
@@ -115842,9 +116062,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_hireformation",
-      "target": "economy_buildingsystem_buildingsystem_hirecost",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_hirecost"
     },
     {
       "relation": "calls",
@@ -115853,9 +116073,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_hirerefusal",
-      "target": "economy_buildingsystem_buildingsystem_hirecost",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_hirecost"
     },
     {
       "relation": "calls",
@@ -115864,9 +116084,9 @@
       "source_file": "src/Core/Economy/BuildingSystem.cs",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_buildingsystem_buildingsystem_hireformation",
-      "target": "economy_buildingsystem_buildingsystem_hirerefusal",
-      "confidence_score": 1.0
+      "target": "economy_buildingsystem_buildingsystem_hirerefusal"
     },
     {
       "relation": "calls",
@@ -124759,9 +124979,9 @@
       "source_file": "src/Core/Presentation/BuildingsView.cs",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_buildingsview_buildingsview",
-      "target": "presentation_buildingsview_buildingsview_hire",
-      "confidence_score": 1.0
+      "target": "presentation_buildingsview_buildingsview_hire"
     },
     {
       "relation": "method",
@@ -124812,9 +125032,9 @@
       "source_file": "src/Core/Presentation/BuildingsView.cs",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_buildingsview_buildingsview_buildings",
-      "target": "presentation_buildingsview_buildingsview_hire",
-      "confidence_score": 1.0
+      "target": "presentation_buildingsview_buildingsview_hire"
     },
     {
       "relation": "calls",
@@ -124856,9 +125076,9 @@
       "source_location": "L40",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "presentation_buildingsview_buildingsview_hire",
-      "target": "src_core_presentation_buildingsview_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "src_core_presentation_buildingsview_cs_gamesession"
     },
     {
       "relation": "references",
@@ -124867,9 +125087,9 @@
       "source_location": "L40",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "presentation_buildingsview_buildingsview_hire",
-      "target": "buildingline",
-      "confidence_score": 1.0
+      "target": "buildingline"
     },
     {
       "relation": "references",
@@ -133860,6 +134080,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/GameSession.cs",
+      "source_location": "L311",
+      "weight": 1.0,
+      "source": "session_gamesession_gamesession",
+      "target": "session_gamesession_gamesession_savedbefore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/GameSession.cs",
       "source_location": "L141",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -133948,11 +134178,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/Session/GameSession.cs",
-      "source_location": "L107",
+      "source_location": "L347",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_fromsavedata",
-      "target": "session_gamesession_gamesession_requirecontent"
+      "target": "session_gamesession_gamesession_savedbefore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/GameSession.cs",
+      "source_location": "L311",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "session_gamesession_gamesession_savedbefore",
+      "target": "src_core_session_gamesession_cs_gamedata",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -133975,6 +134216,17 @@
       "confidence_score": 1.0,
       "source": "session_gamesession_gamesession_tosavedata",
       "target": "src_core_session_gamesession_cs_gamedata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/Session/GameSession.cs",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "session_gamesession_gamesession_fromsavedata",
+      "target": "session_gamesession_gamesession_requirecontent"
     },
     {
       "relation": "references",
@@ -136484,6 +136736,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "world_eldersystem_eldersystem",
+      "target": "world_eldersystem_eldersystem_raisetheformation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L155",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -136765,6 +137027,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L157",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_eldersystem_eldersystem_raisetheformation",
+      "target": "src_core_world_eldersystem_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L155",
       "weight": 1.0,
       "context": "parameter_type",
@@ -137024,6 +137297,17 @@
       "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_processyear",
       "target": "world_eldersystem_eldersystem_raiseacadet"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "world_eldersystem_eldersystem_processyear",
+      "target": "world_eldersystem_eldersystem_raisetheformation",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -139611,6 +139895,133 @@
       "confidence_score": 1.0,
       "source": "world_powereconomy_powereconomy_processyear",
       "target": "world_powereconomy_powereconomy_capacity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "world_powerformation",
+      "target": "world_powerformation_mirrorchronicles_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "world_powerformation",
+      "target": "world_powerformation_powerformation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "world_powerformation_powerformation",
+      "target": "world_powerformation_powerformation_cap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "world_powerformation_powerformation",
+      "target": "world_powerformation_powerformation_guard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "world_powerformation_powerformation",
+      "target": "world_powerformation_powerformation_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powerformation_powerformation_cap",
+      "target": "src_core_world_powerformation_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powerformation_powerformation_cap",
+      "target": "src_core_world_powerformation_cs_gamecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "world_powerformation_powerformation_start",
+      "target": "world_powerformation_powerformation_cap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powerformation_powerformation_guard",
+      "target": "src_core_world_powerformation_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powerformation_powerformation_start",
+      "target": "src_core_world_powerformation_cs_factiondata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powerformation_powerformation_guard",
+      "target": "src_core_world_powerformation_cs_gamecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/PowerFormation.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powerformation_powerformation_start",
+      "target": "src_core_world_powerformation_cs_gamecontent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -186523,9 +186934,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests",
-      "target": "economy_formationmastertests_formationmastertests",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests"
     },
     {
       "relation": "contains",
@@ -186533,9 +186944,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests",
-      "target": "economy_formationmastertests_mirrorchronicles_tests_economy",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_mirrorchronicles_tests_economy"
     },
     {
       "relation": "method",
@@ -186543,9 +186954,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests",
-      "target": "economy_formationmastertests_formationmastertests_afriendlypower_lendsitsmaster_forafee",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_afriendlypower_lendsitsmaster_forafee"
     },
     {
       "relation": "method",
@@ -186553,9 +186964,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests",
-      "target": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear"
     },
     {
       "relation": "method",
@@ -186563,9 +186974,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests",
-      "target": "economy_formationmastertests_formationmastertests_master",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_master"
     },
     {
       "relation": "method",
@@ -186573,9 +186984,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests",
-      "target": "economy_formationmastertests_formationmastertests_session",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_session"
     },
     {
       "relation": "method",
@@ -186584,7 +186995,7 @@
       "source_location": "L85",
       "weight": 1.0,
       "source": "economy_formationmastertests_formationmastertests",
-      "target": "economy_formationmastertests_formationmastertests_theformationsheight_asksapurplemansionpower",
+      "target": "economy_formationmastertests_formationmastertests_theformationsheight_isbeyondafoundationpowersmaster",
       "confidence_score": 1.0
     },
     {
@@ -186593,9 +187004,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests",
-      "target": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster"
     },
     {
       "relation": "method",
@@ -186603,9 +187014,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests",
-      "target": "economy_formationmastertests_formationmastertests_withoutaformationmaster_theformationdoesnotrise",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_withoutaformationmaster_theformationdoesnotrise"
     },
     {
       "relation": "calls",
@@ -186614,9 +187025,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_afriendlypower_lendsitsmaster_forafee",
-      "target": "economy_formationmastertests_formationmastertests_session",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_session"
     },
     {
       "relation": "calls",
@@ -186625,9 +187036,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear",
-      "target": "economy_formationmastertests_formationmastertests_session",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_session"
     },
     {
       "relation": "references",
@@ -186636,9 +187047,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_session",
-      "target": "tests_core_tests_economy_formationmastertests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_economy_formationmastertests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -186647,7 +187058,7 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L88",
       "weight": 1.0,
-      "source": "economy_formationmastertests_formationmastertests_theformationsheight_asksapurplemansionpower",
+      "source": "economy_formationmastertests_formationmastertests_theformationsheight_isbeyondafoundationpowersmaster",
       "target": "economy_formationmastertests_formationmastertests_session",
       "confidence_score": 1.0
     },
@@ -186658,9 +187069,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster",
-      "target": "economy_formationmastertests_formationmastertests_session",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_session"
     },
     {
       "relation": "calls",
@@ -186669,9 +187080,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_withoutaformationmaster_theformationdoesnotrise",
-      "target": "economy_formationmastertests_formationmastertests_session",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_session"
     },
     {
       "relation": "references",
@@ -186680,9 +187091,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_master",
-      "target": "tests_core_tests_economy_formationmastertests_cs_gamesession",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_economy_formationmastertests_cs_gamesession"
     },
     {
       "relation": "calls",
@@ -186691,9 +187102,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear",
-      "target": "economy_formationmastertests_formationmastertests_master",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_master"
     },
     {
       "relation": "references",
@@ -186702,9 +187113,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_master",
-      "target": "tests_core_tests_economy_formationmastertests_cs_characterdata",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_economy_formationmastertests_cs_characterdata"
     },
     {
       "relation": "calls",
@@ -186713,9 +187124,9 @@
       "source_file": "tests/Core.Tests/Economy/FormationMasterTests.cs",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster",
-      "target": "economy_formationmastertests_formationmastertests_master",
-      "confidence_score": 1.0
+      "target": "economy_formationmastertests_formationmastertests_master"
     },
     {
       "relation": "references",
@@ -186724,9 +187135,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_withoutaformationmaster_theformationdoesnotrise",
-      "target": "tests_core_tests_economy_formationmastertests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_economy_formationmastertests_cs_test"
     },
     {
       "relation": "references",
@@ -186735,9 +187146,9 @@
       "source_location": "L69",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_afriendlypower_lendsitsmaster_forafee",
-      "target": "tests_core_tests_economy_formationmastertests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_economy_formationmastertests_cs_test"
     },
     {
       "relation": "references",
@@ -186746,9 +187157,9 @@
       "source_location": "L44",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_anapprentice_raisesthefirstlevels_andspendsitsyear",
-      "target": "tests_core_tests_economy_formationmastertests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_economy_formationmastertests_cs_test"
     },
     {
       "relation": "references",
@@ -186757,7 +187168,7 @@
       "source_location": "L85",
       "weight": 1.0,
       "context": "attribute",
-      "source": "economy_formationmastertests_formationmastertests_theformationsheight_asksapurplemansionpower",
+      "source": "economy_formationmastertests_formationmastertests_theformationsheight_isbeyondafoundationpowersmaster",
       "target": "tests_core_tests_economy_formationmastertests_cs_test",
       "confidence_score": 1.0
     },
@@ -186768,9 +187179,9 @@
       "source_location": "L56",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "economy_formationmastertests_formationmastertests_thehigherlevels_askanadept_thenamaster",
-      "target": "tests_core_tests_economy_formationmastertests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_economy_formationmastertests_cs_test"
     },
     {
       "relation": "contains",
@@ -197153,9 +197564,9 @@
       "source_file": "tests/Core.Tests/Presentation/BuildingsViewTests.cs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_buildingsviewtests_buildingsviewtests",
-      "target": "presentation_buildingsviewtests_buildingsviewtests_theformation_offersafriendlypowersmaster",
-      "confidence_score": 1.0
+      "target": "presentation_buildingsviewtests_buildingsviewtests_theformation_offersafriendlypowersmaster"
     },
     {
       "relation": "method",
@@ -197207,9 +197618,9 @@
       "source_file": "tests/Core.Tests/Presentation/BuildingsViewTests.cs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "presentation_buildingsviewtests_buildingsviewtests_theformation_offersafriendlypowersmaster",
-      "target": "presentation_buildingsviewtests_buildingsviewtests_session",
-      "confidence_score": 1.0
+      "target": "presentation_buildingsviewtests_buildingsviewtests_session"
     },
     {
       "relation": "calls",
@@ -197251,9 +197662,9 @@
       "source_location": "L53",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "presentation_buildingsviewtests_buildingsviewtests_theformation_offersafriendlypowersmaster",
-      "target": "tests_core_tests_presentation_buildingsviewtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_presentation_buildingsviewtests_cs_test"
     },
     {
       "relation": "references",
@@ -218816,6 +219227,218 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "world_powerformationtests",
+      "target": "world_powerformationtests_mirrorchronicles_tests_world",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "world_powerformationtests",
+      "target": "world_powerformationtests_powerformationtests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests",
+      "target": "world_powerformationtests_powerformationtests_aformation_guardsapower_againsttheclansthefts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests",
+      "target": "world_powerformationtests_powerformationtests_ahiredmaster_setsnohigherformation_thanitsown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests",
+      "target": "world_powerformationtests_powerformationtests_anoldersave_givesthepowers_theirformations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests",
+      "target": "world_powerformationtests_powerformationtests_everypower_beginswithaformation_belowwhatitsrealmknows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests",
+      "target": "world_powerformationtests_powerformationtests_itsmasters_raiseit_uptoitsrealmsknowledge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests",
+      "target": "world_powerformationtests_powerformationtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests_aformation_guardsapower_againsttheclansthefts",
+      "target": "world_powerformationtests_powerformationtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests_ahiredmaster_setsnohigherformation_thanitsown",
+      "target": "world_powerformationtests_powerformationtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests_anoldersave_givesthepowers_theirformations",
+      "target": "world_powerformationtests_powerformationtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests_everypower_beginswithaformation_belowwhatitsrealmknows",
+      "target": "world_powerformationtests_powerformationtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "world_powerformationtests_powerformationtests_itsmasters_raiseit_uptoitsrealmsknowledge",
+      "target": "world_powerformationtests_powerformationtests_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "world_powerformationtests_powerformationtests_session",
+      "target": "tests_core_tests_world_powerformationtests_cs_gamecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "world_powerformationtests_powerformationtests_session",
+      "target": "tests_core_tests_world_powerformationtests_cs_gamesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powerformationtests_powerformationtests_everypower_beginswithaformation_belowwhatitsrealmknows",
+      "target": "tests_core_tests_world_powerformationtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powerformationtests_powerformationtests_aformation_guardsapower_againsttheclansthefts",
+      "target": "tests_core_tests_world_powerformationtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powerformationtests_powerformationtests_ahiredmaster_setsnohigherformation_thanitsown",
+      "target": "tests_core_tests_world_powerformationtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L77",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powerformationtests_powerformationtests_anoldersave_givesthepowers_theirformations",
+      "target": "tests_core_tests_world_powerformationtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/PowerFormationTests.cs",
+      "source_location": "L32",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "world_powerformationtests_powerformationtests_itsmasters_raiseit_uptoitsrealmsknowledge",
+      "target": "tests_core_tests_world_powerformationtests_cs_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/PowerLifecycleTests.cs",
       "source_location": "L6",
       "weight": 1.0,
@@ -229500,5 +230123,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "a61e3948f2eeacd0ab9ab542815d44f7f1c09e34"
+  "built_at_commit": "a93ea30c91fec774bb21ea9e555dd9f2fd365d6f"
 }

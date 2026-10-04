@@ -45,7 +45,7 @@ namespace MirrorChronicles.Presentation
             return line with
             {
                 HirePower = power.Name,
-                HireLabel = $"Louer le maître des formations de {power.Name} ({s.Buildings.HireCost()} pierres)",
+                HireLabel = $"Louer le maître des formations de {power.Name}, la sienne au niveau {power.FormationLevel} ({s.Buildings.HireCost()} pierres)",
                 HireRefusal = s.Buildings.HireRefusal(power.Name),
             };
         }

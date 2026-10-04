@@ -50,6 +50,7 @@ namespace MirrorChronicles.World
                     power.Elders.Add(Elder(worldRng, null, DrawName(worldRng, power), Below(power.HighestRealm, worldRng), year, null));
                 foreach (var elder in power.Elders) elder.Ancient = true; // there when the world began
                 power.EssencePills = Pill.PowerStartPills;
+                power.FormationLevel = PowerFormation.Start(power, ctx.Content);
                 Sync(power);
             }
         }
@@ -115,6 +116,7 @@ namespace MirrorChronicles.World
                     else if (elder.Realm == CultivationRealm.PurpleMansion) TryTheGoldenCore(power, elder, year);
                 }
                 RefinePills(power);
+                RaiseTheFormation(power);
                 RaiseACadet(power, year);
                 Sync(power);
             }
@@ -149,6 +151,13 @@ namespace MirrorChronicles.World
             else if (ctx.Rng.Chance(Pill.ElderWithoutPillFactor)) return true;
             if (ctx.Rng.Chance(Pill.ElderWallDeathChance)) Die(power, elder, demon: false, "dies at the Foundation wall");
             return false;
+        }
+
+        /// <summary>A power's formation masters raise its formation by one level now and then, up to what its realm knows.</summary>
+        private void RaiseTheFormation(FactionData power)
+        {
+            if (power.FormationLevel >= PowerFormation.Cap(power, ctx.Content)) return;
+            if (ctx.Rng.Chance(ctx.Content.Balance.Arts.Formation.PowerRiseChance)) power.FormationLevel++;
         }
 
         /// <summary>A power's alchemists refine an Essence Gathering Pill now and then, up to its store's cap.</summary>

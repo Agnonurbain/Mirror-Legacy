@@ -87,7 +87,8 @@ namespace MirrorChronicles.Session
 
         /// <summary>
         /// A race for the lineage a master of the clan aims at (its Grand Perfection, its own lineage): the pilot spoils the
-        /// best-placed rival's preparation, from good odds (the user's choice 2026-10-01: a race with plots).
+        /// best-placed rival it can reach with good odds — a power's formation may deter it (the user's choice 2026-10-01: a race
+        /// with plots).
         /// </summary>
         private static void SabotageTheRivals(GameSession session)
         {
@@ -103,9 +104,9 @@ namespace MirrorChronicles.Session
             if (team.Count == 0) return;
             var rival = session.Factions.Factions
                 .Select(f => (Power: f, Best: f.Elders.Where(e => e.Realm == CultivationRealm.PurpleMansion && e.Perfected).Select(e => e.GoldenCoreOdds).DefaultIfEmpty(-1).Max()))
-                .Where(x => x.Best >= 0).OrderByDescending(x => x.Best).Select(x => x.Power).FirstOrDefault();
-            if (rival != null && session.WorldFruitions.SabotageChance(rival.Name, team) >= GoodOdds)
-                session.WorldFruitions.Sabotage(rival.Name, team);
+                .Where(x => x.Best >= 0 && session.WorldFruitions.SabotageChance(x.Power.Name, team) >= GoodOdds) // a formation may deter (audit §2.3)
+                .OrderByDescending(x => x.Best).Select(x => x.Power).FirstOrDefault();
+            if (rival != null) session.WorldFruitions.Sabotage(rival.Name, team);
         }
 
         private const string Lake = "jingshui-lake"; // the Lake's Unity (endings.json)

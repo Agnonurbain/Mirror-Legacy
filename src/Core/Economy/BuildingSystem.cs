@@ -94,9 +94,9 @@ namespace MirrorChronicles.Economy
             var power = Factions?.GetFactionByName(powerName);
             if (power == null) return "puissance inconnue";
             if (power.RelationWithPlayer < Formation.HireRelation) return $"il faut une relation de {Formation.HireRelation} au moins";
-            var realm = building.Level + 1 >= Formation.MasterFromLevel ? CultivationRealm.PurpleMansion : CultivationRealm.Foundation;
-            if (power.HighestRealm < realm) return realm == CultivationRealm.PurpleMansion
-                ? "seule une puissance du Manoir Pourpre a un maître pour ce niveau" : "cette puissance n'a pas de maître des formations";
+            if (power.FormationLevel == 0) return "cette puissance n'a pas de maître des formations";
+            if (power.FormationLevel < building.Level + 1) // its master sets no higher formation than its own (parity)
+                return $"le maître de {power.Name} ne dresse qu'une formation de niveau {power.FormationLevel}";
             if (resources.SpiritStones < HireCost()) return $"pierres insuffisantes ({resources.SpiritStones}/{HireCost()})";
             return null;
         }

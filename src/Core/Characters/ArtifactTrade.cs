@@ -153,7 +153,7 @@ namespace MirrorChronicles.Characters
             var powers = team.Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
             double strength = powers[0] + powers.Skip(1).Sum() * 0.3;
             double chance = System.Math.Clamp(ops.TheftBaseChance + (strength - HuntRules.Power(power.HighestRealm, 5)) * ops.TheftChancePerPower,
-                ops.TheftMinChance, ops.TheftMaxChance);
+                ops.TheftMinChance, ops.TheftMaxChance) * World.PowerFormation.Guard(power, ctx.Content); // its formation (audit §2.3)
             if (ctx.Rng.Chance(chance))
             {
                 var held = power.Artifacts.Where(a => a.LentBy != ClanLender).OrderByDescending(a => a.Rank).FirstOrDefault();

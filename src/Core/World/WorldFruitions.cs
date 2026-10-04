@@ -188,7 +188,7 @@ namespace MirrorChronicles.World
             if (!Characters.RealmGap.Reaches(team, power.HighestRealm, gap)) return 0; // numbers do not cross a realm (audit §1)
             double strength = Characters.RealmGap.TeamStrength(team, power.HighestRealm, 0.3, gap);
             return Math.Clamp(s.SabotageBaseChance + (strength - HuntRules.Power(power.HighestRealm, 5)) * s.SabotageChancePerPower,
-                s.SabotageMinChance, s.SabotageMaxChance);
+                s.SabotageMinChance, s.SabotageMaxChance) * PowerFormation.Guard(power, ctx.Content); // its formation (audit §2.3)
         }
 
         /// <summary>
