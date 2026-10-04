@@ -49,6 +49,7 @@ namespace MirrorChronicles.Data
         public string SpyFor { get; set; }              // the power they secretly spy for; null for none (hidden, 2026-09-27)
         public bool SpyUnmasked { get; set; }           // the mirror sounded them
         public bool DoubleAgent { get; set; }           // turned: they feed their power false reports
+        public bool Enthralled { get; set; }            // their mind bent by a power's reborn True Monarch: its spy, unaware (audit §1.8)
         public string DiscipleOf { get; set; }          // serving a power as a disciple (LORE.md §11.10, C2): away, no task
         public int DiscipleUntil { get; set; }          // the year the disciple comes home
         public bool Departed { get; set; }              // gone home (a spouse repudiated): alive, but no longer of the clan

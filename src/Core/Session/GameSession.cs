@@ -55,6 +55,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>A new Purple Mansion draws the old powers' eyes (audit §1.9).</summary>
         public AscentWatch AscentWatch { get; }
+
+        /// <summary>A reborn True Monarch bends lesser minds (audit §1.8).</summary>
+        public Enthrallment Enthrallment { get; }
         public HuntOperations Hunts { get; }
         public PlotSystem Plots { get; }
         public RegionalQi Place { get; }
@@ -205,6 +208,7 @@ namespace MirrorChronicles.Session
             Rebirths.Clan = Clan;
             Rebirths.Suspicion = Suspicion;
             AscentWatch = new AscentWatch(Context, Factions, Suspicion, Wounds);
+            Enthrallment = new Enthrallment(Context, Clan, Factions, Mirror, Suspicion);
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
@@ -541,6 +545,7 @@ namespace MirrorChronicles.Session
                     Phenomena.ProcessYear();           // the weathers of the dead pass (L4c)
                     PowerSchemes.ProcessYear();        // the powers scheme against each other (the world's, 2026-10-03)
                     Rebirths.ProcessYear();            // the powers' ancestors come back (the world's, 2026-10-03)
+            Enthrallment.ProcessYear();        // a reborn True Monarch bends lesser minds (audit §1.8)
                     Arsenal.ProcessYear();             // the powers' treasures, Designations and artifacts (the world's, 2026-10-03)
                     ArtifactTrade.ProcessYear();       // loans of artifacts end (L4f)
                     Mandate.ProcessYear();             // a reign, a seclusion feed the images they embody (§5.4.3)

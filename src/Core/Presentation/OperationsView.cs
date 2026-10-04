@@ -25,6 +25,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>A power's young Chosen the clan senses, and each Purple Mansion of the clan who may harvest it, at its odds.</summary>
     public sealed record ChosenLine(string Power, string Name, int Age, IReadOnlyList<ChosenHarvest> Harvests);
 
+    /// <summary>A mind the clan's returned ancestor may bend: the power, the ancestor, the button's text, its odds in percent.</summary>
+    public sealed record BendLine(string Power, string AncestorId, string Label, int Percent);
+
     /// <summary>A harvest the clan may try: its Purple Mansion, the button's text, its odds in percent.</summary>
     public sealed record ChosenHarvest(string HarvesterId, string Label, int Percent);
 
@@ -57,7 +60,10 @@ namespace MirrorChronicles.Presentation
     /// <summary>An unwed cultivator: whom the clan may wed them to, and the search abroad (its cost, or why not).</summary>
     public sealed record UnwedLine(string Id, string Name, string Rank, IReadOnlyList<PartnerLine> Partners, int SeekCost, string SeekRefusal);
 
-    public sealed record SpouseLine(string Id, string Name, string From, bool Sounded, string SpyFor, bool DoubleAgent);
+    public sealed record SpouseLine(string Id, string Name, string From, bool Sounded, string SpyFor, bool DoubleAgent)
+    {
+        public bool Enthralled { get; init; } // the mirror found a reborn True Monarch's spell on it
+    }
 
     /// <summary>The captives on both sides.</summary>
     public sealed record CaptivesView(IReadOnlyList<HeldLine> Held, IReadOnlyList<AgentLine> Agents);
@@ -68,6 +74,16 @@ namespace MirrorChronicles.Presentation
     /// </summary>
     public static class OperationsView
     {
+        /// <summary>The lesser elders of the powers the clan's returned ancestors may bend, at their odds (audit §1.8, 2026-10-03).</summary>
+        public static IReadOnlyList<BendLine> Bends(GameSession session) =>
+            session.Clan.LivingMembers.Where(session.Enthrallment.IsReturnedAncestor)
+                .SelectMany(a => session.Factions.Factions.OrderBy(f => f.Name, System.StringComparer.Ordinal).Select(p =>
+                {
+                    int percent = (int)System.Math.Round(session.Enthrallment.BendChance(a, p) * 100);
+                    return new BendLine(p.Name, a.ID, $"Plier l'esprit d'un ancien de {p.Name} — par {a.FullName} ({percent} %)", percent);
+                }))
+                .Where(l => l.Percent > 0).ToList();
+
         /// <summary>The powers' young Chosen a free Purple Mansion of the clan senses (audit §1.8, 2026-10-03).</summary>
         public static IReadOnlyList<ChosenLine> Chosen(GameSession session)
         {
@@ -216,8 +232,9 @@ namespace MirrorChronicles.Presentation
         }
 
         public static IReadOnlyList<SpouseLine> Spouses(GameSession session) =>
-            session.Clan.LivingMembers.Where(m => m.FromFaction != null)
-                .Select(m => new SpouseLine(m.ID, m.FullName, m.FromFaction, m.SpyUnmasked, m.SpyUnmasked ? m.SpyFor : null, m.DoubleAgent))
+            session.Clan.LivingMembers.Where(m => m.FromFaction != null || m.Enthralled) // an absent gaze is seen, not whose it is (audit §1.8)
+                .Select(m => new SpouseLine(m.ID, m.FullName, m.FromFaction, m.SpyUnmasked, m.SpyUnmasked ? m.SpyFor : null, m.DoubleAgent)
+                    { Enthralled = m.Enthralled && m.SpyUnmasked })
                 .ToList();
 
         /// <summary>Our members held by the powers, and the powers' agents we hold (L6a).</summary>

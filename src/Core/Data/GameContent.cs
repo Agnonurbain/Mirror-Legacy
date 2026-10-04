@@ -283,6 +283,9 @@ namespace MirrorChronicles.Data
 
         /// <summary>A new Purple Mansion draws the old powers' eyes (audit §1.9, 2026-10-03; interpretations).</summary>
         public AscentWatchSettings AscentWatch { get; init; } = new AscentWatchSettings();
+
+        /// <summary>A reborn True Monarch bends lesser minds (audit §1.8, 2026-10-03; interpretations).</summary>
+        public EnthrallmentSettings Enthrallment { get; init; } = new EnthrallmentSettings();
         public WorldArsenalSettings WorldArsenal { get; init; } = new WorldArsenalSettings();
         public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();

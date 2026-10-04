@@ -147,7 +147,7 @@ namespace MirrorChronicles.World
             var elder = new FactionElder
             {
                 Id = ctx.Rng.NextId(), Name = r.Name, Realm = CultivationRealm.GoldenCore, Stage = 1, BornYear = year - ReturnAge,
-                MaxLifespan = PowerLadder.MaxLifespan(CultivationRealm.GoldenCore, 1), RealmSinceYear = year, Perfected = true,
+                MaxLifespan = PowerLadder.MaxLifespan(CultivationRealm.GoldenCore, 1), RealmSinceYear = year, Perfected = true, Reborn = true,
             };
             var state = r.FruitionId == null ? null : registry.State(r.FruitionId);
             if (state?.Status == FruitionStatus.Free && registry.Claim(r.FruitionId, r.Name)) elder.FruitionId = r.FruitionId;

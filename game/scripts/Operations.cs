@@ -195,16 +195,21 @@ namespace MirrorChronicles.Game
         {
             var spouses = OperationsView.Spouses(session);
             if (spouses.Count == 0) return;
-            Add(secret, "Conjoints venus des puissances :");
+            Add(secret, "Conjoints venus des puissances, et regards absents :");
             foreach (var spouse in spouses)
             {
                 var line = new HBoxContainer();
                 string known = !spouse.Sounded ? "non sondé(e)" : spouse.SpyFor == null ? "loyal(e)" : spouse.DoubleAgent ? $"agent double contre {spouse.SpyFor}" : $"espion(ne) de {spouse.SpyFor}";
-                line.AddChild(new Label { Text = $"{spouse.Name} (de {spouse.From}) — {known}", CustomMinimumSize = new Vector2(420, 0) });
+                string from = spouse.From == null ? "un regard absent" : $"de {spouse.From}";
+                if (spouse.Enthralled) known = $"envoûté(e) par le Vrai Monarque réincarné de {spouse.SpyFor}";
+                line.AddChild(new Label { Text = $"{spouse.Name} ({from}) — {known}", CustomMinimumSize = new Vector2(420, 0) });
                 if (!spouse.Sounded)
                     AddAction(line, $"Sonder (miroir, {session.Context.Content.Balance.Intrigues.UnmaskMirrorCost})",
                         () => Report(session.Intrigues.Unmask(spouse.Id) ?? "Le miroir manque de puissance."));
-                else if (spouse.SpyFor != null && !spouse.DoubleAgent)
+                else if (spouse.Enthralled)
+                    AddAction(line, $"Briser l'envoûtement (miroir, {session.Context.Content.Balance.Enthrallment.BreakMirrorCost})",
+                        () => Report(session.Enthrallment.Break(spouse.Id) is { } r ? $"Refusé : {r}." : $"{spouse.Name} est délivré(e)."));
+                if (spouse.Sounded && spouse.SpyFor != null && !spouse.DoubleAgent)
                 {
                     AddAction(line, "Retourner (agent double)", () => Report(session.Intrigues.Turn(spouse.Id) is { } r ? $"Refusé : {r}." : $"{spouse.Name} sert désormais le clan."));
                     AddAction(line, "Exécuter", () => Report(session.Intrigues.ExecuteSpy(spouse.Id) is { } r ? $"Refusé : {r}." : $"{spouse.Name} est exécuté(e)."));
@@ -462,6 +467,10 @@ namespace MirrorChronicles.Game
             Add(chosen, "Les Élus du Destin des puissances : un Vrai Monarque renaît chez elles ; tant qu'il est jeune, un Manoir Pourpre peut le récolter.");
             var lines = OperationsView.Chosen(session);
             if (lines.Count == 0) Add(chosen, "Le clan ne sent aucun Élu (seul un Manoir Pourpre libre du clan lit le destin).");
+            var bends = OperationsView.Bends(session);
+            if (bends.Count > 0) Add(chosen, "Un ancêtre revenu du clan peut plier l'esprit d'un ancien moindre d'une puissance : ses yeux chez elle.");
+            foreach (var bend in bends)
+                Act(chosen, bend.Label, () => session.Enthrallment.Bend(bend.AncestorId, bend.Power), $"Un ancien de {bend.Power} sert désormais d'yeux au clan.");
             foreach (var line in lines)
             {
                 Add(chosen, $"{line.Name}, l'Élu de {line.Power} — {line.Age} an{(line.Age > 1 ? "s" : "")}");

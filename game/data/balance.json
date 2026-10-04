@@ -564,6 +564,7 @@
   "worldArsenal": { "elderCondenseChance": 0.1, "elderDesignationChance": 0.05, "masterlessStrikeChance": 0.05, "unsealChance": 0.2, "forgeChance": 0.15, "familyForgeChance": 0.05, "treasureFindChance": 0.01, "bondChance": 0.02, "transmuteChance": 0.001 },
   "realmGap": { "unreachableFrom": "PurpleMansion", "maxRealmsBehind": 1 },
   "ascentWatch": { "wariness": 10, "testChance": 0.3, "testBase": 0.5, "testPerPower": 0.05, "elderLifespanLoss": 30 },
+  "enthrallment": { "yearlyChance": 0.1, "breakMirrorCost": 30, "bendBase": 0.5, "bendPerPower": 0.02, "seenChance": 0.3, "seenDistrust": 30 },
   "travel": { "hopsByRealm": { "Embryonic": 0, "QiRefinement": 2 }, "wholeStateFrom": "Foundation", "anywhereFrom": "PurpleMansion" },
   "dharma": {
 	"condenseOres": 300,

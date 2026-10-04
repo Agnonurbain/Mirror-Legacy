@@ -340,7 +340,9 @@ namespace MirrorChronicles.World
         private bool Insider(string prober, string target)
         {
             if (target == Clan) return clan.LivingMembers.Any(m => m.SpyFor == prober && !m.DoubleAgent) || treaties.With(prober).Count > 0;
-            if (prober == Clan) return clan.LivingMembers.Any(m => m.SpyFor == target && m.DoubleAgent) || treaties.With(target).Count > 0;
+            if (prober == Clan) return clan.LivingMembers.Any(m => m.SpyFor == target && m.DoubleAgent)
+                || factions.GetFactionByName(target)?.Elders.Any(e => e.ThrallOfClan) == true // an elder bent by the clan's ancestor
+                || treaties.With(target).Count > 0;
             return politics.AlliesOf(prober).Contains(target);
         }
 

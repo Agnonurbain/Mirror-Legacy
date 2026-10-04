@@ -92,6 +92,8 @@ namespace MirrorChronicles.Data
         public bool HasDharmaTreasure { get; set; }      // a True Monarch's treasure of its foundation (the world's, 2026-10-03)
         public bool TreasureBound { get; set; }          // bound for life to a Spiritual Treasure: a Purple Mansion's power, never further
         public bool ImperialCore { get; set; }           // its Golden Core forged by governing its kingdom: no Realization asked
+        public bool Reborn { get; set; }                 // a True Monarch come back from rebirth: it bends lesser minds (audit §1.8)
+        public bool ThrallOfClan { get; set; }           // its mind bent by the clan's returned ancestor: the clan's eyes inside (audit §1.8)
 
         public int Age(int year) => year - BornYear;
 

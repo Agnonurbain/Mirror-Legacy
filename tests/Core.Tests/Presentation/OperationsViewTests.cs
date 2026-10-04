@@ -258,5 +258,18 @@ namespace MirrorChronicles.Tests.Presentation
             StringAssert.Contains(mansion.FullName, line.Harvests.Single().Label);
             Assert.Greater(line.Harvests.Single().Percent, 0);
         }
+
+        [Test]
+        public void OnlyAReturnedAncestor_IsOfferedToBendAPowersMind()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            Assert.IsEmpty(OperationsView.Bends(s));
+            var ancestor = Fixtures.Cultivator(age: 40, realm: CultivationRealm.GoldenCore);
+            ancestor.RebornFrom = "Mo l'Ancien";
+            s.Clan.AddMember(ancestor);
+            var line = OperationsView.Bends(s).First();
+            StringAssert.Contains(ancestor.FullName, line.Label);
+            Assert.Greater(line.Percent, 0);
+        }
     }
 }
