@@ -251,5 +251,16 @@ namespace MirrorChronicles.Tests.World
             Assert.That(mansionsRatio / Worlds, Is.InRange(0.5, 1.5), "the Purple Mansions neither vanish nor swarm");
             Assert.That(greatGained / Worlds, Is.LessThanOrEqualTo(3), "a few great powers, not all");
         }
+
+        [Test]
+        public void AYoungFigure_BeginsAtTheRealmOfItsAge_NotItsPeak()
+        {
+            // audit §4.6, the user's choice 2026-10-04: Zang Wanru, a Purple Mansion in the novel, is twelve as the story opens
+            var s = Session();
+            var wanru = s.Factions.GetFactionByName("Famille Zang").Elders.Single(e => e.Name == "Zang Wanru");
+            Assert.AreEqual(CultivationRealm.QiRefinement, wanru.Realm);
+            var old = s.Factions.GetFactionByName("Famille Zang").Elders.Single(e => e.Name == "Zang Tiaoyun");
+            Assert.AreEqual(CultivationRealm.PurpleMansion, old.Realm, "an old one stands at its peak");
+        }
     }
 }

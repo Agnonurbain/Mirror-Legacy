@@ -15,6 +15,12 @@ namespace MirrorChronicles.Data
         public Dictionary<FactionKind, int> CadetsByKind { get; init; } = new Dictionary<FactionKind, int>();
         public double[] RiseChance { get; init; } = { 0.05, 0.03, 0.01 };
         public int[] MinYearsInRealm { get; init; } = { 10, 30, 60, 150 };
+
+        /// <summary>
+        /// The youngest age at which a novel's figure stands at each realm as the story opens (audit §4.6, 🔎): a figure too
+        /// young for its peak begins at the highest realm its age allows, and rises like any elder.
+        /// </summary>
+        public Dictionary<CultivationRealm, int> FigureAgeByRealm { get; init; } = new Dictionary<CultivationRealm, int>();
         public double NewElderChance { get; init; }
         public double MinGoldenCoreOdds { get; init; }
         public double MaxGoldenCoreOdds { get; init; }

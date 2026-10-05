@@ -42,7 +42,7 @@ namespace MirrorChronicles.World
             {
                 power.Elders ??= new List<FactionElder>();
                 foreach (var figure in ctx.Content.Figures.Where(f => f.FactionName == power.Name))
-                    power.Elders.Add(Elder(worldRng, figure.Id, figure.Name, figure.Realm, year, figure.BornYear));
+                    power.Elders.Add(Elder(worldRng, figure.Id, figure.Name, RealmAtStart(figure, year), year, figure.BornYear));
                 if (!power.Elders.Any(e => e.Realm >= power.HighestRealm))
                     power.Elders.Add(Elder(worldRng, null, DrawName(worldRng, power), power.HighestRealm, year, null));
                 int cadets = Settings.CadetsByKind.TryGetValue(power.Kind, out int n) ? n : 2;
@@ -53,6 +53,17 @@ namespace MirrorChronicles.World
                 power.FormationLevel = PowerFormation.Start(power, ctx.Content);
                 Sync(power);
             }
+        }
+
+        /// <summary>A figure's realm as the story opens: its peak, unless it is too young for it (audit §4.6).</summary>
+        private CultivationRealm RealmAtStart(FigureDefinition figure, int year)
+        {
+            if (figure.BornYear is not int born) return figure.Realm;
+            int age = year - born;
+            var reached = Settings.FigureAgeByRealm.Where(r => r.Key <= figure.Realm && age < r.Value).Select(r => r.Key).ToList();
+            if (reached.Count == 0) return figure.Realm;
+            var cap = reached.Min() - 1; // the first realm its age does not reach: it stands one below
+            return cap < CultivationRealm.QiRefinement ? CultivationRealm.QiRefinement : cap;
         }
 
         /// <summary>A new elder of the power at this realm (a risen family's founder, its cadets): drawn by the game.</summary>

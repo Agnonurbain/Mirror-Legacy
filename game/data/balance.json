@@ -523,6 +523,7 @@
 	"cadetsByKind": { "Family": 2, "Sect": 4, "Gate": 3, "ImmortalIsland": 2, "Temple": 3, "Order": 2, "State": 4 },
 	"riseChance": [ 0.05, 0.03, 0.003 ],
 	"minYearsInRealm": [ 10, 30, 60, 150 ],
+	"figureAgeByRealm": { "Foundation": 30, "PurpleMansion": 80, "GoldenCore": 250 },
 	"newElderChance": 0.1,
 	"minGoldenCoreOdds": 0.15,
 	"maxGoldenCoreOdds": 0.55,

@@ -97,8 +97,9 @@ namespace MirrorChronicles.Tests.World
             var (thief, victim) = Pair(s);
             var ripe = new FactionElder { Id = "ripe", Name = "ripe", Realm = CultivationRealm.Foundation, Stage = 4, MaxLifespan = 300 };
             victim.Elders.Add(ripe);
+            int elders = victim.Elders.Count;
             Assert.IsTrue(s.PowerSchemes.Harvest(thief, victim));
-            Assert.IsFalse(victim.Elders.Contains(ripe));
+            Assert.AreEqual(elders - 1, victim.Elders.Count, "a ripe Dao is taken (the victim may hold more than one)");
         }
 
         [Test]
