@@ -18,7 +18,7 @@ namespace MirrorChronicles.Tests.Presentation
         public void Header_ShowsTheTurnTheTreasuryAndTheMirror()
         {
             var header = ClanDomainView.Header(NewGame());
-            Assert.AreEqual(new DomainHeader(1, "Gestion", 1000, 50, 1), header);
+            Assert.AreEqual(new DomainHeader(0, "Gestion", 1000, 50, 1), header); // year 0 (audit §4.10)
         }
 
         [Test]
@@ -181,7 +181,7 @@ namespace MirrorChronicles.Tests.Presentation
             var s = NewGame();
             Assert.AreEqual("Rituel du miroir : an 20 — chasse dès l'an 17", ClanDomainView.RitualLine(s));
             s.Talismans.RestoreCalendar(s.Clock.Year + 2);
-            Assert.AreEqual("Rituel du miroir : an 3 — chasse ouverte", ClanDomainView.RitualLine(s));
+            Assert.AreEqual($"Rituel du miroir : an {s.Clock.Year + 2} — chasse ouverte", ClanDomainView.RitualLine(s));
         }
 
         [Test]

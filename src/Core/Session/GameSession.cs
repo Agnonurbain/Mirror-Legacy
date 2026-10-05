@@ -356,7 +356,7 @@ namespace MirrorChronicles.Session
                 PowerLadder.NormalizeLifespan(record);    // keeps Dao wounds and mortal rolls
             }
 
-            session.Clock.Restore(Math.Max(1, data.CurrentYear), data.CurrentPhase);
+            session.Clock.Restore(Math.Max(0, data.CurrentYear), data.CurrentPhase);
             session.Clan.Restore(records, data.PatriarchID);
             session.Resources.Restore(data.SpiritStones, data.MedicinalHerbs, data.SpiritualOres, data.Prestige, data.TechniqueFragments);
             session.Mirror.Restore(data.MirrorPower, data.RestoredFragments, data.MirrorAsleepUntil);

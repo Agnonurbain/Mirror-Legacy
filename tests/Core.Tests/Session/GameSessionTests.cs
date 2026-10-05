@@ -44,10 +44,10 @@ namespace MirrorChronicles.Tests.Session
         }
 
         [Test]
-        public void NewGame_StartsInYearOneManagement()
+        public void NewGame_StartsInYearZeroManagement()
         {
             var s = Quiet();
-            Assert.IsTrue(s.Clock.Year == 1 && s.Clock.Phase == GamePhase.Management);
+            Assert.IsTrue(s.Clock.Year == 0 && s.Clock.Phase == GamePhase.Management);
         }
 
         [Test]
@@ -84,7 +84,7 @@ namespace MirrorChronicles.Tests.Session
                 s.AdvancePhase();
                 seen.Add($"{s.Clock.Year}:{s.Clock.Phase}");
             }
-            CollectionAssert.AreEqual(new[] { "1:Events", "1:Breakthrough", "1:Inheritance", "2:Management" }, seen);
+            CollectionAssert.AreEqual(new[] { "0:Events", "0:Breakthrough", "0:Inheritance", "1:Management" }, seen);
         }
 
         [Test]
@@ -132,7 +132,7 @@ namespace MirrorChronicles.Tests.Session
             var s = Quiet();
             foreach (var m in s.Clan.LivingMembers.ToList()) s.Clan.Kill(m, DeathCause.Illness);
             s.AdvancePhase();
-            Assert.IsTrue(s.Victory.GameLost && s.Clock.Phase == GamePhase.Management && s.Clock.Year == 1);
+            Assert.IsTrue(s.Victory.GameLost && s.Clock.Phase == GamePhase.Management && s.Clock.Year == 0);
         }
 
         private const int TaskAssignmentSystemRest = MirrorChronicles.Economy.TaskAssignmentSystem.RestStability;

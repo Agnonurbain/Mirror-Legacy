@@ -8,10 +8,10 @@ namespace MirrorChronicles.Tests.Session
     public class GameClockTests
     {
         [Test]
-        public void NewClock_StartsInYearOneManagement()
+        public void NewClock_StartsInYearZeroManagement() // 📚 year 0: the mirror is found (audit §4.10)
         {
             var clock = new GameClock();
-            Assert.IsTrue(clock.Year == 1 && clock.Phase == GamePhase.Management);
+            Assert.IsTrue(clock.Year == 0 && clock.Phase == GamePhase.Management);
         }
 
         [Test]

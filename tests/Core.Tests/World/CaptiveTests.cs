@@ -496,7 +496,7 @@ namespace MirrorChronicles.Tests.World
             var reloaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), Fixtures.Setup());
 
             Assert.AreEqual(Ruan, reloaded.Clan.FindById(member.ID).CaptorFaction);
-            Assert.AreEqual(1, reloaded.Clan.FindById(member.ID).CapturedYear);
+            Assert.AreEqual(s.Clock.Year, reloaded.Clan.FindById(member.ID).CapturedYear);
             Assert.AreEqual(new Prisoner("agent-1", Lou, CultivationRealm.Foundation, 1) { Interrogated = true }, reloaded.Captives.Prisoners.Single());
         }
 

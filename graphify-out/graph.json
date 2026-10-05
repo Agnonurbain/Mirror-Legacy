@@ -7038,7 +7038,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 434,
+      "community": 183,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -7048,7 +7048,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 434,
+      "community": 183,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -11588,7 +11588,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 183,
+      "community": 459,
       "norm_label": "woundsystem"
     },
     {
@@ -11598,7 +11598,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 183,
+      "community": 459,
       "norm_label": "double"
     },
     {
@@ -11608,7 +11608,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 183,
+      "community": 459,
       "norm_label": "int"
     },
     {
@@ -11618,7 +11618,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 183,
+      "community": 459,
       "norm_label": "gamecontext"
     },
     {
@@ -11628,7 +11628,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 183,
+      "community": 459,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -11638,7 +11638,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 183,
+      "community": 459,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -11648,7 +11648,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 183,
+      "community": 459,
       "norm_label": "characterdata"
     },
     {
@@ -11658,7 +11658,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 183,
+      "community": 459,
       "norm_label": ".applydaowound()"
     },
     {
@@ -11668,7 +11668,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 183,
+      "community": 459,
       "norm_label": ".applywound()"
     },
     {
@@ -12278,7 +12278,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 293,
+      "community": 458,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -12288,7 +12288,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 293,
+      "community": 458,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -14928,7 +14928,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 434,
+      "community": 183,
       "norm_label": "combatunit.cs"
     },
     {
@@ -14938,7 +14938,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 434,
+      "community": 183,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -18658,7 +18658,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 293,
+      "community": 441,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -18668,7 +18668,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 293,
+      "community": 441,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -19678,7 +19678,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 293,
+      "community": 441,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -19688,7 +19688,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 293,
+      "community": 441,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -22838,7 +22838,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 293,
+      "community": 458,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -22848,7 +22848,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 293,
+      "community": 458,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -33225,7 +33225,7 @@
       "label": "GameClock",
       "file_type": "code",
       "source_file": "src/Core/Session/GameClock.cs",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "session_gameclock_gameclock",
       "community": 127,
@@ -33235,7 +33235,7 @@
       "label": ".Advance()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameClock.cs",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "session_gameclock_gameclock_advance",
       "community": 127,
@@ -33245,7 +33245,7 @@
       "label": ".Restore()",
       "file_type": "code",
       "source_file": "src/Core/Session/GameClock.cs",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "session_gameclock_gameclock_restore",
       "community": 127,
@@ -33255,7 +33255,7 @@
       "label": "GamePhase",
       "file_type": "code",
       "source_file": "src/Core/Session/GameClock.cs",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "src_core_session_gameclock_cs_gamephase",
       "community": 127,
@@ -69072,14 +69072,14 @@
       "norm_label": "gameclocktests"
     },
     {
-      "label": ".NewClock_StartsInYearOneManagement()",
+      "label": ".NewClock_StartsInYearZeroManagement()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameClockTests.cs",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "session_gameclocktests_gameclocktests_newclock_startsinyearonemanagement",
+      "id": "session_gameclocktests_gameclocktests_newclock_startsinyearzeromanagement",
       "community": 116,
-      "norm_label": ".newclock_startsinyearonemanagement()"
+      "norm_label": ".newclock_startsinyearzeromanagement()"
     },
     {
       "label": "Test",
@@ -69222,14 +69222,14 @@
       "norm_label": ".newgame_appointstheoldsoldier_aspatriarch()"
     },
     {
-      "label": ".NewGame_StartsInYearOneManagement()",
+      "label": ".NewGame_StartsInYearZeroManagement()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "session_gamesessiontests_gamesessiontests_newgame_startsinyearonemanagement",
+      "id": "session_gamesessiontests_gamesessiontests_newgame_startsinyearzeromanagement",
       "community": 56,
-      "norm_label": ".newgame_startsinyearonemanagement()"
+      "norm_label": ".newgame_startsinyearzeromanagement()"
     },
     {
       "label": ".NewGame_KnowsTheWorldAndHoldsTwoFragments()",
@@ -79308,7 +79308,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 434,
+      "community": 183,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -79442,7 +79442,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 293,
+      "community": 458,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -79455,7 +79455,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 293,
+      "community": 458,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -79468,7 +79468,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 293,
+      "community": 458,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -79481,7 +79481,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 293,
+      "community": 441,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -79628,7 +79628,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 293,
+      "community": 458,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -79776,7 +79776,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 293,
+      "community": 441,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -79789,7 +79789,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 293,
+      "community": 458,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -79815,7 +79815,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 293,
+      "community": 441,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -92755,9 +92755,9 @@
       "source_file": "src/Core/Characters/ArtifactForge.cs",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artifactforge_artifactforge",
-      "target": "characters_artifactforge_artifactforge_smithrefusal",
-      "confidence_score": 1.0
+      "target": "characters_artifactforge_artifactforge_smithrefusal"
     },
     {
       "relation": "references",
@@ -92898,9 +92898,9 @@
       "source_location": "L80",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "characters_artifactforge_artifactforge_smithrefusal",
-      "target": "src_core_characters_artifactforge_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_characters_artifactforge_cs_cultivationrealm"
     },
     {
       "relation": "references",
@@ -92931,9 +92931,9 @@
       "source_file": "src/Core/Characters/ArtifactForge.cs",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "characters_artifactforge_artifactforge_smithrefusal",
-      "target": "characters_artifactforge_artifactforge_artrefusal",
-      "confidence_score": 1.0
+      "target": "characters_artifactforge_artifactforge_artrefusal"
     },
     {
       "relation": "references",
@@ -184225,9 +184225,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_theworld_openswithitsoldenmities_andthenovelstempers",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_theworld_openswithitsoldenmities_andthenovelstempers"
     },
     {
       "relation": "references",
@@ -184346,9 +184346,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_theworld_openswithitsoldenmities_andthenovelstempers",
-      "target": "diplomacy_clientagetests_clientagetests_session",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_session"
     },
     {
       "relation": "references",
@@ -184544,9 +184544,9 @@
       "source_location": "L118",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_theworld_openswithitsoldenmities_andthenovelstempers",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
     },
     {
       "relation": "contains",
@@ -214714,9 +214714,9 @@
       "source_file": "tests/Core.Tests/Session/GameClockTests.cs",
       "source_location": "L10",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "session_gameclocktests_gameclocktests",
-      "target": "session_gameclocktests_gameclocktests_newclock_startsinyearonemanagement"
+      "target": "session_gameclocktests_gameclocktests_newclock_startsinyearzeromanagement",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -214735,9 +214735,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "session_gameclocktests_gameclocktests_newclock_startsinyearonemanagement",
-      "target": "tests_core_tests_session_gameclocktests_cs_test"
+      "source": "session_gameclocktests_gameclocktests_newclock_startsinyearzeromanagement",
+      "target": "tests_core_tests_session_gameclocktests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -214917,11 +214917,11 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L40",
+      "source_location": "L46",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "session_gamesessiontests_gamesessiontests",
-      "target": "session_gamesessiontests_gamesessiontests_newgame_startsinyearonemanagement"
+      "target": "session_gamesessiontests_gamesessiontests_newgame_startsinyearzeromanagement",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -215080,11 +215080,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L43",
+      "source_location": "L49",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "session_gamesessiontests_gamesessiontests_newgame_startsinyearonemanagement",
-      "target": "session_gamesessiontests_gamesessiontests_quiet"
+      "source": "session_gamesessiontests_gamesessiontests_newgame_startsinyearzeromanagement",
+      "target": "session_gamesessiontests_gamesessiontests_quiet",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -215233,12 +215233,12 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Session/GameSessionTests.cs",
-      "source_location": "L40",
+      "source_location": "L46",
       "weight": 1.0,
       "context": "attribute",
-      "confidence_score": 1.0,
-      "source": "session_gamesessiontests_gamesessiontests_newgame_startsinyearonemanagement",
-      "target": "tests_core_tests_session_gamesessiontests_cs_test"
+      "source": "session_gamesessiontests_gamesessiontests_newgame_startsinyearzeromanagement",
+      "target": "tests_core_tests_session_gamesessiontests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -236763,5 +236763,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "cf00d854b0cef93b49a05805cac5372d866f6e8a"
+  "built_at_commit": "741ea6619b4faa0eda1e4b1c80d3f5e349692447"
 }

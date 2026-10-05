@@ -44,7 +44,7 @@ namespace MirrorChronicles.Tests.Session
             var slots = TitleView.Slots(i => i == 1 ? SavedGame(2) : i == 2 ? "garbage" : null);
             Assert.AreEqual(TitleView.SlotCount, slots.Count);
             StringAssert.Contains("Clan Mo", slots[0].Label);
-            StringAssert.Contains("an 3", slots[0].Label);
+            StringAssert.Contains("an 2", slots[0].Label); // two years played from year 0
             Assert.IsTrue(slots[0].CanContinue);
             StringAssert.Contains("illisible", slots[1].Label);
             Assert.IsFalse(slots[1].CanContinue);

@@ -27,7 +27,7 @@ namespace MirrorChronicles.Tests.Presentation
         public void RecordsABirthWithItsYear()
         {
             var child = session.Clan.GenerateChild(session.Clan.GetPatriarch(), null);
-            Assert.AreEqual($"An 1 : naissance de {child.FullName}.", Last);
+            Assert.AreEqual($"An 0 : naissance de {child.FullName}.", Last);
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace MirrorChronicles.Tests.Presentation
         {
             var patriarch = session.Clan.GetPatriarch();
             session.Clan.Kill(patriarch, DeathCause.OldAge);
-            StringAssert.StartsWith($"An 1 : {patriarch.FullName} meurt de vieillesse.", chronicle.Entries.First(e => e.Contains("meurt")));
+            StringAssert.StartsWith($"An 0 : {patriarch.FullName} meurt de vieillesse.", chronicle.Entries.First(e => e.Contains("meurt")));
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace MirrorChronicles.Tests.Presentation
         {
             var evt = new RandomEventData { Name = "Marchand itinérant", Description = "Un marchand propose des marchandises rares." };
             session.Events.TriggerRandomEventOccurred(evt);
-            Assert.AreEqual("An 1 : Marchand itinérant — Un marchand propose des marchandises rares.", Last);
+            Assert.AreEqual("An 0 : Marchand itinérant — Un marchand propose des marchandises rares.", Last);
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace MirrorChronicles.Tests.Presentation
         public void RecordsWhatTheClanLearns(FactKind kind, string subject, string line)
         {
             session.Knowledge.Reveal(kind, subject, KnowledgeSource.Mirror);
-            CollectionAssert.Contains(chronicle.Entries, $"An 1 : {line}");
+            CollectionAssert.Contains(chronicle.Entries, $"An 0 : {line}");
         }
 
         [Test]
@@ -132,7 +132,7 @@ namespace MirrorChronicles.Tests.Presentation
         public void ASeizedMirror_IsToldAsSuch_NotAsAnExtinction()
         {
             session.Events.TriggerMirrorSeized("Secte du Pic des Nuées");
-            CollectionAssert.Contains(chronicle.Entries, "An 1 : Secte du Pic des Nuées s'empare du miroir : le secret du clan est perdu.");
+            CollectionAssert.Contains(chronicle.Entries, "An 0 : Secte du Pic des Nuées s'empare du miroir : le secret du clan est perdu.");
             Assert.IsFalse(chronicle.Entries.Any(e => e.Contains("la lignée s'éteint")));
         }
 
@@ -141,14 +141,14 @@ namespace MirrorChronicles.Tests.Presentation
         {
             var member = session.Clan.LivingMembers.Last();
             session.Captives.Take(member, "Famille Ruan");
-            Assert.AreEqual($"An 1 : {member.FullName} est enlevé(e) par Famille Ruan.", Last);
+            Assert.AreEqual($"An 0 : {member.FullName} est enlevé(e) par Famille Ruan.", Last);
 
             session.Resources.AddSpiritStones(100000);
             session.Captives.PayRansom(member.ID);
-            Assert.AreEqual($"An 1 : {member.FullName} est libre.", Last);
+            Assert.AreEqual($"An 0 : {member.FullName} est libre.", Last);
 
             session.Captives.Imprison(new Prisoner("agent-1", "Famille Lou", CultivationRealm.QiRefinement, 1));
-            Assert.AreEqual("An 1 : un agent de Famille Lou tombe entre les mains du clan.", Last);
+            Assert.AreEqual("An 0 : un agent de Famille Lou tombe entre les mains du clan.", Last);
         }
     }
 }

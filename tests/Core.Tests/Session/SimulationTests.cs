@@ -82,7 +82,7 @@ namespace MirrorChronicles.Tests.Session
         {
             var s = GameSession.NewGame(Fixtures.Setup(seed));
             PlayYears(s, 10);
-            Assert.IsTrue(s.Clock.Year == 11 && s.Clan.LivingMembers.Count > 0);
+            Assert.IsTrue(s.Clock.Year == 10 && s.Clan.LivingMembers.Count > 0);
         }
 
         [Test]
