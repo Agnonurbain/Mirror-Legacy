@@ -22,6 +22,7 @@ namespace MirrorChronicles.Events
         public const int BetrayalThreshold = 30;
         public const int BetrayalStabilityLoss = 15;
         public const int EpidemicStabilityLoss = 5;
+        public const double BeastKillChance = 0.3; // a raiding beast takes a mortal (🔎 audit §4.5)
 
         private readonly GameContext ctx;
         private readonly ClanManager clan;
@@ -109,13 +110,36 @@ namespace MirrorChronicles.Events
                     double relief = Math.Min(1.0, buildings.FormationLevel * FormationReliefPerLevel);
                     resources.ConsumeSpiritStones((int)Math.Round(ctx.Rng.Next(50, 200) * (1.0 - relief)));
                     break;
+                case RandomEventType.MonsterAttack:
+                    BeastRaid();
+                    break;
                 case RandomEventType.Epidemic:
                     foreach (var m in clan.LivingMembers.Where(m => m.Realm <= CultivationRealm.QiRefinement).ToList())
                         stability.ApplyModifier(m, -EpidemicStabilityLoss);
                     break;
-                    // Monster attacks, rival challenges, merchants, prodigies and marriage offers are
+                    // Rival challenges, merchants, prodigies and marriage offers are
                     // narrated for now; their encounters arrive with combat (G3) and the living world (L6).
             }
+        }
+
+        /// <summary>
+        /// A beast of the mountains raids the domain — stones lost, perhaps a mortal taken — unless an ancient pact shelters the
+        /// clan's land (📚 the Fox of the Qingyan mountains, audit §4.5).
+        /// </summary>
+        private void BeastRaid()
+        {
+            string home = ctx.Content.Clan.HomeRegion;
+            var guardian = ctx.Content.Patrons.FirstOrDefault(p => p.Shelters.Contains(home));
+            if (guardian != null)
+            {
+                ctx.Log.Info($"[Events] A beast nears the domain; {guardian.Name}'s ancient pact turns it away.");
+                return;
+            }
+            resources.ConsumeSpiritStones(ctx.Rng.Next(50, 150));
+            var mortal = clan.LivingMembers.Where(m => !Characters.SpiritualOrificeRules.CanCultivate(m) && m.CaptorFaction == null)
+                .OrderBy(m => m.Age).FirstOrDefault();
+            if (mortal != null && ctx.Rng.Chance(BeastKillChance)) clan.Kill(mortal, DeathCause.Combat);
+            ctx.Log.Warning("[Events] A beast raids the domain.");
         }
     }
 }

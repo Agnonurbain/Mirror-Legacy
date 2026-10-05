@@ -134,5 +134,43 @@ namespace MirrorChronicles.Tests.Events
             events.TriggerYearlyEvent();
             Assert.AreEqual(10, troubled.MentalStability);
         }
+
+        // ---- A beast's raid, and the Fox's ancient pact (audit §4.5, the user's choice 2026-10-04) ----
+
+        private static (TestWorld world, EventManager events) WithLand(Random rng, bool sheltered)
+        {
+            var c = Fixtures.Content;
+            var patrons = c.Patrons.Select(p => p.Id == "qingyan-vixen" && !sheltered ? new PatronDefinition
+            {
+                Id = p.Id, Name = p.Name, Kind = p.Kind, RegionId = p.RegionId, MinClanRealm = p.MinClanRealm, Tribute = p.Tribute,
+                Boon = p.Boon, BoonStrength = p.BoonStrength, Shelters = new string[0]
+            } : p).ToList();
+            var w = new TestWorld(rng, c with { Patrons = patrons });
+            var events = new EventManager(w.Ctx, w.Clan, w.Factions, w.Deduction, w.Resources, w.Stability, w.Buildings,
+                new[] { Entry(RandomEventType.MonsterAttack) });
+            return (w, events);
+        }
+
+        [Test]
+        public void ABeastRaids_TheDomain_TakingStones_AndMayKillAMortal()
+        {
+            var (w, events) = WithLand(new FixedRandom(0.0), sheltered: false);
+            var mortal = w.Join(Fixtures.Mortal());
+            int stones = w.Resources.SpiritStones;
+            events.TriggerYearlyEvent();
+            Assert.Less(w.Resources.SpiritStones, stones);
+            Assert.IsFalse(mortal.IsAlive, "the beast takes a mortal");
+        }
+
+        [Test]
+        public void TheFoxsAncientPact_TurnsTheBeastAway_FromTheLake()
+        {
+            var (w, events) = WithLand(new FixedRandom(0.0), sheltered: true);
+            var mortal = w.Join(Fixtures.Mortal());
+            int stones = w.Resources.SpiritStones;
+            events.TriggerYearlyEvent();
+            Assert.AreEqual(stones, w.Resources.SpiritStones);
+            Assert.IsTrue(mortal.IsAlive);
+        }
     }
 }

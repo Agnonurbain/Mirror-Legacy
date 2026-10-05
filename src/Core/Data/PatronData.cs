@@ -24,6 +24,9 @@ namespace MirrorChronicles.Data
         public PatronBoon Boon { get; init; }
         public int BoonStrength { get; init; }
         public string Notes { get; init; }
+
+        /// <summary>The lands an ancient pact shelters from its beasts — whoever lives there, no tribute asked (audit §4.5).</summary>
+        public IReadOnlyList<string> Shelters { get; init; } = Array.Empty<string>();
         public Provenance Provenance { get; init; }
         public IReadOnlyList<string> InterpretedFields { get; init; } = Array.Empty<string>();
     }
