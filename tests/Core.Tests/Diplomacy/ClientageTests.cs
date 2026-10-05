@@ -129,5 +129,19 @@ namespace MirrorChronicles.Tests.Diplomacy
             Assert.Less(s.Factions.GetFactionByName("Famille Lü").RelationWithPlayer, 0, "the clan's first enemy");
             Assert.AreEqual(CultivationRealm.PurpleMansion, s.Factions.GetFactionByName("Porte du Fer Ardent").HighestRealm);
         }
+
+        [Test]
+        public void TheBaiAndTheZang_AreFamiliesOfTheSect_OnItsLands()
+        {
+            // 📚 audit §4.7: not independent powers on the state's border, but the sect's own families
+            var s = Session();
+            foreach (var name in new[] { "Famille Bai", "Famille Zang" })
+            {
+                var family = s.Factions.GetFactionByName(name);
+                Assert.AreEqual(Peak, s.Politics.SuzerainOf(name));
+                Assert.AreEqual("mount-yunfeng", family.RegionId);
+                Assert.IsFalse(s.Factions.AreNeighbours(family, s.Factions.GetFactionByName("Empire de Kun")), "no longer on Kun's border");
+            }
+        }
     }
 }

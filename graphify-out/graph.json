@@ -7038,7 +7038,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_breakthroughsystem",
-      "community": 183,
+      "community": 434,
       "norm_label": "breakthroughsystem.cs"
     },
     {
@@ -7048,7 +7048,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_breakthroughsystem_mirrorchronicles_characters",
-      "community": 183,
+      "community": 434,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -7168,7 +7168,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_cultivationsystem",
-      "community": 82,
+      "community": 224,
       "norm_label": "cultivationsystem.cs"
     },
     {
@@ -7178,7 +7178,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_cultivationsystem_mirrorchronicles_characters",
-      "community": 82,
+      "community": 224,
       "norm_label": "mirrorchronicles.characters"
     },
     {
@@ -11588,7 +11588,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem",
-      "community": 456,
+      "community": 183,
       "norm_label": "woundsystem"
     },
     {
@@ -11598,7 +11598,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_double",
-      "community": 456,
+      "community": 183,
       "norm_label": "double"
     },
     {
@@ -11608,7 +11608,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_int",
-      "community": 456,
+      "community": 183,
       "norm_label": "int"
     },
     {
@@ -11618,7 +11618,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_gamecontext",
-      "community": 456,
+      "community": 183,
       "norm_label": "gamecontext"
     },
     {
@@ -11628,7 +11628,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_mentalstabilitysystem",
-      "community": 456,
+      "community": 183,
       "norm_label": "mentalstabilitysystem"
     },
     {
@@ -11638,7 +11638,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_evaluatepostcombatwounds",
-      "community": 456,
+      "community": 183,
       "norm_label": ".evaluatepostcombatwounds()"
     },
     {
@@ -11648,7 +11648,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_core_characters_woundsystem_cs_characterdata",
-      "community": 456,
+      "community": 183,
       "norm_label": "characterdata"
     },
     {
@@ -11658,7 +11658,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applydaowound",
-      "community": 456,
+      "community": 183,
       "norm_label": ".applydaowound()"
     },
     {
@@ -11668,7 +11668,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "characters_woundsystem_woundsystem_applywound",
-      "community": 456,
+      "community": 183,
       "norm_label": ".applywound()"
     },
     {
@@ -11788,7 +11788,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_clankarmasystem",
-      "community": 82,
+      "community": 224,
       "norm_label": "clankarmasystem.cs"
     },
     {
@@ -11798,7 +11798,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_clankarmasystem_mirrorchronicles_clan",
-      "community": 82,
+      "community": 224,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -11808,7 +11808,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem",
-      "community": 82,
+      "community": 224,
       "norm_label": "clankarmasystem"
     },
     {
@@ -11818,7 +11818,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_double",
-      "community": 82,
+      "community": 224,
       "norm_label": "double"
     },
     {
@@ -11828,7 +11828,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_int",
-      "community": 82,
+      "community": 224,
       "norm_label": "int"
     },
     {
@@ -11838,7 +11838,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_gamecontext",
-      "community": 82,
+      "community": 224,
       "norm_label": "gamecontext"
     },
     {
@@ -11848,7 +11848,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_core_clan_clankarmasystem_cs_clanmanager",
-      "community": 82,
+      "community": 224,
       "norm_label": "clanmanager"
     },
     {
@@ -11858,7 +11858,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getcultivationspeedbonus",
-      "community": 82,
+      "community": 224,
       "norm_label": ".getcultivationspeedbonus()"
     },
     {
@@ -11868,7 +11868,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_getbonusxp",
-      "community": 82,
+      "community": 224,
       "norm_label": ".getbonusxp()"
     },
     {
@@ -11878,7 +11878,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_hasancestraltechniqueunlock",
-      "community": 82,
+      "community": 224,
       "norm_label": ".hasancestraltechniqueunlock()"
     },
     {
@@ -11888,7 +11888,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_restore",
-      "community": 82,
+      "community": 224,
       "norm_label": ".restore()"
     },
     {
@@ -11898,7 +11898,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "clan_clankarmasystem_clankarmasystem_recordsuccession",
-      "community": 82,
+      "community": 224,
       "norm_label": ".recordsuccession()"
     },
     {
@@ -12278,7 +12278,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 434,
+      "community": 148,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -12288,7 +12288,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 434,
+      "community": 148,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -12698,7 +12698,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_legacysystem",
-      "community": 224,
+      "community": 434,
       "norm_label": "legacysystem.cs"
     },
     {
@@ -12708,7 +12708,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "clan_legacysystem_mirrorchronicles_clan",
-      "community": 224,
+      "community": 434,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -12718,7 +12718,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "clan_legacysystem_legacysystem",
-      "community": 224,
+      "community": 434,
       "norm_label": "legacysystem"
     },
     {
@@ -12728,7 +12728,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_core_clan_legacysystem_cs_int",
-      "community": 224,
+      "community": 434,
       "norm_label": "int"
     },
     {
@@ -14928,7 +14928,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "combat_combatunit",
-      "community": 183,
+      "community": 434,
       "norm_label": "combatunit.cs"
     },
     {
@@ -14938,7 +14938,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "combat_combatunit_mirrorchronicles_combat",
-      "community": 183,
+      "community": 434,
       "norm_label": "mirrorchronicles.combat"
     },
     {
@@ -17228,7 +17228,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "data_randomeventdata",
-      "community": 224,
+      "community": 434,
       "norm_label": "randomeventdata.cs"
     },
     {
@@ -17238,7 +17238,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "data_randomeventdata_mirrorchronicles_data",
-      "community": 224,
+      "community": 434,
       "norm_label": "mirrorchronicles.data"
     },
     {
@@ -17248,7 +17248,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "data_randomeventdata_randomeventdata",
-      "community": 224,
+      "community": 434,
       "norm_label": "randomeventdata"
     },
     {
@@ -22838,7 +22838,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 444,
+      "community": 148,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -22848,7 +22848,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 444,
+      "community": 148,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -23348,7 +23348,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "events_eventmanager",
-      "community": 224,
+      "community": 434,
       "norm_label": "eventmanager.cs"
     },
     {
@@ -23358,7 +23358,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "events_eventmanager_mirrorchronicles_events",
-      "community": 224,
+      "community": 434,
       "norm_label": "mirrorchronicles.events"
     },
     {
@@ -56092,6 +56092,16 @@
       "norm_label": ".theworld_openswithitsoldenmities_andthenovelstempers()"
     },
     {
+      "label": ".TheBaiAndTheZang_AreFamiliesOfTheSect_OnItsLands()",
+      "file_type": "code",
+      "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
+      "source_location": "L133",
+      "_origin": "ast",
+      "id": "diplomacy_clientagetests_clientagetests_thebaiandthezang_arefamiliesofthesect_onitslands",
+      "community": 40,
+      "norm_label": ".thebaiandthezang_arefamiliesofthesect_onitslands()"
+    },
+    {
       "label": "DesignResponseTests.cs",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Diplomacy/DesignResponseTests.cs",
@@ -61158,7 +61168,7 @@
       "source_location": "L173",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_characterdata",
-      "community": 27,
+      "community": 456,
       "norm_label": "characterdata"
     },
     {
@@ -61168,7 +61178,7 @@
       "source_location": "L181",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures",
-      "community": 27,
+      "community": 456,
       "norm_label": "fixtures"
     },
     {
@@ -61178,7 +61188,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_assmith",
-      "community": 27,
+      "community": 456,
       "norm_label": ".assmith()"
     },
     {
@@ -61188,7 +61198,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_gamesession",
-      "community": 27,
+      "community": 456,
       "norm_label": "gamesession"
     },
     {
@@ -61198,7 +61208,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "lazy",
-      "community": 27,
+      "community": 456,
       "norm_label": "lazy"
     },
     {
@@ -61208,7 +61218,7 @@
       "source_location": "L206",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_string",
-      "community": 27,
+      "community": 456,
       "norm_label": "string"
     },
     {
@@ -61218,7 +61228,7 @@
       "source_location": "L227",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_veteransetup",
-      "community": 27,
+      "community": 456,
       "norm_label": ".veteransetup()"
     },
     {
@@ -61228,7 +61238,7 @@
       "source_location": "L227",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_gamesetup",
-      "community": 27,
+      "community": 456,
       "norm_label": "gamesetup"
     },
     {
@@ -61238,7 +61248,7 @@
       "source_location": "L234",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_readdatafile",
-      "community": 27,
+      "community": 456,
       "norm_label": ".readdatafile()"
     },
     {
@@ -61248,7 +61258,7 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_setup",
-      "community": 27,
+      "community": 456,
       "norm_label": ".setup()"
     },
     {
@@ -61278,7 +61288,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_finddatadirectory",
-      "community": 27,
+      "community": 456,
       "norm_label": ".finddatadirectory()"
     },
     {
@@ -61288,7 +61298,7 @@
       "source_location": "L261",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_cultivator",
-      "community": 27,
+      "community": 456,
       "norm_label": ".cultivator()"
     },
     {
@@ -61298,7 +61308,7 @@
       "source_location": "L261",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_cultivationrealm",
-      "community": 27,
+      "community": 456,
       "norm_label": "cultivationrealm"
     },
     {
@@ -61308,7 +61318,7 @@
       "source_location": "L283",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_mortal",
-      "community": 27,
+      "community": 456,
       "norm_label": ".mortal()"
     },
     {
@@ -61438,7 +61448,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionenginetests",
-      "community": 248,
+      "community": 5,
       "norm_label": "deductionenginetests.cs"
     },
     {
@@ -61448,7 +61458,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_mirrorchronicles_tests_mirror",
-      "community": 248,
+      "community": 5,
       "norm_label": "mirrorchronicles.tests.mirror"
     },
     {
@@ -79378,7 +79388,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Player (the mirror) spends MirrorPower (10/25/50) to buff a combat unit, boost breakthrough success by 30%, or trigger Qi Deviation.",
-      "community": 183,
+      "community": 434,
       "norm_label": "divine interventions (qi pulse, ancestral shield, mirror judgment)",
       "id": "brain_claude_done_divine_interventions"
     },
@@ -79512,7 +79522,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 148,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -79525,7 +79535,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 148,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -79538,7 +79548,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 148,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -79698,7 +79708,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 148,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -79725,7 +79735,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 224,
+      "community": 434,
       "norm_label": "annual 4-phase cycle (management -> events -> breakthrough -> inheritance)",
       "id": "brain_claude_plan_annual_cycle"
     },
@@ -79833,7 +79843,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 82,
+      "community": 224,
       "norm_label": "clan karma (per-generation passive bonus)",
       "id": "brain_claude_plan_clan_karma"
     },
@@ -79859,7 +79869,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 444,
+      "community": 148,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -79872,7 +79882,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 224,
+      "community": 434,
       "norm_label": "phase 2 - combat & events",
       "id": "brain_claude_plan_phase_2_combat_events"
     },
@@ -140936,9 +140946,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem",
-      "target": "world_eldersystem_eldersystem_realmatstart",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_realmatstart"
     },
     {
       "relation": "method",
@@ -141106,9 +141116,9 @@
       "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_populate",
-      "target": "world_eldersystem_eldersystem_realmatstart",
-      "confidence_score": 1.0
+      "target": "world_eldersystem_eldersystem_realmatstart"
     },
     {
       "relation": "calls",
@@ -141128,9 +141138,9 @@
       "source_location": "L59",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_realmatstart",
-      "target": "src_core_world_eldersystem_cs_cultivationrealm",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_cultivationrealm"
     },
     {
       "relation": "references",
@@ -141139,9 +141149,9 @@
       "source_location": "L59",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_realmatstart",
-      "target": "src_core_world_eldersystem_cs_figuredefinition",
-      "confidence_score": 1.0
+      "target": "src_core_world_eldersystem_cs_figuredefinition"
     },
     {
       "relation": "references",
@@ -184307,6 +184317,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "diplomacy_clientagetests_clientagetests",
+      "target": "diplomacy_clientagetests_clientagetests_thebaiandthezang_arefamiliesofthesect_onitslands",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L37",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -184417,6 +184437,17 @@
       "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_session",
       "target": "tests_core_tests_diplomacy_clientagetests_cs_gamesession"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "diplomacy_clientagetests_clientagetests_thebaiandthezang_arefamiliesofthesect_onitslands",
+      "target": "diplomacy_clientagetests_clientagetests_session",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -184626,6 +184657,17 @@
       "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_breakingfree_meanswar",
       "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
+      "source_location": "L133",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "diplomacy_clientagetests_clientagetests_thebaiandthezang_arefamiliesofthesect_onitslands",
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -220439,9 +220481,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L255",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests",
-      "target": "world_eldersystemtests_eldersystemtests_ayoungfigure_beginsattherealmofitsage_notitspeak",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_ayoungfigure_beginsattherealmofitsage_notitspeak"
     },
     {
       "relation": "method",
@@ -220672,9 +220714,9 @@
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L259",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_ayoungfigure_beginsattherealmofitsage_notitspeak",
-      "target": "world_eldersystemtests_eldersystemtests_session",
-      "confidence_score": 1.0
+      "target": "world_eldersystemtests_eldersystemtests_session"
     },
     {
       "relation": "calls",
@@ -221068,9 +221110,9 @@
       "source_location": "L255",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "world_eldersystemtests_eldersystemtests_ayoungfigure_beginsattherealmofitsage_notitspeak",
-      "target": "tests_core_tests_world_eldersystemtests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_world_eldersystemtests_cs_test"
     },
     {
       "relation": "references",
@@ -237069,5 +237111,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "8de83a1b6c490a5ea7b18d635ae8b3e6b53b0e52"
+  "built_at_commit": "8530367a5ba693bccb53cb382ebd2140cdf6d50c"
 }

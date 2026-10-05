@@ -452,10 +452,11 @@
   },
   {
 	"name": "Famille Bai",
+	"suzerain": "Secte du Pic des Nuées",
 	"startingDistrust": {"Famille Ruan": 40},
 	"familyName": "Bai",
 	"kind": "Family",
-	"regionId": "linxi",
+	"regionId": "mount-yunfeng",
 	"path": "Immortal",
 	"highestRealm": "PurpleMansion",
 	"techniques": [
@@ -473,7 +474,7 @@
 	"powerLevel": 2500,
 	"wealth": 3000,
 	"relationWithPlayer": -5,
-	"notes": "Bai Chengyu devint Manoir Pourpre il y a ~200 ans. Le lore ne situe pas la famille.",
+	"notes": "Bai Chengyu devint Manoir Pourpre il y a ~200 ans. Le lore ne situe pas la famille. 📚 Une famille de la secte du Pic des Nuées, sur ses terres (audit §4.7).",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
@@ -487,9 +488,10 @@
   },
   {
 	"name": "Famille Zang",
+	"suzerain": "Secte du Pic des Nuées",
 	"familyName": "Zang",
 	"kind": "Family",
-	"regionId": "linxi",
+	"regionId": "mount-yunfeng",
 	"path": "Immortal",
 	"highestRealm": "PurpleMansion",
 	"techniques": [
@@ -507,7 +509,7 @@
 	"powerLevel": 500,
 	"wealth": 700,
 	"relationWithPlayer": 0,
-	"notes": "Le lore ne situe pas la famille.",
+	"notes": "Le lore ne situe pas la famille. 📚 Une famille de la secte du Pic des Nuées, sur ses terres (audit §4.7).",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
