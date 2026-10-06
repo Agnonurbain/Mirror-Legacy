@@ -38,7 +38,7 @@ namespace MirrorChronicles.Tests.Presentation
         [Test]
         public void Places_ListThePowersLivingThere()
         {
-            CollectionAssert.AreEquivalent(new[] { "Famille Lou", "Famille Fang", "Famille Lü", "Famille Tao", "Famille Kang", "Famille Xun" }, // 📚 the Xun of Mount Tiaoyun (audit §4.8)
+            CollectionAssert.AreEquivalent(new[] { "Famille Lou", "Famille Fang", "Famille Lü", "Famille Tao", "Famille Kang", "Famille Xun", "Famille Cen" }, // 📚 the Xun, the Cen (the novel's Wan) of Mount Tiaoyun (audit §4.8)
                 Place(NewGame(), "jingshui-lake").Factions.Select(f => f.Name));
         }
 

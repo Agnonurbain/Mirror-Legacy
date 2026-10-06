@@ -1294,6 +1294,7 @@ La victoire « 10 générations + 1 ascension » disparaît : les générations 
 | Yu (ennemie des Fei) | Lou |
 | Lu | Xun |
 | Shen | Qiao |
+| Wan | Cen (岑, « escarpement » ; 2026-10-06) |
 | An | Fang |
 | Cui | Qu |
 | Tuoba | Yuwen |

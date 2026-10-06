@@ -48,8 +48,12 @@ namespace MirrorChronicles.Tests.World
         public void TheNamedFigures_AreTheElders_OfTheirPower()
         {
             var s = Session();
+            int qiAge = s.Context.Content.Balance.Elders.FigureAgeByRealm[CultivationRealm.QiRefinement];
             foreach (var figure in s.Context.Content.Figures)
-                Assert.IsTrue(s.Factions.GetFactionByName(figure.FactionName).Elders.Any(e => e.FigureId == figure.Id && e.Name == figure.Name), figure.Name);
+            {
+                bool child = figure.BornYear is int b && s.Clock.Year - b < qiAge; // joins later (audit §4.6)
+                Assert.AreEqual(!child, s.Factions.GetFactionByName(figure.FactionName).Elders.Any(e => e.FigureId == figure.Id && e.Name == figure.Name), figure.Name);
+            }
         }
 
         [Test]
@@ -256,10 +260,14 @@ namespace MirrorChronicles.Tests.World
         public void AYoungFigure_BeginsAtTheRealmOfItsAge_NotItsPeak()
         {
             // audit §4.6, the user's choice 2026-10-04: Zang Wanru, a Purple Mansion in the novel, is twelve as the story opens
+            // 📚 wiki: a prodigy, she reaches the eighth level of the Qi Cultivation at twenty-four — at twelve, still a child
             var s = Session();
-            var wanru = s.Factions.GetFactionByName("Famille Zang").Elders.Single(e => e.Name == "Zang Wanru");
-            Assert.AreEqual(CultivationRealm.QiRefinement, wanru.Realm);
-            var old = s.Factions.GetFactionByName("Famille Zang").Elders.Single(e => e.Name == "Zang Tiaoyun");
+            var zang = s.Factions.GetFactionByName("Famille Zang");
+            Assert.IsFalse(zang.Elders.Any(e => e.Name == "Zang Wanru"), "too young to be one of its elders");
+            Years(s, 2);
+            var wanru = zang.Elders.Single(e => e.Name == "Zang Wanru");
+            Assert.AreEqual((CultivationRealm.QiRefinement, 14), (wanru.Realm, wanru.Age(s.Clock.Year)), "she joins as she enters the Qi Cultivation");
+            var old = zang.Elders.Single(e => e.Name == "Zang Tiaoyun");
             Assert.AreEqual(CultivationRealm.PurpleMansion, old.Realm, "an old one stands at its peak");
         }
     }

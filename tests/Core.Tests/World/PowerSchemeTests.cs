@@ -40,7 +40,8 @@ namespace MirrorChronicles.Tests.World
         [Test]
         public void AThief_ElseCopiesATechnique_ElseTakesWealth()
         {
-            var s = Session();
+            var c = Fixtures.VeteranQuietContent; // never caught here: a feud would shift the wealth this test weighs
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = c with { Balance = c.Balance with { PowerSchemes = c.Balance.PowerSchemes with { CaughtChance = 0 } } } });
             var (thief, victim) = Pair(s);
             victim.Artifacts.Clear();
             var art = victim.Techniques.FirstOrDefault(t => !thief.Techniques.Contains(t));

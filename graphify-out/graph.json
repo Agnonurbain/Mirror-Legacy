@@ -12278,7 +12278,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "clan_geneticsystem",
-      "community": 148,
+      "community": 434,
       "norm_label": "geneticsystem.cs"
     },
     {
@@ -12288,7 +12288,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "clan_geneticsystem_mirrorchronicles_clan",
-      "community": 148,
+      "community": 434,
       "norm_label": "mirrorchronicles.clan"
     },
     {
@@ -18658,7 +18658,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem",
-      "community": 444,
+      "community": 458,
       "norm_label": "espionagesystem.cs"
     },
     {
@@ -18668,7 +18668,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "diplomacy_espionagesystem_mirrorchronicles_diplomacy",
-      "community": 444,
+      "community": 458,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -18798,7 +18798,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_factionmanager",
-      "community": 434,
+      "community": 441,
       "norm_label": "factionmanager.cs"
     },
     {
@@ -18808,7 +18808,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "diplomacy_factionmanager_mirrorchronicles_diplomacy",
-      "community": 434,
+      "community": 441,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -19678,7 +19678,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem",
-      "community": 434,
+      "community": 441,
       "norm_label": "marriagesystem.cs"
     },
     {
@@ -19688,7 +19688,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "diplomacy_marriagesystem_mirrorchronicles_diplomacy",
-      "community": 434,
+      "community": 441,
       "norm_label": "mirrorchronicles.diplomacy"
     },
     {
@@ -22838,7 +22838,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem",
-      "community": 148,
+      "community": 458,
       "norm_label": "taskassignmentsystem.cs"
     },
     {
@@ -22848,7 +22848,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_mirrorchronicles_economy",
-      "community": 148,
+      "community": 458,
       "norm_label": "mirrorchronicles.economy"
     },
     {
@@ -23028,7 +23028,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_assigntask",
-      "community": 33,
+      "community": 461,
       "norm_label": ".assigntask()"
     },
     {
@@ -23038,7 +23038,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_characterdata",
-      "community": 33,
+      "community": 456,
       "norm_label": "characterdata"
     },
     {
@@ -23048,7 +23048,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_tasktype",
-      "community": 33,
+      "community": 461,
       "norm_label": "tasktype"
     },
     {
@@ -23058,7 +23058,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_processyearlytasks",
-      "community": 33,
+      "community": 456,
       "norm_label": ".processyearlytasks()"
     },
     {
@@ -23068,7 +23068,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "yearlytaskreport",
-      "community": 33,
+      "community": 456,
       "norm_label": "yearlytaskreport"
     },
     {
@@ -23078,7 +23078,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_gatherqi",
-      "community": 33,
+      "community": 456,
       "norm_label": ".gatherqi()"
     },
     {
@@ -23088,7 +23088,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_sentfor",
-      "community": 33,
+      "community": 456,
       "norm_label": ".sentfor()"
     },
     {
@@ -23098,7 +23098,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_qidefinition",
-      "community": 33,
+      "community": 460,
       "norm_label": "qidefinition"
     },
     {
@@ -23108,7 +23108,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_harvestable",
-      "community": 33,
+      "community": 460,
       "norm_label": ".harvestable()"
     },
     {
@@ -23118,7 +23118,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_techniquedata",
-      "community": 33,
+      "community": 460,
       "norm_label": "techniquedata"
     },
     {
@@ -23128,7 +23128,7 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_miningyield",
-      "community": 33,
+      "community": 459,
       "norm_label": ".miningyield()"
     },
     {
@@ -23138,7 +23138,7 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ienumerable",
-      "community": 33,
+      "community": 459,
       "norm_label": "ienumerable"
     },
     {
@@ -23148,7 +23148,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_veinyield",
-      "community": 33,
+      "community": 459,
       "norm_label": ".veinyield()"
     },
     {
@@ -23158,7 +23158,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_list",
-      "community": 33,
+      "community": 459,
       "norm_label": "list"
     },
     {
@@ -23168,7 +23168,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_mineyield",
-      "community": 33,
+      "community": 456,
       "norm_label": ".mineyield()"
     },
     {
@@ -23178,7 +23178,7 @@
       "source_location": "L202",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_study",
-      "community": 33,
+      "community": 456,
       "norm_label": ".study()"
     },
     {
@@ -23188,7 +23188,7 @@
       "source_location": "L232",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_diplomacy",
-      "community": 33,
+      "community": 456,
       "norm_label": ".diplomacy()"
     },
     {
@@ -23198,7 +23198,7 @@
       "source_location": "L245",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_teach",
-      "community": 33,
+      "community": 456,
       "norm_label": ".teach()"
     },
     {
@@ -23208,7 +23208,7 @@
       "source_location": "L245",
       "_origin": "ast",
       "id": "src_core_economy_taskassignmentsystem_cs_ireadonlylist",
-      "community": 33,
+      "community": 456,
       "norm_label": "ireadonlylist"
     },
     {
@@ -23218,7 +23218,7 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "economy_taskassignmentsystem_taskassignmentsystem_scoutbeasts",
-      "community": 33,
+      "community": 456,
       "norm_label": ".scoutbeasts()"
     },
     {
@@ -35145,7 +35145,7 @@
       "label": ".RealmAtStart()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L59",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_realmatstart",
       "community": 338,
@@ -35155,7 +35155,7 @@
       "label": "FigureDefinition",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L59",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "src_core_world_eldersystem_cs_figuredefinition",
       "community": 338,
@@ -35165,37 +35165,47 @@
       "label": "CultivationRealm",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L59",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "src_core_world_eldersystem_cs_cultivationrealm",
       "community": 338,
       "norm_label": "cultivationrealm"
     },
     {
-      "label": ".NewElder()",
+      "label": ".EnterTheYoung()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L70",
+      "source_location": "L74",
       "_origin": "ast",
-      "id": "world_eldersystem_eldersystem_newelder",
+      "id": "world_eldersystem_eldersystem_entertheyoung",
       "community": 338,
-      "norm_label": ".newelder()"
+      "norm_label": ".entertheyoung()"
     },
     {
       "label": "FactionData",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L70",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "src_core_world_eldersystem_cs_factiondata",
       "community": 338,
       "norm_label": "factiondata"
     },
     {
+      "label": ".NewElder()",
+      "file_type": "code",
+      "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "world_eldersystem_eldersystem_newelder",
+      "community": 338,
+      "norm_label": ".newelder()"
+    },
+    {
       "label": "FactionElder",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L70",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "src_core_world_eldersystem_cs_factionelder",
       "community": 338,
@@ -35205,7 +35215,7 @@
       "label": ".Below()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L78",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_below",
       "community": 338,
@@ -35215,7 +35225,7 @@
       "label": ".Elder()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L81",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_elder",
       "community": 338,
@@ -35225,7 +35235,7 @@
       "label": ".DrawOdds()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L104",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_drawodds",
       "community": 338,
@@ -35235,7 +35245,7 @@
       "label": ".MinYears()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L107",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_minyears",
       "community": 338,
@@ -35245,7 +35255,7 @@
       "label": ".DrawName()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L110",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_drawname",
       "community": 338,
@@ -35255,7 +35265,7 @@
       "label": ".ProcessYear()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L118",
+      "source_location": "L137",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_processyear",
       "community": 338,
@@ -35265,7 +35275,7 @@
       "label": ".Rise()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L137",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_rise",
       "community": 338,
@@ -35275,7 +35285,7 @@
       "label": ".CrossesTheWall()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L155",
+      "source_location": "L175",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_crossesthewall",
       "community": 338,
@@ -35285,7 +35295,7 @@
       "label": ".SwallowAHumanPill()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L169",
+      "source_location": "L189",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_swallowahumanpill",
       "community": 338,
@@ -35295,7 +35305,7 @@
       "label": ".RaiseTheFormation()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L182",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_raisetheformation",
       "community": 338,
@@ -35305,7 +35315,7 @@
       "label": ".RefinePills()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L189",
+      "source_location": "L209",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_refinepills",
       "community": 338,
@@ -35315,7 +35325,7 @@
       "label": ".Dare()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L199",
+      "source_location": "L219",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_dare",
       "community": 338,
@@ -35325,7 +35335,7 @@
       "label": ".TryTheGoldenCore()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L212",
+      "source_location": "L232",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_trythegoldencore",
       "community": 338,
@@ -35335,7 +35345,7 @@
       "label": ".Advance()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L228",
+      "source_location": "L248",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_advance",
       "community": 338,
@@ -35345,7 +35355,7 @@
       "label": ".Die()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L238",
+      "source_location": "L258",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_die",
       "community": 338,
@@ -35355,7 +35365,7 @@
       "label": ".RaiseACadet()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L246",
+      "source_location": "L266",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_raiseacadet",
       "community": 338,
@@ -35365,7 +35375,7 @@
       "label": ".Sync()",
       "file_type": "code",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L256",
+      "source_location": "L276",
       "_origin": "ast",
       "id": "world_eldersystem_eldersystem_sync",
       "community": 338,
@@ -61168,7 +61178,7 @@
       "source_location": "L173",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_characterdata",
-      "community": 456,
+      "community": 27,
       "norm_label": "characterdata"
     },
     {
@@ -61178,7 +61188,7 @@
       "source_location": "L181",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures",
-      "community": 456,
+      "community": 27,
       "norm_label": "fixtures"
     },
     {
@@ -61188,7 +61198,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_assmith",
-      "community": 456,
+      "community": 27,
       "norm_label": ".assmith()"
     },
     {
@@ -61198,7 +61208,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_gamesession",
-      "community": 456,
+      "community": 27,
       "norm_label": "gamesession"
     },
     {
@@ -61208,7 +61218,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "lazy",
-      "community": 456,
+      "community": 27,
       "norm_label": "lazy"
     },
     {
@@ -61218,7 +61228,7 @@
       "source_location": "L206",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_string",
-      "community": 456,
+      "community": 27,
       "norm_label": "string"
     },
     {
@@ -61228,7 +61238,7 @@
       "source_location": "L227",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_veteransetup",
-      "community": 456,
+      "community": 27,
       "norm_label": ".veteransetup()"
     },
     {
@@ -61238,7 +61248,7 @@
       "source_location": "L227",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_gamesetup",
-      "community": 456,
+      "community": 27,
       "norm_label": "gamesetup"
     },
     {
@@ -61248,7 +61258,7 @@
       "source_location": "L234",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_readdatafile",
-      "community": 456,
+      "community": 27,
       "norm_label": ".readdatafile()"
     },
     {
@@ -61258,7 +61268,7 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_setup",
-      "community": 456,
+      "community": 27,
       "norm_label": ".setup()"
     },
     {
@@ -61288,7 +61298,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_finddatadirectory",
-      "community": 456,
+      "community": 27,
       "norm_label": ".finddatadirectory()"
     },
     {
@@ -61298,7 +61308,7 @@
       "source_location": "L261",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_cultivator",
-      "community": 456,
+      "community": 27,
       "norm_label": ".cultivator()"
     },
     {
@@ -61308,7 +61318,7 @@
       "source_location": "L261",
       "_origin": "ast",
       "id": "tests_core_tests_fixtures_cs_cultivationrealm",
-      "community": 456,
+      "community": 27,
       "norm_label": "cultivationrealm"
     },
     {
@@ -61318,7 +61328,7 @@
       "source_location": "L283",
       "_origin": "ast",
       "id": "core_tests_fixtures_fixtures_mortal",
-      "community": 456,
+      "community": 27,
       "norm_label": ".mortal()"
     },
     {
@@ -61448,7 +61458,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mirror_deductionenginetests",
-      "community": 5,
+      "community": 248,
       "norm_label": "deductionenginetests.cs"
     },
     {
@@ -61458,7 +61468,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "mirror_deductionenginetests_mirrorchronicles_tests_mirror",
-      "community": 5,
+      "community": 248,
       "norm_label": "mirrorchronicles.tests.mirror"
     },
     {
@@ -68755,7 +68765,7 @@
       "label": ".TheAscension_AwaitsTheUsersDecision_AndIsNeverReachedMeanwhile()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L99",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_theascension_awaitstheusersdecision_andisneverreachedmeanwhile",
       "community": 287,
@@ -68765,7 +68775,7 @@
       "label": ".AnEnding_IsToldOnlyOnce()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L109",
+      "source_location": "L110",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_anending_istoldonlyonce",
       "community": 287,
@@ -68775,7 +68785,7 @@
       "label": ".AnEnding_IsKeptInTheAnnals_WithWhoReachedIt()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L121",
+      "source_location": "L122",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_anending_iskeptintheannals_withwhoreachedit",
       "community": 287,
@@ -68785,7 +68795,7 @@
       "label": ".TheThroneOfAFruition_IsReached_ByTheFirstRealization()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L133",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_thethroneofafruition_isreached_bythefirstrealization",
       "community": 287,
@@ -68795,7 +68805,7 @@
       "label": ".TheRiverBedMoved_IsReached_ByATransferOrATransformation()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L142",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_theriverbedmoved_isreached_byatransferoratransformation",
       "community": 287,
@@ -68805,7 +68815,7 @@
       "label": ".TheHouseOfTrueMonarchs_NeedsThreeLivingTrueMonarchs()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L151",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_thehouseoftruemonarchs_needsthreelivingtruemonarchs",
       "community": 287,
@@ -68815,7 +68825,7 @@
       "label": ".TheGoldenLine_NeedsThreeGenerationsOfTrueMonarchs_ParentToChild()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L165",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_thegoldenline_needsthreegenerationsoftruemonarchs_parenttochild",
       "community": 287,
@@ -68825,7 +68835,7 @@
       "label": ".TheGrandCulmination_AwaitsTheUsersDecision_AndIsNeverReachedMeanwhile()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L183",
+      "source_location": "L184",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_thegrandculmination_awaitstheusersdecision_andisneverreachedmeanwhile",
       "community": 287,
@@ -68835,7 +68845,7 @@
       "label": ".TheLakeIsUnified_WhenEveryOtherFamilyOfTheLakeIsTheClansVassal()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L195",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_thelakeisunified_wheneveryotherfamilyofthelakeistheclansvassal",
       "community": 287,
@@ -68845,7 +68855,7 @@
       "label": ".TheDebtOfTheTwelveGates_IsPaid_WhenSixOfTheirHeirsBow()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L209",
+      "source_location": "L210",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_thedebtofthetwelvegates_ispaid_whensixoftheirheirsbow",
       "community": 287,
@@ -68855,7 +68865,7 @@
       "label": ".TheHegemonyOfLinxi_IsHeldTenYearsInARow()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L226",
+      "source_location": "L227",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_thehegemonyoflinxi_isheldtenyearsinarow",
       "community": 287,
@@ -68865,7 +68875,7 @@
       "label": ".TheHegemonyOfLinxi_CountsTheVassalsStrength()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L239",
+      "source_location": "L240",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_thehegemonyoflinxi_countsthevassalsstrength",
       "community": 287,
@@ -68875,7 +68885,7 @@
       "label": ".TheHegemonyOfLinxi_StartsOver_WhenItSlips()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L256",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_thehegemonyoflinxi_startsover_whenitslips",
       "community": 287,
@@ -68885,7 +68895,7 @@
       "label": ".TheMillennialLine_IsReached_InTheThousandthYear()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L272",
+      "source_location": "L273",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_themillennialline_isreached_inthethousandthyear",
       "community": 287,
@@ -68895,7 +68905,7 @@
       "label": ".TheMirrorRestored_NeedsItsSevenShards()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L286",
+      "source_location": "L287",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_themirrorrestored_needsitssevenshards",
       "community": 287,
@@ -68905,7 +68915,7 @@
       "label": ".TheMirrorAwakened_NeedsTheSevenShards_AndARealizationOrADaoEmbryo()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L298",
+      "source_location": "L299",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_themirrorawakened_needsthesevenshards_andarealizationoradaoembryo",
       "community": 287,
@@ -68915,7 +68925,7 @@
       "label": ".ALostGame_ReachesNoEnding()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L313",
+      "source_location": "L314",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_alostgame_reachesnoending",
       "community": 287,
@@ -68925,7 +68935,7 @@
       "label": ".TheEndings_SurviveASave()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/Session/DynasticEndingsTests.cs",
-      "source_location": "L323",
+      "source_location": "L324",
       "_origin": "ast",
       "id": "session_dynasticendingstests_dynasticendingstests_theendings_surviveasave",
       "community": 287,
@@ -71555,7 +71565,7 @@
       "label": ".AnElder_DiesAtTheEndOfItsLife()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L55",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_anelder_diesattheendofitslife",
       "community": 337,
@@ -71565,7 +71575,7 @@
       "label": ".APower_FallsInRealm_WhenItsOnlyTopElderDies()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L66",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apower_fallsinrealm_whenitsonlytopelderdies",
       "community": 337,
@@ -71575,7 +71585,7 @@
       "label": ".AJunior_RisesInTime()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L79",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_ajunior_risesintime",
       "community": 337,
@@ -71585,7 +71595,7 @@
       "label": ".PeakMansion()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L93",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_peakmansion",
       "community": 337,
@@ -71595,7 +71605,7 @@
       "label": "FactionData",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L93",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "tests_core_tests_world_eldersystemtests_cs_factiondata",
       "community": 337,
@@ -71605,7 +71615,7 @@
       "label": "FactionElder",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L93",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "tests_core_tests_world_eldersystemtests_cs_factionelder",
       "community": 337,
@@ -71615,7 +71625,7 @@
       "label": ".AMansionShortOfItsGrandPerfection_NeverTries_EvenAtItsEnd()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L102",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_amansionshortofitsgrandperfection_nevertries_evenatitsend",
       "community": 337,
@@ -71625,7 +71635,7 @@
       "label": ".APreciousMansion_NeverGambles_OnPoorOdds()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L113",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apreciousmansion_nevergambles_onpoorodds",
       "community": 337,
@@ -71635,7 +71645,7 @@
       "label": ".APreciousMansion_Rises_FromGoodOdds()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L123",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apreciousmansion_rises_fromgoododds",
       "community": 337,
@@ -71645,7 +71655,7 @@
       "label": ".AMansionNearItsEnd_TriesWhateverTheOdds_AndMayDie()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L134",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_amansionnearitsend_trieswhatevertheodds_andmaydie",
       "community": 337,
@@ -71655,7 +71665,7 @@
       "label": ".APower_RaisesNewElders_ToKeepItsRanks()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L144",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_apower_raisesnewelders_tokeepitsranks",
       "community": 337,
@@ -71665,7 +71675,7 @@
       "label": ".ADeadFigure_KnowsNothingMore_OfTheMirror()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L154",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_adeadfigure_knowsnothingmore_ofthemirror",
       "community": 337,
@@ -71675,7 +71685,7 @@
       "label": ".TheElders_SurviveASave()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L164",
+      "source_location": "L168",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_theelders_surviveasave",
       "community": 337,
@@ -71685,7 +71695,7 @@
       "label": ".TheChronicle_TellsTheDeathOfAGreatElder()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L174",
+      "source_location": "L178",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_thechronicle_tellsthedeathofagreatelder",
       "community": 337,
@@ -71695,7 +71705,7 @@
       "label": ".ANewlyRisenTrueMonarch_KnowsNothingOfTheMirror_TheCenturiesAtTheSummitTeach()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L188",
+      "source_location": "L192",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_anewlyrisentruemonarch_knowsnothingofthemirror_thecenturiesatthesummitteach",
       "community": 337,
@@ -71705,7 +71715,7 @@
       "label": ".AnAncientElder_KeepsItsLore()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L200",
+      "source_location": "L204",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_anancientelder_keepsitslore",
       "community": 337,
@@ -71715,7 +71725,7 @@
       "label": ".AFamily_WhoseElderJustRose_DoesNotKnowTheMirror()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L210",
+      "source_location": "L214",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_afamily_whoseelderjustrose_doesnotknowthemirror",
       "community": 337,
@@ -71725,7 +71735,7 @@
       "label": ".OverFiveCenturies_TheGoldenCoresStayRare_AndThePurpleMansionsFew()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L229",
+      "source_location": "L233",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_overfivecenturies_thegoldencoresstayrare_andthepurplemansionsfew",
       "community": 337,
@@ -71735,7 +71745,7 @@
       "label": ".AYoungFigure_BeginsAtTheRealmOfItsAge_NotItsPeak()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
-      "source_location": "L255",
+      "source_location": "L259",
       "_origin": "ast",
       "id": "world_eldersystemtests_eldersystemtests_ayoungfigure_beginsattherealmofitsage_notitspeak",
       "community": 337,
@@ -74325,7 +74335,7 @@
       "label": ".AnAmbush_TakesAnElder_ForARansom()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PowerSchemeTests.cs",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "world_powerschemetests_powerschemetests_anambush_takesanelder_foraransom",
       "community": 403,
@@ -74335,7 +74345,7 @@
       "label": ".AnUnransomedCaptive_IsPutToDeath()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PowerSchemeTests.cs",
-      "source_location": "L74",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "world_powerschemetests_powerschemetests_anunransomedcaptive_isputtodeath",
       "community": 403,
@@ -74345,7 +74355,7 @@
       "label": ".AStrongerPower_HarvestsARipeDao()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PowerSchemeTests.cs",
-      "source_location": "L93",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "world_powerschemetests_powerschemetests_astrongerpower_harvestsaripedao",
       "community": 403,
@@ -74355,7 +74365,7 @@
       "label": ".AlliesSpareEachOther()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PowerSchemeTests.cs",
-      "source_location": "L105",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "world_powerschemetests_powerschemetests_alliesspareeachother",
       "community": 403,
@@ -74365,7 +74375,7 @@
       "label": ".TheCaptives_SurviveASave()",
       "file_type": "code",
       "source_file": "tests/Core.Tests/World/PowerSchemeTests.cs",
-      "source_location": "L114",
+      "source_location": "L115",
       "_origin": "ast",
       "id": "world_powerschemetests_powerschemetests_thecaptives_surviveasave",
       "community": 403,
@@ -78145,7 +78155,7 @@
       "label": "13.5 Personnages",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1301",
+      "source_location": "L1302",
       "_origin": "ast",
       "id": "brain_claude_lore_13_5_personnages",
       "community": 63,
@@ -78155,7 +78165,7 @@
       "label": "13.6 Chakras, techniques, objets, termes propres au roman",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1333",
+      "source_location": "L1334",
       "_origin": "ast",
       "id": "brain_claude_lore_13_6_chakras_techniques_objets_termes_propres_au_roman",
       "community": 63,
@@ -78165,7 +78175,7 @@
       "label": "13.7 Ajouts du 2026-09-24 tir\u00e9s du wiki (\u2705 valid\u00e9)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1429",
+      "source_location": "L1430",
       "_origin": "ast",
       "id": "brain_claude_lore_13_7_ajouts_du_2026_09_24_tir\u00e9s_du_wiki_valid\u00e9",
       "community": 63,
@@ -78175,7 +78185,7 @@
       "label": "13.9 Ajouts de l'analyse de la carte et des personnages du wiki (\u2705 valid\u00e9 par l'utilisateur le 2026-09-26)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1469",
+      "source_location": "L1470",
       "_origin": "ast",
       "id": "brain_claude_lore_13_9_ajouts_de_l_analyse_de_la_carte_et_des_personnages_du_wiki_valid\u00e9_par_l_utilisateur_le_2026_09_26",
       "community": 63,
@@ -78185,7 +78195,7 @@
       "label": "13.8 Ajouts de la passe compl\u00e8te du wiki (\u2705 valid\u00e9)",
       "file_type": "document",
       "source_file": "BRAIN_CLAUDE/LORE.md",
-      "source_location": "L1478",
+      "source_location": "L1479",
       "_origin": "ast",
       "id": "brain_claude_lore_13_8_ajouts_de_la_passe_compl\u00e8te_du_wiki_valid\u00e9",
       "community": 63,
@@ -79334,7 +79344,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 434,
+      "community": 441,
       "norm_label": "claude.md / master prompt (source of truth)",
       "id": "brain_claude_brainstorming_claude_md_master_prompt"
     },
@@ -79509,7 +79519,7 @@
       "author": null,
       "contributor": null,
       "rationale": "6 realms, min root 0/10/30/50/70/90, breakthrough fail 5-70%, 5 founding members, marriage age 18, incest forbidden up to 3 generations, 4 phases/year, Qi does not regen in combat except ConcentratedQi, Ironman JSON save, 10x10 grid, faction relation -100..+100. Note: DONE.md says MarriageSystem.CanMarry only blocks direct siblings, which conflicts with the 3-generation incest rule.",
-      "community": 434,
+      "community": 441,
       "norm_label": "key xianxia business rules",
       "id": "brain_claude_memory_business_rules"
     },
@@ -79522,7 +79532,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 148,
+      "community": 458,
       "norm_label": "child birth via clanmanager.generatechild (#14)",
       "id": "brain_claude_not_done_child_birth"
     },
@@ -79535,7 +79545,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 148,
+      "community": 458,
       "norm_label": "missing task types: study, teaching, diplomacy, espionage (#15)",
       "id": "brain_claude_not_done_missing_tasks"
     },
@@ -79548,7 +79558,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 148,
+      "community": 458,
       "norm_label": "phase 1 placeholder ui + taskassignment ui (#12-13)",
       "id": "brain_claude_not_done_phase1_placeholder_ui"
     },
@@ -79561,7 +79571,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 434,
+      "community": 441,
       "norm_label": "worldmap scene (#42)",
       "id": "brain_claude_not_done_worldmap_scene"
     },
@@ -79708,7 +79718,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 148,
+      "community": 458,
       "norm_label": "ugui + textmeshpro (com.unity.ugui)",
       "id": "brain_claude_package_ugui"
     },
@@ -79749,7 +79759,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Master prompt mentions a 7th 'Immortal' tier (maxAge 999999) merged into DaoEmbryo in code; still to be clarified.",
-      "community": 434,
+      "community": 441,
       "norm_label": "six cultivation realms (embryonic -> daoembryo)",
       "id": "brain_claude_plan_cultivation_realms"
     },
@@ -79817,7 +79827,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Taken from master prompt; alternative endings (military/diplomatic/spiritual domination) still to be decided.",
-      "community": 434,
+      "community": 441,
       "norm_label": "victory: 10 generations + dao embryo ascension",
       "id": "brain_claude_plan_victory_condition"
     },
@@ -79856,7 +79866,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 434,
+      "community": 441,
       "norm_label": "scenes: mainmenu, clandomain, tacticalcombat, worldmap",
       "id": "brain_claude_plan_four_scenes"
     },
@@ -79869,7 +79879,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 148,
+      "community": 458,
       "norm_label": "phase 1 - foundations (playable prototype)",
       "id": "brain_claude_plan_phase_1_foundations"
     },
@@ -79895,7 +79905,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 434,
+      "community": 441,
       "norm_label": "phase 3 - world & diplomacy",
       "id": "brain_claude_plan_phase_3_world_diplomacy"
     },
@@ -80143,7 +80153,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Violates master-prompt rule that all static data lives in ScriptableObjects; blocks extensibility to 5-8 factions.",
-      "community": 434,
+      "community": 441,
       "norm_label": "wl-101: factions hardcoded instead of scriptableobjects",
       "id": "brain_claude_worked_lesson_wl_101"
     },
@@ -140884,6 +140894,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "world_eldersystem_eldersystem",
+      "target": "world_eldersystem_eldersystem_entertheyoung",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ElderSystem.cs",
       "source_location": "L81",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -141212,45 +141232,34 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L55",
+      "source_location": "L74",
       "weight": 1.0,
       "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "world_eldersystem_eldersystem_newelder",
-      "target": "src_core_world_eldersystem_cs_factiondata"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L55",
-      "weight": 1.0,
-      "context": "return_type",
-      "confidence_score": 1.0,
-      "source": "world_eldersystem_eldersystem_newelder",
-      "target": "src_core_world_eldersystem_cs_factionelder"
+      "source": "world_eldersystem_eldersystem_entertheyoung",
+      "target": "src_core_world_eldersystem_cs_factiondata",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L57",
+      "source_location": "L80",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "world_eldersystem_eldersystem_newelder",
-      "target": "world_eldersystem_eldersystem_drawname"
+      "source": "world_eldersystem_eldersystem_entertheyoung",
+      "target": "world_eldersystem_eldersystem_elder",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/Core/World/ElderSystem.cs",
-      "source_location": "L57",
+      "source_location": "L149",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "world_eldersystem_eldersystem_newelder",
-      "target": "world_eldersystem_eldersystem_elder"
+      "source": "world_eldersystem_eldersystem_processyear",
+      "target": "world_eldersystem_eldersystem_entertheyoung",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -141305,6 +141314,17 @@
       "context": "parameter_type",
       "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_drawname",
+      "target": "src_core_world_eldersystem_cs_factiondata"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L55",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "world_eldersystem_eldersystem_newelder",
       "target": "src_core_world_eldersystem_cs_factiondata"
     },
     {
@@ -141383,6 +141403,39 @@
       "confidence_score": 1.0,
       "source": "world_eldersystem_eldersystem_trythegoldencore",
       "target": "src_core_world_eldersystem_cs_factiondata"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L55",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "world_eldersystem_eldersystem_newelder",
+      "target": "src_core_world_eldersystem_cs_factionelder"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_eldersystem_eldersystem_newelder",
+      "target": "world_eldersystem_eldersystem_drawname"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/Core/World/ElderSystem.cs",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "world_eldersystem_eldersystem_newelder",
+      "target": "world_eldersystem_eldersystem_elder"
     },
     {
       "relation": "references",
@@ -184319,9 +184372,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests",
-      "target": "diplomacy_clientagetests_clientagetests_thebaiandthezang_arefamiliesofthesect_onitslands",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_thebaiandthezang_arefamiliesofthesect_onitslands"
     },
     {
       "relation": "method",
@@ -184445,9 +184498,9 @@
       "source_file": "tests/Core.Tests/Diplomacy/ClientageTests.cs",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thebaiandthezang_arefamiliesofthesect_onitslands",
-      "target": "diplomacy_clientagetests_clientagetests_session",
-      "confidence_score": 1.0
+      "target": "diplomacy_clientagetests_clientagetests_session"
     },
     {
       "relation": "calls",
@@ -184665,9 +184718,9 @@
       "source_location": "L133",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "diplomacy_clientagetests_clientagetests_thebaiandthezang_arefamiliesofthesect_onitslands",
-      "target": "tests_core_tests_diplomacy_clientagetests_cs_test",
-      "confidence_score": 1.0
+      "target": "tests_core_tests_diplomacy_clientagetests_cs_test"
     },
     {
       "relation": "references",
@@ -220943,6 +220996,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
+      "source_location": "L267",
+      "weight": 1.0,
+      "source": "world_eldersystemtests_eldersystemtests_ayoungfigure_beginsattherealmofitsage_notitspeak",
+      "target": "world_eldersystemtests_eldersystemtests_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Core.Tests/World/ElderSystemTests.cs",
       "source_location": "L169",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -237111,5 +237175,5 @@
       "source_file": "BRAIN_CLAUDE/PLAN.md"
     }
   ],
-  "built_at_commit": "8530367a5ba693bccb53cb382ebd2140cdf6d50c"
+  "built_at_commit": "5144359731aa6e6e1438158aca2b211431de62b7"
 }

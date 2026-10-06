@@ -85,10 +85,11 @@ namespace MirrorChronicles.Tests.Session
         [Test]
         public void AHegemony_OverAPlaceWithoutPowers_NeverHolds()
         {
+            string empty = Fixtures.Content.Regions.First(r => Fixtures.Content.Factions.All(f => f.RegionId != r.Id && f.Jurisdiction?.Contains(r.Id) != true)).Id;
             var hegemony = new EndingDefinition { Id = "empty-hegemony", Name = "X", Narrative = "…",
-                Conditions = new[] { new EndingCondition { Kind = EndingConditionKind.Hegemony, RegionId = "tiger-frontier", Vassals = 0, Years = 1 } } };
+                Conditions = new[] { new EndingCondition { Kind = EndingConditionKind.Hegemony, RegionId = empty, Vassals = 0, Years = 1 } } };
             var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent with { Endings = new[] { hegemony } } });
-            Assert.IsFalse(s.Factions.Factions.Any(f => f.RegionId == "tiger-frontier"), "a place without powers");
+            Assert.IsFalse(s.Factions.Factions.Any(f => f.RegionId == empty), "a place without powers");
             NextYear(s);
             NextYear(s);
             Assert.IsFalse(s.Endings.IsReached("empty-hegemony"));
@@ -196,7 +197,7 @@ namespace MirrorChronicles.Tests.Session
         public void TheLakeIsUnified_WhenEveryOtherFamilyOfTheLakeIsTheClansVassal()
         {
             var s = Quiet();
-            var lake = new[] { "Famille Lü", "Famille Tao", "Famille Lou", "Famille Fang", "Famille Xun", "Famille Kang" };
+            var lake = new[] { "Famille Lü", "Famille Tao", "Famille Lou", "Famille Fang", "Famille Xun", "Famille Kang", "Famille Cen" };
             foreach (var family in lake.Take(lake.Length - 1)) Vassal(s, family);
             NextYear(s);
             Assert.IsFalse(s.Endings.IsReached("lake-unified"));

@@ -42,7 +42,8 @@ namespace MirrorChronicles.World
             {
                 power.Elders ??= new List<FactionElder>();
                 foreach (var figure in ctx.Content.Figures.Where(f => f.FactionName == power.Name))
-                    power.Elders.Add(Elder(worldRng, figure.Id, figure.Name, RealmAtStart(figure, year), year, figure.BornYear));
+                    if (RealmAtStart(figure, year) is { } realm) // too young for the Qi Cultivation: it joins later (EnterTheYoung)
+                        power.Elders.Add(Elder(worldRng, figure.Id, figure.Name, realm, year, figure.BornYear));
                 if (!power.Elders.Any(e => e.Realm >= power.HighestRealm))
                     power.Elders.Add(Elder(worldRng, null, DrawName(worldRng, power), power.HighestRealm, year, null));
                 int cadets = Settings.CadetsByKind.TryGetValue(power.Kind, out int n) ? n : 2;
@@ -55,15 +56,33 @@ namespace MirrorChronicles.World
             }
         }
 
-        /// <summary>A figure's realm as the story opens: its peak, unless it is too young for it (audit §4.6).</summary>
-        private CultivationRealm RealmAtStart(FigureDefinition figure, int year)
+        /// <summary>
+        /// A figure's realm as the story opens: its peak, unless it is too young for it (audit §4.6); null when it is still a
+        /// child below the Qi Cultivation (📚 Zang Wanru, twelve, reaches the eighth level only at twenty-four).
+        /// </summary>
+        private CultivationRealm? RealmAtStart(FigureDefinition figure, int year)
         {
             if (figure.BornYear is not int born) return figure.Realm;
             int age = year - born;
-            var reached = Settings.FigureAgeByRealm.Where(r => r.Key <= figure.Realm && age < r.Value).Select(r => r.Key).ToList();
-            if (reached.Count == 0) return figure.Realm;
-            var cap = reached.Min() - 1; // the first realm its age does not reach: it stands one below
-            return cap < CultivationRealm.QiRefinement ? CultivationRealm.QiRefinement : cap;
+            var notYet = Settings.FigureAgeByRealm.Where(r => r.Key <= figure.Realm && age < r.Value).Select(r => r.Key).ToList();
+            if (notYet.Count == 0) return figure.Realm;
+            var cap = notYet.Min() - 1; // the first realm its age does not reach: it stands one below
+            return cap < CultivationRealm.QiRefinement ? null : cap;
+        }
+
+        /// <summary>A figure too young as the story opened joins its power the year it enters the Qi Cultivation.</summary>
+        private void EnterTheYoung(FactionData power, int year)
+        {
+            if (!Settings.FigureAgeByRealm.TryGetValue(CultivationRealm.QiRefinement, out int qiAge)) return;
+            foreach (var figure in ctx.Content.Figures.Where(f => f.FactionName == power.Name && f.BornYear is int b && year - b == qiAge))
+            {
+                if (power.Elders.Any(e => e.FigureId == figure.Id)) continue;
+                var elder = Elder(ctx.Rng, figure.Id, figure.Name, CultivationRealm.QiRefinement, year, figure.BornYear);
+                elder.Stage = 1;
+                elder.RealmSinceYear = year;
+                power.Elders.Add(elder);
+                ctx.Log.Info($"[Elders] {figure.Name} enters the Qi Cultivation and joins {power.Name}.");
+            }
         }
 
         /// <summary>A new elder of the power at this realm (a risen family's founder, its cadets): drawn by the game.</summary>
@@ -127,6 +146,7 @@ namespace MirrorChronicles.World
                     else if (elder.Realm < CultivationRealm.PurpleMansion) Rise(power, elder, year);
                     else if (elder.Realm == CultivationRealm.PurpleMansion) TryTheGoldenCore(power, elder, year);
                 }
+                EnterTheYoung(power, year);
                 RefinePills(power);
                 RaiseTheFormation(power);
                 RaiseACadet(power, year);

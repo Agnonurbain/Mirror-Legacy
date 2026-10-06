@@ -1,5 +1,23 @@
 [
   {
+	"name": "Famille Cen",
+	"suzerain": "Secte du Pic des Nuées",
+	"startingDistrust": { "Famille Lü": 40 },
+	"familyName": "Cen",
+	"kind": "Family",
+	"regionId": "jingshui-lake",
+	"path": "Immortal",
+	"highestRealm": "QiRefinement",
+	"techniques": [ "path-watcher" ],
+	"personality": "Isolationist",
+	"powerLevel": 150,
+	"wealth": 250,
+	"relationWithPlayer": 10,
+	"notes": "📚 Une petite famille gouvernée par le Pic des Nuées, à l'est du clan, voisine des Xun ; ses formations — des drapeaux hérités d'un ancêtre — la gardent ; les Lü pillent ses champs spirituels (audit §4.8). Nom du jeu : lexique §13.4.",
+	"provenance": "Wiki",
+	"interpretedFields": [ "Personality", "PowerLevel", "Wealth", "RelationWithPlayer", "HighestRealm" ]
+  },
+  {
 	"name": "Secte du Pic des Nuées",
 	"startingDistrust": {"Secte de la Lune Pâle": 30, "Porte du Fer Ardent": 30},
 	"familyName": null,
@@ -23,7 +41,7 @@
 	"powerLevel": 10000,
 	"wealth": 20000,
 	"relationWithPlayer": 10,
-	"notes": "Secte dominante du Linxi, soutenue par au moins un Vrai Monarque ; le Lac Jingshui relevait d'elle avant d'être confié aux Mo.",
+	"notes": "Secte dominante du Linxi, 📚 fondée par le Vrai Monarque Tan Qing (Eau Muable), qui réside dans un Ciel et la soutient (audit §4.8) ; le Lac Jingshui relevait d'elle avant d'être confié aux Mo.",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
@@ -523,6 +541,7 @@
   {
 	"name": "Famille Lü",
 	"suzerain": "Porte du Fer Ardent",
+	"startingDistrust": { "Famille Cen": 40 },
 	"familyName": "Lü",
 	"kind": "Family",
 	"regionId": "jingshui-lake",
@@ -624,11 +643,12 @@
   },
   {
 	"name": "Famille Qiao",
+	"suzerain": "Secte de la Lune Pâle",
 	"familyName": "Qiao",
 	"kind": "Family",
-	"regionId": "linxi",
+	"regionId": "pale-moon-lands",
 	"path": "Immortal",
-	"highestRealm": "Foundation",
+	"highestRealm": "PurpleMansion",
 	"techniques": [
       "distant-rumble-art"
 	],
@@ -636,7 +656,7 @@
 	"powerLevel": 800,
 	"wealth": 900,
 	"relationWithPlayer": 0,
-	"notes": "Le lore ne situe pas la famille.",
+	"notes": "Le lore ne situe pas la famille. 📚 Un clan immortel du Manoir Pourpre sous la Secte de la Lune Pâle (audit §4.7).",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
@@ -831,7 +851,7 @@
 	"name": "Grand Monastère de Huiqiu",
 	"familyName": null,
 	"kind": "Temple",
-	"regionId": "linxi",
+	"regionId": "tiger-frontier",
 	"path": "Buddhist",
 	"highestRealm": "Foundation",
 	"techniques": [],
@@ -839,7 +859,7 @@
 	"powerLevel": 3000,
 	"wealth": 3000,
 	"relationWithPlayer": 0,
-	"notes": "Puissance bouddhiste du Linxi (§7.4). Le lore ne le situe pas dans le royaume.",
+	"notes": "Puissance bouddhiste du Linxi (§7.4). Le lore ne le situe pas dans le royaume. 🔎 Près de la Frontière du Tigre : la carte du wiki le range avec elle parmi les « autres lieux » (audit §4.7).",
 	"provenance": "Lore",
 	"interpretedFields": [
 	  "Personality",
