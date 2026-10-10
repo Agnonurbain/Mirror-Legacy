@@ -43,52 +43,22 @@ BRAINSTORMING.md → CLAUDE.md → MEMORY.md → NOT_DONE.md → WORKED_LESSON.m
 
 - **Type** : RPG de gestion de clan + tactique 2D, thème Xianxia (cultivation chinoise)
 - **Moteur** : Godot 4.7.2 .NET + C# (depuis le 2026-09-25 ; Unity abandonné)
-- **Phase actuelle** : **Phases 1-3 terminées, Phase 4 en cours** — 60+ scripts, 6 actions combat, 5 stratégies IA, A*, terrain procédural, 11 events + 6 story events, 8 factions, 8 bâtiments, 5 ressources, espionnage, WorldMap, victoire/défaite, save slots, object pool. 17 tests EditMode passent.
-- **Source de vérité** : le master prompt (également dans chat / CLAUDE.md racine)
+- **Phase actuelle** (2026-10-10) : migration Godot (G0-G5) et restructuration du lore L0-L5 faites ; simulation complète dans `src/Core` (~27 000 lignes), 10 écrans Godot, contenu dans 22 fichiers `game/data/*.json`. **2 092 tests NUnit passent** (`./Scripts/dev.sh test`), fumée headless OK (`./Scripts/dev.sh smoke`).
+- **Source de vérité** : `CLAUDE.md` (racine) pour le code, `LORE.md` pour le monde
 - **Langue** : FR pour docs + logs Debug en FR possible, **EN strict** pour code (classes, variables, commentaires XML)
+- **Outillage** : Godot dans `~/code/Godot` (lien `~/Godot`), plugin godot-ai 4.3.0 dans `game/addons/godot_ai`
 
 ---
 
-## ⚠️ 5 priorités absolues (Phase 2)
+## ⚠️ Priorités actuelles (détails dans `NOT_DONE.md`)
 
-1. ✅ ~~Bootstrapper le projet Unity~~ — fait (2026-04-15)
-2. ✅ ~~Corriger les erreurs de compilation~~ — fait (WL-001..005)
-3. ✅ ~~Créer les asmdef~~ — Runtime + Editor + Tests
-4. ✅ ~~Sérialisation JSON → Newtonsoft~~ — SaveSystem migré
-5. ✅ ~~Archiver le code web~~ — dans `.archive/web-port/`
+1. 🟠 **G6 — Écrans à venir** : brancher la bataille sur les guerres, embuscades et chasses ; chaque étape vérifiée dans le jeu lancé depuis l'éditeur (godot-ai).
+2. 🟠 **B1 — Équilibrage des longues parties** : population et pierres qui s'emballent après un siècle ; un clan passif n'attire aucun complot.
+3. 🟡 **P1 — Parité du monde** : tout ce qui arrive au clan arrive aussi au reste du monde.
+4. 🟡 **L6 — Monde vivant** puis **L7 — autres voies de cultivation**.
+5. 🟢 **Polish** : sprites peints (#60-61), VFX (#62-63), audio (#64).
 
-**Nouvelles priorités Phase 2 :**
-1. ✅ ~~TechniqueAction~~ (#20) — fait (2026-04-18)
-2. ✅ ~~ItemAction + FleeAction~~ (#21) — fait (2026-04-18)
-3. ✅ ~~3 stratégies IA~~ (#22) — fait (2026-04-18)
-4. ✅ ~~Terrain procédural~~ (#23) — fait (2026-04-18)
-5. ✅ ~~Table d'événements~~ (#25) — fait (2026-04-18)
-
-6. ✅ ~~Pathfinding A*~~ (#24) — fait (2026-04-18)
-7. ✅ ~~Événements scénarisés~~ (#26) — fait (2026-04-18)
-8. ✅ ~~Intervention Divine combat~~ (#28) — fait (2026-04-18)
-9. ✅ ~~Intervention Divine percée~~ (#29) — fait (2026-04-18)
-
-10. ✅ ~~Résolution UI events~~ (#27) — fait (2026-04-18)
-11. ✅ ~~FactionData SO~~ (#40) — fait (2026-04-18), 8 factions par défaut
-12. ✅ ~~BuildingSystem~~ (#43) — fait (2026-04-18), 8 bâtiments × 5 niveaux
-13. ✅ ~~4 ressources~~ (#44) — fait (2026-04-18)
-14. ✅ ~~Succession Patriarche~~ (#45) — fait (2026-04-18)
-15. ✅ ~~Karma du Clan~~ (#46) — fait (2026-04-18)
-
-16. ✅ ~~EspionageSystem~~ (#41) — fait (2026-04-18)
-
-17. ✅ ~~WorldMap scene~~ (#42) — fait (2026-04-18)
-18. ✅ ~~Condition de victoire~~ (#66) — fait (2026-04-18)
-19. ✅ ~~Object Pool~~ (#100) — fait (2026-04-18)
-20. ✅ ~~Memento save slots~~ (#101) — fait (2026-04-18)
-
-**Prochaines priorités (Phase 4 — Art & Polish) :**
-1. **Direction artistique Shuimo** (#60) — nécessite assets visuels
-2. **UI thématique** (#61) — remplacement UI placeholder
-3. **VFX percée/combat** (#62-63) — Particle Systems
-4. **Audio** (#64) — musique + SFX
-5. **MVC strict pour UI** (#102)
+L'historique Unity (phases 1-3, avril 2026) est dans `DONE.md` et dans git.
 
 ---
 
@@ -112,11 +82,11 @@ BRAINSTORMING.md → CLAUDE.md → MEMORY.md → NOT_DONE.md → WORKED_LESSON.m
 ## 🔑 Règles d'or (rappel)
 
 1. **Code anglais strict, docs FR** — pas de mélange.
-2. **Design patterns obligatoires** : Singleton, Observer (C# Events), Strategy, Command, State Machine, MVC.
-3. **Pas de `SendMessage`, pas de `FindObjectOfType` en boucle, pas de `StartCoroutine` pour les timers** (utiliser async/await ou GameEvents).
-4. **Données JSON (`game/data/`) pour tout contenu statique** (clan, noms, équilibrage, factions, événements ; techniques et Fruitions à venir).
-5. **Null checks + try/catch** sur les opérations critiques (Save/Load).
-6. **Tests Play Mode** pour chaque système lourd après implémentation.
+2. **Simulation sans moteur** : toute règle vit dans `src/Core` (aucun type Godot, dépendances par constructeur, `GameContext` partagé, **pas de singleton**) ; la couche `game/` ne fait que lier les modèles de `Presentation`. Patterns : Observer (bus par partie), Strategy (IA), Command (actions de combat), MVC.
+3. **Hasard à graine** : toujours `ctx.Rng` — une graine rejoue la même partie.
+4. **Données JSON (`game/data/`) pour tout contenu statique**, validées par `GameContentLoader` ; jamais de nom propre du roman (`LORE.md` §13).
+5. **Null checks + try/catch** sur les opérations critiques (Save/Load) ; ne jamais renommer un champ sauvegardé.
+6. **TDD NUnit** (`dotnet test`) pour chaque règle, puis **vérification dans le jeu lancé depuis l'éditeur** (godot-ai) pour chaque changement de gameplay ou d'interface.
 7. **Un système à la fois** — proposer l'architecture, valider avec l'utilisateur, puis coder.
 
 ---
