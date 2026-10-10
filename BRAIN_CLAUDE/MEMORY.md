@@ -1,6 +1,6 @@
 # 🧠 MEMORY.md — Mémoire projet Reflets de Lignée
 
-> **Dernière mise à jour :** 2026-09-25 — migration Unity → **Godot 4.7.2 .NET** (phase G). Toute la simulation tourne sans moteur ; l'arbre Unity disparaît en G5.
+> **Dernière mise à jour :** 2026-10-10 — **Godot 4.7.2 .NET** (migration Unity terminée en G5, historique dans git). Toute la simulation tourne sans moteur ; 2 092 tests NUnit.
 > **À chaque reprise :** lire `NOT_DONE.md`, `WORKED_LESSON.md` et, pour le monde, `LORE.md` (source de vérité).
 
 ---
@@ -87,7 +87,7 @@ Mirror-Legacy/
 | **Qi/Spirituel** | Violet impérial `#6A0DAD` |
 | **❌ NE PAS faire** | Flat design, Material Design, menus modernes |
 
-L'écran actuel utilise le thème Godot par défaut (placeholder).
+Thème Shuimo de base en place (43a41) : papier, bronze, paysage et portraits à l'encre dessinés en procédural ; les sprites peints restent à faire (#60-61).
 
 ---
 
