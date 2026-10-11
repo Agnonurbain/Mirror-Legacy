@@ -53,14 +53,14 @@ namespace MirrorChronicles.World
             }
         }
 
+        /// <summary>The chance the clan's Dharma Treasures and Rank Designations foil an ambush on this member (L4e; set by the session).</summary>
+        public System.Func<CharacterData, double> Guard { get; set; }
+
         /// <summary>
         /// An ambush on a member away from the domain, for profit (the user's choice, 2026-10-01): one the clan's treasury
         /// could ransom, or — for a power hostile enough — a hostage against the quarrel; false when nobody worth it was within
         /// reach (a poor young clan was taken twelve times in sixty years, and died out).
         /// </summary>
-        /// <summary>The chance the clan's Dharma Treasures and Rank Designations foil an ambush on this member (L4e; set by the session).</summary>
-        public System.Func<CharacterData, double> Guard { get; set; }
-
         public bool Ambush(FactionData power)
         {
             if (!TravelRules.PowerReaches(power, ctx.Content.Clan.HomeRegion, ctx.Content)) return false; // too far to come (audit §1.5)

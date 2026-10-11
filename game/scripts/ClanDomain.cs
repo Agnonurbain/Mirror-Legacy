@@ -134,7 +134,10 @@ namespace MirrorChronicles.Game
             if (upkeep.Warning != null) stones.Text += " — misère";
             mirror.Text = $"Clair de Lune {header.MirrorPower}/{session.Mirror.Cap}";
             generation.Text = $"Génération {header.Generation}";
-            GetNode<Button>("%OpenBattle").Visible = session.Challenges.Pending != null || session.Challenges.Current != null;
+            var openBattle = GetNode<Button>("%OpenBattle");
+            bool ambushed = session.Ambushes.Pending != null || session.Ambushes.Current != null;
+            openBattle.Visible = ambushed || session.Challenges.Pending != null || session.Challenges.Current != null;
+            openBattle.Text = ambushed ? "Embuscade !" : "Défi d'un rival";
             var stock = ClanDomainView.QiStock(session);
             qi.Text = stock.Count == 0 ? "Aucun Qi en réserve"
                 : string.Join(" · ", stock.Select(line => $"{line.Name} ×{line.Portions}"));
@@ -155,11 +158,15 @@ namespace MirrorChronicles.Game
 
             bool over = session.Victory.IsOver;
             status.Text = EndingView.Defeat(session);
+            var ambush = BattleView.Ambush(session);
+            if (ambush != null && !over)
+                status.Text = $"{ambush.Target} tombe dans une embuscade de {ambush.Faction} : le clan doit répondre avant de poursuivre.";
             TellNextEnding();
             OfferFromAPatron();
             AskForAnAnswer();
             AskAboutTheDemon();
-            nextPhase.Disabled = over || session.Story.PendingEvent != null; // a story event waits for a choice
+            nextPhase.Disabled = over || session.Story.PendingEvent != null // a story event waits for a choice
+                || ambushed;                                                 // and an ambush for an answer (G6)
         }
 
         private void FoundKingdom()
@@ -456,6 +463,7 @@ namespace MirrorChronicles.Game
                 for (int p = 0; p < PhasesPerYear; p++)
                 {
                     while (session.Story.PendingEvent != null) ChooseStoryOutcome(0);
+                    while (session.Ambushes.Pending != null) session.Ambushes.LetBe(); // the smoke leaves ambushes to chance
                     AdvancePhase();
                 }
             }

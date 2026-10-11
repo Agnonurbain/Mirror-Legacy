@@ -52,7 +52,7 @@ namespace MirrorChronicles.Game
 
             back.Pressed += () => root.GoTo(ClanDomain.ScenePath);
             GetNode<Button>("%Accept").Pressed += Accept;
-            GetNode<Button>("%Decline").Pressed += () => Answer(root.Session.Challenges.Decline(), "Le clan se dérobe au défi.");
+            GetNode<Button>("%Decline").Pressed += Decline;
             endTurn.Pressed += () => { Battle?.EndTurn(); Refresh(); };
             auto.Pressed += () => { Battle?.AutoPlay(); Refresh(); };
             pulse.Pressed += Pulse;
@@ -62,12 +62,16 @@ namespace MirrorChronicles.Game
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
         }
 
-        private MirrorChronicles.Combat.Battle Battle => root.Session.Challenges.Current;
+        /// <summary>The battle under way: a challenge's, or an ambush's (G6).</summary>
+        private MirrorChronicles.Combat.Battle Battle => root.Session.Challenges.Current ?? root.Session.Ambushes.Current;
 
         private System.Func<string, MirrorChronicles.Data.TechniqueData> Find => root.Session.Techniques.Find;
 
         private void Refresh()
         {
+            bool ambush = root.Session.Ambushes.Pending != null || root.Session.Ambushes.Current != null;
+            GetNode<Label>("%Title").Text = ambush ? "Embuscade" : "Défi d'un rival";
+            conclude.Text = ambush ? "Conclure l'embuscade" : "Conclure le défi";
             bool fighting = Battle != null;
             prep.Visible = !fighting;
             field.Visible = fighting;
@@ -78,6 +82,22 @@ namespace MirrorChronicles.Game
         private void ShowSummons()
         {
             Clear(candidates);
+            var accept = GetNode<Button>("%Accept");
+            var decline = GetNode<Button>("%Decline");
+            if (BattleView.Ambush(root.Session) is { } ambush)
+            {
+                accept.Text = "Combattre";
+                decline.Text = "Laisser faire le sort";
+                accept.Disabled = ambush.Fighters.Count == 0;
+                decline.Disabled = false;
+                summons.Text = $"Embuscade ! {ambush.Agents} agent(s) de {ambush.Faction}, de rang {ambush.Rank}, fondent sur {ambush.Target} loin du domaine. "
+                    + (ambush.Fighters.Count == 0 ? "Personne ne peut combattre : seul le sort décidera."
+                        : "Combattez avec les membres partis, ou laissez le sort décider.");
+                foreach (var name in ambush.Fighters) candidates.AddChild(new Label { Text = $"Combat : {name}" });
+                return;
+            }
+            accept.Text = "Relever le défi";
+            decline.Text = "Se dérober";
             var pending = BattleView.Pending(root.Session);
             GetNode<Button>("%Accept").Disabled = pending == null;
             GetNode<Button>("%Decline").Disabled = pending == null;
@@ -105,6 +125,14 @@ namespace MirrorChronicles.Game
 
         private void Accept()
         {
+            if (root.Session.Ambushes.Pending != null)
+            {
+                var fight = root.Session.Ambushes.Fight();
+                status.Text = fight == null ? "Les membres du clan font face : la bataille commence." : $"Impossible : {fight}.";
+                action = BattleView.Move;
+                Refresh();
+                return;
+            }
             var refusal = root.Session.Challenges.Accept(chosen.ToList());
             status.Text = refusal == null ? "Le défi est relevé : la bataille commence." : $"Impossible : {refusal}.";
             if (refusal == null) chosen.Clear();
@@ -112,10 +140,18 @@ namespace MirrorChronicles.Game
             Refresh();
         }
 
+        private void Decline()
+        {
+            if (root.Session.Ambushes.Pending != null) Answer(root.Session.Ambushes.LetBe(), "Le clan laisse le sort décider de l'embuscade.");
+            else Answer(root.Session.Challenges.Decline(), "Le clan se dérobe au défi.");
+        }
+
         private void Conclude()
         {
             string outcome = Battle == null ? null : BattleView.Outcome(Battle);
-            Answer(root.Session.Challenges.Conclude(), $"Le défi est réglé : {outcome?.ToLowerInvariant()}.");
+            if (root.Session.Ambushes.Current != null)
+                Answer(root.Session.Ambushes.Conclude(), $"L'embuscade est réglée : {outcome?.ToLowerInvariant()}.");
+            else Answer(root.Session.Challenges.Conclude(), $"Le défi est réglé : {outcome?.ToLowerInvariant()}.");
         }
 
         private void Answer(string refusal, string done)
@@ -136,7 +172,7 @@ namespace MirrorChronicles.Game
             foreach (var unit in BattleView.Units(battle))
                 units.AddChild(new Label
                 {
-                    Text = $"{(unit.IsCurrent ? "▶ " : "")}{(unit.IsAlly ? "Clan" : "Rival")} — {unit.Name} ({unit.Rank}) : "
+                    Text = $"{(unit.IsCurrent ? "▶ " : "")}{(unit.IsAlly ? "Clan" : root.Session.Ambushes.Current != null ? "Agent" : "Rival")} — {unit.Name} ({unit.Rank}) : "
                         + $"vitalité {unit.Vitality}/{unit.MaxVitality}, Qi {unit.Qi}/{unit.MaxQi}{(unit.Status == null ? "" : $" — {unit.Status}")}",
                     AutowrapMode = TextServer.AutowrapMode.WordSmart
                 });
@@ -161,7 +197,7 @@ namespace MirrorChronicles.Game
             pulse.Disabled = !myTurn || pulseRefusal != null;
             pulse.TooltipText = pulseRefusal ?? "";
             conclude.Visible = battle.IsOver;
-            if (battle.IsOver) status.Text = $"{BattleView.Outcome(battle)}. Concluez le défi.";
+            if (battle.IsOver) status.Text = $"{BattleView.Outcome(battle)}. Concluez {(root.Session.Ambushes.Current != null ? "l'embuscade" : "le défi")}.";
         }
 
         private void Strike(int x, int y)
@@ -194,6 +230,7 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             var session = root.Session;
+            while (session.Ambushes.Pending != null) session.Ambushes.LetBe(); // the smoke checks the challenge's battle
             if (session.Challenges.Pending == null && session.Challenges.Current == null)
                 session.Challenges.Issue(session.Factions.Factions.FirstOrDefault());
             var pending = BattleView.Pending(session);

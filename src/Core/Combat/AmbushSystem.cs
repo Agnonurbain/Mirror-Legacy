@@ -114,10 +114,10 @@ namespace MirrorChronicles.Combat
             var fighters = Fighters(Pending);
             if (fighters.Count == 0) return "personne ne peut combattre : laissez faire le sort";
 
-            fought = Pending;
-            Pending = null;
+            fought = Pending; // Equip reads it while the battle is set up
             Current = Battle.Start(fighters, Agents(fought), ctx.Rng, ctx.Log, findTechnique: techniques.Find, gap: ctx.Content.Balance.RealmGap,
                 convergence: ctx.Content.Balance.Arts.Convergence, equip: Equip);
+            Pending = null; // only once the battle stands
             return null;
         }
 
@@ -145,10 +145,11 @@ namespace MirrorChronicles.Combat
                 _ => AmbushOutcome.Escaped
             };
             var target = clan.FindById(fought.TargetId);
+            if (outcome == AmbushOutcome.Taken && target is not { IsAlive: true, CaptorFaction: null })
+                outcome = AmbushOutcome.Escaped; // nobody left to take
             if (outcome == AmbushOutcome.Repelled)
                 captives.Imprison(new Prisoner($"agent-{fought.Seed}", fought.Faction, fought.Realm, ctx.Clock.Year));
-            else if (outcome == AmbushOutcome.Taken && target is { IsAlive: true, CaptorFaction: null })
-                captives.Take(target, fought.Faction);
+            else if (outcome == AmbushOutcome.Taken) captives.Take(target, fought.Faction);
             else ctx.Log.Info($"[Ambush] The clan's members escape {fought.Faction}'s agents.");
             ctx.Events.TriggerAmbushSettled(fought.Faction, outcome);
             Current = null;

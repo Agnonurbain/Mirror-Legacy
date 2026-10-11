@@ -206,6 +206,19 @@ namespace MirrorChronicles.Tests.Combat
         }
 
         [Test]
+        public void Conclude_TellsAnEscape_WhenNobodyIsLeftToTake()
+        {
+            var (w, target) = Sprung(new FixedRandom(0.0));
+            AmbushOutcome? outcome = null;
+            w.Ctx.Events.OnAmbushSettled += (_, o) => outcome = o;
+            w.Ambushes.Fight();
+            Lose(w);
+            target.CaptorFaction = "Famille Lou"; // taken elsewhere before the battle is settled
+            w.Ambushes.Conclude();
+            Assert.AreEqual(AmbushOutcome.Escaped, outcome);
+        }
+
+        [Test]
         public void LetBe_SettlesTheAmbushByChance()
         {
             var (w, target) = Sprung(new FixedRandom(0.0)); // chance always takes the member
