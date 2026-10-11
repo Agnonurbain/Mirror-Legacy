@@ -85,21 +85,35 @@ namespace MirrorChronicles.World
                 ctx.Log.Info($"[Schemes] A great partner's shadow foils {power.Name}'s ambush on {target.FullName}.");
                 return true;
             }
+            if (Spring?.Invoke(power, target) == true) return true; // a player there fights it on the grid (G6)
+            ResolveByChance(power, target);
+            return true;
+        }
+
+        /// <summary>
+        /// When a player is there to fight (set by the session, G6): the ambush waits for the clan on the battle screen;
+        /// false when the member struck cannot fight, and chance settles it.
+        /// </summary>
+        public Func<FactionData, CharacterData, bool> Spring { get; set; }
+
+        /// <summary>An ambush not foiled, settled by chance: the member taken, or an escape that may leave an agent behind.</summary>
+        public void ResolveByChance(FactionData power, CharacterData target)
+        {
             if (ctx.Rng.Chance(SchemeRules.CaptureChance(power, target, Settings, ctx.Content.Balance.RealmGap)))
             {
                 captives.Take(target, power.Name);
-                return true;
+                return;
             }
             if (ctx.Rng.Chance(Settings.AgentTakenChance))
                 captives.Imprison(new Prisoner($"agent-{power.ID}-{ctx.Clock.Year}", power.Name, target.Realm, ctx.Clock.Year));
             ctx.Log.Info($"[Schemes] {target.FullName} escapes an ambush.");
-            return true;
         }
 
         private bool WorthTaking(FactionData power, CharacterData member) =>
             captives.ClanStones >= SchemeRules.Ransom(member.Realm, Settings) || power.RelationWithPlayer <= Settings.HostageRelation;
 
-        private bool IsAway(CharacterData member) =>
+        /// <summary>A free member away from the domain this year: on a task abroad or an operation (where an ambush reaches them).</summary>
+        public bool IsAway(CharacterData member) =>
             member.CaptorFaction == null
             && (Settings.AwayTasks.Contains(member.CurrentTask) || member.LastOperationYear == ctx.Clock.Year);
     }

@@ -44,6 +44,15 @@ namespace MirrorChronicles.Data
         public int CapturePerRealm { get; init; }
         public double AgentTakenChance { get; init; }
 
+        /// <summary>
+        /// An ambush fought on the grid (G6, the user's choice 2026-10-11): at most this many of the clan's members away
+        /// fight it, against 1 to AmbushMaxAgents agents this many realms below their power's strongest — never below the
+        /// member struck.
+        /// </summary>
+        public int AmbushMaxFighters { get; init; } = 1;
+        public int AmbushMaxAgents { get; init; } = 1;
+        public int AgentRealmsBelowPower { get; init; } = 1;
+
         /// <summary>The captor's patience: past it, each year the captive may be executed.</summary>
         public int PatienceYears { get; init; } = 1;
         public double ExecutionChance { get; init; }
