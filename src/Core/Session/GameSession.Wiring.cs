@@ -130,6 +130,7 @@ namespace MirrorChronicles.Session
             Oaths.Alchemy = Alchemy;
             Abilities.Alchemy = Alchemy;
             Challenges.Alchemy = Alchemy;
+            Ambushes.Alchemy = Alchemy;       // the ambushed draw on the same pills (G6)
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
