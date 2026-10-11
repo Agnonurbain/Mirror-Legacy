@@ -106,7 +106,14 @@ namespace MirrorChronicles.Presentation
         }
 
         /// <summary>The ambush awaiting the clan, and the members away who will fight it; null when none.</summary>
-        public static PendingAmbush Ambush(GameSession session) => null;
+        public static PendingAmbush Ambush(GameSession session)
+        {
+            var ambush = session.Ambushes.Pending;
+            if (ambush == null) return null;
+            var target = session.Clan.FindById(ambush.TargetId);
+            return new PendingAmbush(ambush.Faction, target?.FullName ?? "un membre disparu", RankCatalog.RealmName(ambush.Realm), ambush.Agents,
+                session.Ambushes.Fighters(ambush).Select(m => m.FullName).ToList());
+        }
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)
         {
