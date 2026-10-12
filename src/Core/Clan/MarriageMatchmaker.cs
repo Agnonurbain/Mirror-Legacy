@@ -52,6 +52,7 @@ namespace MirrorChronicles.Clan
         {
             return character != null
                 && character.IsAlive
+                && character.Species == Species.Human // a bound beast never weds (R16)
                 && character.CaptorFaction == null // a captive marries nobody (L6a)
                 && string.IsNullOrEmpty(character.SpouseID)
                 && character.Age >= MinMarriageAge

@@ -81,7 +81,7 @@ namespace MirrorChronicles.Characters
 
         /// <summary>The secret technique of ascent to the Purple Mansion: from grade 5, unless the lore says otherwise (§2.3).</summary>
         public static bool HasPurpleMansionSecret(TechniqueData method) =>
-            method.HasPurpleMansionSecret ?? method.Grade >= 5;
+            method != null && (method.HasPurpleMansionSecret ?? method.Grade >= 5); // no method (a bound beast, R16): no secret
 
         /// <summary>Portions of the Qi absorbed to enter Qi Cultivation: none for a Qi found everywhere.</summary>
         public static int QiPortionsToEnter(QiDefinition qi, TechniqueSettings rules) => qi.Ubiquitous ? 0 : rules.QiPortionsToEnter;

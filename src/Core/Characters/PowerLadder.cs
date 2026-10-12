@@ -186,6 +186,7 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public static void NormalizeLifespan(CharacterData character)
         {
+            if (character.Species != Species.Human && character.MaxLifespan > 0) return; // a bound beast outlives a human of its realm (R16)
             int reach = MaxLifespan(character.Realm, character.RealmStage);
             if (character.MaxLifespan <= 0 || character.MaxLifespan > reach)
                 character.MaxLifespan = WoundedLifespan(reach, character.DaoWounds);

@@ -39,7 +39,7 @@ namespace MirrorChronicles.Session
             foreach (var essence in session.Clan.LivingMembers.Where(m => m.CaptorFaction == null
                 && m.GoldenCore == GoldenCoreState.MetallicEssenceOnly).ToList())
                 ClaimAPosition(session, essence);
-            var mansions = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm == CultivationRealm.PurpleMansion
+            var mansions = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm == CultivationRealm.PurpleMansion && m.Path != CultivationPath.Demonic
                     && m.Retreat == Retreat.None && !m.ProgressionSealed && !m.BorrowedLight)
                 .OrderByDescending(m => m.DivineAbilities.Count).ToList();
             if (mansions.Count == 0) return;

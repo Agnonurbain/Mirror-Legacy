@@ -64,6 +64,7 @@ namespace MirrorChronicles.Mirror
                 ctx.Clock.Year != NextRitualYear ? $"the ritual's year is {NextRitualYear}"
                 : PendingOffer != null ? "an offer already awaits a choice"
                 : bearer == null || !bearer.IsAlive || !SpiritualOrificeRules.CanCultivate(bearer) ? "the bearer cannot receive a talisman"
+                : bearer.Species != Species.Human ? "a bound beast takes no talisman" // R16
                 : bearer.TalismanQiId != null ? "the bearer already has a talisman"
                 : beast == null || !resources.Beasts.Contains(beast) ? "the clan holds no such beast"
                 : rank == null ? "the beast is below the Qi Cultivation"
@@ -104,8 +105,8 @@ namespace MirrorChronicles.Mirror
             return true;
         }
 
-        /// <summary>A power whose beast was killed may find out, and resents it (user decision, 2026-09-26).</summary>
-        private void AnswerToTheOwner(CapturedBeast beast)
+        /// <summary>A power whose beast was killed — or bound to the clan (R16) — may find out, and resents it (user decision, 2026-09-26).</summary>
+        public void AnswerToTheOwner(CapturedBeast beast)
         {
             var owner = factions.GetFactionByName(beast.OwnerFaction);
             if (owner == null || !ctx.Rng.Chance(Settings.OwnedBeastDiscoveryChance)) return;

@@ -188,6 +188,45 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void ABoundBeast_CannotBeWedByTheClan_NorSoughtASpouse()
+        {
+            var w = new TestWorld(new FixedRandom(0.5));
+            var bound = w.DemonicDao.Bind(Captured(w));
+            var human = w.Join(Fixtures.Cultivator(isMale: !bound.IsMale));
+            Assert.IsNotNull(w.Marriages.MarriageRefusal(bound, human));
+            Assert.IsNotNull(w.Marriages.SeekRefusal(bound));
+        }
+
+        [Test]
+        public void ABoundBeast_AtTheFoundationsApogee_AttemptsNoAscent()
+        {
+            var w = new TestWorld(new FixedRandom(0.5));
+            var bound = w.DemonicDao.Bind(Captured(w, CultivationRealm.Foundation, 4));
+            bound.CultivationXP = PowerLadder.XpForNextStage(CultivationRealm.Foundation);
+            Assert.DoesNotThrow(() => w.Breakthroughs.ProcessBreakthroughPhase());
+            Assert.DoesNotThrow(() => w.PurpleMansion.ProcessBreakthroughPhase());
+            Assert.AreEqual(CultivationRealm.Foundation, bound.Realm);
+        }
+
+        [Test]
+        public void ABoundBeast_KeepsItsLongLife_AcrossASave()
+        {
+            var w = new TestWorld(new FixedRandom(0.5));
+            var bound = w.DemonicDao.Bind(Captured(w, CultivationRealm.QiRefinement, 2));
+            int lifespan = bound.MaxLifespan;
+            PowerLadder.NormalizeLifespan(bound); // as every record on loading
+            Assert.AreEqual(lifespan, bound.MaxLifespan);
+        }
+
+        [Test]
+        public void ABoundBeast_IsBoundTheSameWay_FromTheSameSeed()
+        {
+            var a = new TestWorld(7);
+            var b = new TestWorld(7);
+            Assert.AreEqual(a.DemonicDao.Bind(Captured(a)).ID, b.DemonicDao.Bind(Captured(b)).ID);
+        }
+
+        [Test]
         public void ABoundBeast_NeverLeadsTheClan_WhileAHumanLives()
         {
             var w = new TestWorld(new FixedRandom(0.5));

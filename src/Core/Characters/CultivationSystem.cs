@@ -126,6 +126,7 @@ namespace MirrorChronicles.Characters
         {
             var step = PowerLadder.Next(character.Realm, character.RealmStage);
             return character.IsAlive
+                && character.Path != CultivationPath.Demonic // a bound beast's lineage awakens it, no trial (R16)
                 && character.CaptorFaction == null // no trial in a cell (L6a)
                 && SpiritualOrificeRules.CanCultivate(character)
                 && step.IsAvailable

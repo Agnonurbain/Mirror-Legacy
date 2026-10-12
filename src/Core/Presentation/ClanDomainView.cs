@@ -60,7 +60,8 @@ namespace MirrorChronicles.Presentation
                     m.CurrentTask, TaskRules.AllowedTasks(m, session.Talismans.HuntWindowOpen, session.Shards.LakeSearchOpen)
                         .Where(t => t != TaskType.ArtPractice || m.CurrentTask == TaskType.ArtPractice).ToList(), m.ID == patriarchId, // an art is chosen from its own screen
                     m.CultivationMethodId, PractisedMethod(session, m),
-                    session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
+                    m.Species != Species.Human ? new List<MethodChoice>() // a bound beast absorbs, practises no method (R16)
+                        : session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
                     TemperamentLabel(m.Temperament), RipeLabel(session, m), RetreatLabel(m), AbilitiesLabel(m),
                     m.HeartDemonYearsLeft > 0 ? $"Démon du Cœur ({m.HeartDemonYearsLeft} an{(m.HeartDemonYearsLeft > 1 ? "s" : "")})" : null,
                     PositionLabel(session, m), DestinyLabel(session, m)))
@@ -123,7 +124,7 @@ namespace MirrorChronicles.Presentation
 
         /// <summary>« 2/5 capacités divines » at the Purple Mansion and beyond, otherwise null.</summary>
         public static string AbilitiesLabel(CharacterData member) =>
-            member.Realm < CultivationRealm.PurpleMansion ? null
+            member.Realm < CultivationRealm.PurpleMansion || member.Path == CultivationPath.Demonic ? null // a bound beast condenses none (R16)
                 : $"{member.DivineAbilities?.Count ?? 0}/{DivineAbilitySystem.MaxAbilities} capacités divines";
 
         public static string TemperamentLabel(Temperament temperament) => temperament switch
@@ -153,6 +154,7 @@ namespace MirrorChronicles.Presentation
         private static string PractisedMethod(GameSession session, CharacterData member)
         {
             if (!SpiritualOrificeRules.CanCultivate(member)) return "—";
+            if (member.Species != Species.Human) return "Absorption du Qi (Dao Démoniaque)"; // a bound beast (R16)
             var method = session.Techniques.MethodOf(member);
             if (method != null) return MethodLabel(method);
             return member.Realm == CultivationRealm.Embryonic ? "Respiration commune" : "Aucune méthode";

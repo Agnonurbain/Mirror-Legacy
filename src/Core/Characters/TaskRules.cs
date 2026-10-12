@@ -50,10 +50,16 @@ namespace MirrorChronicles.Characters
                 : allowed.Where(t => !character.ForbiddenTasks.Contains(t)).ToArray(); // an elect's Fruition dictates its conduct (R10)
         }
 
+        /// <summary>A bound beast of the Demonic Dao guards and hunts (R16, the user's choice of 2026-10-12).</summary>
+        private static readonly TaskType[] BeastTasks =
+            { TaskType.None, TaskType.Patrol, TaskType.Rest, TaskType.HuntBeast, TaskType.ScoutBeasts, TaskType.Diversion };
+
         private static IReadOnlyList<TaskType> AllowedByAge(CharacterData character, bool huntOpen, bool lakeOpen)
         {
             if (character.Age < CultivationAge || character.Retreat != Retreat.None || character.CaptorFaction != null || character.DiscipleOf != null)
                 return InfantTasks; // a retreat, or captivity, leaves no task
+            if (character.Species != Species.Human)
+                return BeastTasks.Where(t => huntOpen || !IsHuntTask(t)).ToArray();
             if (!SpiritualOrificeRules.CanCultivate(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
             if (character.Realm == CultivationRealm.Embryonic)
                 return character.RealmStage >= QiPerceptionChakra ? SummitEyeTasks : EmbryonicTasks;

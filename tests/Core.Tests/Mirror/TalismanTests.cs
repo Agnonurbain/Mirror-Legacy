@@ -121,6 +121,15 @@ namespace MirrorChronicles.Tests.Mirror
         }
 
         [Test]
+        public void PerformRitual_Refuses_ABoundBeastAsBearer()
+        {
+            var w = Devout();
+            var bound = w.DemonicDao.Bind(Sacrifice(w)); // a beast bound to the clan (R16) takes no talisman
+            Assert.IsFalse(w.Talismans.PerformRitual(bound, Sacrifice(w)));
+            Assert.IsTrue(w.Talismans.PerformRitual(Bearer(w), w.Resources.Beasts.Single()), "a human bearer still may");
+        }
+
+        [Test]
         public void PerformRitual_Refuses_ABeastTheClanDoesNotHold()
         {
             var w = Devout();

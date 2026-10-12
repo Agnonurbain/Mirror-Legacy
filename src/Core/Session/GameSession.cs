@@ -142,6 +142,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>The elect of the Spiritual Nature (R10).</summary>
         public SpiritualNatureSystem SpiritualNature { get; }
+
+        /// <summary>The clan's bound beasts of the Demonic Dao (R16).</summary>
+        public DemonicDaoSystem DemonicDao { get; }
         public ArtifactFinds Finds { get; }
         public ArtifactTrade ArtifactTrade { get; }
         public MinorAbilities Minors { get; }

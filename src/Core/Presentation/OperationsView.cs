@@ -104,7 +104,7 @@ namespace MirrorChronicles.Presentation
             var beasts = session.Resources.Beasts.Where(b => Mirror.TalismanRules.RankOf(b) != null) // a beast below the Qi Cultivation gives no talisman
                 .Select(b => new BeastLine(b.Id, Strength(b.Realm, b.Stage), b.OwnerFaction ?? "solitaire")).ToList();
             var bearers = session.Clan.LivingMembers
-                .Where(m => m.TalismanQiId == null && SpiritualOrificeRules.CanCultivate(m))
+                .Where(m => m.TalismanQiId == null && m.Species == Species.Human && SpiritualOrificeRules.CanCultivate(m)) // a bound beast takes no talisman (R16)
                 .Select(Choice).ToList();
 
             OfferView offer = null;
@@ -221,7 +221,7 @@ namespace MirrorChronicles.Presentation
             int cost = session.Context.Content.Balance.Lineage.SeekStones;
             return living
                 .Where(m => m.OrificeKnown && SpiritualOrificeRules.CanCultivate(m) && m.SpouseID == null && m.CaptorFaction == null
-                    && m.Age >= MarriageMatchmaker.MinMarriageAge)
+                    && m.Species == Species.Human && m.Age >= MarriageMatchmaker.MinMarriageAge) // a bound beast never weds (R16)
                 .OrderByDescending(m => (int)m.Realm).ThenByDescending(m => m.RealmStage).ThenBy(m => m.FullName, StringComparer.Ordinal)
                 .Select(m => new UnwedLine(m.ID, m.FullName, RankCatalog.DisplayName(m),
                     living.Where(p => session.Marriages.MarriageRefusal(m, p) == null)

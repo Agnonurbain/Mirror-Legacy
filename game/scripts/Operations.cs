@@ -93,6 +93,16 @@ namespace MirrorChronicles.Game
             });
             perform.Disabled = view.Refusal != null;
             if (view.Refusal != null) Add(ritual, $"Impossible pour l'instant : {view.Refusal}.");
+            if (view.Beasts.Count == 0) return;
+
+            // R16: the chosen beast bound to the clan rather than offered — a member of the Demonic Dao, guard and hunter
+            var bind = AddButton(ritual, "Lier la bête au clan (Dao Démoniaque)", () =>
+            {
+                var chosen = session.Resources.Beasts.FirstOrDefault(b => b.Id == Selected(beast));
+                var bound = session.DemonicDao.Bind(chosen);
+                Report(bound != null ? $"{bound.FullName} est lié(e) au clan." : "La bête refuse le lien.");
+            });
+            bind.TooltipText = "Plutôt que l'offrir au miroir : elle rejoint le clan, absorbe le Qi chaque année, garde et chasse.";
         }
 
         // ---- The hunt ----

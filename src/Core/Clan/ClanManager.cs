@@ -200,10 +200,14 @@ namespace MirrorChronicles.Clan
 
         private static bool Trusted(CharacterData m) => m.CaptorFaction == null && !m.SpyUnmasked;
 
-        /// <summary>A free, trusted member first (never a captive or an unmasked spy while another can lead), then highest realm, eldest, strongest root.</summary>
+        /// <summary>
+        /// A human of the line — never a bound beast (R16) —, a free, trusted one first (never a captive or an unmasked spy while
+        /// another can lead), then highest realm, eldest, strongest root.
+        /// </summary>
         private void ElectPatriarch()
         {
             var successor = living
+                .Where(m => m.Species == Species.Human)
                 .OrderBy(m => !Trusted(m))
                 .ThenByDescending(m => (int)m.Realm)
                 .ThenByDescending(m => m.RealmStage)

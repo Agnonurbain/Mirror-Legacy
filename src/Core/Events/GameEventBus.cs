@@ -83,6 +83,8 @@ namespace MirrorChronicles.Events
         public event Action<MetalEssenceDemon> OnDemonSubdued;
         public event Action<MetalEssenceDemon> OnWorldDemon;
         public event Action<string, string, string> OnPowerScheme;          // a power schemes against another: what, the schemer, the victim              // a demon born of a power's elder ravages its region
+        public event Action<CharacterData> OnBeastBound;      // a captured beast bound to the clan (R16)
+        public event Action<CharacterData> OnLineageAwakened; // a bound beast's lineage awakens its next realm (R16)
         public event Action<CharacterData, string> OnSpiritualNatureElected; // a child elected by the Spiritual Nature, and its Fruition (R10)
         public event Action<string, string> OnPowerMarriage;                // two powers wed an elder each (L6)
         public event Action OnUnderworldProvoked;                           // the clan kept an essence against the custom
@@ -171,6 +173,8 @@ namespace MirrorChronicles.Events
         public void TriggerWorldDemon(MetalEssenceDemon demon) => OnWorldDemon?.Invoke(demon);
         public void TriggerPowerScheme(string what, string schemer, string victim) => OnPowerScheme?.Invoke(what, schemer, victim);
         public void TriggerPowerMarriage(string a, string b) => OnPowerMarriage?.Invoke(a, b);
+        public void TriggerBeastBound(CharacterData beast) => OnBeastBound?.Invoke(beast);
+        public void TriggerLineageAwakened(CharacterData beast) => OnLineageAwakened?.Invoke(beast);
         public void TriggerSpiritualNatureElected(CharacterData member, string fruitionId) => OnSpiritualNatureElected?.Invoke(member, fruitionId);
         public void TriggerUnderworldProvoked() => OnUnderworldProvoked?.Invoke();
         public void TriggerClanWarWon(string enemy) => OnClanWarWon?.Invoke(enemy);
