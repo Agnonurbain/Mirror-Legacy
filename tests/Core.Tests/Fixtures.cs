@@ -76,6 +76,7 @@ namespace MirrorChronicles.Tests
         public WoundSystem Wounds { get; }
         public ChallengeSystem Challenges { get; }
         public AmbushSystem Ambushes { get; }
+        public HuntBattles HuntBattles { get; }
         public UpkeepSystem Upkeep { get; }
         public DaoHuntSystem DaoHunts { get; }
         public HuntOperations Hunts { get; }
@@ -140,6 +141,7 @@ namespace MirrorChronicles.Tests
             Espionage = new EspionageSystem(Ctx, Factions, Deduction, Stability, Techniques);
             Tasks = new TaskAssignmentSystem(Ctx, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary, Shards, Sect);
             Hunts = new HuntOperations(Ctx, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
+            HuntBattles = new HuntBattles(Ctx, Clan, Hunts, Techniques, Wounds);
             Lore = new MirrorLore(Ctx, Factions, worldSeed: 1);
             Secrets = new SecretSystem(Ctx, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
             Plots = new PlotSystem(Ctx, Clan, Resources, Factions, Suspicion, Secrets, Treaties);

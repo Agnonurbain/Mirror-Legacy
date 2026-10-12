@@ -57,6 +57,8 @@ namespace MirrorChronicles.Session
             Espionage = new EspionageSystem(Context, Factions, Deduction, Stability, Techniques);
             Tasks = new TaskAssignmentSystem(Context, Clan, Cultivation, Resources, Stability, Factions, Deduction, Espionage, Buildings, Techniques, Talismans, Bestiary, Shards, Sect);
             Hunts = new HuntOperations(Context, Clan, Resources, Mirror, Factions, Bestiary, Knowledge, Talismans, Suspicion, Stability);
+            HuntBattles = new HuntBattles(Context, Clan, Hunts, Techniques, Wounds);
+            if (setup.InteractiveBattles) Hunts.Spring = HuntBattles.Spring; // a player fights the beast; headless, chance settles it
             Lore = new MirrorLore(Context, Factions, seed);
             Secrets = new SecretSystem(Context, Clan, Factions, Suspicion, Oaths, Mirror, Lore);
             Plots = new PlotSystem(Context, Clan, Resources, Factions, Suspicion, Secrets, Treaties);
@@ -131,6 +133,7 @@ namespace MirrorChronicles.Session
             Abilities.Alchemy = Alchemy;
             Challenges.Alchemy = Alchemy;
             Ambushes.Alchemy = Alchemy;       // the ambushed draw on the same pills (G6)
+            HuntBattles.Alchemy = Alchemy;    // and the strikers
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);

@@ -464,7 +464,10 @@
 	"failedFrameBacklash": 15,
 	"failedCaptureStabilityLoss": 15,
 	"deathMargin": 15,
-	"deathChance": 0.3
+	"deathChance": 0.3,
+	"battleLureWeaken": 0.1,
+	"battleTimingWeaken": [0, -0.1, 0],
+	"battleMaxWeaken": 0.5
   },
   "bestiary": {
 	"beastsByKind": { "Wilds": 3, "Mountain": 2, "Desert": 2, "Lake": 2, "Island": 2, "River": 2, "Plain": 1, "Prefecture": 1 },

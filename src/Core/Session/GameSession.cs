@@ -84,6 +84,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>The powers' ambushes fought on the grid when a player is there (G6).</summary>
         public AmbushSystem Ambushes { get; }
+
+        /// <summary>The hunts' captures fought on the grid when a player is there (G6).</summary>
+        public HuntBattles HuntBattles { get; }
         public UpkeepSystem Upkeep { get; }
         public DaoHuntSystem DaoHunts { get; }
         public IntrigueSystem Intrigues { get; }

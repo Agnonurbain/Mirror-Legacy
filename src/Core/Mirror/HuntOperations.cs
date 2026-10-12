@@ -126,16 +126,35 @@ namespace MirrorChronicles.Mirror
                 return new HuntOutcome(false, false, Settings.SeenExposure, null, null, new List<string>());
             }
 
+            if (Spring?.Invoke(plan, beast) == true) // a player there fights the beast on the grid (G6)
+            {
+                ctx.Log.Info($"[Hunt] The strikers close on the beast ({approach}%): the battle waits.");
+                return new HuntOutcome(true, false, 0, null, null, new List<string>(), AwaitingBattle: true);
+            }
+            return ResolveCapture(plan, beast);
+        }
+
+        /// <summary>
+        /// When a player is there to fight (set by the session, G6): the capture waits for the strikers on the battle screen;
+        /// false when none of them can fight, and chance settles it.
+        /// </summary>
+        public System.Func<HuntPlan, WorldBeast, bool> Spring { get; set; }
+
+        /// <summary>The capture settled by chance, once the team got close: the beast taken, or broken free.</summary>
+        public HuntOutcome ResolveCapture(HuntPlan plan, WorldBeast beast)
+        {
             int capture = HuntRules.CaptureChance(plan, beast, clan, ctx.Content);
             if (ctx.Rng.Next(1, 101) > capture)
             {
-                var fallen = Hurt(plan, beast);
-                string blamed = Suspect(beast, Settings.FailedCaptureExposure, plan.FramedFaction);
                 ctx.Log.Info($"[Hunt] The beast breaks free ({capture}%).");
-                ctx.Events.TriggerHunt(beast.Id, false);
-                return new HuntOutcome(true, false, Settings.FailedCaptureExposure, blamed, null, fallen);
+                return Escaped(plan, beast, Hurt(plan, beast));
             }
+            return Take(plan, beast);
+        }
 
+        /// <summary>The beast taken: into the clan's pens, its traces left, the owner's suspicion (or the framed power's).</summary>
+        public HuntOutcome Take(HuntPlan plan, WorldBeast beast)
+        {
             bestiary.Take(beast);
             resources.AddBeast(new CapturedBeast(beast.Id, beast.Realm, beast.Stage, beast.OwnerFaction));
             if (beast.OwnerFaction != null) ctx.Events.TriggerDeed("blood-of-anothers-beast", beast.OwnerFaction); // a secret of the clan
@@ -146,7 +165,16 @@ namespace MirrorChronicles.Mirror
             return new HuntOutcome(true, true, exposure, cleanBlame, null, new List<string>());
         }
 
-        private WorldBeast Target(HuntPlan plan) =>
+        /// <summary>The beast broken free: the traces of a failed capture; those who fell are told.</summary>
+        public HuntOutcome Escaped(HuntPlan plan, WorldBeast beast, IReadOnlyList<string> fallen)
+        {
+            string blamed = Suspect(beast, Settings.FailedCaptureExposure, plan.FramedFaction);
+            ctx.Events.TriggerHunt(beast.Id, false);
+            return new HuntOutcome(true, false, Settings.FailedCaptureExposure, blamed, null, fallen);
+        }
+
+        /// <summary>The planned hunt's beast, when it is still where the clan scouted it.</summary>
+        public WorldBeast Target(HuntPlan plan) =>
             bestiary.Beasts.FirstOrDefault(b => b.Id == plan.TargetBeastId && knowledge.Knows(FactKind.Beast, b.Id));
 
         private static bool Fit(CharacterData m) =>
@@ -155,19 +183,30 @@ namespace MirrorChronicles.Mirror
         /// <summary>A failed capture shakes the strikers; the far stronger beast may kill them.</summary>
         private List<string> Hurt(HuntPlan plan, WorldBeast beast)
         {
+            Shake(plan);
             var fallen = new List<string>();
-            int beastPower = HuntRules.Power(beast.Realm, beast.Stage);
-            foreach (var striker in plan.Team.Where(p => p.Value == HuntRole.Striker).Select(p => clan.FindById(p.Key)).ToList())
+            foreach (var striker in Strikers(plan).Where(s => MayKill(s, beast)).ToList())
             {
-                stability.ApplyModifier(striker, -Settings.FailedCaptureStabilityLoss);
-                if (beastPower - HuntRules.Power(striker.Realm, striker.RealmStage) > Settings.DeathMargin && ctx.Rng.Chance(Settings.DeathChance))
-                {
-                    clan.Kill(striker, DeathCause.Combat);
-                    fallen.Add(striker.ID);
-                }
+                clan.Kill(striker, DeathCause.Combat);
+                fallen.Add(striker.ID);
             }
             return fallen;
         }
+
+        /// <summary>A failed capture shakes the strikers' minds.</summary>
+        public void Shake(HuntPlan plan)
+        {
+            foreach (var striker in Strikers(plan)) stability.ApplyModifier(striker, -Settings.FailedCaptureStabilityLoss);
+        }
+
+        /// <summary>Whether the beast kills this fallen striker: only one far stronger may, and then by chance.</summary>
+        public bool MayKill(CharacterData striker, WorldBeast beast) =>
+            HuntRules.Power(beast.Realm, beast.Stage) - HuntRules.Power(striker.Realm, striker.RealmStage) > Settings.DeathMargin
+            && ctx.Rng.Chance(Settings.DeathChance);
+
+        /// <summary>The plan's strikers still in the clan.</summary>
+        public IReadOnlyList<CharacterData> Strikers(HuntPlan plan) =>
+            plan.Team.Where(p => p.Value == HuntRole.Striker).Select(p => clan.FindById(p.Key)).Where(m => m != null).ToList();
 
         /// <summary>
         /// The owner's hidden reaction to the traces: a false trail may turn it on another power (plausible when that

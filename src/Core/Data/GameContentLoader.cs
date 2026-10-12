@@ -380,8 +380,10 @@ namespace MirrorChronicles.Data
             Require(hunt != null && hunt.TimingApproach?.Count == 3 && hunt.TimingCapture?.Count == 3 && hunt.CoverExposure?.Count == 4
                 && hunt.CoverStones?.Count == 4 && hunt.CoverStones.All(c => c >= 0) && hunt.AidMirrorCost?.Count == 3 && hunt.AidMirrorCost.All(c => c >= 0)
                 && hunt.MaxLookouts >= 0 && hunt.CapturePerPowerPoint >= 0 && hunt.SeenExposure >= 0 && hunt.CleanBaseExposure >= 0
-                && IsProbability(hunt.FrameBaseChance) && IsProbability(hunt.DeathChance) && hunt.FailedFrameBacklash >= 0,
-                BalanceFile, "hunt needs three timing entries, four cover entries, three aid costs, and odds and costs never negative.");
+                && IsProbability(hunt.FrameBaseChance) && IsProbability(hunt.DeathChance) && hunt.FailedFrameBacklash >= 0
+                && IsProbability(hunt.BattleLureWeaken) && hunt.BattleTimingWeaken?.Count == 3 && hunt.BattleTimingWeaken.All(w => w >= -1 && w <= 1)
+                && IsProbability(hunt.BattleMaxWeaken),
+                BalanceFile, "hunt needs three timing entries, four cover entries, three aid costs, odds and costs never negative, and the beast's weakening on the grid between -1 and 1.");
             var bestiary = balance.Bestiary;
             Require(bestiary != null && bestiary.BeastsByKind != null && bestiary.BeastsByKind.Values.All(n => n >= 0)
                 && IsProbability(bestiary.OwnedShare) && IsProbability(bestiary.ScoutRevealChance)
