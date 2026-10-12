@@ -62,6 +62,26 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void AVow_IsNotTaken_AtATaskItForbids()
+        {
+            var w = World();
+            var monk = Monk(w);
+            monk.CurrentTask = TaskType.Patrol;
+            Assert.IsNotNull(w.Buddhism.TakeVow(monk, BuddhistVow.NonViolence));
+            Assert.AreEqual(BuddhistVow.None, monk.Vow);
+        }
+
+        [Test]
+        public void AMonkAtTheLowestRealm_WhoLoses_IsWounded()
+        {
+            var w = World(new FixedRandom(0.99));
+            var monk = Monk(w, realm: CultivationRealm.Embryonic, stage: 2);
+            w.Debates.Challenge(monk, Modern);
+            Assert.AreEqual(DebateFate.Wounded, w.Debates.LastFate);
+            Assert.AreEqual(1, monk.DaoWounds);
+        }
+
+        [Test]
         public void AKeptVow_QuickensTheNature()
         {
             var w = World();

@@ -117,6 +117,7 @@ namespace MirrorChronicles.Combat
             fought = Pending; // Equip reads it while the battle is set up
             Current = Battle.Start(fighters, Agents(fought), ctx.Rng, ctx.Log, findTechnique: techniques.Find, gap: ctx.Content.Balance.RealmGap,
                 convergence: ctx.Content.Balance.Arts.Convergence, equip: Equip);
+            ctx.Events.TriggerClanFought(fighters.ToList()); // a non-violent vow breaks on the grid (R13-14b)
             Pending = null; // only once the battle stands
             return null;
         }

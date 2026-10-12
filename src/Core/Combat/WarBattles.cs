@@ -125,6 +125,7 @@ namespace MirrorChronicles.Combat
 
             Current = Battle.Start(fighters, Army(Pending), ctx.Rng, ctx.Log, findTechnique: techniques.Find, gap: ctx.Content.Balance.RealmGap,
                 convergence: ctx.Content.Balance.Arts.Convergence, equip: Equip);
+            ctx.Events.TriggerClanFought(fighters.ToList()); // a non-violent vow breaks on the grid (R13-14b)
             return null; // the battle stays first in the queue until it is concluded
         }
 

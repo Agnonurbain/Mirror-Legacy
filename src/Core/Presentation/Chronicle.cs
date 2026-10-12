@@ -103,6 +103,17 @@ namespace MirrorChronicles.Presentation
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
+            bus.OnVowTaken += (m, vow) => Add($"{m.FullName} fait {DiplomacyView.VowLabel(vow)}.");
+            bus.OnVowBroken += (m, vow) => Add($"{m.FullName} rompt {DiplomacyView.VowLabel(vow)} : son mandat de vie en est blessé.");
+            bus.OnDebateChallenge += temple => Add($"le {temple} défie le clan en débat du Dao (écran Diplomatie).");
+            bus.OnDebateSettled += (m, temple, fate) => Add(fate switch
+            {
+                DebateFate.Won => $"{m.FullName} l'emporte dans le débat du Dao contre le {temple} : le clan y gagne la face.",
+                DebateFate.Converted => $"{m.FullName} perd le débat du Dao contre le {temple}, qui impose sa conversion.",
+                DebateFate.Wounded => $"{m.FullName} perd le débat du Dao contre le {temple} : son mandat de vie en est blessé.",
+                DebateFate.Fell => $"{m.FullName} perd le débat du Dao contre le {temple} : sa voie du Dharma se brise, un royaume plus bas.",
+                _ => $"le clan refuse le débat du {temple} et perd la face."
+            });
             bus.OnBuddhistConverted += (m, temple) => Add($"{m.FullName}, aux portes de la mort, se convertit au {temple}, renonçant à la voie immortelle : {RankCatalog.DisplayName(m)}.");
             bus.OnSoulRecalled += (m, temple) => Add($"le {temple} rappelle l'âme de {m.FullName}, qu'il gardait : le moine quitte le clan.");
             bus.OnMonkRose += m => Add($"{m.FullName} s'élève : {RankCatalog.DisplayName(m)}.");
