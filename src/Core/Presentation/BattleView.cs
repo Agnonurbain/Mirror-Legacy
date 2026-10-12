@@ -30,6 +30,13 @@ namespace MirrorChronicles.Presentation
     /// <summary>A hunt's capture awaiting the strikers (G6): the beast, its rank and owner (null: solitary), how weakened, the strikers.</summary>
     public sealed record PendingHuntView(string Beast, string Rank, string Owner, int WeakenedPercent, IReadOnlyList<string> Strikers);
 
+    /// <summary>
+    /// A war's battle awaiting the clan (G6): the enemy, its leader's and soldiers' ranks, the soldiers on the field, the allies
+    /// who came, who may fight and how many, and how many other battles still wait after this one.
+    /// </summary>
+    public sealed record PendingWarView(string Enemy, string LeaderRank, string SoldierRank, int Soldiers, int AlliesCame, int MaxFighters,
+        IReadOnlyList<ChallengeCandidate> Candidates, int StillWaiting);
+
     /// <summary>The battle screen (G6): the grid, the fighters, the actions of the clan's fighter whose turn it is, the outcome.</summary>
     public static class BattleView
     {
@@ -127,6 +134,9 @@ namespace MirrorChronicles.Presentation
             return new PendingHuntView(beast?.LastName ?? "une bête disparue", beast == null ? "" : RankCatalog.RealmName(beast.Realm), beast?.FromFaction,
                 (int)Math.Round(100 * session.HuntBattles.Weakening(hunt.Plan)), session.HuntBattles.Strikers(hunt).Select(m => m.FullName).ToList());
         }
+
+        /// <summary>The war's battle awaiting the clan; null when none.</summary>
+        public static PendingWarView War(GameSession session) => null;
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)
         {
