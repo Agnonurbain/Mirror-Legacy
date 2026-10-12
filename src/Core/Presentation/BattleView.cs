@@ -136,7 +136,20 @@ namespace MirrorChronicles.Presentation
         }
 
         /// <summary>The war's battle awaiting the clan; null when none.</summary>
-        public static PendingWarView War(GameSession session) => null;
+        public static PendingWarView War(GameSession session)
+        {
+            var battle = session.WarBattles.Pending;
+            if (battle == null) return null;
+            var wars = session.WarBattles;
+            var candidates = session.Clan.LivingMembers
+                .OrderByDescending(m => wars.FighterRefusal(m) == null).ThenByDescending(m => (int)m.Realm)
+                .ThenByDescending(m => m.RealmStage).ThenBy(m => m.FullName, StringComparer.Ordinal)
+                .Select(m => new ChallengeCandidate(m.ID, m.FullName, RankCatalog.DisplayName(m), wars.FighterRefusal(m)))
+                .ToList();
+            return new PendingWarView(battle.Enemy, RankCatalog.RealmName(battle.LeaderRealm), RankCatalog.RealmName(battle.SoldierRealm),
+                Math.Max(0, battle.Soldiers - battle.AlliesCame), battle.AlliesCame, session.Context.Content.Balance.Wars.WarMaxFighters,
+                candidates, wars.Queue.Count - 1);
+        }
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)
         {
