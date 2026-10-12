@@ -329,7 +329,11 @@
 	"peaceRelation": -30,
 	"powerDeclareChance": 0.05,
 	"declareSuspicion": 70,
-	"declareRelation": -40
+	"declareRelation": -40,
+	"warMaxFighters": 5,
+	"armyPowerPerSoldier": 1000,
+	"armyMaxSoldiers": 4,
+	"withdrawStonesFactor": 0.5
   },
   "patrons": {
 	"startFavor": 5,

@@ -77,6 +77,7 @@ namespace MirrorChronicles.Tests
         public ChallengeSystem Challenges { get; }
         public AmbushSystem Ambushes { get; }
         public HuntBattles HuntBattles { get; }
+        public WarBattles WarBattles { get; }
         public UpkeepSystem Upkeep { get; }
         public DaoHuntSystem DaoHunts { get; }
         public HuntOperations Hunts { get; }
@@ -157,6 +158,7 @@ namespace MirrorChronicles.Tests
             Dealings = new SecretDealings(Ctx, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Ctx, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Wars = new WarSystem(Ctx, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
+            WarBattles = new WarBattles(Ctx, Clan, Factions, Wars, Techniques, Wounds);
             Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars, Sect);
             Patrons = new PatronSystem(Ctx, Clan, Resources);
             DesignEffects = new PatronDesignEffects(Ctx, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);

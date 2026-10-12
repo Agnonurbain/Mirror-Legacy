@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.44";
+        public const string CurrentVersion = "2.45";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -114,6 +114,7 @@ namespace MirrorChronicles.Data
         public Challenge PendingChallenge { get; set; }              // 2.18: a rival's challenge awaiting the clan's answer
         public Ambush PendingAmbush { get; set; }                    // 2.43: an ambush awaiting the clan (fought on the grid, or left to chance)
         public PendingHunt PendingHunt { get; set; }                 // 2.44: a hunt's capture awaiting the strikers (fought on the grid, or left to chance)
+        public List<PendingWarBattle> PendingWarBattles { get; set; } // 2.45: the wars' battles awaiting the clan, in turn
         public bool Impoverished { get; set; }                       // 2.19: this year's upkeep fell short
         public List<DaoPrey> DaoPreys { get; set; }                  // 2.20: the hunters that learnt a Dao of the clan is ripe
         public List<AnnalEntry> Annals { get; set; }                 // 2.21: the clan's milestones and the dynastic endings reached (LORE.md §11.9)

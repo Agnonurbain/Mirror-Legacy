@@ -77,6 +77,8 @@ namespace MirrorChronicles.Session
             Dealings = new SecretDealings(Context, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Context, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Wars = new WarSystem(Context, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
+            WarBattles = new WarBattles(Context, Clan, Factions, Wars, Techniques, Wounds);
+            if (setup.InteractiveBattles) Wars.Spring = WarBattles.Spring; // a player fights the war's battles; headless, chance settles them
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars, Sect);
             Patrons = new PatronSystem(Context, Clan, Resources);
             DesignEffects = new PatronDesignEffects(Context, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
@@ -134,7 +136,9 @@ namespace MirrorChronicles.Session
             Challenges.Alchemy = Alchemy;
             Ambushes.Alchemy = Alchemy;       // the ambushed draw on the same pills (G6)
             HuntBattles.Alchemy = Alchemy;    // and the strikers
-            HuntBattles.OtherBattle = () => Challenges.Pending != null || Challenges.Current != null || Ambushes.Pending != null || Ambushes.Current != null; // one battle at a time
+            WarBattles.Alchemy = Alchemy;     // and the war's fighters
+            HuntBattles.OtherBattle = () => Challenges.Pending != null || Challenges.Current != null || Ambushes.Pending != null || Ambushes.Current != null
+                || WarBattles.Pending != null || WarBattles.Current != null; // one battle at a time
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);

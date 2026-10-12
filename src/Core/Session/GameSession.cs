@@ -87,6 +87,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>The hunts' captures fought on the grid when a player is there (G6).</summary>
         public HuntBattles HuntBattles { get; }
+
+        /// <summary>The clan's wars' yearly battles fought on the grid when a player is there (G6).</summary>
+        public WarBattles WarBattles { get; }
         public UpkeepSystem Upkeep { get; }
         public DaoHuntSystem DaoHunts { get; }
         public IntrigueSystem Intrigues { get; }
