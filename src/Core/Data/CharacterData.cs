@@ -129,7 +129,7 @@ namespace MirrorChronicles.Data
             GraftedAbilities = new List<string>();
         }
 
-        public string FullName => $"{LastName} {FirstName}";
+        public string FullName => $"{LastName} {FirstName}".Trim(); // a beast on the grid has no given name (G6)
 
         /// <summary>An independent copy (saves and loads never share characters with a live game).</summary>
         public CharacterData Clone()

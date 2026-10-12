@@ -181,6 +181,11 @@ namespace MirrorChronicles.Game
                 diversionMember = null;
                 diversionPlace = null;
                 framed = null;
+                if (outcome.AwaitingBattle)
+                {
+                    root.GoTo(BattleScreen.ScenePath); // the strikers face the beast on the grid (G6)
+                    return;
+                }
                 Report(outcome.Refusal != null ? $"Refusé : {outcome.Refusal}."
                     : outcome.Captured ? $"La bête est prise.{(outcome.Blamed != null ? $" On accuse {outcome.Blamed}." : "")}"
                     : outcome.Approached ? $"La bête s'échappe.{(outcome.Casualties.Count > 0 ? " Des frappeurs sont tombés." : "")}"

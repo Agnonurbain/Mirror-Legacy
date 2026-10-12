@@ -136,8 +136,9 @@ namespace MirrorChronicles.Game
             generation.Text = $"Génération {header.Generation}";
             var openBattle = GetNode<Button>("%OpenBattle");
             bool ambushed = session.Ambushes.Pending != null || session.Ambushes.Current != null;
-            openBattle.Visible = ambushed || session.Challenges.Pending != null || session.Challenges.Current != null;
-            openBattle.Text = ambushed ? "Embuscade !" : "Défi d'un rival";
+            bool hunting = session.HuntBattles.Pending != null || session.HuntBattles.Current != null;
+            openBattle.Visible = ambushed || hunting || session.Challenges.Pending != null || session.Challenges.Current != null;
+            openBattle.Text = ambushed ? "Embuscade !" : hunting ? "Chasse !" : "Défi d'un rival";
             var stock = ClanDomainView.QiStock(session);
             qi.Text = stock.Count == 0 ? "Aucun Qi en réserve"
                 : string.Join(" · ", stock.Select(line => $"{line.Name} ×{line.Portions}"));
@@ -161,12 +162,14 @@ namespace MirrorChronicles.Game
             var ambush = BattleView.Ambush(session);
             if (ambush != null && !over)
                 status.Text = $"{ambush.Target} tombe dans une embuscade de {ambush.Faction} : le clan doit répondre avant de poursuivre.";
+            else if (BattleView.Hunt(session) is { } hunt && !over)
+                status.Text = $"Les frappeurs approchent {hunt.Beast} : la capture attend sur l'écran de combat.";
             TellNextEnding();
             OfferFromAPatron();
             AskForAnAnswer();
             AskAboutTheDemon();
             nextPhase.Disabled = over || session.Story.PendingEvent != null // a story event waits for a choice
-                || ambushed;                                                 // and an ambush for an answer (G6)
+                || ambushed || hunting;                                      // and an ambush or a hunt's capture for an answer (G6)
         }
 
         private void FoundKingdom()
@@ -464,6 +467,7 @@ namespace MirrorChronicles.Game
                 {
                     while (session.Story.PendingEvent != null) ChooseStoryOutcome(0);
                     while (session.Ambushes.Pending != null) session.Ambushes.LetBe(); // the smoke leaves ambushes to chance
+                    while (session.HuntBattles.Pending != null) session.HuntBattles.LetBe();
                     AdvancePhase();
                 }
             }

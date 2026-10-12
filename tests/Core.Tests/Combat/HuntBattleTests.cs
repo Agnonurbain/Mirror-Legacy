@@ -203,6 +203,28 @@ namespace MirrorChronicles.Tests.Combat
         }
 
         [Test]
+        public void Conclude_SparesAFallenStriker_WhenTheStrikersWin()
+        {
+            var (w, beast) = World(new FixedRandom(0.0), CultivationRealm.Foundation, 9);
+            var fallen = Hunter(w, stage: 1);
+            var standing = Hunter(w, stage: 1);
+            w.HuntBattles.Spring(Plan(beast, HuntTiming.Dawn, (fallen, HuntRole.Striker), (standing, HuntRole.Striker)), beast);
+            w.HuntBattles.Fight();
+            w.HuntBattles.Current.Allies.First(a => a.BaseData == fallen).TakeDamage(100000);
+            Win(w);
+            w.HuntBattles.Conclude();
+            Assert.IsTrue(fallen.IsAlive, "a beast beaten kills nobody");
+        }
+
+        [Test]
+        public void Spring_LeavesItToChance_WhileAnotherBattleIsUnderWay()
+        {
+            var (w, beast) = World(new FixedRandom(0.0));
+            w.HuntBattles.OtherBattle = () => true;
+            Assert.IsFalse(w.HuntBattles.Spring(Plan(beast, HuntTiming.Dawn, (Hunter(w), HuntRole.Striker)), beast));
+        }
+
+        [Test]
         public void Conclude_ClosesTheHunt()
         {
             var (w, _, _) = Sprung(new FixedRandom(0.0));

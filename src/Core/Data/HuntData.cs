@@ -85,7 +85,7 @@ namespace MirrorChronicles.Data
 
         /// <summary>
         /// The capture fought on the grid (G6, the user's choice 2026-10-12): the beast starts weakened by this share of its
-        /// vitality per lure, plus the timing's share (by night it is livelier: a negative share), at most BattleMaxWeaken.
+        /// vitality per lure, plus the timing's share (by night it is livelier: a negative share, never below no weakening), at most BattleMaxWeaken.
         /// </summary>
         public double BattleLureWeaken { get; init; }
         public List<double> BattleTimingWeaken { get; init; }

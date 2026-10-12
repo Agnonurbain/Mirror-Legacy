@@ -134,6 +134,7 @@ namespace MirrorChronicles.Session
             Challenges.Alchemy = Alchemy;
             Ambushes.Alchemy = Alchemy;       // the ambushed draw on the same pills (G6)
             HuntBattles.Alchemy = Alchemy;    // and the strikers
+            HuntBattles.OtherBattle = () => Challenges.Pending != null || Challenges.Current != null || Ambushes.Pending != null || Ambushes.Current != null; // one battle at a time
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);

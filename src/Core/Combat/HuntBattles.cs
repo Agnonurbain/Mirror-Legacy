@@ -48,10 +48,13 @@ namespace MirrorChronicles.Combat
 
         public void Restore(PendingHunt pending) => Pending = pending;
 
+        /// <summary>Another battle waits or is fought (set by the session): one battle at a time, so chance settles the capture then.</summary>
+        public Func<bool> OtherBattle { get; set; }
+
         /// <summary>The capture waits for the strikers; false when none of them can fight (chance settles it then).</summary>
         public bool Spring(HuntPlan plan, WorldBeast beast)
         {
-            if (plan == null || beast == null || Pending != null || Current != null) return false;
+            if (plan == null || beast == null || Pending != null || Current != null || OtherBattle?.Invoke() == true) return false;
             var hunt = new PendingHunt(plan, ctx.Clock.Year);
             if (Strikers(hunt).Count == 0) return false;
             Pending = hunt;
@@ -131,7 +134,7 @@ namespace MirrorChronicles.Combat
             var fallen = new List<string>();
             foreach (var striker in Current.Allies)
             {
-                if (striker.IsDown && beast != null && hunts.MayKill(striker.BaseData, beast)) // only a beast far stronger kills
+                if (lost && striker.IsDown && beast != null && hunts.MayKill(striker.BaseData, beast)) // only a beast far stronger, and victorious, kills
                 {
                     clan.Kill(striker.BaseData, DeathCause.Combat);
                     fallen.Add(striker.BaseData.ID);
