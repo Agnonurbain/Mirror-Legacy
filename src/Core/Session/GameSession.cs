@@ -145,6 +145,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>The clan's bound beasts of the Demonic Dao (R16).</summary>
         public DemonicDaoSystem DemonicDao { get; }
+
+        /// <summary>The Buddhist conversion and its schools (R13-R14).</summary>
+        public BuddhismSystem Buddhism { get; }
         public ArtifactFinds Finds { get; }
         public ArtifactTrade ArtifactTrade { get; }
         public MinorAbilities Minors { get; }

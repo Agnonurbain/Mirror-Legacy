@@ -69,6 +69,13 @@ namespace MirrorChronicles.Characters
             member.SubPath == CultivationSubPath.SpiritualNature && member.Realm == CultivationRealm.PurpleMansion
             && (member.DivineAbilities?.Count ?? 0) >= PurpleMansionAbilities ? CultivationRealm.GoldenCore : member.Realm;
 
+        /// <summary>
+        /// A True Monarch: a cultivator of the immortal way at the Golden Core — never a Dharma Master, whose rank only matches
+        /// it (R13-R14), nor a bound beast.
+        /// </summary>
+        public static bool IsTrueMonarch(CharacterData member) =>
+            member != null && member.Path == CultivationPath.Immortal && member.Realm >= CultivationRealm.GoldenCore;
+
         /// <summary>The abilities of a Purple Mansion's Grand Perfection.</summary>
         private const int PurpleMansionAbilities = 5;
 
@@ -186,7 +193,8 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public static void NormalizeLifespan(CharacterData character)
         {
-            if (character.Species != Species.Human && character.MaxLifespan > 0) return; // a bound beast outlives a human of its realm (R16)
+            if ((character.Species != Species.Human || character.Path != CultivationPath.Immortal) && character.MaxLifespan > 0)
+                return; // a bound beast outlives a human of its realm (R16), a monk keeps the years it converted for (R13-R14)
             int reach = MaxLifespan(character.Realm, character.RealmStage);
             if (character.MaxLifespan <= 0 || character.MaxLifespan > reach)
                 character.MaxLifespan = WoundedLifespan(reach, character.DaoWounds);

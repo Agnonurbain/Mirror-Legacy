@@ -29,6 +29,7 @@ namespace MirrorChronicles.Data
         public FactionKind Kind { get; set; }
         public string RegionId { get; set; }                  // a regions.json id
         public CultivationPath Path { get; set; }
+        public CultivationSubPath? School { get; set; }       // a temple's Buddhist school (R13-R14), null for others
         public CultivationRealm HighestRealm { get; set; }    // the strongest cultivator it counts
         public List<ArtifactInstance> Artifacts { get; set; } = new List<ArtifactInstance>(); // forged, stolen, bought or borrowed from the clan (L4f)
         public List<RankDesignation> Designations { get; set; } = new List<RankDesignation>(); // its holders' treasures mortgaged on their Fruitions

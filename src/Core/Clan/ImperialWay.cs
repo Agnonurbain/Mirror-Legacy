@@ -1,4 +1,5 @@
 using System.Linq;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Session;
@@ -51,7 +52,7 @@ namespace MirrorChronicles.Clan
             var rules = ctx.Content.Balance.PowerLifecycle; // as the powers do (the user's choice)
             if (IsKingdom) return "le clan règne déjà sur son royaume";
             if (!sect.Founded) return "il faut d'abord fonder la secte du clan";
-            if (!clan.LivingMembers.Any(m => m.CaptorFaction == null && m.Realm >= CultivationRealm.GoldenCore))
+            if (!clan.LivingMembers.Any(m => m.CaptorFaction == null && PowerLadder.IsTrueMonarch(m)))
                 return "il faut un Vrai Monarque vivant pour porter une couronne";
             if (Vassals < rules.KingdomVassals) return $"il faut {rules.KingdomVassals} vassaux (le clan en compte {Vassals})";
             var wars = ctx.Content.Balance.Wars;

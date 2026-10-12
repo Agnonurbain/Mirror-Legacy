@@ -46,7 +46,7 @@ namespace MirrorChronicles.Characters
         /// <summary>Why this member cannot condense a treasure (French), or null.</summary>
         public string CondenseRefusal(CharacterData member)
         {
-            if (!Free(member) || member.Realm < CultivationRealm.GoldenCore) return "seul un Vrai Monarque libre, au Noyau d'Or, condense un Trésor de Dharma";
+            if (!Free(member) || !PowerLadder.IsTrueMonarch(member)) return "seul un Vrai Monarque libre, au Noyau d'Or, condense un Trésor de Dharma";
             if (member.HasDharmaTreasure || member.TreasureReadyYear != null) return "il a déjà son Trésor de Dharma";
             if (resources.SpiritualOres < Settings.CondenseOres) return $"il faut {Settings.CondenseOres} minerais spirituels";
             return null;

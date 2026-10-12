@@ -86,7 +86,7 @@ namespace MirrorChronicles.Characters
             var member = clan.FindById(memberId);
             var treasure = armoury.Armoury.FirstOrDefault(a => a.Id == artifactId);
             if (treasure == null || treasure.Class != ArtifactClass.SpiritualTreasure) return "on ne se lie qu'à un Trésor Spirituel de l'armurerie";
-            if (member == null || !member.IsAlive || member.CaptorFaction != null || member.Realm != CultivationRealm.Foundation
+            if (member == null || !member.IsAlive || member.CaptorFaction != null || member.Path != CultivationPath.Immortal || member.Realm != CultivationRealm.Foundation
                 || member.RealmStage < PowerLadder.StageCount(CultivationRealm.Foundation) || member.ProgressionSealed)
                 return "seule une Fondation à son sommet, libre d'avancer, peut s'y lier";
             armoury.Withdraw(artifactId, member);

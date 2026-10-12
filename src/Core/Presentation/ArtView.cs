@@ -174,7 +174,7 @@ namespace MirrorChronicles.Presentation
         {
             var l = s.Context.Content.Balance.Arts.Longevity;
             var held = s.Context.Content.Qi.Where(q => q.Foundation != null && !q.Vanished && s.Resources.QiPortions(q.Id) > 0).ToList();
-            return s.Clan.LivingMembers.Where(m => m.Realm == CultivationRealm.Foundation && !m.ProgressionSealed && m.CaptorFaction == null)
+            return s.Clan.LivingMembers.Where(m => m.Realm == CultivationRealm.Foundation && m.Path == CultivationPath.Immortal && !m.ProgressionSealed && m.CaptorFaction == null)
                 .SelectMany(m => held.Where(q => q.Foundation != m.FoundationId).Select(q => new RecastOffer(m.ID, q.Id,
                     $"Refondre la fondation de {m.FullName} sur le {q.Name} — une {s.Alchemy.PillName(PillKind.FoundationRecasting)}, {l.RecastQiPortions} portions "
                     + $"(+{l.RecastYears} ans ; {(int)System.Math.Round((1 - l.RecastSuccess) * 100)} % : voie scellée)",

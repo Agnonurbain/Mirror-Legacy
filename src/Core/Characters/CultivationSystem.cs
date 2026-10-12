@@ -50,6 +50,7 @@ namespace MirrorChronicles.Characters
         {
             if (!character.IsAlive || (character.CurrentTask != TaskType.Cultivation && character.CurrentTask != TaskType.ArtPractice)) return;
             if (!SpiritualOrificeRules.CanCultivate(character)) return; // a mortal gathers no Qi
+            if (character.Path != CultivationPath.Immortal) return;     // a monk or a bound beast rises its own way (R13-R16)
             if (character.ProgressionSealed) return;                     // a consumed Dao Partner: no further, even cultivating
 
             double multiplier = SpeedOf(character);
@@ -99,6 +100,7 @@ namespace MirrorChronicles.Characters
         public void AdvanceSubLevels(CharacterData character)
         {
             if (!SpiritualOrificeRules.CanCultivate(character) || character.ProgressionSealed) return;
+            if (character.Path != CultivationPath.Immortal) return; // its XP waits for its own climb (R13-R16)
 
             while (true)
             {
@@ -126,7 +128,7 @@ namespace MirrorChronicles.Characters
         {
             var step = PowerLadder.Next(character.Realm, character.RealmStage);
             return character.IsAlive
-                && character.Path != CultivationPath.Demonic // a bound beast's lineage awakens it, no trial (R16)
+                && character.Path == CultivationPath.Immortal // a monk or a bound beast rises with no trial (R13-R16)
                 && character.CaptorFaction == null // no trial in a cell (L6a)
                 && SpiritualOrificeRules.CanCultivate(character)
                 && step.IsAvailable

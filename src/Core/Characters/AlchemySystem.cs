@@ -263,7 +263,7 @@ namespace MirrorChronicles.Characters
         public string RecastRefusal(CharacterData member, string qiId)
         {
             if (member == null || !member.IsAlive || member.CaptorFaction != null) return "ce membre ne peut s'y livrer";
-            if (member.Realm != CultivationRealm.Foundation) return "seule une Fondation refond sa fondation";
+            if (member.Realm != CultivationRealm.Foundation || member.Path != CultivationPath.Immortal) return "seule une Fondation de la voie immortelle refond sa fondation";
             if (member.ProgressionSealed) return "sa voie est scellée";
             if (PillsOf(PillKind.FoundationRecasting) == 0) return $"il faut une {PillName(PillKind.FoundationRecasting)}";
             var qi = ctx.Content.Qi.FirstOrDefault(q => q.Id == qiId);

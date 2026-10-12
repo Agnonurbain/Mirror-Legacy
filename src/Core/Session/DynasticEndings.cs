@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
@@ -99,11 +100,12 @@ namespace MirrorChronicles.Session
             string who = null;
             bool holds = c.Kind switch
             {
-                EndingConditionKind.MemberRealm => Named(clan.LivingMembers.FirstOrDefault(m => m.Realm >= c.Realm), out who),
+                EndingConditionKind.MemberRealm => Named(clan.LivingMembers.FirstOrDefault(m => m.Realm >= c.Realm
+                    && (c.Realm < CultivationRealm.GoldenCore || PowerLadder.IsTrueMonarch(m))), out who), // a Dharma Master is no True Monarch (R13-R14)
                 EndingConditionKind.MemberPosition => Named(clan.LivingMembers.FirstOrDefault(m =>
                     m.Realm >= CultivationRealm.GoldenCore && m.GoldenCore == c.Position), out who),
                 EndingConditionKind.PositionMove => c.From.Any(from => moves.TryGetValue($"{from}>{c.Position}", out who)),
-                EndingConditionKind.TrueMonarchs => clan.LivingMembers.Count(m => m.Realm >= CultivationRealm.GoldenCore) >= c.Count,
+                EndingConditionKind.TrueMonarchs => clan.LivingMembers.Count(PowerLadder.IsTrueMonarch) >= c.Count,
                 EndingConditionKind.GoldenLine => Named(GoldenLineHeir(c.Count), out who),
                 EndingConditionKind.Vassals => VassalsHold(c),
                 EndingConditionKind.Hegemony => streaks.GetValueOrDefault(ending.Id) >= c.Years,

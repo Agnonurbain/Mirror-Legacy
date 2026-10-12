@@ -96,7 +96,7 @@ namespace MirrorChronicles.Characters
         }
 
         private bool HasAGoldenCoreForce =>
-            clan.LivingMembers.Any(m => m.CaptorFaction == null && m.Retreat == Retreat.None && m.Realm >= CultivationRealm.GoldenCore);
+            clan.LivingMembers.Any(m => m.CaptorFaction == null && m.Retreat == Retreat.None && PowerLadder.IsTrueMonarch(m));
 
         /// <summary>The custom: the Underworld collects the essence. Null when done, else why not (French).</summary>
         public string LeaveToTheUnderworld(string id)

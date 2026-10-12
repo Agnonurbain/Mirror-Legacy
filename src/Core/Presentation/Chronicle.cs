@@ -103,6 +103,9 @@ namespace MirrorChronicles.Presentation
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
+            bus.OnBuddhistConverted += (m, temple) => Add($"{m.FullName}, aux portes de la mort, se convertit au {temple}, renonçant à la voie immortelle : {RankCatalog.DisplayName(m)}.");
+            bus.OnSoulRecalled += (m, temple) => Add($"le {temple} rappelle l'âme de {m.FullName}, qu'il gardait : le moine quitte le clan.");
+            bus.OnMonkRose += m => Add($"{m.FullName} s'élève : {RankCatalog.DisplayName(m)}.");
             bus.OnBeastBound += b => Add($"{b.FullName} est lié(e) au clan : une bête du Dao Démoniaque, qui garde et chasse pour lui.");
             bus.OnLineageAwakened += b => Add($"la lignée de {b.FullName} s'éveille : {RankCatalog.DisplayName(b)}.");
             bus.OnSpiritualNatureElected += (member, fruitionId) =>

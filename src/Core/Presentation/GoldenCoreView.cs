@@ -33,7 +33,8 @@ namespace MirrorChronicles.Presentation
         {
             var options = new List<GoldenCoreOption>();
             var gc = s.Context.Content.Balance.GoldenCore;
-            foreach (var m in s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm >= CultivationRealm.PurpleMansion))
+            foreach (var m in s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm >= CultivationRealm.PurpleMansion
+                && m.Path == CultivationPath.Immortal)) // a monk or a bound beast walks no immortal route (R13-R16)
             {
                 foreach (var (target, route, knows) in s.GoldenCore.ForgeTargets(m))
                 {

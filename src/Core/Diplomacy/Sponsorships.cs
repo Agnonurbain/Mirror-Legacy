@@ -83,7 +83,7 @@ namespace MirrorChronicles.Diplomacy
         /// <summary>The clan knows no way up yet, and a Foundation waits for one.</summary>
         private bool NeedsAWayUp() =>
             !techniques.Known.Any(IsAscent)
-            && clan.LivingMembers.Any(m => m.CaptorFaction == null && m.Realm == CultivationRealm.Foundation && m.Species == Species.Human); // a beast needs no method (R16)
+            && clan.LivingMembers.Any(m => m.CaptorFaction == null && m.Realm == CultivationRealm.Foundation && m.Species == Species.Human && m.Path == CultivationPath.Immortal); // a beast or a monk needs no method (R13-R16)
 
         /// <summary>A year: a power that holds an ascent method may offer it (🔎 balance.json « knowledgeTrade.patronOfferChance »).</summary>
         public void ProcessYear()

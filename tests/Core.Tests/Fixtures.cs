@@ -55,6 +55,7 @@ namespace MirrorChronicles.Tests
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
         public DemonicDaoSystem DemonicDao { get; }
+        public BuddhismSystem Buddhism { get; }
         public ShardSystem Shards { get; }
         public SectSystem Sect { get; }
         public KnowledgeAccords Accords { get; }
@@ -126,6 +127,7 @@ namespace MirrorChronicles.Tests
             Abilities = new DivineAbilitySystem(Ctx, Clan, Techniques, Resources);
             Factions = new FactionManager(Ctx);
             Sect = new SectSystem(Ctx, Clan, Resources, Stability, Karma, Factions);
+            Buddhism = new BuddhismSystem(Ctx, Clan, Resources, Factions);
             Mirror = new MirrorSystem(Ctx, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Ctx, Mirror, Techniques);
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);

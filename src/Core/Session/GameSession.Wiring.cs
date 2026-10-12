@@ -43,6 +43,7 @@ namespace MirrorChronicles.Session
             Elders = new ElderSystem(Context, Factions);
             PowerEconomy = new PowerEconomy(Context, Factions);
             Sect = new SectSystem(Context, Clan, Resources, Stability, Karma, Factions);
+            Buddhism = new BuddhismSystem(Context, Clan, Resources, Factions);
             Mirror = new MirrorSystem(Context, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
