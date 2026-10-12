@@ -145,8 +145,9 @@ namespace MirrorChronicles.Combat
                 _ => AmbushOutcome.Escaped
             };
             var target = clan.FindById(fought.TargetId);
-            if (outcome == AmbushOutcome.Taken && target is not { IsAlive: true, CaptorFaction: null })
-                outcome = AmbushOutcome.Escaped; // nobody left to take
+            if (outcome == AmbushOutcome.Taken && (target is not { IsAlive: true, CaptorFaction: null }
+                || Current.Allies.Any(a => a.BaseData == target && a.HasFled)))
+                outcome = AmbushOutcome.Escaped; // nobody left to take, or the member struck got away
             if (outcome == AmbushOutcome.Repelled)
                 captives.Imprison(new Prisoner($"agent-{fought.Seed}", fought.Faction, fought.Realm, ctx.Clock.Year));
             else if (outcome == AmbushOutcome.Taken) captives.Take(target, fought.Faction);

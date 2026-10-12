@@ -127,6 +127,7 @@ namespace MirrorChronicles.Session
             session.Challenges.Restore(data.PendingChallenge); // none in saves before 2.18
             session.Ambushes.Restore(data.PendingAmbush);      // none in saves before 2.43
             session.HuntBattles.Restore(data.PendingHunt);      // none in saves before 2.44
+            session.WarBattles.Restore(data.PendingWarBattles); // none in saves before 2.45
             session.Upkeep.Restore(data.Impoverished);          // false in saves before 2.19
             session.DaoHunts.Restore(data.DaoPreys);            // none in saves before 2.20
             if (data.WorldBeasts != null) session.Bestiary.Restore(data.WorldBeasts);
@@ -225,6 +226,7 @@ namespace MirrorChronicles.Session
                 PendingChallenge = Challenges.Pending,
                 PendingAmbush = Ambushes.Pending,
                 PendingHunt = HuntBattles.Pending,
+                PendingWarBattles = WarBattles.Queue.ToList(),
                 Impoverished = Upkeep.Impoverished,
                 DaoPreys = DaoHunts.Known.ToList(),
                 Annals = Annals.Entries.ToList(),

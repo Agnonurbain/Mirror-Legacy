@@ -219,6 +219,17 @@ namespace MirrorChronicles.Tests.Combat
         }
 
         [Test]
+        public void Conclude_LetsTheMemberStruckGo_WhenItFled()
+        {
+            var (w, target) = Sprung(new FixedRandom(0.0));
+            w.Ambushes.Fight();
+            foreach (var fighter in w.Ambushes.Current.Allies) fighter.Flee();
+            w.Ambushes.Current.EndTurn();
+            w.Ambushes.Conclude();
+            Assert.IsNull(target.CaptorFaction, "fled, it is not taken");
+        }
+
+        [Test]
         public void LetBe_SettlesTheAmbushByChance()
         {
             var (w, target) = Sprung(new FixedRandom(0.0)); // chance always takes the member

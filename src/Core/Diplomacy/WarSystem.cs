@@ -205,22 +205,54 @@ namespace MirrorChronicles.Diplomacy
 
         private void ClanBattle(ClanWar war, FactionData enemy)
         {
+            if (Spring != null && Spring(war, enemy, AlliesComing(war))) return; // a player there fights it on the grid (G6)
+            ResolveBattle(war, enemy);
+        }
+
+        /// <summary>
+        /// When a player is there to fight (set by the session, G6): the year's battle waits for the clan on the battle screen,
+        /// told how many allies came; false when the clan has nobody to send, and chance settles it.
+        /// </summary>
+        public Func<ClanWar, FactionData, int, bool> Spring { get; set; }
+
+        /// <summary>The clan's defence allies who come this year to this war.</summary>
+        private int AlliesComing(ClanWar war) =>
+            treaties.All.Where(t => t.Kind == TreatyKind.Defence && t.Faction != war.Enemy).Select(t => factions.GetFactionByName(t.Faction))
+                .Count(ally => ally != null && Comes(ally.Name));
+
+        /// <summary>The clan's war against this power, if any.</summary>
+        public ClanWar War(string enemy) => clanWars.FirstOrDefault(w => w.Enemy == enemy);
+
+        /// <summary>The year's battle settled by chance: the clan's strength and its allies' against the enemy's.</summary>
+        public void ResolveBattle(ClanWar war, FactionData enemy)
+        {
             var s = Settings;
             double ours = ClanStrength(war, out var ourTop), theirs = WarRules.Strength(enemy, s);
             if (ctx.Rng.Chance(WarRules.WinChance(ours, ourTop, theirs, enemy.HighestRealm, ctx.Content.Balance.RealmGap)))
             {
-                enemy.PowerLevel -= (int)(enemy.PowerLevel * s.BattleLossShare);
-                int loot = (int)(Math.Max(0, enemy.Wealth) * s.ClanLootShare);
-                enemy.Wealth -= loot;
-                resources.AddSpiritStones(loot);
+                Won(enemy);
                 return;
             }
-            resources.ConsumeSpiritStones((int)(resources.SpiritStones * s.ClanWarStonesLoss));
+            LoseStones(1);
             if (!ctx.Rng.Chance(s.ClanWarDeathChance)) return;
             var fallen = clan.LivingMembers.Where(m => m.CaptorFaction == null && m.Realm >= CultivationRealm.QiRefinement)
                 .OrderBy(m => (int)m.Realm).ThenBy(m => m.RealmStage).FirstOrDefault();
             if (fallen != null) clan.Kill(fallen, DeathCause.Combat);
         }
+
+        /// <summary>A battle won: the enemy weakened, and the clan loots its treasury.</summary>
+        public void Won(FactionData enemy)
+        {
+            var s = Settings;
+            enemy.PowerLevel -= (int)(enemy.PowerLevel * s.BattleLossShare);
+            int loot = (int)(Math.Max(0, enemy.Wealth) * s.ClanLootShare);
+            enemy.Wealth -= loot;
+            resources.AddSpiritStones(loot);
+        }
+
+        /// <summary>A battle lost (factor 1) or left (a smaller factor): the war's toll on the clan's stones.</summary>
+        public void LoseStones(double factor) =>
+            resources.ConsumeSpiritStones((int)(resources.SpiritStones * Settings.ClanWarStonesLoss * factor));
 
         // ---- The year ----
 

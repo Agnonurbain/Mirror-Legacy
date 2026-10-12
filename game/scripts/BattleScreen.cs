@@ -62,31 +62,39 @@ namespace MirrorChronicles.Game
             if (root.IsSmokeRun) Callable.From(RunSmoke).CallDeferred();
         }
 
-        /// <summary>What brought the clan to the grid (G6): a rival's challenge, an ambush, or a hunt's capture.</summary>
-        private enum Encounter { Challenge, Ambush, Hunt }
+        /// <summary>What brought the clan to the grid (G6): a rival's challenge, an ambush, a hunt's capture, or a war's battle.</summary>
+        private enum Encounter { Challenge, Ambush, Hunt, War }
 
+        /// <summary>The battle under way first; else what waits, the ambush first, the challenge last.</summary>
         private Encounter Kind
         {
             get
             {
                 var s = root.Session;
-                if (s.Ambushes.Pending != null || s.Ambushes.Current != null) return Encounter.Ambush;
-                if (s.HuntBattles.Pending != null || s.HuntBattles.Current != null) return Encounter.Hunt;
+                if (s.Challenges.Current != null) return Encounter.Challenge;
+                if (s.Ambushes.Current != null) return Encounter.Ambush;
+                if (s.HuntBattles.Current != null) return Encounter.Hunt;
+                if (s.WarBattles.Current != null) return Encounter.War;
+                if (s.Ambushes.Pending != null) return Encounter.Ambush;
+                if (s.HuntBattles.Pending != null) return Encounter.Hunt;
+                if (s.WarBattles.Pending != null) return Encounter.War;
                 return Encounter.Challenge;
             }
         }
 
         /// <summary>The battle under way, whatever brought it.</summary>
         private MirrorChronicles.Combat.Battle Battle =>
-            root.Session.Challenges.Current ?? root.Session.Ambushes.Current ?? root.Session.HuntBattles.Current;
+            root.Session.Challenges.Current ?? root.Session.Ambushes.Current ?? root.Session.HuntBattles.Current ?? root.Session.WarBattles.Current;
 
         private System.Func<string, MirrorChronicles.Data.TechniqueData> Find => root.Session.Techniques.Find;
 
         private void Refresh()
         {
             var kind = Kind;
-            GetNode<Label>("%Title").Text = kind switch { Encounter.Ambush => "Embuscade", Encounter.Hunt => "Chasse", _ => "Défi d'un rival" };
-            conclude.Text = kind switch { Encounter.Ambush => "Conclure l'embuscade", Encounter.Hunt => "Conclure la chasse", _ => "Conclure le défi" };
+            GetNode<Label>("%Title").Text = kind switch
+                { Encounter.Ambush => "Embuscade", Encounter.Hunt => "Chasse", Encounter.War => "Guerre", _ => "Défi d'un rival" };
+            conclude.Text = kind switch
+                { Encounter.Ambush => "Conclure l'embuscade", Encounter.Hunt => "Conclure la chasse", Encounter.War => "Conclure la bataille", _ => "Conclure le défi" };
             bool fighting = Battle != null;
             prep.Visible = !fighting;
             field.Visible = fighting;
@@ -125,6 +133,20 @@ namespace MirrorChronicles.Game
                 foreach (var name in hunt.Strikers) candidates.AddChild(new Label { Text = $"Frappe : {name}" });
                 return;
             }
+            if (Kind == Encounter.War && BattleView.War(root.Session) is { } war)
+            {
+                accept.Text = "Combattre";
+                decline.Text = "Laisser faire le sort";
+                accept.Disabled = false;
+                decline.Disabled = false;
+                summons.Text = $"Guerre ! {war.Enemy} marche sur le clan : son chef, de rang {war.LeaderRank}"
+                    + (war.Soldiers > 0 ? $", et {war.Soldiers} soldat(s) de rang {war.SoldierRank}" : ", seul")
+                    + (war.AlliesCame > 0 ? $" ({war.AlliesCame} allié(s) venu(s) retiennent des soldats)" : "") + ". "
+                    + $"Choisissez jusqu'à {war.MaxFighters} combattant(s), ou laissez le sort décider."
+                    + (war.StillWaiting > 0 ? $" {war.StillWaiting} autre(s) bataille(s) attendent ensuite." : "");
+                ShowCandidates(war.Candidates);
+                return;
+            }
             accept.Text = "Relever le défi";
             decline.Text = "Se dérober";
             var pending = BattleView.Pending(root.Session);
@@ -138,8 +160,14 @@ namespace MirrorChronicles.Game
             summons.Text = $"{pending.Faction} défie le clan{(pending.ToTheDeath ? " À MORT — qui tombe meurt, et fuir coûte cher" : " dans les règles")} : "
                 + $"{pending.Rivals} rival(aux) de rang {pending.Rank}. "
                 + $"Choisissez jusqu'à {pending.MaxFighters} combattant(s).";
-            chosen.IntersectWith(pending.Candidates.Where(c => c.Refusal == null).Select(c => c.Id));
-            foreach (var candidate in pending.Candidates)
+            ShowCandidates(pending.Candidates);
+        }
+
+        /// <summary>The members who may answer, each with a box to send them (a challenge, a war's battle).</summary>
+        private void ShowCandidates(IReadOnlyList<ChallengeCandidate> list)
+        {
+            chosen.IntersectWith(list.Where(c => c.Refusal == null).Select(c => c.Id));
+            foreach (var candidate in list)
             {
                 var pick = new CheckBox
                 {
@@ -154,6 +182,15 @@ namespace MirrorChronicles.Game
 
         private void Accept()
         {
+            if (Kind == Encounter.War)
+            {
+                var sent = root.Session.WarBattles.Fight(chosen.ToList());
+                status.Text = sent == null ? "Les combattants du clan marchent à l'ennemi : la bataille commence." : $"Impossible : {sent}.";
+                if (sent == null) chosen.Clear();
+                action = BattleView.Move;
+                Refresh();
+                return;
+            }
             if (Kind != Encounter.Challenge)
             {
                 bool ambush = Kind == Encounter.Ambush;
@@ -177,6 +214,7 @@ namespace MirrorChronicles.Game
             {
                 case Encounter.Ambush: Answer(root.Session.Ambushes.LetBe(), "Le clan laisse le sort décider de l'embuscade."); break;
                 case Encounter.Hunt: Answer(root.Session.HuntBattles.LetBe(), "Le clan laisse le sort décider de la capture."); break;
+                case Encounter.War: Answer(root.Session.WarBattles.LetBe(), "Le clan laisse le sort décider de la bataille."); break;
                 default: Answer(root.Session.Challenges.Decline(), "Le clan se dérobe au défi."); break;
             }
         }
@@ -188,6 +226,7 @@ namespace MirrorChronicles.Game
             {
                 case Encounter.Ambush: Answer(root.Session.Ambushes.Conclude(), $"L'embuscade est réglée : {outcome}."); break;
                 case Encounter.Hunt: Answer(root.Session.HuntBattles.Conclude(), $"La chasse est réglée : {outcome}."); break;
+                case Encounter.War: Answer(root.Session.WarBattles.Conclude(), $"La bataille est réglée : {outcome}."); break;
                 default: Answer(root.Session.Challenges.Conclude(), $"Le défi est réglé : {outcome}."); break;
             }
         }
@@ -210,7 +249,7 @@ namespace MirrorChronicles.Game
             foreach (var unit in BattleView.Units(battle))
                 units.AddChild(new Label
                 {
-                    Text = $"{(unit.IsCurrent ? "▶ " : "")}{(unit.IsAlly ? "Clan" : Kind switch { Encounter.Ambush => "Agent", Encounter.Hunt => "Bête", _ => "Rival" })} — {unit.Name} ({unit.Rank}) : "
+                    Text = $"{(unit.IsCurrent ? "▶ " : "")}{(unit.IsAlly ? "Clan" : Kind switch { Encounter.Ambush => "Agent", Encounter.Hunt => "Bête", Encounter.War => "Ennemi", _ => "Rival" })} — {unit.Name} ({unit.Rank}) : "
                         + $"vitalité {unit.Vitality}/{unit.MaxVitality}, Qi {unit.Qi}/{unit.MaxQi}{(unit.Status == null ? "" : $" — {unit.Status}")}",
                     AutowrapMode = TextServer.AutowrapMode.WordSmart
                 });
@@ -235,7 +274,7 @@ namespace MirrorChronicles.Game
             pulse.Disabled = !myTurn || pulseRefusal != null;
             pulse.TooltipText = pulseRefusal ?? "";
             conclude.Visible = battle.IsOver;
-            if (battle.IsOver) status.Text = $"{BattleView.Outcome(battle)}. Concluez {Kind switch { Encounter.Ambush => "l'embuscade", Encounter.Hunt => "la chasse", _ => "le défi" }}.";
+            if (battle.IsOver) status.Text = $"{BattleView.Outcome(battle)}. Concluez {Kind switch { Encounter.Ambush => "l'embuscade", Encounter.Hunt => "la chasse", Encounter.War => "la bataille", _ => "le défi" }}.";
         }
 
         private void Strike(int x, int y)
@@ -268,8 +307,9 @@ namespace MirrorChronicles.Game
         private void RunSmoke()
         {
             var session = root.Session;
-            while (session.Ambushes.Pending != null) session.Ambushes.LetBe(); // the smoke checks the challenge's battle
-            while (session.HuntBattles.Pending != null) session.HuntBattles.LetBe();
+            while (session.Ambushes.Pending != null && session.Ambushes.LetBe() == null) { } // the smoke checks the challenge's battle
+            while (session.HuntBattles.Pending != null && session.HuntBattles.LetBe() == null) { }
+            while (session.WarBattles.Pending != null && session.WarBattles.LetBe() == null) { }
             if (session.Challenges.Pending == null && session.Challenges.Current == null)
                 session.Challenges.Issue(session.Factions.Factions.FirstOrDefault());
             var pending = BattleView.Pending(session);

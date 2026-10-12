@@ -77,6 +77,12 @@ namespace MirrorChronicles.Presentation
                 AmbushOutcome.Taken => $"les agents de {faction} l'emportent dans l'embuscade et emmènent leur proie.",
                 _ => $"les membres du clan échappent à l'embuscade de {faction}."
             });
+            bus.OnWarBattleSettled += (enemy, outcome) => Add(outcome switch
+            {
+                WarBattleOutcome.Won => $"le clan remporte une bataille contre {enemy} et pille son trésor.",
+                WarBattleOutcome.Lost => $"le clan perd une bataille contre {enemy}.",
+                _ => $"le clan se retire d'une bataille contre {enemy}."
+            });
             bus.OnExtortion += power => Add($"{power} convoite le trésor du clan et exige le prix de sa protection.");
             bus.OnDaoHuntFoiled += power => Add($"des gens de {power} fondent sur un Dao mûr du clan ; ils sont repoussés.");
             bus.OnHunt += (_, captured) => Add(captured ? "une chasse du clan ramène une bête spirituelle." : "une chasse du clan revient les mains vides.");

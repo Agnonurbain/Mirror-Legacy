@@ -51,6 +51,7 @@ namespace MirrorChronicles.Events
         public event Action<string, string> OnPeace;                         // victor or party, the other
         public event Action<string, ChallengeOutcome> OnChallengeSettled;    // a rival's challenge answered (or not)
         public event Action<string, AmbushOutcome> OnAmbushSettled;          // an ambush fought on the grid ended (G6)
+        public event Action<string, WarBattleOutcome> OnWarBattleSettled;    // a war's battle fought on the grid ended (G6)
         public event Action<string> OnExtortion;                             // a greedy power demands the clan pay for its « protection »
         public event Action<string> OnExtortionRefused;                      // refused (or unanswered): it makes war on the clan
         public event Action<string> OnDaoHuntFoiled;                         // a power struck at a ripe Dao of the clan, and was driven off
@@ -131,6 +132,7 @@ namespace MirrorChronicles.Events
         public void TriggerPeace(string a, string b) => OnPeace?.Invoke(a, b);
         public void TriggerChallengeSettled(string faction, ChallengeOutcome outcome) => OnChallengeSettled?.Invoke(faction, outcome);
         public void TriggerAmbushSettled(string faction, AmbushOutcome outcome) => OnAmbushSettled?.Invoke(faction, outcome);
+        public void TriggerWarBattleSettled(string enemy, WarBattleOutcome outcome) => OnWarBattleSettled?.Invoke(enemy, outcome);
         public void TriggerExtortion(string power) => OnExtortion?.Invoke(power);
         public void TriggerExtortionRefused(string power) => OnExtortionRefused?.Invoke(power);
         public void TriggerDaoHuntFoiled(string power) => OnDaoHuntFoiled?.Invoke(power);

@@ -137,8 +137,9 @@ namespace MirrorChronicles.Game
             var openBattle = GetNode<Button>("%OpenBattle");
             bool ambushed = session.Ambushes.Pending != null || session.Ambushes.Current != null;
             bool hunting = session.HuntBattles.Pending != null || session.HuntBattles.Current != null;
-            openBattle.Visible = ambushed || hunting || session.Challenges.Pending != null || session.Challenges.Current != null;
-            openBattle.Text = ambushed ? "Embuscade !" : hunting ? "Chasse !" : "Défi d'un rival";
+            bool warring = session.WarBattles.Pending != null || session.WarBattles.Current != null;
+            openBattle.Visible = ambushed || hunting || warring || session.Challenges.Pending != null || session.Challenges.Current != null;
+            openBattle.Text = ambushed ? "Embuscade !" : hunting ? "Chasse !" : warring ? "Guerre !" : "Défi d'un rival";
             var stock = ClanDomainView.QiStock(session);
             qi.Text = stock.Count == 0 ? "Aucun Qi en réserve"
                 : string.Join(" · ", stock.Select(line => $"{line.Name} ×{line.Portions}"));
@@ -164,12 +165,14 @@ namespace MirrorChronicles.Game
                 status.Text = $"{ambush.Target} tombe dans une embuscade de {ambush.Faction} : le clan doit répondre avant de poursuivre.";
             else if (BattleView.Hunt(session) is { } hunt && !over)
                 status.Text = $"Les frappeurs approchent {hunt.Beast} : la capture attend sur l'écran de combat.";
+            else if (BattleView.War(session) is { } war && !over)
+                status.Text = $"{war.Enemy} marche sur le clan : la bataille attend sur l'écran de combat.";
             TellNextEnding();
             OfferFromAPatron();
             AskForAnAnswer();
             AskAboutTheDemon();
             nextPhase.Disabled = over || session.Story.PendingEvent != null // a story event waits for a choice
-                || ambushed || hunting;                                      // and an ambush or a hunt's capture for an answer (G6)
+                || ambushed || hunting || warring;                                      // and an ambush or a hunt's capture for an answer (G6)
         }
 
         private void FoundKingdom()
@@ -466,8 +469,9 @@ namespace MirrorChronicles.Game
                 for (int p = 0; p < PhasesPerYear; p++)
                 {
                     while (session.Story.PendingEvent != null) ChooseStoryOutcome(0);
-                    while (session.Ambushes.Pending != null) session.Ambushes.LetBe(); // the smoke leaves ambushes to chance
-                    while (session.HuntBattles.Pending != null) session.HuntBattles.LetBe();
+                    while (session.Ambushes.Pending != null && session.Ambushes.LetBe() == null) { } // the smoke leaves ambushes to chance
+                    while (session.HuntBattles.Pending != null && session.HuntBattles.LetBe() == null) { }
+                    while (session.WarBattles.Pending != null && session.WarBattles.LetBe() == null) { }
                     AdvancePhase();
                 }
             }

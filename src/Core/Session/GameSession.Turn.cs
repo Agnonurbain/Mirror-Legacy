@@ -22,6 +22,7 @@ namespace MirrorChronicles.Session
             if (Victory.IsOver || Challenges.Current != null) return; // a battle under way is fought to its end first
             if (Ambushes.Pending != null || Ambushes.Current != null) return; // an ambush is answered first: fought, or left to chance
             if (HuntBattles.Pending != null || HuntBattles.Current != null) return; // and a hunt's capture
+            if (WarBattles.Pending != null || WarBattles.Current != null) return;   // and a war's battle
 
             if (Clock.Advance()) BeginYear();
             else ResolvePhase(Clock.Phase);

@@ -30,6 +30,13 @@ namespace MirrorChronicles.Presentation
     /// <summary>A hunt's capture awaiting the strikers (G6): the beast, its rank and owner (null: solitary), how weakened, the strikers.</summary>
     public sealed record PendingHuntView(string Beast, string Rank, string Owner, int WeakenedPercent, IReadOnlyList<string> Strikers);
 
+    /// <summary>
+    /// A war's battle awaiting the clan (G6): the enemy, its leader's and soldiers' ranks, the soldiers on the field, the allies
+    /// who came, who may fight and how many, and how many other battles still wait after this one.
+    /// </summary>
+    public sealed record PendingWarView(string Enemy, string LeaderRank, string SoldierRank, int Soldiers, int AlliesCame, int MaxFighters,
+        IReadOnlyList<ChallengeCandidate> Candidates, int StillWaiting);
+
     /// <summary>The battle screen (G6): the grid, the fighters, the actions of the clan's fighter whose turn it is, the outcome.</summary>
     public static class BattleView
     {
@@ -126,6 +133,22 @@ namespace MirrorChronicles.Presentation
             var beast = session.HuntBattles.Beast(hunt);
             return new PendingHuntView(beast?.LastName ?? "une bête disparue", beast == null ? "" : RankCatalog.RealmName(beast.Realm), beast?.FromFaction,
                 (int)Math.Round(100 * session.HuntBattles.Weakening(hunt.Plan)), session.HuntBattles.Strikers(hunt).Select(m => m.FullName).ToList());
+        }
+
+        /// <summary>The war's battle awaiting the clan; null when none.</summary>
+        public static PendingWarView War(GameSession session)
+        {
+            var battle = session.WarBattles.Pending;
+            if (battle == null) return null;
+            var wars = session.WarBattles;
+            var candidates = session.Clan.LivingMembers
+                .OrderByDescending(m => wars.FighterRefusal(m) == null).ThenByDescending(m => (int)m.Realm)
+                .ThenByDescending(m => m.RealmStage).ThenBy(m => m.FullName, StringComparer.Ordinal)
+                .Select(m => new ChallengeCandidate(m.ID, m.FullName, RankCatalog.DisplayName(m), wars.FighterRefusal(m)))
+                .ToList();
+            return new PendingWarView(battle.Enemy, RankCatalog.RealmName(battle.LeaderRealm), RankCatalog.RealmName(battle.SoldierRealm),
+                Math.Max(0, battle.Soldiers - battle.AlliesCame), battle.AlliesCame, session.Context.Content.Balance.Wars.WarMaxFighters,
+                candidates, wars.Queue.Count - 1);
         }
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)

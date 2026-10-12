@@ -299,8 +299,9 @@ namespace MirrorChronicles.Data
                 && war.SurrenderRatio > 0 && war.SurrenderRatio < 1 && war.MaxWarYears >= 1 && IsProbability(war.WarChance)
                 && war.HegemonRatio >= 1 && IsProbability(war.HegemonChance) && IsProbability(war.AllyJoinChance)
                 && IsProbability(war.ClanWarStonesLoss) && IsProbability(war.ClanWarDeathChance) && IsProbability(war.ClanLootShare)
-                && IsProbability(war.PeaceTributeShare) && IsProbability(war.PowerDeclareChance),
-                BalanceFile, "wars needs shares and odds between 0 and 1, a surrender ratio under 1, and at least one year of war.");
+                && IsProbability(war.PeaceTributeShare) && IsProbability(war.PowerDeclareChance)
+                && war.WarMaxFighters >= 1 && war.ArmyPowerPerSoldier >= 1 && war.ArmyMaxSoldiers >= 0 && IsProbability(war.WithdrawStonesFactor),
+                BalanceFile, "wars needs shares and odds between 0 and 1, a surrender ratio under 1, at least one year of war, and a war battle with at least one fighter.");
             var duel = balance.Challenges;
             Require(duel != null && duel.MaxFighters >= 1 && duel.MaxRivals >= 1 && duel.Wager >= 0 && duel.DeclineRelation <= 0 && IsProbability(duel.DeathChance)
                 && IsProbability(duel.DeathChallengeChance) && duel.DeathDeclineFactor >= 1
