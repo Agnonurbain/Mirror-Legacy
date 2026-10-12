@@ -104,8 +104,8 @@ Thème Shuimo de base en place (43a41) : papier, bronze, paysage et portraits à
 | **Cœur Dao** | tempérament héréditaire ; aligné ×1,2, sinon ×0,9 à partir de la Fondation |
 | **Âges** | aucune tâche avant 6 ans ; un enfant mortel ne fait que se reposer jusqu'à 16 ans |
 | **Clan de départ** | 5 membres (`clan.json`) |
-| **Mariage** | 18-40 ans, parenté interdite sur 3 générations, 30 %/an |
-| **Naissances** | mère de 16 à 45 ans, 25 %/an |
+| **Mariage** | 18-40 ans, parenté interdite sur 3 générations, 20 %/an (B1, 2026-10-12) |
+| **Naissances** | mère de 16 à 45 ans, 9 %/an (B1, 2026-10-12 : ~125 membres à 150 ans) |
 | **Phases** | Gestion → Événements → Percées → Héritage |
 | **Combat** | grille 10×10, initiative, 6 actions, 5 IA ; Qi régénéré seulement sur Qi concentré |
 | **Relations** | -100 à +100 |
