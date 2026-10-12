@@ -1,9 +1,9 @@
 {
   "orificeOdds": { "commoner": 0.003, "oneParent": 0.35, "twoParents": 0.5, "seedParentWeight": 0.5 },
-  "annualBirthChance": 0.25,
+  "annualBirthChance": 0.09,
   "minMotherAge": 16,
   "maxMotherAge": 45,
-  "annualMarriageChance": 0.3,
+  "annualMarriageChance": 0.2,
   "techniqueSpeedByGrade": [ 0.6, 0.8, 1.0, 1.2, 1.5, 1.8, 2.2 ],
   "unspecifiedFruitionOdds": { "free": 0.6, "occupied": 0.3, "broken": 0.1 },
   "heartAlignedSpeed": 1.2,
@@ -128,7 +128,7 @@
 	"doubtClues": 70
   },
   "schemes": {
-	"baseChance": 0.015,
+	"baseChance": 0.009,
 	"hostageRelation": -50,
 	"personalityFactors": { "Aggressive": 1.5, "Merchant": 0.5, "Isolationist": 0.1, "Expansionist": 1.2, "Manipulative": 1.3 },
 	"hostilityWeight": 1.0,
