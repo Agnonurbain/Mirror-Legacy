@@ -120,6 +120,7 @@ namespace MirrorChronicles.Combat
             Pending = null;
             Current = Battle.Start(fighters, Rivals(fought), ctx.Rng, ctx.Log, findTechnique: techniques.Find, gap: ctx.Content.Balance.RealmGap,
                 convergence: ctx.Content.Balance.Arts.Convergence, equip: Equip);
+            ctx.Events.TriggerClanFought(fighters.ToList()); // a non-violent vow breaks on the grid (R13-14b)
             return null;
         }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
@@ -22,13 +23,16 @@ namespace MirrorChronicles.Characters
         private readonly ClanManager clan;
         private readonly ResourceManager resources;
         private readonly FactionManager factions;
+        private readonly WoundSystem wounds;
 
-        public BuddhismSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions)
+        public BuddhismSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, WoundSystem wounds)
         {
+            this.wounds = wounds;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
             this.factions = factions;
+            ctx.Events.OnClanFought += BreakNonViolence;
         }
 
         private BuddhismSettings Settings => ctx.Content.Balance.Buddhism;
@@ -51,13 +55,13 @@ namespace MirrorChronicles.Characters
         {
             if (member == null || !member.IsAlive || !clan.LivingMembers.Contains(member)) return "introuvable";
             if (member.Species != Species.Human) return "une bête liée ne se convertit pas";
-            if (member.Path != CultivationPath.Immortal) return "il suit déjà une autre voie";
+            if (member.Path != CultivationPath.Immortal) return "déjà engagé(e) sur une autre voie";
             if (!SpiritualOrificeRules.CanCultivate(member) || (member.Realm == CultivationRealm.Embryonic && member.RealmStage <= 0))
                 return "seul un cultivateur se convertit";
             if (member.Realm >= CultivationRealm.GoldenCore) return "un Vrai Monarque ne renonce pas à sa position";
             if (member.CaptorFaction != null) return "captif ailleurs";
             if (member.Retreat != Retreat.None) return "en retraite";
-            if (PowerLadder.LifespanLimit(member) - member.Age > Settings.DyingYears) return "il n'est pas aux portes de la mort";
+            if (PowerLadder.LifespanLimit(member) - member.Age > Settings.DyingYears) return "pas encore aux portes de la mort";
             return null;
         }
 
@@ -74,14 +78,39 @@ namespace MirrorChronicles.Characters
             var temple = factions.GetFactionByName(templeName);
             resources.ConsumeSpiritStones(Settings.OfferingStones);
             factions.ChangeRelation(temple.ID, Settings.ConversionRelation);
+            GiveUpTheImmortalWay(member, temple);
+            member.MaxLifespan = member.Age + Settings.YearsGained; // death escaped
 
+            ctx.Log.Info($"[Buddhism] {member.FullName} converts at {temple.Name}: {RankCatalog.DisplayName(member)}.");
+            ctx.Events.TriggerBuddhistConverted(member, temple.Name);
+            return true;
+        }
+
+        /// <summary>
+        /// A debate lost (R13-14b): the temple converts an immortal below the Golden Core by force — no offering, no years
+        /// gained, it is not dying. False when it cannot be (a True Monarch, a monk already, a bound beast, no such temple).
+        /// </summary>
+        public bool ForceConvert(CharacterData member, string templeName)
+        {
+            var temple = factions.GetFactionByName(templeName);
+            if (member == null || !member.IsAlive || member.Species != Species.Human || member.Path != CultivationPath.Immortal
+                || member.Realm >= CultivationRealm.GoldenCore || temple?.Path != CultivationPath.Buddhist || temple.School == null) return false;
+            GiveUpTheImmortalWay(member, temple);
+            ctx.Log.Info($"[Buddhism] {member.FullName} is converted by force at {temple.Name}: {RankCatalog.DisplayName(member)}.");
+            ctx.Events.TriggerBuddhistConverted(member, temple.Name);
+            return true;
+        }
+
+        /// <summary>The member becomes a monk of the temple's school, a realm lower, its immortal way given up.</summary>
+        private static void GiveUpTheImmortalWay(CharacterData member, FactionData temple)
+        {
             member.Path = CultivationPath.Buddhist;
             member.SubPath = temple.School.Value;
             member.Temple = temple.Name;
             member.Realm = (CultivationRealm)Math.Max((int)CultivationRealm.Embryonic, (int)member.Realm - 1); // a realm lower
             member.RealmStage = 1;
             member.CultivationXP = 0;
-            // the immortal way given up: its foundation, abilities, method and Qi, any lineage pursued or light borrowed
+            // its foundation, abilities, method and Qi, any lineage pursued or light borrowed
             member.FoundationId = null;
             member.DivineAbilities.Clear();
             member.ShallowAbilities?.Clear();
@@ -95,11 +124,51 @@ namespace MirrorChronicles.Characters
             member.GoldenCore = GoldenCoreState.None;
             member.ForbiddenTasks = null;
             member.HoldsTrial = false;
-            member.MaxLifespan = member.Age + Settings.YearsGained; // death escaped
+            member.Vow = BuddhistVow.None;
+        }
 
-            ctx.Log.Info($"[Buddhism] {member.FullName} converts at {temple.Name}: {RankCatalog.DisplayName(member)}.");
-            ctx.Events.TriggerBuddhistConverted(member, temple.Name);
-            return true;
+        /// <summary>Why the member may not take this vow now (French), or null when it may.</summary>
+        public string VowRefusal(CharacterData member, BuddhistVow vow)
+        {
+            if (member == null || !member.IsAlive || !clan.LivingMembers.Contains(member)) return "introuvable";
+            if (member.Path != CultivationPath.Buddhist) return "seul un moine fait vœu";
+            if (vow == BuddhistVow.None) return "choisir un vœu";
+            if (member.Vow != BuddhistVow.None) return "un vœu est déjà tenu";
+            if (member.CaptorFaction != null) return "captif ailleurs";
+            if (ForbiddenBy(vow).Contains(member.CurrentTask)) return "sa tâche actuelle est interdite par ce vœu : changez-la d'abord";
+            return null;
+        }
+
+        /// <summary>The monk takes the vow: null when done, else why not (French).</summary>
+        public string TakeVow(CharacterData member, BuddhistVow vow)
+        {
+            string refusal = VowRefusal(member, vow);
+            if (refusal != null) return refusal;
+            member.Vow = vow;
+            ctx.Log.Info($"[Buddhism] {member.FullName} takes a vow: {vow}.");
+            ctx.Events.TriggerVowTaken(member, vow);
+            return null;
+        }
+
+        /// <summary>The tasks a vow forbids.</summary>
+        public IReadOnlyList<TaskType> ForbiddenBy(BuddhistVow vow) =>
+            Settings.VowTasks.TryGetValue(vow, out var tasks) ? tasks : new List<TaskType>();
+
+        /// <summary>A non-violent monk who fought on the grid has broken its vow.</summary>
+        private void BreakNonViolence(IReadOnlyList<CharacterData> fighters)
+        {
+            foreach (var monk in (fighters ?? new CharacterData[0]).Where(m => m != null && m.IsAlive && m.Vow == BuddhistVow.NonViolence).ToList())
+                Break(monk);
+        }
+
+        /// <summary>The vow broken: the mandate wounded, the vow lost.</summary>
+        private void Break(CharacterData monk)
+        {
+            var vow = monk.Vow;
+            monk.Vow = BuddhistVow.None;
+            wounds.ApplyDaoWound(monk);
+            ctx.Log.Warning($"[Buddhism] {monk.FullName} breaks its vow ({vow}): its mandate is wounded.");
+            ctx.Events.TriggerVowBroken(monk, vow);
         }
 
         /// <summary>
@@ -118,8 +187,11 @@ namespace MirrorChronicles.Characters
                     continue;
                 }
 
+                if (monk.Vow != BuddhistVow.None && ForbiddenBy(monk.Vow).Contains(monk.CurrentTask)) Break(monk); // a year at a forbidden task
+                double vowed = monk.Vow != BuddhistVow.None ? 1 + Settings.VowSpeedBonus : 1;
                 if (monk.CurrentTask == TaskType.Cultivation && !monk.ProgressionSealed)
-                    monk.CultivationXP += (int)Math.Round((CultivationSystem.BaseYearlyXp + monk.SpiritualRoot / 2) * (modern ? Settings.ModernSpeed : Settings.AncientSpeed));
+                    monk.CultivationXP += (int)Math.Round((CultivationSystem.BaseYearlyXp + monk.SpiritualRoot / 2)
+                        * (modern ? Settings.ModernSpeed : Settings.AncientSpeed) * vowed);
                 TriallessClimb.Climb(monk, CultivationRealm.GoldenCore, modern ? Settings.ModernCeilingStage : Settings.AncientCeilingStage, Rise);
             }
         }

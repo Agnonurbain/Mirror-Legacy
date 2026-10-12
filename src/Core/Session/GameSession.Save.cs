@@ -125,6 +125,7 @@ namespace MirrorChronicles.Session
             session.Dealings.RestoreSpent(data.SpentSecrets);
             session.Patrons.RestorePacts(data.PatronPacts);
             session.Wars.Restore(data.Wars, data.ClanWars); // none in saves before 2.17
+            session.Debates.Restore(data.PendingDebate, data.LastDebates); // none in saves before 2.49
             session.Challenges.Restore(data.PendingChallenge); // none in saves before 2.18
             session.Ambushes.Restore(data.PendingAmbush);      // none in saves before 2.43
             session.HuntBattles.Restore(data.PendingHunt);      // none in saves before 2.44
@@ -226,6 +227,8 @@ namespace MirrorChronicles.Session
                 PatronPacts = Patrons.Pacts.ToList(),
                 Wars = Wars.Wars.Select(w => w with { SideA = w.SideA.ToList(), SideB = w.SideB.ToList() }).ToList(),
                 ClanWars = Wars.ClanWars.ToList(),
+                PendingDebate = Debates.Pending,
+                LastDebates = Debates.LastDebates.ToDictionary(kv => kv.Key, kv => kv.Value),
                 PendingChallenge = Challenges.Pending,
                 PendingAmbush = Ambushes.Pending,
                 PendingHunt = HuntBattles.Pending,

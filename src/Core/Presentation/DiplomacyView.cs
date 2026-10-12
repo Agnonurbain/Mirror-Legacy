@@ -24,6 +24,18 @@ namespace MirrorChronicles.Presentation
     /// <summary>A dying cultivator of the clan, the years it has left, and the temples it may convert at.</summary>
     public sealed record ConversionLine(string MemberId, string Name, string Rank, int YearsLeft, IReadOnlyList<TempleChoice> Temples);
 
+    /// <summary>A monk of the clan, its vow (null: none), and the vows it may take with what each forbids.</summary>
+    public sealed record MonkLine(string MemberId, string Name, string Rank, string Vow, IReadOnlyList<VowChoice> Choices);
+
+    /// <summary>A vow a monk may take: its label and what it forbids.</summary>
+    public sealed record VowChoice(BuddhistVow Vow, string Label, string Forbids);
+
+    /// <summary>A member who may debate, with its odds against the temple in question.</summary>
+    public sealed record DebaterLine(string MemberId, string Name, string Rank, int Odds);
+
+    /// <summary>A temple the clan may debate: its debaters and their odds, or why not now.</summary>
+    public sealed record DebateTarget(string Temple, string School, string Refusal, IReadOnlyList<DebaterLine> Debaters);
+
     /// <summary>A great partner: what it gives, its tribute, why it would not hear the clan now, and — once bound — a sign of its favour.</summary>
     public sealed record PatronLine(string Id, string Name, string Kind, string Boon, int Tribute, string Refusal, bool Bound, string Favor,
         string EndWarning = null);
@@ -113,6 +125,50 @@ namespace MirrorChronicles.Presentation
                     temples.Select(t => new TempleChoice(t.Name, SchoolLabel(t.School.Value), session.Buddhism.ConversionRefusal(m, t.Name))).ToList()))
                 .ToList();
         }
+
+        /// <summary>« le vœu de silence ».</summary>
+        public static string VowLabel(BuddhistVow vow) => vow switch
+        {
+            BuddhistVow.NonViolence => "le vœu de non-violence",
+            BuddhistVow.Silence => "le vœu de silence",
+            BuddhistVow.Renunciation => "le vœu de dépouillement",
+            _ => "aucun vœu"
+        };
+
+        /// <summary>The clan's monks and the vows open to them (R13-14b).</summary>
+        public static IReadOnlyList<MonkLine> Monks(GameSession session)
+        {
+            var vows = new[] { BuddhistVow.NonViolence, BuddhistVow.Silence, BuddhistVow.Renunciation };
+            return session.Clan.LivingMembers.Where(m => m.Path == CultivationPath.Buddhist && m.CaptorFaction == null)
+                .OrderBy(m => m.FullName, StringComparer.Ordinal)
+                .Select(m => new MonkLine(m.ID, m.FullName, RankCatalog.DisplayName(m), m.Vow == BuddhistVow.None ? null : VowLabel(m.Vow),
+                    m.Vow != BuddhistVow.None ? Array.Empty<VowChoice>()
+                        : vows.Select(v => new VowChoice(v, VowLabel(v), Forbids(session, v))).ToList()))
+                .ToList();
+        }
+
+        private static string Forbids(GameSession session, BuddhistVow vow)
+        {
+            var tasks = session.Buddhism.ForbiddenBy(vow).Select(ClanDomainView.TaskLabel).ToList();
+            if (vow == BuddhistVow.NonViolence) tasks.Add("tout combat");
+            return $"interdit : {string.Join(", ", tasks)} ; la cultivation plus rapide et +{session.Context.Content.Balance.Buddhism.VowDebateBonus} aux débats tant qu'il est tenu";
+        }
+
+        /// <summary>The members who may debate a temple, with their odds, the best first.</summary>
+        public static IReadOnlyList<DebaterLine> Debaters(GameSession session, string temple) =>
+            session.Clan.LivingMembers.Where(m => session.Debates.DebaterRefusal(m) == null)
+                .Select(m => new DebaterLine(m.ID, m.FullName, RankCatalog.DisplayName(m), session.Debates.Odds(m, temple)))
+                .OrderByDescending(d => d.Odds).ThenBy(d => d.Name, StringComparer.Ordinal).ToList();
+
+        /// <summary>The temples the clan may challenge, each with its debaters, or why not now.</summary>
+        public static IReadOnlyList<DebateTarget> DebateTargets(GameSession session) =>
+            session.Debates.Temples.OrderBy(t => t.Name, StringComparer.Ordinal).Select(t =>
+            {
+                var debaters = Debaters(session, t.Name);
+                string refusal = debaters.Count == 0 ? "le clan n'a personne pour débattre"
+                    : session.Debates.ChallengeRefusal(session.Clan.FindById(debaters[0].MemberId), t.Name);
+                return new DebateTarget(t.Name, SchoolLabel(t.School.Value), refusal, debaters);
+            }).ToList();
 
         /// <summary>« école ancienne » or « école moderne ».</summary>
         public static string SchoolLabel(CultivationSubPath school) =>

@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.48"; // 2.48: CharacterData.Temple (R13-R14)
+        public const string CurrentVersion = "2.49"; // 2.48: CharacterData.Temple (R13-R14); 2.49: Vow, the pending debate and the temples' last debates (R13-14b)
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -114,6 +114,8 @@ namespace MirrorChronicles.Data
         public List<PatronPact> PatronPacts { get; set; }            // 2.16: pacts with a great beast or a lone figure
         public List<War> Wars { get; set; }                          // 2.17: wars between powers
         public List<ClanWar> ClanWars { get; set; }                  // 2.17: the clan's own wars
+        public Debate PendingDebate { get; set; }                     // 2.49: a temple's Dao debate awaiting the clan's champion
+        public Dictionary<string, int> LastDebates { get; set; }       // 2.49: the year each temple last debated the clan
         public Challenge PendingChallenge { get; set; }              // 2.18: a rival's challenge awaiting the clan's answer
         public Ambush PendingAmbush { get; set; }                    // 2.43: an ambush awaiting the clan (fought on the grid, or left to chance)
         public PendingHunt PendingHunt { get; set; }                 // 2.44: a hunt's capture awaiting the strikers (fought on the grid, or left to chance)

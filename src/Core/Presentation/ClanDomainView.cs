@@ -156,7 +156,8 @@ namespace MirrorChronicles.Presentation
             if (!SpiritualOrificeRules.CanCultivate(member)) return "—";
             if (member.Species != Species.Human) return "Absorption du Qi (Dao Démoniaque)"; // a bound beast (R16)
             if (member.Path == CultivationPath.Buddhist) // a convert (R13-R14)
-                return $"Nature et destin — {member.Temple} ({(member.SubPath == CultivationSubPath.ModernBuddhism ? "école moderne" : "école ancienne")})";
+                return $"Nature et destin — {member.Temple} ({(member.SubPath == CultivationSubPath.ModernBuddhism ? "école moderne" : "école ancienne")})"
+                    + (member.Vow != BuddhistVow.None ? $" · {DiplomacyView.VowLabel(member.Vow)}" : "");
             var method = session.Techniques.MethodOf(member);
             if (method != null) return MethodLabel(method);
             return member.Realm == CultivationRealm.Embryonic ? "Respiration commune" : "Aucune méthode";

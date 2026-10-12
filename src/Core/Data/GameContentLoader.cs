@@ -295,8 +295,12 @@ namespace MirrorChronicles.Data
             var buddhism = balance.Buddhism;
             Require(buddhism != null && buddhism.DyingYears >= 1 && buddhism.YearsGained >= 1 && buddhism.OfferingStones >= 0
                 && buddhism.AncientSpeed > 0 && buddhism.ModernSpeed > 0 && buddhism.AncientCeilingStage >= 1 && buddhism.ModernCeilingStage >= 1
-                && buddhism.AncientCeilingStage <= 4 && buddhism.ModernCeilingStage <= 4 && IsProbability(buddhism.RecallChance),
-                BalanceFile, "buddhism needs positive years and speeds, Golden Core stages between 1 and 4, and a recall chance between 0 and 1.");
+                && buddhism.AncientCeilingStage <= 4 && buddhism.ModernCeilingStage <= 4 && IsProbability(buddhism.RecallChance)
+                && buddhism.VowTasks != null && buddhism.VowSpeedBonus >= 0 && buddhism.VowDebateBonus >= 0 && buddhism.Debates != null
+                && IsProbability(buddhism.Debates.ChallengeChance) && IsProbability(buddhism.Debates.ForcedConversionChance)
+                && buddhism.Debates.MinChance >= 0 && buddhism.Debates.MaxChance <= 100 && buddhism.Debates.MinChance <= buddhism.Debates.MaxChance
+                && buddhism.Debates.CooldownYears >= 0,
+                BalanceFile, "buddhism needs positive years and speeds, Golden Core stages between 1 and 4, odds between 0 and 1, vows, and debate bounds within 0-100.");
             var demonic = balance.DemonicDao;
             Require(demonic != null && demonic.AbsorptionSpeed > 0 && demonic.LifespanFactor >= 1 && demonic.MinBoundAge >= 0
                 && demonic.MaxBoundAge >= demonic.MinBoundAge && demonic.MinRoot >= 0 && demonic.MaxRoot >= demonic.MinRoot,

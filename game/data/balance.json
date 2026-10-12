@@ -585,6 +585,13 @@
 	"dyingYears": 10, "yearsGained": 60, "offeringStones": 100, "conversionRelation": 5,
 	"ancientSpeed": 0.5, "modernSpeed": 0.8, "ancientCeilingStage": 4, "modernCeilingStage": 1,
 	"recallBelow": -20, "recallChance": 0.2,
+	"vowTasks": { "NonViolence": ["Patrol", "HuntBeast", "Diversion"], "Silence": ["Diplomacy", "Espionage", "Teaching"], "Renunciation": ["Mine", "GatherQi"] },
+	"vowSpeedBonus": 0.25, "vowDebateBonus": 10,
+	"debates": {
+	  "challengeChance": 0.03, "baseChance": 50, "realmStep": 15, "stabilityWeight": 0.5, "monkBonus": 10, "minChance": 5, "maxChance": 95,
+	  "winPrestige": 20, "winRelation": 10, "lossPrestige": 20, "lossRelation": 10, "refusePrestige": 10, "refuseRelation": 5,
+	  "forcedConversionChance": 0.3, "cooldownYears": 10
+	},
 	"provenance": "Interpretation",
 	"source": "LORE.md §3.3, §3.7, §11.2 (conversion bouddhiste pour échapper à la mort ; ancien lent et stable, moderne plafonné au début du Noyau d'Or, âme confiée) ; un rang en dessous, école du temple (décision de l'utilisateur, 2026-10-12)"
   },

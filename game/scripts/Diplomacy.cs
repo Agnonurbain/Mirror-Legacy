@@ -56,7 +56,10 @@ namespace MirrorChronicles.Game
             Clear(powers);
             var session = root.Session;
             ShowCoalitionAndCall(session);
+            ShowDebate(session);
             ShowConversions(session);
+            ShowMonks(session);
+            ShowDebateTargets(session);
             ShowPatrons(session);
             ShowWars(session);
             foreach (var line in DiplomacyView.Powers(session))
@@ -102,8 +105,8 @@ namespace MirrorChronicles.Game
             Add(powers, "Conversion bouddhiste (échapper à la mort, au prix de la voie immortelle) :");
             foreach (var line in lines)
             {
-                var row = new HFlowContainer();
-                row.AddChild(new Label { Text = $"{line.Name} ({line.Rank}, {line.YearsLeft} an{(line.YearsLeft > 1 ? "s" : "")} à vivre)", CustomMinimumSize = new Vector2(460, 0) });
+                Add(powers, $"  {line.Name} ({line.Rank}, {line.YearsLeft} an{(line.YearsLeft > 1 ? "s" : "")} à vivre) :");
+                var row = Column();
                 foreach (var temple in line.Temples)
                 {
                     var convert = new Button { Text = $"Au {temple.Name}", Disabled = temple.Refusal != null, TooltipText = temple.Refusal ?? temple.School };
@@ -118,6 +121,82 @@ namespace MirrorChronicles.Game
                 powers.AddChild(row);
             }
         }
+
+        /// <summary>A temple's challenge to a Dao debate: a champion, or a refusal at the cost of face (R13-14b).</summary>
+        private void ShowDebate(Session.GameSession session)
+        {
+            var pending = session.Debates.Pending;
+            if (pending == null) return;
+            Add(powers, $"Le {pending.Temple} défie le clan en débat du Dao ! Choisissez un champion, ou refusez (le clan perd la face) :");
+            var row = Column();
+            foreach (var d in DiplomacyView.Debaters(session, pending.Temple))
+            {
+                var send = new Button { Text = $"{d.Name} ({d.Odds} %)", TooltipText = d.Rank };
+                send.Pressed += () => Report(session.Debates.Answer(session.Clan.FindById(d.MemberId)), DebateReport(session, d.Name, pending.Temple));
+                row.AddChild(send);
+            }
+            var decline = new Button { Text = "Refuser le débat" };
+            decline.Pressed += () => Report(session.Debates.Decline(), $"Le clan refuse le débat du {pending.Temple}.");
+            row.AddChild(decline);
+            powers.AddChild(row);
+        }
+
+        /// <summary>The clan's monks: a vow each may take, and what it forbids (R13-14b).</summary>
+        private void ShowMonks(Session.GameSession session)
+        {
+            var monks = DiplomacyView.Monks(session);
+            if (monks.Count == 0) return;
+            Add(powers, "Moines du clan et leurs vœux (un vœu rompu blesse le mandat de vie) :");
+            foreach (var monk in monks)
+            {
+                Add(powers, $"  {monk.Name} ({monk.Rank}) — {monk.Vow ?? "sans vœu"}");
+                var row = Column();
+                foreach (var choice in monk.Choices)
+                {
+                    var take = new Button { Text = $"Faire {choice.Label}", TooltipText = choice.Forbids };
+                    take.Pressed += () => Report(session.Buddhism.TakeVow(session.Clan.FindById(monk.MemberId), choice.Vow), $"{monk.Name} fait {choice.Label}.");
+                    row.AddChild(take);
+                }
+                powers.AddChild(row);
+            }
+        }
+
+        /// <summary>The temples the clan may challenge to a Dao debate, with a chosen debater and its odds (R13-14b).</summary>
+        private void ShowDebateTargets(Session.GameSession session)
+        {
+            var targets = DiplomacyView.DebateTargets(session);
+            if (targets.Count == 0) return;
+            Add(powers, "Débats du Dao (perdre coûte la face, et peut convertir, blesser ou briser le débatteur) :");
+            foreach (var target in targets)
+            {
+                Add(powers, $"  {target.Temple} ({target.School}){(target.Refusal != null ? $" — {target.Refusal}" : "")}");
+                var row = new HBoxContainer { SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
+                var debater = new OptionButton();
+                foreach (var d in target.Debaters) debater.AddItem($"{d.Name} — {d.Odds} %");
+                row.AddChild(debater);
+                var go = new Button { Text = "Débattre", Disabled = target.Refusal != null, TooltipText = target.Refusal ?? "" };
+                go.Pressed += () =>
+                {
+                    if (debater.Selected < 0 || debater.Selected >= target.Debaters.Count) return;
+                    var d = target.Debaters[debater.Selected];
+                    Report(session.Debates.Challenge(session.Clan.FindById(d.MemberId), target.Temple), DebateReport(session, d.Name, target.Temple));
+                };
+                row.AddChild(go);
+                powers.AddChild(row);
+            }
+        }
+
+        /// <summary>A column of buttons under its line: each stays within the narrow list, never off to the right.</summary>
+        private static VBoxContainer Column() => new VBoxContainer { SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
+
+        private static string DebateReport(Session.GameSession session, string name, string temple) => session.Debates.LastFate switch
+        {
+            DebateFate.Won => $"{name} l'emporte contre le {temple}.",
+            DebateFate.Converted => $"{name} perd, et le {temple} impose sa conversion.",
+            DebateFate.Wounded => $"{name} perd : son mandat de vie est blessé.",
+            DebateFate.Fell => $"{name} perd : sa voie du Dharma se brise.",
+            _ => $"Débat contre le {temple} terminé."
+        };
 
         /// <summary>The great partners of the very high level: a pact, its favour, its end.</summary>
         private void ShowPatrons(Session.GameSession session)

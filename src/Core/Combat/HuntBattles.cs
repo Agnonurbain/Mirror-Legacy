@@ -104,6 +104,7 @@ namespace MirrorChronicles.Combat
 
             var battle = Battle.Start(strikers, new[] { beast }, ctx.Rng, ctx.Log, findTechnique: techniques.Find, gap: ctx.Content.Balance.RealmGap,
                 convergence: ctx.Content.Balance.Arts.Convergence, equip: Equip);
+            ctx.Events.TriggerClanFought(strikers.ToList()); // a non-violent vow breaks on the grid (R13-14b)
             var foe = battle.Enemies.Single();
             foe.TakeDamage((int)Math.Round(foe.MaxVitality * Weakening(Pending.Plan))); // the lures wore it down
             fought = Pending;
