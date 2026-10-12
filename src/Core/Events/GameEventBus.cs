@@ -83,6 +83,11 @@ namespace MirrorChronicles.Events
         public event Action<MetalEssenceDemon> OnDemonSubdued;
         public event Action<MetalEssenceDemon> OnWorldDemon;
         public event Action<string, string, string> OnPowerScheme;          // a power schemes against another: what, the schemer, the victim              // a demon born of a power's elder ravages its region
+        public event Action<IReadOnlyList<CharacterData>> OnClanFought;  // the clan's fighters on the grid (G6): a non-violent vow breaks (R13-14b)
+        public event Action<CharacterData, BuddhistVow> OnVowTaken;       // a monk takes a vow (R13-14b)
+        public event Action<CharacterData, BuddhistVow> OnVowBroken;      // and breaks it: its mandate wounded
+        public event Action<string> OnDebateChallenge;                    // a temple challenges the clan to a Dao debate
+        public event Action<CharacterData, string, DebateFate> OnDebateSettled; // the clan's debater, the temple, and what came of it
         public event Action<CharacterData, string> OnBuddhistConverted; // a dying cultivator converted at a temple (R13-R14)
         public event Action<CharacterData, string> OnSoulRecalled;      // a modern temple calls back the soul it holds (R14)
         public event Action<CharacterData> OnMonkRose;                  // a monk rises to its next rank (R13-R14)
@@ -176,6 +181,11 @@ namespace MirrorChronicles.Events
         public void TriggerWorldDemon(MetalEssenceDemon demon) => OnWorldDemon?.Invoke(demon);
         public void TriggerPowerScheme(string what, string schemer, string victim) => OnPowerScheme?.Invoke(what, schemer, victim);
         public void TriggerPowerMarriage(string a, string b) => OnPowerMarriage?.Invoke(a, b);
+        public void TriggerClanFought(IReadOnlyList<CharacterData> fighters) => OnClanFought?.Invoke(fighters);
+        public void TriggerVowTaken(CharacterData monk, BuddhistVow vow) => OnVowTaken?.Invoke(monk, vow);
+        public void TriggerVowBroken(CharacterData monk, BuddhistVow vow) => OnVowBroken?.Invoke(monk, vow);
+        public void TriggerDebateChallenge(string temple) => OnDebateChallenge?.Invoke(temple);
+        public void TriggerDebateSettled(CharacterData debater, string temple, DebateFate fate) => OnDebateSettled?.Invoke(debater, temple, fate);
         public void TriggerBuddhistConverted(CharacterData member, string temple) => OnBuddhistConverted?.Invoke(member, temple);
         public void TriggerSoulRecalled(CharacterData member, string temple) => OnSoulRecalled?.Invoke(member, temple);
         public void TriggerMonkRose(CharacterData member) => OnMonkRose?.Invoke(member);

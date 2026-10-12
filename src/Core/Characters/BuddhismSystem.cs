@@ -22,9 +22,11 @@ namespace MirrorChronicles.Characters
         private readonly ClanManager clan;
         private readonly ResourceManager resources;
         private readonly FactionManager factions;
+        private readonly WoundSystem wounds;
 
-        public BuddhismSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions)
+        public BuddhismSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, WoundSystem wounds)
         {
+            this.wounds = wounds;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -101,6 +103,10 @@ namespace MirrorChronicles.Characters
             ctx.Events.TriggerBuddhistConverted(member, temple.Name);
             return true;
         }
+
+        public string VowRefusal(CharacterData member, BuddhistVow vow) => "todo";
+        public string TakeVow(CharacterData member, BuddhistVow vow) => "todo";
+        public bool ForceConvert(CharacterData member, string templeName) => false;
 
         /// <summary>
         /// A year: a modern temple fallen out with the clan may call back the souls it holds; every other monk cultivating

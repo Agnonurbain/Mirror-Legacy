@@ -56,6 +56,7 @@ namespace MirrorChronicles.Tests
         public TalismanSystem Talismans { get; }
         public DemonicDaoSystem DemonicDao { get; }
         public BuddhismSystem Buddhism { get; }
+        public DebateSystem Debates { get; }
         public ShardSystem Shards { get; }
         public SectSystem Sect { get; }
         public KnowledgeAccords Accords { get; }
@@ -127,7 +128,6 @@ namespace MirrorChronicles.Tests
             Abilities = new DivineAbilitySystem(Ctx, Clan, Techniques, Resources);
             Factions = new FactionManager(Ctx);
             Sect = new SectSystem(Ctx, Clan, Resources, Stability, Karma, Factions);
-            Buddhism = new BuddhismSystem(Ctx, Clan, Resources, Factions);
             Mirror = new MirrorSystem(Ctx, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Ctx, Mirror, Techniques);
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
@@ -135,6 +135,8 @@ namespace MirrorChronicles.Tests
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions, Mirror, Sect);
             DemonicDao = new DemonicDaoSystem(Ctx, Clan, Resources, Talismans);
             Wounds = new WoundSystem(Ctx, Stability);
+            Buddhism = new BuddhismSystem(Ctx, Clan, Resources, Factions, Wounds);
+            Debates = new DebateSystem(Ctx, Clan, Resources, Factions, Buddhism, Wounds);
             Mirror.Wounds = Wounds;
             Shards = new ShardSystem(Ctx, Clan, Mirror, Techniques, Knowledge, Wounds);
             Bestiary = new BeastRegistry(Ctx);
