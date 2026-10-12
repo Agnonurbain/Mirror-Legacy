@@ -43,6 +43,7 @@ namespace MirrorChronicles.World
             thief != null && victim != null && thief != victim && victim.HighestRealm <= thief.HighestRealm
             && (thief.RegionId == victim.RegionId || factions.AreNeighbours(thief, victim))
             && !politics.AlliesOf(thief.Name).Contains(victim.Name)
+            && !politics.Married(thief.Name, victim.Name) // the blood is a hostage
             && politics.SuzerainOf(victim.Name) != thief.Name && politics.SuzerainOf(thief.Name) != victim.Name;
 
         public void ProcessYear()

@@ -83,6 +83,8 @@ namespace MirrorChronicles.Diplomacy
         public void ProcessYear()
         {
             while (PendingCall != null && PendingCall.Year < ctx.Clock.Year) RefuseCall(); // every call left unanswered: a refusal
+            EndMarriages();
+            FormMarriages();
             FormAlliances();
             if (ctx.Rng.Chance(Settings.FeudChance)) StartAFeud();
             if (ctx.Rng.Chance(Settings.VassalizeChance)) SubjugateAWeakNeighbour();
@@ -103,13 +105,62 @@ namespace MirrorChronicles.Diplomacy
         }
 
         /// <summary>Whether the two powers are bound by a marriage of their elders.</summary>
-        public bool Married(string a, string b) => throw new NotImplementedException();
+        public bool Married(string a, string b) => marriages.Any(m => (m.A == a && m.B == b) || (m.A == b && m.B == a));
 
         /// <summary>The two powers' affinity: their ground (neighbours, path), less their distrust, more a marriage's warmth.</summary>
-        public int AffinityBetween(FactionData a, FactionData b) => throw new NotImplementedException();
+        public int AffinityBetween(FactionData a, FactionData b) =>
+            PoliticsRules.Affinity(a, b, factions.AreNeighbours(a, b), suspicion.Distrust(a.Name, b.Name) + suspicion.Distrust(b.Name, a.Name), Settings)
+            + (Married(a.Name, b.Name) ? Settings.MarriageAffinity : 0);
 
         /// <summary>An elder of each weds; false when either has no elder free, or they are already bound.</summary>
-        public bool Wed(FactionData a, FactionData b) => throw new NotImplementedException();
+        public bool Wed(FactionData a, FactionData b)
+        {
+            if (a == null || b == null || a == b || Married(a.Name, b.Name) || Bonded(a.Name, b.Name)) return false;
+            var spouseA = FreeElder(a);
+            var spouseB = FreeElder(b);
+            if (spouseA == null || spouseB == null) return false;
+            marriages.Add(new PowerMarriage(a.Name, b.Name, spouseA.Id, spouseB.Id, ctx.Clock.Year));
+            ctx.Log.Info($"[Politics] {spouseA.Name} of {a.Name} weds {spouseB.Name} of {b.Name}.");
+            ctx.Events.TriggerPowerMarriage(a.Name, b.Name);
+            return true;
+        }
+
+        /// <summary>An elder of the power not already wed to another power; the youngest first (the longest union).</summary>
+        private FactionElder FreeElder(FactionData power) =>
+            power.Elders.Where(e => !marriages.Any(m => m.ElderA == e.Id || m.ElderB == e.Id))
+                .OrderByDescending(e => e.BornYear).ThenBy(e => e.Id, StringComparer.Ordinal).FirstOrDefault();
+
+        /// <summary>A marriage ends with either spouse, or either power.</summary>
+        private void EndMarriages()
+        {
+            foreach (var m in marriages.ToList())
+            {
+                var a = factions.GetFactionByName(m.A);
+                var b = factions.GetFactionByName(m.B);
+                if (a != null && b != null && a.Elders.Any(e => e.Id == m.ElderA) && b.Elders.Any(e => e.Id == m.ElderB)) continue;
+                marriages.Remove(m);
+                ctx.Log.Info($"[Politics] The marriage between {m.A} and {m.B} ends.");
+            }
+        }
+
+        /// <summary>Two powers not yet bound, warm enough but short of an alliance, may wed an elder each.</summary>
+        private void FormMarriages()
+        {
+            var s = Settings;
+            var powers = factions.Factions.ToList();
+            var pairs = powers.SelectMany((a, i) => powers.Skip(i + 1).Select(b => (a, b)))
+                .Where(p => !Bonded(p.a.Name, p.b.Name) && !Married(p.a.Name, p.b.Name))
+                .Select(p => (p.a, p.b, affinity: AffinityBetween(p.a, p.b)))
+                .Where(p => p.affinity >= s.MarriageMinAffinity && p.affinity < s.AllianceAffinity)
+                .OrderByDescending(p => p.affinity).ThenBy(p => p.a.Name, StringComparer.Ordinal).ThenBy(p => p.b.Name, StringComparer.Ordinal)
+                .ToList();
+            int wed = 0;
+            foreach (var (a, b, _) in pairs)
+            {
+                if (wed >= s.MaxMarriagesPerYear) return;
+                if (ctx.Rng.Chance(s.MarriageChance) && Wed(a, b)) wed++;
+            }
+        }
 
         // ---- Alliances ----
 
@@ -119,8 +170,7 @@ namespace MirrorChronicles.Diplomacy
             var powers = factions.Factions.ToList();
             var pairs = powers.SelectMany((a, i) => powers.Skip(i + 1).Select(b => (a, b)))
                 .Where(p => !Bonded(p.a.Name, p.b.Name))
-                .Select(p => (p.a, p.b, affinity: PoliticsRules.Affinity(p.a, p.b, factions.AreNeighbours(p.a, p.b),
-                    suspicion.Distrust(p.a.Name, p.b.Name) + suspicion.Distrust(p.b.Name, p.a.Name), s)))
+                .Select(p => (p.a, p.b, affinity: AffinityBetween(p.a, p.b))) // a marriage warms it
                 .Where(p => p.affinity >= s.AllianceAffinity)
                 .OrderByDescending(p => p.affinity).ThenBy(p => p.a.Name, StringComparer.Ordinal).ThenBy(p => p.b.Name, StringComparer.Ordinal)
                 .ToList();
@@ -143,7 +193,7 @@ namespace MirrorChronicles.Diplomacy
         {
             var attackers = factions.Factions.Where(f => f.Personality is FactionPersonality.Aggressive or FactionPersonality.Expansionist).ToList();
             var feuds = attackers.SelectMany(a => factions.Factions
-                    .Where(d => factions.AreNeighbours(a, d) && d.PowerLevel < a.PowerLevel && !Bonded(a.Name, d.Name))
+                    .Where(d => factions.AreNeighbours(a, d) && d.PowerLevel < a.PowerLevel && !Bonded(a.Name, d.Name) && !Married(a.Name, d.Name))
                     .Select(d => (a, d)))
                 .ToList();
             if (feuds.Count == 0) return;
@@ -256,6 +306,7 @@ namespace MirrorChronicles.Diplomacy
         private void Forget(string power)
         {
             bonds.RemoveAll(b => b.A == power || b.B == power);
+            marriages.RemoveAll(m => m.A == power || m.B == power);
             calls.RemoveAll(c => c.Ally == power || c.Attacker == power);
             if (Coalition != null) Coalition = Coalition with { Members = Coalition.Members.Where(m => m != power).ToList() };
         }
@@ -272,6 +323,7 @@ namespace MirrorChronicles.Diplomacy
 
         private void Absorb(FactionData suzerain, FactionData vassal)
         {
+            marriages.RemoveAll(m => m.A == vassal.Name || m.B == vassal.Name); // its elders are its suzerain's now
             suzerain.Wealth += Math.Max(0, vassal.Wealth);
             suzerain.PowerLevel += vassal.PowerLevel / 2;
             foreach (var art in vassal.Techniques.Where(t => !suzerain.Techniques.Contains(t)).ToList()) suzerain.Techniques.Add(art);

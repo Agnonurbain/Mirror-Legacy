@@ -75,6 +75,18 @@ namespace MirrorChronicles.Tests.Diplomacy
         }
 
         [Test]
+        public void MarriedPowers_DoNotWarOnEachOther()
+        {
+            var c = Fixtures.VeteranQuietContent;
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = c with { Balance = c.Balance with { Wars = c.Balance.Wars with { WarChance = 1, HegemonChance = 0 } } } });
+            s.Politics.Wed(Power(s, Ruan), Power(s, Lou));
+            Power(s, Ruan).Personality = FactionPersonality.Aggressive;
+            s.Suspicion.AddDistrust(Ruan, Lou, 1000);
+            s.Wars.ProcessYear();
+            Assert.IsFalse(s.Wars.Wars.Any(w => w.SideA.Contains(Ruan) && w.SideB.Contains(Lou)));
+        }
+
+        [Test]
         public void AMarriage_WarmsTheirAffinity()
         {
             var s = World();
@@ -99,6 +111,18 @@ namespace MirrorChronicles.Tests.Diplomacy
             var s = World(marriageChance: 1);
             s.Politics.ProcessYear();
             Assert.Greater(s.Politics.Marriages.Count, 0);
+        }
+
+        [Test]
+        public void TheChronicle_TellsAMarriage_OfThePowersNearby()
+        {
+            var s = World();
+            var home = s.Context.Content.Clan.HomeRegion;
+            var near = s.Factions.Factions.Where(f => f.RegionId == home && f.Elders.Count > 0).Take(2).ToList();
+            Assume.That(near.Count, Is.EqualTo(2), "two powers by the lake");
+            var chronicle = new MirrorChronicles.Presentation.Chronicle(s);
+            s.Politics.Wed(near[0], near[1]);
+            Assert.That(chronicle.Entries.Last(), Does.Contain("mariage").And.Not.Contain("ourdit"), "a union, not a plot");
         }
 
         [Test]
