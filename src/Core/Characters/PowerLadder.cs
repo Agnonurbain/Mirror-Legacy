@@ -61,6 +61,12 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>Purple Mansion stage from divine abilities: 1-2 early, 3 middle, 4 late, 5 Grand Perfection.</summary>
+        /// <summary>
+        /// The realm a cultivator weighs as in strength: its own, save an elect of the Spiritual Nature at the Purple Mansion with
+        /// all its abilities — a pseudo-Golden Core (R10b, LORE.md §3.1).
+        /// </summary>
+        public static CultivationRealm EffectiveRealm(CharacterData member) => member.Realm;
+
         public static int PurpleMansionStageFromAbilities(int abilities)
         {
             if (abilities <= 0) return 0;
