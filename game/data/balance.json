@@ -348,7 +348,7 @@
   },
   "politics": {
 	"allianceChance": 0.2,
-	"allianceAffinity": 25,
+	"allianceAffinity": 25, "marriageChance": 0.1, "marriageMinAffinity": 1, "marriageAffinity": 15, "maxMarriagesPerYear": 1,
 	"neighbourAffinity": 20,
 	"samePathAffinity": 15,
 	"maxBondsPerYear": 1,

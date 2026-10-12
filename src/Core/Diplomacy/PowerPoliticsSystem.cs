@@ -90,6 +90,27 @@ namespace MirrorChronicles.Diplomacy
             ProcessCoalition();
         }
 
+        // ---- Marriages (L6, 2026-10-12) ----
+
+        private readonly List<PowerMarriage> marriages = new List<PowerMarriage>();
+
+        public IReadOnlyList<PowerMarriage> Marriages => marriages;
+
+        public void RestoreMarriages(IEnumerable<PowerMarriage> saved)
+        {
+            marriages.Clear();
+            if (saved != null) marriages.AddRange(saved);
+        }
+
+        /// <summary>Whether the two powers are bound by a marriage of their elders.</summary>
+        public bool Married(string a, string b) => throw new NotImplementedException();
+
+        /// <summary>The two powers' affinity: their ground (neighbours, path), less their distrust, more a marriage's warmth.</summary>
+        public int AffinityBetween(FactionData a, FactionData b) => throw new NotImplementedException();
+
+        /// <summary>An elder of each weds; false when either has no elder free, or they are already bound.</summary>
+        public bool Wed(FactionData a, FactionData b) => throw new NotImplementedException();
+
         // ---- Alliances ----
 
         private void FormAlliances()

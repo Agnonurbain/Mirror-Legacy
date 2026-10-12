@@ -11,6 +11,13 @@ namespace MirrorChronicles.Data
         public int Grip { get; init; }
     }
 
+    /// <summary>
+    /// A marriage between two powers (L6; saved; the user's choice 2026-10-12): an elder of each wed; while it lasts the two
+    /// neither scheme, blackmail, spy on nor strike each other, and their affinity grows toward an alliance. It ends with
+    /// either spouse, or either power.
+    /// </summary>
+    public sealed record PowerMarriage(string A, string B, string ElderA, string ElderB, int Year);
+
     /// <summary>Powers banded against the clan (saved), for the years left.</summary>
     public sealed record Coalition(List<string> Members, int YearsLeft);
 
@@ -26,6 +33,16 @@ namespace MirrorChronicles.Data
     {
         public double AllianceChance { get; init; }
         public int AllianceAffinity { get; init; }
+
+        /// <summary>
+        /// Marriages between powers (L6, 2026-10-12): two powers not yet bound whose affinity reaches MarriageMinAffinity (below
+        /// the alliance's) may wed an elder each, at this chance, at most this many a year; married, their affinity gains
+        /// MarriageAffinity.
+        /// </summary>
+        public double MarriageChance { get; init; }
+        public int MarriageMinAffinity { get; init; } = 1;
+        public int MarriageAffinity { get; init; }
+        public int MaxMarriagesPerYear { get; init; } = 1;
         public int NeighbourAffinity { get; init; }
         public int SamePathAffinity { get; init; }
         public int MaxBondsPerYear { get; init; } = 1;

@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.46";
+        public const string CurrentVersion = "2.47";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -101,6 +101,7 @@ namespace MirrorChronicles.Data
         public List<Prisoner> Prisoners { get; set; }                // 2.10; null in older saves: none held
         public List<Treaty> Treaties { get; set; }                   // 2.11; null in older saves: none concluded
         public List<PowerBond> PowerBonds { get; set; }              // 2.12; null in older saves: none
+        public List<PowerMarriage> PowerMarriages { get; set; }      // 2.47: the marriages between the powers' elders
         public Coalition Coalition { get; set; }                     // 2.12: powers banded against the clan
         public List<CallToArms> CallsToArms { get; set; }            // 2.12: the allies' calls awaiting an answer
         public List<Demand> Demands { get; set; }                    // 2.13: blackmail awaiting an answer
