@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.45";
+        public const string CurrentVersion = "2.46";
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -53,6 +53,8 @@ namespace MirrorChronicles.Data
         public List<RankDesignation> RankDesignations { get; set; }   // 2.30: the treasures mortgaged on their Fruitions
         public List<ArtifactInstance> ArtifactArmoury { get; set; }   // 2.31: the clan's artifacts nobody bears
         public List<PowerCaptive> PowerCaptives { get; set; }         // 2.35: the powers' elders held by other powers
+        public List<PowerSpy> PowerSpies { get; set; }               // 2.46: the agents the powers planted in each other
+        public Dictionary<string, int> PowerQuiet { get; set; }     // 2.46: until when a blackmailer keeps quiet on a victim that paid
         public List<World.WorldRebirth> WorldRebirths { get; set; }   // 2.34: the powers' True Monarchs awaiting their return
         public List<Element> CorruptedVirtues { get; set; }           // 2.32: the Virtues whose bridges are open (null: those of the start)
         public List<ImmortalArt> ArtLegacies { get; set; }             // 2.37: the Immortal Arts whose legacy the clan holds

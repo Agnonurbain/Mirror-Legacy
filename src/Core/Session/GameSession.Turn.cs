@@ -75,6 +75,7 @@ namespace MirrorChronicles.Session
                     Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)
                     Phenomena.ProcessYear();           // the weathers of the dead pass (L4c)
                     PowerSchemes.ProcessYear();        // the powers scheme against each other (the world's, 2026-10-03)
+                    PowerIntrigues.ProcessYear();     // and blackmail and spy on each other (P1, 2026-10-12)
                     Rebirths.ProcessYear();            // the powers' ancestors come back (the world's, 2026-10-03)
                     Enthrallment.ProcessYear();        // a reborn True Monarch bends lesser minds (audit §1.8)
                     Marks.ProcessYear();               // a power recognizes its style in a stolen art (audit §3.9)

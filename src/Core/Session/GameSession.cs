@@ -136,6 +136,9 @@ namespace MirrorChronicles.Session
         public WorldArsenal Arsenal { get; }
         public WorldRebirths Rebirths { get; }
         public PowerSchemeSystem PowerSchemes { get; }
+
+        /// <summary>The powers' blackmail and spies against each other (P1).</summary>
+        public PowerIntrigues PowerIntrigues { get; }
         public ArtifactFinds Finds { get; }
         public ArtifactTrade ArtifactTrade { get; }
         public MinorAbilities Minors { get; }

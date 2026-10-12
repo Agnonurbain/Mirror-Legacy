@@ -307,6 +307,7 @@ namespace MirrorChronicles.Data
         public ArtSettings Arts { get; init; } = new ArtSettings();
         public WorldArsenalSettings WorldArsenal { get; init; } = new WorldArsenalSettings();
         public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
+        public PowerIntrigueSettings PowerIntrigues { get; init; } = new PowerIntrigueSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();
         public ArtifactSettings Artifacts { get; init; } = new ArtifactSettings();
         public MinorAbilitySettings MinorAbilities { get; init; } = new MinorAbilitySettings();

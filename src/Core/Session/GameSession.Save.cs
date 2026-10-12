@@ -146,6 +146,7 @@ namespace MirrorChronicles.Session
             session.Dharma.Restore(data.RankDesignations); // none before 2.30
             session.Artifacts.Restore(data.ArtifactArmoury); // none before 2.31
             session.PowerSchemes.Restore(data.PowerCaptives); // none before 2.35
+            session.PowerIntrigues.Restore(data.PowerSpies, data.PowerQuiet); // none before 2.46
             session.Rebirths.Restore(data.WorldRebirths);   // none before 2.34
             session.Bridges.Restore(data.CorruptedVirtues);  // before 2.32: those of the start
             session.Demons.Restore(data.PendingDemons, data.RavagingDemons, data.Essences, data.UnderworldGrudgeUntil); // none before 2.29
@@ -245,6 +246,8 @@ namespace MirrorChronicles.Session
                 CorruptedVirtues = Bridges.Corrupted.ToList(),
                 WorldRebirths = Rebirths.Pending.ToList(),
                 PowerCaptives = PowerSchemes.Captives.ToList(),
+                PowerSpies = PowerIntrigues.Spies.ToList(),
+                PowerQuiet = new Dictionary<string, int>(PowerIntrigues.QuietUntil),
                 UnderworldGrudgeUntil = Demons.GrudgeUntil,
                 AbsorbedPowers = Absorption.Absorbed.ToList(),
                 KnowledgeDebts = Accords.Debts.ToList(),

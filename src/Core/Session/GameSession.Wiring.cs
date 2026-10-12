@@ -140,6 +140,7 @@ namespace MirrorChronicles.Session
             HuntBattles.OtherBattle = () => Challenges.Pending != null || Challenges.Current != null || Ambushes.Pending != null || Ambushes.Current != null
                 || WarBattles.Pending != null || WarBattles.Current != null; // one battle at a time
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);
+            PowerIntrigues = new PowerIntrigues(Context, Factions, Politics, PowerSchemes, SecretBook, Suspicion);
             Finds = new ArtifactFinds(Context, Clan, Factions, Artifacts);
             ArtifactTrade = new ArtifactTrade(Context, Clan, Resources, Factions, Suspicion, Artifacts);
             Intrigues.Armoury = Artifacts;
