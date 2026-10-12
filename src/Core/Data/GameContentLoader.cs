@@ -292,6 +292,11 @@ namespace MirrorChronicles.Data
             var nature = balance.SpiritualNature;
             Require(nature != null && IsProbability(nature.ElectChance) && nature.ForbiddenTasks != null,
                 BalanceFile, "spiritualNature needs an election chance between 0 and 1 and a table of forbidden tasks.");
+            var buddhism = balance.Buddhism;
+            Require(buddhism != null && buddhism.DyingYears >= 1 && buddhism.YearsGained >= 1 && buddhism.OfferingStones >= 0
+                && buddhism.AncientSpeed > 0 && buddhism.ModernSpeed > 0 && buddhism.AncientCeilingStage >= 1 && buddhism.ModernCeilingStage >= 1
+                && buddhism.AncientCeilingStage <= 4 && buddhism.ModernCeilingStage <= 4 && IsProbability(buddhism.RecallChance),
+                BalanceFile, "buddhism needs positive years and speeds, Golden Core stages between 1 and 4, and a recall chance between 0 and 1.");
             var demonic = balance.DemonicDao;
             Require(demonic != null && demonic.AbsorptionSpeed > 0 && demonic.LifespanFactor >= 1 && demonic.MinBoundAge >= 0
                 && demonic.MaxBoundAge >= demonic.MinBoundAge && demonic.MinRoot >= 0 && demonic.MaxRoot >= demonic.MinRoot,
