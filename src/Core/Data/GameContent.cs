@@ -309,6 +309,7 @@ namespace MirrorChronicles.Data
         public PowerSchemeSettings PowerSchemes { get; init; } = new PowerSchemeSettings();
         public PowerIntrigueSettings PowerIntrigues { get; init; } = new PowerIntrigueSettings();
         public SpiritualNatureSettings SpiritualNature { get; init; } = new SpiritualNatureSettings();
+        public DemonicDaoSettings DemonicDao { get; init; } = new DemonicDaoSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();
         public ArtifactSettings Artifacts { get; init; } = new ArtifactSettings();
         public MinorAbilitySettings MinorAbilities { get; init; } = new MinorAbilitySettings();

@@ -48,6 +48,7 @@ namespace MirrorChronicles.Session
             Oaths = new OathSystem(Context, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Context, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Context, Clan, Resources, Factions, Mirror, Sect);
+            DemonicDao = new DemonicDaoSystem(Context, Clan, Resources, Talismans);
             Shards = new ShardSystem(Context, Clan, Mirror, Techniques, Knowledge, Wounds);
             Suspicion = new SuspicionLedger();
             Treaties = new TreatySystem(Context, Clan, Resources, Factions, Suspicion, Techniques);

@@ -49,6 +49,9 @@ namespace MirrorChronicles.Mirror
         /// <summary>Fit and not already sent on a hunt or a diversion this year (one operation a year).</summary>
         public bool IsFree(CharacterData member) => Fit(member) && member.LastOperationYear != ctx.Clock.Year;
 
+        /// <summary>Free, and a human: a bound beast guards and hunts, it does not probe nor spy (R16).</summary>
+        public bool IsFreeAgent(CharacterData member) => IsFree(member) && member.Species == Species.Human;
+
         /// <summary>A new year: those away on an operation are back, free for their tasks.</summary>
         private void ReturnFromOperations()
         {

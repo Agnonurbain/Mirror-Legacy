@@ -292,6 +292,10 @@ namespace MirrorChronicles.Data
             var nature = balance.SpiritualNature;
             Require(nature != null && IsProbability(nature.ElectChance) && nature.ForbiddenTasks != null,
                 BalanceFile, "spiritualNature needs an election chance between 0 and 1 and a table of forbidden tasks.");
+            var demonic = balance.DemonicDao;
+            Require(demonic != null && demonic.AbsorptionSpeed > 0 && demonic.LifespanFactor >= 1 && demonic.MinBoundAge >= 0
+                && demonic.MaxBoundAge >= demonic.MinBoundAge && demonic.MinRoot >= 0 && demonic.MaxRoot >= demonic.MinRoot,
+                BalanceFile, "demonicDao needs a positive absorption, a lifespan at least a human's, and ordered bounds for age and root.");
             var powerIntrigues = balance.PowerIntrigues;
             Require(powerIntrigues != null && IsProbability(powerIntrigues.BlackmailChance) && IsProbability(powerIntrigues.BlackmailWealthShare)
                 && powerIntrigues.QuietYears >= 1 && powerIntrigues.RefuseStrengthRatio > 0 && powerIntrigues.RefusalDistrust >= 0

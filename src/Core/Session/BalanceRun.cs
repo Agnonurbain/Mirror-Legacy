@@ -426,7 +426,7 @@ namespace MirrorChronicles.Session
         /// <summary>Each unwed adult cultivator is wed to a cultivator of the clan, or else one is sought abroad when affordable.</summary>
         private static void WedTheLine(GameSession session)
         {
-            var seekers = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.OrificeKnown && m.SpouseID == null
+            var seekers = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.OrificeKnown && m.SpouseID == null && m.Species == Species.Human
                 && SpiritualOrificeRules.CanCultivate(m) && m.Age >= MarriageMatchmaker.MinMarriageAge && m.Age <= MarriageMatchmaker.SeekingAge(m))
                 .ToList();
             foreach (var seeker in seekers.Where(m => m.SpouseID == null))
@@ -486,7 +486,7 @@ namespace MirrorChronicles.Session
             {
                 var beast = session.Resources.Beasts.Where(b => Mirror.TalismanRules.RankOf(b) != null)
                     .OrderByDescending(b => Mirror.HuntRules.Power(b.Realm, b.Stage)).FirstOrDefault();
-                var bearer = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.TalismanQiId == null && SpiritualOrificeRules.CanCultivate(m))
+                var bearer = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.TalismanQiId == null && m.Species == Species.Human && SpiritualOrificeRules.CanCultivate(m))
                     .OrderByDescending(m => (int)m.Realm).ThenByDescending(m => m.RealmStage).FirstOrDefault();
                 if (beast == null || bearer == null || session.Clock.Year != talismans.NextRitualYear) return;
                 if (!talismans.PerformRitual(bearer, beast)) return;

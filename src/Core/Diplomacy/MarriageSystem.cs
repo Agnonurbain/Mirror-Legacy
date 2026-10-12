@@ -39,6 +39,7 @@ namespace MirrorChronicles.Diplomacy
         public string MarriageRefusal(CharacterData a, CharacterData b)
         {
             if (a == null || b == null || !a.IsAlive || !b.IsAlive || a == b) return "introuvable";
+            if (a.Species != Species.Human || b.Species != Species.Human) return "une bête liée ne se marie pas"; // R16
             if (a.IsMale == b.IsMale) return "il faut un homme et une femme";
             if (KinshipRules.AreCloseKin(a, b, KinshipRules.MarriageForbiddenGenerations, clan.FindById)) return "trop proche parenté"; // for ever
             if (a.CaptorFaction != null || b.CaptorFaction != null) return "captif ailleurs";
@@ -65,6 +66,7 @@ namespace MirrorChronicles.Diplomacy
         public string SeekRefusal(CharacterData member)
         {
             if (member == null || !member.IsAlive) return "introuvable";
+            if (member.Species != Species.Human) return "une bête liée ne se marie pas"; // R16
             if (member.CaptorFaction != null) return "captif ailleurs";
             if (member.Age < MarriageMatchmaker.MinMarriageAge) return "trop jeune";
             if (!string.IsNullOrEmpty(member.SpouseID)) return "déjà marié";

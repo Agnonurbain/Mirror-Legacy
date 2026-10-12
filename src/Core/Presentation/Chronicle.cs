@@ -103,6 +103,8 @@ namespace MirrorChronicles.Presentation
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
+            bus.OnBeastBound += b => Add($"{b.FullName} est lié(e) au clan : une bête du Dao Démoniaque, qui garde et chasse pour lui.");
+            bus.OnLineageAwakened += b => Add($"la lignée de {b.FullName} s'éveille : {RankCatalog.DisplayName(b)}.");
             bus.OnSpiritualNatureElected += (member, fruitionId) =>
             {
                 string name = session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == fruitionId)?.Name ?? fruitionId;
@@ -155,7 +157,7 @@ namespace MirrorChronicles.Presentation
             bus.OnEndingReached += (ending, subject) => Add($"fin dynastique : {ending.Name}. La partie continue.");
             bus.OnGameOver += () =>
             {
-                if (session.Clan.LivingMembers.Count == 0) Add("la lignée s'éteint."); // a seized mirror and an absorbed clan are told above
+                if (!session.Clan.LivingMembers.Any(m => m.Species == Species.Human)) Add("la lignée s'éteint."); // bound beasts do not carry it (R16) // a seized mirror and an absorbed clan are told above
             };
             session.Knowledge.Revealed += OnRevealed;
         }

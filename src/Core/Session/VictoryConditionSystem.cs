@@ -1,4 +1,6 @@
+using System.Linq;
 using MirrorChronicles.Clan;
+using MirrorChronicles.Data;
 
 namespace MirrorChronicles.Session
 {
@@ -40,7 +42,7 @@ namespace MirrorChronicles.Session
 
         private void CheckExtinction()
         {
-            if (clan.LivingMembers.Count == 0) Lose(DefeatCause.Extinct, "The line is extinguished.");
+            if (!clan.LivingMembers.Any(m => m.Species == Species.Human)) Lose(DefeatCause.Extinct, "The line is extinguished."); // bound beasts do not carry it (R16)
         }
 
         private void Lose(DefeatCause cause, string why)

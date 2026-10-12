@@ -113,7 +113,7 @@ namespace MirrorChronicles.World
             if (target == null) return "puissance inconnue";
             if (book.NextUnknown(Clan, plan.Target) == null) return "il n'y a rien à apprendre là, du moins que le clan sache chercher";
             if (team.Count == 0) return "il faut une équipe";
-            var unfit = team.FirstOrDefault(m => !hunts.IsFree(m));
+            var unfit = team.FirstOrDefault(m => m != null && !hunts.IsFreeAgent(m));
             if (unfit != null || team.Contains(null)) return $"{unfit?.FullName ?? "un membre"} ne peut pas partir";
             if (TooFar(team, plan))
                 return TravelRules.Refusal(team, ctx.Content.Clan.HomeRegion, target.RegionId, ctx.Content.Regions, ctx.Content.Balance.Travel);
