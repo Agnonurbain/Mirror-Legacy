@@ -60,7 +60,7 @@ namespace MirrorChronicles.Combat
         /// against the original sutra, whatever the realms).
         /// </summary>
         public bool IsPowerless(CombatUnit attacker, CombatUnit defender) =>
-            RealmGap.OutOfReach(attacker.BaseData.Realm, defender.BaseData.Realm, Gap) // beyond reach (AUDIT_LORE.md §1)
+            RealmGap.OutOfReach(PowerLadder.EffectiveRealm(attacker.BaseData), PowerLadder.EffectiveRealm(defender.BaseData), Gap) // beyond reach (AUDIT_LORE.md §1; a pseudo-Golden Core as one, R10b)
             || RealmGap.Suppressed(attacker.BaseData, defender.BaseData)            // a Golden Core's essence over its own foundation
             || TechniqueRules.IsPowerlessAgainst(FindTechnique(attacker.BaseData.CultivationMethodId), defender.BaseData.CultivationMethodId);
 

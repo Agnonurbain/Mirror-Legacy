@@ -27,9 +27,9 @@ namespace MirrorChronicles.World
         /// is out of its reach (a Purple Mansion before a lesser power, two realms above it — AUDIT_LORE.md §1).
         /// </summary>
         public static double CaptureChance(FactionData power, CharacterData member, SchemeSettings s, RealmGapSettings gap) =>
-            Characters.RealmGap.OutOfReach(power.HighestRealm, member.Realm, gap) ? 0
+            Characters.RealmGap.OutOfReach(power.HighestRealm, Characters.PowerLadder.EffectiveRealm(member), gap) ? 0
                 : Characters.RealmGap.SuppressedBy(member, power) ? MaxPercent / 100.0 // a True Monarch of its own foundation: it cannot resist (LORE.md §5.5.2)
-                : Percent(s.CaptureBase + ((int)power.HighestRealm - (int)member.Realm) * s.CapturePerRealm);
+                : Percent(s.CaptureBase + ((int)power.HighestRealm - (int)Characters.PowerLadder.EffectiveRealm(member)) * s.CapturePerRealm);
 
         /// <summary>A captive's yearly chance of talking under interrogation.</summary>
         public static double InterrogationChance(CharacterData captive, bool sworn, GameContent content) =>

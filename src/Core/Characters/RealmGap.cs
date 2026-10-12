@@ -24,7 +24,7 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public static double TeamStrength(IEnumerable<CharacterData> team, CultivationRealm foe, double helpShare, RealmGapSettings gap)
         {
-            var powers = (team ?? Enumerable.Empty<CharacterData>()).Where(m => m != null && !OutOfReach(m.Realm, foe, gap))
+            var powers = (team ?? Enumerable.Empty<CharacterData>()).Where(m => m != null && !OutOfReach(PowerLadder.EffectiveRealm(m), foe, gap))
                 .Select(m => (double)HuntRules.Power(m)).OrderByDescending(p => p).ToList();
             return powers.Count == 0 ? 0 : powers[0] + powers.Skip(1).Sum() * helpShare;
         }
@@ -50,6 +50,6 @@ namespace MirrorChronicles.Characters
 
         /// <summary>True when at least one of the team reaches a foe of this realm.</summary>
         public static bool Reaches(IEnumerable<CharacterData> team, CultivationRealm foe, RealmGapSettings gap) =>
-            (team ?? Enumerable.Empty<CharacterData>()).Any(m => m != null && !OutOfReach(m.Realm, foe, gap));
+            (team ?? Enumerable.Empty<CharacterData>()).Any(m => m != null && !OutOfReach(PowerLadder.EffectiveRealm(m), foe, gap));
     }
 }
