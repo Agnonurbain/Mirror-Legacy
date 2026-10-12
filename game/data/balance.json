@@ -575,6 +575,12 @@
 	"lastMotherAge": { "QiRefinement": 90, "Foundation": 140, "PurpleMansion": 220, "GoldenCore": 450 },
 	"birthFactor": { "QiRefinement": 0.8, "Foundation": 0.5, "PurpleMansion": 0.3, "GoldenCore": 0.15 }
   },
+  "spiritualNature": {
+	"electChance": 0.001,
+	"forbiddenTasks": { "Wood": ["HuntBeast"], "Fire": ["Espionage", "Diversion"], "Earth": ["Espionage"], "Metal": ["Diplomacy"], "Water": ["Mine"] },
+	"provenance": "Interpretation",
+	"source": "LORE.md §3.1 (1 enfant sur 1000 ; la Fruition dicte la conduite, Ze Wuyan ne s'incline devant personne) ; interdits par les Cinq Vertus (décision de l'utilisateur, 2026-10-12)"
+  },
   "powerIntrigues": {
 	"blackmailChance": 0.02, "personalityFactor": { "Merchant": 2.0, "Manipulative": 2.0, "Isolationist": 0.5 },
 	"blackmailWealthShare": 0.15, "quietYears": 5, "refuseStrengthRatio": 1.0, "refusalDistrust": 20,

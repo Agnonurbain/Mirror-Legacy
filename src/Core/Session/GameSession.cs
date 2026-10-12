@@ -139,6 +139,9 @@ namespace MirrorChronicles.Session
 
         /// <summary>The powers' blackmail and spies against each other (P1).</summary>
         public PowerIntrigues PowerIntrigues { get; }
+
+        /// <summary>The elect of the Spiritual Nature (R10).</summary>
+        public SpiritualNatureSystem SpiritualNature { get; }
         public ArtifactFinds Finds { get; }
         public ArtifactTrade ArtifactTrade { get; }
         public MinorAbilities Minors { get; }

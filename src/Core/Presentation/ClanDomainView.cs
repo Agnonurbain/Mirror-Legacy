@@ -24,7 +24,8 @@ namespace MirrorChronicles.Presentation
     public sealed record MemberRow(string Id, string Name, int Age, string Rank, int Stability,
         TaskType Task, IReadOnlyList<TaskType> AllowedTasks, bool IsPatriarch,
         string MethodId, string Method, IReadOnlyList<MethodChoice> Methods,
-        string Temperament, string Foundation, string Retreat, string Abilities, string HeartDemon = null, string Position = null);
+        string Temperament, string Foundation, string Retreat, string Abilities, string HeartDemon = null, string Position = null,
+        string Destiny = null);
 
     /// <summary>Portions of one spiritual Qi in the clan's store.</summary>
     public sealed record QiLine(string Name, int Portions);
@@ -62,7 +63,7 @@ namespace MirrorChronicles.Presentation
                     session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
                     TemperamentLabel(m.Temperament), RipeLabel(session, m), RetreatLabel(m), AbilitiesLabel(m),
                     m.HeartDemonYearsLeft > 0 ? $"Démon du Cœur ({m.HeartDemonYearsLeft} an{(m.HeartDemonYearsLeft > 1 ? "s" : "")})" : null,
-                    PositionLabel(session, m)))
+                    PositionLabel(session, m), DestinyLabel(session, m)))
                 .ToList();
         }
 
@@ -165,6 +166,16 @@ namespace MirrorChronicles.Presentation
             GamePhase.Inheritance => "Héritage",
             _ => phase.ToString()
         };
+
+        /// <summary>An elect of the Spiritual Nature: its destined Fruition and what its virtue forbids (R10); null for others.</summary>
+        public static string DestinyLabel(GameSession session, CharacterData m)
+        {
+            if (m.SubPath != CultivationSubPath.SpiritualNature) return null;
+            string fruition = session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == m.FruitionId)?.Name ?? m.FruitionId;
+            string forbidden = m.ForbiddenTasks == null || m.ForbiddenTasks.Count == 0 ? ""
+                : " — interdit : " + string.Join(", ", m.ForbiddenTasks.Select(t => TaskLabel(t).ToLowerInvariant()));
+            return $"Élu de la Nature Spirituelle ({fruition}){forbidden}";
+        }
 
         public static string TaskLabel(TaskType task) => task switch
         {

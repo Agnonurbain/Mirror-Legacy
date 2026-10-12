@@ -30,6 +30,7 @@ namespace MirrorChronicles.Session
             Knowledge = WorldKnowledge.Create(Context.Content);
             Techniques = new TechniqueLibrary(Context, Knowledge);
             Fruitions = new FruitionRegistry(Context);
+            SpiritualNature = new SpiritualNatureSystem(Context, Fruitions);
             Place = new RegionalQi(Context, Fruitions, Techniques);
             Cultivation = new CultivationSystem(Context, Karma, Techniques, Resources, Place);
             Breakthroughs = new BreakthroughSystem(Context, Clan, Cultivation);
