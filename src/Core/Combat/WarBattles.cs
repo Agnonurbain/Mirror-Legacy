@@ -40,7 +40,15 @@ namespace MirrorChronicles.Combat
         /// <summary>The battles waiting, the first answered first.</summary>
         public IReadOnlyList<PendingWarBattle> Queue => queue;
 
-        public PendingWarBattle Pending => queue.Count > 0 ? queue[0] : null;
+        /// <summary>The first battle waiting; those whose war ended meanwhile (peace, a power gone) are forgotten.</summary>
+        public PendingWarBattle Pending
+        {
+            get
+            {
+                if (Current == null) queue.RemoveAll(b => wars.War(b.Enemy) == null); // the battle under way stays first
+                return queue.Count > 0 ? queue[0] : null;
+            }
+        }
 
         /// <summary>The battle under way, until it is concluded; never saved (it is fought on its screen).</summary>
         public Battle Current { get; private set; }
@@ -63,6 +71,7 @@ namespace MirrorChronicles.Combat
         public bool Spring(ClanWar war, FactionData enemy, int alliesCame)
         {
             if (war == null || enemy == null || !clan.LivingMembers.Any(m => FighterRefusal(m) == null)) return false;
+            if (queue.Any(b => b.Enemy == enemy.Name)) return true; // its battle already waits: one a war
             var s = Settings;
             int soldiers = Math.Min(s.ArmyMaxSoldiers, Math.Max(0, enemy.PowerLevel) / s.ArmyPowerPerSoldier);
             var soldierRealm = (CultivationRealm)Math.Max(0, (int)enemy.HighestRealm - 1);
@@ -105,6 +114,7 @@ namespace MirrorChronicles.Combat
         /// <summary>The clan answers with these fighters: the battle opens on the grid.</summary>
         public string Fight(IReadOnlyList<string> fighterIds)
         {
+            if (Current != null) return "la bataille est déjà engagée";
             if (Pending == null) return "aucune bataille de guerre n'attend le clan";
             var ids = (fighterIds ?? Array.Empty<string>()).Distinct().ToList();
             if (ids.Count == 0) return "il faut au moins un combattant";
@@ -137,17 +147,19 @@ namespace MirrorChronicles.Combat
             if (Current == null) return "aucune bataille en cours";
             if (!Current.IsOver) return "la bataille n'est pas finie";
             var battle = Pending;
+            bool warOver = wars.War(battle.Enemy) == null; // peace made during the battle: it costs and wins nothing
             var outcome = Current.State == CombatState.Victory ? WarBattleOutcome.Won
                 : Current.State == CombatState.Defeat && !Current.Allies.Any(a => a.HasFled) ? WarBattleOutcome.Lost
                 : WarBattleOutcome.Withdrawn; // fled, or neither side prevailed
             foreach (var fighter in Current.Allies)
             {
-                if (outcome == WarBattleOutcome.Lost && fighter.IsDown && ctx.Rng.Chance(Settings.ClanWarDeathChance))
+                if (!warOver && outcome == WarBattleOutcome.Lost && fighter.IsDown && ctx.Rng.Chance(Settings.ClanWarDeathChance))
                     clan.Kill(fighter.BaseData, DeathCause.Combat); // a defeat's fallen may die
                 else wounds.EvaluatePostCombatWounds(fighter.BaseData, fighter.MaxVitality, fighter.CurrentVitality);
             }
             var enemy = factions.GetFactionByName(battle.Enemy);
-            if (outcome == WarBattleOutcome.Won && enemy != null) wars.Won(enemy);
+            if (warOver) { }
+            else if (outcome == WarBattleOutcome.Won && enemy != null) wars.Won(enemy);
             else if (outcome == WarBattleOutcome.Lost) wars.LoseStones(1);
             else if (outcome == WarBattleOutcome.Withdrawn) wars.LoseStones(Settings.WithdrawStonesFactor);
             ctx.Log.Info($"[Wars] The battle against {battle.Enemy} ends: {outcome}.");

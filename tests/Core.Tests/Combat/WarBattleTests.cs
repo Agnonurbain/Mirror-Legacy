@@ -239,6 +239,42 @@ namespace MirrorChronicles.Tests.Combat
         }
 
         [Test]
+        public void Pending_ForgetsABattle_OnceItsWarIsOver()
+        {
+            var (w, _) = Sprung(new FixedRandom(0.0));
+            w.Wars.SuePeace(Ruan);
+            Assert.IsNull(w.WarBattles.Pending, "peace made: nothing left to fight");
+        }
+
+        [Test]
+        public void Conclude_CostsNothing_WhenPeaceCameDuringTheBattle()
+        {
+            var (w, fighter) = Sprung(new FixedRandom(0.0));
+            w.WarBattles.Fight(new[] { fighter.ID });
+            w.Wars.SuePeace(Ruan);
+            int stones = w.Resources.SpiritStones;
+            Lose(w);
+            w.WarBattles.Conclude();
+            Assert.AreEqual((stones, true), (w.Resources.SpiritStones, fighter.IsAlive));
+        }
+
+        [Test]
+        public void Fight_IsRefused_WhileABattleIsUnderWay()
+        {
+            var (w, fighter) = Sprung(new FixedRandom(0.0));
+            w.WarBattles.Fight(new[] { fighter.ID });
+            Assert.IsNotNull(w.WarBattles.Fight(new[] { fighter.ID }));
+        }
+
+        [Test]
+        public void Spring_QueuesAWarOnce()
+        {
+            var (w, _) = Sprung(new FixedRandom(0.0));
+            w.WarBattles.Spring(w.Wars.War(Ruan), Power(w), 0);
+            Assert.AreEqual(1, w.WarBattles.Queue.Count);
+        }
+
+        [Test]
         public void LetBe_SettlesTheBattleByChance()
         {
             var (w, _) = Sprung(new FixedRandom(0.0), powerLevel: 1000); // chance always wins it
@@ -261,6 +297,7 @@ namespace MirrorChronicles.Tests.Combat
         public void TheYear_WaitsForAWarsBattle()
         {
             var s = GameSession.NewGame(Fixtures.VeteranSetup(1) with { InteractiveBattles = true });
+            s.Wars.DeclareOn(Ruan);
             s.WarBattles.Restore(new[] { new PendingWarBattle(Ruan, s.Clock.Year, CultivationRealm.QiRefinement, CultivationRealm.Embryonic, 1, 0, 7) });
             var (year, phase) = (s.Clock.Year, s.Clock.Phase);
             s.AdvancePhase();

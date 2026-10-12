@@ -19,6 +19,8 @@ namespace MirrorChronicles.Tests.Presentation
         private static GameSession Waiting()
         {
             var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.VeteranQuietContent, InteractiveBattles = true });
+            s.Wars.DeclareOn(Ruan);
+            s.Wars.DeclareOn("Famille Lou");
             s.WarBattles.Restore(new[]
             {
                 new PendingWarBattle(Ruan, s.Clock.Year, CultivationRealm.Foundation, CultivationRealm.QiRefinement, 3, 1, 7),
