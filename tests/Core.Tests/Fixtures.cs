@@ -54,6 +54,7 @@ namespace MirrorChronicles.Tests
         public RegionalQi Place { get; }
         public GoldenCoreSystem GoldenCore { get; }
         public TalismanSystem Talismans { get; }
+        public DemonicDaoSystem DemonicDao { get; }
         public ShardSystem Shards { get; }
         public SectSystem Sect { get; }
         public KnowledgeAccords Accords { get; }
@@ -130,6 +131,7 @@ namespace MirrorChronicles.Tests
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions, Mirror, Sect);
+            DemonicDao = new DemonicDaoSystem(Ctx, Clan, Resources, Talismans);
             Wounds = new WoundSystem(Ctx, Stability);
             Mirror.Wounds = Wounds;
             Shards = new ShardSystem(Ctx, Clan, Mirror, Techniques, Knowledge, Wounds);
