@@ -94,7 +94,9 @@ namespace MirrorChronicles.Session
                     break;
                 case GamePhase.Inheritance:
                     Clan.ProcessAnnualBirths(Upkeep.BirthFactor);
+                    var unexamined = Clan.LivingMembers.Where(m => !m.OrificeKnown).ToList();
                     Clan.ExamineOrifices();
+                    SpiritualNature.Consider(unexamined.Where(m => m.OrificeKnown && m.HasSpiritualOrifice)); // one in a thousand (R10)
                     break;
             }
         }

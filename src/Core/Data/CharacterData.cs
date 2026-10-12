@@ -37,6 +37,7 @@ namespace MirrorChronicles.Data
         // Cultivation path and Golden Core standing (LORE.md §3, §5.9)
         public CultivationPath Path { get; set; }
         public CultivationSubPath SubPath { get; set; }
+        public List<TaskType> ForbiddenTasks { get; set; }    // an elect of the Spiritual Nature: what its Fruition's virtue forbids (R10); null for others
         public Species Species { get; set; }
         public GoldenCoreState GoldenCore { get; set; }
         public string FruitionId { get; set; }          // Dao lineage held or pursued
@@ -140,6 +141,7 @@ namespace MirrorChronicles.Data
             copy.ShallowAbilities = new List<string>(ShallowAbilities ?? new List<string>());
             copy.GraftedAbilities = new List<string>(GraftedAbilities ?? new List<string>());
             copy.ArtMastery = new Dictionary<ImmortalArt, int>(ArtMastery ?? new Dictionary<ImmortalArt, int>());
+            copy.ForbiddenTasks = ForbiddenTasks == null ? null : new List<TaskType>(ForbiddenTasks); // null for all but an elect
             return copy;
         }
     }
