@@ -48,6 +48,18 @@ namespace MirrorChronicles.Data
         public double VowSpeedBonus { get; init; }
         public int VowDebateBonus { get; init; }
 
+        /// <summary>The Pure Lands (R13-14c): an ancient monk's chance to choose its rebirth in the clan; the warmth a modern
+        /// temple asks to give the soul it holds back; the age at which the reborn child regains the monk's rank.</summary>
+        public double AncientRebirthChance { get; init; }
+        public int ModernRebirthRelation { get; init; }
+        public int RegainAge { get; init; }
+
+        /// <summary>The borrowing pyramid (R14): a modern monk's extra pace per realm of its temple's strongest.</summary>
+        public double LentSpeedPerRealm { get; init; }
+
+        /// <summary>An ancient Dharma Master at its apogee: its yearly chance to become a Revered One (R13).</summary>
+        public double VenerableChance { get; init; }
+
         /// <summary>The Dao debates (R13-14b).</summary>
         public DebateSettings Debates { get; init; } = new DebateSettings();
     }
@@ -84,6 +96,9 @@ namespace MirrorChronicles.Data
         /// <summary>The years before the same temple debates the clan again.</summary>
         public int CooldownYears { get; init; }
     }
+
+    /// <summary>A monk's soul awaiting rebirth in a child of the clan (R13-14c, saved): who it was, its temple, school and rank.</summary>
+    public sealed record MonkSoul(string Name, string Temple, CultivationSubPath School, CultivationRealm Realm, int Stage);
 
     /// <summary>A temple's challenge awaiting the clan's champion (saved); unanswered by the next year, a refusal.</summary>
     public sealed record Debate(string Temple, int Year);

@@ -299,7 +299,8 @@ namespace MirrorChronicles.Data
                 && buddhism.VowTasks != null && buddhism.VowSpeedBonus >= 0 && buddhism.VowDebateBonus >= 0 && buddhism.Debates != null
                 && IsProbability(buddhism.Debates.ChallengeChance) && IsProbability(buddhism.Debates.ForcedConversionChance)
                 && buddhism.Debates.MinChance >= 0 && buddhism.Debates.MaxChance <= 100 && buddhism.Debates.MinChance <= buddhism.Debates.MaxChance
-                && buddhism.Debates.CooldownYears >= 0,
+                && buddhism.Debates.CooldownYears >= 0 && IsProbability(buddhism.AncientRebirthChance) && buddhism.RegainAge >= 0
+                && buddhism.LentSpeedPerRealm >= 0 && IsProbability(buddhism.VenerableChance),
                 BalanceFile, "buddhism needs positive years and speeds, Golden Core stages between 1 and 4, odds between 0 and 1, vows, and debate bounds within 0-100.");
             var demonic = balance.DemonicDao;
             Require(demonic != null && demonic.AbsorptionSpeed > 0 && demonic.LifespanFactor >= 1 && demonic.MinBoundAge >= 0

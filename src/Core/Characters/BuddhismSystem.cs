@@ -37,6 +37,18 @@ namespace MirrorChronicles.Characters
 
         private BuddhismSettings Settings => ctx.Content.Balance.Buddhism;
 
+        private readonly List<MonkSoul> souls = new List<MonkSoul>(); // awaiting a child of the clan, the first dead first
+
+        /// <summary>The monks' souls awaiting rebirth in the clan (R13-14c).</summary>
+        public IReadOnlyList<MonkSoul> PendingSouls => souls;
+
+        /// <summary>Restores the souls of a save (none before 2.50).</summary>
+        public void RestoreSouls(IEnumerable<MonkSoul> saved)
+        {
+            souls.Clear();
+            if (saved != null) souls.AddRange(saved.Where(s => s != null));
+        }
+
         /// <summary>True for a cultivator of the clan who may be offered the conversion, whatever the temple (dying, of the immortal way, free).</summary>
         public bool MayConvert(CharacterData member) => MemberRefusal(member) == null;
 

@@ -37,6 +37,7 @@ namespace MirrorChronicles.Data
         // Cultivation path and Golden Core standing (LORE.md §3, §5.9)
         public CultivationPath Path { get; set; }
         public CultivationSubPath SubPath { get; set; }
+        public MonkSoul RebornMonk { get; set; }              // a monk reborn in this child, until it regains its rank (R13-14c)
         public BuddhistVow Vow { get; set; }                  // a monk's vow (R13-14b); None for others
         public string Temple { get; set; }                    // a Buddhist convert's temple (R13-R14): the modern one holds its soul; null for others
         public List<TaskType> ForbiddenTasks { get; set; }    // an elect of the Spiritual Nature: what its Fruition's virtue forbids (R10); null for others
