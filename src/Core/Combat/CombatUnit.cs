@@ -51,7 +51,7 @@ namespace MirrorChronicles.Combat
             IsAlly = isAlly;
             Strategy = strategy;
 
-            int realm = (int)data.Realm;
+            int realm = (int)Characters.PowerLadder.EffectiveRealm(data); // a pseudo-Golden Core fights as one (R10b)
             MaxVitality = (int)Math.Round(BaseConstitution * 10 * (1 + realm * 0.5));
             MaxQi = data.SpiritualRoot * (realm + 1);
             Agility = 10 + realm * 5;

@@ -56,7 +56,8 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public bool Forge(CharacterData member, string fruitionId)
         {
-            if (ForgeRoute(member, fruitionId) == PositionRoute.None)
+            if (ForgeRoute(member, fruitionId) == PositionRoute.None
+                || member.SubPath == CultivationSubPath.SpiritualNature && member.FruitionId != fruitionId) // an elect rises only to its destiny (R10b)
             {
                 ctx.Log.Warning($"[Golden Core] {member?.FullName} cannot forge a metal essence toward \"{fruitionId}\".");
                 return false;
@@ -71,9 +72,27 @@ namespace MirrorChronicles.Characters
                 return true;
             }
 
+            bool destined = member.SubPath == CultivationSubPath.SpiritualNature && member.FruitionId == fruitionId; // read before the rise
             RiseWithoutPosition(member, GoldenCoreState.MetallicEssenceOnly, fruitionId);
+            if (destined && TakeDestinedPosition(member)) return true; // a direct ascent: no second plea to Heaven (R10b)
             if (governing > 0) RiseByTheImperialWay(member, fruitionId);
             else ctx.Log.Info($"[Golden Core] {member.FullName} forges a metal essence: a True Monarch without position.");
+            return true;
+        }
+
+        /// <summary>
+        /// An elect of the Spiritual Nature forged toward its destiny takes the position its abilities open there at once —
+        /// its destiny and essence were cultivated together, no final alignment is asked (LORE.md §3.1); false when that
+        /// position is not open (a held Realization, a permission lacking): the essence waits, like any other.
+        /// </summary>
+        private bool TakeDestinedPosition(CharacterData member)
+        {
+            var route = GoldenCoreRules.RouteTo(member.DivineAbilities, member.FruitionId, ctx.Content, Corrupted);
+            if (route == PositionRoute.None || !IsOpen(route, member.FruitionId)) return false;
+            member.GoldenCore = GoldenCoreRules.PositionOf(route);
+            if (route == PositionRoute.Realization) fruitions.Claim(member.FruitionId, member.FullName);
+            ctx.Log.Info($"[Golden Core] {member.FullName}, elect of the Spiritual Nature, rises straight to the {member.GoldenCore} of its destiny.");
+            ctx.Events.TriggerPositionTaken(member, member.GoldenCore, GoldenCoreState.MetallicEssenceOnly);
             return true;
         }
 

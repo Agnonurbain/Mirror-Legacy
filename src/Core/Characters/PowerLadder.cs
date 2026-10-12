@@ -65,7 +65,12 @@ namespace MirrorChronicles.Characters
         /// The realm a cultivator weighs as in strength: its own, save an elect of the Spiritual Nature at the Purple Mansion with
         /// all its abilities — a pseudo-Golden Core (R10b, LORE.md §3.1).
         /// </summary>
-        public static CultivationRealm EffectiveRealm(CharacterData member) => member.Realm;
+        public static CultivationRealm EffectiveRealm(CharacterData member) =>
+            member.SubPath == CultivationSubPath.SpiritualNature && member.Realm == CultivationRealm.PurpleMansion
+            && (member.DivineAbilities?.Count ?? 0) >= PurpleMansionAbilities ? CultivationRealm.GoldenCore : member.Realm;
+
+        /// <summary>The abilities of a Purple Mansion's Grand Perfection.</summary>
+        private const int PurpleMansionAbilities = 5;
 
         public static int PurpleMansionStageFromAbilities(int abilities)
         {

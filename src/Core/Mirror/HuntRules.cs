@@ -13,7 +13,8 @@ namespace MirrorChronicles.Mirror
         public static int Power(CultivationRealm realm, int stage) => (int)realm * 10 + stage;
 
         /// <summary>A member's power: its realm and stage, and the artifact it bears (L4f).</summary>
-        public static int Power(CharacterData member) => Power(member.Realm, member.RealmStage) + Characters.ArtifactRules.Strength(member);
+        public static int Power(CharacterData member) =>
+            Power(Characters.PowerLadder.EffectiveRealm(member), member.RealmStage) + Characters.ArtifactRules.Strength(member); // a pseudo-Golden Core weighs as one (R10b)
 
         /// <summary>
         /// Getting close unseen: lookouts, the timing (a festival helps only against an owner), a diversion elsewhere and

@@ -312,7 +312,7 @@ namespace MirrorChronicles.World
         {
             if (side != Clan) return factions.GetFactionByName(side)?.HighestRealm ?? CultivationRealm.Embryonic;
             var who = team != null && team.Count > 0 ? team : clan.LivingMembers.Where(m => m.CaptorFaction == null).ToList();
-            return who.Select(m => m.Realm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
+            return who.Select(PowerLadder.EffectiveRealm).DefaultIfEmpty(CultivationRealm.Embryonic).Max();
         }
 
         private string RegionOf(string side) => side == Clan ? ctx.Content.Clan.HomeRegion : factions.GetFactionByName(side)?.RegionId;

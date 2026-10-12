@@ -113,6 +113,35 @@ namespace MirrorChronicles.Tests.Characters
             Assert.IsTrue(RealmGap.Reaches(new[] { elect }, CultivationRealm.GoldenCore, Fixtures.Content.Balance.RealmGap));
         }
 
+        [Test]
+        public void APseudoGoldenCore_IsNotPowerless_AgainstAGoldenCoreOnTheField()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var elect = Mansion(w, abilities: 5, elect: true);
+            var foe = Fixtures.Cultivator(age: 300, realm: CultivationRealm.GoldenCore, stage: 1);
+            var battle = MirrorChronicles.Combat.Battle.Start(new[] { elect }, new[] { foe }, new System.Random(1), new MirrorChronicles.Session.RecordingGameLog(),
+                new MirrorChronicles.Combat.CombatGrid(10, 10), gap: Fixtures.Content.Balance.RealmGap);
+            Assert.IsFalse(battle.Field.IsPowerless(battle.Allies.Single(), battle.Enemies.Single()));
+        }
+
+        [Test]
+        public void AnElect_CondensesNoAbilityOfAnotherLineage()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var elect = Mansion(w, abilities: 3, elect: true);
+            w.Knowledge.Reveal(FactKind.Ability, "mutable-water:mist-veil", KnowledgeSource.Mirror); // known: another may take it
+            Assert.IsFalse(w.Abilities.Pursue(elect, "mutable-water:mist-veil"));
+        }
+
+        [Test]
+        public void AnElect_ForgesOnlyTowardItsDestiny()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var elect = Mansion(w, abilities: 5, elect: true);
+            w.Knowledge.Reveal(FactKind.GoldSeeking, "nourishing-water", KnowledgeSource.Mirror);
+            Assert.IsFalse(w.GoldenCore.Forge(elect, "nourishing-water"));
+        }
+
         // ---- Direct ascent ----
 
         [Test]

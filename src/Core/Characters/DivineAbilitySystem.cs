@@ -64,13 +64,19 @@ namespace MirrorChronicles.Characters
             foreach (var member in clan.LivingMembers.Where(m => m.Realm == CultivationRealm.PurpleMansion && m.Retreat == Retreat.None).ToList())
             {
                 if (member.DivineAbilities.Count >= MaxAbilities) continue;
-                if (member.PursuedAbility == null || !CanTake(member, member.PursuedAbility))
+                bool elect = member.SubPath == CultivationSubPath.SpiritualNature;
+                if (elect) member.PursuedAbility = NextDestined(member); // its destiny's abilities, one after another (R10b)
+                else if (member.PursuedAbility == null || !CanTake(member, member.PursuedAbility))
                     member.PursuedAbility = FirstCultivable(member);
+                if (member.PursuedAbility == null) continue;
                 int cost = CostOf(member, member.PursuedAbility, Xp);
                 if (member.CultivationXP < cost) continue;
 
-                var qi = AlignedQi(member.PursuedAbility);
-                if (qi == null || !resources.ConsumeQi(qi.Id, ctx.Content.Balance.Techniques.AlignedQiPortions)) continue; // no aligned technique, or its Qi is lacking
+                if (!elect) // an elect cultivates heart and essence at once: no aligned technique, no Qi (LORE.md §3.1)
+                {
+                    var qi = AlignedQi(member.PursuedAbility);
+                    if (qi == null || !resources.ConsumeQi(qi.Id, ctx.Content.Balance.Techniques.AlignedQiPortions)) continue; // no aligned technique, or its Qi is lacking
+                }
 
                 // The Qi and the XP go into the attempt: they are spent even if the Threshold stops it
                 member.CultivationXP -= cost;
@@ -146,6 +152,7 @@ namespace MirrorChronicles.Characters
             if (ability == null || member.DivineAbilities.Count >= MaxAbilities || member.DivineAbilities.Contains(ability)) return false;
 
             var (lineage, abilityId) = FoundationRef.Parse(ability);
+            if (member.SubPath == CultivationSubPath.SpiritualNature && lineage != member.FruitionId) return false; // an elect's destiny is one lineage (R10b)
             var (ownLineage, _) = FoundationRef.Parse(member.FoundationId ?? member.DivineAbilities.FirstOrDefault());
             if (lineage == null || (lineage != ownLineage && !MayTakeAnotherLineage(member, ownLineage, lineage))) return false;
 
@@ -175,6 +182,15 @@ namespace MirrorChronicles.Characters
                 .Where(t => t.Kind == TechniqueKind.Cultivation && t.RequiredQiId != null)
                 .Select(t => techniques.FindQi(t.RequiredQiId))
                 .FirstOrDefault(q => q?.Foundation == ability);
+
+        /// <summary>An elect's next ability: the first its destined Fruition names that it does not hold yet; null when none is left.</summary>
+        private string NextDestined(CharacterData member)
+        {
+            if (member.ProgressionSealed || member.BorrowedLight) return null;
+            var destiny = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == member.FruitionId);
+            return destiny?.Abilities.Where(a => a.Name != null).Select(a => $"{destiny.Id}:{a.Id}")
+                .FirstOrDefault(a => !member.DivineAbilities.Contains(a));
+        }
 
         private string FirstCultivable(CharacterData member)
         {
