@@ -37,6 +37,7 @@ namespace MirrorChronicles.Data
         // Cultivation path and Golden Core standing (LORE.md §3, §5.9)
         public CultivationPath Path { get; set; }
         public CultivationSubPath SubPath { get; set; }
+        public string Temple { get; set; }                    // a Buddhist convert's temple (R13-R14): the modern one holds its soul; null for others
         public List<TaskType> ForbiddenTasks { get; set; }    // an elect of the Spiritual Nature: what its Fruition's virtue forbids (R10); null for others
         public Species Species { get; set; }
         public GoldenCoreState GoldenCore { get; set; }

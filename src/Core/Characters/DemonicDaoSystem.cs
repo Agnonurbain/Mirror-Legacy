@@ -98,28 +98,14 @@ namespace MirrorChronicles.Characters
             }
         }
 
-        /// <summary>Spends the beast's XP on its next stages, then on the next realm at its apogee, up to the ceiling.</summary>
-        private void Awaken(CharacterData beast)
-        {
-            while (true)
+        /// <summary>Its lineage awakens what the XP allows, up to the ceiling's Grand Perfection.</summary>
+        private void Awaken(CharacterData beast) =>
+            TriallessClimb.Climb(beast, Ceiling, PowerLadder.StageCount(Ceiling), awakened =>
             {
-                int required = PowerLadder.XpForNextStage(beast.Realm);
-                bool apogee = beast.RealmStage >= PowerLadder.StageCount(beast.Realm);
-                if (required <= 0 || beast.CultivationXP < required || (apogee && beast.Realm >= Ceiling)) return;
-
-                beast.CultivationXP -= required;
-                if (!apogee)
-                {
-                    beast.RealmStage++;
-                    continue;
-                }
-                beast.Realm++;
-                beast.RealmStage = 1;
-                beast.MaxLifespan = Math.Max(beast.MaxLifespan, LifespanOf(beast));
-                ctx.Log.Info($"[DemonicDao] {beast.FullName}'s lineage awakens: {RankCatalog.DisplayName(beast)}.");
-                ctx.Events.TriggerLineageAwakened(beast);
-            }
-        }
+                awakened.MaxLifespan = Math.Max(awakened.MaxLifespan, LifespanOf(awakened));
+                ctx.Log.Info($"[DemonicDao] {awakened.FullName}'s lineage awakens: {RankCatalog.DisplayName(awakened)}.");
+                ctx.Events.TriggerLineageAwakened(awakened);
+            });
 
         /// <summary>A beast's lifespan: a human's of its realm, lengthened (its Dao wounds still weigh).</summary>
         private int LifespanOf(CharacterData beast) =>

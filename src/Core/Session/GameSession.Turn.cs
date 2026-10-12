@@ -71,6 +71,7 @@ namespace MirrorChronicles.Session
                     PowerEconomy.ProcessYear();        // their income, upkeep and growth toward what their elders lead (step B)
                     Lifecycle.ProcessYear();           // powers fall, gates and sects are founded, kingdoms rise, families rise (step C)
                     WorldFruitions.ProcessYear();      // holders pass and are reborn, lineages freed are raced for (step D)
+                    Buddhism.ProcessYear();            // the monks nourish their nature; a modern temple may call a soul back (R13-R14)
                     DemonicDao.ProcessYear();          // the bound beasts absorb the year's Qi, their lineage awakens (R16)
                     Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)
                     Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)

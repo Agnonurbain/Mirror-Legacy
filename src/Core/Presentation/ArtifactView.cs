@@ -147,7 +147,7 @@ namespace MirrorChronicles.Presentation
 
         /// <summary>The peak Foundations and the Spiritual Treasures of the armoury they may bind themselves to.</summary>
         public static IReadOnlyList<BindOffer> BindOffers(GameSession s) =>
-            s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && !m.ProgressionSealed && m.Realm == CultivationRealm.Foundation
+            s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && !m.ProgressionSealed && m.Path == CultivationPath.Immortal && m.Realm == CultivationRealm.Foundation
                     && m.RealmStage >= PowerLadder.StageCount(CultivationRealm.Foundation))
                 .SelectMany(m => s.Artifacts.Armoury.Where(a => a.Class == ArtifactClass.SpiritualTreasure)
                     .Select(a => new BindOffer(m.ID, a.Id, $"Lier {m.FullName} à {a.Name} : la puissance d'un Manoir Pourpre, et plus jamais un pas au-delà")))

@@ -18,6 +18,12 @@ namespace MirrorChronicles.Presentation
     public sealed record PowerLine(string Name, string Kind, string HighestRealm, int Relation, IReadOnlyList<TreatyLine> Treaties,
         IReadOnlyList<string> Allies = null, string Suzerain = null, string ClanWatch = null);
 
+    /// <summary>A temple a dying cultivator may convert at (R13-R14): its school, and why not now (null: it may).</summary>
+    public sealed record TempleChoice(string Name, string School, string Refusal);
+
+    /// <summary>A dying cultivator of the clan, the years it has left, and the temples it may convert at.</summary>
+    public sealed record ConversionLine(string MemberId, string Name, string Rank, int YearsLeft, IReadOnlyList<TempleChoice> Temples);
+
     /// <summary>A great partner: what it gives, its tribute, why it would not hear the clan now, and — once bound — a sign of its favour.</summary>
     public sealed record PatronLine(string Id, string Name, string Kind, string Boon, int Tribute, string Refusal, bool Bound, string Favor,
         string EndWarning = null);
@@ -95,6 +101,22 @@ namespace MirrorChronicles.Presentation
                     $"{string.Join(", ", w.SideA)} contre {string.Join(", ", w.SideB)} depuis l'an {w.StartYear}", false, null, 0)))
                 .ToList();
         }
+
+        /// <summary>The clan's dying cultivators who may convert, each with the world's temples (R13-R14; none without a temple).</summary>
+        public static IReadOnlyList<ConversionLine> Conversions(GameSession session)
+        {
+            var temples = session.Factions.Factions.Where(f => f.Path == CultivationPath.Buddhist && f.School != null).ToList();
+            if (temples.Count == 0) return Array.Empty<ConversionLine>();
+            return session.Clan.LivingMembers.Where(session.Buddhism.MayConvert)
+                .OrderBy(m => PowerLadder.LifespanLimit(m) - m.Age).ThenBy(m => m.FullName, StringComparer.Ordinal)
+                .Select(m => new ConversionLine(m.ID, m.FullName, RankCatalog.DisplayName(m), Math.Max(0, PowerLadder.LifespanLimit(m) - m.Age),
+                    temples.Select(t => new TempleChoice(t.Name, SchoolLabel(t.School.Value), session.Buddhism.ConversionRefusal(m, t.Name))).ToList()))
+                .ToList();
+        }
+
+        /// <summary>« école ancienne » or « école moderne ».</summary>
+        public static string SchoolLabel(CultivationSubPath school) =>
+            school == CultivationSubPath.ModernBuddhism ? "école moderne : plus rapide, l'âme gardée par le temple" : "école ancienne : lente et stable";
 
         /// <summary>The great partners of the very high level (2026-09-27).</summary>
         public static IReadOnlyList<PatronLine> Patrons(GameSession session)

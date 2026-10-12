@@ -56,6 +56,7 @@ namespace MirrorChronicles.Game
             Clear(powers);
             var session = root.Session;
             ShowCoalitionAndCall(session);
+            ShowConversions(session);
             ShowPatrons(session);
             ShowWars(session);
             foreach (var line in DiplomacyView.Powers(session))
@@ -88,6 +89,31 @@ namespace MirrorChronicles.Game
                     var peace = new Button { Text = $"Demander la paix ({war.PeaceCost} pierres)" };
                     peace.Pressed += () => Report(session.Wars.SuePeace(war.Enemy), $"La paix est faite avec {war.Enemy}.");
                     row.AddChild(peace);
+                }
+                powers.AddChild(row);
+            }
+        }
+
+        /// <summary>The dying cultivators who may convert at a temple to escape death, giving up their immortal way (R13-R14).</summary>
+        private void ShowConversions(Session.GameSession session)
+        {
+            var lines = DiplomacyView.Conversions(session);
+            if (lines.Count == 0) return;
+            Add(powers, "Conversion bouddhiste (échapper à la mort, au prix de la voie immortelle) :");
+            foreach (var line in lines)
+            {
+                var row = new HFlowContainer();
+                row.AddChild(new Label { Text = $"{line.Name} ({line.Rank}, {line.YearsLeft} an{(line.YearsLeft > 1 ? "s" : "")} à vivre)", CustomMinimumSize = new Vector2(460, 0) });
+                foreach (var temple in line.Temples)
+                {
+                    var convert = new Button { Text = $"Au {temple.Name}", Disabled = temple.Refusal != null, TooltipText = temple.Refusal ?? temple.School };
+                    convert.Pressed += () =>
+                    {
+                        var member = session.Clan.FindById(line.MemberId);
+                        Report(session.Buddhism.ConversionRefusal(member, temple.Name)
+                            ?? (session.Buddhism.Convert(member, temple.Name) ? null : "la conversion échoue"), $"{line.Name} se convertit au {temple.Name}.");
+                    };
+                    row.AddChild(convert);
                 }
                 powers.AddChild(row);
             }

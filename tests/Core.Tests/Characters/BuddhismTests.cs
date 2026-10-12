@@ -273,6 +273,36 @@ namespace MirrorChronicles.Tests.Characters
             Assert.IsEmpty(mansion.DivineAbilities);
         }
 
+        /// <summary>A monk of a whole session (its Dharma Treasures, alchemy and Golden Core), converted then set at a rank.</summary>
+        private static (MirrorChronicles.Session.GameSession, CharacterData) SessionMonk(CultivationRealm realm, int stage)
+        {
+            var s = MirrorChronicles.Session.GameSession.NewGame(Fixtures.VeteranSetup(4));
+            var c = Fixtures.Cultivator(age: 280, realm: CultivationRealm.Foundation, stage: 2);
+            c.MaxLifespan = c.Age + 5;
+            s.Clan.AddMember(c);
+            Assert.IsTrue(s.Buddhism.Convert(c, Ancient));
+            c.Realm = realm;
+            c.RealmStage = stage;
+            return (s, c);
+        }
+
+        [Test]
+        public void ADharmaMaster_IsNoTrueMonarch()
+        {
+            var (s, monk) = SessionMonk(CultivationRealm.GoldenCore, 1);
+            monk.GoldenCore = GoldenCoreState.DharmaMaster;
+            Assert.IsFalse(PowerLadder.IsTrueMonarch(monk));
+            Assert.IsNotNull(s.Dharma.CondenseRefusal(monk), "no Dharma Treasure for a monk");
+        }
+
+        [Test]
+        public void AFoundationMonk_NeitherRecastsNorBorrowsLight()
+        {
+            var (s, monk) = SessionMonk(CultivationRealm.Foundation, 4);
+            StringAssert.Contains("voie immortelle", s.Alchemy.RecastRefusal(monk, "clear-spring-qi"));
+            Assert.IsFalse(s.GoldenCore.BorrowLight(monk, "orthodox-water"));
+        }
+
         // ---- The modern soul ----
 
         [Test]

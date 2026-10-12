@@ -387,7 +387,7 @@ namespace MirrorChronicles.Characters
             var state = fruitions.State(fruitionId);
             bool lent = state?.Status == FruitionStatus.Occupied && state.Holder != null
                 && permissions.TryGetValue(fruitionId, out var grantor) && grantor == state.Holder;
-            bool ready = member != null && member.IsAlive && member.Retreat == Retreat.None && !member.ProgressionSealed && !member.BorrowedLight
+            bool ready = member != null && member.IsAlive && member.Path == CultivationPath.Immortal && member.Retreat == Retreat.None && !member.ProgressionSealed && !member.BorrowedLight
                 && member.Realm == CultivationRealm.Foundation && member.RealmStage >= PowerLadder.StageCount(CultivationRealm.Foundation);
             if (!lent || !ready)
             {
