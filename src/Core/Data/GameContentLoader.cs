@@ -289,6 +289,9 @@ namespace MirrorChronicles.Data
             Require(marriages != null && IsProbability(marriages.MarriageChance) && marriages.MaxMarriagesPerYear >= 0 && marriages.MarriageAffinity >= 0
                 && marriages.MarriageMinAffinity <= marriages.AllianceAffinity,
                 BalanceFile, "politics needs a marriage chance between 0 and 1, a warmth never negative, and a marriage's threshold no higher than an alliance's.");
+            var nature = balance.SpiritualNature;
+            Require(nature != null && IsProbability(nature.ElectChance) && nature.ForbiddenTasks != null,
+                BalanceFile, "spiritualNature needs an election chance between 0 and 1 and a table of forbidden tasks.");
             var powerIntrigues = balance.PowerIntrigues;
             Require(powerIntrigues != null && IsProbability(powerIntrigues.BlackmailChance) && IsProbability(powerIntrigues.BlackmailWealthShare)
                 && powerIntrigues.QuietYears >= 1 && powerIntrigues.RefuseStrengthRatio > 0 && powerIntrigues.RefusalDistrust >= 0

@@ -103,6 +103,11 @@ namespace MirrorChronicles.Presentation
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
+            bus.OnSpiritualNatureElected += (member, fruitionId) =>
+            {
+                string name = session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == fruitionId)?.Name ?? fruitionId;
+                Add($"{member.FullName} porte le destin de la Fruition {name} : un élu de la Nature Spirituelle, que sa vertu oblige.");
+            };
             bus.OnPowerMarriage += (a, b) =>
             {
                 string home = session.Context.Content.Clan.HomeRegion;

@@ -26,6 +26,7 @@ namespace MirrorChronicles.Tests.Characters
         {
             var child = Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 1);
             child.Affinity = element;
+            child.Age = 8; // a child, just found to bear an orifice
             s.Clan.AddMember(child);
             return child;
         }
@@ -77,6 +78,34 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void Elect_Refuses_AnAdult()
+        {
+            var s = World();
+            var spouse = Child(s, Element.Metal);
+            spouse.Age = 30; // a spouse examined on joining the clan
+            Assert.IsFalse(s.SpiritualNature.Elect(spouse));
+        }
+
+        [Test]
+        public void Elect_Refuses_AChildAlreadyBoundToALineage()
+        {
+            var s = World();
+            var child = Child(s, Element.Metal);
+            child.FruitionId = "some-lineage";
+            Assert.IsFalse(s.SpiritualNature.Elect(child));
+        }
+
+        [Test]
+        public void Elect_LeavesAForbiddenTask_AtOnce()
+        {
+            var s = World();
+            var child = Child(s, Element.Metal);
+            child.CurrentTask = TaskType.Diplomacy;
+            s.SpiritualNature.Elect(child);
+            Assert.AreEqual(TaskType.None, child.CurrentTask);
+        }
+
+        [Test]
         public void Consider_Elects_WhenFateFalls()
         {
             var s = World(electChance: 1);
@@ -101,6 +130,16 @@ namespace MirrorChronicles.Tests.Characters
             var chronicle = new MirrorChronicles.Presentation.Chronicle(s);
             s.SpiritualNature.Elect(Child(s, Element.Earth));
             StringAssert.Contains("Nature Spirituelle", chronicle.Entries.Last());
+        }
+
+        [Test]
+        public void TheRoster_ShowsTheElect_AndWhatItsVirtueForbids()
+        {
+            var s = World();
+            var child = Child(s, Element.Metal);
+            s.SpiritualNature.Elect(child);
+            var row = MirrorChronicles.Presentation.ClanDomainView.Roster(s).Single(r => r.Id == child.ID);
+            Assert.That(row.Destiny, Does.Contain("Nature Spirituelle").And.Contain(MirrorChronicles.Presentation.ClanDomainView.TaskLabel(TaskType.Diplomacy).ToLowerInvariant()));
         }
 
         [Test]
