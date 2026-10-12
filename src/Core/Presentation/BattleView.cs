@@ -27,6 +27,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>An ambush awaiting the clan (G6): who sprang it, on whom, the agents' rank and number, the members away who will fight.</summary>
     public sealed record PendingAmbush(string Faction, string Target, string Rank, int Agents, IReadOnlyList<string> Fighters);
 
+    /// <summary>A hunt's capture awaiting the strikers (G6): the beast, its rank and owner (null: solitary), how weakened, the strikers.</summary>
+    public sealed record PendingHuntView(string Beast, string Rank, string Owner, int WeakenedPercent, IReadOnlyList<string> Strikers);
+
     /// <summary>The battle screen (G6): the grid, the fighters, the actions of the clan's fighter whose turn it is, the outcome.</summary>
     public static class BattleView
     {
@@ -114,6 +117,9 @@ namespace MirrorChronicles.Presentation
             return new PendingAmbush(ambush.Faction, target?.FullName ?? "un membre disparu", RankCatalog.RealmName(ambush.Realm), ambush.Agents,
                 session.Ambushes.Fighters(ambush).Select(m => m.FullName).ToList());
         }
+
+        /// <summary>The hunt's capture awaiting the strikers; null when none.</summary>
+        public static PendingHuntView Hunt(GameSession session) => null;
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)
         {
