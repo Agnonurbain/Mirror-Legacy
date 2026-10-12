@@ -311,7 +311,7 @@ namespace MirrorChronicles.Diplomacy
             if (hegemon != null && ctx.Rng.Chance(s.HegemonChance))
             {
                 var wary = powers.Where(p => p != hegemon && !AtWar(p.Name) && factions.AreNeighbours(p, hegemon)
-                    && suspicion.Distrust(p.Name, hegemon.Name) >= s.WarDistrust).ToList();
+                    && suspicion.Distrust(p.Name, hegemon.Name) >= s.WarDistrust && !politics.Married(p.Name, hegemon.Name)).ToList();
                 if (wary.Count > 0)
                 {
                     var war = Start(wary[0], hegemon);
@@ -322,7 +322,7 @@ namespace MirrorChronicles.Diplomacy
             foreach (var power in powers.Where(p => p.Personality == FactionPersonality.Aggressive && !AtWar(p.Name)))
             {
                 var foe = powers.FirstOrDefault(f => f != power && !AtWar(f.Name) && factions.AreNeighbours(power, f)
-                    && suspicion.Distrust(power.Name, f.Name) >= s.WarDistrust);
+                    && suspicion.Distrust(power.Name, f.Name) >= s.WarDistrust && !politics.Married(power.Name, f.Name)); // their blood is a hostage (L6)
                 if (foe != null && ctx.Rng.Chance(s.WarChance)) Start(power, foe);
             }
             var clanStrength = WarRules.ClanStrength(clan.LivingMembers);

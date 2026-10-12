@@ -72,7 +72,7 @@ namespace MirrorChronicles.World
         /// <summary>A blackmail on a victim whose secret the blackmailer knows, paid or refused; false when it knows none, the victim has nothing, or the matter rests.</summary>
         public bool Blackmail(FactionData blackmailer, FactionData victim)
         {
-            if (blackmailer == null || victim == null || blackmailer == victim) return false;
+            if (blackmailer == null || victim == null || blackmailer == victim || politics.Married(blackmailer.Name, victim.Name)) return false;
             if (!secrets.KnownBy(blackmailer.Name).Any(s => s.Holder == victim.Name)) return false;
             string key = $"{blackmailer.Name}|{victim.Name}";
             if (quietUntil.TryGetValue(key, out int until) && ctx.Clock.Year <= until) return false; // paid, or refused: the matter rests

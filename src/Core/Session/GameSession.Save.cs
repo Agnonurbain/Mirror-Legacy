@@ -109,6 +109,7 @@ namespace MirrorChronicles.Session
             session.Captives.RestorePrisoners(data.Prisoners); // none in saves before 2.10
             session.Treaties.RestoreTreaties(data.Treaties);   // none in saves before 2.11
             session.Politics.RestoreBonds(data.PowerBonds);    // none in saves before 2.12
+            session.Politics.RestoreMarriages(data.PowerMarriages); // none before 2.47
             session.Politics.RestoreCoalition(data.Coalition);
             session.Politics.RestoreCalls(data.CallsToArms);
             session.Intrigues.RestoreDemands(data.Demands, data.QuietUntil); // none in saves before 2.13
@@ -212,6 +213,7 @@ namespace MirrorChronicles.Session
                 Prisoners = Captives.Prisoners.ToList(),
                 Treaties = Treaties.All.ToList(),
                 PowerBonds = Politics.Bonds.ToList(),
+                PowerMarriages = Politics.Marriages.ToList(),
                 Coalition = Politics.Coalition == null ? null : Politics.Coalition with { Members = Politics.Coalition.Members.ToList() },
                 CallsToArms = Politics.PendingCalls.ToList(),
                 Demands = Intrigues.Demands.ToList(),

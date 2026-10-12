@@ -103,6 +103,12 @@ namespace MirrorChronicles.Presentation
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
+            bus.OnPowerMarriage += (a, b) =>
+            {
+                string home = session.Context.Content.Clan.HomeRegion;
+                if (session.Factions.GetFactionByName(a)?.RegionId == home || session.Factions.GetFactionByName(b)?.RegionId == home)
+                    Add($"{a} et {b} unissent deux de leurs aînés par le mariage.");
+            };
             bus.OnPowerScheme += (what, schemer, victim) =>
             {
                 string home = session.Context.Content.Clan.HomeRegion;

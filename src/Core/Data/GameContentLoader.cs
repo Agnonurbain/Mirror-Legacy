@@ -285,6 +285,10 @@ namespace MirrorChronicles.Data
                 && schemes.FailedRescueSuspicion >= 0 && schemes.DenounceDistrust >= 0
                 && schemes.AmbushMaxFighters >= 1 && schemes.AmbushMaxAgents >= 1 && schemes.AgentRealmsBelowPower >= 0,
                 BalanceFile, "schemes needs a factor for every personality, the tasks away from the domain, odds and costs in range, and at least one fighter and one agent in an ambush.");
+            var marriages = balance.Politics;
+            Require(marriages != null && IsProbability(marriages.MarriageChance) && marriages.MaxMarriagesPerYear >= 0 && marriages.MarriageAffinity >= 0
+                && marriages.MarriageMinAffinity <= marriages.AllianceAffinity,
+                BalanceFile, "politics needs a marriage chance between 0 and 1, a warmth never negative, and a marriage's threshold no higher than an alliance's.");
             var powerIntrigues = balance.PowerIntrigues;
             Require(powerIntrigues != null && IsProbability(powerIntrigues.BlackmailChance) && IsProbability(powerIntrigues.BlackmailWealthShare)
                 && powerIntrigues.QuietYears >= 1 && powerIntrigues.RefuseStrengthRatio > 0 && powerIntrigues.RefusalDistrust >= 0
