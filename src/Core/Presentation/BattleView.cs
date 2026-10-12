@@ -119,7 +119,14 @@ namespace MirrorChronicles.Presentation
         }
 
         /// <summary>The hunt's capture awaiting the strikers; null when none.</summary>
-        public static PendingHuntView Hunt(GameSession session) => null;
+        public static PendingHuntView Hunt(GameSession session)
+        {
+            var hunt = session.HuntBattles.Pending;
+            if (hunt == null) return null;
+            var beast = session.HuntBattles.Beast(hunt);
+            return new PendingHuntView(beast?.LastName ?? "une bête disparue", beast == null ? "" : RankCatalog.RealmName(beast.Realm), beast?.FromFaction,
+                (int)Math.Round(100 * session.HuntBattles.Weakening(hunt.Plan)), session.HuntBattles.Strikers(hunt).Select(m => m.FullName).ToList());
+        }
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)
         {
