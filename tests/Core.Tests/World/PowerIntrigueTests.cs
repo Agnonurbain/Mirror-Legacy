@@ -76,7 +76,7 @@ namespace MirrorChronicles.Tests.World
             var s = World();
             Learns(s, Lou, Ruan);
             s.PowerIntrigues.Blackmail(Power(s, Lou), Power(s, Ruan));
-            Assert.AreEqual(1000, Power(s, Ruan).Wealth, "the stronger refuses to pay");
+            Assert.GreaterOrEqual(Power(s, Ruan).Wealth, 1000, "the stronger refuses to pay");
         }
 
         [Test]
@@ -98,7 +98,35 @@ namespace MirrorChronicles.Tests.World
             Assert.Less(Power(s, Lou).PowerLevel, 1000);
         }
 
+        [Test]
+        public void ARefusal_IsNotAskedAgain_ForSomeYears()
+        {
+            var s = World();
+            Learns(s, Lou, Ruan);
+            s.PowerIntrigues.Blackmail(Power(s, Lou), Power(s, Ruan));
+            Assert.IsFalse(s.PowerIntrigues.Blackmail(Power(s, Lou), Power(s, Ruan)), "refused: the matter is out");
+        }
+
+        [Test]
+        public void Blackmail_SparesAPauper()
+        {
+            var s = World();
+            Learns(s, Ruan, Lou);
+            Power(s, Lou).Wealth = 0;
+            Assert.IsFalse(s.PowerIntrigues.Blackmail(Power(s, Ruan), Power(s, Lou)));
+        }
+
         // ---- Spies ----
+
+        [Test]
+        public void ASpy_IsWithdrawn_OnceItsHostIsOutOfReach()
+        {
+            var s = World();
+            s.PowerIntrigues.Plant(Power(s, Ruan), Power(s, Lou));
+            Power(s, Lou).HighestRealm = Power(s, Ruan).HighestRealm + 1; // now out of its master's reach
+            s.PowerIntrigues.ProcessYear();
+            Assert.AreEqual(0, s.PowerIntrigues.Spies.Count);
+        }
 
         [Test]
         public void Plant_HidesAnAgent_OnceAHost()

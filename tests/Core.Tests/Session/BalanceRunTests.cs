@@ -295,7 +295,8 @@ namespace MirrorChronicles.Tests.Session
         public void LongGames_WithTheActivePilot_BetrayAndWarSeldom()
         {
             int foundations = 0;
-            var runs = Enumerable.Range(1, 10).Select(seed => BalanceRun.Play(Fixtures.Content, seed, years: 150, out _, autopilot: true,
+            // 30 seeds: since B1 (2026-10-12) a clan of ~125 reaches ~1 Foundation a game, and ten games left the rate to luck
+            var runs = Enumerable.Range(1, 30).Select(seed => BalanceRun.Play(Fixtures.Content, seed, years: 150, out _, autopilot: true,
                 observe: s => s.Events.OnBreakthroughSuccess += (_, realm) => { if (realm == CultivationRealm.Foundation) foundations++; })).ToList();
             Assert.That(runs.Average(r => r.Betrayals), Is.LessThanOrEqualTo(22), "a treaty is betrayed for a reason, not as a matter of course");
             Assert.That(runs.Sum(r => r.Devoured) / (double)System.Math.Max(1, foundations), Is.LessThanOrEqualTo(0.15),

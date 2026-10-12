@@ -285,6 +285,12 @@ namespace MirrorChronicles.Data
                 && schemes.FailedRescueSuspicion >= 0 && schemes.DenounceDistrust >= 0
                 && schemes.AmbushMaxFighters >= 1 && schemes.AmbushMaxAgents >= 1 && schemes.AgentRealmsBelowPower >= 0,
                 BalanceFile, "schemes needs a factor for every personality, the tasks away from the domain, odds and costs in range, and at least one fighter and one agent in an ambush.");
+            var powerIntrigues = balance.PowerIntrigues;
+            Require(powerIntrigues != null && IsProbability(powerIntrigues.BlackmailChance) && IsProbability(powerIntrigues.BlackmailWealthShare)
+                && powerIntrigues.QuietYears >= 1 && powerIntrigues.RefuseStrengthRatio > 0 && powerIntrigues.RefusalDistrust >= 0
+                && IsProbability(powerIntrigues.SpyChance) && powerIntrigues.SpyCluesPerYear >= 0 && IsProbability(powerIntrigues.SpyUnmaskChance)
+                && powerIntrigues.UnmaskDistrust >= 0 && powerIntrigues.PersonalityFactor.Values.All(f => f >= 0),
+                BalanceFile, "powerIntrigues needs odds and shares between 0 and 1, at least a year of quiet, and costs never negative.");
             var treaty = balance.Treaties;
             var kinds = Enum.GetValues(typeof(TreatyKind)).Cast<TreatyKind>().ToList();
             Require(treaty != null && kinds.All(k => treaty.MinRelation.ContainsKey(k) && treaty.AcceptBase.ContainsKey(k))
