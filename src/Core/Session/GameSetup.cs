@@ -12,5 +12,11 @@ namespace MirrorChronicles.Session
         public int Seed { get; init; } = Environment.TickCount;
         public IGameLog Log { get; init; } = new NullGameLog();
         public GameContent Content { get; init; }
+
+        /// <summary>
+        /// A player is there to fight (G6): an ambush not foiled waits for the clan on the battle screen. Off for headless
+        /// runs — tests, balance runs, the pilot — where chance settles it as before.
+        /// </summary>
+        public bool InteractiveBattles { get; init; }
     }
 }

@@ -75,6 +75,7 @@ namespace MirrorChronicles.Tests
         public ProbeSystem Probes { get; }
         public WoundSystem Wounds { get; }
         public ChallengeSystem Challenges { get; }
+        public AmbushSystem Ambushes { get; }
         public UpkeepSystem Upkeep { get; }
         public DaoHuntSystem DaoHunts { get; }
         public HuntOperations Hunts { get; }
@@ -163,6 +164,7 @@ namespace MirrorChronicles.Tests
             Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability, Resources);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
             Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds, Suspicion);
+            Ambushes = new AmbushSystem(Ctx, Clan, Factions, Schemes, Captives, Techniques, Wounds);
             Upkeep = new UpkeepSystem(Ctx, Clan, Resources, Stability);
             DaoHunts = new DaoHuntSystem(Ctx, Clan, Factions, Treaties, Buildings);
         }

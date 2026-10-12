@@ -24,6 +24,9 @@ namespace MirrorChronicles.Presentation
     public sealed record PendingChallenge(string Faction, string Rank, int Rivals, int MaxFighters, IReadOnlyList<ChallengeCandidate> Candidates,
         bool ToTheDeath = false);
 
+    /// <summary>An ambush awaiting the clan (G6): who sprang it, on whom, the agents' rank and number, the members away who will fight.</summary>
+    public sealed record PendingAmbush(string Faction, string Target, string Rank, int Agents, IReadOnlyList<string> Fighters);
+
     /// <summary>The battle screen (G6): the grid, the fighters, the actions of the clan's fighter whose turn it is, the outcome.</summary>
     public static class BattleView
     {
@@ -100,6 +103,16 @@ namespace MirrorChronicles.Presentation
                 .ToList();
             return new PendingChallenge(challenge.Faction, RankCatalog.RealmName(challenge.Realm), challenge.Rivals,
                 session.Context.Content.Balance.Challenges.MaxFighters, candidates, challenge.ToTheDeath);
+        }
+
+        /// <summary>The ambush awaiting the clan, and the members away who will fight it; null when none.</summary>
+        public static PendingAmbush Ambush(GameSession session)
+        {
+            var ambush = session.Ambushes.Pending;
+            if (ambush == null) return null;
+            var target = session.Clan.FindById(ambush.TargetId);
+            return new PendingAmbush(ambush.Faction, target?.FullName ?? "un membre disparu", RankCatalog.RealmName(ambush.Realm), ambush.Agents,
+                session.Ambushes.Fighters(ambush).Select(m => m.FullName).ToList());
         }
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)

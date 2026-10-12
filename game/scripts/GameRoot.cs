@@ -260,7 +260,7 @@ namespace MirrorChronicles.Game
 
         private GameSetup Setup(int? seed)
         {
-            var setup = new GameSetup { Log = new GodotGameLog(), Content = content };
+            var setup = new GameSetup { Log = new GodotGameLog(), Content = content, InteractiveBattles = true }; // a player fights the ambushes
             return seed.HasValue ? setup with { Seed = seed.Value } : setup;
         }
 

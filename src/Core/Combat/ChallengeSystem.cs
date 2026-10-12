@@ -60,13 +60,7 @@ namespace MirrorChronicles.Combat
         public void Restore(Challenge pending) => Pending = pending;
 
         /// <summary>Why this member cannot fight, or null when it can.</summary>
-        public string FighterRefusal(CharacterData member)
-        {
-            if (member == null || !member.IsAlive) return "introuvable";
-            if (member.CaptorFaction != null) return "captif ailleurs";
-            if (!member.OrificeKnown || !SpiritualOrificeRules.CanCultivate(member)) return "ne cultive pas";
-            return null;
-        }
+        public string FighterRefusal(CharacterData member) => FighterRules.Refusal(member);
 
         /// <summary>The challenge a power sends, the rivals of the rank of the clan's best free fighter; null when none can fight.</summary>
         public Challenge Issue(FactionData power)

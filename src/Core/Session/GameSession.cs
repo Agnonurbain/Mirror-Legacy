@@ -81,6 +81,9 @@ namespace MirrorChronicles.Session
         public PatronSystem Patrons { get; }
         public WarSystem Wars { get; }
         public ChallengeSystem Challenges { get; }
+
+        /// <summary>The powers' ambushes fought on the grid when a player is there (G6).</summary>
+        public AmbushSystem Ambushes { get; }
         public UpkeepSystem Upkeep { get; }
         public DaoHuntSystem DaoHunts { get; }
         public IntrigueSystem Intrigues { get; }
