@@ -33,7 +33,14 @@ namespace MirrorChronicles.Data
     }
 
     /// <summary>What a hunt came to: whether it got close, whether it took the beast, the traces left, who was blamed, who fell.</summary>
-    public sealed record HuntOutcome(bool Approached, bool Captured, int Exposure, string Blamed, string Refusal, IReadOnlyList<string> Casualties);
+    public sealed record HuntOutcome(bool Approached, bool Captured, int Exposure, string Blamed, string Refusal, IReadOnlyList<string> Casualties,
+        bool AwaitingBattle = false);
+
+    /// <summary>
+    /// A hunt whose team got close and waits to fight the beast on the grid (G6; saved): the plan carried out, and the year.
+    /// The strikers fight it, or the clan lets chance settle the capture as before.
+    /// </summary>
+    public sealed record PendingHunt(HuntPlan Plan, int Year);
 
     /// <summary>The hunt's odds and costs (balance.json, L2c.3; interpretations). Lists are indexed by the enums above.</summary>
     public sealed record HuntSettings
@@ -75,5 +82,13 @@ namespace MirrorChronicles.Data
         public int FailedCaptureStabilityLoss { get; init; }
         public int DeathMargin { get; init; }
         public double DeathChance { get; init; }
+
+        /// <summary>
+        /// The capture fought on the grid (G6, the user's choice 2026-10-12): the beast starts weakened by this share of its
+        /// vitality per lure, plus the timing's share (by night it is livelier: a negative share, never below no weakening), at most BattleMaxWeaken.
+        /// </summary>
+        public double BattleLureWeaken { get; init; }
+        public List<double> BattleTimingWeaken { get; init; }
+        public double BattleMaxWeaken { get; init; }
     }
 }

@@ -27,6 +27,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>An ambush awaiting the clan (G6): who sprang it, on whom, the agents' rank and number, the members away who will fight.</summary>
     public sealed record PendingAmbush(string Faction, string Target, string Rank, int Agents, IReadOnlyList<string> Fighters);
 
+    /// <summary>A hunt's capture awaiting the strikers (G6): the beast, its rank and owner (null: solitary), how weakened, the strikers.</summary>
+    public sealed record PendingHuntView(string Beast, string Rank, string Owner, int WeakenedPercent, IReadOnlyList<string> Strikers);
+
     /// <summary>The battle screen (G6): the grid, the fighters, the actions of the clan's fighter whose turn it is, the outcome.</summary>
     public static class BattleView
     {
@@ -113,6 +116,16 @@ namespace MirrorChronicles.Presentation
             var target = session.Clan.FindById(ambush.TargetId);
             return new PendingAmbush(ambush.Faction, target?.FullName ?? "un membre disparu", RankCatalog.RealmName(ambush.Realm), ambush.Agents,
                 session.Ambushes.Fighters(ambush).Select(m => m.FullName).ToList());
+        }
+
+        /// <summary>The hunt's capture awaiting the strikers; null when none.</summary>
+        public static PendingHuntView Hunt(GameSession session)
+        {
+            var hunt = session.HuntBattles.Pending;
+            if (hunt == null) return null;
+            var beast = session.HuntBattles.Beast(hunt);
+            return new PendingHuntView(beast?.LastName ?? "une bête disparue", beast == null ? "" : RankCatalog.RealmName(beast.Realm), beast?.FromFaction,
+                (int)Math.Round(100 * session.HuntBattles.Weakening(hunt.Plan)), session.HuntBattles.Strikers(hunt).Select(m => m.FullName).ToList());
         }
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)
