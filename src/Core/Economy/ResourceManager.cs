@@ -80,6 +80,12 @@ namespace MirrorChronicles.Economy
 
         public void RestorePrayers(int prayers) => Prayers = Math.Max(0, prayers);
 
+        /// <summary>Blood essence for the Heavenly Embryo Devil Dao (R12): from beasts bled and foes struck down.</summary>
+        public int BloodEssence { get; private set; }
+        public void AddBlood(int amount) { if (amount > 0) BloodEssence += amount; }
+        public bool ConsumeBlood(int amount) => TryConsume(amount, BloodEssence, v => BloodEssence = v);
+        public void RestoreBlood(int blood) => BloodEssence = Math.Max(0, blood);
+
         private readonly List<CapturedBeast> beasts = new List<CapturedBeast>();
 
         /// <summary>The spirit beasts the clan captured, awaiting the mirror's ritual.</summary>

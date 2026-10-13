@@ -100,6 +100,7 @@ namespace MirrorChronicles.Session
             }
             session.Oaths.Restore((data.Pacts ?? new List<PactData>()).Select(p => p.Clone()), data.VeiledOathBreakers);
             session.GoldenCore.Restore(data.GoldenCorePermissions); // saves made before L4b have none
+            session.Resources.RestoreBlood(data.BloodEssence);         // none before 2.51
             session.Resources.RestorePrayers(data.Prayers);           // saves made before 2.6: none gathered
             session.Resources.RestoreBeasts(data.CapturedBeasts);
             session.Suspicion.Restore(data.SuspicionOfClan, data.Distrust); // hidden; none in saves before 2.9
@@ -203,6 +204,7 @@ namespace MirrorChronicles.Session
                 MovedHolders = WorldFruitions.Moved.ToList(),
                 PendingAncestors = Ancestors.Pending.ToList(),
                 GoldenCorePermissions = new Dictionary<string, string>(GoldenCore.Permissions),
+                BloodEssence = Resources.BloodEssence,
                 Prayers = Resources.Prayers,
                 CapturedBeasts = Resources.Beasts.ToList(),
                 WorldBeasts = Bestiary.Beasts.ToList(),

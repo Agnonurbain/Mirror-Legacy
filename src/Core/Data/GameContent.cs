@@ -311,6 +311,7 @@ namespace MirrorChronicles.Data
         public SpiritualNatureSettings SpiritualNature { get; init; } = new SpiritualNatureSettings();
         public DemonicDaoSettings DemonicDao { get; init; } = new DemonicDaoSettings();
         public BuddhismSettings Buddhism { get; init; } = new BuddhismSettings();
+        public DevilDaoSettings DevilDao { get; init; } = new DevilDaoSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();
         public ArtifactSettings Artifacts { get; init; } = new ArtifactSettings();
         public MinorAbilitySettings MinorAbilities { get; init; } = new MinorAbilitySettings();

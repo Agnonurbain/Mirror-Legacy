@@ -83,6 +83,9 @@ namespace MirrorChronicles.Events
         public event Action<MetalEssenceDemon> OnDemonSubdued;
         public event Action<MetalEssenceDemon> OnWorldDemon;
         public event Action<string, string, string> OnPowerScheme;          // a power schemes against another: what, the schemer, the victim              // a demon born of a power's elder ravages its region
+        public event Action<IReadOnlyList<CharacterData>, int> OnClanBattleEnded; // the clan's fighters and the foes struck down (R12)
+        public event Action<CharacterData> OnDiverseMansionFormed;       // a member forms a Diverse Mansion: the Heavenly Embryo Devil Dao (R12)
+        public event Action<CharacterData> OnDevilFoundOut;              // a devil of the clan found out by the orthodox powers (R12)
         public event Action<IReadOnlyList<CharacterData>> OnClanFought;  // the clan's fighters on the grid (G6): a non-violent vow breaks (R13-14b)
         public event Action<CharacterData, BuddhistVow> OnVowTaken;       // a monk takes a vow (R13-14b)
         public event Action<CharacterData, BuddhistVow> OnVowBroken;      // and breaks it: its mandate wounded
@@ -185,6 +188,9 @@ namespace MirrorChronicles.Events
         public void TriggerWorldDemon(MetalEssenceDemon demon) => OnWorldDemon?.Invoke(demon);
         public void TriggerPowerScheme(string what, string schemer, string victim) => OnPowerScheme?.Invoke(what, schemer, victim);
         public void TriggerPowerMarriage(string a, string b) => OnPowerMarriage?.Invoke(a, b);
+        public void TriggerClanBattleEnded(IReadOnlyList<CharacterData> fighters, int foesDown) => OnClanBattleEnded?.Invoke(fighters, foesDown);
+        public void TriggerDiverseMansionFormed(CharacterData member) => OnDiverseMansionFormed?.Invoke(member);
+        public void TriggerDevilFoundOut(CharacterData member) => OnDevilFoundOut?.Invoke(member);
         public void TriggerClanFought(IReadOnlyList<CharacterData> fighters) => OnClanFought?.Invoke(fighters);
         public void TriggerVowTaken(CharacterData monk, BuddhistVow vow) => OnVowTaken?.Invoke(monk, vow);
         public void TriggerVowBroken(CharacterData monk, BuddhistVow vow) => OnVowBroken?.Invoke(monk, vow);
