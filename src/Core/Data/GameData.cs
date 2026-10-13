@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.50"; // 2.48: CharacterData.Temple (R13-R14); 2.49: Vow, the pending debate and the temples' last debates (R13-14b); 2.50: RebornMonk, the monks' souls awaiting rebirth (R13-14c)
+        public const string CurrentVersion = "2.51"; // 2.48: CharacterData.Temple (R13-R14); 2.49: Vow, the pending debate and the temples' last debates (R13-14b); 2.50: RebornMonk, the monks' souls awaiting rebirth (R13-14c); 2.51: BloodEssence (R12)
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -87,6 +87,7 @@ namespace MirrorChronicles.Data
 
         // The talisman Qi (2.6; zero and null in older saves): prayers gathered, an offer awaiting the player's choice
         public int Prayers { get; set; }
+        public int BloodEssence { get; set; }                         // 2.51: the Heavenly Embryo devils' blood (R12)
         public TalismanOffer TalismanOffer { get; set; }
         public List<CapturedBeast> CapturedBeasts { get; set; } // 2.7; null in older saves
         public string HuntingGround { get; set; }               // 2.7; null in older saves: the clan's home

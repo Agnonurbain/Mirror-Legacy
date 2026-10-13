@@ -292,6 +292,11 @@ namespace MirrorChronicles.Data
             var nature = balance.SpiritualNature;
             Require(nature != null && IsProbability(nature.ElectChance) && nature.ForbiddenTasks != null,
                 BalanceFile, "spiritualNature needs an election chance between 0 and 1 and a table of forbidden tasks.");
+            var devil = balance.DevilDao;
+            Require(devil != null && devil.FormBlood >= 0 && devil.FurnaceBlood >= 0 && devil.MansionBlood >= 0 && devil.Speed > 0
+                && IsProbability(devil.AscentChance) && devil.BloodByRealm != null && devil.BloodPerKill >= 0
+                && IsProbability(devil.DiscoveryChance) && devil.DiscoveryDistrust >= 0,
+                BalanceFile, "devilDao needs blood costs never negative, a positive pace, odds between 0 and 1, and blood by realm.");
             var buddhism = balance.Buddhism;
             Require(buddhism != null && buddhism.DyingYears >= 1 && buddhism.YearsGained >= 1 && buddhism.OfferingStones >= 0
                 && buddhism.AncientSpeed > 0 && buddhism.ModernSpeed > 0 && buddhism.AncientCeilingStage >= 1 && buddhism.ModernCeilingStage >= 1

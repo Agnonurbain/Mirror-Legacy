@@ -581,6 +581,13 @@
 	"provenance": "Interpretation",
 	"source": "LORE.md §3.1 (1 enfant sur 1000 ; la Fruition dicte la conduite, Ze Wuyan ne s'incline devant personne) ; interdits par les Cinq Vertus (décision de l'utilisateur, 2026-10-12)"
   },
+  "devilDao": {
+	"formBlood": 3, "furnaceBlood": 6, "mansionBlood": 15, "speed": 1.0, "ascentChance": 0.5,
+	"bloodByRealm": { "QiRefinement": 1, "Foundation": 3, "PurpleMansion": 8, "GoldenCore": 20 }, "bloodPerKill": 1,
+	"discoveryChance": 0.03, "discoveryDistrust": 10,
+	"provenance": "Interpretation",
+	"source": "LORE.md §3.2 ; wiki « Cultivation System » (Manoir Divers après les chakras, une seule ascension, essence de sang) ; « Devil Ranks » (Manoir Divers ≈ Culture du Qi, Fournaise Unifiée ≈ Fondation) ; choix de l'utilisateur 2026-10-13"
+  },
   "buddhism": {
 	"dyingYears": 10, "yearsGained": 60, "offeringStones": 100, "conversionRelation": 5,
 	"ancientSpeed": 0.5, "modernSpeed": 0.8, "ancientCeilingStage": 4, "modernCeilingStage": 1,

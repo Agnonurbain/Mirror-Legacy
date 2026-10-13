@@ -73,6 +73,7 @@ namespace MirrorChronicles.Session
                     WorldFruitions.ProcessYear();      // holders pass and are reborn, lineages freed are raced for (step D)
                     Buddhism.ProcessYear();            // the monks nourish their nature, keep or break their vows; a modern temple may call a soul back (R13-R14)
                     Debates.ProcessYear();             // a temple may challenge the clan to a Dao debate (R13-14b)
+                    Devils.ProcessYear();              // the Heavenly Embryo devils cultivate, thirst, and may be found out (R12)
                     DemonicDao.ProcessYear();          // the bound beasts absorb the year's Qi, their lineage awakens (R16)
                     Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)
                     Imperial.ProcessYear();            // the clan's sovereign cultivates by governing (R20)

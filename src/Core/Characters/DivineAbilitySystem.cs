@@ -62,7 +62,7 @@ namespace MirrorChronicles.Characters
         public void ProcessBreakthroughPhase()
         {
             foreach (var member in clan.LivingMembers.Where(m => m.Realm == CultivationRealm.PurpleMansion && m.Retreat == Retreat.None
-                && m.Path == CultivationPath.Immortal).ToList()) // a bound beast or a monk condenses no divine ability (R13-R16)
+                && PowerLadder.WalksTheCoreWay(m)).ToList()) // a bound beast or a monk condenses no divine ability (R13-R16)
             {
                 if (member.DivineAbilities.Count >= MaxAbilities) continue;
                 bool elect = member.SubPath == CultivationSubPath.SpiritualNature;
