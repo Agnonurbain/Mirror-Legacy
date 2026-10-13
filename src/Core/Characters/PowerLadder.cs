@@ -74,7 +74,14 @@ namespace MirrorChronicles.Characters
         /// it (R13-R14), nor a bound beast.
         /// </summary>
         public static bool IsTrueMonarch(CharacterData member) =>
-            member != null && member.Path == CultivationPath.Immortal && member.Realm >= CultivationRealm.GoldenCore;
+            member != null && WalksTheCoreWay(member) && member.Realm >= CultivationRealm.GoldenCore;
+
+        /// <summary>
+        /// The ways that condense divine abilities and forge a Golden Core: the clan's own (R11, the Purple-Gold Devil Dao) and
+        /// the Heavenly Embryo's from the Purple Mansion on (R12) — not a monk, nor a bound beast.
+        /// </summary>
+        public static bool WalksTheCoreWay(CharacterData member) =>
+            member != null && (member.Path == CultivationPath.Immortal || member.Path == CultivationPath.Devil);
 
         /// <summary>The abilities of a Purple Mansion's Grand Perfection.</summary>
         private const int PurpleMansionAbilities = 5;

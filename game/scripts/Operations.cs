@@ -93,16 +93,45 @@ namespace MirrorChronicles.Game
             });
             perform.Disabled = view.Refusal != null;
             if (view.Refusal != null) Add(ritual, $"Impossible pour l'instant : {view.Refusal}.");
-            if (view.Beasts.Count == 0) return;
-
-            // R16: the chosen beast bound to the clan rather than offered — a member of the Demonic Dao, guard and hunter
-            var bind = AddButton(ritual, "Lier la bête au clan (Dao Démoniaque)", () =>
+            if (view.Beasts.Count > 0)
             {
-                var chosen = session.Resources.Beasts.FirstOrDefault(b => b.Id == Selected(beast));
-                var bound = session.DemonicDao.Bind(chosen);
-                Report(bound != null ? $"{bound.FullName} est lié(e) au clan." : "La bête refuse le lien.");
-            });
-            bind.TooltipText = "Plutôt que l'offrir au miroir : elle rejoint le clan, absorbe le Qi chaque année, garde et chasse.";
+                // R16: the chosen beast bound to the clan rather than offered — a member of the Demonic Dao, guard and hunter
+                var bind = AddButton(ritual, "Lier la bête au clan (Dao Démoniaque)", () =>
+                {
+                    var chosen = session.Resources.Beasts.FirstOrDefault(b => b.Id == Selected(beast));
+                    var bound = session.DemonicDao.Bind(chosen);
+                    Report(bound != null ? $"{bound.FullName} est lié(e) au clan." : "La bête refuse le lien.");
+                });
+                bind.TooltipText = "Plutôt que l'offrir au miroir : elle rejoint le clan, absorbe le Qi chaque année, garde et chasse.";
+                // R12: or bled for the Heavenly Embryo devils
+                var bleed = AddButton(ritual, "Saigner la bête (essence de sang)", () =>
+                {
+                    var chosen = session.Resources.Beasts.FirstOrDefault(b => b.Id == Selected(beast));
+                    string refusal = session.Devils.Bleed(chosen);
+                    Report(refusal == null ? $"La bête est saignée : le clan garde {session.Resources.BloodEssence} essence(s) de sang." : $"Impossible : {refusal}.");
+                });
+                bleed.TooltipText = "Son sang nourrit la voie du Démon Embryon Céleste (plus la bête est forte, plus il y en a).";
+            }
+            ShowDevilWay(session);
+        }
+
+        /// <summary>The Heavenly Embryo Devil Dao (R12): the clan's blood, and who may form a Diverse Mansion after the six chakras.</summary>
+        private void ShowDevilWay(Session.GameSession session)
+        {
+            var candidates = session.Clan.LivingMembers.Where(m => m.Path == CultivationPath.Immortal && m.Species == Species.Human
+                && m.SubPath == CultivationSubPath.PurpleMansionGoldenCore && m.Realm == CultivationRealm.Embryonic && m.RealmStage >= 6).ToList();
+            Add(ritual, $"Essence de sang : {session.Resources.BloodEssence} (voie du Démon Embryon Céleste)");
+            foreach (var member in candidates)
+            {
+                string refusal = session.Devils.FormRefusal(member);
+                var form = AddButton(ritual, $"{member.FullName} : former un Manoir Divers ({session.Context.Content.Balance.DevilDao.FormBlood} essences de sang)", () =>
+                {
+                    string why = session.Devils.FormDiverseMansion(session.Clan.FindById(member.ID));
+                    Report(why == null ? $"{member.FullName} forme un Manoir Divers." : $"Impossible : {why}.");
+                });
+                form.Disabled = refusal != null;
+                form.TooltipText = refusal ?? "Au lieu d'entrer en Culture du Qi : sans méthode ni Qi, mais chaque royaume aura soif de sang ; une seule ascension au Manoir Pourpre.";
+            }
         }
 
         // ---- The hunt ----

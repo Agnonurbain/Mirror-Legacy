@@ -138,6 +138,7 @@ namespace MirrorChronicles.Combat
         {
             if (Current == null) return "aucune bataille en cours";
             if (!Current.IsOver) return "la bataille n'est pas finie";
+            ctx.Events.TriggerClanBattleEnded(Current.Allies.Select(u => u.BaseData).ToList(), Current.Enemies.Count(u => u.IsDown)); // a devil's blood (R12)
             Current.ResolveAftermath(clan, wounds, fallenDies: () => false); // the agents want a hostage, not a corpse
             var outcome = Current.State switch
             {

@@ -149,6 +149,9 @@ namespace MirrorChronicles.Session
         /// <summary>The Buddhist conversion and its schools (R13-R14).</summary>
         public BuddhismSystem Buddhism { get; }
 
+        /// <summary>The Heavenly Embryo Devil Dao (R12).</summary>
+        public DevilDaoSystem Devils { get; }
+
         /// <summary>The Dao debates between the clan and the temples (R13-14b).</summary>
         public DebateSystem Debates { get; }
         public ArtifactFinds Finds { get; }

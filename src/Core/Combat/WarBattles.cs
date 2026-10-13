@@ -147,6 +147,7 @@ namespace MirrorChronicles.Combat
         {
             if (Current == null) return "aucune bataille en cours";
             if (!Current.IsOver) return "la bataille n'est pas finie";
+            ctx.Events.TriggerClanBattleEnded(Current.Allies.Select(u => u.BaseData).ToList(), Current.Enemies.Count(u => u.IsDown)); // a devil's blood (R12)
             var battle = Pending;
             bool warOver = wars.War(battle.Enemy) == null; // peace made during the battle: it costs and wins nothing
             var outcome = Current.State == CombatState.Victory ? WarBattleOutcome.Won
