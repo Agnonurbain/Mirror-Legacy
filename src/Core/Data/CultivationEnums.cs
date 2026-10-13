@@ -19,10 +19,10 @@ namespace MirrorChronicles.Data
     /// </summary>
     public enum CultivationSubPath
     {
-        PurpleMansionGoldenCore,   // Immortal — the clan's default path
+        PurpleMansionGoldenCore,   // the clan's default path: per the wiki the Purple-Gold Devil Dao (R11), kept under Immortal for saves
         SpiritualNature,           // Immortal — orthodox, 1 in 1000
         HeavenlyEmbryoDemon,       // Devil — Diverse Mansion / Unified Furnace
-        PurpleGoldDemon,           // Devil — discards Qi at the 9th level
+        PurpleGoldDemon,           // Devil — discards Qi at the 9th level (unused: the clan's PurpleMansionGoldenCore is this path, R11)
         AncientBuddhism,           // Buddhist — Five Dharmas
         ModernBuddhism,            // Buddhist — Seven Dharma Aspects
         MyriadRaces,               // Demonic — beasts, plants, awakened creatures

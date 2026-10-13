@@ -118,7 +118,7 @@ namespace MirrorChronicles.Presentation
                 DebateFate.Fell => $"{m.FullName} perd le débat du Dao contre le {temple} : sa voie du Dharma se brise, un royaume plus bas.",
                 _ => $"le clan refuse le débat du {temple} et perd la face."
             });
-            bus.OnBuddhistConverted += (m, temple) => Add($"{m.FullName}, aux portes de la mort, se convertit au {temple}, renonçant à la voie immortelle : {RankCatalog.DisplayName(m)}.");
+            bus.OnBuddhistConverted += (m, temple) => Add($"{m.FullName}, aux portes de la mort, se convertit au {temple}, renonçant à la voie Pourpre-Or : {RankCatalog.DisplayName(m)}.");
             bus.OnSoulRecalled += (m, temple) => Add($"le {temple} rappelle l'âme de {m.FullName}, qu'il gardait : le moine quitte le clan.");
             bus.OnMonkRose += m => Add($"{m.FullName} s'élève : {RankCatalog.DisplayName(m)}.");
             bus.OnBeastBound += b => Add($"{b.FullName} est lié(e) au clan : une bête du Dao Démoniaque, qui garde et chasse pour lui.");

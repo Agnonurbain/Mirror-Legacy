@@ -300,7 +300,7 @@ namespace MirrorChronicles.Tests.Characters
         public void AFoundationMonk_NeitherRecastsNorBorrowsLight()
         {
             var (s, monk) = SessionMonk(CultivationRealm.Foundation, 4);
-            StringAssert.Contains("voie immortelle", s.Alchemy.RecastRefusal(monk, "clear-spring-qi"));
+            StringAssert.Contains("voie Pourpre-Or", s.Alchemy.RecastRefusal(monk, "clear-spring-qi"));
             Assert.IsFalse(s.GoldenCore.BorrowLight(monk, "orthodox-water"));
         }
 

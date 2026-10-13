@@ -102,7 +102,7 @@ namespace MirrorChronicles.Game
         {
             var lines = DiplomacyView.Conversions(session);
             if (lines.Count == 0) return;
-            Add(powers, "Conversion bouddhiste (échapper à la mort, au prix de la voie immortelle) :");
+            Add(powers, "Conversion bouddhiste (échapper à la mort, au prix de la voie Pourpre-Or) :");
             foreach (var line in lines)
             {
                 Add(powers, $"  {line.Name} ({line.Rank}, {line.YearsLeft} an{(line.YearsLeft > 1 ? "s" : "")} à vivre) :");

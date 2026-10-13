@@ -1,7 +1,7 @@
 # Graph Report - Mirror-Legacy  (2026-10-13)
 
 ## Corpus Check
-- 487 files · ~394,704 words
+- 487 files · ~395,047 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 349 file(s) not represented in the graph (top: .uid 177, .gd 154, .tscn 10)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3f8b1598`
+- Built from commit: `781505d3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
