@@ -54,7 +54,7 @@ Fondation Immortelle → Capacités divines → Essence métallique → Position
 ```
 
 - La **Voie** et la **Lignée** sont deux axes distincts : la Voie dit *comment* on cultive, la Lignée dit *vers quoi*. On peut passer de l'une à l'autre par des méthodes spécifiques, mais ce n'est sûr qu'aux niveaux très bas ou très hauts.
-- Le **clan du joueur** suit la Voie Immortelle, sous-voie *Dao du Noyau d'Or du Manoir Pourpre* (la voie « standard » des familles et des sectes). Les autres voies existent dans le monde : factions, ennemis, événements, et possibilités de conversion (§11).
+- Le **clan du joueur** suit le *Dao du Noyau d'Or du Manoir Pourpre*, la voie « populaire » des familles et des sectes : 📚 d'après le wiki, c'est le **Dao du Diable Pourpre-Or** (§3.2, R11 ; corrigé le 2026-10-13), et non une sous-voie du Dao Immortel. Les autres voies existent dans le monde : factions, ennemis, événements, et possibilités de conversion (§11).
 
 🎮 Phase 1 (royaumes), 2 (orifice), 3 (techniques), 4 (voies, lignées, fondations, capacités, Fruitions).
 
@@ -163,14 +163,15 @@ La **Voie** est le chemin emprunté vers l'immortalité. Il en existe cinq, chac
 | Sous-voie | Description complète | Royaumes |
 |---|---|---|
 | **Nature Spirituelle, Culture Immortelle** (« Voie ancestrale de l'ingestion du Qi ») | La plus orthodoxe et originelle. Cultive **à la fois le cœur et l'essence**, mène directement à l'immortalité. Exige de **concentrer son destin** sur une Fruition et de s'y engager totalement : la conduite, les devoirs et les actes du pratiquant sont dictés par la combinaison du destin de la Fruition et du sien (ex. *Ze Wuyan* ne pouvait s'incliner devant personne, de peur d'attirer un mal karmique sur celui qu'il aurait honoré). Seul **1 enfant sur 1000** doté d'un orifice spirituel peut réussir sur cette voie. Pratiquée surtout dans l'Antiquité ; aujourd'hui ses adeptes sont **en retraite** dans des lieux sacrés ou des Grottes Célestes. | Comme le Dao du Noyau d'Or du Manoir Pourpre, avec deux différences : **la cultivation des capacités divines est continue**, et **la naissance de l'essence métallique commence dès la première capacité divine**. Ils sont donc infiniment plus puissants et forment une sorte de **pseudo-Noyau d'Or** dès la perfection de leurs capacités. Grâce à la cultivation conjointe du destin et de l'essence, leur montée au Noyau d'Or est **directe** et ne demande pas l'alignement final du destin. |
-| **Dao du Noyau d'Or du Manoir Pourpre** | La voie « standard » des familles et des sectes actuelles ; celle du clan du joueur. Détaillée au §5. | 7 royaumes (§5) |
+
+📚 ✅ **Correction (2026-10-13, wiki « Cultivation System »)** : le Dao Immortel ne compte qu'**une** sous-voie, la Nature Spirituelle, « semblable au Dao du Noyau d'Or du Manoir Pourpre ». Ce dernier — la voie populaire des familles, des sectes et du clan — est le **Dao du Diable Pourpre-Or** (§3.2). Dans le code, le clan garde ses valeurs internes (`CultivationPath.Immortal`, `PurpleMansionGoldenCore`) pour les sauvegardes ; seuls le lore et l'affichage changent.
 
 ### 3.2 Dao du Diable — survie, pillage, usage des forces maléfiques
 
 | Sous-voie | Description complète |
 |---|---|
 | **Dao du Démon Embryon Céleste** (« Dao Démoniaque de la Fournaise Unifiée du Manoir Divers ») | Voie ancestrale des cultivateurs démoniaques. Au lieu de passer à la Culture du Qi après la condensation des chakras, ils les **combinent en un « Manoir Divers »** qui fusionne la Cour Juque, le Manoir Shenyang et le point Qihai. Cela **réduit la double ascension à une seule** lors de la création des pouvoirs divins. Inconvénient : il faut **consommer de l'essence de sang** pour former le Manoir Divers. |
-| **Dao Démoniaque du Manoir Pourpre-Noyau d'Or** (« Voie du Démon Pourpre-Or ») | Nourrissent leurs chakras et absorbent le Qi, mais **le rejettent au 9e niveau** pour bâtir directement des fondements immortels et cultiver des pouvoirs divins. **Abaisse fortement le seuil** de cultivation : progression d'une rapidité inégalée. Ils ne recherchent **pas le destin**, seulement l'essence. Au sommet de la montée au Noyau d'Or, ils prennent le **risque d'aligner leur destin** sur leur Fruition ; en cas de réussite, leur destin est aussi accompli que celui d'un pratiquant de la Culture Spirituelle. |
+| **Dao Démoniaque du Manoir Pourpre-Noyau d'Or** (« Voie du Démon Pourpre-Or ») — 📚 **la voie populaire, celle du clan** (§5) | Nourrissent leurs chakras et absorbent le Qi, mais **le rejettent au 9e niveau** pour bâtir directement des fondements immortels et cultiver des pouvoirs divins. **Abaisse fortement le seuil** de cultivation : progression d'une rapidité inégalée. Ils ne recherchent **pas le destin**, seulement l'essence. Au sommet de la montée au Noyau d'Or, ils prennent le **risque d'aligner leur destin** sur leur Fruition ; en cas de réussite, leur destin est aussi accompli que celui d'un pratiquant de la Culture Spirituelle. |
 
 ### 3.3 Dao Bouddhiste — soulager la souffrance, transcender la réincarnation, maîtriser destin et karma
 Au lieu de rechercher destin et essence ensemble, ses adeptes se consacrent au **destin**. Ils ne cultivent pas les vertus intérieurement mais leur **manifestation**. Si l'expression ultime des Cinq Vertus est l'existence et la réalité, celle des Cinq Manifestations est **la non-existence et le vide** : nourrir le vide, le non-vide, rechercher le vide intérieur.
@@ -485,7 +486,7 @@ Maîtriser **5 capacités divines** et atteindre la perfection suprême dans les
 | # | Route | Conditions (lore) | Prix / risque | État obtenu | Mécanique | Phase |
 |---|---|---|---|---|---|---|
 | R10 | **Nature Spirituelle** (Dao immortel orthodoxe) | 1 enfant sur 1000 doté d'orifice ; destin concentré sur une Fruition | La Fruition **dicte la conduite** (interdits) | **Pseudo-Noyau d'Or** dès la perfection des capacités ; montée directe au Noyau d'Or sans alignement final | Enfant « élu » détecté à la naissance ; interdits de comportement imposés | L7 |
-| R11 | **Démon Pourpre-Or** (Diable) | Rejeter le Qi au 9e niveau pour bâtir directement fondations et capacités | Aucun destin ; **pari** au sommet (aligner son destin) | Noyau d'Or démoniaque | Voie rapide avec jet final risqué | L7 |
+| R11 | **Démon Pourpre-Or** (Diable) | Rejeter le Qi au 9e niveau pour bâtir directement fondations et capacités | Aucun destin ; **pari** au sommet (aligner son destin) | Noyau d'Or | ✅ **C'est la voie du clan** (📚 wiki, 2026-10-13) : absorption puis fondation au 9e niveau, capacités, forge du Noyau d'Or sur un jet risqué (échec : Démon d'Essence Métallique ; la Vie prise en dernier aide, §5.5) — déjà en jeu | L1-L4 |
 | R12 | **Démon Embryon Céleste** (Diable) | Manoir Divers → Fournaise Unifiée ; une seule ascension pour les capacités | Consommer de l'**essence de sang** | Rang équivalent au Noyau d'Or | Rangs propres + ressource « essence de sang » | L7 |
 | R13 | **Bouddhisme ancien** | Nourrir sa nature et son mandat de vie pas à pas ; vœux, débats | Lent ; débats perdus = conversion forcée ou dommages | **Maître du Dharma** (puis Vénérable possible) | Rangs bouddhistes, vœux, débats | L7 |
 | R14 | **Bouddhisme moderne** | Pyramide d'emprunt, Terres Pures, âme confiée | Plafond au début du Noyau d'Or, jamais Vénérable ; soumission aux rangs supérieurs | **Maître du Dharma** (moderne) | Relation de vassalité spirituelle | L7 |
@@ -961,7 +962,7 @@ Le jeu s'adresse aux **amoureux du xianxia**. Sa profondeur ne vient pas de règ
 | Greffe du Dao | Capacité sans recommencer toute une technique | **Consommer la fondation d'un prodige** (un autre membre du clan ?) |
 | Lien à un trésor / Grotte Céleste | Pouvoirs de Maître du Manoir Pourpre | Fin de la progression, ou destin soumis à l'objet |
 | Emprunt de lumière d'une Fruition | Manoir Pourpre « Miséricordieux » | Dépendance envers le Vrai Monarque prêteur |
-| Voie du Démon Pourpre-Or | Progression inégalée | Pas de destin ; pari final au Noyau d'Or |
+| Voie du Démon Pourpre-Or (📚 la voie du clan et des puissances) | Progression inégalée | Pas de destin ; pari final au Noyau d'Or |
 | Démon Embryon Céleste | Une seule ascension au lieu de deux | Consommer de l'**essence de sang** |
 | Nature Spirituelle | Pseudo-Noyau d'Or, montée directe | 1 sur 1000 ; la Fruition **dicte la conduite** (interdits de comportement) |
 | Conversion bouddhiste | Échapper à la mort | Abandon de la voie |

@@ -86,8 +86,8 @@ namespace MirrorChronicles.Presentation
 
         public static string PathLabel(CultivationPath path) => path switch
         {
-            CultivationPath.Immortal => "Dao Immortel",
-            CultivationPath.Devil => "Dao du Diable",
+            CultivationPath.Immortal => "voie Pourpre-Or (Dao du Diable)", // the Purple-Gold Devil Dao everyone walks (R11, the wiki); its true immortals are the rare elect
+            CultivationPath.Devil => "Dao du Diable (Embryon Céleste)", // the clan's Purple-Gold devils are under Immortal (R11)
             CultivationPath.Buddhist => "bouddhisme",
             CultivationPath.Demonic => "Dao Démoniaque",
             CultivationPath.Shamanic => "chamanisme",
