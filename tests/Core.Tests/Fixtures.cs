@@ -59,6 +59,7 @@ namespace MirrorChronicles.Tests
         public DebateSystem Debates { get; }
         public DevilDaoSystem Devils { get; }
         public DivineDaoSystem Divine { get; private set; }
+        public ShamanismSystem Shamans { get; }
         public ShardSystem Shards { get; }
         public SectSystem Sect { get; }
         public KnowledgeAccords Accords { get; }
@@ -140,6 +141,8 @@ namespace MirrorChronicles.Tests
             Buddhism = new BuddhismSystem(Ctx, Clan, Resources, Factions, Wounds);
             Debates = new DebateSystem(Ctx, Clan, Resources, Factions, Buddhism, Wounds);
             Devils = new DevilDaoSystem(Ctx, Clan, Resources, Factions, Talismans, Wounds);
+            Shamans = new ShamanismSystem(Ctx, Clan, Resources, Wounds);
+            GoldenCore.Refuge = Shamans.Refuge;
             Mirror.Wounds = Wounds;
             Shards = new ShardSystem(Ctx, Clan, Mirror, Techniques, Knowledge, Wounds);
             Bestiary = new BeastRegistry(Ctx);

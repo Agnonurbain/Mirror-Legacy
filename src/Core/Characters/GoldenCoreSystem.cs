@@ -534,8 +534,19 @@ namespace MirrorChronicles.Characters
             ctx.Log.Info($"[Golden Core] {member.FullName} falls back to the Purple Mansion: {why}.");
         }
 
+        /// <summary>
+        /// A refuge from the Emissaries of Death (set by the session; R17): a failed core may pass to the shamanic Dao instead
+        /// of becoming a demon. True when the member took it.
+        /// </summary>
+        public System.Func<CharacterData, bool> Refuge { get; set; }
+
         private void BecomeDemon(CharacterData member, string how)
         {
+            if (Refuge?.Invoke(member) == true)
+            {
+                ctx.Log.Info($"[Golden Core] {member.FullName} {how}, but escapes the Emissaries of Death into the shamanic Dao.");
+                return;
+            }
             ctx.Log.Info($"[Golden Core] {member.FullName} {how}: a Metal Essence Demon is born.");
             clan.Kill(member, DeathCause.MetalEssenceDemon);
             ctx.Events.TriggerMetalEssenceDemon(member);

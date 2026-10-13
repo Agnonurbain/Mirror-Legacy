@@ -581,6 +581,11 @@
 	"provenance": "Interpretation",
 	"source": "LORE.md §3.1 (1 enfant sur 1000 ; la Fruition dicte la conduite, Ze Wuyan ne s'incline devant personne) ; interdits par les Cinq Vertus (décision de l'utilisateur, 2026-10-12)"
   },
+  "shamanism": {
+	"gateFruition": "grand-shaman", "transformLeap": 1, "speed": 0.8, "sacrificeBlood": 1, "sacrificeSpeed": 2.0, "coreBlood": 20, "coreChance": 0.4,
+	"provenance": "Interpretation",
+	"source": "LORE.md §3.5 (trois méthodes ; par le Grand Chaman, passer au Dao chamanique en gardant une part de sa progression, échapper aux Émissaires de la Mort) ; wiki (fiche d'un maître du Sceau chamanique) ; choix de l'utilisateur 2026-10-13"
+  },
   "divineDao": {
 	"borrowLeap": 1, "speed": 0.6, "ownPrestigePerYear": 5, "corePrestige": 300, "coreChance": 0.3,
 	"provenance": "Interpretation",

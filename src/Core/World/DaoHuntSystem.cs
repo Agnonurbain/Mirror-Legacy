@@ -48,9 +48,13 @@ namespace MirrorChronicles.World
             if (saved != null) known.AddRange(saved.Where(k => k != null).Distinct());
         }
 
+        /// <summary>The clan's members a ripe Dao makes prey this year.</summary>
+        public IReadOnlyList<CharacterData> Preys() =>
+            clan.LivingMembers.Where(m => m.CaptorFaction == null && FoundationRules.IsPrey(m, ctx.Content)).ToList();
+
         public void ProcessYear()
         {
-            var preys = clan.LivingMembers.Where(m => m.CaptorFaction == null && FoundationRules.IsPrey(m, ctx.Content)).ToList();
+            var preys = Preys().ToList();
             known.RemoveAll(k => preys.All(p => p.ID != k.MemberId)); // no longer ripe, or gone
             Strike(preys);
             Learn(preys.Where(p => p.IsAlive).ToList());
