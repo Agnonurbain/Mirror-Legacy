@@ -64,7 +64,7 @@ namespace MirrorChronicles.World
         public bool Ambush(FactionData power)
         {
             if (!TravelRules.PowerReaches(power, ctx.Content.Clan.HomeRegion, ctx.Content)) return false; // too far to come (audit §1.5)
-            var exposed = clan.LivingMembers.Where(IsAway).Where(m => WorthTaking(power, m)).ToList();
+            var exposed = clan.LivingMembers.Where(IsAway).Where(m => !Characters.ShamanismSystem.IsConcealed(m) && WorthTaking(power, m)).ToList(); // a concealed shaman is not found (R17)
             if (exposed.Count == 0) return false;
 
             var target = ctx.Rng.Pick(exposed);

@@ -50,7 +50,8 @@ namespace MirrorChronicles.World
 
         /// <summary>The clan's members a ripe Dao makes prey this year.</summary>
         public IReadOnlyList<CharacterData> Preys() =>
-            clan.LivingMembers.Where(m => m.CaptorFaction == null && FoundationRules.IsPrey(m, ctx.Content)).ToList();
+            clan.LivingMembers.Where(m => m.CaptorFaction == null && !Characters.ShamanismSystem.IsConcealed(m) // hidden (R17)
+                && FoundationRules.IsPrey(m, ctx.Content)).ToList();
 
         public void ProcessYear()
         {

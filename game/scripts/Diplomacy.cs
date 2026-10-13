@@ -62,6 +62,7 @@ namespace MirrorChronicles.Game
             ShowDebateTargets(session);
             ShowPatrons(session);
             ShowDivineDao(session);
+            ShowShamanism(session);
             ShowWars(session);
             foreach (var line in DiplomacyView.Powers(session))
             {
@@ -223,6 +224,46 @@ namespace MirrorChronicles.Game
                 };
                 var column = Column();
                 column.AddChild(condense);
+                powers.AddChild(column);
+            }
+        }
+
+        /// <summary>The Shamanic Talisman Dao (R17): who may pass by the Grand Shaman's foundation, by which method; the rite of blood.</summary>
+        private void ShowShamanism(Session.GameSession session)
+        {
+            var candidates = DiplomacyView.ShamanCandidates(session);
+            var cores = DiplomacyView.ShamanCores(session);
+            if (candidates.Count == 0 && cores.Count == 0) return;
+            Add(powers, $"Dao chamanique (par la fondation du Grand Chaman ; on garde son royaume, repris au premier stade) — essence de sang : {session.Resources.BloodEssence} :");
+            var methods = new[]
+            {
+                (ShamanMethod.Transformation, "pèse un royaume de plus au combat"),
+                (ShamanMethod.Concealment, "les embuscades, captures et chasses au Dao des puissances ne le trouvent plus"),
+                (ShamanMethod.Sacrifice, "brûle de l'essence de sang pour cultiver bien plus vite")
+            };
+            foreach (var member in candidates)
+            {
+                Add(powers, $"  {member.Name} ({member.Rank}) :");
+                var column = Column();
+                foreach (var (method, effect) in methods)
+                {
+                    var pass = new Button { Text = $"Passer par {DiplomacyView.ShamanMethodLabel(method)}", TooltipText = effect };
+                    pass.Pressed += () => Report(session.Shamans.Convert(session.Clan.FindById(member.Id), method), $"{member.Name} passe au Dao chamanique.");
+                    column.AddChild(pass);
+                }
+                powers.AddChild(column);
+            }
+            foreach (var core in cores)
+            {
+                var rite = new Button { Text = core.Label, Disabled = core.Refusal != null, TooltipText = core.Refusal ?? "" };
+                rite.Pressed += () =>
+                {
+                    var member = session.Clan.FindById(core.MemberId);
+                    string refusal = session.Shamans.CondenseCore(member);
+                    Report(refusal, member?.GoldenCore == GoldenCoreState.ShamanicEquivalent ? $"{member.FullName} forge un Noyau d'Or chamanique." : "Le rite échoue : son Dao est blessé.");
+                };
+                var column = Column();
+                column.AddChild(rite);
                 powers.AddChild(column);
             }
         }

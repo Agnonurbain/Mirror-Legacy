@@ -155,6 +155,9 @@ namespace MirrorChronicles.Session
         /// <summary>The Divine Dao (R15).</summary>
         public DivineDaoSystem Divine { get; private set; }
 
+        /// <summary>The Shamanic Talisman Dao (R17).</summary>
+        public ShamanismSystem Shamans { get; private set; }
+
         /// <summary>The Dao debates between the clan and the temples (R13-14b).</summary>
         public DebateSystem Debates { get; }
         public ArtifactFinds Finds { get; }

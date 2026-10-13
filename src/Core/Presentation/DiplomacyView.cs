@@ -135,6 +135,30 @@ namespace MirrorChronicles.Presentation
                 .ToList();
         }
 
+        /// <summary>« la Transformation », « la Dissimulation », « le Sacrifice ».</summary>
+        public static string ShamanMethodLabel(ShamanMethod method) => method switch
+        {
+            ShamanMethod.Transformation => "la Transformation",
+            ShamanMethod.Concealment => "la Dissimulation",
+            ShamanMethod.Sacrifice => "le Sacrifice",
+            _ => "aucune méthode"
+        };
+
+        /// <summary>The clan's members of the Grand Shaman's foundation who may pass to the shamanic Dao (R17).</summary>
+        public static IReadOnlyList<MemberChoice> ShamanCandidates(GameSession session) =>
+            session.Clan.LivingMembers.Where(m => session.Shamans.ConversionRefusal(m) == null)
+                .OrderBy(m => m.FullName, StringComparer.Ordinal)
+                .Select(m => new MemberChoice(m.ID, m.FullName, RankCatalog.DisplayName(m))).ToList();
+
+        /// <summary>The clan's shamans and their rite toward a shamanic Golden Core (R17).</summary>
+        public static IReadOnlyList<DivineCoreLine> ShamanCores(GameSession session)
+        {
+            var s = session.Context.Content.Balance.Shamanism;
+            return session.Clan.LivingMembers.Where(m => m.Path == CultivationPath.Shamanic && m.Realm == CultivationRealm.PurpleMansion)
+                .Select(m => new DivineCoreLine(m.ID, $"{m.FullName} ({RankCatalog.DisplayName(m)}) : rite de sang du Noyau d'Or chamanique ({s.CoreBlood} essences, {(int)Math.Round(s.CoreChance * 100)} %)",
+                    session.Shamans.CoreRefusal(m))).ToList();
+        }
+
         /// <summary>The clan's cultivators who may become Divine Attendants, and the great partners bound by a pact (R15).</summary>
         public static IReadOnlyList<AttendantLine> Attendants(GameSession session)
         {

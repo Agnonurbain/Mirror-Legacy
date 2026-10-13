@@ -103,6 +103,9 @@ namespace MirrorChronicles.Presentation
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
+            bus.OnShamanConverted += (m, method) => Add($"{m.FullName} passe au Dao chamanique par {DiplomacyView.ShamanMethodLabel(method)}.");
+            bus.OnShamanRefuge += m => Add($"{m.FullName} échoue à forger son Noyau d'Or, mais échappe aux Émissaires de la Mort en passant au Dao chamanique.");
+            bus.OnShamanicCore += m => Add($"{m.FullName} forge un Noyau d'Or chamanique par un rite de sang.");
             bus.OnDivineAttendant += (m, method) => Add(method switch
             {
                 CultivationSubPath.BorrowedProfundity => $"{m.FullName} emprunte la puissance d'un grand partenaire : un Serviteur Divin, qui tombera avec le pacte.",

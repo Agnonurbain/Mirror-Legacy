@@ -132,6 +132,25 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void ASacrificeShamanAtItsApogee_BurnsNoBlood()
+        {
+            var w = World();
+            var shaman = Shaman(w, ShamanMethod.Sacrifice, CultivationRealm.PurpleMansion, PowerLadder.StageCount(CultivationRealm.PurpleMansion));
+            w.Resources.AddBlood(Settings.SacrificeBlood);
+            w.Shamans.ProcessYear();
+            Assert.AreEqual(Settings.SacrificeBlood, w.Resources.BloodEssence);
+        }
+
+        [Test]
+        public void AnElect_DoesNotPass()
+        {
+            var w = World();
+            var elect = GrandShamanFoundation(w);
+            elect.SubPath = CultivationSubPath.SpiritualNature;
+            Assert.IsNotNull(w.Shamans.ConversionRefusal(elect));
+        }
+
+        [Test]
         public void AShaman_ClimbsWithoutTrial_UpToThePurpleMansion()
         {
             var w = World();
@@ -230,6 +249,7 @@ namespace MirrorChronicles.Tests.Characters
                 "orthodox-water:boundless-sea", "orthodox-water:ford-watcher", "orthodox-water:storm-sky",
                 "orthodox-water:dike-guard", "orthodox-water:river-farewell"
             };
+            master.CultivationXP = PowerLadder.XpForNextStage(CultivationRealm.PurpleMansion);
             w.Knowledge.Reveal(FactKind.GoldSeeking, "orthodox-water", KnowledgeSource.Mirror);
             w.GoldenCore.Forge(master, "orthodox-water");
             Assert.IsFalse(master.IsAlive);
