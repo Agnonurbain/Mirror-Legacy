@@ -152,6 +152,9 @@ namespace MirrorChronicles.Session
         /// <summary>The Heavenly Embryo Devil Dao (R12).</summary>
         public DevilDaoSystem Devils { get; }
 
+        /// <summary>The Divine Dao (R15).</summary>
+        public DivineDaoSystem Divine { get; private set; }
+
         /// <summary>The Dao debates between the clan and the temples (R13-14b).</summary>
         public DebateSystem Debates { get; }
         public ArtifactFinds Finds { get; }

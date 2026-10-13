@@ -118,7 +118,8 @@ namespace MirrorChronicles.Session
                 EndingConditionKind.ImperialCore => imperial?.IsKingdom == true && Named(clan.LivingMembers.FirstOrDefault(m =>
                     m.ImperialCore && m.Realm >= CultivationRealm.GoldenCore), out who),
                 EndingConditionKind.OtherDaoPeak => Named(clan.LivingMembers.FirstOrDefault(m => // a Revered One (R13); other Daos to come
-                    m.Path == CultivationPath.Buddhist && m.Realm >= CultivationRealm.DaoEmbryo), out who),
+                    (m.Path == CultivationPath.Buddhist && m.Realm >= CultivationRealm.DaoEmbryo) // a Revered One (R13)
+                    || (m.Path == CultivationPath.Divine && m.Realm >= CultivationRealm.GoldenCore)), out who), // a Divine Core (R15)
                 _ => false // Awaits: a system still to come
             };
             if (holds && subject == null) subject = who;

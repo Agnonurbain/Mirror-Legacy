@@ -103,6 +103,14 @@ namespace MirrorChronicles.Presentation
             bus.OnDemonBorn += d => Add(d.Tier == DemonTier.Realization
                 ? $"l'essence de {d.Name} devient un Démon d'Essence Métallique, une catastrophe digne d'un Vrai Monarque."
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
+            bus.OnDivineAttendant += (m, method) => Add(method switch
+            {
+                CultivationSubPath.BorrowedProfundity => $"{m.FullName} emprunte la puissance d'un grand partenaire : un Serviteur Divin, qui tombera avec le pacte.",
+                CultivationSubPath.UnitedProfundity => $"{m.FullName} fond son mandat de vie dans le domaine du clan : un Serviteur Divin, qui ne le quittera plus.",
+                _ => $"{m.FullName} entreprend de posséder une Profondeur : un Serviteur Divin, en route vers la divinité."
+            });
+            bus.OnDivineCore += m => Add($"{m.FullName} condense un Noyau Divin.");
+            bus.OnBorrowedMightLost += (m, patron) => Add($"le pacte a pris fin : la puissance que {m.FullName} empruntait s'effondre.");
             bus.OnDiverseMansionFormed += m => Add($"{m.FullName} forme un Manoir Divers avec du sang : la voie du Démon Embryon Céleste.");
             bus.OnDevilFoundOut += m => Add($"les puissances orthodoxes apprennent que {m.FullName} suit le Dao du Diable : elles se méfient du clan.");
             bus.OnSoulKept += (m, temple) => Add($"le {temple} garde dans sa Terre Pure l'âme de {m.FullName} : le clan ne la reverra pas.");

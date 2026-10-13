@@ -83,6 +83,9 @@ namespace MirrorChronicles.Events
         public event Action<MetalEssenceDemon> OnDemonSubdued;
         public event Action<MetalEssenceDemon> OnWorldDemon;
         public event Action<string, string, string> OnPowerScheme;          // a power schemes against another: what, the schemer, the victim              // a demon born of a power's elder ravages its region
+        public event Action<CharacterData, CultivationSubPath> OnDivineAttendant; // a member binds itself to a Profundity (R15)
+        public event Action<CharacterData> OnDivineCore;                  // a Divine Core condensed (R15)
+        public event Action<CharacterData, string> OnBorrowedMightLost;   // a borrower's pact ended: its might falls (R15)
         public event Action<IReadOnlyList<CharacterData>, int> OnClanBattleEnded; // the clan's fighters and the foes struck down (R12)
         public event Action<CharacterData> OnDiverseMansionFormed;       // a member forms a Diverse Mansion: the Heavenly Embryo Devil Dao (R12)
         public event Action<CharacterData> OnDevilFoundOut;              // a devil of the clan found out by the orthodox powers (R12)
@@ -188,6 +191,9 @@ namespace MirrorChronicles.Events
         public void TriggerWorldDemon(MetalEssenceDemon demon) => OnWorldDemon?.Invoke(demon);
         public void TriggerPowerScheme(string what, string schemer, string victim) => OnPowerScheme?.Invoke(what, schemer, victim);
         public void TriggerPowerMarriage(string a, string b) => OnPowerMarriage?.Invoke(a, b);
+        public void TriggerDivineAttendant(CharacterData member, CultivationSubPath method) => OnDivineAttendant?.Invoke(member, method);
+        public void TriggerDivineCore(CharacterData member) => OnDivineCore?.Invoke(member);
+        public void TriggerBorrowedMightLost(CharacterData member, string patron) => OnBorrowedMightLost?.Invoke(member, patron);
         public void TriggerClanBattleEnded(IReadOnlyList<CharacterData> fighters, int foesDown) => OnClanBattleEnded?.Invoke(fighters, foesDown);
         public void TriggerDiverseMansionFormed(CharacterData member) => OnDiverseMansionFormed?.Invoke(member);
         public void TriggerDevilFoundOut(CharacterData member) => OnDevilFoundOut?.Invoke(member);
