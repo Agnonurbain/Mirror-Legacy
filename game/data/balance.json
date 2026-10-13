@@ -587,6 +587,7 @@
 	"recallBelow": -20, "recallChance": 0.2,
 	"vowTasks": { "NonViolence": ["Patrol", "HuntBeast", "Diversion"], "Silence": ["Diplomacy", "Espionage", "Teaching"], "Renunciation": ["Mine", "GatherQi"] },
 	"vowSpeedBonus": 0.25, "vowDebateBonus": 10,
+	"ancientRebirthChance": 0.8, "modernRebirthRelation": 0, "regainAge": 16, "lentSpeedPerRealm": 0.1, "venerableChance": 0.002,
 	"debates": {
 	  "challengeChance": 0.03, "baseChance": 50, "realmStep": 15, "stabilityWeight": 0.5, "monkBonus": 10, "minChance": 5, "maxChance": 95,
 	  "winPrestige": 20, "winRelation": 10, "lossPrestige": 20, "lossRelation": 10, "refusePrestige": 10, "refuseRelation": 5,

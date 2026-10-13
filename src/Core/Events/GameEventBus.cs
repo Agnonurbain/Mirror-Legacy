@@ -90,6 +90,10 @@ namespace MirrorChronicles.Events
         public event Action<CharacterData, string, DebateFate> OnDebateSettled; // the clan's debater, the temple, and what came of it
         public event Action<CharacterData, string> OnBuddhistConverted; // a dying cultivator converted at a temple (R13-R14)
         public event Action<CharacterData, string> OnSoulRecalled;      // a modern temple calls back the soul it holds (R14)
+        public event Action<CharacterData, string> OnSoulKept;          // a modern temple keeps a dead monk's soul (R14)
+        public event Action<CharacterData, string> OnMonkReborn;        // a monk's soul reborn in a child of the clan (R13-14c)
+        public event Action<CharacterData, string> OnMonkRegained;      // the grown child regains the monk's rank
+        public event Action<CharacterData, string> OnLentPowerLost;     // a modern monk whose temple is no more falls back (R14)
         public event Action<CharacterData> OnMonkRose;                  // a monk rises to its next rank (R13-R14)
         public event Action<CharacterData> OnBeastBound;      // a captured beast bound to the clan (R16)
         public event Action<CharacterData> OnLineageAwakened; // a bound beast's lineage awakens its next realm (R16)
@@ -188,6 +192,10 @@ namespace MirrorChronicles.Events
         public void TriggerDebateSettled(CharacterData debater, string temple, DebateFate fate) => OnDebateSettled?.Invoke(debater, temple, fate);
         public void TriggerBuddhistConverted(CharacterData member, string temple) => OnBuddhistConverted?.Invoke(member, temple);
         public void TriggerSoulRecalled(CharacterData member, string temple) => OnSoulRecalled?.Invoke(member, temple);
+        public void TriggerSoulKept(CharacterData dead, string temple) => OnSoulKept?.Invoke(dead, temple);
+        public void TriggerMonkReborn(CharacterData child, string monk) => OnMonkReborn?.Invoke(child, monk);
+        public void TriggerMonkRegained(CharacterData child, string monk) => OnMonkRegained?.Invoke(child, monk);
+        public void TriggerLentPowerLost(CharacterData monk, string temple) => OnLentPowerLost?.Invoke(monk, temple);
         public void TriggerMonkRose(CharacterData member) => OnMonkRose?.Invoke(member);
         public void TriggerBeastBound(CharacterData beast) => OnBeastBound?.Invoke(beast);
         public void TriggerLineageAwakened(CharacterData beast) => OnLineageAwakened?.Invoke(beast);

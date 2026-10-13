@@ -63,7 +63,7 @@ namespace MirrorChronicles.Characters
         /// <summary>The clan's next child — not a spouse marrying in — carries the first ancestor awaiting.</summary>
         private void Born(CharacterData child)
         {
-            if (pending.Count == 0 || child.RebornFrom != null || !child.IsAlive || child.Age >= TaskRules.WorkingAge || child.FromFaction != null) return;
+            if (pending.Count == 0 || child.RebornFrom != null || child.RebornMonk != null || !child.IsAlive || child.Age >= TaskRules.WorkingAge || child.FromFaction != null) return;
             var essence = pending[0];
             pending.RemoveAt(0);
             child.RebornFrom = essence.Name;
