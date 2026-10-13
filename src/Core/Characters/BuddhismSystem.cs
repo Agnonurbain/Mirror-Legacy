@@ -33,6 +33,8 @@ namespace MirrorChronicles.Characters
             this.resources = resources;
             this.factions = factions;
             ctx.Events.OnClanFought += BreakNonViolence;
+            ctx.Events.OnCharacterDied += Departed;
+            ctx.Events.OnCharacterBorn += Born;
         }
 
         private BuddhismSettings Settings => ctx.Content.Balance.Buddhism;
@@ -114,13 +116,18 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>The member becomes a monk of the temple's school, a realm lower, its immortal way given up.</summary>
-        private static void GiveUpTheImmortalWay(CharacterData member, FactionData temple)
+        private static void GiveUpTheImmortalWay(CharacterData member, FactionData temple) =>
+            BecomeMonk(member, temple.Name, temple.School.Value,
+                (CultivationRealm)Math.Max((int)CultivationRealm.Embryonic, (int)member.Realm - 1), 1); // a realm lower
+
+        /// <summary>The member becomes a monk of the temple and school at the rank, its immortal way given up.</summary>
+        private static void BecomeMonk(CharacterData member, string temple, CultivationSubPath school, CultivationRealm realm, int stage)
         {
             member.Path = CultivationPath.Buddhist;
-            member.SubPath = temple.School.Value;
-            member.Temple = temple.Name;
-            member.Realm = (CultivationRealm)Math.Max((int)CultivationRealm.Embryonic, (int)member.Realm - 1); // a realm lower
-            member.RealmStage = 1;
+            member.SubPath = school;
+            member.Temple = temple;
+            member.Realm = realm;
+            member.RealmStage = stage;
             member.CultivationXP = 0;
             // its foundation, abilities, method and Qi, any lineage pursued or light borrowed
             member.FoundationId = null;
@@ -198,14 +205,95 @@ namespace MirrorChronicles.Characters
                     Recall(monk, temple.Name);
                     continue;
                 }
+                if (modern && temple == null && monk.Realm > CultivationRealm.QiRefinement) LoseTheLentPower(monk); // the pyramid broken
+                double lent = modern && temple != null ? 1 + Settings.LentSpeedPerRealm * (int)temple.HighestRealm : 1; // its temple's strength
 
                 if (monk.Vow != BuddhistVow.None && ForbiddenBy(monk.Vow).Contains(monk.CurrentTask)) Break(monk); // a year at a forbidden task
                 double vowed = monk.Vow != BuddhistVow.None ? 1 + Settings.VowSpeedBonus : 1;
                 if (monk.CurrentTask == TaskType.Cultivation && !monk.ProgressionSealed)
                     monk.CultivationXP += (int)Math.Round((CultivationSystem.BaseYearlyXp + monk.SpiritualRoot / 2)
-                        * (modern ? Settings.ModernSpeed : Settings.AncientSpeed) * vowed);
-                TriallessClimb.Climb(monk, CultivationRealm.GoldenCore, modern ? Settings.ModernCeilingStage : Settings.AncientCeilingStage, Rise);
+                        * (modern ? Settings.ModernSpeed : Settings.AncientSpeed) * vowed * lent);
+                if (modern && temple == null) // nothing left to borrow: a Monk at most
+                    TriallessClimb.Climb(monk, CultivationRealm.QiRefinement, PowerLadder.StageCount(CultivationRealm.QiRefinement), Rise);
+                else TriallessClimb.Climb(monk, CultivationRealm.GoldenCore, modern ? Settings.ModernCeilingStage : Settings.AncientCeilingStage, Rise);
+                if (!modern && monk.Realm == CultivationRealm.GoldenCore && monk.RealmStage >= Settings.AncientCeilingStage
+                    && ctx.Rng.Chance(Settings.VenerableChance)) BecomeRevered(monk);
             }
+            foreach (var child in clan.LivingMembers.Where(m => m.RebornMonk != null && m.Age >= Settings.RegainAge && m.CaptorFaction == null).ToList())
+                Regain(child);
+        }
+
+        /// <summary>A modern monk whose temple is no more: what it borrowed fades, it is a Monk again (R14).</summary>
+        private void LoseTheLentPower(CharacterData monk)
+        {
+            monk.Realm = CultivationRealm.QiRefinement;
+            monk.RealmStage = 1;
+            monk.CultivationXP = 0;
+            monk.GoldenCore = GoldenCoreState.None;
+            ctx.Log.Warning($"[Buddhism] {monk.FullName}'s temple is no more: the power it borrowed fades.");
+            ctx.Events.TriggerLentPowerLost(monk, monk.Temple);
+        }
+
+        /// <summary>An ancient Dharma Master at its apogee becomes a Revered One: it no longer dies of age (R13).</summary>
+        private void BecomeRevered(CharacterData monk)
+        {
+            monk.Realm = CultivationRealm.DaoEmbryo;
+            monk.RealmStage = 1;
+            monk.MaxLifespan = PowerLadder.Unbounded;
+            ctx.Log.Info($"[Buddhism] {monk.FullName} becomes a Revered One.");
+            ctx.Events.TriggerMonkRose(monk);
+        }
+
+        /// <summary>
+        /// The Pure Lands (R13-14c): an ancient monk may choose its rebirth in the clan; a modern one's soul goes to its
+        /// temple, which gives it back only to a clan in good standing.
+        /// </summary>
+        private void Departed(CharacterData dead, DeathCause cause)
+        {
+            if (dead.Path != CultivationPath.Buddhist || dead.Species != Species.Human || cause == DeathCause.SoulReplaced) return;
+            if (dead.SubPath == CultivationSubPath.ModernBuddhism)
+            {
+                var temple = factions.GetFactionByName(dead.Temple);
+                if (temple == null || temple.RelationWithPlayer < Settings.ModernRebirthRelation)
+                {
+                    ctx.Log.Info($"[Buddhism] {dead.Temple} keeps {dead.FullName}'s soul in its Pure Land.");
+                    ctx.Events.TriggerSoulKept(dead, dead.Temple);
+                    return;
+                }
+            }
+            else if (!ctx.Rng.Chance(Settings.AncientRebirthChance)) return;
+            souls.Add(new MonkSoul(dead.FullName, dead.Temple, dead.SubPath, dead.Realm, dead.RealmStage));
+            ctx.Log.Info($"[Buddhism] {dead.FullName}'s soul awaits a child of the clan.");
+        }
+
+        /// <summary>The clan's next child — not one marrying in, nor an ancestor reborn — carries the first soul awaiting.</summary>
+        private void Born(CharacterData child)
+        {
+            if (souls.Count == 0 || child.RebornFrom != null || child.RebornMonk != null || !child.IsAlive || child.Species != Species.Human
+                || child.Age >= TaskRules.WorkingAge || child.FromFaction != null) return;
+            var soul = souls[0];
+            souls.RemoveAt(0);
+            child.RebornMonk = soul;
+            child.HasSpiritualOrifice = true; // the monk's soul opens the way
+            ctx.Log.Info($"[Buddhism] {soul.Name} is reborn in {child.FullName}.");
+            ctx.Events.TriggerMonkReborn(child, soul.Name);
+        }
+
+        /// <summary>The grown child regains the monk's rank, temple and school: its immortal way, if any, given up.</summary>
+        private void Regain(CharacterData child)
+        {
+            var soul = child.RebornMonk;
+            child.RebornMonk = null;
+            if (child.Path != CultivationPath.Immortal || child.Realm >= CultivationRealm.GoldenCore) return; // another way already, or a True Monarch
+            var realm = (CultivationRealm)Math.Max((int)soul.Realm, (int)child.Realm);
+            int stage = realm == soul.Realm ? soul.Stage : child.RealmStage;
+            BecomeMonk(child, soul.Temple, soul.School, realm, stage);
+            child.OrificeKnown = true;
+            child.MaxLifespan = Math.Max(child.MaxLifespan, PowerLadder.MaxLifespan(realm, stage));
+            if (realm >= CultivationRealm.GoldenCore) child.GoldenCore = GoldenCoreState.DharmaMaster;
+            if (realm >= CultivationRealm.DaoEmbryo) child.MaxLifespan = PowerLadder.Unbounded;
+            ctx.Log.Info($"[Buddhism] {child.FullName} regains {soul.Name}'s rank: {RankCatalog.DisplayName(child)}.");
+            ctx.Events.TriggerMonkRegained(child, soul.Name);
         }
 
         /// <summary>A monk enters its next rank: it lives at least that rank's span; past the Maha, a Dharma Master.</summary>

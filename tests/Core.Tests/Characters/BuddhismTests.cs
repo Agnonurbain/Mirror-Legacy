@@ -167,7 +167,8 @@ namespace MirrorChronicles.Tests.Characters
             var monk = Convert(w, Modern, CultivationRealm.Foundation, 1);
             monk.CultivationXP = 0;
             w.Buddhism.ProcessYear();
-            Assert.AreEqual((int)System.Math.Round((CultivationSystem.BaseYearlyXp + monk.SpiritualRoot / 2) * Settings.ModernSpeed), monk.CultivationXP);
+            double lent = 1 + Settings.LentSpeedPerRealm * (int)w.Factions.GetFactionByName(Modern).HighestRealm; // its temple's strength (R14)
+            Assert.AreEqual((int)System.Math.Round((CultivationSystem.BaseYearlyXp + monk.SpiritualRoot / 2) * Settings.ModernSpeed * lent), monk.CultivationXP);
         }
 
         [Test]

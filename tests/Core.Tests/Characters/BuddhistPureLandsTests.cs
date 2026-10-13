@@ -171,6 +171,17 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void AModernMonkWithoutItsTemple_RisesNoHigherThanMonk()
+        {
+            var w = World();
+            var monk = Monk(w, Modern, CultivationRealm.QiRefinement, PowerLadder.StageCount(CultivationRealm.QiRefinement));
+            w.Factions.RemoveFaction(Modern);
+            monk.CultivationXP = PowerLadder.XpForNextStage(CultivationRealm.QiRefinement) * 3;
+            w.Buddhism.ProcessYear();
+            Assert.AreEqual(CultivationRealm.QiRefinement, monk.Realm);
+        }
+
+        [Test]
         public void AnAncientMonk_LosesNothing_WhenItsTempleIsNoMore()
         {
             var w = World();

@@ -175,6 +175,8 @@ namespace MirrorChronicles.Presentation
         /// <summary>An elect of the Spiritual Nature: its destined Fruition and what its virtue forbids (R10); null for others.</summary>
         public static string DestinyLabel(GameSession session, CharacterData m)
         {
+            if (m.RebornMonk != null) // a monk's soul reborn (R13-14c)
+                return $"Âme renaissante de {m.RebornMonk.Name} : à {session.Context.Content.Balance.Buddhism.RegainAge} ans, retrouve son rang au {m.RebornMonk.Temple}";
             if (m.SubPath != CultivationSubPath.SpiritualNature) return null;
             string fruition = session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == m.FruitionId)?.Name ?? m.FruitionId;
             string forbidden = m.ForbiddenTasks == null || m.ForbiddenTasks.Count == 0 ? ""
