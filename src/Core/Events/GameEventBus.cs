@@ -83,6 +83,9 @@ namespace MirrorChronicles.Events
         public event Action<MetalEssenceDemon> OnDemonSubdued;
         public event Action<MetalEssenceDemon> OnWorldDemon;
         public event Action<string, string, string> OnPowerScheme;          // a power schemes against another: what, the schemer, the victim              // a demon born of a power's elder ravages its region
+        public event Action<CharacterData, ShamanMethod> OnShamanConverted; // a member passes to the shamanic Dao (R17)
+        public event Action<CharacterData> OnShamanRefuge;                 // a failed core escapes the Emissaries of Death (R17)
+        public event Action<CharacterData> OnShamanicCore;                 // a shamanic Golden Core forged (R17)
         public event Action<CharacterData, CultivationSubPath> OnDivineAttendant; // a member binds itself to a Profundity (R15)
         public event Action<CharacterData> OnDivineCore;                  // a Divine Core condensed (R15)
         public event Action<CharacterData, string> OnBorrowedMightLost;   // a borrower's pact ended: its might falls (R15)
@@ -191,6 +194,9 @@ namespace MirrorChronicles.Events
         public void TriggerWorldDemon(MetalEssenceDemon demon) => OnWorldDemon?.Invoke(demon);
         public void TriggerPowerScheme(string what, string schemer, string victim) => OnPowerScheme?.Invoke(what, schemer, victim);
         public void TriggerPowerMarriage(string a, string b) => OnPowerMarriage?.Invoke(a, b);
+        public void TriggerShamanConverted(CharacterData member, ShamanMethod method) => OnShamanConverted?.Invoke(member, method);
+        public void TriggerShamanRefuge(CharacterData member) => OnShamanRefuge?.Invoke(member);
+        public void TriggerShamanicCore(CharacterData member) => OnShamanicCore?.Invoke(member);
         public void TriggerDivineAttendant(CharacterData member, CultivationSubPath method) => OnDivineAttendant?.Invoke(member, method);
         public void TriggerDivineCore(CharacterData member) => OnDivineCore?.Invoke(member);
         public void TriggerBorrowedMightLost(CharacterData member, string patron) => OnBorrowedMightLost?.Invoke(member, patron);

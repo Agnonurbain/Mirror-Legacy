@@ -81,7 +81,8 @@ namespace MirrorChronicles.Presentation
         private static string RipeLabel(GameSession session, CharacterData member)
         {
             string foundation = FoundationLabel(session, member.FoundationId);
-            return foundation != null && FoundationRules.IsPrey(member, session.Context.Content) ? $"{foundation} — Dao mûr : une proie" : foundation;
+            return foundation != null && FoundationRules.IsPrey(member, session.Context.Content)
+                && !ShamanismSystem.IsConcealed(member) ? $"{foundation} — Dao mûr : une proie" : foundation; // a concealed shaman is no prey (R17)
         }
 
         /// <summary>« Mer sans Rivage (Eau Orthodoxe) », or null without a foundation.</summary>
@@ -156,6 +157,7 @@ namespace MirrorChronicles.Presentation
             if (!SpiritualOrificeRules.CanCultivate(member)) return "—";
             if (member.Species != Species.Human) return "Absorption du Qi (Dao Démoniaque)"; // a bound beast (R16)
             if (member.Path == CultivationPath.Devil) return "Embryon Céleste — essence de sang"; // a devil (R12)
+            if (member.Path == CultivationPath.Shamanic) return $"Sceau chamanique — {DiplomacyView.ShamanMethodLabel(member.ShamanMethod)}"; // a shaman (R17)
             if (member.Path == CultivationPath.Divine) return member.SubPath switch // a Divine Attendant (R15)
             {
                 CultivationSubPath.BorrowedProfundity => member.ProfundityOf != null ? "Profondeur empruntée à un grand partenaire" : "Profondeur perdue",

@@ -87,6 +87,8 @@ namespace MirrorChronicles.Data
             CheckTechniques(catalog, qi);
             CheckClanKnowledge(clan, catalog.Techniques, qi);
             CheckFruitions(fruitions);
+            Require(fruitions.Fruitions.Any(f => f.Id == balance.Shamanism.GateFruition), BalanceFile,
+                $"shamanism.gateFruition \"{balance.Shamanism.GateFruition}\" is not a Fruition of {FruitionsFile}.");
             CheckOaths(oaths);
             CheckRegions(regions);
             CheckAtmospheres(atmospheres, fruitions.Fruitions);
@@ -292,6 +294,10 @@ namespace MirrorChronicles.Data
             var nature = balance.SpiritualNature;
             Require(nature != null && IsProbability(nature.ElectChance) && nature.ForbiddenTasks != null,
                 BalanceFile, "spiritualNature needs an election chance between 0 and 1 and a table of forbidden tasks.");
+            var shamans = balance.Shamanism;
+            Require(shamans != null && !string.IsNullOrEmpty(shamans.GateFruition) && shamans.TransformLeap >= 0 && shamans.Speed > 0
+                && shamans.SacrificeBlood >= 0 && shamans.SacrificeSpeed >= 1 && shamans.CoreBlood >= 0 && IsProbability(shamans.CoreChance),
+                BalanceFile, "shamanism needs a gate Fruition, a positive pace, a sacrifice never slower, costs never negative and a core chance between 0 and 1.");
             var divine = balance.DivineDao;
             Require(divine != null && divine.BorrowLeap >= 0 && divine.Speed > 0 && divine.OwnPrestigePerYear >= 0 && divine.CorePrestige >= 0
                 && IsProbability(divine.CoreChance),

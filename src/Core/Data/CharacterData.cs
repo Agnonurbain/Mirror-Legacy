@@ -37,6 +37,7 @@ namespace MirrorChronicles.Data
         // Cultivation path and Golden Core standing (LORE.md §3, §5.9)
         public CultivationPath Path { get; set; }
         public CultivationSubPath SubPath { get; set; }
+        public ShamanMethod ShamanMethod { get; set; }        // a shaman's method (R17); None for others
         public string ProfundityOf { get; set; }              // a Divine Attendant's great partner it borrows from (R15); null for others
         public int BorrowedLeap { get; set; }                 // the realms it weighs above its own while the pact holds
         public MonkSoul RebornMonk { get; set; }              // a monk reborn in this child, until it regains its rank (R13-14c)

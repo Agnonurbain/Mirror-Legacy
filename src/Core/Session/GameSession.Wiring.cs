@@ -87,6 +87,8 @@ namespace MirrorChronicles.Session
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars, Sect);
             Patrons = new PatronSystem(Context, Clan, Resources);
             Divine = new DivineDaoSystem(Context, Clan, Resources, Patrons, Wounds);
+            Shamans = new ShamanismSystem(Context, Clan, Resources, Wounds);
+            GoldenCore.Refuge = Shamans.Refuge; // a failed core may escape the Emissaries of Death (R17)
             DesignEffects = new PatronDesignEffects(Context, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
             Rivals = new AscentRivals(Context, Clan, Factions, Suspicion, Sponsorships, Treaties, Buildings, Resources);
             Paths = new AscentPaths(Context, Clan, Factions, Techniques, Suspicion, Shards, Wounds);
