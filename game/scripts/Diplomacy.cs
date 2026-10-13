@@ -61,6 +61,7 @@ namespace MirrorChronicles.Game
             ShowMonks(session);
             ShowDebateTargets(session);
             ShowPatrons(session);
+            ShowDivineDao(session);
             ShowWars(session);
             foreach (var line in DiplomacyView.Powers(session))
             {
@@ -183,6 +184,46 @@ namespace MirrorChronicles.Game
                 };
                 row.AddChild(go);
                 powers.AddChild(row);
+            }
+        }
+
+        /// <summary>The Divine Dao (R15): who may bind itself to a Profundity, and how; the owners' Divine Core.</summary>
+        private void ShowDivineDao(Session.GameSession session)
+        {
+            var attendants = DiplomacyView.Attendants(session);
+            var cores = DiplomacyView.DivineCores(session);
+            if (attendants.Count == 0 && cores.Count == 0) return;
+            Add(powers, "Dao Divin (se lier à une Profondeur ; on garde son royaume, on ne revient pas en arrière) :");
+            foreach (var line in attendants)
+            {
+                Add(powers, $"  {line.Name} ({line.Rank}) :");
+                var column = Column();
+                foreach (var lender in line.Lenders)
+                {
+                    var borrow = new Button { Text = $"Emprunter à {lender.Name}", TooltipText = "Pèse un royaume de plus tant que le pacte tient ; sans progrès propre ; le pacte rompu, sa puissance s'effondre." };
+                    borrow.Pressed += () => Report(session.Divine.Borrow(session.Clan.FindById(line.MemberId), lender.Id), $"{line.Name} emprunte la puissance de {lender.Name}.");
+                    column.AddChild(borrow);
+                }
+                var unite = new Button { Text = "S'unir au domaine du clan", TooltipText = "Ne meurt plus de vieillesse, mais ne quitte plus le domaine ; plafonne au Manoir Pourpre." };
+                unite.Pressed += () => Report(session.Divine.Unite(session.Clan.FindById(line.MemberId)), $"{line.Name} s'unit au domaine du clan.");
+                column.AddChild(unite);
+                var own = new Button { Text = "Posséder une Profondeur", TooltipText = "Des rituels qui dépensent le prestige du clan chaque année ; mène au Noyau Divin." };
+                own.Pressed += () => Report(session.Divine.Own(session.Clan.FindById(line.MemberId)), $"{line.Name} entreprend de posséder une Profondeur.");
+                column.AddChild(own);
+                powers.AddChild(column);
+            }
+            foreach (var core in cores)
+            {
+                var condense = new Button { Text = core.Label, Disabled = core.Refusal != null, TooltipText = core.Refusal ?? "" };
+                condense.Pressed += () =>
+                {
+                    var member = session.Clan.FindById(core.MemberId);
+                    string refusal = session.Divine.CondenseCore(member);
+                    Report(refusal, member?.GoldenCore == GoldenCoreState.DivineCore ? $"{member.FullName} condense un Noyau Divin." : "Le Noyau Divin se dérobe : son Dao est blessé.");
+                };
+                var column = Column();
+                column.AddChild(condense);
+                powers.AddChild(column);
             }
         }
 

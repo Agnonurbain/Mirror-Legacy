@@ -86,6 +86,7 @@ namespace MirrorChronicles.Session
             if (setup.InteractiveBattles) Wars.Spring = WarBattles.Spring; // a player fights the war's battles; headless, chance settles them
             Intrigues = new IntrigueSystem(Context, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars, Sect);
             Patrons = new PatronSystem(Context, Clan, Resources);
+            Divine = new DivineDaoSystem(Context, Clan, Resources, Patrons, Wounds);
             DesignEffects = new PatronDesignEffects(Context, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
             Rivals = new AscentRivals(Context, Clan, Factions, Suspicion, Sponsorships, Treaties, Buildings, Resources);
             Paths = new AscentPaths(Context, Clan, Factions, Techniques, Suspicion, Shards, Wounds);

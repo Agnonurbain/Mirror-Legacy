@@ -181,7 +181,8 @@ namespace MirrorChronicles.Mirror
             bestiary.Beasts.FirstOrDefault(b => b.Id == plan.TargetBeastId && knowledge.Knows(FactKind.Beast, b.Id));
 
         private static bool Fit(CharacterData m) =>
-            m != null && m.IsAlive && m.Realm >= CultivationRealm.QiRefinement && m.Retreat == Retreat.None && m.CaptorFaction == null;
+            m != null && m.IsAlive && m.Realm >= CultivationRealm.QiRefinement && m.Retreat == Retreat.None && m.CaptorFaction == null
+            && !Characters.DivineDaoSystem.IsUnited(m); // united with the domain, it never leaves it (R15)
 
         /// <summary>A failed capture shakes the strikers; the far stronger beast may kill them.</summary>
         private List<string> Hurt(HuntPlan plan, WorldBeast beast)

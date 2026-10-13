@@ -65,9 +65,14 @@ namespace MirrorChronicles.Characters
         /// The realm a cultivator weighs as in strength: its own, save an elect of the Spiritual Nature at the Purple Mansion with
         /// all its abilities — a pseudo-Golden Core (R10b, LORE.md §3.1).
         /// </summary>
-        public static CultivationRealm EffectiveRealm(CharacterData member) =>
-            member.SubPath == CultivationSubPath.SpiritualNature && member.Realm == CultivationRealm.PurpleMansion
-            && (member.DivineAbilities?.Count ?? 0) >= PurpleMansionAbilities ? CultivationRealm.GoldenCore : member.Realm;
+        public static CultivationRealm EffectiveRealm(CharacterData member)
+        {
+            var realm = member.SubPath == CultivationSubPath.SpiritualNature && member.Realm == CultivationRealm.PurpleMansion
+                && (member.DivineAbilities?.Count ?? 0) >= PurpleMansionAbilities ? CultivationRealm.GoldenCore : member.Realm;
+            if (member.BorrowedLeap > 0 && realm < CultivationRealm.GoldenCore) // a great partner's might, borrowed (R15)
+                realm = (CultivationRealm)Math.Min((int)CultivationRealm.GoldenCore, (int)realm + member.BorrowedLeap);
+            return realm;
+        }
 
         /// <summary>
         /// A True Monarch: a cultivator of the immortal way at the Golden Core — never a Dharma Master, whose rank only matches

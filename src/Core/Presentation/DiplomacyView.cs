@@ -36,6 +36,15 @@ namespace MirrorChronicles.Presentation
     /// <summary>A temple the clan may debate: its debaters and their odds, or why not now.</summary>
     public sealed record DebateTarget(string Temple, string School, string Refusal, IReadOnlyList<DebaterLine> Debaters);
 
+    /// <summary>A member who may bind itself to a Profundity (R15), and the great partners it may borrow from.</summary>
+    public sealed record AttendantLine(string MemberId, string Name, string Rank, IReadOnlyList<PatronChoice> Lenders);
+
+    /// <summary>A great partner bound to the clan by a pact, to borrow from.</summary>
+    public sealed record PatronChoice(string Id, string Name);
+
+    /// <summary>A Divine Attendant who owns a Profundity: the button's text and why it cannot condense its core now.</summary>
+    public sealed record DivineCoreLine(string MemberId, string Label, string Refusal);
+
     /// <summary>A great partner: what it gives, its tribute, why it would not hear the clan now, and — once bound — a sign of its favour.</summary>
     public sealed record PatronLine(string Id, string Name, string Kind, string Boon, int Tribute, string Refusal, bool Bound, string Favor,
         string EndWarning = null);
@@ -124,6 +133,25 @@ namespace MirrorChronicles.Presentation
                 .Select(m => new ConversionLine(m.ID, m.FullName, RankCatalog.DisplayName(m), Math.Max(0, PowerLadder.LifespanLimit(m) - m.Age),
                     temples.Select(t => new TempleChoice(t.Name, SchoolLabel(t.School.Value), session.Buddhism.ConversionRefusal(m, t.Name))).ToList()))
                 .ToList();
+        }
+
+        /// <summary>The clan's cultivators who may become Divine Attendants, and the great partners bound by a pact (R15).</summary>
+        public static IReadOnlyList<AttendantLine> Attendants(GameSession session)
+        {
+            var lenders = session.Patrons.Pacts.Select(p => session.Context.Content.Patrons.FirstOrDefault(d => d.Id == p.PatronId))
+                .Where(d => d != null).Select(d => new PatronChoice(d.Id, d.Name)).ToList();
+            return session.Clan.LivingMembers.Where(m => session.Divine.AttendantRefusal(m) == null)
+                .OrderByDescending(m => (int)m.Realm).ThenBy(m => m.FullName, StringComparer.Ordinal)
+                .Select(m => new AttendantLine(m.ID, m.FullName, RankCatalog.DisplayName(m), lenders)).ToList();
+        }
+
+        /// <summary>The owners of a Profundity and their Divine Core (R15).</summary>
+        public static IReadOnlyList<DivineCoreLine> DivineCores(GameSession session)
+        {
+            var s = session.Context.Content.Balance.DivineDao;
+            return session.Clan.LivingMembers.Where(m => m.Path == CultivationPath.Divine && m.SubPath == CultivationSubPath.OwnedProfundity)
+                .Select(m => new DivineCoreLine(m.ID, $"{m.FullName} ({RankCatalog.DisplayName(m)}) : condenser un Noyau Divin ({s.CorePrestige} prestige, {(int)Math.Round(s.CoreChance * 100)} %)",
+                    session.Divine.CoreRefusal(m))).ToList();
         }
 
         /// <summary>« le vœu de silence ».</summary>

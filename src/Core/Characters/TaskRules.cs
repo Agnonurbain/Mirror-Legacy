@@ -46,9 +46,14 @@ namespace MirrorChronicles.Characters
         public static IReadOnlyList<TaskType> AllowedTasks(CharacterData character, bool huntOpen = false, bool lakeOpen = false)
         {
             var allowed = AllowedByAge(character, huntOpen, lakeOpen);
+            if (DivineDaoSystem.IsUnited(character)) allowed = allowed.Where(t => !AwayTasks.Contains(t)).ToArray(); // bound to the domain (R15)
             return character.ForbiddenTasks == null || character.ForbiddenTasks.Count == 0 ? allowed
                 : allowed.Where(t => !character.ForbiddenTasks.Contains(t)).ToArray(); // an elect's Fruition dictates its conduct (R10)
         }
+
+        /// <summary>The tasks that take a member away from the domain.</summary>
+        private static readonly TaskType[] AwayTasks =
+            { TaskType.Diplomacy, TaskType.Espionage, TaskType.HuntBeast, TaskType.ScoutBeasts, TaskType.Diversion };
 
         /// <summary>A bound beast of the Demonic Dao guards and hunts (R16, the user's choice of 2026-10-12).</summary>
         private static readonly TaskType[] BeastTasks =
