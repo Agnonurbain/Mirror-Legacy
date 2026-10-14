@@ -5,8 +5,9 @@ namespace MirrorChronicles.Data
     /// <summary>A monk's vow (R13-14b): what it forbids itself, for a faster nature and a firmer word.</summary>
     public enum BuddhistVow { None, NonViolence, Silence, Renunciation }
 
-    /// <summary>What a debate came to (R13-14b): won, or lost — and then what befell the clan's debater (Shamed: only the clan's face).</summary>
-    public enum DebateFate { Won, Converted, Wounded, Fell, Shamed }
+    /// <summary>What a debate came to (R13-14b): won, or lost — and then what befell the clan's debater (Shamed: only the clan's face;
+    /// Inducted: a monk taken into the victor's temple and school, L7 conversions).</summary>
+    public enum DebateFate { Won, Converted, Wounded, Fell, Shamed, Inducted }
 
     /// <summary>
     /// The Buddhist conversion and its two schools (balance.json « buddhism »; LORE.md §3.3, §3.7, R13-R14; the user's choices

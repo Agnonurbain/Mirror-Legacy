@@ -6,16 +6,19 @@ using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Economy;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Characters
 {
     /// <summary>
     /// The Buddhist conversion and its two schools (R13-R14; LORE.md §3.3, §3.7, §11.2; the user's choices of 2026-10-12): a
-    /// dying cultivator may convert at a temple, paying an offering, to escape death. It gives up its immortal way — a realm
+    /// dying cultivator of any human way — or one whose way is closed (Tang Shedu; L7 conversions) — may convert at a temple,
+    /// paying an offering, to escape death. It gives up its way — a realm
     /// lower, its foundation, abilities and method lost — and nourishes its nature and destiny, cultivating without trial at its
     /// temple's school's pace: the ancient school slow, up to the Dharma Master's apogee; the modern one faster, capped at the
     /// Dharma Master's beginning, and its temple holds its soul — fallen out with the clan, it may call the monk back. A True
-    /// Monarch does not give up its position: only those below the Golden Core convert. See <see cref="BuddhismSettings"/>.
+    /// Monarch does not give up its position: only those below the Golden Core convert. A temple may convert a captive of the
+    /// clan under duress, who renounces it (L7). See <see cref="BuddhismSettings"/>.
     /// </summary>
     public sealed class BuddhismSystem
     {
@@ -24,10 +27,13 @@ namespace MirrorChronicles.Characters
         private readonly ResourceManager resources;
         private readonly FactionManager factions;
         private readonly WoundSystem wounds;
+        private readonly SuspicionLedger suspicion;
 
-        public BuddhismSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, WoundSystem wounds)
+        public BuddhismSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, WoundSystem wounds,
+            SuspicionLedger suspicion)
         {
             this.wounds = wounds;
+            this.suspicion = suspicion;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -69,15 +75,18 @@ namespace MirrorChronicles.Characters
         {
             if (member == null || !member.IsAlive || !clan.LivingMembers.Contains(member)) return "introuvable";
             if (member.Species != Species.Human) return "une bête liée ne se convertit pas";
-            if (member.Path != CultivationPath.Immortal) return "déjà engagé(e) sur une autre voie";
+            if (member.Path == CultivationPath.Buddhist) return "déjà moine";
             if (!SpiritualOrificeRules.CanCultivate(member) || (member.Realm == CultivationRealm.Embryonic && member.RealmStage <= 0))
                 return "seul un cultivateur se convertit";
             if (member.Realm >= CultivationRealm.GoldenCore) return "un Vrai Monarque ne renonce pas à sa position";
             if (member.CaptorFaction != null) return "captif ailleurs";
             if (member.Retreat != Retreat.None) return "en retraite";
-            if (PowerLadder.LifespanLimit(member) - member.Age > Settings.DyingYears) return "pas encore aux portes de la mort";
+            if (!IsDying(member) && !member.ProgressionSealed) return "ni aux portes de la mort, ni sur un chemin fermé";
             return null;
         }
+
+        /// <summary>At death's door: its years left within the conversion's reach.</summary>
+        private bool IsDying(CharacterData member) => PowerLadder.LifespanLimit(member) - member.Age <= Settings.DyingYears;
 
         /// <summary>The member converts at the temple; false (nothing changes) when it may not.</summary>
         public bool Convert(CharacterData member, string templeName)
@@ -90,10 +99,13 @@ namespace MirrorChronicles.Characters
             }
 
             var temple = factions.GetFactionByName(templeName);
+            bool dying = IsDying(member);
             resources.ConsumeSpiritStones(Settings.OfferingStones);
             factions.ChangeRelation(temple.ID, Settings.ConversionRelation);
-            GiveUpTheImmortalWay(member, temple);
-            member.MaxLifespan = member.Age + Settings.YearsGained; // death escaped
+            int wounds = member.DaoWounds;
+            GiveUpItsWay(member, temple);
+            if (dying) // death escaped — a wound of the passage cuts the years it gains; a closed way gains none
+                member.MaxLifespan = member.Age + PowerLadder.WoundedLifespan(Settings.YearsGained, member.DaoWounds - wounds);
 
             ctx.Log.Info($"[Buddhism] {member.FullName} converts at {temple.Name}: {RankCatalog.DisplayName(member)}.");
             ctx.Events.TriggerBuddhistConverted(member, temple.Name);
@@ -101,24 +113,57 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>
-        /// A debate lost (R13-14b): the temple converts an immortal below the Golden Core by force — no offering, no years
-        /// gained, it is not dying. False when it cannot be (a True Monarch, a monk already, a bound beast, no such temple).
+        /// A debate lost (R13-14b): the temple converts a cultivator of any other way below the Golden Core by force — no
+        /// offering, no years gained, it is not dying. False when it cannot be (a True Monarch, a monk already, a bound beast,
+        /// no such temple).
         /// </summary>
         public bool ForceConvert(CharacterData member, string templeName)
         {
             var temple = factions.GetFactionByName(templeName);
-            if (member == null || !member.IsAlive || member.Species != Species.Human || member.Path != CultivationPath.Immortal
+            if (member == null || !member.IsAlive || member.Species != Species.Human || member.Path == CultivationPath.Buddhist
                 || member.Realm >= CultivationRealm.GoldenCore || temple?.Path != CultivationPath.Buddhist || temple.School == null) return false;
-            GiveUpTheImmortalWay(member, temple);
+            GiveUpItsWay(member, temple);
             ctx.Log.Info($"[Buddhism] {member.FullName} is converted by force at {temple.Name}: {RankCatalog.DisplayName(member)}.");
             ctx.Events.TriggerBuddhistConverted(member, temple.Name);
             return true;
         }
 
-        /// <summary>The member becomes a monk of the temple's school, a realm lower, its immortal way given up.</summary>
-        private static void GiveUpTheImmortalWay(CharacterData member, FactionData temple) =>
+        /// <summary>
+        /// The member becomes a monk of the temple's school, a realm lower, its former way given up — the passage perilous in
+        /// the middle realms (L7 conversions).
+        /// </summary>
+        private void GiveUpItsWay(CharacterData member, FactionData temple)
+        {
+            PathConversion.Pass(ctx, wounds, member);
             BecomeMonk(member, temple.Name, temple.School.Value,
                 (CultivationRealm)Math.Max((int)CultivationRealm.Embryonic, (int)member.Realm - 1), 1); // a realm lower
+            if (member.MaxLifespan >= PowerLadder.Unbounded) // an attendant united with the domain: mortal again
+                member.MaxLifespan = Math.Max(member.Age + 1, PowerLadder.MaxLifespan(member.Realm, member.RealmStage));
+        }
+
+        /// <summary>
+        /// A debate lost to a temple not its own (L7; the wiki « Buddhist Dao »: forced conversion between Dharma Aspect paths,
+        /// induction from Ancient to Modern Buddhism or the reverse): the monk enters the victor's temple and school, keeping its
+        /// rank — a modern school caps it at its Dharma Master's ceiling. False when it cannot be.
+        /// </summary>
+        public bool Induct(CharacterData monk, string templeName)
+        {
+            var temple = factions.GetFactionByName(templeName);
+            if (monk == null || !monk.IsAlive || monk.Path != CultivationPath.Buddhist || monk.Temple == templeName
+                || temple?.Path != CultivationPath.Buddhist || temple.School == null) return false;
+            monk.Temple = temple.Name;
+            monk.SubPath = temple.School.Value;
+            if (monk.SubPath == CultivationSubPath.ModernBuddhism && (monk.Realm > CultivationRealm.GoldenCore
+                || (monk.Realm == CultivationRealm.GoldenCore && monk.RealmStage > Settings.ModernCeilingStage)))
+            {
+                monk.Realm = CultivationRealm.GoldenCore; // never a Revered One, the Dharma Master's beginning at most
+                monk.RealmStage = Settings.ModernCeilingStage;
+                monk.CultivationXP = 0;
+                monk.MaxLifespan = Math.Max(monk.Age + 1, PowerLadder.MaxLifespan(monk.Realm, monk.RealmStage));
+            }
+            ctx.Log.Info($"[Buddhism] {monk.FullName} is inducted into {temple.Name}: {RankCatalog.DisplayName(monk)}.");
+            return true;
+        }
 
         /// <summary>The member becomes a monk of the temple and school at the rank, its immortal way given up.</summary>
         private static void BecomeMonk(CharacterData member, string temple, CultivationSubPath school, CultivationRealm realm, int stage)
@@ -144,6 +189,11 @@ namespace MirrorChronicles.Characters
             member.ForbiddenTasks = null;
             member.HoldsTrial = false;
             member.Vow = BuddhistVow.None;
+            // what another way had bound to it (L7 conversions): a shaman's method, a Profundity, a borrowed leap, a closed way
+            member.ShamanMethod = ShamanMethod.None;
+            member.ProfundityOf = null;
+            member.BorrowedLeap = 0;
+            member.ProgressionSealed = false;
         }
 
         /// <summary>Why the member may not take this vow now (French), or null when it may.</summary>
@@ -196,6 +246,7 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public void ProcessYear()
         {
+            foreach (var captive in clan.LivingMembers.Where(m => m.CaptorFaction != null).ToList()) ConvertUnderDuress(captive);
             foreach (var monk in clan.LivingMembers.Where(m => m.Path == CultivationPath.Buddhist && m.CaptorFaction == null).ToList())
             {
                 bool modern = monk.SubPath == CultivationSubPath.ModernBuddhism;
@@ -221,6 +272,29 @@ namespace MirrorChronicles.Characters
             }
             foreach (var child in clan.LivingMembers.Where(m => m.RebornMonk != null && m.Age >= Settings.RegainAge && m.CaptorFaction == null).ToList())
                 Regain(child);
+        }
+
+        /// <summary>
+        /// A temple holding a member of the clan may convert it under duress (L7; the wiki « Li Chengpan »): a realm lower, its
+        /// way given up, it renounces the clan and serves the temple. Never a monk already, a bound beast nor a True Monarch.
+        /// </summary>
+        private void ConvertUnderDuress(CharacterData captive)
+        {
+            var temple = factions.GetFactionByName(captive.CaptorFaction);
+            if (temple?.Path != CultivationPath.Buddhist || temple.School == null || captive.Species != Species.Human
+                || captive.Path == CultivationPath.Buddhist || captive.Realm >= CultivationRealm.GoldenCore) return;
+            if (!ctx.Rng.Chance(ctx.Content.Balance.Conversions.CaptiveConversionChance)) return;
+            GiveUpItsWay(captive, temple);
+            if (captive.KnowsMirrorSecret) // what it knew, it now tells its temple
+            {
+                suspicion.AddMirrorClues(temple.Name, ctx.Content.Balance.Plots.LeakMirrorClue);
+                suspicion.AddEvidence(temple.Name, ctx.Content.Balance.Plots.LeakEvidence);
+            }
+            captive.CaptorFaction = null;
+            captive.CapturedYear = null;
+            if (!clan.Depart(captive)) return;
+            ctx.Log.Warning($"[Buddhism] {temple.Name} converts its captive {captive.FullName}: it renounces the clan.");
+            ctx.Events.TriggerCaptiveConverted(captive, temple.Name);
         }
 
         /// <summary>A modern monk whose temple is no more: what it borrowed fades, it is a Monk again (R14).</summary>

@@ -13,7 +13,7 @@ namespace MirrorChronicles.Characters
     /// <summary>
     /// The Heavenly Embryo Devil Dao (R12; LORE.md §3.2; the wiki « Cultivation System »; the user's choices of 2026-10-13):
     /// after the six chakras a member may form a Diverse Mansion instead of entering Qi Cultivation — no method nor Qi, but
-    /// blood essence. It cultivates at its own pace and climbs its stages freely; each realm thirsts for blood: the Unified
+    /// blood essence; a Qi cultivator may still refine its Qi away into one, for more blood (L7 conversions). It cultivates at its own pace and climbs its stages freely; each realm thirsts for blood: the Unified
     /// Furnace (its foundation of the member's element), then the single ascent to the Purple Mansion, one trial where the
     /// immortal way has four. From the Purple Mansion it condenses its abilities and forges its core as any other. Blood comes
     /// from captured beasts bled and from foes struck down on the grid beside a devil; a devil found out earns the orthodox
@@ -51,20 +51,29 @@ namespace MirrorChronicles.Characters
             if (member == null || !member.IsAlive || !clan.LivingMembers.Contains(member)) return "introuvable";
             if (member.Species != Species.Human || member.Path != CultivationPath.Immortal || member.SubPath != CultivationSubPath.PurpleMansionGoldenCore)
                 return "seul un cultivateur de la voie du clan peut se tourner vers le Diable";
-            if (member.Realm != CultivationRealm.Embryonic || member.RealmStage < PowerLadder.StageCount(CultivationRealm.Embryonic))
-                return "seulement après les six chakras, avant la Culture du Qi";
+            bool afterTheChakras = member.Realm == CultivationRealm.Embryonic && member.RealmStage >= PowerLadder.StageCount(CultivationRealm.Embryonic);
+            if (!afterTheChakras && member.Realm != CultivationRealm.QiRefinement)
+                return "seulement après les six chakras, ou en raffinant son Qi à la Culture du Qi";
             if (member.CaptorFaction != null) return "captif ailleurs";
             if (member.Retreat != Retreat.None) return "en retraite";
-            if (resources.BloodEssence < Settings.FormBlood) return $"il faut {Settings.FormBlood} essence(s) de sang";
+            int blood = BloodToForm(member);
+            if (resources.BloodEssence < blood) return $"il faut {blood} essence(s) de sang";
             return null;
         }
+
+        /// <summary>
+        /// The blood to form a Diverse Mansion: after the chakras, the Dao's own price; a Qi cultivator refining its Qi away
+        /// pays more (the Golden Feather's disciples turned devils, L7 conversions).
+        /// </summary>
+        public int BloodToForm(CharacterData member) =>
+            member.Realm == CultivationRealm.QiRefinement ? ctx.Content.Balance.Conversions.QiFormBlood : Settings.FormBlood;
 
         /// <summary>The member forms its Diverse Mansion: null when done, else why not (French).</summary>
         public string FormDiverseMansion(CharacterData member)
         {
             string refusal = FormRefusal(member);
             if (refusal != null) return refusal;
-            resources.ConsumeBlood(Settings.FormBlood);
+            resources.ConsumeBlood(BloodToForm(member));
             member.Path = CultivationPath.Devil;
             member.SubPath = CultivationSubPath.HeavenlyEmbryoDemon;
             member.Realm = CultivationRealm.QiRefinement; // the Diverse Mansion, as the Qi Cultivation

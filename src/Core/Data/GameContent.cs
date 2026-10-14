@@ -314,6 +314,7 @@ namespace MirrorChronicles.Data
         public DevilDaoSettings DevilDao { get; init; } = new DevilDaoSettings();
         public DivineDaoSettings DivineDao { get; init; } = new DivineDaoSettings();
         public ShamanismSettings Shamanism { get; init; } = new ShamanismSettings();
+        public ConversionSettings Conversions { get; init; } = new ConversionSettings();
         public FertilitySettings Fertility { get; init; } = new FertilitySettings();
         public ArtifactSettings Artifacts { get; init; } = new ArtifactSettings();
         public MinorAbilitySettings MinorAbilities { get; init; } = new MinorAbilitySettings();

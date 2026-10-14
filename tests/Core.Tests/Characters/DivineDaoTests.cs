@@ -85,11 +85,12 @@ namespace MirrorChronicles.Tests.Characters
             Pact(w);
             var member = Cultivator(w, CultivationRealm.Foundation);
             w.Divine.Borrow(member, Tortoise);
+            int wounds = member.DaoWounds; // the passage at the Foundation may already have wounded it (L7)
             w.Patrons.RestorePacts(new PatronPact[0]);
             w.Divine.ProcessYear();
             Assert.AreEqual(CultivationRealm.Foundation, PowerLadder.EffectiveRealm(member));
             Assert.IsNull(member.ProfundityOf);
-            Assert.AreEqual(1, member.DaoWounds);
+            Assert.AreEqual(wounds + 1, member.DaoWounds);
         }
 
         [Test]

@@ -138,7 +138,8 @@ namespace MirrorChronicles.Tests
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions, Mirror, Sect);
             DemonicDao = new DemonicDaoSystem(Ctx, Clan, Resources, Talismans);
             Wounds = new WoundSystem(Ctx, Stability);
-            Buddhism = new BuddhismSystem(Ctx, Clan, Resources, Factions, Wounds);
+            Suspicion = new SuspicionLedger();
+            Buddhism = new BuddhismSystem(Ctx, Clan, Resources, Factions, Wounds, Suspicion);
             Debates = new DebateSystem(Ctx, Clan, Resources, Factions, Buddhism, Wounds);
             Devils = new DevilDaoSystem(Ctx, Clan, Resources, Factions, Talismans, Wounds);
             Shamans = new ShamanismSystem(Ctx, Clan, Resources, Wounds);
@@ -146,7 +147,6 @@ namespace MirrorChronicles.Tests
             Mirror.Wounds = Wounds;
             Shards = new ShardSystem(Ctx, Clan, Mirror, Techniques, Knowledge, Wounds);
             Bestiary = new BeastRegistry(Ctx);
-            Suspicion = new SuspicionLedger();
             Treaties = new TreatySystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques);
             Exchange = new KnowledgeExchange(Ctx, Factions, Techniques, Resources, Mirror, Treaties);
             Buildings = new BuildingSystem(Ctx, Clan, Resources, Stability, Cultivation);

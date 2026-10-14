@@ -13,8 +13,9 @@ namespace MirrorChronicles.Characters
     /// The Dao debates between the clan and the temples (R13-14b; LORE.md §3.7; the user's choices of 2026-10-12): a temple
     /// may challenge the clan — it answers with a champion or refuses, losing face — and the clan may challenge a temple, each
     /// once in a while. The odds weigh the debater's rank against the temple's, its mind, a monk's training and a kept vow. A win
-    /// brings face and warmth; a loss costs them, and befalls the debater: an immortal below the Golden Core may be converted
-    /// by force, or else its mandate is wounded; a monk's Dharma path breaks a realm lower. See <see cref="DebateSettings"/>.
+    /// brings face and warmth; a loss costs them, and befalls the debater: a cultivator of any other way below the Golden Core
+    /// may be converted by force, or else its mandate is wounded; a monk beaten by a temple not its own may be inducted into
+    /// it (L7), else its Dharma path breaks a realm lower. See <see cref="DebateSettings"/>.
     /// </summary>
     public sealed class DebateSystem
     {
@@ -180,6 +181,9 @@ namespace MirrorChronicles.Characters
         /// <summary>What a lost debate does to the debater.</summary>
         private DebateFate Befall(CharacterData debater, FactionData temple)
         {
+            if (debater.Path == CultivationPath.Buddhist && debater.Temple != temple.Name
+                && ctx.Rng.Chance(ctx.Content.Balance.Conversions.InductionChance) && buddhism.Induct(debater, temple.Name))
+                return DebateFate.Inducted; // taken into the victor's doctrine (L7; the wiki « Buddhist Dao »)
             if (debater.Path == CultivationPath.Buddhist && debater.Realm > CultivationRealm.Embryonic) // its Dharma path breaks: a realm lower
             {
                 debater.Realm = (CultivationRealm)Math.Max((int)CultivationRealm.Embryonic, (int)debater.Realm - 1);
@@ -188,7 +192,7 @@ namespace MirrorChronicles.Characters
                 if (debater.Realm < CultivationRealm.GoldenCore) debater.GoldenCore = GoldenCoreState.None;
                 return DebateFate.Fell;
             }
-            if (debater.Path == CultivationPath.Immortal && debater.Realm < CultivationRealm.GoldenCore && ctx.Rng.Chance(Settings.ForcedConversionChance) && buddhism.ForceConvert(debater, temple.Name))
+            if (debater.Path != CultivationPath.Buddhist && debater.Realm < CultivationRealm.GoldenCore && ctx.Rng.Chance(Settings.ForcedConversionChance) && buddhism.ForceConvert(debater, temple.Name))
                 return DebateFate.Converted;
             wounds.ApplyDaoWound(debater); // its mandate wounded
             return DebateFate.Wounded;

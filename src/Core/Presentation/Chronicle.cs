@@ -105,6 +105,8 @@ namespace MirrorChronicles.Presentation
                 : $"l'essence de {d.Name} devient un Démon d'Essence Métallique.");
             bus.OnShamanConverted += (m, method) => Add($"{m.FullName} passe au Dao chamanique par {DiplomacyView.ShamanMethodLabel(method)}.");
             bus.OnShamanRefuge += m => Add($"{m.FullName} échoue à forger son Noyau d'Or, mais échappe aux Émissaires de la Mort en passant au Dao chamanique.");
+            bus.OnConversionWounded += m => Add($"le passage d'une voie à l'autre blesse le Dao de {m.FullName}.");
+            bus.OnCaptiveConverted += (m, temple) => Add($"captif du {temple}, {m.FullName} cède aux chants et se convertit : il renie le clan et sert désormais le temple ({RankCatalog.DisplayName(m)}).");
             bus.OnShamanicCore += m => Add($"{m.FullName} forge un Noyau d'Or chamanique par un rite de sang.");
             bus.OnDivineAttendant += (m, method) => Add(method switch
             {
@@ -129,9 +131,10 @@ namespace MirrorChronicles.Presentation
                 DebateFate.Converted => $"{m.FullName} perd le débat du Dao contre le {temple}, qui impose sa conversion.",
                 DebateFate.Wounded => $"{m.FullName} perd le débat du Dao contre le {temple} : son mandat de vie en est blessé.",
                 DebateFate.Fell => $"{m.FullName} perd le débat du Dao contre le {temple} : sa voie du Dharma se brise, un royaume plus bas.",
+                DebateFate.Inducted => $"{m.FullName} perd le débat du Dao contre le {temple}, qui le fait entrer dans sa doctrine : {RankCatalog.DisplayName(m)}.",
                 _ => $"le clan refuse le débat du {temple} et perd la face."
             });
-            bus.OnBuddhistConverted += (m, temple) => Add($"{m.FullName}, aux portes de la mort, se convertit au {temple}, renonçant à la voie Pourpre-Or : {RankCatalog.DisplayName(m)}.");
+            bus.OnBuddhistConverted += (m, temple) => Add($"{m.FullName} se convertit au {temple}, renonçant à sa voie : {RankCatalog.DisplayName(m)}.");
             bus.OnSoulRecalled += (m, temple) => Add($"le {temple} rappelle l'âme de {m.FullName}, qu'il gardait : le moine quitte le clan.");
             bus.OnMonkRose += m => Add($"{m.FullName} s'élève : {RankCatalog.DisplayName(m)}.");
             bus.OnBeastBound += b => Add($"{b.FullName} est lié(e) au clan : une bête du Dao Démoniaque, qui garde et chasse pour lui.");
@@ -177,6 +180,11 @@ namespace MirrorChronicles.Presentation
                 if (elder.Realm >= CultivationRealm.PurpleMansion)
                     Add(demon ? $"{elder.Name}, de {power.Name}, échoue au Noyau d'Or : un démon d'essence métallique naît."
                               : $"{elder.Name}, de {power.Name}, meurt au terme de sa vie.");
+            };
+            bus.OnElderConverted += (power, temple, elder) =>
+            {
+                if (elder.Realm >= CultivationRealm.Foundation)
+                    Add($"{elder.Name}, de {power.Name}, aux portes de la mort, se convertit au {temple.Name}.");
             };
             bus.OnElderRose += (power, elder) =>
             {

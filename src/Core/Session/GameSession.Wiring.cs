@@ -43,7 +43,8 @@ namespace MirrorChronicles.Session
             Elders = new ElderSystem(Context, Factions);
             PowerEconomy = new PowerEconomy(Context, Factions);
             Sect = new SectSystem(Context, Clan, Resources, Stability, Karma, Factions);
-            Buddhism = new BuddhismSystem(Context, Clan, Resources, Factions, Wounds);
+            Suspicion = new SuspicionLedger();
+            Buddhism = new BuddhismSystem(Context, Clan, Resources, Factions, Wounds, Suspicion);
             Debates = new DebateSystem(Context, Clan, Resources, Factions, Buddhism, Wounds);
             Mirror = new MirrorSystem(Context, Clan, Breakthroughs);
             Deduction = new DeductionEngine(Context, Mirror, Techniques);
@@ -53,7 +54,6 @@ namespace MirrorChronicles.Session
             DemonicDao = new DemonicDaoSystem(Context, Clan, Resources, Talismans);
             Devils = new DevilDaoSystem(Context, Clan, Resources, Factions, Talismans, Wounds);
             Shards = new ShardSystem(Context, Clan, Mirror, Techniques, Knowledge, Wounds);
-            Suspicion = new SuspicionLedger();
             Treaties = new TreatySystem(Context, Clan, Resources, Factions, Suspicion, Techniques);
             Exchange = new KnowledgeExchange(Context, Factions, Techniques, Resources, Mirror, Treaties);
             Bestiary = new BeastRegistry(Context);

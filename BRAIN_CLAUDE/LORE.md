@@ -223,6 +223,20 @@ Dao des **dieux, des fantômes et des esprits**, fondé sur l'acte de **saisir u
 
 🎮 Phase 4 : enum `CultivationPath` { Immortal, Devil, Buddhist, Demonic, Shamanic, **Divine** } + `CultivationSubPath` (9 valeurs ci-dessus + les trois méthodes du Dao Divin) ; **rangs propres** à chaque voie avec leur table d'équivalence (§3.7). Clan du joueur : Immortal / Purple-Mansion-Golden-Core. Les factions portent leur voie ; la conversion (ex. vers le bouddhisme pour échapper à la mort, §5.4.3) est un événement.
 
+
+### 3.8 Conversions entre les voies (📚 wiki, choix de l'utilisateur 2026-10-14 : « toutes les conversions possibles et autorisées par le wiki »)
+📚 « Cultivation System » : *on peut passer d'un Dao de cultivation ou d'une lignée à l'autre par des méthodes ou techniques spéciales, mais chaque cas est circonstanciel et n'est sûr qu'aux royaumes très bas ou très hauts.* Exemples du wiki : Shi Kongming (bloqué par sa capacité) et Tang Shedu (Fondation incapable d'avancer, passe au Nord) se tournent vers le bouddhisme ; Li Chengpan, captif, est **converti sous la contrainte** et renie sa famille ; perdre un débat peut **forcer la conversion entre Aspects du Dharma** ou **l'induction de l'ancien au moderne** (et l'inverse) ; la secte de la Plume d'Or change des disciples en **cultivateurs du Diable** par le *Manuel du Dharma de Sang* ; Li Wushao, bête liée, devient **Dieu d'Édit** (Dao Divin) ; un prédécesseur change toute sa cultivation en Sceau chamanique (R17).
+
+🎮 ✅ L7 (`PathConversion`, `balance.json` « conversions », interprétations) :
+- **Le passage est périlleux au milieu** : à la Fondation et au Manoir Pourpre, toute conversion d'un membre a 50 % de lui laisser une **blessure du Dao** ; avant la Fondation et dès le Noyau d'Or, elle est sûre. Pour un mourant converti, la blessure coupe d'un cinquième les années que la conversion lui donne ; le refuge chamanique d'un Noyau d'Or manqué (on échappe à la mort) en est exempt.
+- **Bouddhisme depuis toute voie humaine** (immortelle, Diable, chamanique, divine), pour qui est **aux portes de la mort** (gagne les années de la conversion) ou dont **le chemin est fermé** (progression scellée : ne gagne pas d'années) ; un débat perdu convertit de force n'importe laquelle sous le Noyau d'Or. La voie quittée est effacée (méthode chamanique, Profondeur, bond emprunté, sceau).
+- **Captif d'un temple** : 20 %/an d'être converti (un royaume plus bas) ; il **renie le clan** et sert le temple, à qui il dit ce qu'il savait du miroir.
+- **Induction** : un moine battu en débat par un temple qui n'est pas le sien y entre (50 %) avec son école, en gardant son rang — plafonné au début du Maître du Dharma s'il devient moderne ; sinon sa voie du Dharma se brise comme avant.
+- **Démon Embryon Céleste depuis la Culture du Qi** : raffiner son Qi en Manoir Divers (9 essences de sang au lieu de 3 ; méthode et Qi perdus, premier niveau).
+- **Bête liée → Serviteur Divin** (emprunter, s'unir, posséder), restant une bête : elle absorbe le Qi quelle que soit sa tâche. Un serviteur uni au domaine qui se convertit redevient mortel.
+- **Parité** : un aîné d'une puissance non bouddhiste, sous le Noyau d'Or, à sa dernière année, a 30 % de passer à un temple au hasard (un royaume plus bas, les années de la conversion) au lieu de mourir — sauf s'il tient une Réalisation ou si l'ancêtre du clan a plié son esprit ; il laisse derrière lui ses liens (trésor lié, pilules humaines).
+- Reste hors de portée du wiki : quitter le bouddhisme, revenir à la voie du clan, un Vrai Monarque qui change de voie.
+
 ---
 
 ## 4. Orifice spirituel, mortels et Graines de Sceau
