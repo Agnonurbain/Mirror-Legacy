@@ -11,7 +11,7 @@ namespace MirrorChronicles.Characters
     /// <summary>
     /// The Divine Dao (R15; LORE.md §3.6; the wiki « Divine Dao »; the user's choices of 2026-10-13): « Profundity precedes
     /// power ». A cultivator of the clan's way from the Qi Cultivation to the Purple Mansion binds itself to a Profundity and
-    /// becomes a Divine Attendant, keeping its realm:
+    /// becomes a Divine Attendant, keeping its realm — and so may a bound beast, as a god of an edict (Li Wushao; L7 conversions):
     /// <list type="bullet">
     /// <item>borrowing a great partner's might, it weighs a realm higher while the pact holds — no progress of its own, and the
     /// pact ended, its might falls and its Dao is wounded;</item>
@@ -49,7 +49,9 @@ namespace MirrorChronicles.Characters
         public string AttendantRefusal(CharacterData member)
         {
             if (member == null || !member.IsAlive || !clan.LivingMembers.Contains(member)) return "introuvable";
-            if (member.Species != Species.Human || member.Path != CultivationPath.Immortal) return "seul un cultivateur de la voie du clan se lie à une Profondeur";
+            bool immortal = member.Species == Species.Human && member.Path == CultivationPath.Immortal;
+            bool boundBeast = member.Species != Species.Human && member.Path == CultivationPath.Demonic; // a god of an edict (Li Wushao, L7)
+            if (!immortal && !boundBeast) return "seul un cultivateur de la voie du clan, ou une bête liée, se lie à une Profondeur";
             if (member.Realm < CultivationRealm.QiRefinement || member.Realm > CultivationRealm.PurpleMansion)
                 return "de la Culture du Qi au Manoir Pourpre seulement";
             if (member.CaptorFaction != null) return "captif ailleurs";
@@ -91,6 +93,7 @@ namespace MirrorChronicles.Characters
 
         private void Become(CharacterData member, CultivationSubPath method)
         {
+            PathConversion.Pass(ctx, wounds, member);
             member.Path = CultivationPath.Divine;
             member.SubPath = method;
             member.PursuedAbility = null;

@@ -115,22 +115,28 @@ namespace MirrorChronicles.Game
             ShowDevilWay(session);
         }
 
-        /// <summary>The Heavenly Embryo Devil Dao (R12): the clan's blood, and who may form a Diverse Mansion after the six chakras.</summary>
+        /// <summary>
+        /// The Heavenly Embryo Devil Dao (R12): the clan's blood, and who may form a Diverse Mansion — after the six chakras, or a
+        /// Qi cultivator refining its Qi away for more blood (L7 conversions).
+        /// </summary>
         private void ShowDevilWay(Session.GameSession session)
         {
             var candidates = session.Clan.LivingMembers.Where(m => m.Path == CultivationPath.Immortal && m.Species == Species.Human
-                && m.SubPath == CultivationSubPath.PurpleMansionGoldenCore && m.Realm == CultivationRealm.Embryonic && m.RealmStage >= 6).ToList();
+                && m.SubPath == CultivationSubPath.PurpleMansionGoldenCore
+                && ((m.Realm == CultivationRealm.Embryonic && m.RealmStage >= 6) || m.Realm == CultivationRealm.QiRefinement)).ToList();
             Add(ritual, $"Essence de sang : {session.Resources.BloodEssence} (voie du Démon Embryon Céleste)");
             foreach (var member in candidates)
             {
                 string refusal = session.Devils.FormRefusal(member);
-                var form = AddButton(ritual, $"{member.FullName} : former un Manoir Divers ({session.Context.Content.Balance.DevilDao.FormBlood} essences de sang)", () =>
+                var form = AddButton(ritual, $"{member.FullName} : former un Manoir Divers ({session.Devils.BloodToForm(member)} essences de sang)", () =>
                 {
                     string why = session.Devils.FormDiverseMansion(session.Clan.FindById(member.ID));
                     Report(why == null ? $"{member.FullName} forme un Manoir Divers." : $"Impossible : {why}.");
                 });
                 form.Disabled = refusal != null;
-                form.TooltipText = refusal ?? "Au lieu d'entrer en Culture du Qi : sans méthode ni Qi, mais chaque royaume aura soif de sang ; une seule ascension au Manoir Pourpre.";
+                form.TooltipText = refusal ?? (member.Realm == CultivationRealm.QiRefinement
+                    ? "Raffiner son Qi en un Manoir Divers : sa méthode et son Qi perdus, il recommence au premier niveau ; chaque royaume aura soif de sang ; une seule ascension au Manoir Pourpre."
+                    : "Au lieu d'entrer en Culture du Qi : sans méthode ni Qi, mais chaque royaume aura soif de sang ; une seule ascension au Manoir Pourpre.");
             }
         }
 

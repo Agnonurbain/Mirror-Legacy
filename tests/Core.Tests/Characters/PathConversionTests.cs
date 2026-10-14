@@ -183,7 +183,7 @@ namespace MirrorChronicles.Tests.Characters
         public void AModernMonk_BeatenByAnAncientTemple_MayBeInducted_KeepingItsRank()
         {
             var w = World(new SequenceRandom(0.99, 0.0)); // the debate lost, the induction drawn
-            var monk = Cultivator(w, CultivationRealm.Foundation);
+            var monk = Cultivator(w, CultivationRealm.QiRefinement, 5); // a safe passage: no peril drawn
             Dying(monk);
             Assert.IsTrue(w.Buddhism.Convert(monk, Modern));
             monk.Realm = CultivationRealm.PurpleMansion;
@@ -200,7 +200,7 @@ namespace MirrorChronicles.Tests.Characters
         public void AnAncientDharmaMaster_InductedModern_IsCappedAtTheModernCeiling()
         {
             var w = World(new SequenceRandom(0.99, 0.0));
-            var monk = Cultivator(w, CultivationRealm.PurpleMansion);
+            var monk = Cultivator(w, CultivationRealm.QiRefinement, 5);
             Dying(monk);
             Assert.IsTrue(w.Buddhism.Convert(monk, Ancient));
             monk.Realm = CultivationRealm.GoldenCore;
@@ -216,7 +216,7 @@ namespace MirrorChronicles.Tests.Characters
         public void AMonkBeatenByItsOwnTemple_IsNotInducted_ItFalls()
         {
             var w = World(new SequenceRandom(0.99, 0.0));
-            var monk = Cultivator(w, CultivationRealm.Foundation);
+            var monk = Cultivator(w, CultivationRealm.QiRefinement, 5);
             Dying(monk);
             Assert.IsTrue(w.Buddhism.Convert(monk, Modern));
             monk.Realm = CultivationRealm.PurpleMansion;

@@ -85,6 +85,8 @@ namespace MirrorChronicles.Events
         public event Action<string, string, string> OnPowerScheme;          // a power schemes against another: what, the schemer, the victim              // a demon born of a power's elder ravages its region
         public event Action<CharacterData, ShamanMethod> OnShamanConverted; // a member passes to the shamanic Dao (R17)
         public event Action<CharacterData> OnShamanRefuge;                 // a failed core escapes the Emissaries of Death (R17)
+        public event Action<CharacterData> OnConversionWounded;            // a passage between Daos in the middle realms wounds the Dao (L7)
+        public event Action<CharacterData, string> OnCaptiveConverted;     // a temple converts a captive of the clan, who renounces it (L7)
         public event Action<CharacterData> OnShamanicCore;                 // a shamanic Golden Core forged (R17)
         public event Action<CharacterData, CultivationSubPath> OnDivineAttendant; // a member binds itself to a Profundity (R15)
         public event Action<CharacterData> OnDivineCore;                  // a Divine Core condensed (R15)
@@ -124,6 +126,7 @@ namespace MirrorChronicles.Events
         public event Action<FactionData, string> OnPowerRose;             // a power is born: it, and whence (a parent power, or null)
         public event Action<FactionData> OnKingdomFounded;                // a power founds a kingdom
         public event Action<FactionData, FactionElder, bool> OnElderDied;  // a power's elder dies (true: a demon of a failed Golden Core)
+        public event Action<FactionData, FactionData, FactionElder> OnElderConverted; // a dying elder leaves its power for a temple (L7, parity)
         public event Action<FactionData, FactionElder> OnElderRose;        // a power's elder reaches a new realm
         public event Action<ShardDefinition, string> OnShardSensed;        // the mirror senses a shard toward a region (2026-10-01)
         public event Action<string, IReadOnlyList<string>> OnClanProbe;    // the clan sends a probe: its target, its team
@@ -196,6 +199,8 @@ namespace MirrorChronicles.Events
         public void TriggerPowerMarriage(string a, string b) => OnPowerMarriage?.Invoke(a, b);
         public void TriggerShamanConverted(CharacterData member, ShamanMethod method) => OnShamanConverted?.Invoke(member, method);
         public void TriggerShamanRefuge(CharacterData member) => OnShamanRefuge?.Invoke(member);
+        public void TriggerConversionWounded(CharacterData member) => OnConversionWounded?.Invoke(member);
+        public void TriggerCaptiveConverted(CharacterData member, string temple) => OnCaptiveConverted?.Invoke(member, temple);
         public void TriggerShamanicCore(CharacterData member) => OnShamanicCore?.Invoke(member);
         public void TriggerDivineAttendant(CharacterData member, CultivationSubPath method) => OnDivineAttendant?.Invoke(member, method);
         public void TriggerDivineCore(CharacterData member) => OnDivineCore?.Invoke(member);
@@ -231,6 +236,7 @@ namespace MirrorChronicles.Events
         public void TriggerPowerRose(FactionData power, string parent) => OnPowerRose?.Invoke(power, parent);
         public void TriggerKingdomFounded(FactionData power) => OnKingdomFounded?.Invoke(power);
         public void TriggerElderDied(FactionData power, FactionElder elder, bool demon) => OnElderDied?.Invoke(power, elder, demon);
+        public void TriggerElderConverted(FactionData power, FactionData temple, FactionElder elder) => OnElderConverted?.Invoke(power, temple, elder);
         public void TriggerElderRose(FactionData power, FactionElder elder) => OnElderRose?.Invoke(power, elder);
         public void TriggerShardSensed(ShardDefinition shard, string regionId) => OnShardSensed?.Invoke(shard, regionId);
         public void TriggerClanProbe(string target, IReadOnlyList<string> teamIds) => OnClanProbe?.Invoke(target, teamIds);

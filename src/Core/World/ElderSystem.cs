@@ -142,7 +142,10 @@ namespace MirrorChronicles.World
                 foreach (var elder in power.Elders.ToList())
                 {
                     SwallowAHumanPill(power, elder, year);
-                    if (elder.Age(year) >= elder.MaxLifespan) Die(power, elder, demon: false);
+                    if (elder.Age(year) >= elder.MaxLifespan)
+                    {
+                        if (!TurnToATemple(power, elder, year)) Die(power, elder, demon: false);
+                    }
                     else if (elder.Realm < CultivationRealm.PurpleMansion) Rise(power, elder, year);
                     else if (elder.Realm == CultivationRealm.PurpleMansion) TryTheGoldenCore(power, elder, year);
                 }
@@ -253,6 +256,31 @@ namespace MirrorChronicles.World
             elder.MaxLifespan = Math.Max(elder.MaxLifespan, PowerLadder.MaxLifespan(realm, 1));
             ctx.Log.Info($"[Elders] {elder.Name} of {power.Name} reaches the {realm}.");
             ctx.Events.TriggerElderRose(power, elder);
+        }
+
+        /// <summary>
+        /// At death's door, an elder below the Golden Core of a power that is no temple may turn to one, as the clan's members
+        /// do (L7 conversions, parity; the wiki « Tang Shedu »): it leaves its power for a temple, a realm lower, its death
+        /// escaped. False when it does not.
+        /// </summary>
+        private bool TurnToATemple(FactionData power, FactionElder elder, int year)
+        {
+            if (power.Path == CultivationPath.Buddhist || elder.Realm >= CultivationRealm.GoldenCore) return false;
+            var temples = factions.Factions.Where(f => f != power && f.Path == CultivationPath.Buddhist && f.School != null).ToList();
+            if (temples.Count == 0 || !ctx.Rng.Chance(ctx.Content.Balance.Conversions.ElderConversionChance)) return false;
+            var temple = temples[ctx.Rng.Next(temples.Count)];
+            power.Elders.Remove(elder);
+            elder.Realm = (CultivationRealm)Math.Max((int)CultivationRealm.QiRefinement, (int)elder.Realm - 1); // a realm lower
+            elder.Stage = 1;
+            elder.RealmSinceYear = year;
+            elder.MaxLifespan = elder.Age(year) + ctx.Content.Balance.Buddhism.YearsGained;
+            elder.GoldenCoreOdds = 0;
+            elder.Perfected = false;
+            temple.Elders.Add(elder);
+            Sync(temple);
+            ctx.Log.Info($"[Elders] {elder.Name} of {power.Name}, at death's door, turns to {temple.Name}.");
+            ctx.Events.TriggerElderConverted(power, temple, elder);
+            return true;
         }
 
         private void Die(FactionData power, FactionElder elder, bool demon, string how = null)

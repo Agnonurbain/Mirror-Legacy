@@ -99,12 +99,12 @@ namespace MirrorChronicles.Game
             }
         }
 
-        /// <summary>The dying cultivators who may convert at a temple to escape death, giving up their immortal way (R13-R14).</summary>
+        /// <summary>The cultivators of any human way who may convert at a temple — dying, or their way closed — giving it up (R13-R14, L7).</summary>
         private void ShowConversions(Session.GameSession session)
         {
             var lines = DiplomacyView.Conversions(session);
             if (lines.Count == 0) return;
-            Add(powers, "Conversion bouddhiste (échapper à la mort, au prix de la voie Pourpre-Or) :");
+            Add(powers, "Conversion bouddhiste (aux portes de la mort ou sur un chemin fermé, au prix de sa voie ; à la Fondation et au Manoir Pourpre, le passage peut blesser le Dao) :");
             foreach (var line in lines)
             {
                 Add(powers, $"  {line.Name} ({line.Rank}, {line.YearsLeft} an{(line.YearsLeft > 1 ? "s" : "")} à vivre) :");
@@ -194,7 +194,7 @@ namespace MirrorChronicles.Game
             var attendants = DiplomacyView.Attendants(session);
             var cores = DiplomacyView.DivineCores(session);
             if (attendants.Count == 0 && cores.Count == 0) return;
-            Add(powers, "Dao Divin (se lier à une Profondeur ; on garde son royaume, on ne revient pas en arrière) :");
+            Add(powers, "Dao Divin (se lier à une Profondeur, cultivateur ou bête liée ; on garde son royaume, on ne revient pas en arrière ; à la Fondation et au Manoir Pourpre, le passage peut blesser le Dao) :");
             foreach (var line in attendants)
             {
                 Add(powers, $"  {line.Name} ({line.Rank}) :");
@@ -234,7 +234,7 @@ namespace MirrorChronicles.Game
             var candidates = DiplomacyView.ShamanCandidates(session);
             var cores = DiplomacyView.ShamanCores(session);
             if (candidates.Count == 0 && cores.Count == 0) return;
-            Add(powers, $"Dao chamanique (par la fondation du Grand Chaman ; on garde son royaume, repris au premier stade) — essence de sang : {session.Resources.BloodEssence} :");
+            Add(powers, $"Dao chamanique (par la fondation du Grand Chaman ; on garde son royaume, repris au premier stade ; le passage peut blesser le Dao au Manoir Pourpre et à la Fondation) — essence de sang : {session.Resources.BloodEssence} :");
             var methods = new[]
             {
                 (ShamanMethod.Transformation, "pèse un royaume de plus au combat"),
@@ -277,6 +277,7 @@ namespace MirrorChronicles.Game
             DebateFate.Converted => $"{name} perd, et le {temple} impose sa conversion.",
             DebateFate.Wounded => $"{name} perd : son mandat de vie est blessé.",
             DebateFate.Fell => $"{name} perd : sa voie du Dharma se brise.",
+            DebateFate.Inducted => $"{name} perd, et le {temple} le fait entrer dans sa doctrine.",
             _ => $"Débat contre le {temple} terminé."
         };
 

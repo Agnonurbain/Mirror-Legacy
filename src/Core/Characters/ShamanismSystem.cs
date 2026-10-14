@@ -72,6 +72,7 @@ namespace MirrorChronicles.Characters
 
         private void Become(CharacterData member, ShamanMethod method, bool announce = true)
         {
+            PathConversion.Pass(ctx, wounds, member);
             member.Path = CultivationPath.Shamanic;
             member.SubPath = CultivationSubPath.ShamanicTalisman;
             member.ShamanMethod = method;

@@ -216,7 +216,7 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(CultivationPath.Buddhist, debater.Path);
             Assert.AreEqual(Modern, debater.Temple);
             Assert.AreEqual(CultivationRealm.QiRefinement, debater.Realm);
-            Assert.AreEqual(lifespan, debater.MaxLifespan, "not dying: no years gained");
+            Assert.LessOrEqual(debater.MaxLifespan, lifespan, "not dying: no years gained (the passage may wound it, L7)");
         }
 
         [Test]
