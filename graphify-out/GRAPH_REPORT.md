@@ -1,17 +1,17 @@
-# Graph Report - Mirror-Legacy  (2026-10-13)
+# Graph Report - Mirror-Legacy  (2026-10-14)
 
 ## Corpus Check
-- 496 files · ~403,563 words
+- 499 files · ~407,733 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 349 file(s) not represented in the graph (top: .uid 177, .gd 154, .tscn 10)
 
 ## Summary
-- 8906 nodes · 29172 edges · 355 communities (254 shown, 101 thin omitted)
-- Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 3871 edges (avg confidence: 0.85)
+- 8974 nodes · 29442 edges · 347 communities (245 shown, 102 thin omitted)
+- Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 3902 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1c513488`
+- Built from commit: `4ef0cf4d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -28,31 +28,31 @@
 - README.md
 - HuntBattleTests
 - GoldenCoreTests
-- .StageCount
+- ShamanismTests
 - TestWorld
-- BattleField
-- Element
+- MirrorChronicles.Data
+- .Info
 - BalanceSettings
-- TitleScreen
+- Pending
 - List
 - TalismanTests
 - Phase 4 - Advanced realms, Art & Polish
-- MirrorChronicles.Data
-- .GetFactionByName
+- IntrigueData.cs
+- ProbeSystem
 - MirrorChronicles.Session
 - PowerPoliticsSystem
-- IEnumerable
+- .GetFactionByName
 - WarSettings
-- Random
-- LeftHandTests
-- .Learn
-- .Warning
+- Element
+- GoldenCoreSystem
+- .Next
+- .AddFaction
 - .Place
 - FruitionContentTests
 - SuspicionLedger
 - FruitionDefinition
-- HuntPlan
-- TestCase
+- PathConversionTests
+- IntrigueSystem
 - .ProcessYearlyTasks
 - .Bind
 - BalanceRun
@@ -70,48 +70,47 @@
 - 🧠 MEMORY.md — Mémoire projet Reflets de Lignée
 - DivineAbilitySystem
 - 📜 LORE.md — Bible du monde de Reflets de Lignée
-- system_io
+- Fixtures.cs
 - 🚧 NOT_DONE.md — Ce qui reste à faire
 - PillTests
 - 🧠 BRAINSTORMING.md — Point d'entrée central
 - MarriageMatchmakerTests
-- KnowledgeAccords
-- CultivationRealm
-- 6. Lignées du Dao (Fruitions)
-- DevilDaoSystem
+- IReadOnlyList
+- Dictionary
+- PowerIntrigues
 - 13. Lexique de renommage (⚠️ document interne — seul endroit où figurent les noms d'origine)
 - 🛠️ CLI.md — Commandes de développement (Godot 4.7.2 .NET, Linux)
 - Reflets de Lignée — Les Chroniques du Miroir
-- Dictionary
+- .Tree
 - .Reveal
-- SecretKind
-- HuntOperations
+- Provenance
+- HuntPlan
 - TreatySettings
-- RegionDefinition
+- RegionKind
 - 3. Les cinq Voies de cultivation
 - GameContext
 - WorldMapViewTests
 - .World
 - WarBattleTests
-- QiFamily
+- GamePhase
 - GameContent
-- PowerLadderTests
-- .CanCultivate
+- TestCase
+- SpiritualOrificeRulesTests
 - BuddhismSettings
 - CaptiveTests
-- LifeMandate
+- MandateOfLife
 - Operations
 - .DisplayName
-- CombatActions.cs
+- ItemData
 - MirrorLegacy.sln
 - RealmGapTests
-- TechniqueKind
+- TrialSettings
 - ArtifactSettings
 - SchemeSettings
 - TaskType
 - MetalEssenceDemons
 - .Join
-- FruitionRegistry
+- RegionalQiTests
 - .Power
 - Func
 - PatronDesignSettings
@@ -119,8 +118,8 @@
 - PurpleMansionSettings
 - PactData
 - ShardSettings
-- TrialSettings
-- BuddhistPureLandsTests
+- BreakthroughRulesTests
+- ChallengeSettings
 - HuntBattles
 - .Cultivator
 - TalismanTrait
@@ -128,7 +127,7 @@
 - BuddhismTests
 - AscentPaths
 - SectTests
-- GridCell
+- CombatGrid
 - PlotSettings
 - .VeteranSetup
 - .XpForNextStage
@@ -148,25 +147,25 @@
 - DivineAbilityDefinition
 - 📦 PACKAGE.md — Dépendances
 - MapCanvas
-- MentalStabilitySystem
+- LineageTests
 - LongevityPillTests
 - ImperialWaySettings
 - TechniqueData
 - .Holder
-- ShardSystem
+- EssencePillSettings
 - .World
-- WorldFruitionsTests
+- Chronicle
 - EnthrallmentSettings
-- RecordingGameLog
+- .Start
 - DeathCause
-- ImperialWay
+- ClanManager
 - KinshipRulesTests
 - AmbushTests
 - PoliticsSettings
-- HuntData.cs
+- HuntRole
 - FactionPersonality
 - .Wed
-- .Parse
+- Temperament
 - ChallengeTests
 - DaoHuntSettings
 - .NewGame
@@ -174,10 +173,10 @@
 - PatronDefinition
 - WorldRebirthTests
 - .Roster
-- Chronicle
+- ElderSystemTests
 - GameContentLoaderTests
-- PowerShards
-- FigureDefinition
+- ShardSystem
+- MirrorLoreSettings
 - WarTests
 - ConvergencePillAction
 - PoliticsTests
@@ -189,13 +188,13 @@
 - ImperialWayTests
 - PowerLifecycleTests
 - DharmaTreasures
-- .RealmName
-- ClanAnnals
+- 11.5 Le miroir — le rôle du joueur
+- AnnalEntry
 - .Unit
 - PatronTests
 - Library
 - .InitializeFactions
-- OathSystem
+- PowerEconomySettings
 - RandomEventData
 - Wound lethality model (vitality thresholds, Dao Wound)
 - PowerShardsTests
@@ -203,19 +202,19 @@
 - .World
 - AncestorReturnTests
 - .Child
-- ClanKarmaSystem
+- AncestorReturn
 - DivineDaoTests
-- PatronDesign
+- ProbeFactors
 - GameData
-- .FindById
-- AscentRivals
+- Diplomacy
+- .World
 - WorldFruitionSettings
 - VoidShardTests
 - GameRoot
 - AncestorSettings
-- EndingCondition
-- ArtifactArmoury
-- CombatState
+- MirrorChronicles.Tests.Mirror
+- CultivationRealm
+- AIStrategyType
 - GoldenCoreState
 - .World
 - EndingConditionKind
@@ -225,46 +224,46 @@
 - FactionContentTests
 - MinorAbilityTests
 - BuildingSystemTests
-- .BestTeam
+- ShardDefinition
 - PowerLifecycleSettings
 - QiDefinition
 - .Born
 - .Fail
-- ChallengeSystem
+- FactionManager
 - RegionalPhenomena
 - .Rows
 - GoldenCoreAction
 - SecretDealingsTests
 - .Session
-- DebateSettings
-- .Session
+- KnowledgeAccordTests
+- .Actions
 - Clan Karma (per-generation passive bonus)
-- OathTests
+- .Session
 - ArtSettings
 - .Cultivator
 - ArtLegacySourcesTests
 - SecretsTests
-- GameEventBus
+- BuddhistVow
 - GreedTests
-- TechniqueSettings
+- ShamanismSettings
 - ClanAbsorptionTests
-- PatronSystem
+- .LastYear
 - MarriageAllianceTests
 - TechniqueMarkSettings
 - BestiarySettings
-- MinorAbilities
+- KnowledgeSource
 - ClauseDefinition
 - KnowledgeExchangeTests
 - .Buildings
 - TravelRulesTests
 - ArtifactTests
 - PowerSchemeTests
-- StoryEventManager
+- StoryTriggerType
 - PowerEconomyTests
 - WorldDemonTests
 - DaoHuntSystem
-- MetalEssenceDemon
-- PositionBridge
+- ArtifactRules
+- NamePools
 - MandateOfLifeTests
 - ClientageSettings
 - GameClock
@@ -272,33 +271,33 @@
 - .World
 - EnthrallmentTests
 - .Session
-- TechniqueLibrary
-- WorldFruitions
+- ConversionSettings
+- FruitionGroup
 - BuildingSystem
-- ArtSystem
+- .MasteryOf
 - CaptiveSystem
 - WorldArsenalSettings
 - .Act
 - BattleScreen
-- .World
-- BloodRegistry
-- ArtifactForm
+- Manifestation
+- .Mission
+- .Session
 - .Smith
 - DiplomacyView
 - .Build
-- FormationMasterTests
-- IReadOnlyList
+- FormationSettings
+- ArtSystem
 - ._Ready
-- FactionData
+- Random
 - .Master
-- MandateOfLife
+- FruitionGeneration
 - WorldArsenalTests
 - PreciousTradeTests
 - 🧩 Systèmes du jeu (détail)
-- ClanManager
+- .AddMember
 - ElderEssencePillTests
 - DharmaTreasureTests
-- LoopholeKind
+- .Willingness
 - DivineAbilitySettings
 - LongevitySettings
 - DevilDaoSettings
@@ -311,52 +310,47 @@
 - PowerSchemeSettings
 - .Session
 - AccordCurrency
-- .ResolveChoice_ChangesTheRelationOfTheFactionItNames
-- RealmGapSettings
-- EndingDefinition
+- StoryEventData
+- FactionData
+- ArtifactView.cs
 - AscentWatchSettings
 - FruitionOdds
-- BuildingType
+- AlchemySystem.cs
 - PhenomenaSettings
 - OathSettings
-- .Mortal
+- Profundity
+- ClientageTests
 - DemonicDaoSettings
 - DemonSettings
 - 📚 WORKED_LESSON.md — Bugs identifiés & Leçons apprises
 - Godot AI
 - AscentRivalSettings
 - DiplomacySettings
-- GenealogyCanvas
+- FounderRole
 - PowerIntrigueSettings
 - .Session
 - Fixtures
 - .FromSaveData
-- DharmaSettings
+- .Build
+- MarriagePlan
 - .Newcomer
 - MinorAbilityViewTests
 - .Library
 - MirrorSystem
 - DivineDaoSettings
 - MinorAbilitySettings
-- EspionageResult
-- UpkeepSystem
+- .Unwed
 - Reflets de Lignee: Les Chroniques du Miroir (Mirror Chronicles)
-- ArtifactFinds
-- 7. Carte du monde (renommée)
+- FertilitySettings
+- .Chosen
 - Divine Interventions (Qi Pulse, Ancestral Shield, Mirror Judgment)
 - Annual 4-phase cycle (Management -> Events -> Breakthrough -> Inheritance)
 - Ironman save (yearly auto-save JSON)
 - Phase 2 - Combat & Events
-- .Invariants
-- TalismanSystem
-- .ShowHeld
+- .Ransom
 - FertilityTests
-- HuntRole
-- BuildingData
 - 5. Les royaumes du Dao du Noyau d'Or du Manoir Pourpre
-- OathAct
-- MentalStabilitySystemTests
-- PowerBond
+- .Kingdom
 - PatronSettings
 - .World
 - Confrontation
@@ -365,57 +359,57 @@
 - Phase 1 - Foundations (playable prototype)
 
 ## God Nodes (most connected - your core abstractions)
-1. `CharacterData` - 704 edges
-2. `GameSession` - 597 edges
-3. `TestWorld` - 521 edges
-4. `MirrorChronicles.Data` - 433 edges
-5. `MirrorChronicles.Session` - 280 edges
-6. `FactionData` - 266 edges
-7. `CultivationRealm` - 177 edges
-8. `MirrorChronicles.Characters` - 170 edges
+1. `CharacterData` - 714 edges
+2. `GameSession` - 600 edges
+3. `TestWorld` - 524 edges
+4. `MirrorChronicles.Data` - 436 edges
+5. `MirrorChronicles.Session` - 282 edges
+6. `FactionData` - 268 edges
+7. `CultivationRealm` - 180 edges
+8. `MirrorChronicles.Characters` - 172 edges
 9. `GameData` - 169 edges
-10. `GameSetup` - 168 edges
+10. `GameSetup` - 169 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `7.4 Autres puissances et lieux (📚 carte traduite du wiki)` --references--> `RegionDefinition`  [INFERRED]
   BRAIN_CLAUDE/LORE.md → src/Core/Data/RegionData.cs
+- `A. Les monnaies du savoir (méthodes de grade 4 et moins ; et, plus lourdes, les accords d'ascension)` --references--> `SecretBook`  [INFERRED]
+  BRAIN_CLAUDE/LORE.md → src/Core/World/SecretBook.cs
 - `4. Le monde de départ ne correspond pas au roman` --references--> `SuspicionLedger`  [INFERRED]
   BRAIN_CLAUDE/AUDIT_LORE.md → src/Core/World/SuspicionLedger.cs
 - `2. Arts immortels, pilules et ressources de percée` --references--> `AlchemySystem`  [INFERRED]
   BRAIN_CLAUDE/AUDIT_LORE.md → src/Core/Characters/AlchemySystem.cs
 - `1. L'écart entre les royaumes n'existe pas (le plus grave)` --references--> `AncestorReturn`  [INFERRED]
   BRAIN_CLAUDE/AUDIT_LORE.md → src/Core/Characters/AncestorReturn.cs
-- `2. Arts immortels, pilules et ressources de percée` --references--> `ArtSystem`  [INFERRED]
-  BRAIN_CLAUDE/AUDIT_LORE.md → src/Core/Characters/ArtSystem.cs
 
 ## Import Cycles
 - None detected.
 
-## Communities (355 total, 101 thin omitted)
+## Communities (347 total, 102 thin omitted)
 
 ### Community 0 - "KnowledgeTradeSettings"
 Cohesion: 0.14
 Nodes (14): KnowledgeTradeSettings, ArtifactOreValue, AscentAccordMinRelation, BeastWorthPerRealm, CleanseMirrorCost, DaoPartnersMirrorCost, DebtWorthShare, DiscipleWorthPerRealm (+6 more)
 
 ### Community 1 - "ClanDomain"
-Cohesion: 0.13
-Nodes (3): ClanDomain, PortraitIcon, MemberRow
+Cohesion: 0.12
+Nodes (4): ClanDomain, PortraitIcon, MemberRow, MethodChoice
 
 ### Community 2 - "system_collections_generic"
 Cohesion: 0.04
-Nodes (5): MirrorChronicles.Tests.Combat, MirrorChronicles.Events, MirrorChronicles.Tests, MirrorChronicles.Tests.Events, MirrorChronicles.Combat
+Nodes (6): MirrorChronicles.Tests.Combat, MirrorChronicles.Events, MirrorChronicles.Tests.Events, MirrorChronicles.Combat, TriallessClimb, FighterRules
 
 ### Community 3 - "nunit_framework"
-Cohesion: 0.07
-Nodes (4): MirrorChronicles.Characters, MirrorChronicles.Tests.Mirror, MirrorChronicles.Tests.Characters, MirrorChronicles.Tests.Session
+Cohesion: 0.06
+Nodes (5): MirrorChronicles.Tests.Economy, MirrorChronicles.Tests.Clan, MirrorChronicles.Characters, MirrorChronicles.Tests.Characters, MirrorChronicles.Tests.Session
 
 ### Community 4 - "Golden rules (EN code / FR docs, mandatory patterns)"
 Cohesion: 0.13
 Nodes (6): CLAUDE.md / master prompt (source of truth), Key Xianxia business rules, Six cultivation realms (Embryonic -> DaoEmbryo), [Systems] DontDestroyOnLoad GameObject hosting all singletons, Victory: 10 generations + Dao Embryo ascension, Assets/_Project domain-module architecture
 
 ### Community 5 - "Test"
-Cohesion: 0.05
-Nodes (7): ContentGapsTests, FigureContentTests, ShippedContentTests, ShardTests, GameSessionTests, PlotTests, Settings
+Cohesion: 0.04
+Nodes (9): OathTests, ContentGapsTests, FigureContentTests, ShippedContentTests, SponsorshipTests, ShardTests, GameSessionTests, PlotTests (+1 more)
 
 ### Community 6 - "GameSession"
 Cohesion: 0.02
@@ -423,11 +417,11 @@ Nodes (108): Abilities, Absorption, Accords, Aging, Alchemy, Alliances, Ambushes
 
 ### Community 7 - "CharacterData"
 Cohesion: 0.02
-Nodes (84): ArtifactRules, CharacterData, Affinity, Age, Artifact, ArtMastery, BodyTrait, BorrowedLeap (+76 more)
+Nodes (113): BuddhismSystem, PendingSouls, Settings, DemonicDaoSystem, Settings, DevilDaoSystem, Settings, DivineDaoSystem (+105 more)
 
 ### Community 8 - "CombatUnit"
-Cohesion: 0.07
-Nodes (25): CombatMath, CombatUnit, Agility, BaseData, ConvergenceDoses, ConvergencePillsLeft, CurrentCell, CurrentQi (+17 more)
+Cohesion: 0.05
+Nodes (48): BattleField, Convergence, Gap, Grid, Log, Rng, Units, CombatMath (+40 more)
 
 ### Community 9 - "README.md"
 Cohesion: 0.34
@@ -435,107 +429,103 @@ Nodes (3): Input System (com.unity.inputsystem), Newtonsoft JSON (com.unity.nuge
 
 ### Community 11 - "GoldenCoreTests"
 Cohesion: 0.04
-Nodes (27): 5.5.1 Percée : demander une position au Ciel, 5.5.2 Pouvoirs, 5.5 Noyau d'Or (Vrai Monarque, 4 stades), GoldenCoreRules, GoldenCoreSystem, Accords, Corrupted, CorruptedVirtues (+19 more)
-
-### Community 12 - ".StageCount"
-Cohesion: 0.07
-Nodes (19): ShamanismSystem, Settings, ShamanismSettings, CoreBlood, CoreChance, GateFruition, SacrificeBlood, SacrificeSpeed (+11 more)
+Nodes (20): 5.5.1 Percée : demander une position au Ciel, 5.5.2 Pouvoirs, 5.5 Noyau d'Or (Vrai Monarque, 4 stades), FruitionState, ReturningHolder, ReturnYear, TrueHolder, TrueStatus (+12 more)
 
 ### Community 13 - "TestWorld"
 Cohesion: 0.03
 Nodes (71): PurpleMansionTests, SpiritualNatureAscentTests, Xp, FactionManagerTests, TestWorld, Abilities, Accords, Alliances (+63 more)
 
-### Community 14 - "BattleField"
-Cohesion: 0.11
-Nodes (17): BattleField, Convergence, Gap, Grid, Log, Rng, Units, AttackAction (+9 more)
+### Community 14 - "MirrorChronicles.Data"
+Cohesion: 0.08
+Nodes (3): MirrorChronicles.Data, MirrorChronicles.World, MirrorChronicles.Tests.World
 
-### Community 15 - "Element"
-Cohesion: 0.05
-Nodes (36): AlchemySystem, Accords, Captives, EssencePills, Longevity, Pill, Pills, Poisoned (+28 more)
+### Community 15 - ".Info"
+Cohesion: 0.06
+Nodes (21): AlchemySystem, Accords, Captives, EssencePills, Longevity, Pill, Pills, Poisoned (+13 more)
 
 ### Community 16 - "BalanceSettings"
 Cohesion: 0.02
-Nodes (79): BalanceSettings, Ancestors, AnnualBirthChance, AnnualMarriageChance, Artifacts, Arts, AscentPaths, AscentRivals (+71 more)
+Nodes (80): BalanceSettings, Ancestors, AnnualBirthChance, AnnualMarriageChance, Artifacts, Arts, AscentPaths, AscentRivals (+72 more)
 
-### Community 17 - "TitleScreen"
-Cohesion: 0.27
-Nodes (6): Pending, BeginOver, Erase, None, TitleScreen, SlotLine
+### Community 17 - "Pending"
+Cohesion: 0.50
+Nodes (4): Pending, BeginOver, Erase, None
 
 ### Community 18 - "List"
-Cohesion: 0.11
-Nodes (16): FruitionCatalog, AnonymousHolder, Fruitions, ClanDefinition, ClanName, Founders, HomeRegion, Knowledge (+8 more)
+Cohesion: 0.08
+Nodes (30): FruitionCatalog, AnonymousHolder, Fruitions, ClanDefinition, ClanName, Founders, HomeRegion, Knowledge (+22 more)
 
 ### Community 20 - "Phase 4 - Advanced realms, Art & Polish"
 Cohesion: 0.25
 Nodes (7): Full balancing pass (#67), Strict MVC for UI (#102), Thematic parchment/bronze/ink UI (#61), Breakthrough and combat VFX (#62-63), Audio design (Guqin domain, Taiko combat, orchestral breakthrough), Phase 4 - Advanced realms, Art & Polish, Shuimo ink-painting art direction
 
-### Community 21 - "MirrorChronicles.Data"
-Cohesion: 0.09
-Nodes (6): MirrorChronicles.Data, MirrorChronicles.Tests.Clan, MirrorChronicles.Tests.Diplomacy, DemandKind, Protection, Silence
+### Community 21 - "IntrigueData.cs"
+Cohesion: 0.50
+Nodes (3): DemandKind, Protection, Silence
 
-### Community 22 - ".GetFactionByName"
-Cohesion: 0.06
-Nodes (26): ProbeApproach, Bribery, Infiltration, MirrorSight, Provocation, RecordTheft, ProbeFactors, Alertness (+18 more)
+### Community 22 - "ProbeSystem"
+Cohesion: 0.11
+Nodes (13): ProbeApproach, Bribery, Infiltration, MirrorSight, Provocation, RecordTheft, ProbeOutcome, ProbePlan (+5 more)
 
 ### Community 23 - "MirrorChronicles.Session"
-Cohesion: 0.07
-Nodes (4): MirrorChronicles.Presentation, MirrorChronicles.Tests.Presentation, MirrorChronicles.Session, MirrorChronicles.Game
+Cohesion: 0.06
+Nodes (12): MirrorChronicles.Presentation, MirrorChronicles.Tests.Presentation, MirrorChronicles.Session, MirrorChronicles.Game, PurifyOffer, RecastOffer, PatronLine, MinorDeal (+4 more)
 
 ### Community 24 - "PowerPoliticsSystem"
-Cohesion: 0.06
-Nodes (19): CallToArms, Coalition, PowerMarriage, PowerSpy, AbsorbedPower, ClanAbsorption, Absorbed, Settings (+11 more)
+Cohesion: 0.09
+Nodes (15): BondKind, Alliance, Vassalage, CallToArms, Coalition, PowerBond, Grip, PowerMarriage (+7 more)
 
-### Community 25 - "IEnumerable"
+### Community 25 - ".GetFactionByName"
 Cohesion: 0.06
-Nodes (19): WarBattles, Alchemy, Current, Pending, Queue, Settings, ClanWar, War (+11 more)
+Nodes (20): WarBattles, Alchemy, Current, Pending, Queue, Settings, ClanWar, PendingWarBattle (+12 more)
 
 ### Community 26 - "WarSettings"
 Cohesion: 0.08
 Nodes (24): WarSettings, AllyJoinChance, ArmyMaxSoldiers, ArmyPowerPerSoldier, BattleLossShare, ClanLootShare, ClanStrengthPerMember, ClanWarDeathChance (+16 more)
 
-### Community 27 - "Random"
-Cohesion: 0.10
-Nodes (6): LandscapeCanvas, GeneticSystem, RandomExtensions, GeneticSystemTests, EspionageSystemTests, FixedRandom
+### Community 27 - "Element"
+Cohesion: 0.05
+Nodes (43): GeneticSystem, PositionBridge, Ability, Bridge, From, Provenance, Source, To (+35 more)
 
-### Community 28 - "LeftHandTests"
-Cohesion: 0.14
-Nodes (3): LeftHandTests, Settings, Xp
-
-### Community 29 - ".Learn"
+### Community 28 - "GoldenCoreSystem"
 Cohesion: 0.09
-Nodes (7): CultivationSystem, AdvancementStep, IsAvailable, TargetRealm, TargetStage, Trial, CultivationSystemTests
+Nodes (14): GoldenCoreSystem, Accords, Corrupted, CorruptedVirtues, Factions, GovernanceBonus, Permissions, PlaceBonus (+6 more)
 
-### Community 30 - ".Warning"
-Cohesion: 0.06
-Nodes (22): Treaty, Absorptions, Client, Grip, SpouseId, TreatyKind, Defence, Marriage (+14 more)
+### Community 29 - ".Next"
+Cohesion: 0.08
+Nodes (6): AdvancementStep, IsAvailable, TargetRealm, TargetStage, Trial, CultivationSystemTests
+
+### Community 30 - ".AddFaction"
+Cohesion: 0.15
+Nodes (5): MarriageAlliance, Settings, MarriageSystem, Lineage, MarriageSystemTests
 
 ### Community 31 - ".Place"
 Cohesion: 0.11
-Nodes (9): MoveAction, QiCost, Type, TechniqueAction, QiCost, Type, CombatActionsTests, CombatAITests (+1 more)
+Nodes (12): AttackAction, QiCost, Type, MoveAction, QiCost, Type, TechniqueAction, QiCost (+4 more)
 
 ### Community 33 - "SuspicionLedger"
-Cohesion: 0.04
-Nodes (28): IntrigueTarget, Artifact, Beast, Manual, Qi, Stones, ClanWatch, Settings (+20 more)
+Cohesion: 0.05
+Nodes (30): Treaty, Absorptions, Client, Grip, SpouseId, ClientageSystem, Settings, PatronDesignEffects (+22 more)
 
 ### Community 34 - "FruitionDefinition"
-Cohesion: 0.04
-Nodes (51): FruitionDefinition, Abilities, Aliases, BodyTrait, CycleIndex, Element, FormerHolders, Generation (+43 more)
+Cohesion: 0.08
+Nodes (26): FruitionDefinition, Abilities, Aliases, BodyTrait, CycleIndex, Element, FormerHolders, Generation (+18 more)
 
-### Community 35 - "HuntPlan"
-Cohesion: 0.18
-Nodes (11): HuntPlan, Aid, Cover, DiversionMemberId, DiversionRegionId, FramedFaction, TargetBeastId, Team (+3 more)
+### Community 35 - "PathConversionTests"
+Cohesion: 0.16
+Nodes (4): PathConversionTests, Buddhism, Devil, Settings
 
-### Community 36 - "TestCase"
-Cohesion: 0.15
-Nodes (3): TechniqueRulesTests, Balance, Rules
+### Community 36 - "IntrigueSystem"
+Cohesion: 0.09
+Nodes (12): IntrigueTarget, Artifact, Beast, Manual, Qi, Stones, IntrigueSystem, Armoury (+4 more)
 
 ### Community 37 - ".ProcessYearlyTasks"
-Cohesion: 0.08
-Nodes (8): TaskAssignmentSystem, HuntingGround, VeinSlots, YearlyTaskReport, Patrols, QiPortionsGathered, StonesMined, TaskAssignmentSystemTests
+Cohesion: 0.12
+Nodes (9): BuildingData, Level, Type, UpgradeCost, YearlyTaskReport, Patrols, QiPortionsGathered, StonesMined (+1 more)
 
-### Community 38 - ".Bind"
-Cohesion: 0.16
-Nodes (4): DemonicDaoSystem, Settings, DemonicDaoTests, Settings
+### Community 39 - "BalanceRun"
+Cohesion: 0.08
+Nodes (5): FoundationRef, MinorAbilityView, BalanceRun, Abroad, PurpleMansionXp
 
 ### Community 40 - "MirrorScreen"
 Cohesion: 0.10
@@ -546,8 +536,8 @@ Cohesion: 0.11
 Nodes (19): 🏗️ Architecture Globale, 🎵 Audio (3 ambiances), 🎮 Boucle de gameplay annuelle (4 phases), 📌 Changelog, 🎯 Condition de victoire narrative, 🎨 Direction Artistique — Shuimo, 🏯 Les 6 Royaumes de Cultivation, Palette (+11 more)
 
 ### Community 43 - "DeductionEngine"
-Cohesion: 0.14
-Nodes (9): LegacySystem, FragmentData, Element, ID, Name, Quality, DeductionEngine, Fragments (+1 more)
+Cohesion: 0.06
+Nodes (28): TechniqueSettings, AlignedQiPortions, ArtRequiredRealmByGrade, AscentDeductionFragments, AscentDeductionPower, AscentDeductionQuality, AscentDeductionShards, CommonBreathingSpeed (+20 more)
 
 ### Community 44 - "MirrorTierSettings"
 Cohesion: 0.08
@@ -558,16 +548,16 @@ Cohesion: 0.11
 Nodes (18): 🐛 Bugs identifiés dans le code existant (audit 2026-04-14), WL-001 — `deceased.RootElement` n'existe pas, WL-002 — `MirrorSystem.ConsumeMirrorPower` n'existe pas, WL-003 — `Element.Ice` absent de l'enum `Element`, WL-004 — `EventManager.GenerateYearlyEvent` n'existe pas + `TriggerYearlyEvent` est privée, WL-005 — `FactionManager.ProcessYearlyFactionAI` privée appelée depuis test, WL-006 — `JsonUtility` ne sérialise pas les auto-properties, WL-007 — Wounds non persistés sur CharacterData (+10 more)
 
 ### Community 46 - "OperationsView"
-Cohesion: 0.12
-Nodes (10): BeastLine, BendLine, HuntTarget, KeeperLine, OfferView, OperationsView, PowerSign, RitualView (+2 more)
+Cohesion: 0.13
+Nodes (9): BeastLine, HuntTarget, MemberChoice, OfferView, OperationsView, PowerSign, RitualView, TalismanChoice (+1 more)
 
 ### Community 47 - "SecretSettings"
 Cohesion: 0.05
-Nodes (43): SecretSettings, AiPartnerChance, AiProbeChance, AiProbeDistrust, AiProbeSuspicion, AlertDetect, AlertnessDecay, AlertnessDetectedExtra (+35 more)
+Nodes (44): SecretSettings, AiPartnerChance, AiProbeChance, AiProbeDistrust, AiProbeSuspicion, AlertDetect, AlertnessDecay, AlertnessDetectedExtra (+36 more)
 
 ### Community 48 - "SecretBook"
-Cohesion: 0.13
-Nodes (12): 11.10 Obtenir une méthode — le savoir se paie en complots, pas en pierres, A. Les monnaies du savoir (méthodes de grade 4 et moins ; et, plus lourdes, les accords d'ascension), B. Les chemins vers une méthode d'ascension (grade 5 et plus : jamais en pierres), C. Les desseins cachés d'un parrain (le joueur ne voit que l'offre ; un sondage peut percer le dessein, rangé comme un secret de rang 3 ou 4 ; le miroir peut nettoyer un manuel de ses marques), Secret, ClanSecretLine, KnownSecretLine, SecretsView (+4 more)
+Cohesion: 0.12
+Nodes (12): Secret, ClanSecretLine, KnownSecretLine, SecretsView, SecretBook, All, AllProgress, Settings (+4 more)
 
 ### Community 49 - "✅ DONE.md — Ce qui a été fait"
 Cohesion: 0.15
@@ -582,8 +572,8 @@ Cohesion: 0.12
 Nodes (7): DivineAbilitySystem, Alchemy, Modifiers, Settings, Xp, DivineAbilityTests, Xp
 
 ### Community 53 - "📜 LORE.md — Bible du monde de Reflets de Lignée"
-Cohesion: 0.12
-Nodes (15): 0. Décisions et conventions, 10. Ordres et lieux sacrés (renommés), 12.1 Compléments historiques (📚), 12. Chronologie (renommée), 1. Vue d'ensemble — comment les pièces s'emboîtent, 2.1 Principe, 2.2 Tableau des grades, 2.3 Les trois catégories de méthodes de Qi (+7 more)
+Cohesion: 0.07
+Nodes (26): 0. Décisions et conventions, 10. Ordres et lieux sacrés (renommés), 12.1 Compléments historiques (📚), 12. Chronologie (renommée), 1. Vue d'ensemble — comment les pièces s'emboîtent, 6.1 Principe, 6.2 Origine : trois générations de Fruitions, 6.3 Les Cinq Manifestations (Cinq Vertus) (+18 more)
 
 ### Community 55 - "🚧 NOT_DONE.md — Ce qui reste à faire"
 Cohesion: 0.20
@@ -598,24 +588,20 @@ Cohesion: 0.25
 Nodes (8): ⚠️ 5 priorités absolues (Phase 2), 🧠 BRAINSTORMING.md — Point d'entrée central, 📝 En fin de session — Mettre à jour, En résumé :, 📖 Ordre de lecture optimal (début de session), 📖 Ordre de lecture optionnel (selon le besoin), 🔑 Règles d'or (rappel), 🎯 État ultra-court du projet
 
 ### Community 58 - "MarriageMatchmakerTests"
-Cohesion: 0.11
-Nodes (14): MarriageMatchmaker, MarriagePlan, Member, Spouse, SpouseIsOutsider, NamePools, Female, GateNames (+6 more)
-
-### Community 59 - "KnowledgeAccords"
-Cohesion: 0.13
-Nodes (10): AccordTerm, KnowledgeAccords, Armoury, Debts, Settings, KnowledgeDebt, AccordSummary, AccordView (+2 more)
-
-### Community 60 - "CultivationRealm"
 Cohesion: 0.17
-Nodes (11): ArtifactForge, Arts, Settings, CultivationRealm, DaoEmbryo, Embryonic, Foundation, GoldenCore (+3 more)
+Nodes (4): MarriageMatchmaker, MarriageMatchmakerTests, Names, Odds
 
-### Community 61 - "6. Lignées du Dao (Fruitions)"
-Cohesion: 0.18
-Nodes (11): 6.1 Principe, 6.2 Origine : trois générations de Fruitions, 6.3 Les Cinq Manifestations (Cinq Vertus), 6.4 Groupes de Fruitions (vue complète, complétée par le wiki), 6.5 Fondations immortelles isolées, 6.6 Deux Dualités — détail, 6.7 Cinq Vertus, Douze Qi, Tonnerres, Fusion Ancienne, Chamans — détail, 6.8 Statuts de Fruition (état du monde au début du jeu) (+3 more)
+### Community 59 - "IReadOnlyList"
+Cohesion: 0.09
+Nodes (14): MinorAbilities, Settings, AccordTerm, KnowledgeAccords, Armoury, Debts, Settings, KnowledgeDebt (+6 more)
 
-### Community 62 - "DevilDaoSystem"
+### Community 60 - "Dictionary"
+Cohesion: 0.12
+Nodes (6): ShardSense, AnyToSeek, Bearers, Directions, Settings, GenealogyView
+
+### Community 61 - "PowerIntrigues"
 Cohesion: 0.14
-Nodes (3): DevilDaoSystem, Settings, TriallessClimb
+Nodes (9): PowerSpy, PowerCaptive, PowerIntrigues, QuietUntil, Settings, Spies, PowerSchemeSystem, Captives (+1 more)
 
 ### Community 63 - "13. Lexique de renommage (⚠️ document interne — seul endroit où figurent les noms d'origine)"
 Cohesion: 0.20
@@ -629,81 +615,85 @@ Nodes (4): 🛠️ CLI.md — Commandes de développement (Godot 4.7.2 .NET, Lin
 Cohesion: 0.33
 Nodes (6): Architecture, Commandes, Documentation interne, Reflets de Lignée — Les Chroniques du Miroir, Stack, Statut
 
-### Community 66 - "Dictionary"
-Cohesion: 0.15
-Nodes (9): ECC, godot-ai, graphify, Project, FertilitySettings, BirthFactor, LastMotherAge, GenealogyView (+1 more)
+### Community 66 - ".Tree"
+Cohesion: 0.18
+Nodes (8): ECC, godot-ai, graphify, Project, GenealogyCanvas, Portraits, KinNode, GenealogyViewTests
 
 ### Community 67 - ".Reveal"
-Cohesion: 0.09
+Cohesion: 0.10
 Nodes (17): Fact, Key, FactKind, Ability, Beast, DaoPartners, FoundationOfQi, GoldSeeking (+9 more)
 
-### Community 68 - "SecretKind"
-Cohesion: 0.15
-Nodes (13): SecretHolder, Any, Clan, Power, SecretKind, Drawn, Holder, Id (+5 more)
+### Community 68 - "Provenance"
+Cohesion: 0.05
+Nodes (40): ArtifactEffect, Combat, Cultivation, Protection, ArtifactForm, Effect, Id, InterpretedFields (+32 more)
 
-### Community 69 - "HuntOperations"
-Cohesion: 0.14
-Nodes (7): WorldBeast, HuntOutcome, HuntOperations, Settings, Spring, BeastRegistry, Beasts
+### Community 69 - "HuntPlan"
+Cohesion: 0.10
+Nodes (18): WorldBeast, HuntOutcome, HuntPlan, Aid, Cover, DiversionMemberId, DiversionRegionId, FramedFaction (+10 more)
 
 ### Community 70 - "TreatySettings"
 Cohesion: 0.05
 Nodes (38): TreatySettings, AbsorbDistrust, AbsorbedJoiners, AbsorbSuspicion, AcceptBase, AcceptThreshold, AllyProximityClues, BetrayalBase (+30 more)
 
-### Community 71 - "RegionDefinition"
-Cohesion: 0.05
-Nodes (37): BeastSpecies, Element, Habitats, Id, InterpretedFields, Name, Provenance, ContentGaps (+29 more)
+### Community 71 - "RegionKind"
+Cohesion: 0.10
+Nodes (18): BeastSpecies, Element, Habitats, Id, InterpretedFields, Name, Provenance, RegionKind (+10 more)
 
 ### Community 72 - "3. Les cinq Voies de cultivation"
-Cohesion: 0.25
-Nodes (8): 3.1 Dao Immortel — quête orthodoxe de l'immortalité par l'harmonie du cœur, de l'essence et la recherche de la vérité, 3.2 Dao du Diable — survie, pillage, usage des forces maléfiques, 3.3 Dao Bouddhiste — soulager la souffrance, transcender la réincarnation, maîtriser destin et karma, 3.4 Dao Démoniaque — voies des êtres démoniaques (bêtes, plantes), lignée et transformation naturelle, 3.5 Dao du Sceau Chamanique — invoquer des puissances supérieures par rituels et talismans, 3.6 Dao Divin — le sixième Dao (📚, absent de `Miror.txt`), 3.7 Rangs des autres Dao (📚) — des équivalences asymétriques, 3. Les cinq Voies de cultivation
+Cohesion: 0.22
+Nodes (9): 3.1 Dao Immortel — quête orthodoxe de l'immortalité par l'harmonie du cœur, de l'essence et la recherche de la vérité, 3.2 Dao du Diable — survie, pillage, usage des forces maléfiques, 3.3 Dao Bouddhiste — soulager la souffrance, transcender la réincarnation, maîtriser destin et karma, 3.4 Dao Démoniaque — voies des êtres démoniaques (bêtes, plantes), lignée et transformation naturelle, 3.5 Dao du Sceau Chamanique — invoquer des puissances supérieures par rituels et talismans, 3.6 Dao Divin — le sixième Dao (📚, absent de `Miror.txt`), 3.7 Rangs des autres Dao (📚) — des équivalences asymétriques, 3.8 Conversions entre les voies (📚 wiki, choix de l'utilisateur 2026-10-14 : « toutes les conversions possibles et autorisées par le wiki ») (+1 more)
 
 ### Community 73 - "GameContext"
 Cohesion: 0.03
-Nodes (51): 11.1 Combinatoire d'un seul cultivateur, 11.2 Raccourcis et leur prix (tous tirés du lore), 11.3 Les dilemmes du clan (reviennent à chaque génération), 11.4 Un monde vivant, 11.5 Le miroir — le rôle du joueur, 11.6 Générations et héritage, 11.7 Rejouabilité, 11.8 Ce que l'on s'interdit (+43 more)
+Nodes (55): 2. Arts immortels, pilules et ressources de percée, CultivationSystem, MentalStabilitySystem, ClanKarmaSystem, GenerationCount, LastPatriarchId, TotalBirths, TotalDeaths (+47 more)
 
 ### Community 74 - "WorldMapViewTests"
 Cohesion: 0.11
 Nodes (8): WorldMap, MapBeast, MapBorder, MapFaction, MapQi, PlaceQiView, WorldMapView, WorldMapViewTests
 
-### Community 77 - "QiFamily"
-Cohesion: 0.10
-Nodes (20): RegionalQiSettings, AbsentQiFactor, EverywhereFamilies, KindDensity, KindElements, LineageStatusFactors, QiFamily, Archaic (+12 more)
+### Community 77 - "GamePhase"
+Cohesion: 0.12
+Nodes (14): GamePhase, Breakthrough, Events, Inheritance, Management, GameState, GameOver, Loading (+6 more)
 
 ### Community 78 - "GameContent"
-Cohesion: 0.08
-Nodes (25): GameContent, AnonymousHolder, ArtifactForms, Atmospheres, Balance, BeastSpecies, Clan, DeductionNames (+17 more)
+Cohesion: 0.07
+Nodes (26): GameContent, AnonymousHolder, ArtifactForms, Atmospheres, Balance, BeastSpecies, Clan, DeductionNames (+18 more)
 
-### Community 79 - "PowerLadderTests"
-Cohesion: 0.09
-Nodes (7): PowerLadder, QiPhase, Early, Late, Middle, None, PowerLadderTests
+### Community 79 - "TestCase"
+Cohesion: 0.07
+Nodes (14): QiPhase, Early, Late, Middle, None, TrialKind, FoundationWall, GoldenCoreRoute (+6 more)
 
-### Community 80 - ".CanCultivate"
+### Community 80 - "SpiritualOrificeRulesTests"
 Cohesion: 0.09
 Nodes (7): SpiritualOrificeRules, OrificeOdds, Commoner, OneParent, SeedParentWeight, TwoParents, SpiritualOrificeRulesTests
 
 ### Community 81 - "BuddhismSettings"
-Cohesion: 0.10
-Nodes (20): BuddhismSettings, AncientCeilingStage, AncientRebirthChance, AncientSpeed, ConversionRelation, Debates, DyingYears, LentSpeedPerRealm (+12 more)
+Cohesion: 0.06
+Nodes (38): BuddhismSettings, AncientCeilingStage, AncientRebirthChance, AncientSpeed, ConversionRelation, Debates, DyingYears, LentSpeedPerRealm (+30 more)
 
 ### Community 82 - "CaptiveTests"
 Cohesion: 0.13
 Nodes (3): CaptiveTests, Gap, Settings
 
-### Community 83 - "LifeMandate"
-Cohesion: 0.14
-Nodes (13): LifeMandate, Captivity, Freedom, Mourning, Peril, Reign, Seclusion, Victory (+5 more)
+### Community 83 - "MandateOfLife"
+Cohesion: 0.10
+Nodes (16): MandateOfLife, Settings, Xp, LifeMandate, Captivity, Freedom, Mourning, Peril (+8 more)
 
-### Community 86 - "CombatActions.cs"
-Cohesion: 0.08
-Nodes (25): DefendAction, QiCost, Type, FleeAction, QiCost, Type, ItemAction, QiCost (+17 more)
+### Community 86 - "ItemData"
+Cohesion: 0.22
+Nodes (9): ItemData, ID, Name, Power, Quantity, Type, ItemType, HealingPill (+1 more)
 
 ### Community 87 - "MirrorLegacy.sln"
 Cohesion: 0.12
 Nodes (10): net8.0, Microsoft.NET.Test.Sdk (17.11.1), Newtonsoft.Json (13.0.3), NUnit (3.14.0), NUnit3TestAdapter (4.6.0), Godot.NET.Sdk/4.7.2, net8.0, Microsoft.NET.Sdk (+2 more)
 
-### Community 89 - "TechniqueKind"
-Cohesion: 0.17
-Nodes (11): TechniqueNaming, Elements, GradeWords, Kinds, Template, TechniqueKind, Cultivation, ImmortalArt (+3 more)
+### Community 88 - "RealmGapTests"
+Cohesion: 0.14
+Nodes (5): RealmGapSettings, MaxRealmsBehind, UnreachableFrom, SchemeRules, RealmGapTests
+
+### Community 89 - "TrialSettings"
+Cohesion: 0.12
+Nodes (17): TrialSettings, BaseTalismanSeedCapacity, ChakraChances, ChakraMinimumRoot, DissolutionBaseChance, DissolutionChancePerYear, FoundationAdvisedAge, FoundationWallBaseChance (+9 more)
 
 ### Community 90 - "ArtifactSettings"
 Cohesion: 0.06
@@ -714,103 +704,107 @@ Cohesion: 0.06
 Nodes (35): SchemeSettings, AgentRealmsBelowPower, AgentTakenChance, AmbushMaxAgents, AmbushMaxFighters, AwayTasks, BaseChance, CaptorStage (+27 more)
 
 ### Community 92 - "TaskType"
-Cohesion: 0.06
-Nodes (33): 4. Orifice spirituel, mortels et Graines de Sceau, SpiritualNatureSystem, Settings, TaskRules, GameState, GameOver, Loading, MainMenu (+25 more)
+Cohesion: 0.09
+Nodes (20): 4. Orifice spirituel, mortels et Graines de Sceau, TaskRules, TaskType, ArtPractice, Cultivation, Diplomacy, Diversion, Espionage (+12 more)
 
 ### Community 93 - "MetalEssenceDemons"
-Cohesion: 0.14
-Nodes (9): MetalEssenceDemons, Essences, Grudge, GrudgeUntil, HasAGoldenCoreForce, Home, Pending, Ravaging (+1 more)
-
-### Community 95 - "FruitionRegistry"
 Cohesion: 0.11
-Nodes (14): FruitionState, ReturningHolder, ReturnYear, TrueHolder, TrueStatus, FruitionStatus, Broken, Free (+6 more)
+Nodes (11): MetalEssenceDemons, Essences, Grudge, GrudgeUntil, HasAGoldenCoreForce, Home, Pending, Ravaging (+3 more)
+
+### Community 94 - ".Join"
+Cohesion: 0.08
+Nodes (6): FoundationTests, UpkeepTests, Settings, RuinsExpeditionTests, FirstRuins, SecondRuins
 
 ### Community 96 - ".Power"
 Cohesion: 0.08
-Nodes (19): 1. L'écart entre les royaumes n'existe pas (le plus grave), RealmGap, TravelSettings, AnywhereFrom, HopsByRealm, WholeStateFrom, AscentWatch, Settings (+11 more)
+Nodes (15): 1. L'écart entre les royaumes n'existe pas (le plus grave), RealmGap, AscentWatch, Settings, Enthrallment, Settings, TravelRules, WorldRebirth (+7 more)
 
 ### Community 97 - "Func"
-Cohesion: 0.09
-Nodes (16): KinshipRules, Battle, Allies, CurrentUnit, Enemies, Field, IsOver, State (+8 more)
+Cohesion: 0.06
+Nodes (28): KinshipRules, Battle, Allies, CurrentUnit, Enemies, Field, IsOver, State (+20 more)
 
 ### Community 98 - "PatronDesignSettings"
 Cohesion: 0.11
 Nodes (18): PatronDesignSettings, AtmosphereStonesShare, BulwarkPrestige, FatedRootShare, FlawWounds, HarvestRelationLoss, HumanPillsTaken, ImperialSuspicion (+10 more)
 
 ### Community 99 - "Sponsorships"
-Cohesion: 0.14
-Nodes (9): SponsorOffer, Sponsorship, Awaiting, Cleansed, Sponsorships, Active, Awaiting, Pending (+1 more)
+Cohesion: 0.07
+Nodes (26): DesignDue, GoldenCore, HeirBorn, PurpleMansion, Years, PatronDesign, Cleansable, Demand (+18 more)
 
 ### Community 100 - "PurpleMansionSettings"
-Cohesion: 0.07
-Nodes (25): PurpleMansionRules, PurpleMansionSystem, Settings, PurpleMansionSettings, AscentBaseChance, IllusionsBaseChance, ManifestationBaseChance, ManifestationPerGrade (+17 more)
+Cohesion: 0.09
+Nodes (23): PurpleMansionRules, PurpleMansionSettings, AscentBaseChance, IllusionsBaseChance, ManifestationBaseChance, ManifestationPerGrade, ManifestationPerTechnique, ManifestationTechniqueCap (+15 more)
 
 ### Community 101 - "PactData"
-Cohesion: 0.14
+Cohesion: 0.17
 Nodes (11): PactData, Clauses, ExpiresYear, FalseNameA, FalseNameB, FulfilledA, FulfilledB, Id (+3 more)
 
 ### Community 102 - "ShardSettings"
 Cohesion: 0.07
 Nodes (30): ShardSettings, CaughtClues, ExpeditionBaseChance, ExpeditionChancePerPower, ExpeditionDeathChance, ExpeditionHelpShare, ExpeditionMaxChance, ExpeditionMaxTeam (+22 more)
 
-### Community 103 - "TrialSettings"
-Cohesion: 0.05
-Nodes (35): 2. Arts immortels, pilules et ressources de percée, BreakthroughOutcome, MajorFailure, MinorFailure, QiDeviationDeath, SpiritualDissolution, Success, BreakthroughRules (+27 more)
+### Community 103 - "BreakthroughRulesTests"
+Cohesion: 0.14
+Nodes (9): BreakthroughOutcome, MajorFailure, MinorFailure, QiDeviationDeath, SpiritualDissolution, Success, BreakthroughRules, BreakthroughRulesTests (+1 more)
+
+### Community 104 - "ChallengeSettings"
+Cohesion: 0.12
+Nodes (15): ChallengeOutcome, Declined, Lost, Withdrawn, Won, ChallengeSettings, DeathChallengeChance, DeathChance (+7 more)
 
 ### Community 105 - "HuntBattles"
 Cohesion: 0.18
 Nodes (9): HuntBattles, Alchemy, Current, OtherBattle, Pending, Settings, PendingHunt, PendingHuntView (+1 more)
 
 ### Community 106 - ".Cultivator"
-Cohesion: 0.10
-Nodes (6): BuddhistVowsAndDebatesTests, Debates, Settings, LegacySystemTests, StoryEventManagerTests, VictoryConditionSystemTests
+Cohesion: 0.11
+Nodes (5): BuddhistVowsAndDebatesTests, Debates, Settings, StoryEventManagerTests, VictoryConditionSystemTests
 
 ### Community 107 - "TalismanTrait"
 Cohesion: 0.12
 Nodes (16): TalismanTrait, Agility, Arts, CalmHeart, CostOfLife, FireRefinement, Flight, FoundationStrength (+8 more)
 
 ### Community 110 - "AscentPaths"
-Cohesion: 0.12
-Nodes (13): AscentPaths, Ops, Settings, Tomb, AscentPathSettings, DefectionChance, DefectionRelationLoss, DiscipleHarvestChance (+5 more)
+Cohesion: 0.11
+Nodes (8): C. Les desseins cachés d'un parrain (le joueur ne voit que l'offre ; un sondage peut percer le dessein, rangé comme un secret de rang 3 ou 4 ; le miroir peut nettoyer un manuel de ses marques), AscentPaths, Ops, Settings, Tomb, KnowledgeExchange, Settings, ShardTaking
 
 ### Community 111 - "SectTests"
 Cohesion: 0.10
 Nodes (13): SectSettings, FoundingStones, GreatSectRelationLoss, GreedFactor, MinCultivators, MinRealm, PeaksUpkeep, PrayerBonus (+5 more)
 
-### Community 112 - "GridCell"
-Cohesion: 0.09
-Nodes (17): TerrainType, ConcentratedQi, Forest, Mountain, Plain, Water, CombatGrid, Cells (+9 more)
+### Community 112 - "CombatGrid"
+Cohesion: 0.11
+Nodes (14): BattleCanvas, TerrainType, ConcentratedQi, Forest, Mountain, Plain, Water, CombatGrid (+6 more)
 
 ### Community 113 - "PlotSettings"
 Cohesion: 0.07
 Nodes (28): PlotSettings, ActThreshold, BlurClues, BlurEvidence, BlurMirrorCost, BlurStrongFactor, BoldnessRealmMargin, ConfrontationYears (+20 more)
 
 ### Community 114 - ".VeteranSetup"
-Cohesion: 0.05
-Nodes (3): BalanceReport, BalanceRunTests, SaveSerializerTests
+Cohesion: 0.04
+Nodes (3): BalanceReport, MoonlightGiftTests, BalanceRunTests
 
 ### Community 116 - "IntrigueSettings"
-Cohesion: 0.08
-Nodes (25): IntrigueSettings, BlackmailChance, BlackmailEvidence, BlackmailStonesShare, BlackmailTemper, CatchPerPatrol, DoubleAgentRelief, ExtortionShare (+17 more)
+Cohesion: 0.07
+Nodes (26): IntrigueSettings, BlackmailChance, BlackmailEvidence, BlackmailStonesShare, BlackmailTemper, CatchPerPatrol, DoubleAgentRelief, ExtortionShare (+18 more)
 
 ### Community 118 - "AtmosphereDefinition"
-Cohesion: 0.07
-Nodes (23): 5.8 Au-delà des royaumes (📚), AtmosphereDefinition, FavouredBreakthrough, FavouredElements, FavouredFruitions, FavouredPaths, FavouredSpeed, GeneralSpeed (+15 more)
+Cohesion: 0.11
+Nodes (20): AtmosphereDefinition, FavouredBreakthrough, FavouredElements, FavouredFruitions, FavouredPaths, FavouredSpeed, GeneralSpeed, Id (+12 more)
 
 ### Community 119 - "GoldenCoreSettings"
 Cohesion: 0.07
 Nodes (27): GoldenCoreSettings, AxiomPenalty, FalseLeftHandChance, FalseLeftHandMinAbilities, FalseLeftHandYearlyStones, ForgeBaseChance, GoldSeekingMirrorCost, GraftedAbilityPenalty (+19 more)
 
 ### Community 122 - ".ForgeOffers"
-Cohesion: 0.15
-Nodes (10): ArtifactRow, LendLabel, LendTo, RaiseLabel, RaiseRefusal, RaiseSmithId, ArtifactView, BindOffer (+2 more)
+Cohesion: 0.17
+Nodes (9): ArtifactRow, LendLabel, LendTo, RaiseLabel, RaiseRefusal, RaiseSmithId, ArtifactView, ForgeOffer (+1 more)
 
 ### Community 123 - "system_linq"
-Cohesion: 0.04
-Nodes (7): MirrorChronicles.Tests.Economy, MirrorChronicles.World, MirrorChronicles.Tests.World, MirrorChronicles.Clan, MirrorChronicles.Diplomacy, MirrorChronicles.Mirror, MirrorChronicles.Economy
+Cohesion: 0.05
+Nodes (6): MirrorChronicles.Clan, MirrorChronicles.Diplomacy, MirrorChronicles.Mirror, MirrorChronicles.Tests.Diplomacy, MirrorChronicles.Economy, AccordSummary
 
 ### Community 124 - "SequenceRandom"
-Cohesion: 0.22
+Cohesion: 0.24
 Nodes (5): BreakthroughSystem, Alchemy, AncestralShieldActive, BreakthroughSystemTests, SequenceRandom
 
 ### Community 125 - "dev.sh"
@@ -822,7 +816,7 @@ Cohesion: 0.07
 Nodes (29): HuntSettings, AidMirrorCost, ApproachBase, BattleLureWeaken, BattleMaxWeaken, BattleTimingWeaken, CaptureBase, CapturePerPowerPoint (+21 more)
 
 ### Community 127 - ".Library"
-Cohesion: 0.17
+Cohesion: 0.18
 Nodes (9): TechniqueCategory, Ancestral, Common, Secret, LibraryView, MarketLine, TechniqueLine, Mark (+1 more)
 
 ### Community 128 - "🧪 TEST.md — Règles de tests"
@@ -838,64 +832,68 @@ Cohesion: 0.50
 Nodes (4): Outils, 📦 PACKAGE.md — Dépendances, Paquets NuGet, Règles
 
 ### Community 131 - "MapCanvas"
-Cohesion: 0.17
-Nodes (3): InkPortrait, MapCanvas, MapPlace
+Cohesion: 0.11
+Nodes (4): InkPortrait, LandscapeCanvas, MapCanvas, MapPlace
 
-### Community 132 - "MentalStabilitySystem"
-Cohesion: 0.09
-Nodes (12): MentalStabilitySystem, LineageRules, LineageSettings, SeekChance, SeekChancePerRealm, SeekStones, MarriageSystem, Lineage (+4 more)
+### Community 132 - "LineageTests"
+Cohesion: 0.17
+Nodes (8): LineageRules, LineageSettings, SeekChance, SeekChancePerRealm, SeekStones, LineageTests, Settings, FixedRandom
 
 ### Community 136 - "ImperialWaySettings"
 Cohesion: 0.29
 Nodes (6): ImperialWaySettings, CrownRelationLoss, MaxMerit, MembersPerMerit, MeritPerVassal, MeritPerYear
 
 ### Community 137 - "TechniqueData"
-Cohesion: 0.06
-Nodes (34): LegacyType, CultivationMethod, MartialArt, SupportArt, TechniqueData, Category, DominantElement, Effect (+26 more)
+Cohesion: 0.04
+Nodes (44): 2.1 Principe, 2.2 Tableau des grades, 2.3 Les trois catégories de méthodes de Qi, 2.4 Méthodes de cultivation du Qi connues (renommées), 2.5 Qi spirituel, collecte et substitution (📚), 2. Techniques et grades, TechniqueRules, LegacyType (+36 more)
 
-### Community 139 - "ShardSystem"
-Cohesion: 0.05
-Nodes (31): ShardDefinition, GuardRealm, Id, InterpretedFields, Memory, Name, Notes, OpensGreatVoid (+23 more)
+### Community 139 - "EssencePillSettings"
+Cohesion: 0.14
+Nodes (14): EssencePillSettings, CaughtDistrust, ElderWallDeathChance, ElderWithoutPillFactor, Herbs, Mastery, PowerPillCap, PowerPillChance (+6 more)
+
+### Community 141 - "Chronicle"
+Cohesion: 0.14
+Nodes (3): Chronicle, Entries, WorldFruitionsTests
 
 ### Community 142 - "EnthrallmentSettings"
 Cohesion: 0.25
 Nodes (7): EnthrallmentSettings, BendBase, BendPerPower, BreakMirrorCost, SeenChance, SeenDistrust, YearlyChance
 
-### Community 143 - "RecordingGameLog"
-Cohesion: 0.18
+### Community 143 - ".Start"
+Cohesion: 0.17
 Nodes (5): IGameLog, NullGameLog, RecordingGameLog, Lines, BattleTests
 
 ### Community 144 - "DeathCause"
-Cohesion: 0.08
-Nodes (24): AncestorReturn, Pending, Settings, AncestorEssence, DeathCause, AscentCollapse, Assassination, ChosenHarvested (+16 more)
+Cohesion: 0.10
+Nodes (20): DeathCause, AscentCollapse, Assassination, ChosenHarvested, Combat, DemonRavaged, DesignationStruck, Executed (+12 more)
 
-### Community 145 - "ImperialWay"
-Cohesion: 0.15
-Nodes (8): ImperialWay, IsKingdom, KingdomYear, Merit, Politics, Settings, SovereignId, Vassals
+### Community 145 - "ClanManager"
+Cohesion: 0.06
+Nodes (19): BloodRegistry, Records, ClanManager, ClanName, LivingMembers, PatriarchID, Registry, FoundingClan (+11 more)
 
 ### Community 148 - "PoliticsSettings"
-Cohesion: 0.06
-Nodes (30): PoliticsSettings, AllianceAffinity, AllianceChance, AllyDistrust, CallAllyRelation, CallAttackerRelation, CallStonesCost, ClanAbsorptionSteps (+22 more)
+Cohesion: 0.07
+Nodes (29): PoliticsSettings, AllianceAffinity, AllianceChance, AllyDistrust, CallAllyRelation, CallAttackerRelation, CallStonesCost, ClanAbsorptionSteps (+21 more)
 
-### Community 149 - "HuntData.cs"
-Cohesion: 0.12
-Nodes (13): CoverStory, Escort, None, Pilgrimage, Trade, HuntTiming, Dawn, Festival (+5 more)
+### Community 149 - "HuntRole"
+Cohesion: 0.09
+Nodes (18): CoverStory, Escort, None, Pilgrimage, Trade, HuntRole, Cover, Lookout (+10 more)
 
 ### Community 150 - "FactionPersonality"
 Cohesion: 0.12
-Nodes (15): PowerEconomySettings, DebtDecline, GrowthRate, IncomePerPower, RealmWeight, TemperGrowth, TemperIncome, UpkeepPerPower (+7 more)
+Nodes (10): FactionPersonality, Aggressive, Expansionist, Isolationist, Manipulative, Merchant, PowerLifecycle, Crowded (+2 more)
 
-### Community 152 - ".Parse"
-Cohesion: 0.12
-Nodes (11): 7. Cultivation de base, FoundationRules, Temperament, Cunning, Dominant, Fiery, None, Patient (+3 more)
+### Community 152 - "Temperament"
+Cohesion: 0.17
+Nodes (9): FoundationRules, Temperament, Cunning, Dominant, Fiery, None, Patient, Serene (+1 more)
 
 ### Community 154 - "DaoHuntSettings"
-Cohesion: 0.11
+Cohesion: 0.12
 Nodes (15): DaoHuntSettings, AllyGuard, AwayExposure, CovetChance, FormationGuard, HunterMinRealm, LearnChance, PatrolGuard (+7 more)
 
 ### Community 155 - ".NewGame"
 Cohesion: 0.04
-Nodes (12): MapFigure, GameSetup, Content, InteractiveBattles, Log, Seed, BridgeIntercalaryTests, Content (+4 more)
+Nodes (15): PendingAmbush, MapFigure, GameSetup, Content, InteractiveBattles, Log, Seed, BridgeIntercalaryTests (+7 more)
 
 ### Community 156 - "ElderSettings"
 Cohesion: 0.10
@@ -906,32 +904,32 @@ Cohesion: 0.10
 Nodes (20): PatronBoon, Insight, Protection, Sight, PatronDefinition, Boon, BoonStrength, Id (+12 more)
 
 ### Community 159 - ".Roster"
-Cohesion: 0.08
-Nodes (11): GamePhase, Breakthrough, Events, Inheritance, Management, ClanDomainView, DomainHeader, MethodChoice (+3 more)
+Cohesion: 0.10
+Nodes (5): ClanDomainView, DomainHeader, QiLine, UpkeepLine, ClanDomainViewTests
 
-### Community 160 - "Chronicle"
-Cohesion: 0.14
-Nodes (3): Chronicle, Entries, ElderSystemTests
-
-### Community 162 - "PowerShards"
-Cohesion: 0.12
-Nodes (8): PowerShards, Settings, ShardTaking, ShardSense, AnyToSeek, Bearers, Directions, Settings
-
-### Community 163 - "FigureDefinition"
+### Community 162 - "ShardSystem"
 Cohesion: 0.09
-Nodes (22): FigureDefinition, BornYear, FactionName, FirstChapter, Id, InterpretedFields, Name, Notes (+14 more)
+Nodes (15): AbsorbedPower, ClanAbsorption, Absorbed, Settings, PowerShards, Settings, ExpeditionOutcome, ShardSystem (+7 more)
+
+### Community 163 - "MirrorLoreSettings"
+Cohesion: 0.15
+Nodes (11): MirrorLoreSettings, KnowChance, MaxChance, PerCentury, RumourRiseChance, TreasureSuspicion, UnknownAge, MirrorLoreRules (+3 more)
 
 ### Community 165 - "ConvergencePillAction"
 Cohesion: 0.17
 Nodes (12): ConvergencePillAction, QiCost, Type, ConvergenceSettings, AiUseBelow, CollapseChance, CollapseLifespan, LifespanCost (+4 more)
 
 ### Community 167 - "FounderDefinition"
-Cohesion: 0.11
-Nodes (19): FounderDefinition, Affinity, Age, CultivationMethod, FirstName, HasOrifice, IsMale, MaxLifespan (+11 more)
+Cohesion: 0.14
+Nodes (14): FounderDefinition, Affinity, Age, CultivationMethod, FirstName, HasOrifice, IsMale, MaxLifespan (+6 more)
 
 ### Community 168 - "DynasticEndings"
-Cohesion: 0.21
-Nodes (3): DynasticEndings, Moves, Streaks
+Cohesion: 0.08
+Nodes (24): EndingCondition, AnyOf, Count, FactionKinds, From, Kind, Position, Realm (+16 more)
+
+### Community 169 - "DeductionEngineTests"
+Cohesion: 0.17
+Nodes (3): AscentMethodTests, Settings, DeductionEngineTests
 
 ### Community 170 - "UpkeepSettings"
 Cohesion: 0.14
@@ -942,48 +940,52 @@ Cohesion: 0.20
 Nodes (9): AgeBracket, Adult, Child, Elder, Mature, Youth, Portrait, PortraitView (+1 more)
 
 ### Community 174 - "DharmaTreasures"
+Cohesion: 0.11
+Nodes (15): 6.9 Autorité des positions (📚 compléments du wiki), DharmaTreasures, Designations, DomainGuardChance, DomainStrength, Settings, DharmaSettings, CondenseOres (+7 more)
+
+### Community 175 - "11.5 Le miroir — le rôle du joueur"
+Cohesion: 0.15
+Nodes (13): 11.10 Obtenir une méthode — le savoir se paie en complots, pas en pierres, 11.1 Combinatoire d'un seul cultivateur, 11.2 Raccourcis et leur prix (tous tirés du lore), 11.3 Les dilemmes du clan (reviennent à chaque génération), 11.4 Un monde vivant, 11.5 Le miroir — le rôle du joueur, 11.6 Générations et héritage, 11.7 Rejouabilité (+5 more)
+
+### Community 176 - "AnnalEntry"
 Cohesion: 0.16
-Nodes (7): 6.9 Autorité des positions (📚 compléments du wiki), DharmaTreasures, Designations, DomainGuardChance, DomainStrength, Settings, RankDesignation
-
-### Community 175 - ".RealmName"
-Cohesion: 0.19
-Nodes (6): ChallengeCandidate, PendingAmbush, PendingChallenge, PendingWarView, AmbushViewTests, WarBattleViewTests
-
-### Community 176 - "ClanAnnals"
-Cohesion: 0.13
-Nodes (12): AnnalEntry, AnnalKind, EndingReached, Generation, PositionTaken, PowerAbsorbed, RealmReached, SectFounded (+4 more)
+Nodes (10): AnnalEntry, AnnalKind, EndingReached, Generation, PositionTaken, PowerAbsorbed, RealmReached, SectFounded (+2 more)
 
 ### Community 177 - ".Unit"
-Cohesion: 0.14
-Nodes (11): AIStrategyType, Aggressive, Berserker, Cautious, Defensive, Strategic, TurnOrder, Current (+3 more)
+Cohesion: 0.20
+Nodes (5): TurnOrder, Current, Round, CombatUnitTests, TurnOrderTests
 
 ### Community 178 - "PatronTests"
-Cohesion: 0.27
+Cohesion: 0.22
 Nodes (3): PatronPact, PatronTests, Settings
 
-### Community 181 - "OathSystem"
-Cohesion: 0.20
-Nodes (5): OathSystem, Alchemy, Pacts, Settings, Veiled
+### Community 180 - ".InitializeFactions"
+Cohesion: 0.13
+Nodes (8): CapturedBeast, TalismanOffer, TalismanRules, TalismanSystem, HuntWindowOpen, NextRitualYear, PendingOffer, Settings
+
+### Community 181 - "PowerEconomySettings"
+Cohesion: 0.19
+Nodes (10): PowerEconomySettings, DebtDecline, GrowthRate, IncomePerPower, RealmWeight, TemperGrowth, TemperIncome, UpkeepPerPower (+2 more)
 
 ### Community 182 - "RandomEventData"
-Cohesion: 0.07
-Nodes (24): RandomEventData, Description, EventType, MinPatriarchRealm, MinYear, Name, Weight, RandomEventType (+16 more)
+Cohesion: 0.08
+Nodes (22): RandomEventData, Description, EventType, MinPatriarchRealm, MinYear, Name, Weight, RandomEventType (+14 more)
 
-### Community 189 - "ClanKarmaSystem"
-Cohesion: 0.19
-Nodes (5): ClanKarmaSystem, GenerationCount, LastPatriarchId, TotalBirths, TotalDeaths
+### Community 189 - "AncestorReturn"
+Cohesion: 0.27
+Nodes (4): AncestorReturn, Pending, Settings, AncestorEssence
 
-### Community 191 - "PatronDesign"
-Cohesion: 0.12
-Nodes (17): DesignDue, GoldenCore, HeirBorn, PurpleMansion, Years, PatronDesign, Cleansable, Demand (+9 more)
+### Community 191 - "ProbeFactors"
+Cohesion: 0.17
+Nodes (12): ProbeFactors, Alertness, Approach, Bonus, Insider, Neighbours, ProberStrength, Rank (+4 more)
 
 ### Community 192 - "GameData"
 Cohesion: 0.02
 Nodes (111): GameData, AbsorbedPowers, Alertness, Annals, ArtifactArmoury, ArtLegacies, AscendedAncestors, AscentRivals (+103 more)
 
-### Community 194 - "AscentRivals"
-Cohesion: 0.20
-Nodes (6): AscentRival, AscentRivals, Known, Settings, AscentRivalsTests, Settings
+### Community 194 - ".World"
+Cohesion: 0.33
+Nodes (3): AscentRival, AscentRivalsTests, Settings
 
 ### Community 195 - "WorldFruitionSettings"
 Cohesion: 0.12
@@ -991,23 +993,19 @@ Nodes (16): WorldFruitionSettings, Eternal, HolderPassChance, RaceOdds, RaceYear
 
 ### Community 197 - "GameRoot"
 Cohesion: 0.07
-Nodes (21): BuildingsScreen, GameRoot, Chronicle, CurrentSlot, IsSmokeRun, PendingEndings, ScreenshotPath, Session (+13 more)
+Nodes (22): BuildingsScreen, GameRoot, Chronicle, CurrentSlot, IsSmokeRun, PendingEndings, ScreenshotPath, Session (+14 more)
 
 ### Community 198 - "AncestorSettings"
 Cohesion: 0.15
 Nodes (13): AncestorSettings, ClanHarvestBase, ClanHarvestDistrust, ClanHarvestMax, ClanHarvestMin, ClanHarvestPerPower, ClanHarvestRelation, ClanHarvestSeenChance (+5 more)
 
-### Community 199 - "EndingCondition"
-Cohesion: 0.17
-Nodes (12): EndingCondition, AnyOf, Count, FactionKinds, From, Kind, Position, Realm (+4 more)
+### Community 200 - "CultivationRealm"
+Cohesion: 0.07
+Nodes (29): ArtifactArmoury, All, Armoury, Settings, ArtifactFinds, Settings, ArtifactForge, Arts (+21 more)
 
-### Community 200 - "ArtifactArmoury"
-Cohesion: 0.12
-Nodes (15): ArtifactArmoury, All, Armoury, Settings, ArtifactTrade, Accords, Artifacts, Settings (+7 more)
-
-### Community 201 - "CombatState"
-Cohesion: 0.25
-Nodes (8): CombatState, Defeat, Deployment, EnemyTurn, Initialization, PlayerTurn, Resolution, Victory
+### Community 201 - "AIStrategyType"
+Cohesion: 0.13
+Nodes (14): AIStrategyType, Aggressive, Berserker, Cautious, Defensive, Strategic, CombatState, Defeat (+6 more)
 
 ### Community 202 - "GoldenCoreState"
 Cohesion: 0.13
@@ -1025,73 +1023,69 @@ Nodes (9): DefeatCause, Absorbed, Extinct, MirrorSeized, None, VictoryConditionS
 Cohesion: 0.17
 Nodes (12): DealingSettings, AiExposeChance, AiExposeRelation, BlackmailPriceByRank, ExposedEvidenceShare, ExposeDistrustByRank, ExposeRelation, FearMargin (+4 more)
 
-### Community 211 - ".BestTeam"
-Cohesion: 0.11
-Nodes (12): EndingScreen, EndingView, ShardAction, Demand, Expedition, Steal, Trade, VoidSearch (+4 more)
+### Community 211 - "ShardDefinition"
+Cohesion: 0.06
+Nodes (32): ShardDefinition, GuardRealm, Id, InterpretedFields, Memory, Name, Notes, OpensGreatVoid (+24 more)
 
 ### Community 212 - "PowerLifecycleSettings"
 Cohesion: 0.14
 Nodes (14): PowerLifecycleSettings, FallPower, GateFollowers, KingdomChance, KingdomPowerShare, KingdomVassals, MaxExtraPowers, RiseChance (+6 more)
 
 ### Community 213 - "QiDefinition"
-Cohesion: 0.14
-Nodes (14): QiDefinition, Element, Family, Foundation, Id, InterpretedFields, Name, Provenance (+6 more)
+Cohesion: 0.06
+Nodes (34): RegionalQiSettings, AbsentQiFactor, EverywhereFamilies, KindDensity, KindElements, LineageStatusFactors, QiDefinition, Element (+26 more)
 
 ### Community 214 - ".Born"
 Cohesion: 0.22
 Nodes (6): ArtGift, Genius, None, Ordinary, ArtSystemTests, S
 
-### Community 216 - "ChallengeSystem"
-Cohesion: 0.08
-Nodes (22): WoundSystem, ChallengeSystem, Alchemy, Current, Pending, Settings, Challenge, ChallengeOutcome (+14 more)
+### Community 216 - "FactionManager"
+Cohesion: 0.07
+Nodes (14): ChallengeSystem, Alchemy, Current, Pending, Settings, Challenge, FruitionRace, AllianceSystem (+6 more)
 
 ### Community 217 - "RegionalPhenomena"
 Cohesion: 0.21
 Nodes (7): PhenomenonKind, Death, Failure, RegionalPhenomenon, RegionalPhenomena, Active, Settings
 
 ### Community 218 - ".Rows"
-Cohesion: 0.24
+Cohesion: 0.27
 Nodes (4): ContenderLine, LineageRow, LineagesView, LineagesViewTests
 
 ### Community 219 - "GoldenCoreAction"
-Cohesion: 0.15
-Nodes (13): GoldenCoreAction, Bribe, Claim, Decipher, Designation, Forge, Permission, Subdue (+5 more)
+Cohesion: 0.14
+Nodes (14): GoldenCoreAction, Bribe, Claim, Decipher, Designation, Forge, Permission, Subdue (+6 more)
 
 ### Community 220 - "SecretDealingsTests"
-Cohesion: 0.28
+Cohesion: 0.31
 Nodes (3): SecretDealingsTests, Clan, Settings
 
-### Community 222 - "DebateSettings"
-Cohesion: 0.12
-Nodes (16): DebateSettings, BaseChance, ChallengeChance, CooldownYears, ForcedConversionChance, LossPrestige, LossRelation, MaxChance (+8 more)
+### Community 223 - ".Actions"
+Cohesion: 0.11
+Nodes (10): GoldenCoreRules, PositionRoute, IntercalaryBridge, IntercalaryFourOne, IntercalaryThreeTwo, None, Realization, Surplus (+2 more)
 
 ### Community 226 - "ArtSettings"
-Cohesion: 0.04
-Nodes (59): ArtDefinition, Art, GeniusAbilities, GiftTalismans, Name, OrdinaryCultivation, ArtSettings, AdeptAt (+51 more)
+Cohesion: 0.06
+Nodes (38): ArtDefinition, Art, GeniusAbilities, GiftTalismans, Name, OrdinaryCultivation, ArtSettings, AdeptAt (+30 more)
 
 ### Community 229 - "SecretsTests"
 Cohesion: 0.18
 Nodes (3): SecretsTests, Clan, Settings
 
-### Community 230 - "GameEventBus"
-Cohesion: 0.05
-Nodes (13): BuddhismSystem, PendingSouls, Settings, BuddhistVow, None, NonViolence, Renunciation, Silence (+5 more)
+### Community 230 - "BuddhistVow"
+Cohesion: 0.18
+Nodes (7): BuddhistVow, None, NonViolence, Renunciation, Silence, MonkLine, VowChoice
 
 ### Community 231 - "GreedTests"
 Cohesion: 0.35
 Nodes (3): GreedTests, NoThieves, Settings
 
-### Community 232 - "TechniqueSettings"
-Cohesion: 0.10
-Nodes (16): TechniqueSettings, AlignedQiPortions, ArtRequiredRealmByGrade, AscentDeductionFragments, AscentDeductionPower, AscentDeductionQuality, AscentDeductionShards, CommonBreathingSpeed (+8 more)
+### Community 232 - "ShamanismSettings"
+Cohesion: 0.22
+Nodes (8): ShamanismSettings, CoreBlood, CoreChance, GateFruition, SacrificeBlood, SacrificeSpeed, Speed, TransformLeap
 
 ### Community 233 - "ClanAbsorptionTests"
 Cohesion: 0.36
 Nodes (3): ClanAbsorptionTests, Settings, Steps
-
-### Community 234 - "PatronSystem"
-Cohesion: 0.22
-Nodes (5): PatronSystem, GuardChance, Pacts, Settings, SightBonus
 
 ### Community 236 - "TechniqueMarkSettings"
 Cohesion: 0.40
@@ -1101,37 +1095,33 @@ Nodes (4): TechniqueMarkSettings, CleanseCost, Evidence, RecognizeChance
 Cohesion: 0.40
 Nodes (5): BestiarySettings, BeastsByKind, OwnedShare, RealmOdds, ScoutRevealChance
 
-### Community 238 - "MinorAbilities"
-Cohesion: 0.11
-Nodes (13): MinorAbilities, Settings, KnowledgeSource, Condensed, Espionage, Event, Formed, Learned (+5 more)
+### Community 238 - "KnowledgeSource"
+Cohesion: 0.18
+Nodes (11): KnowledgeSource, Condensed, Espionage, Event, Formed, Learned, Mirror, OlderSave (+3 more)
 
 ### Community 239 - "ClauseDefinition"
-Cohesion: 0.12
-Nodes (16): ClauseDefinition, Act, Id, InterpretedFields, Name, Provenance, Severity, LoopholeDefinition (+8 more)
+Cohesion: 0.07
+Nodes (28): ClauseDefinition, Act, Id, InterpretedFields, Name, Provenance, Severity, LoopholeDefinition (+20 more)
 
 ### Community 241 - ".Buildings"
 Cohesion: 0.23
 Nodes (6): BuildingLine, HireLabel, HirePower, HireRefusal, BuildingsView, BuildingsViewTests
 
 ### Community 242 - "TravelRulesTests"
-Cohesion: 0.27
-Nodes (3): TravelRulesTests, Regions, Travel
+Cohesion: 0.18
+Nodes (7): TravelSettings, AnywhereFrom, HopsByRealm, WholeStateFrom, TravelRulesTests, Regions, Travel
 
-### Community 245 - "StoryEventManager"
-Cohesion: 0.12
-Nodes (16): StoryEventData, Choices, Name, NarrativeText, TriggerType, StoryTriggerType, ClanExtinctionThreat, FirstAscension (+8 more)
+### Community 245 - "StoryTriggerType"
+Cohesion: 0.29
+Nodes (7): StoryTriggerType, ClanExtinctionThreat, FirstAscension, FirstFoundation, FirstGoldenCore, PatriarchBetrayal, TenGenerationsRetrospective
 
 ### Community 248 - "DaoHuntSystem"
-Cohesion: 0.22
+Cohesion: 0.28
 Nodes (4): DaoPrey, DaoHuntSystem, Known, Settings
 
-### Community 249 - "MetalEssenceDemon"
-Cohesion: 0.18
-Nodes (6): DemonTier, Ascent, Lesser, Realization, MetalEssenceDemon, RegionId
-
-### Community 250 - "PositionBridge"
-Cohesion: 0.18
-Nodes (11): PositionBridge, Ability, Bridge, From, Provenance, Source, To, Virtue (+3 more)
+### Community 250 - "NamePools"
+Cohesion: 0.29
+Nodes (6): NamePools, Female, GateNames, Male, OutsiderFamilies, SectNames
 
 ### Community 252 - "ClientageSettings"
 Cohesion: 0.18
@@ -1141,81 +1131,77 @@ Nodes (10): ClientageSettings, DiscipleYears, LevyChance, LevyDeathChance, Seede
 Cohesion: 0.33
 Nodes (4): GameClock, Phase, Year, GameClockTests
 
+### Community 255 - ".World"
+Cohesion: 0.15
+Nodes (10): AscentPathSettings, DefectionChance, DefectionRelationLoss, DiscipleHarvestChance, DiscipleMinRelation, DiscipleYears, FalseDefectorChance, TombChance (+2 more)
+
 ### Community 256 - "EnthrallmentTests"
 Cohesion: 0.36
 Nodes (3): SpouseLine, Enthralled, EnthrallmentTests
 
-### Community 258 - "TechniqueLibrary"
-Cohesion: 0.13
-Nodes (7): 2.5 Qi spirituel, collecte et substitution (📚), TechniqueRules, TechniqueLibrary, Deduced, Knowledge, Known, KnownIds
+### Community 258 - "ConversionSettings"
+Cohesion: 0.29
+Nodes (6): ConversionSettings, CaptiveConversionChance, ElderConversionChance, InductionChance, MiddleWoundChance, QiFormBlood
 
-### Community 259 - "WorldFruitions"
-Cohesion: 0.24
-Nodes (5): FruitionRace, WorldFruitions, Moved, Races, Settings
+### Community 259 - "FruitionGroup"
+Cohesion: 0.29
+Nodes (7): FruitionGroup, AncientFusion, FiveVirtues, ThreeThunders, TwelveQi, TwoDualities, VoidAttestation
 
 ### Community 260 - "BuildingSystem"
-Cohesion: 0.21
-Nodes (10): BuildingSystem, Arts, Buildings, CouncilLevel, Factions, ForgeLevel, Formation, FormationLevel (+2 more)
+Cohesion: 0.11
+Nodes (19): BuildingType, CouncilRoom, Forge, HerbGarden, Library, MeditationPagoda, Mine, ProtectiveFormation (+11 more)
 
-### Community 261 - "ArtSystem"
-Cohesion: 0.07
-Nodes (19): ImmortalArtRules, ArtSystem, Accords, Deduction, Factions, Legacies, Mirror, Settings (+11 more)
+### Community 261 - ".MasteryOf"
+Cohesion: 0.11
+Nodes (8): ImmortalArtRules, ArtLegacyLine, ArtMemberLine, ArtMemberSkill, Yield, ArtView, ExamineOffer, HumanPillOffer
 
 ### Community 262 - "CaptiveSystem"
-Cohesion: 0.05
-Nodes (23): AmbushSystem, Alchemy, Current, Pending, Settings, FighterRules, Ambush, AmbushOutcome (+15 more)
+Cohesion: 0.04
+Nodes (27): AmbushSystem, Alchemy, Current, Pending, Settings, Ambush, AmbushOutcome, Escaped (+19 more)
 
 ### Community 263 - "WorldArsenalSettings"
 Cohesion: 0.20
 Nodes (10): WorldArsenalSettings, BondChance, ElderCondenseChance, ElderDesignationChance, FamilyForgeChance, ForgeChance, MasterlessStrikeChance, TransmuteChance (+2 more)
 
-### Community 264 - ".Act"
-Cohesion: 0.12
-Nodes (4): BalancePilotArtifactTests, BalancePilotAscentTests, Xp, BalancePilotLineTests
-
 ### Community 265 - "BattleScreen"
-Cohesion: 0.09
-Nodes (13): BattleCanvas, BattleScreen, Battle, Find, Kind, Encounter, Ambush, Challenge (+5 more)
+Cohesion: 0.12
+Nodes (12): BattleScreen, Battle, Find, Kind, Encounter, Ambush, Challenge, Hunt (+4 more)
 
-### Community 267 - "BloodRegistry"
-Cohesion: 0.26
-Nodes (3): BloodRegistry, Records, BloodRegistryTests
-
-### Community 268 - "ArtifactForm"
-Cohesion: 0.18
-Nodes (11): ArtifactEffect, Combat, Cultivation, Protection, ArtifactForm, Effect, Id, InterpretedFields (+3 more)
+### Community 266 - "Manifestation"
+Cohesion: 0.29
+Nodes (7): Manifestation, Gathered, Hidden, Mutable, None, Nourishing, Orthodox
 
 ### Community 270 - "DiplomacyView"
-Cohesion: 0.10
-Nodes (12): CallLine, CoalitionLine, DebaterLine, DebateTarget, DemandLine, DiplomacyView, PatronLine, PowerLine (+4 more)
+Cohesion: 0.08
+Nodes (19): TreatyKind, Defence, Marriage, NonAggression, Trade, Vassalage, AttendantLine, CallLine (+11 more)
 
-### Community 273 - "IReadOnlyList"
-Cohesion: 0.09
-Nodes (18): AccordCandidate, ArtifactDeal, Borrow, Commission, Steal, PowerOffer, LegacyOffer, PillKindOffer (+10 more)
+### Community 272 - "FormationSettings"
+Cohesion: 0.18
+Nodes (9): FormationSettings, AdeptFromLevel, HireFeeShare, HireRelation, MasterFromLevel, PowerCapByRealm, PowerRiseChance, FormationMasterTests (+1 more)
+
+### Community 273 - "ArtSystem"
+Cohesion: 0.11
+Nodes (13): ArtSystem, Accords, Deduction, Factions, Legacies, Mirror, Settings, ImmortalArt (+5 more)
 
 ### Community 274 - "._Ready"
 Cohesion: 0.17
 Nodes (3): BronzeTexture, CloudFrame, PaperBackdrop
 
-### Community 275 - "FactionData"
-Cohesion: 0.03
-Nodes (65): 6. Parité du monde (le monde ne subit pas les règles du clan), FactionData, Artifacts, BaselinePower, BaselineWeight, Designations, DomainStrength, Elders (+57 more)
+### Community 275 - "Random"
+Cohesion: 0.07
+Nodes (26): 6. Parité du monde (le monde ne subit pas les règles du clan), FactionElder, Ancient, BornYear, FigureId, FruitionId, GoldenCoreOdds, HasDharmaTreasure (+18 more)
 
-### Community 277 - "MandateOfLife"
-Cohesion: 0.27
-Nodes (3): MandateOfLife, Settings, Xp
+### Community 277 - "FruitionGeneration"
+Cohesion: 0.33
+Nodes (6): FruitionGeneration, AncientFusion, Attestation, Founding, Interaction, Unknown
 
 ### Community 280 - "🧩 Systèmes du jeu (détail)"
 Cohesion: 0.22
 Nodes (9): 1. Core — Boucle principale, 2. Mirror — Interface joueur, 3. Clan — Lignée, 4. Characters — Individus, 5. Combat — Tactique tour par tour, 6. Diplomacy — Monde extérieur, 7. Economy — Ressources & tâches, 8. Events — Aléatoire + scénarisé (+1 more)
 
-### Community 281 - "ClanManager"
-Cohesion: 0.07
-Nodes (10): AgingSystem, ClanManager, ClanName, LivingMembers, PatriarchID, Registry, FoundingClan, AgingSystemTests (+2 more)
-
-### Community 284 - "LoopholeKind"
-Cohesion: 0.29
-Nodes (7): LoopholeKind, Expiry, FalseName, MirrorVeil, Purification, Rebirth, ThirdParty
+### Community 281 - ".AddMember"
+Cohesion: 0.08
+Nodes (4): AgingSystem, AgingSystemTests, ClanKarmaSystemTests, ClanManagerTests
 
 ### Community 285 - "DivineAbilitySettings"
 Cohesion: 0.22
@@ -1230,20 +1216,20 @@ Cohesion: 0.20
 Nodes (10): DevilDaoSettings, AscentChance, BloodByRealm, BloodPerKill, DiscoveryChance, DiscoveryDistrust, FormBlood, FurnaceBlood (+2 more)
 
 ### Community 288 - "TalismanDefinition"
-Cohesion: 0.11
-Nodes (17): TalismanDefinition, CultivationSpeed, Id, IllusionsBonus, InterpretedFields, LifespanYears, Name, Notes (+9 more)
+Cohesion: 0.12
+Nodes (16): TalismanDefinition, CultivationSpeed, Id, IllusionsBonus, InterpretedFields, LifespanYears, Name, Notes (+8 more)
 
 ### Community 289 - "DebateSystem"
-Cohesion: 0.13
-Nodes (14): DebateSystem, LastDebates, LastFate, Pending, Settings, Temples, Vows, Debate (+6 more)
+Cohesion: 0.11
+Nodes (17): DebateSystem, LastDebates, LastFate, Pending, Settings, Temples, Vows, Debate (+9 more)
 
 ### Community 291 - "TalismanSettings"
 Cohesion: 0.15
 Nodes (13): TalismanSettings, BeastStagesPerExtraLeap, GreyStageLeap, HuntWindowYears, OfferRootThresholds, OwnedBeastChance, OwnedBeastDiscoveryChance, OwnedBeastRelationPenalty (+5 more)
 
 ### Community 292 - "CultivationSubPath"
-Cohesion: 0.07
-Nodes (22): DivineDaoSystem, Settings, CultivationSubPath, AncientBuddhism, BorrowedProfundity, HeavenlyEmbryoDemon, ModernBuddhism, MyriadRaces (+14 more)
+Cohesion: 0.11
+Nodes (18): CultivationSubPath, AncientBuddhism, BorrowedProfundity, HeavenlyEmbryoDemon, ModernBuddhism, MyriadRaces, OwnedProfundity, PurpleGoldDemon (+10 more)
 
 ### Community 293 - "unity-claude.sh command set (Compile, Build*, Run*Tests, FindAssets, ClearCache, ScanLegacyPackages, AutoMigrate)"
 Cohesion: 0.22
@@ -1257,17 +1243,17 @@ Nodes (10): PowerSchemeSettings, AmbushWeight, CaptiveYears, CaughtChance, Harve
 Cohesion: 0.22
 Nodes (9): AccordCurrency, Artifact, Beast, Debt, Disciple, Qi, Secret, Stones (+1 more)
 
-### Community 297 - ".ResolveChoice_ChangesTheRelationOfTheFactionItNames"
-Cohesion: 0.22
-Nodes (9): StoryChoice, Label, Outcome, Tooltip, StoryOutcome, FactionName, RelationChange, SpiritStoneChange (+1 more)
+### Community 297 - "StoryEventData"
+Cohesion: 0.14
+Nodes (14): StoryChoice, Label, Outcome, Tooltip, StoryEventData, Choices, Name, NarrativeText (+6 more)
 
-### Community 298 - "RealmGapSettings"
-Cohesion: 0.15
-Nodes (4): RealmGapSettings, MaxRealmsBehind, UnreachableFrom, SchemeRules
+### Community 298 - "FactionData"
+Cohesion: 0.05
+Nodes (34): FactionData, Artifacts, BaselinePower, BaselineWeight, Designations, DomainStrength, Elders, EssencePills (+26 more)
 
-### Community 299 - "EndingDefinition"
-Cohesion: 0.22
-Nodes (9): EndingDefinition, Awaits, Conditions, Id, InterpretedFields, Name, Narrative, Provenance (+1 more)
+### Community 299 - "ArtifactView.cs"
+Cohesion: 0.33
+Nodes (5): ArtifactDeal, Borrow, Commission, Steal, BindOffer
 
 ### Community 300 - "AscentWatchSettings"
 Cohesion: 0.29
@@ -1277,9 +1263,9 @@ Nodes (6): AscentWatchSettings, ElderLifespanLoss, TestBase, TestChance, TestPer
 Cohesion: 0.50
 Nodes (4): FruitionOdds, Broken, Free, Occupied
 
-### Community 302 - "BuildingType"
-Cohesion: 0.20
-Nodes (9): BuildingType, CouncilRoom, Forge, HerbGarden, Library, MeditationPagoda, Mine, ProtectiveFormation (+1 more)
+### Community 302 - "AlchemySystem.cs"
+Cohesion: 0.40
+Nodes (4): PillTaken, None, Poisoned, Pure
 
 ### Community 303 - "PhenomenaSettings"
 Cohesion: 0.17
@@ -1289,17 +1275,17 @@ Nodes (12): DeathPhenomenonSettings, AlignedSpeed, Herbs, Ores, Years, Phenomena
 Cohesion: 0.22
 Nodes (9): OathSettings, DeviationChanceOnInterrupt, HeartDemonSpeed, HeartDemonStabilityLoss, HeartDemonYearsBySeverity, InterruptChanceBySeverity, MirrorVeilCost, PurificationChance (+1 more)
 
-### Community 306 - ".Mortal"
-Cohesion: 0.06
-Nodes (5): ClientageTests, C, UpkeepTests, Settings, MoonlightGiftTests
+### Community 305 - "Profundity"
+Cohesion: 0.40
+Nodes (5): Profundity, Douxuan, None, Qingxuan, Tongxuan
 
 ### Community 307 - "DemonicDaoSettings"
 Cohesion: 0.25
 Nodes (7): DemonicDaoSettings, AbsorptionSpeed, LifespanFactor, MaxBoundAge, MaxRoot, MinBoundAge, MinRoot
 
 ### Community 308 - "DemonSettings"
-Cohesion: 0.18
-Nodes (11): DemonSettings, GrudgeYears, Tiers, WorldRavageChance, WorldSubdueChance, DemonTierSettings, ElderKillChance, KillChance (+3 more)
+Cohesion: 0.12
+Nodes (15): DemonSettings, GrudgeYears, Tiers, WorldRavageChance, WorldSubdueChance, DemonTier, Ascent, Lesser (+7 more)
 
 ### Community 309 - "📚 WORKED_LESSON.md — Bugs identifiés & Leçons apprises"
 Cohesion: 0.33
@@ -1317,29 +1303,29 @@ Nodes (9): AscentRivalSettings, BuyChance, DenounceChance, DenounceDistrust, Den
 Cohesion: 0.33
 Nodes (6): DiplomacySettings, EnvoyRelationByRealm, GreatPowersReceive, MortalEnvoyRelation, NeighbourIntensity, StealManualChance
 
-### Community 313 - "GenealogyCanvas"
-Cohesion: 0.62
-Nodes (3): GenealogyCanvas, Portraits, KinNode
+### Community 313 - "FounderRole"
+Cohesion: 0.40
+Nodes (5): FounderRole, Child, Kin, Matriarch, Patriarch
 
 ### Community 314 - "PowerIntrigueSettings"
 Cohesion: 0.18
 Nodes (11): PowerIntrigueSettings, BlackmailChance, BlackmailWealthShare, PersonalityFactor, QuietYears, RefusalDistrust, RefuseStrengthRatio, SpyChance (+3 more)
 
 ### Community 316 - "Fixtures"
-Cohesion: 0.25
+Cohesion: 0.22
 Nodes (6): Fixtures, Content, DataDirectory, QuietContent, VeteranContent, VeteranQuietContent
 
 ### Community 317 - ".FromSaveData"
-Cohesion: 0.05
-Nodes (9): Demand, PendingWarBattle, TitleView, SaveSerializer, SaveSummary, TechniqueMarksTests, ClanAnnalsTests, SaveSummaryTests (+1 more)
+Cohesion: 0.04
+Nodes (10): Demand, TitleView, SaveSerializer, SaveSummary, TechniqueMarksTests, ClanAnnalsTests, SaveSummaryTests, SimulationTests (+2 more)
 
-### Community 319 - "DharmaSettings"
-Cohesion: 0.25
-Nodes (8): DharmaSettings, CondenseOres, CondenseYears, DesignationGuardChance, DesignationStrength, MasterlessStrikeChance, TreasureGuardChance, TreasureStrength
+### Community 319 - "MarriagePlan"
+Cohesion: 0.50
+Nodes (4): MarriagePlan, Member, Spouse, SpouseIsOutsider
 
 ### Community 323 - "MirrorSystem"
 Cohesion: 0.06
-Nodes (26): 10. Corrections de LORE.md (documentation seule), 3. Le miroir est trop puissant trop tôt, 4. Le monde de départ ne correspond pas au roman, 5. La secte suzeraine, le territoire, les champs, 8. Fruitions et capacités divines, 9. Divers (poids plus faible), Audit lore ↔ gameplay (2026-10-03), ElderTarget (+18 more)
+Nodes (26): 10. Corrections de LORE.md (documentation seule), 3. Le miroir est trop puissant trop tôt, 4. Le monde de départ ne correspond pas au roman, 5. La secte suzeraine, le territoire, les champs, 7. Cultivation de base, 8. Fruitions et capacités divines, 9. Divers (poids plus faible), Audit lore ↔ gameplay (2026-10-03) (+18 more)
 
 ### Community 324 - "DivineDaoSettings"
 Cohesion: 0.29
@@ -1349,57 +1335,29 @@ Nodes (6): DivineDaoSettings, BorrowLeap, CoreChance, CorePrestige, OwnPrestigeP
 Cohesion: 0.29
 Nodes (6): MinorAbilitySettings, BuyRelation, MirrorCost, RuinsRevealChance, TombRevealChance, Worth
 
-### Community 326 - "EspionageResult"
-Cohesion: 0.22
-Nodes (9): EspionageResult, FragmentElement, FragmentQuality, RelationPenalty, StabilityPenalty, StolenTechniqueId, Success, TargetFaction (+1 more)
-
-### Community 327 - "UpkeepSystem"
-Cohesion: 0.29
-Nodes (5): UpkeepSystem, BirthFactor, Impoverished, Settings, YearlyUpkeep
-
 ### Community 328 - "Reflets de Lignee: Les Chroniques du Miroir (Mirror Chronicles)"
 Cohesion: 0.67
 Nodes (3): Player as consciousness trapped in ancestral bronze mirror, Reflets de Lignee: Les Chroniques du Miroir (Mirror Chronicles), The Mirror Legacy (Xuanjian Xianzu) - inspiration
 
-### Community 331 - "7. Carte du monde (renommée)"
-Cohesion: 0.40
-Nodes (5): 7.1 États et grandes régions, 7.2 Les trois sectes et les portes, 7.3 Autour du clan, 7.4 Autres puissances et lieux (📚 carte traduite du wiki), 7. Carte du monde (renommée)
+### Community 329 - "FertilitySettings"
+Cohesion: 0.67
+Nodes (3): FertilitySettings, BirthFactor, LastMotherAge
 
-### Community 337 - "TalismanSystem"
-Cohesion: 0.18
-Nodes (6): TalismanOffer, TalismanSystem, HuntWindowOpen, NextRitualYear, PendingOffer, Settings
-
-### Community 338 - ".ShowHeld"
-Cohesion: 0.60
+### Community 338 - ".Ransom"
+Cohesion: 0.48
 Nodes (3): AgentLine, CaptivesView, HeldLine
-
-### Community 341 - "HuntRole"
-Cohesion: 0.33
-Nodes (5): HuntRole, Cover, Lookout, Lure, Striker
-
-### Community 342 - "BuildingData"
-Cohesion: 0.32
-Nodes (4): BuildingData, Level, Type, UpgradeCost
 
 ### Community 343 - "5. Les royaumes du Dao du Noyau d'Or du Manoir Pourpre"
 Cohesion: 0.08
-Nodes (24): 5.1 Respiration Embryonnaire (6 chakras), 5.2 Culture du Qi (9 niveaux célestes), 5.3.1 Percée, 5.3.2 Progression, 5.3.3 Partenaires Dao, 5.3.4 Blocage au Manoir Pourpre, 5.3.5 Phénomènes, 5.3 Établissement des Fondations (4 stades) (+16 more)
-
-### Community 344 - "OathAct"
-Cohesion: 0.40
-Nodes (5): OathAct, Espionage, Harm, RevealSecret, Service
-
-### Community 346 - "PowerBond"
-Cohesion: 0.26
-Nodes (6): BondKind, Alliance, Vassalage, PowerBond, Grip, WorldImperialTests
+Nodes (25): 5.1 Respiration Embryonnaire (6 chakras), 5.2 Culture du Qi (9 niveaux célestes), 5.3.1 Percée, 5.3.2 Progression, 5.3.3 Partenaires Dao, 5.3.4 Blocage au Manoir Pourpre, 5.3.5 Phénomènes, 5.3 Établissement des Fondations (4 stades) (+17 more)
 
 ### Community 348 - "PatronSettings"
 Cohesion: 0.33
 Nodes (6): PatronSettings, MaxFavor, PaidFavor, SafeEndFavor, StartFavor, UnpaidFavorLoss
 
 ### Community 417 - "ClanWatchSettings"
-Cohesion: 0.12
-Nodes (16): ClanWatchSettings, AgentCaught, Blackmail, Coalition, DaoHuntFoiled, DeepDistrustFrom, DistrustFrom, Extortion (+8 more)
+Cohesion: 0.09
+Nodes (18): ClanWatchSettings, AgentCaught, Blackmail, Coalition, DaoHuntFoiled, DeepDistrustFrom, DistrustFrom, Extortion (+10 more)
 
 ### Community 441 - "WorldMap scene (#42)"
 Cohesion: 0.67
@@ -1410,24 +1368,24 @@ Cohesion: 0.40
 Nodes (5): Child birth via ClanManager.GenerateChild (#14), Missing task types: Study, Teaching, Diplomacy, Espionage (#15), Phase 1 placeholder UI + TaskAssignment UI (#12-13), UGUI + TextMeshPro (com.unity.ugui), Phase 1 - Foundations (playable prototype)
 
 ## Knowledge Gaps
-- **2716 isolated node(s):** `net8.0`, `Godot.NET.Sdk/4.7.2`, `Challenge`, `Ambush`, `Hunt` (+2711 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 2978 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **101 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **2726 isolated node(s):** `net8.0`, `Godot.NET.Sdk/4.7.2`, `Challenge`, `Ambush`, `Hunt` (+2721 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 2988 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **102 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `CharacterData` connect `CharacterData` to `system_collections_generic`, `Test`, `CombatUnit`, `HuntBattleTests`, `GoldenCoreTests`, `.StageCount`, `TestWorld`, `Element`, `List`, `TalismanTests`, `.GetFactionByName`, `IEnumerable`, `Random`, `LeftHandTests`, `.Learn`, `.Warning`, `SuspicionLedger`, `.ProcessYearlyTasks`, `.Bind`, `BalanceRun`, `MirrorScreen`, `DivineAbilitySystem`, `PillTests`, `MarriageMatchmakerTests`, `CultivationRealm`, `DevilDaoSystem`, `Dictionary`, `.Reveal`, `HuntOperations`, `GameContext`, `WarBattleTests`, `PowerLadderTests`, `.CanCultivate`, `CaptiveTests`, `.DisplayName`, `RealmGapTests`, `TaskType`, `.Join`, `.Power`, `Func`, `Sponsorships`, `PurpleMansionSettings`, `PactData`, `TrialSettings`, `BuddhistPureLandsTests`, `HuntBattles`, `.Cultivator`, `BuddhismTests`, `AscentPaths`, `.VeteranSetup`, `.XpForNextStage`, `AtmosphereDefinition`, `.World`, `DynasticEndingsTests`, `SequenceRandom`, `MentalStabilitySystem`, `LongevityPillTests`, `ShardSystem`, `.World`, `RecordingGameLog`, `DeathCause`, `ImperialWay`, `KinshipRulesTests`, `AmbushTests`, `.Parse`, `ChallengeTests`, `DaoHuntSettings`, `WorldRebirthTests`, `.Roster`, `PowerShards`, `DynasticEndings`, `.Of`, `ImperialWayTests`, `DharmaTreasures`, `.RealmName`, `ClanAnnals`, `.Unit`, `.InitializeFactions`, `OathSystem`, `ShardSenseTests`, `.World`, `AncestorReturnTests`, `.Child`, `DivineDaoTests`, `GameData`, `.FindById`, `AscentRivals`, `ArtifactArmoury`, `GoldenCoreState`, `AlchemySystemTests`, `.BestTeam`, `QiDefinition`, `.Born`, `.Fail`, `ChallengeSystem`, `RegionalPhenomena`, `.Session`, `OathTests`, `.Cultivator`, `GameEventBus`, `MarriageAllianceTests`, `ArtifactTests`, `DaoHuntSystem`, `MetalEssenceDemon`, `MandateOfLifeTests`, `.Session`, `TechniqueLibrary`, `ArtSystem`, `CaptiveSystem`, `.Act`, `BloodRegistry`, `.Smith`, `.Build`, `FormationMasterTests`, `IReadOnlyList`, `FactionData`, `.Master`, `MandateOfLife`, `ClanManager`, `DharmaTreasureTests`, `TalismanDefinition`, `DebateSystem`, `.Holder`, `CultivationSubPath`, `RealmGapSettings`, `.Mortal`, `.FromSaveData`, `.Newcomer`, `UpkeepSystem`, `ArtifactFinds`, `TalismanSystem`, `FertilityTests`, `.Swear`, `MentalStabilitySystemTests`?**
-  _High betweenness centrality (0.149) - this node is a cross-community bridge._
+- **Why does `CharacterData` connect `CharacterData` to `system_collections_generic`, `Test`, `CombatUnit`, `HuntBattleTests`, `GoldenCoreTests`, `ShamanismTests`, `TestWorld`, `.Info`, `List`, `TalismanTests`, `ProbeSystem`, `.GetFactionByName`, `Element`, `GoldenCoreSystem`, `.Next`, `.AddFaction`, `SuspicionLedger`, `PathConversionTests`, `IntrigueSystem`, `.ProcessYearlyTasks`, `.Bind`, `BalanceRun`, `MirrorScreen`, `OperationsView`, `DivineAbilitySystem`, `PillTests`, `MarriageMatchmakerTests`, `IReadOnlyList`, `Dictionary`, `.AssignTask`, `.Tree`, `.Reveal`, `HuntPlan`, `GameContext`, `WarBattleTests`, `GamePhase`, `GameContent`, `TestCase`, `SpiritualOrificeRulesTests`, `BuddhismSettings`, `CaptiveTests`, `MandateOfLife`, `.DisplayName`, `RealmGapTests`, `TaskType`, `MetalEssenceDemons`, `.Join`, `.Power`, `Func`, `Sponsorships`, `PurpleMansionSettings`, `BreakthroughRulesTests`, `HuntBattles`, `.Cultivator`, `BuddhismTests`, `AscentPaths`, `.VeteranSetup`, `.XpForNextStage`, `AtmosphereDefinition`, `.World`, `DynasticEndingsTests`, `SequenceRandom`, `LineageTests`, `LongevityPillTests`, `TechniqueData`, `.World`, `.Start`, `DeathCause`, `ClanManager`, `KinshipRulesTests`, `AmbushTests`, `Temperament`, `ChallengeTests`, `DaoHuntSettings`, `.NewGame`, `WorldRebirthTests`, `.Roster`, `ShardSystem`, `DynasticEndings`, `.Of`, `ImperialWayTests`, `DharmaTreasures`, `.Unit`, `.InitializeFactions`, `ShardSenseTests`, `.World`, `AncestorReturnTests`, `.Child`, `AncestorReturn`, `DivineDaoTests`, `GameData`, `.World`, `CultivationRealm`, `GoldenCoreState`, `AlchemySystemTests`, `ShardDefinition`, `QiDefinition`, `.Born`, `.Fail`, `FactionManager`, `RegionalPhenomena`, `.Actions`, `.Session`, `.Cultivator`, `BuddhistVow`, `MarriageAllianceTests`, `ArtifactTests`, `DaoHuntSystem`, `ArtifactRules`, `MandateOfLifeTests`, `.Session`, `.MasteryOf`, `CaptiveSystem`, `.Act`, `.Mission`, `.Smith`, `.Build`, `FormationSettings`, `ArtSystem`, `.Master`, `.AddMember`, `DharmaTreasureTests`, `DebateSystem`, `.Holder`, `CultivationSubPath`, `DemonSettings`, `Fixtures`, `.FromSaveData`, `MarriagePlan`, `.Newcomer`, `MirrorSystem`, `.Unwed`, `.AscentChanceOf`, `FertilityTests`?**
+  _High betweenness centrality (0.147) - this node is a cross-community bridge._
 - **Are the 44 inferred relationships involving `CharacterData` (e.g. with `.MaybeDefect()` and `.AMasterOrAGenius_DrawsDearerTalismans()`) actually correct?**
   _`CharacterData` has 44 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `net8.0`, `Godot.NET.Sdk/4.7.2`, `Challenge` to the rest of the system?**
-  _2716 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2726 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `KnowledgeTradeSettings` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Why does `GameSession` connect `GameSession` to `system_collections_generic`, `Test`, `CharacterData`, `GoldenCoreTests`, `.StageCount`, `Element`, `.GetFactionByName`, `PowerPoliticsSystem`, `IEnumerable`, `.Learn`, `.Warning`, `SuspicionLedger`, `HuntPlan`, `.ProcessYearlyTasks`, `.Bind`, `BalanceRun`, `MirrorScreen`, `DeductionEngine`, `OperationsView`, `SecretBook`, `DivineAbilitySystem`, `PillTests`, `KnowledgeAccords`, `CultivationRealm`, `DevilDaoSystem`, `Dictionary`, `.Reveal`, `HuntOperations`, `GameContext`, `WorldMapViewTests`, `.World`, `.CanCultivate`, `RealmGapTests`, `TaskType`, `MetalEssenceDemons`, `.Join`, `FruitionRegistry`, `.Power`, `Sponsorships`, `PurpleMansionSettings`, `HuntBattles`, `BuddhismTests`, `AscentPaths`, `SectTests`, `.VeteranSetup`, `DynasticEndingsTests`, `.ForgeOffers`, `SequenceRandom`, `.Library`, `MentalStabilitySystem`, `LongevityPillTests`, `.Holder`, `ShardSystem`, `WorldFruitionsTests`, `RecordingGameLog`, `DeathCause`, `ImperialWay`, `.Wed`, `.Parse`, `.NewGame`, `WorldRebirthTests`, `.Roster`, `Chronicle`, `PowerShards`, `DynasticEndings`, `.Of`, `ImperialWayTests`, `PowerLifecycleTests`, `DharmaTreasures`, `.RealmName`, `ClanAnnals`, `OathSystem`, `RandomEventData`, `PowerShardsTests`, `ShardSenseTests`, `AncestorReturnTests`, `.Child`, `ClanKarmaSystem`, `GameData`, `AscentRivals`, `GameRoot`, `ArtifactArmoury`, `VictoryConditionSystem`, `AlchemySystemTests`, `MinorAbilityTests`, `.BestTeam`, `QiDefinition`, `.Born`, `.Fail`, `ChallengeSystem`, `RegionalPhenomena`, `.Rows`, `.Session`, `.Session`, `.Cultivator`, `ArtLegacySourcesTests`, `GameEventBus`, `ClanAbsorptionTests`, `PatronSystem`, `MinorAbilities`, `.Buildings`, `TravelRulesTests`, `ArtifactTests`, `PowerSchemeTests`, `StoryEventManager`, `PowerEconomyTests`, `WorldDemonTests`, `DaoHuntSystem`, `MandateOfLifeTests`, `GameClock`, `EnthrallmentTests`, `.Session`, `TechniqueLibrary`, `WorldFruitions`, `BuildingSystem`, `ArtSystem`, `CaptiveSystem`, `.Act`, `.Smith`, `DiplomacyView`, `FormationMasterTests`, `IReadOnlyList`, `FactionData`, `.Master`, `MandateOfLife`, `WorldArsenalTests`, `PreciousTradeTests`, `ClanManager`, `ElderEssencePillTests`, `DharmaTreasureTests`, `DebateSystem`, `.Holder`, `CultivationSubPath`, `.Session`, `.NextProbe`, `.Mortal`, `.Session`, `.FromSaveData`, `.Newcomer`, `MinorAbilityViewTests`, `MirrorSystem`, `UpkeepSystem`, `ArtifactFinds`, `.Invariants`, `TalismanSystem`, `.ShowHeld`, `FertilityTests`, `PowerBond`?**
-  _High betweenness centrality (0.133) - this node is a cross-community bridge._
+- **Why does `GameSession` connect `GameSession` to `system_collections_generic`, `Test`, `CharacterData`, `GoldenCoreTests`, `.Info`, `ProbeSystem`, `PowerPoliticsSystem`, `.GetFactionByName`, `Element`, `GoldenCoreSystem`, `.Next`, `.AddFaction`, `SuspicionLedger`, `IntrigueSystem`, `BalanceRun`, `MirrorScreen`, `DeductionEngine`, `OperationsView`, `SecretBook`, `DivineAbilitySystem`, `PillTests`, `IReadOnlyList`, `Dictionary`, `PowerIntrigues`, `.AssignTask`, `.Tree`, `.Reveal`, `HuntPlan`, `GameContext`, `WorldMapViewTests`, `.World`, `MandateOfLife`, `RealmGapTests`, `MetalEssenceDemons`, `.Power`, `Sponsorships`, `HuntBattles`, `BuddhismTests`, `AscentPaths`, `SectTests`, `.VeteranSetup`, `DynasticEndingsTests`, `.ForgeOffers`, `SequenceRandom`, `.Library`, `LongevityPillTests`, `TechniqueData`, `.Holder`, `Chronicle`, `.Start`, `ClanManager`, `FactionPersonality`, `.Wed`, `.NewGame`, `WorldRebirthTests`, `.Roster`, `ElderSystemTests`, `ShardSystem`, `DynasticEndings`, `.Of`, `ImperialWayTests`, `PowerLifecycleTests`, `DharmaTreasures`, `AnnalEntry`, `.InitializeFactions`, `PowerEconomySettings`, `RandomEventData`, `PowerShardsTests`, `ShardSenseTests`, `AncestorReturnTests`, `.Child`, `AncestorReturn`, `GameData`, `GameRoot`, `CultivationRealm`, `VictoryConditionSystem`, `AlchemySystemTests`, `MinorAbilityTests`, `ShardDefinition`, `QiDefinition`, `.Born`, `.Fail`, `FactionManager`, `RegionalPhenomena`, `.Rows`, `.Session`, `.Actions`, `.Session`, `.Cultivator`, `ArtLegacySourcesTests`, `BuddhistVow`, `ClanAbsorptionTests`, `.LastYear`, `.Buildings`, `TravelRulesTests`, `ArtifactTests`, `PowerSchemeTests`, `PowerEconomyTests`, `WorldDemonTests`, `DaoHuntSystem`, `ArtifactRules`, `MandateOfLifeTests`, `GameClock`, `EnthrallmentTests`, `.Session`, `BuildingSystem`, `.MasteryOf`, `CaptiveSystem`, `.Act`, `BattleScreen`, `.Session`, `.Smith`, `DiplomacyView`, `FormationSettings`, `ArtSystem`, `Random`, `.Master`, `WorldArsenalTests`, `PreciousTradeTests`, `.AddMember`, `ElderEssencePillTests`, `DharmaTreasureTests`, `DebateSystem`, `.Holder`, `.Session`, `FactionData`, `ClientageTests`, `.Session`, `Fixtures`, `.FromSaveData`, `.Newcomer`, `MinorAbilityViewTests`, `MirrorSystem`, `.Unwed`, `.AscentChanceOf`, `.Chosen`, `.Ransom`, `FertilityTests`, `.Kingdom`, `ClanWatchSettings`?**
+  _High betweenness centrality (0.094) - this node is a cross-community bridge._
 - **Are the 255 inferred relationships involving `TestWorld` (e.g. with `.ABeastTheClanDoesNotHold_IsNotBound()` and `.ABoundBeast_AbsorbsQiEveryYear_WhateverItsTask()`) actually correct?**
   _`TestWorld` has 255 INFERRED edges - model-reasoned connections that need verification._
 - **Should `ClanDomain` be split into smaller, more focused modules?**
-  _Cohesion score 0.12941176470588237 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11861861861861862 - nodes in this community are weakly interconnected._
