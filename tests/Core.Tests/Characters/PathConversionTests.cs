@@ -312,6 +312,76 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(Species.SpiritBeast, beast.Species, "still a beast, now a god");
         }
 
+        [Test]
+        public void AUnitedBeast_StillAbsorbsTheQi_WhateverItsTask()
+        {
+            var w = World(0.99);
+            var beast = w.DemonicDao.Bind(Captured(w));
+            Assert.IsNull(w.Divine.Unite(beast));
+            beast.CultivationXP = 0;
+            w.Divine.ProcessYear();
+            Assert.Greater(beast.CultivationXP, 0, "a beast cultivates whatever its task, as in the Demonic Dao");
+        }
+
+        [Test]
+        public void ADivineBeast_IsShownByItsProfundity()
+        {
+            var s = GameSession.NewGame(Fixtures.Setup());
+            var captured = new CapturedBeast("mist-wolf-region-1", CultivationRealm.QiRefinement, 3, null);
+            s.Resources.AddBeast(captured);
+            var beast = s.DemonicDao.Bind(captured);
+            Assert.IsNull(s.Divine.Unite(beast));
+            var row = MirrorChronicles.Presentation.ClanDomainView.Roster(s).Single(r => r.Id == beast.ID);
+            Assert.AreEqual("Uni au domaine du clan", row.Method);
+        }
+
+        // ---- What a conversion leaves behind (review) ----
+
+        [Test]
+        public void AUnitedAttendant_TurnedMonk_IsMortalAgain()
+        {
+            var w = World(0.99);
+            var attendant = Cultivator(w, CultivationRealm.QiRefinement, 5);
+            Assert.IsNull(w.Divine.Unite(attendant));
+            attendant.ProgressionSealed = true;
+            Assert.IsTrue(w.Buddhism.Convert(attendant, Modern));
+            Assert.Less(attendant.MaxLifespan, PowerLadder.Unbounded);
+            Assert.Greater(attendant.MaxLifespan, attendant.Age);
+        }
+
+        [Test]
+        public void ADyingConvert_WoundedByThePassage_GainsFewerYears()
+        {
+            var w = World(0.0); // the peril drawn
+            var monk = Cultivator(w, CultivationRealm.Foundation, 2, age: 280);
+            Dying(monk);
+            Assert.IsTrue(w.Buddhism.Convert(monk, Modern));
+            Assert.AreEqual(1, monk.DaoWounds);
+            Assert.AreEqual(PowerLadder.WoundedLifespan(monk.Age + Buddhism.YearsGained, 1), monk.MaxLifespan);
+        }
+
+        [Test]
+        public void TheShamanicRefuge_IsNotWoundedByThePassage()
+        {
+            var w = World(0.0);
+            var failed = Cultivator(w, CultivationRealm.PurpleMansion, 4);
+            failed.FoundationId = Gate;
+            Assert.IsTrue(w.Shamans.Refuge(failed));
+            Assert.AreEqual(0, failed.DaoWounds, "escaping death, it is not wounded twice");
+        }
+
+        [Test]
+        public void ACaptiveKnowingTheMirror_Converted_TellsTheTemple()
+        {
+            var w = World(0.0);
+            var captive = Cultivator(w, CultivationRealm.QiRefinement, 6);
+            captive.KnowsMirrorSecret = true;
+            w.Captives.Take(captive, Modern);
+            w.Buddhism.ProcessYear();
+            Assert.IsTrue(captive.Departed);
+            Assert.Greater(w.Suspicion.MirrorClues(Modern), 0, "what it knew, it now tells its temple");
+        }
+
         private static CapturedBeast Captured(TestWorld w)
         {
             var beast = new CapturedBeast("mist-wolf-region-1", CultivationRealm.Foundation, 2, null);
@@ -373,6 +443,29 @@ namespace MirrorChronicles.Tests.Characters
             var elder = LastYear(s, CultivationRealm.PurpleMansion);
             AYear(s);
             Assert.IsFalse(s.Factions.Factions.Any(f => f.Elders.Contains(elder)));
+        }
+
+        [Test]
+        public void AnElderHoldingARealization_DoesNotTurn()
+        {
+            var s = Session(1.0);
+            var elder = LastYear(s, CultivationRealm.PurpleMansion);
+            elder.FruitionId = "orthodox-water";
+            AYear(s);
+            Assert.IsFalse(s.Factions.Factions.Any(f => f.Elders.Contains(elder)));
+        }
+
+        [Test]
+        public void AConvertedElder_LeavesItsBondsBehind()
+        {
+            var s = Session(1.0);
+            var elder = LastYear(s, CultivationRealm.PurpleMansion);
+            elder.TreasureBound = true;
+            elder.HumanPillsTaken = 2;
+            AYear(s);
+            Assert.IsTrue(s.Factions.Factions.Any(f => f.Elders.Contains(elder)));
+            Assert.IsFalse(elder.TreasureBound);
+            Assert.AreEqual(0, elder.HumanPillsTaken);
         }
 
         [Test]
