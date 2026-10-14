@@ -6,6 +6,7 @@ using MirrorChronicles.Data;
 using MirrorChronicles.Diplomacy;
 using MirrorChronicles.Economy;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Characters
 {
@@ -26,10 +27,13 @@ namespace MirrorChronicles.Characters
         private readonly ResourceManager resources;
         private readonly FactionManager factions;
         private readonly WoundSystem wounds;
+        private readonly SuspicionLedger suspicion;
 
-        public BuddhismSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, WoundSystem wounds)
+        public BuddhismSystem(GameContext ctx, ClanManager clan, ResourceManager resources, FactionManager factions, WoundSystem wounds,
+            SuspicionLedger suspicion)
         {
             this.wounds = wounds;
+            this.suspicion = suspicion;
             this.ctx = ctx;
             this.clan = clan;
             this.resources = resources;
@@ -98,8 +102,10 @@ namespace MirrorChronicles.Characters
             bool dying = IsDying(member);
             resources.ConsumeSpiritStones(Settings.OfferingStones);
             factions.ChangeRelation(temple.ID, Settings.ConversionRelation);
+            int wounds = member.DaoWounds;
             GiveUpItsWay(member, temple);
-            if (dying) member.MaxLifespan = member.Age + Settings.YearsGained; // death escaped; a closed way gains no years
+            if (dying) // death escaped — a wound of the passage cuts the years it gains; a closed way gains none
+                member.MaxLifespan = member.Age + PowerLadder.WoundedLifespan(Settings.YearsGained, member.DaoWounds - wounds);
 
             ctx.Log.Info($"[Buddhism] {member.FullName} converts at {temple.Name}: {RankCatalog.DisplayName(member)}.");
             ctx.Events.TriggerBuddhistConverted(member, temple.Name);
@@ -131,6 +137,8 @@ namespace MirrorChronicles.Characters
             PathConversion.Pass(ctx, wounds, member);
             BecomeMonk(member, temple.Name, temple.School.Value,
                 (CultivationRealm)Math.Max((int)CultivationRealm.Embryonic, (int)member.Realm - 1), 1); // a realm lower
+            if (member.MaxLifespan >= PowerLadder.Unbounded) // an attendant united with the domain: mortal again
+                member.MaxLifespan = Math.Max(member.Age + 1, PowerLadder.MaxLifespan(member.Realm, member.RealmStage));
         }
 
         /// <summary>
@@ -277,6 +285,11 @@ namespace MirrorChronicles.Characters
                 || captive.Path == CultivationPath.Buddhist || captive.Realm >= CultivationRealm.GoldenCore) return;
             if (!ctx.Rng.Chance(ctx.Content.Balance.Conversions.CaptiveConversionChance)) return;
             GiveUpItsWay(captive, temple);
+            if (captive.KnowsMirrorSecret) // what it knew, it now tells its temple
+            {
+                suspicion.AddMirrorClues(temple.Name, ctx.Content.Balance.Plots.LeakMirrorClue);
+                suspicion.AddEvidence(temple.Name, ctx.Content.Balance.Plots.LeakEvidence);
+            }
             captive.CaptorFaction = null;
             captive.CapturedYear = null;
             if (!clan.Depart(captive)) return;

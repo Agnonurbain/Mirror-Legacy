@@ -357,7 +357,7 @@ namespace MirrorChronicles.Tests.Characters
             Dying(monk);
             Assert.IsTrue(w.Buddhism.Convert(monk, Modern));
             Assert.AreEqual(1, monk.DaoWounds);
-            Assert.AreEqual(PowerLadder.WoundedLifespan(monk.Age + Buddhism.YearsGained, 1), monk.MaxLifespan);
+            Assert.AreEqual(monk.Age + PowerLadder.WoundedLifespan(Buddhism.YearsGained, 1), monk.MaxLifespan, "a fifth of the years it gains");
         }
 
         [Test]

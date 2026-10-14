@@ -150,7 +150,7 @@ namespace MirrorChronicles.Characters
                         Cultivate(member);
                         break;
                     case CultivationSubPath.OwnedProfundity:
-                        if (member.CurrentTask == TaskType.Cultivation && resources.Prestige >= Settings.OwnPrestigePerYear)
+                        if (Cultivates(member) && resources.Prestige >= Settings.OwnPrestigePerYear)
                         {
                             resources.AddPrestige(-Settings.OwnPrestigePerYear); // the rituals spend the clan's standing
                             Cultivate(member);
@@ -160,9 +160,13 @@ namespace MirrorChronicles.Characters
             }
         }
 
+        /// <summary>A human cultivates at its task; a beast made god absorbs whatever its task, as in the Demonic Dao (R16, L7).</summary>
+        private static bool Cultivates(CharacterData member) =>
+            member.Species != Species.Human || member.CurrentTask == TaskType.Cultivation;
+
         private void Cultivate(CharacterData member)
         {
-            if (member.CurrentTask != TaskType.Cultivation || member.ProgressionSealed || member.Realm >= CultivationRealm.GoldenCore) return;
+            if (!Cultivates(member) || member.ProgressionSealed || member.Realm >= CultivationRealm.GoldenCore) return;
             member.CultivationXP += (int)Math.Round((CultivationSystem.BaseYearlyXp + member.SpiritualRoot / 2) * Settings.Speed);
             TriallessClimb.Climb(member, CultivationRealm.PurpleMansion, PowerLadder.StageCount(CultivationRealm.PurpleMansion), risen =>
             {

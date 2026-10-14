@@ -265,7 +265,8 @@ namespace MirrorChronicles.World
         /// </summary>
         private bool TurnToATemple(FactionData power, FactionElder elder, int year)
         {
-            if (power.Path == CultivationPath.Buddhist || elder.Realm >= CultivationRealm.GoldenCore) return false;
+            if (power.Path == CultivationPath.Buddhist || elder.Realm >= CultivationRealm.GoldenCore
+                || elder.FruitionId != null || elder.ThrallOfClan) return false; // a Realization held, a mind bent: it stays
             var temples = factions.Factions.Where(f => f != power && f.Path == CultivationPath.Buddhist && f.School != null).ToList();
             if (temples.Count == 0 || !ctx.Rng.Chance(ctx.Content.Balance.Conversions.ElderConversionChance)) return false;
             var temple = temples[ctx.Rng.Next(temples.Count)];
@@ -276,6 +277,9 @@ namespace MirrorChronicles.World
             elder.MaxLifespan = elder.Age(year) + ctx.Content.Balance.Buddhism.YearsGained;
             elder.GoldenCoreOdds = 0;
             elder.Perfected = false;
+            elder.TreasureBound = false; // its power's bonds left behind
+            elder.HasDharmaTreasure = false;
+            elder.HumanPillsTaken = 0;
             temple.Elders.Add(elder);
             Sync(temple);
             ctx.Log.Info($"[Elders] {elder.Name} of {power.Name}, at death's door, turns to {temple.Name}.");

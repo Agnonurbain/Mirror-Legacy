@@ -65,14 +65,15 @@ namespace MirrorChronicles.Characters
             if (member == null || !member.IsAlive || member.Species != Species.Human || member.Path != CultivationPath.Immortal
                 || member.SubPath == CultivationSubPath.SpiritualNature || member.Retreat != Retreat.None
                 || FoundationRef.Parse(member.FoundationId).FruitionId != Settings.GateFruition || member.Realm >= CultivationRealm.GoldenCore) return false;
-            Become(member, ShamanMethod.Sacrifice, announce: false); // the refuge tells its own tale
+            Become(member, ShamanMethod.Sacrifice, refuge: true); // the refuge tells its own tale
             ctx.Events.TriggerShamanRefuge(member);
             return true;
         }
 
-        private void Become(CharacterData member, ShamanMethod method, bool announce = true)
+        /// <summary>The member passes to the shamanic Dao; a refuge from a failed core, escaping death, is spared the passage's peril.</summary>
+        private void Become(CharacterData member, ShamanMethod method, bool refuge = false)
         {
-            PathConversion.Pass(ctx, wounds, member);
+            if (!refuge) PathConversion.Pass(ctx, wounds, member);
             member.Path = CultivationPath.Shamanic;
             member.SubPath = CultivationSubPath.ShamanicTalisman;
             member.ShamanMethod = method;
@@ -83,7 +84,7 @@ namespace MirrorChronicles.Characters
             member.HoldsTrial = false;
             member.BorrowedLeap = method == ShamanMethod.Transformation ? Settings.TransformLeap : 0; // weighs as the leap it takes
             ctx.Log.Info($"[Shamanism] {member.FullName} passes to the shamanic Dao ({method}).");
-            if (announce) ctx.Events.TriggerShamanConverted(member, method);
+            if (!refuge) ctx.Events.TriggerShamanConverted(member, method);
         }
 
         /// <summary>Why the shaman cannot attempt its rite now (French), or null.</summary>

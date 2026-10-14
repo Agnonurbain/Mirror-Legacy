@@ -155,7 +155,7 @@ namespace MirrorChronicles.Presentation
         private static string PractisedMethod(GameSession session, CharacterData member)
         {
             if (!SpiritualOrificeRules.CanCultivate(member)) return "—";
-            if (member.Species != Species.Human) return "Absorption du Qi (Dao Démoniaque)"; // a bound beast (R16)
+            if (member.Species != Species.Human && member.Path == CultivationPath.Demonic) return "Absorption du Qi (Dao Démoniaque)"; // a bound beast (R16)
             if (member.Path == CultivationPath.Devil) return "Embryon Céleste — essence de sang"; // a devil (R12)
             if (member.Path == CultivationPath.Shamanic) return $"Sceau chamanique — {DiplomacyView.ShamanMethodLabel(member.ShamanMethod)}"; // a shaman (R17)
             if (member.Path == CultivationPath.Divine) return member.SubPath switch // a Divine Attendant (R15)

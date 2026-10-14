@@ -74,7 +74,6 @@ namespace MirrorChronicles.Characters
             string refusal = FormRefusal(member);
             if (refusal != null) return refusal;
             resources.ConsumeBlood(BloodToForm(member));
-            PathConversion.Pass(ctx, wounds, member); // safe below the Foundation (the wiki « Cultivation System »)
             member.Path = CultivationPath.Devil;
             member.SubPath = CultivationSubPath.HeavenlyEmbryoDemon;
             member.Realm = CultivationRealm.QiRefinement; // the Diverse Mansion, as the Qi Cultivation
