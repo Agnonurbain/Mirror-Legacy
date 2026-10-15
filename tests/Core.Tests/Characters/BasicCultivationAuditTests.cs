@@ -1,6 +1,7 @@
 using System.Linq;
 using NUnit.Framework;
 using MirrorChronicles.Characters;
+using MirrorChronicles.Combat;
 using MirrorChronicles.Data;
 using MirrorChronicles.Session;
 
@@ -211,6 +212,152 @@ namespace MirrorChronicles.Tests.Characters
             var spouse = w.Clan.FindById(member.SpouseID);
             Assert.AreEqual(Fixtures.ClanMethod, spouse.CultivationMethodId);
             Assert.AreEqual(Fixtures.ClanQi, spouse.QiId);
+        }
+            // ---- 7.7 The Dao Partners: the four others of the centre (the user's choice of 2026-10-15) ----
+
+        private static FruitionDefinition Lineage(string id) => Fixtures.Content.Fruitions.Single(f => f.Id == id);
+
+        [Test]
+        public void TheDaoPartners_LeaveOutTheSubstitutes()
+        {
+            var lineage = Fixtures.Content.Fruitions.First(f => f.Abilities.Any(a => a.Substitute));
+            var foundation = lineage.Abilities.First(a => !a.Substitute);
+            CollectionAssert.IsEmpty(FoundationRules.DaoPartners(lineage, foundation.Id).Where(a => a.Substitute));
+        }
+
+        [Test]
+        public void ALineageOfSeven_GivesFourPartners_TheOthersOfItsCentre()
+        {
+            var water = Lineage("orthodox-water");
+            var partners = FoundationRules.DaoPartners(water, "boundless-sea");
+            Assert.AreEqual(4, partners.Count);
+            CollectionAssert.DoesNotContain(partners.Select(a => a.Id), "peril-refuge");
+            CollectionAssert.DoesNotContain(partners.Select(a => a.Id), "black-water-serpent-king");
+        }
+
+        [TestCase("orthodox-water")]
+        [TestCase("orthodox-wood")]
+        [TestCase("celestial-regent")]
+        [TestCase("violet-qi")]
+        [TestCase("supreme-yang")]
+        public void EveryLineage_HasACentreOfFive(string lineageId)
+        {
+            Assert.AreEqual(5, Lineage(lineageId).Abilities.Count(a => !a.Substitute && !a.Peripheral));
+        }
+
+        [Test]
+        public void KnowingOnesPartners_RevealsTheFourOfTheCentre()
+        {
+            var w = World();
+            w.Knowledge.Reveal(MirrorChronicles.World.FactKind.DaoPartners, "orthodox-water:boundless-sea", MirrorChronicles.World.KnowledgeSource.Mirror);
+            Assert.IsFalse(w.Knowledge.Knows(MirrorChronicles.World.FactKind.Ability, "orthodox-water:peril-refuge"));
+            Assert.IsTrue(w.Knowledge.Knows(MirrorChronicles.World.FactKind.Ability, "orthodox-water:ford-watcher"));
+        }
+
+        [Test]
+        public void APeripheralFoundation_IsNoPartnerToConsume()
+        {
+            var w = World();
+            var consumer = w.Join(Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation, stage: 2));
+            consumer.FoundationId = "orthodox-water:boundless-sea";
+            var donor = w.Join(Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation, stage: 2));
+            donor.FoundationId = "orthodox-water:peril-refuge";
+            w.Knowledge.Reveal(MirrorChronicles.World.FactKind.DaoPartners, consumer.FoundationId, MirrorChronicles.World.KnowledgeSource.Mirror);
+            Assert.IsFalse(w.Foundations.ConsumeDaoPartner(consumer, donor));
+        }
+
+        // ---- 7.12 The transformed lineage (the user's choice of 2026-10-15) ----
+
+        private static CharacterData Realized(bool isMale)
+        {
+            var holder = Fixtures.Cultivator(isMale: isMale, age: 300, realm: CultivationRealm.GoldenCore, stage: 1);
+            holder.GoldenCore = GoldenCoreState.Realization;
+            return holder;
+        }
+
+        [Test]
+        public void ARealizationsChild_IsAlwaysBornWithAnOrifice()
+        {
+            var w = World(0.999); // no orifice by the usual odds
+            var child = w.Clan.GenerateChild(w.Join(Realized(true)), w.Join(Fixtures.Mortal(isMale: false)));
+            Assert.IsTrue(child.TransformedLineage);
+            Assert.IsTrue(child.HasSpiritualOrifice);
+        }
+
+        [Test]
+        public void ATransformedLineage_PassesEveryTrial_UpToThePurpleMansion()
+        {
+            var w = World();
+            var heir = w.Join(Breathing(age: 20, chakra: 2));
+            heir.TransformedLineage = true;
+            heir.MentalStability = 10; // even a troubled mind
+            Assert.AreEqual(100, w.Breakthroughs.TrialSuccessRate(heir));
+            var mansion = w.Join(Fixtures.Cultivator(age: 80, realm: CultivationRealm.Foundation, stage: 4));
+            mansion.TransformedLineage = true;
+            Assert.AreEqual(100, w.PurpleMansion.AscentChanceOf(mansion));
+        }
+
+        [Test]
+        public void ATransformedLineage_GetsNothingSureBeyond()
+        {
+            var heir = Fixtures.Cultivator(age: 80, realm: CultivationRealm.PurpleMansion, stage: 1);
+            heir.TransformedLineage = true;
+            Assert.Less(PurpleMansionRules.IllusionsChance(heir, Fixtures.Content), 100);
+        }
+
+        // ---- 7.10 Stones buy only a common manual of grade 3 or less ----
+
+        private static TestWorld Market()
+        {
+            var w = World();
+            w.Factions.InitializeFactions();
+            foreach (var f in w.Factions.Factions) w.Factions.ChangeRelation(f.ID, 100);
+            w.Resources.AddSpiritStones(100000);
+            return w;
+        }
+
+        [Test]
+        public void AManualOfGradeFour_IsNotSoldForStones()
+        {
+            var w = Market();
+            Assert.IsNotNull(w.Exchange.PurchaseRefusal("Famille Zang", "bronze-rampart-method"));
+            Assert.IsFalse(w.Exchange.BuyTechnique("Famille Zang", "bronze-rampart-method"));
+        }
+
+        [Test]
+        public void ASecretTechnique_IsNotSoldForStones()
+        {
+            var w = Market();
+            Assert.IsFalse(w.Exchange.BuyTechnique("Famille Fang", "path-watcher"));
+        }
+
+        [Test]
+        public void ACommonManualOfGradeThree_IsStillSold()
+        {
+            var w = Market();
+            Assert.IsTrue(w.Exchange.BuyTechnique("Famille Ruan", "upstream-brook-method"));
+        }
+
+        // ---- 7.3 No mana below the first chakra ----
+
+        [Test]
+        public void AMortal_FightsWithoutQi()
+        {
+            Assert.AreEqual(0, new CombatUnit(Fixtures.Mortal(), isAlly: true).MaxQi);
+        }
+
+        [Test]
+        public void TheMana_ComesWithTheFirstChakra()
+        {
+            Assert.AreEqual(0, new CombatUnit(Breathing(age: 20, chakra: 0), isAlly: true).MaxQi);
+            Assert.Greater(new CombatUnit(Breathing(age: 20, chakra: 1), isAlly: true).MaxQi, 0);
+        }
+
+        [Test]
+        public void NoDuel_BeforeTheFirstChakra()
+        {
+            Assert.IsNotNull(FighterRules.Refusal(Breathing(age: 20, chakra: 0)));
+            Assert.IsNull(FighterRules.Refusal(Breathing(age: 20, chakra: 1)));
         }
     }
 }
