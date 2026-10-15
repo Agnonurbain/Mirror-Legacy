@@ -171,7 +171,7 @@ namespace MirrorChronicles.Tests
             Dealings = new SecretDealings(Ctx, Clan, Resources, Factions, Suspicion, SecretBook);
             Probes = new ProbeSystem(Ctx, Clan, Factions, Suspicion, Treaties, Politics, Mirror, Lore, Captives, SecretBook, Hunts, Resources, Patrons);
             Wars = new WarSystem(Ctx, Clan, Resources, Factions, Suspicion, Treaties, Politics, Alliances);
-            WarBattles = new WarBattles(Ctx, Clan, Factions, Wars, Techniques, Wounds);
+            WarBattles = new WarBattles(Ctx, Clan, Factions, Wars, Techniques, Wounds) { Buddhism = Buddhism };
             Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars, Sect);
             Patrons = new PatronSystem(Ctx, Clan, Resources);
             Divine = new DivineDaoSystem(Ctx, Clan, Resources, Patrons, Wounds);

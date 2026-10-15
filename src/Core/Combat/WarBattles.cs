@@ -53,6 +53,9 @@ namespace MirrorChronicles.Combat
         /// <summary>The battle under way, until it is concluded; never saved (it is fought on its screen).</summary>
         public Battle Current { get; private set; }
 
+        /// <summary>The clan's temples (set by the session): a renegade monk leading a temple's army may be taken back (L7).</summary>
+        public BuddhismSystem Buddhism { get; set; }
+
         /// <summary>The clan's alchemy (set by the session): its fighters draw on its Autumn Convergence Pills.</summary>
         public AlchemySystem Alchemy { get; set; }
 
@@ -83,14 +86,25 @@ namespace MirrorChronicles.Combat
         /// <summary>Why this member cannot fight, or null when it can.</summary>
         public string FighterRefusal(CharacterData member) => FighterRules.Refusal(member);
 
-        /// <summary>The enemy on the field: its leader, then the soldiers its allies did not keep away (drawn from the seed).</summary>
+        /// <summary>
+        /// The enemy on the field: its leader — a temple's renegade monk, once of the clan, when it has one (L7) — then the
+        /// soldiers its allies did not keep away (drawn from the seed).
+        /// </summary>
         public IReadOnlyList<CharacterData> Army(PendingWarBattle battle)
         {
             var rng = new Random(battle.Seed);
             var names = ctx.Content.Names;
             int onField = Math.Max(0, battle.Soldiers - battle.AlliesCame);
+            var renegade = BuddhismSystem.RenegadeOf(factions.GetFactionByName(battle.Enemy));
             return Enumerable.Range(0, 1 + onField).Select(i =>
             {
+                if (i == 0 && renegade != null)
+                    return new CharacterData
+                    {
+                        ID = renegade.Id, FirstName = renegade.Name, LastName = "", IsMale = rng.Next(2) == 0, Age = renegade.Age(ctx.Clock.Year),
+                        Realm = renegade.Realm, RealmStage = renegade.Stage, SpiritualRoot = LeaderRoot, HasSpiritualOrifice = true, OrificeKnown = true,
+                        Path = CultivationPath.Buddhist, FromFaction = battle.Enemy
+                    };
                 bool leader = i == 0;
                 bool isMale = rng.Next(2) == 0;
                 var pool = isMale ? names.Male : names.Female;
@@ -161,7 +175,11 @@ namespace MirrorChronicles.Combat
             }
             var enemy = factions.GetFactionByName(battle.Enemy);
             if (warOver) { }
-            else if (outcome == WarBattleOutcome.Won && enemy != null) wars.Won(enemy);
+            else if (outcome == WarBattleOutcome.Won && enemy != null)
+            {
+                wars.Won(enemy);
+                TakeBackTheRenegade(enemy);
+            }
             else if (outcome == WarBattleOutcome.Lost) wars.LoseStones(1);
             else if (outcome == WarBattleOutcome.Withdrawn) wars.LoseStones(Settings.WithdrawStonesFactor);
             ctx.Log.Info($"[Wars] The battle against {battle.Enemy} ends: {outcome}.");
@@ -169,6 +187,14 @@ namespace MirrorChronicles.Combat
             queue.RemoveAt(0);
             Current = null;
             return null;
+        }
+
+        /// <summary>A temple's renegade beaten at the head of its army may be taken back by the clan (L7).</summary>
+        private void TakeBackTheRenegade(FactionData enemy)
+        {
+            var renegade = BuddhismSystem.RenegadeOf(enemy);
+            bool beaten = renegade != null && Current.Enemies.Any(u => u.BaseData.ID == renegade.Id && u.IsDown);
+            if (beaten && Buddhism != null && ctx.Rng.Chance(ctx.Content.Balance.Conversions.RenegadeTakeBackChance)) Buddhism.TakeBack(enemy, renegade);
         }
 
         /// <summary>What each fighter carries: the clan's Autumn Convergence Pills; the enemy's leader one, if its power knows alchemy.</summary>

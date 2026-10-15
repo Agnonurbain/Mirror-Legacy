@@ -23,5 +23,12 @@ namespace MirrorChronicles.Data
 
         /// <summary>The blood essence a Qi cultivator spends to refine its Qi into a Diverse Mansion.</summary>
         public int QiFormBlood { get; init; }
+
+        /// <summary>
+        /// The renegade monk (the user's choice of 2026-10-15): the points a captive turned elder of its temple takes from the
+        /// clan's debaters, whom it knows, and the chance it is taken back when beaten leading its temple's army.
+        /// </summary>
+        public int RenegadeDebateEdge { get; init; }
+        public double RenegadeTakeBackChance { get; init; }
     }
 }

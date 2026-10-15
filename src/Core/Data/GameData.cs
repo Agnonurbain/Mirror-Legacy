@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.55"; // 2.48: CharacterData.Temple (R13-R14); 2.49: Vow, the pending debate and the temples' last debates (R13-14b); 2.50: RebornMonk, the monks' souls awaiting rebirth (R13-14c); 2.51: BloodEssence (R12); 2.52: ProfundityOf, BorrowedLeap (R15); 2.53: ShamanMethod (R17); 2.54: DragonBlood (L7); 2.55: Hauntings (L7)
+        public const string CurrentVersion = "2.56"; // 2.48: CharacterData.Temple (R13-R14); 2.49: Vow, the pending debate and the temples' last debates (R13-14b); 2.50: RebornMonk, the monks' souls awaiting rebirth (R13-14c); 2.51: BloodEssence (R12); 2.52: ProfundityOf, BorrowedLeap (R15); 2.53: ShamanMethod (R17); 2.54: DragonBlood (L7); 2.55: Hauntings (L7); 2.56: FactionElder.RenegadeId (L7)
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }

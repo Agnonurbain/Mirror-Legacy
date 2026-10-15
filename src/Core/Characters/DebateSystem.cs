@@ -81,7 +81,8 @@ namespace MirrorChronicles.Characters
             int gap = (int)PowerLadder.EffectiveRealm(member) - (int)templeRealm;
             bool monk = member.Path == CultivationPath.Buddhist;
             int chance = Settings.BaseChance + gap * Settings.RealmStep + (int)Math.Round((member.MentalStability - 70) * Settings.StabilityWeight)
-                + (monk ? Settings.MonkBonus : 0) + (monk && member.Vow != BuddhistVow.None ? Vows.VowDebateBonus : 0);
+                + (monk ? Settings.MonkBonus : 0) + (monk && member.Vow != BuddhistVow.None ? Vows.VowDebateBonus : 0)
+                - (BuddhismSystem.RenegadeOf(Temple(templeName)) != null ? ctx.Content.Balance.Conversions.RenegadeDebateEdge : 0); // its renegade knows the clan (L7)
             return Math.Clamp(chance, Settings.MinChance, Settings.MaxChance);
         }
 

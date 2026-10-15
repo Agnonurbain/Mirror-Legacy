@@ -293,8 +293,40 @@ namespace MirrorChronicles.Characters
             captive.CaptorFaction = null;
             captive.CapturedYear = null;
             if (!clan.Depart(captive)) return;
+            int year = ctx.Clock.Year;
+            temple.Elders.Add(new FactionElder // a renegade elder of its temple, the clan will meet again (L7)
+            {
+                Id = RenegadePrefix + captive.ID, Name = captive.FullName, Realm = captive.Realm, Stage = captive.RealmStage,
+                BornYear = year - captive.Age, MaxLifespan = captive.MaxLifespan, RealmSinceYear = year, RenegadeId = captive.ID
+            });
+            ElderSystem.Sync(temple);
             ctx.Log.Warning($"[Buddhism] {temple.Name} converts its captive {captive.FullName}: it renounces the clan.");
             ctx.Events.TriggerCaptiveConverted(captive, temple.Name);
+        }
+
+        /// <summary>The id of a renegade elder: its clan record's, prefixed.</summary>
+        public const string RenegadePrefix = "renegade-";
+
+        /// <summary>The temple's renegade elder, a former member of the clan, or null (L7).</summary>
+        public static FactionElder RenegadeOf(FactionData temple) => temple?.Elders.FirstOrDefault(e => e.RenegadeId != null);
+
+        /// <summary>
+        /// A renegade beaten leading its temple's army is taken back by the clan (L7): it leaves the temple and comes back, a monk
+        /// still, as old and as strong as its years there made it. The member taken back, or null.
+        /// </summary>
+        public CharacterData TakeBack(FactionData temple, FactionElder renegade)
+        {
+            var member = renegade?.RenegadeId == null ? null : clan.FindById(renegade.RenegadeId);
+            if (temple == null || member == null || !temple.Elders.Remove(renegade)) return null;
+            ElderSystem.Sync(temple);
+            member.Age = renegade.Age(ctx.Clock.Year);
+            member.Realm = renegade.Realm;
+            member.RealmStage = renegade.Stage;
+            member.MaxLifespan = renegade.MaxLifespan;
+            if (!clan.Rejoin(member)) return null;
+            ctx.Log.Info($"[Buddhism] {member.FullName}, beaten leading {temple.Name}'s army, is taken back by the clan.");
+            ctx.Events.TriggerRenegadeTakenBack(member, temple.Name);
+            return member;
         }
 
         /// <summary>A modern monk whose temple is no more: what it borrowed fades, it is a Monk again (R14).</summary>

@@ -108,6 +108,7 @@ namespace MirrorChronicles.Events
         public event Action<CharacterData> OnMonkRose;                  // a monk rises to its next rank (R13-R14)
         public event Action<CharacterData> OnBeastBound;      // a captured beast bound to the clan (R16)
         public event Action<CharacterData> OnLineageAwakened; // a bound beast's lineage awakens its next realm (R16)
+        public event Action<CharacterData, string> OnRenegadeTakenBack;     // a renegade monk beaten leading its temple's army comes back (L7)
         public event Action<Haunting> OnHauntingBegan;                      // a dead Divine Attendant haunts the clan (L7)
         public event Action<Haunting, CharacterData> OnHauntingMadness;     // the haunting drives a member mad (a Dao wound)
         public event Action<Haunting, int> OnHauntingCalamity;              // the haunting brings a calamity: stones lost
@@ -232,6 +233,7 @@ namespace MirrorChronicles.Events
         public void TriggerMonkRose(CharacterData member) => OnMonkRose?.Invoke(member);
         public void TriggerBeastBound(CharacterData beast) => OnBeastBound?.Invoke(beast);
         public void TriggerLineageAwakened(CharacterData beast) => OnLineageAwakened?.Invoke(beast);
+        public void TriggerRenegadeTakenBack(CharacterData member, string temple) => OnRenegadeTakenBack?.Invoke(member, temple);
         public void TriggerHauntingBegan(Haunting h) => OnHauntingBegan?.Invoke(h);
         public void TriggerHauntingMadness(Haunting h, CharacterData victim) => OnHauntingMadness?.Invoke(h, victim);
         public void TriggerHauntingCalamity(Haunting h, int stones) => OnHauntingCalamity?.Invoke(h, stones);
