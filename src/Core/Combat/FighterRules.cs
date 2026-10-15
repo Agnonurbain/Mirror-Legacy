@@ -11,7 +11,8 @@ namespace MirrorChronicles.Combat
         {
             if (member == null || !member.IsAlive) return "introuvable";
             if (member.CaptorFaction != null) return "captif ailleurs";
-            if (!member.OrificeKnown || !SpiritualOrificeRules.CanCultivate(member)) return "ne cultive pas";
+            if (!SpiritualOrificeRules.Cultivates(member)) return "ne cultive pas";
+            if (!CombatUnit.HasMana(member)) return "aucun mana avant le premier chakra"; // audit §7.3
             return null;
         }
     }

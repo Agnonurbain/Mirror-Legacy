@@ -506,6 +506,7 @@
 		},
 		{
 		  "id": "peril-refuge",
+		  "peripheral": true,
 		  "name": "Refuge du Péril",
 		  "mandate": [ "Peril" ],
 		  "types": [
@@ -514,6 +515,7 @@
 		},
 		{
 		  "id": "black-water-serpent-king",
+		  "peripheral": true,
 		  "name": "Roi-Serpent des Eaux Noires",
 		  "mandate": [ "Victory" ],
 		  "types": [
@@ -2279,12 +2281,14 @@
 		},
 		{
 		  "id": "back-to-noon",
+		  "peripheral": true,
 		  "name": "Dos au Midi",
 		  "mandate": [ "Peril" ],
 		  "types": []
 		},
 		{
 		  "id": "wood-makes-the-square",
+		  "peripheral": true,
 		  "name": "Le Bois Fait l'Équerre",
 		  "types": []
 		},
@@ -2820,6 +2824,7 @@
 		},
 		{
 		  "id": "warm-precious-vase",
+		  "peripheral": true,
 		  "name": "Vase Tiède et Précieux",
 		  "types": []
 		},
@@ -3603,11 +3608,13 @@
 		},
 		{
 		  "id": "divine-arrangement",
+		  "peripheral": true,
 		  "name": "Arrangement Divin",
 		  "types": []
 		},
 		{
 		  "id": "continuous-expansion",
+		  "peripheral": true,
 		  "name": "Expansion Continue",
 		  "types": []
 		},

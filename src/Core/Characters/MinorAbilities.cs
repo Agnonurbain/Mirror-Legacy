@@ -81,7 +81,7 @@ namespace MirrorChronicles.Characters
             var fruition = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == lineage);
             if (fruition == null) return "lignée inconnue";
             if (Unknown(lineage).Count == 0) return "le clan connaît déjà ses capacités mineures";
-            if (fruition.Abilities.Where(a => !a.Substitute).Count(a => knowledge.Knows(FactKind.Ability, $"{lineage}:{a.Id}")) < GoldenCoreRules.AbilitiesToForge)
+            if (fruition.Abilities.Where(FoundationRules.IsOfTheCentre).Count(a => knowledge.Knows(FactKind.Ability, $"{lineage}:{a.Id}")) < GoldenCoreRules.AbilitiesToForge)
                 return "il faut connaître ses cinq capacités orthodoxes";
             return mirror.PayRefusal(Settings.MirrorCost);
         }

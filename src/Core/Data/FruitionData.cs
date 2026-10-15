@@ -53,6 +53,12 @@ namespace MirrorChronicles.Data
         public bool Substitute { get; init; }
 
         /// <summary>
+        /// An orthodox ability beyond the lineage's centre of five, in the lineages that have six or seven (AUDIT_LORE.md §7.7, the
+        /// user's choice of 2026-10-15): of the lineage, but nobody's Dao Partner.
+        /// </summary>
+        public bool Peripheral { get; init; }
+
+        /// <summary>
         /// The ability's image (LORE.md §5.4.3): a cultivator whose temper embodies it condenses it faster (None: not known).
         /// </summary>
         public Temperament Imagery { get; init; }

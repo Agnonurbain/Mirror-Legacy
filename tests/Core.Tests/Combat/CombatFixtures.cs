@@ -21,7 +21,9 @@ namespace MirrorChronicles.Tests.Combat
                 Realm = realm,
                 RealmStage = realm == CultivationRealm.Embryonic ? 1 : 1,
                 SpiritualRoot = root,
-                Affinity = affinity
+                Affinity = affinity,
+                HasSpiritualOrifice = true, // a cultivator: its mana comes with the first chakra (audit §7.3)
+                OrificeKnown = true
             };
             return new CombatUnit(data, isAlly, strategy);
         }

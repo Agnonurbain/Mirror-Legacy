@@ -32,7 +32,7 @@ namespace MirrorChronicles.Tests.Characters
             var partners = FoundationRules.DaoPartners(Fruition("mutable-metal"), "engraved-stele").Select(a => a.Id).ToList();
             CollectionAssert.Contains(partners, "dawn-helm");
             CollectionAssert.DoesNotContain(partners, "engraved-stele");
-            Assert.AreEqual(Fruition("mutable-metal").Abilities.Count - 1, partners.Count);
+            Assert.AreEqual(Fruition("mutable-metal").Abilities.Count(FoundationRules.IsOfTheCentre) - 1, partners.Count); // the centre's four others (audit §7.7)
         }
 
         [TestCase(Temperament.Dominant, 1.2)]

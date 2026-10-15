@@ -32,7 +32,8 @@ namespace MirrorChronicles.Characters
 
             int inTarget = definitions.Count(d => d.Lineage == fruitionId);
             if (inTarget == AbilitiesToForge)
-                return definitions.Any(d => d.Ability.Substitute) ? PositionRoute.Surplus : PositionRoute.Realization;
+                return definitions.Any(d => !FoundationRules.IsOfTheCentre(d.Ability)) // a substitute or one beyond the centre (audit §7.7)
+                    ? PositionRoute.Surplus : PositionRoute.Realization;
 
             bool oneOtherLineage = definitions.Where(d => d.Lineage != fruitionId).Select(d => d.Lineage).Distinct().Count() == 1;
             if (!oneOtherLineage) return PositionRoute.None;

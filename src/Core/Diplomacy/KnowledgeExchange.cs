@@ -57,6 +57,13 @@ namespace MirrorChronicles.Diplomacy
                 : price;
         }
 
+        /// <summary>The highest grade of a common manual a power sells for stones (AUDIT_LORE.md §7.10).</summary>
+        public const int MaxStoneGrade = 3;
+
+        /// <summary>A common manual of grade 3 or less, nothing of the Purple Mansion: what stones may buy, in the market or an accord (audit §7.10).</summary>
+        public static bool SoldForStones(TechniqueData technique) =>
+            technique != null && technique.Category == TechniqueCategory.Common && technique.Grade <= MaxStoneGrade && !KnowledgeAccords.IsPrecious(technique);
+
         /// <summary>Why a power will not sell this technique now; null when it will.</summary>
         public string PurchaseRefusal(string factionName, string techniqueId) =>
             Refusal(factions.GetFactionByName(factionName), Offers(factionName).FirstOrDefault(t => t.ID == techniqueId));
@@ -67,6 +74,8 @@ namespace MirrorChronicles.Diplomacy
             if (technique == null) return "elle ne détient pas cet art, ou le clan le connaît déjà";
             if (KnowledgeAccords.IsPrecious(technique)) // a high technique, of the Purple Mansion and its abilities (the user's rule, 2026-10-03)
                 return "un art du Manoir Pourpre ne s'achète pas avec des pierres : il s'obtient par un accord, une opportunité ou un complot";
+            if (!SoldForStones(technique)) // audit §7.10
+                return $"seul un manuel commun de grade {MaxStoneGrade} ou moins s'achète avec des pierres : le reste s'obtient par un accord, une opportunité ou un complot";
             if (power.RelationWithPlayer < Settings.MinRelation) return $"la relation est trop froide ({Settings.MinRelation} requise)";
             if (resources.SpiritStones < PriceOf(technique, power.Name)) return $"il faut {PriceOf(technique, power.Name)} pierres spirituelles";
             return null;

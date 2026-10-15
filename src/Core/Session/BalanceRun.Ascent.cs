@@ -278,7 +278,7 @@ namespace MirrorChronicles.Session
             var fruition = session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == lineage);
             if (fruition == null) return Enumerable.Empty<string>();
             bool last = mansion.DivineAbilities.Count == GoldenCoreRules.AbilitiesToForge - 1;
-            return fruition.Abilities.Where(a => a.Name != null && !a.Substitute)
+            return fruition.Abilities.Where(a => a.Name != null && FoundationRules.IsOfTheCentre(a)) // the Realization's five (audit §7.7)
                 .Where(a => !mansion.DivineAbilities.Contains($"{lineage}:{a.Id}") && session.Knowledge.Knows(FactKind.Ability, $"{lineage}:{a.Id}"))
                 .OrderBy(a => a.Types.Contains(AbilityType.Life) == last ? 0 : 1) // stable: the lineage's order otherwise
                 .Select(a => $"{lineage}:{a.Id}");

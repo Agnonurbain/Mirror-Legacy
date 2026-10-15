@@ -54,6 +54,8 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public int TrialSuccessRate(CharacterData character)
         {
+            if (character.TransformedLineage && PowerLadder.Next(character.Realm, character.RealmStage).TargetRealm <= CultivationRealm.PurpleMansion)
+                return 100; // a Realization's descendant passes every trial up to the Purple Mansion (audit §7.12, 2026-10-15)
             int rate = CalculateSuccessRate(character);
             var trial = PowerLadder.Next(character.Realm, character.RealmStage).Trial;
             if (trial == TrialKind.SummitEyeChakra && Alchemy != null && Alchemy.PillsOf(PillKind.BrightSpirit) == 0) // 📚 the fifth chakra's powder

@@ -34,6 +34,13 @@ namespace MirrorChronicles.Tests.Data
         }
 
         [Test]
+        public void Load_RefusesAnAbility_BothSubstituteAndPeripheral()
+        {
+            string fruitions = Fixtures.ReadDataFile(GameContentLoader.FruitionsFile);
+            AssertRefused(GameContentLoader.FruitionsFile, fruitions.Replace("\"id\": \"peril-refuge\",", "\"id\": \"peril-refuge\", \"substitute\": true,"));
+        }
+
+        [Test]
         public void Load_NamesTheFileAtFault_WhenItIsMissing()
         {
             AssertRefused(GameContentLoader.StoryFile, null);

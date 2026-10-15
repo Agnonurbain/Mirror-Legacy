@@ -132,7 +132,7 @@ namespace MirrorChronicles.World
                     var (fruitionId, abilityId) = FoundationRef.Parse(fact.Subject);
                     var fruition = content.Fruitions.FirstOrDefault(f => f.Id == fruitionId);
                     if (fruition == null) break;
-                    foreach (var partner in fruition.Abilities.Where(a => a.Id != abilityId && !a.Substitute))
+                    foreach (var partner in Characters.FoundationRules.DaoPartners(fruition, abilityId))
                         yield return new Fact(FactKind.Ability, $"{fruitionId}:{partner.Id}");
                     break;
             }
