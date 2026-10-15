@@ -228,8 +228,8 @@ namespace MirrorChronicles.Tests.Characters
             s.Wars.DeclareOn(Modern);
             Assert.IsTrue(s.WarBattles.Spring(s.Wars.War(Modern), temple, 0));
             var view = BattleView.War(s);
-            StringAssert.Contains("Mo Lin", view.LeaderRank);
-            StringAssert.Contains(RankCatalog.RealmName(CultivationRealm.QiRefinement), view.LeaderRank);
+            Assert.AreEqual("Mo Lin", view.Renegade);
+            Assert.AreEqual(RankCatalog.RealmName(CultivationRealm.QiRefinement), view.LeaderRank);
         }
 
         // ---- Kept ----
