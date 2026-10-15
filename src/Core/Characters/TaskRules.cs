@@ -26,15 +26,21 @@ namespace MirrorChronicles.Characters
         private static readonly TaskType[] MortalTasks =
             { TaskType.None, TaskType.Mine, TaskType.Patrol, TaskType.Diplomacy, TaskType.Rest };
 
-        private static readonly TaskType[] EmbryonicTasks =
+        private static readonly TaskType[] EmbryonicChildTasks =
             { TaskType.None, TaskType.Cultivation, TaskType.Rest };
 
-        /// <summary>From the Summit Eye (fifth chakra) a breathing cultivator perceives spiritual Qi and can gather it.</summary>
-        private static readonly TaskType[] SummitEyeTasks =
-            { TaskType.None, TaskType.Cultivation, TaskType.GatherQi, TaskType.Rest };
+        /// <summary>A breathing adult does at least what a mortal does, and cultivates (AUDIT_LORE.md §7.4).</summary>
+        private static readonly TaskType[] EmbryonicTasks =
+            { TaskType.None, TaskType.Cultivation, TaskType.Mine, TaskType.Patrol, TaskType.Diplomacy, TaskType.Rest };
 
         /// <summary>The chakra that perceives spiritual Qi (LORE.md §5.1).</summary>
         public const int QiPerceptionChakra = 5;
+
+        /// <summary>From this chakra a breathing adult is sharp enough to spy (AUDIT_LORE.md §7.4).</summary>
+        public const int EspionageChakra = 3;
+
+        /// <summary>A task far from the domain (diplomacy, espionage, the hunt).</summary>
+        public static bool IsAway(TaskType task) => AwayTasks.Contains(task);
 
         private static readonly TaskType[] AllTasks =
             Enum.GetValues(typeof(TaskType)).Cast<TaskType>().ToArray();
@@ -65,10 +71,24 @@ namespace MirrorChronicles.Characters
                 return InfantTasks; // a retreat, or captivity, leaves no task
             if (character.Species != Species.Human)
                 return BeastTasks.Where(t => huntOpen || !IsHuntTask(t)).ToArray();
-            if (!SpiritualOrificeRules.CanCultivate(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
-            if (character.Realm == CultivationRealm.Embryonic)
-                return character.RealmStage >= QiPerceptionChakra ? SummitEyeTasks : EmbryonicTasks;
+            if (!SpiritualOrificeRules.Cultivates(character)) return character.Age < WorkingAge ? ChildTasks : MortalTasks;
+            if (character.Realm == CultivationRealm.Embryonic) return BreathingTasks(character);
             return AllTasks.Where(t => (huntOpen || !IsHuntTask(t)) && (lakeOpen || t != TaskType.SearchLake)).ToArray();
+        }
+
+        /// <summary>
+        /// A breathing cultivator: a child cultivates and rests; an adult does what a mortal does besides, spies from the third
+        /// chakra; from the Summit Eye (fifth chakra) either perceives spiritual Qi and can gather it.
+        /// </summary>
+        private static TaskType[] BreathingTasks(CharacterData character)
+        {
+            bool adult = character.Age >= WorkingAge;
+            var tasks = new List<TaskType>(adult ? EmbryonicTasks : EmbryonicChildTasks);
+            tasks.Remove(TaskType.Rest); // rest stays last
+            if (adult && character.RealmStage >= EspionageChakra) tasks.Add(TaskType.Espionage);
+            if (character.RealmStage >= QiPerceptionChakra) tasks.Add(TaskType.GatherQi);
+            tasks.Add(TaskType.Rest);
+            return tasks.ToArray();
         }
 
         public static bool IsAllowed(CharacterData character, TaskType task, bool huntOpen = false, bool lakeOpen = false)

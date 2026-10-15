@@ -132,7 +132,7 @@ namespace MirrorChronicles.Game
             var seal = new Button { Text = "Sceller une portion de Qi du Yin Suprême", Disabled = refusal != null, TooltipText = refusal ?? "" };
             seal.Pressed += () => { status.Text = s.Moonlight.SealQi() is { } r ? $"Refusé : {r}." : "Le miroir scelle une portion de Clair de Lune pour le clan."; Refresh(); };
             interventions.AddChild(seal);
-            foreach (var m in s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && MirrorChronicles.Characters.SpiritualOrificeRules.CanCultivate(m)).OrderByDescending(m => m.Realm).Take(8))
+            foreach (var m in s.Clan.LivingMembers.Where(m => m.CaptorFaction == null && MirrorChronicles.Characters.SpiritualOrificeRules.Cultivates(m)).OrderByDescending(m => m.Realm).Take(8))
             {
                 var nourish = new Button { Text = $"Nourrir la cultivation de {m.FullName}", Disabled = refusal != null, TooltipText = refusal ?? "" };
                 nourish.Pressed += () => { status.Text = s.Moonlight.Nourish(m.ID) is { } r ? $"Refusé : {r}." : $"Le Clair de Lune nourrit {m.FullName}."; Refresh(); };

@@ -17,8 +17,8 @@ namespace MirrorChronicles.Tests.Characters
         public void GatherQi_OpensWithTheSummitEye()
         {
             // LORE.md §5.1: the fifth chakra perceives spiritual Qi
-            var blind = new CharacterData { Age = Adult, HasSpiritualOrifice = true, RealmStage = 4 };
-            var seeing = new CharacterData { Age = Adult, HasSpiritualOrifice = true, RealmStage = 5 };
+            var blind = new CharacterData { Age = Adult, HasSpiritualOrifice = true, OrificeKnown = true, RealmStage = 4 };
+            var seeing = new CharacterData { Age = Adult, HasSpiritualOrifice = true, OrificeKnown = true, RealmStage = 5 };
             Assert.IsFalse(TaskRules.IsAllowed(blind, TaskType.GatherQi));
             Assert.IsTrue(TaskRules.IsAllowed(seeing, TaskType.GatherQi));
         }
@@ -37,16 +37,17 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
-        public void AllowedTasks_AreCultivationAndRest_WhenEmbryonicCultivator()
+        public void AllowedTasks_AreAMortalsAndCultivation_WhenEmbryonicCultivator()
         {
-            var c = new CharacterData { Age = Adult, HasSpiritualOrifice = true, RealmStage = 2 };
-            CollectionAssert.AreEquivalent(new[] { TaskType.None, TaskType.Cultivation, TaskType.Rest }, TaskRules.AllowedTasks(c));
+            var c = new CharacterData { Age = Adult, HasSpiritualOrifice = true, OrificeKnown = true, RealmStage = 2 }; // AUDIT_LORE.md §7.4
+            CollectionAssert.AreEquivalent(new[] { TaskType.None, TaskType.Cultivation, TaskType.Mine, TaskType.Patrol, TaskType.Diplomacy, TaskType.Rest },
+                TaskRules.AllowedTasks(c));
         }
 
         [Test]
         public void AllowedTasks_IncludesEveryTask_WhenQiCultivator_TheHuntOnlyInItsWindow()
         {
-            var c = new CharacterData { Age = Adult, HasSpiritualOrifice = true, Realm = CultivationRealm.QiRefinement, RealmStage = 1 };
+            var c = new CharacterData { Age = Adult, HasSpiritualOrifice = true, OrificeKnown = true, Realm = CultivationRealm.QiRefinement, RealmStage = 1 };
             Assert.AreEqual(System.Enum.GetValues(typeof(TaskType)).Length, TaskRules.AllowedTasks(c, huntOpen: true, lakeOpen: true).Count);
             CollectionAssert.DoesNotContain(TaskRules.AllowedTasks(c), TaskType.HuntBeast); // the ritual is years away
             CollectionAssert.DoesNotContain(TaskRules.AllowedTasks(c, huntOpen: true), TaskType.SearchLake); // the lake's shard is found

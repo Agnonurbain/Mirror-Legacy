@@ -60,7 +60,7 @@ namespace MirrorChronicles.Presentation
                     m.CurrentTask, TaskRules.AllowedTasks(m, session.Talismans.HuntWindowOpen, session.Shards.LakeSearchOpen)
                         .Where(t => t != TaskType.ArtPractice || m.CurrentTask == TaskType.ArtPractice).ToList(), m.ID == patriarchId, // an art is chosen from its own screen
                     m.CultivationMethodId, PractisedMethod(session, m),
-                    m.Path != CultivationPath.Immortal ? new List<MethodChoice>() // a bound beast absorbs, a monk nourishes its nature: no method (R13-R16)
+                    m.Path != CultivationPath.Immortal || !SpiritualOrificeRules.Cultivates(m) ? new List<MethodChoice>() // a bound beast absorbs, a monk nourishes its nature: no method (R13-R16); an orifice nobody examined, none (audit §7.1)
                         : session.Techniques.MethodsFor(m).Select(t => new MethodChoice(t.ID, MethodLabel(t))).ToList(),
                     TemperamentLabel(m.Temperament), RipeLabel(session, m), RetreatLabel(m), AbilitiesLabel(m),
                     m.HeartDemonYearsLeft > 0 ? $"Démon du Cœur ({m.HeartDemonYearsLeft} an{(m.HeartDemonYearsLeft > 1 ? "s" : "")})" : null,
@@ -154,7 +154,7 @@ namespace MirrorChronicles.Presentation
         /// <summary>The member's method, the common breathing of a breathing member without one, none, or « — » for a mortal.</summary>
         private static string PractisedMethod(GameSession session, CharacterData member)
         {
-            if (!SpiritualOrificeRules.CanCultivate(member)) return "—";
+            if (!SpiritualOrificeRules.Cultivates(member)) return "—";
             if (member.Species != Species.Human && member.Path == CultivationPath.Demonic) return "Absorption du Qi (Dao Démoniaque)"; // a bound beast (R16)
             if (member.Path == CultivationPath.Devil) return "Embryon Céleste — essence de sang"; // a devil (R12)
             if (member.Path == CultivationPath.Shamanic) return $"Sceau chamanique — {DiplomacyView.ShamanMethodLabel(member.ShamanMethod)}"; // a shaman (R17)

@@ -150,11 +150,13 @@ namespace MirrorChronicles.Session
                     && session.Treaties.HasAscendancyOver(f) && !session.Wars.AtWar(f.Name))
                 .OrderBy(f => VassalPriority(session, f) == 1 ? 0 : 1).ThenBy(f => f.RelationWithPlayer).Take(MostDiplomats).ToList();
             var diplomats = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.CurrentTask == TaskType.Diplomacy && !m.HasTalismanSeed).ToList();
+            var examiners = session.Clan.LivingMembers.Where(m => SpiritualOrificeRules.CanSeeOrifices(m) && m.CaptorFaction == null && m.DiscipleOf == null).ToList();
+            var lastExaminer = examiners.Count == 1 ? examiners[0] : null; // the newborns need one examiner at home (audit §7.2)
             var candidates = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.ID != session.Clan.PatriarchID && !m.HasTalismanSeed
-                    && SpiritualOrificeRules.CanCultivate(m) && m.Realm >= CultivationRealm.QiRefinement && m.Realm < CultivationRealm.PurpleMansion
+                    && SpiritualOrificeRules.Cultivates(m) && m != lastExaminer && m.Realm >= CultivationRealm.QiRefinement && m.Realm < CultivationRealm.PurpleMansion
                     && (m.CurrentTask == TaskType.Cultivation || m.CurrentTask == TaskType.Mine) && TaskRules.IsAllowed(m, TaskType.Diplomacy, huntOpen))
                 .OrderBy(m => m.SpiritualRoot).ThenByDescending(m => (int)m.Realm);
-            var envoys = diplomats.Where(m => SpiritualOrificeRules.CanCultivate(m)).Concat(candidates).Take(targets.Count).ToList();
+            var envoys = diplomats.Where(m => SpiritualOrificeRules.Cultivates(m) && m != lastExaminer).Concat(candidates).Take(targets.Count).ToList();
             for (int i = 0; i < envoys.Count; i++)
             {
                 envoys[i].DiplomacyTarget = targets[i].Name;
@@ -163,7 +165,7 @@ namespace MirrorChronicles.Session
             foreach (var idle in diplomats.Except(envoys))
             {
                 idle.DiplomacyTarget = null;
-                session.Tasks.AssignTask(idle, SpiritualOrificeRules.CanCultivate(idle) ? TaskType.Cultivation : TaskType.Mine);
+                session.Tasks.AssignTask(idle, SpiritualOrificeRules.Cultivates(idle) ? TaskType.Cultivation : TaskType.Mine);
             }
         }
 

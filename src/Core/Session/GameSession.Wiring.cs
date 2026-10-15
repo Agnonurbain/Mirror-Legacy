@@ -99,7 +99,7 @@ namespace MirrorChronicles.Session
             Schemes = new SchemeSystem(Context, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
             Ambushes = new AmbushSystem(Context, Clan, Factions, Schemes, Captives, Techniques, Wounds);
             if (setup.InteractiveBattles) Schemes.Spring = Ambushes.Spring; // a player fights the ambushes; headless, chance settles them
-            Marriages = new MarriageSystem(Context, Clan, Factions, Stability, Resources);
+            Marriages = new MarriageSystem(Context, Clan, Factions, Stability, Resources, Techniques);
             Matches = new MarriageAlliance(Context, Clan, Factions, Treaties, Marriages, Suspicion);
             RandomEvents = new EventManager(Context, Clan, Factions, Deduction, Resources, Stability, Buildings);
             Legacy = new LegacySystem(Context, Clan, Resources, Deduction);

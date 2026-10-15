@@ -52,7 +52,7 @@ namespace MirrorChronicles.Mirror
         {
             var member = clan.FindById(memberId);
             if (member == null || !member.IsAlive || member.CaptorFaction != null) return "ce membre n'est pas au domaine";
-            if (!SpiritualOrificeRules.CanCultivate(member)) return "ce membre ne cultive pas";
+            if (!SpiritualOrificeRules.Cultivates(member)) return "ce membre ne cultive pas";
             if (Refusal() is { } refusal) return refusal;
             mirror.ConsumePower(Settings.GiftCost);
             member.CultivationXP += (int)(PowerLadder.XpForNextStage(member.Realm) * Settings.GiftXpShare);

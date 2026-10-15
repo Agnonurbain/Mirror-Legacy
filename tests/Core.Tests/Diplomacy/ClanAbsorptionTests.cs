@@ -78,6 +78,23 @@ namespace MirrorChronicles.Tests.Diplomacy
         }
 
         [Test]
+        public void AnAbsorbedFoundation_BearsAFoundationOfItsOwnQi()
+        {
+            var s = Quiet();
+            MakeVassal(s, absorptions: Steps);
+            s.Factions.GetFactionByName(Vassal).HighestRealm = CultivationRealm.PurpleMansion; // its strongest joins at the Foundation
+            int members = s.Clan.LivingMembers.Count;
+            s.Absorption.Absorb(Vassal);
+            var founded = s.Clan.LivingMembers.Skip(members).Where(m => m.FoundationId != null).ToList();
+            Assert.IsNotEmpty(founded);
+            foreach (var joiner in founded)
+            {
+                Assert.IsNotNull(joiner.QiId, "a Foundation practises a Qi");
+                Assert.AreEqual(Fixtures.Content.Qi.Single(q => q.Id == joiner.QiId).Foundation, joiner.FoundationId, "audit §7.6: its foundation is its Qi's");
+            }
+        }
+
+        [Test]
         public void AnAbsorbedVassal_GivesUpItsShard()
         {
             var s = Quiet();

@@ -251,6 +251,7 @@ Dao des **dieux, des fantômes et des esprits**, fondé sur l'acte de **saisir u
 
 🎮 Phase 2 : `CharacterData.HasSpiritualOrifice` tiré à la naissance selon D3 ; `OrificeKnown` passe à vrai quand un cultivateur confirmé l'examine (tâche ou événement). Un mortel ne peut pas choisir la tâche Cultivation mais travaille (mine, patrouille, commerce). Les Graines de Sceau sont un objet rare (miroir, commerce, événements).
 ✅ Fait en L2 (2026-09-25) : `SpiritualOrificeRules`, `TaskRules`, `MirrorSystem.GrantTalismanSeed` (40 Puissance, 2 graines actives + 1 par éclat restauré). L'examen a lieu à chaque phase Héritage dès qu'un membre a ouvert l'Œil du Sommet (5e chakra, §5) ; les bêtes spirituelles, esprits et dragons s'éveillent sans orifice.
+  - ✅ Audit §7.1-7.2 (2026-10-15) : l'examinateur doit être **libre et au domaine** (ni captif, ni au loin, ni en retraite) ; tant que personne n'a examiné un orifice, son porteur vit comme un mortel (ni cultivation, ni méthode) — seuls une graine du miroir ou un être non humain cultivent sans examen. Un adulte de la Respiration Embryonnaire fait ce que fait un mortel, espionne dès le 3e chakra (§7.4).
 
 ---
 

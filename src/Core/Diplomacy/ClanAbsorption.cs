@@ -104,11 +104,12 @@ namespace MirrorChronicles.Diplomacy
                 SpiritualRoot = rng.Next(30, 71),
                 Temperament = FoundationRules.RandomTemperament(rng)
             };
-            if (joiner.Realm >= CultivationRealm.Foundation) joiner.FoundationId = ctx.Content.Qi.FirstOrDefault(q => q.Foundation != null && !q.Vanished)?.Foundation; // a foundation of its own
             PowerLadder.Normalize(joiner);
             PowerLadder.NormalizeLifespan(joiner);
             joiner.MaxLifespan = System.Math.Max(joiner.MaxLifespan, joiner.Age + 10);
-            techniques.NormalizeMember(joiner);
+            techniques.Equip(joiner, power.Techniques); // its power's method, on its Qi
+            if (joiner.Realm >= CultivationRealm.Foundation) // a foundation of its own Qi (AUDIT_LORE.md §7.6)
+                joiner.FoundationId = techniques.FindQi(joiner.QiId)?.Foundation ?? ctx.Content.Qi.FirstOrDefault(q => q.Foundation != null && !q.Vanished)?.Foundation;
             if (joiner.FoundationId != null) techniques.Knowledge.Reveal(World.FactKind.Ability, joiner.FoundationId, World.KnowledgeSource.Formed);
             return joiner;
         }

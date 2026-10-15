@@ -180,7 +180,7 @@ namespace MirrorChronicles.Tests
             Rivals = new AscentRivals(Ctx, Clan, Factions, Suspicion, Sponsorships, Treaties, Buildings, Resources);
             Paths = new AscentPaths(Ctx, Clan, Factions, Techniques, Suspicion, Shards, Wounds);
             Schemes = new SchemeSystem(Ctx, Clan, Factions, Captives, Secrets, Treaties, Politics, Patrons);
-            Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability, Resources);
+            Marriages = new MarriageSystem(Ctx, Clan, Factions, Stability, Resources, Techniques);
             Matches = new MarriageAlliance(Ctx, Clan, Factions, Treaties, Marriages, Suspicion);
             Challenges = new ChallengeSystem(Ctx, Clan, Resources, Factions, Techniques, Wounds, Suspicion);
             Ambushes = new AmbushSystem(Ctx, Clan, Factions, Schemes, Captives, Techniques, Wounds);

@@ -62,12 +62,24 @@ namespace MirrorChronicles.Characters
             return character.HasSpiritualOrifice || character.HasTalismanSeed || character.Species != Species.Human;
         }
 
-        /// <summary>Only a confirmed cultivator — Summit Eye chakra or beyond — can see another's orifice.</summary>
-        public static bool CanDetectOrifice(CharacterData examiner)
-        {
-            if (!examiner.IsAlive || !CanCultivate(examiner)) return false;
-            return examiner.Realm > CultivationRealm.Embryonic || examiner.RealmStage >= DetectionChakraStage;
-        }
+        /// <summary>
+        /// Cultivates in practice: an orifice someone examined, a Talisman Seed, or a non-human (AUDIT_LORE.md §7.1) — an orifice
+        /// nobody examined gathers nothing, and its tasks do not betray it.
+        /// </summary>
+        public static bool Cultivates(CharacterData character) =>
+            CanCultivate(character) && (character.OrificeKnown || character.HasTalismanSeed || character.Species != Species.Human);
+
+        /// <summary>
+        /// Only a confirmed cultivator — Summit Eye chakra or beyond — can see another's orifice, and only at the domain: not a
+        /// captive, a disciple sent away, one in retreat, nor one at a task far from home (AUDIT_LORE.md §7.2).
+        /// </summary>
+        public static bool CanDetectOrifice(CharacterData examiner) =>
+            CanSeeOrifices(examiner) && examiner.CaptorFaction == null && examiner.DiscipleOf == null && examiner.Retreat == Retreat.None
+            && !TaskRules.IsAway(examiner.CurrentTask);
+
+        /// <summary>Sees orifices wherever it is: a living, confirmed cultivator at the Summit Eye chakra or beyond.</summary>
+        public static bool CanSeeOrifices(CharacterData examiner) =>
+            examiner.IsAlive && Cultivates(examiner) && (examiner.Realm > CultivationRealm.Embryonic || examiner.RealmStage >= DetectionChakraStage);
 
         /// <param name="roll">Uniform draw in [0, 1]; 1 (possible with Unity's Random.value) is clamped to the maximum.</param>
         public static int MortalLifespan(double roll)
