@@ -188,8 +188,11 @@ namespace MirrorChronicles.Presentation
             bus.OnKingdomFounded += power => Add($"{power.Name} fonde un royaume.");
             bus.OnElderDied += (power, elder, demon) =>
             {
-                if (elder.RenegadeId != null) Add($"{elder.Name}, renégat du clan devenu moine du {power.Name}, meurt.");
-                else
+                if (elder.RenegadeId != null)
+                {
+                    Add($"{elder.Name}, renégat du clan devenu moine du {power.Name}, meurt.");
+                    return;
+                }
                 if (elder.Realm >= CultivationRealm.PurpleMansion)
                     Add(demon ? $"{elder.Name}, de {power.Name}, échoue au Noyau d'Or : un démon d'essence métallique naît."
                               : $"{elder.Name}, de {power.Name}, meurt au terme de sa vie.");

@@ -246,6 +246,7 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public void ProcessYear()
         {
+            ForgetTheVanishedRenegades();
             foreach (var captive in clan.LivingMembers.Where(m => m.CaptorFaction != null).ToList()) ConvertUnderDuress(captive);
             foreach (var monk in clan.LivingMembers.Where(m => m.Path == CultivationPath.Buddhist && m.CaptorFaction == null).ToList())
             {
@@ -294,6 +295,7 @@ namespace MirrorChronicles.Characters
             captive.CapturedYear = null;
             if (!clan.Depart(captive)) return;
             int year = ctx.Clock.Year;
+            captive.Renegade = true;
             temple.Elders.Add(new FactionElder // a renegade elder of its temple, the clan will meet again (L7)
             {
                 Id = RenegadePrefix + captive.ID, Name = captive.FullName, Realm = captive.Realm, Stage = captive.RealmStage,
@@ -302,6 +304,21 @@ namespace MirrorChronicles.Characters
             ElderSystem.Sync(temple);
             ctx.Log.Warning($"[Buddhism] {temple.Name} converts its captive {captive.FullName}: it renounces the clan.");
             ctx.Events.TriggerCaptiveConverted(captive, temple.Name);
+        }
+
+        /// <summary>
+        /// A renegade no power counts among its elders any more — dead of age, struck, taken, its temple absorbed — is dead in the
+        /// clan's records too (quietly: it had left the clan).
+        /// </summary>
+        private void ForgetTheVanishedRenegades()
+        {
+            foreach (var record in clan.Registry.Records.Where(r => r.Renegade && r.IsAlive).ToList())
+            {
+                if (factions.Factions.Any(f => f.Elders.Any(e => e.RenegadeId == record.ID))) continue;
+                record.IsAlive = false;
+                record.Renegade = false;
+                ctx.Log.Info($"[Buddhism] {record.FullName}, renegade of the clan, is no more.");
+            }
         }
 
         /// <summary>The id of a renegade elder: its clan record's, prefixed.</summary>
@@ -317,13 +334,20 @@ namespace MirrorChronicles.Characters
         public CharacterData TakeBack(FactionData temple, FactionElder renegade)
         {
             var member = renegade?.RenegadeId == null ? null : clan.FindById(renegade.RenegadeId);
-            if (temple == null || member == null || !temple.Elders.Remove(renegade)) return null;
+            if (temple == null || member == null || !member.IsAlive || !member.Departed || !temple.Elders.Contains(renegade)) return null;
+            temple.Elders.Remove(renegade);
             ElderSystem.Sync(temple);
             member.Age = renegade.Age(ctx.Clock.Year);
-            member.Realm = renegade.Realm;
+            member.Realm = (CultivationRealm)Math.Min((int)renegade.Realm, (int)CultivationRealm.PurpleMansion); // a renegade never forges a core
             member.RealmStage = renegade.Stage;
             member.MaxLifespan = renegade.MaxLifespan;
-            if (!clan.Rejoin(member)) return null;
+            member.CultivationXP = 0;
+            member.CurrentTask = TaskType.None;
+            member.Retreat = Retreat.None;
+            member.CaptorFaction = null;
+            member.CapturedYear = null;
+            member.Renegade = false;
+            clan.Rejoin(member);
             ctx.Log.Info($"[Buddhism] {member.FullName}, beaten leading {temple.Name}'s army, is taken back by the clan.");
             ctx.Events.TriggerRenegadeTakenBack(member, temple.Name);
             return member;

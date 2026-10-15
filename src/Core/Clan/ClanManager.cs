@@ -186,7 +186,7 @@ namespace MirrorChronicles.Clan
             foreach (var record in records)
             {
                 Registry.Register(record);
-                if (record.IsAlive) living.Add(record);
+                if (record.IsAlive && !record.Departed) living.Add(record); // one who left stays gone // one who left stays gone
             }
 
             PatriarchID = patriarchId;

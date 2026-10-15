@@ -146,7 +146,10 @@ namespace MirrorChronicles.Presentation
                 .ThenByDescending(m => m.RealmStage).ThenBy(m => m.FullName, StringComparer.Ordinal)
                 .Select(m => new ChallengeCandidate(m.ID, m.FullName, RankCatalog.DisplayName(m), wars.FighterRefusal(m)))
                 .ToList();
-            return new PendingWarView(battle.Enemy, RankCatalog.RealmName(battle.LeaderRealm), RankCatalog.RealmName(battle.SoldierRealm),
+            var leader = wars.Army(battle)[0]; // a temple's renegade, once of the clan, leads at its own realm (L7)
+            string leaderRank = leader.ID.StartsWith(BuddhismSystem.RenegadePrefix, StringComparison.Ordinal)
+                ? $"{leader.FullName}, renégat du clan — {RankCatalog.RealmName(leader.Realm)}" : RankCatalog.RealmName(battle.LeaderRealm);
+            return new PendingWarView(battle.Enemy, leaderRank, RankCatalog.RealmName(battle.SoldierRealm),
                 Math.Max(0, battle.Soldiers - battle.AlliesCame), battle.AlliesCame, session.Context.Content.Balance.Wars.WarMaxFighters,
                 candidates, wars.Queue.Count - 1);
         }

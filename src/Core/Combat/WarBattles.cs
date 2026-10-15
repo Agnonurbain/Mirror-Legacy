@@ -101,7 +101,7 @@ namespace MirrorChronicles.Combat
                 if (i == 0 && renegade != null)
                     return new CharacterData
                     {
-                        ID = renegade.Id, FirstName = renegade.Name, LastName = "", IsMale = rng.Next(2) == 0, Age = renegade.Age(ctx.Clock.Year),
+                        ID = renegade.Id, FirstName = renegade.Name, LastName = "", IsMale = clan.FindById(renegade.RenegadeId)?.IsMale ?? true, Age = renegade.Age(ctx.Clock.Year),
                         Realm = renegade.Realm, RealmStage = renegade.Stage, SpiritualRoot = LeaderRoot, HasSpiritualOrifice = true, OrificeKnown = true,
                         Path = CultivationPath.Buddhist, FromFaction = battle.Enemy
                     };
