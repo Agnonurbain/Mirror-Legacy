@@ -98,6 +98,25 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(0, w.Resources.QiPortions("upstream-brook-qi"));
         }
 
+        [TestCase(FruitionStatus.Broken, 1)]
+        [TestCase(FruitionStatus.Occupied, 0)]
+        public void CondensingOnABrokenLineage_MayDeviate(FruitionStatus status, int wounds)
+        {
+            // a broken lineage's Qi unsettles each breakthrough (audit §7.9), a condensation too (audit §8.10)
+            var w = new TestWorld(new FixedRandom(Pass));
+            w.Fruitions.Restore(new Dictionary<string, FruitionState> { ["orthodox-water"] = new FruitionState(status, null) }, new System.Random(1));
+            w.Techniques.Learn("upstream-brook-method");
+            w.Resources.AddQi("upstream-brook-qi", 1);
+            var c = Master(w);
+            w.Abilities.Pursue(c, Farewell);
+            c.CultivationXP = Xp;
+
+            w.Abilities.ProcessBreakthroughPhase();
+
+            CollectionAssert.Contains(c.DivineAbilities, Farewell, "condensed all the same");
+            Assert.AreEqual(wounds, c.DaoWounds);
+        }
+
         [Test]
         public void Cultivation_Waits_WithoutAnAlignedMethod()
         {

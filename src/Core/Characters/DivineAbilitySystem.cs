@@ -214,8 +214,18 @@ namespace MirrorChronicles.Characters
             return false;
         }
 
+        /// <summary>The Qi of the places and the wounds (set by the session): a broken lineage's condensation may deviate (audit §8.10).</summary>
+        public World.RegionalQi Place { get; set; }
+        public WoundSystem Wounds { get; set; }
+
         private void Condense(CharacterData member, string ability)
         {
+            if (Place != null && Wounds != null && Place.StatusOf(FoundationRef.Parse(ability).FruitionId) == FruitionStatus.Broken
+                && ctx.Rng.Chance(ctx.Content.Balance.RegionalQi.BrokenDeviationChance))
+            {
+                ctx.Log.Warning($"[Abilities] {member.FullName}'s Qi deviates condensing an ability of a broken lineage.");
+                Wounds.ApplyDaoWound(member); // a broken lineage unsettles the condensation (audit §7.9, §8.10)
+            }
             member.DivineAbilities.Add(ability);
             techniques.Knowledge.Reveal(FactKind.Ability, ability, KnowledgeSource.Condensed);
             member.PursuedAbility = null;

@@ -341,6 +341,79 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void Forge_TowardABrokenLineage_IsNotTried_AndSaysWhy()
+        {
+            // no position is asked of a broken lineage: the essence would wait for ever (audit §8.10)
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Master(w, "nourishing-fire:ember-pheasant", "nourishing-fire:heavenly-blaze",
+                "nourishing-fire:hearth-god", "nourishing-fire:unrevealed-4", "nourishing-fire:unrevealed-5");
+            KnowGoldSeeking(w, "nourishing-fire");
+            StringAssert.Contains("brisée", w.GoldenCore.ForgeRefusal(c, "nourishing-fire"));
+            Assert.IsFalse(w.GoldenCore.Forge(c, "nourishing-fire"));
+            Assert.AreEqual(Xp, c.CultivationXP);
+        }
+
+        private static readonly string[] FiveNourishingFire =
+        {
+            "nourishing-fire:ember-pheasant", "nourishing-fire:heavenly-blaze", "nourishing-fire:hearth-god",
+            "nourishing-fire:unrevealed-4", "nourishing-fire:unrevealed-5"
+        };
+
+        [Test]
+        public void AnElect_StillForgesTowardItsDestiny_ThoughItsLineageIsBroken()
+        {
+            // its essence waits, as it ever did; it is never kept from the Golden Core (audit §8.10, review)
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Master(w, FiveNourishingFire);
+            c.SubPath = CultivationSubPath.SpiritualNature;
+            c.FruitionId = "nourishing-fire";
+            KnowGoldSeeking(w, "nourishing-fire");
+            Assert.IsNull(w.GoldenCore.ForgeRefusal(c, "nourishing-fire"));
+        }
+
+        [Test]
+        public void AGoverningSovereign_StillForgesTowardABrokenLineage()
+        {
+            // the imperial way asks Heaven for no position: a False Golden Core, as the late emperors'
+            var w = new TestWorld(new FixedRandom(Pass));
+            w.GoldenCore.GovernanceBonus = _ => 10;
+            var c = Master(w, FiveNourishingFire);
+            Assert.IsNull(w.GoldenCore.ForgeRefusal(c, "nourishing-fire"));
+        }
+
+        private static void HeldByAPower(TestWorld w, int relation)
+        {
+            w.Factions.AddFaction(new FactionData { Name = "Famille Tan", Kind = FactionKind.Family, RegionId = "linxi", RelationWithPlayer = relation,
+                Elders = { new FactionElder { Id = "tan-qing", Name = "Tan Qing", Realm = CultivationRealm.GoldenCore, FruitionId = MutableWater } } });
+        }
+
+        [Test]
+        public void APermission_IsReadilerGranted_ByAFriendlyHolder()
+        {
+            var w = new TestWorld(new FixedRandom(0.5)); // above the bare chance
+            HeldByAPower(w, 100);
+            Assert.IsTrue(w.GoldenCore.RequestPermission(MutableWater, w.Tribute()), "audit §8.10: the holder's leave follows the relation");
+        }
+
+        [Test]
+        public void ThePermissionOdds_FollowTheRelation()
+        {
+            var friend = new TestWorld();
+            HeldByAPower(friend, 100);
+            var foe = new TestWorld();
+            HeldByAPower(foe, -50);
+            Assert.Greater(friend.GoldenCore.PermissionOdds(MutableWater), foe.GoldenCore.PermissionOdds(MutableWater));
+        }
+
+        [Test]
+        public void APermission_IsRefused_ByAHostileHolder()
+        {
+            var w = new TestWorld(new FixedRandom(0.2)); // within the bare chance
+            HeldByAPower(w, -100);
+            Assert.IsFalse(w.GoldenCore.RequestPermission(MutableWater, w.Tribute()));
+        }
+
+        [Test]
         public void ClaimPosition_AnIntercalaryOfAFreeLineage_NeedsNoPermission()
         {
             var w = new TestWorld(new FixedRandom(Pass));
