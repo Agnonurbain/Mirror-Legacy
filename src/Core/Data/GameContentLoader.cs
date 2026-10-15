@@ -635,6 +635,12 @@ namespace MirrorChronicles.Data
                 var abilities = f.Abilities ?? Array.Empty<DivineAbilityDefinition>();
                 Require(abilities.All(a => !string.IsNullOrWhiteSpace(a.Id)) && abilities.Select(a => a.Id).Distinct().Count() == abilities.Count,
                     FruitionsFile, $"{f.Id}: every ability needs its own id.");
+                foreach (var copy in abilities.Where(a => a.Original != null)) // audit §8.7: a copy names an ability of another lineage
+                {
+                    var (origin, originalId) = FoundationRef.Parse(copy.Original);
+                    Require(copy.Substitute && origin != f.Id && fruitions.Any(o => o.Id == origin && o.Abilities.Any(a => a.Id == originalId && !a.Substitute)),
+                        FruitionsFile, $"{f.Id}:{copy.Id}: a copy is a substitution of an orthodox ability of another lineage (\"{copy.Original}\").");
+                }
                 Require(abilities.Count(a => !a.Substitute && !a.Peripheral) == OrthodoxAbilities, FruitionsFile,
                     $"{f.Id}: a lineage has a centre of five orthodox abilities — mark the others peripheral (audit §7.7), name them null while the world has not revealed them.");
                 Require(abilities.All(a => !(a.Substitute && a.Peripheral)), FruitionsFile, $"{f.Id}: an ability is a substitute or peripheral, not both.");

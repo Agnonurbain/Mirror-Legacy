@@ -178,11 +178,16 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>The Qi of a known technique aligned on the ability (its Qi builds that foundation), or null.</summary>
-        private QiDefinition AlignedQi(string ability) =>
-            ability == null ? null : techniques.Known
+        private QiDefinition AlignedQi(string ability)
+        {
+            if (ability == null) return null;
+            var (lineage, id) = FoundationRef.Parse(ability);
+            string original = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == lineage)?.Abilities.FirstOrDefault(a => a.Id == id)?.Original;
+            return techniques.Known
                 .Where(t => t.Kind == TechniqueKind.Cultivation && t.RequiredQiId != null)
                 .Select(t => techniques.FindQi(t.RequiredQiId))
-                .FirstOrDefault(q => q?.Foundation == ability);
+                .FirstOrDefault(q => q?.Foundation == ability || (original != null && q?.Foundation == original)); // a copy, by its original's Qi (audit §8.7)
+        }
 
         /// <summary>An elect's next ability: the first its destined Fruition names that it does not hold yet; null when none is left.</summary>
         private string NextDestined(CharacterData member)
