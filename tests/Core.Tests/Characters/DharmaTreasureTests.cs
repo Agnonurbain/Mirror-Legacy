@@ -184,6 +184,17 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void WithoutARealization_AnotherPositionOfItsLineage_StillMastersIt()
+        {
+            var s = Session(With(d => d with { MasterlessStrikeChance = 1.0 }));
+            var m = WithTreasure(s);
+            s.Dharma.MakeDesignation(m);
+            var surplus = Monarch(s, GoldenCoreState.Surplus);
+            s.Clan.Kill(m, DeathCause.OldAge);
+            Assert.AreEqual(surplus.ID, s.Dharma.MasterOf(s.Dharma.Designations.Single())?.ID, "it holds it, though it could not make one");
+        }
+
+        [Test]
         public void TreasuresAndDesignations_SurviveASave()
         {
             var content = With();

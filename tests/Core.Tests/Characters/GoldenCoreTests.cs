@@ -326,6 +326,21 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void Forge_TowardASurplusOfAFreeLineage_IsNotTried()
+        {
+            // the essence would wait for ever without a Realization to serve (audit §8.5, review)
+            var w = new TestWorld(new FixedRandom(Pass));
+            w.Fruitions.Restore(new System.Collections.Generic.Dictionary<string, FruitionState> { [MutableWater] = new FruitionState(FruitionStatus.Free, null) }, new System.Random(1));
+            var c = Master(w, MutableWithSubstitute);
+            KnowGoldSeeking(w, MutableWater);
+
+            StringAssert.Contains("Réalisation", w.GoldenCore.ForgeRefusal(c, MutableWater));
+            Assert.IsFalse(w.GoldenCore.Forge(c, MutableWater));
+            Assert.AreEqual(Xp, c.CultivationXP, "nothing spent");
+            Assert.AreEqual(CultivationRealm.PurpleMansion, c.Realm);
+        }
+
+        [Test]
         public void ClaimPosition_AnIntercalaryOfAFreeLineage_NeedsNoPermission()
         {
             var w = new TestWorld(new FixedRandom(Pass));
