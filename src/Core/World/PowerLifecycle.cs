@@ -57,12 +57,12 @@ namespace MirrorChronicles.World
         {
             if (parent.Elders.Count < 2 || Crowded || !ctx.Rng.Chance(Settings.SecessionChance)) return;
             var strongest = parent.Elders.OrderByDescending(e => e.Realm).First();
-            var founder = parent.Elders.Where(e => e != strongest && e.Realm >= CultivationRealm.PurpleMansion)
+            var founder = parent.Elders.Where(e => e != strongest && e.RenegadeId == null && e.Realm >= CultivationRealm.PurpleMansion) // a renegade stays with its temple (L7)
                 .OrderByDescending(e => e.Realm).FirstOrDefault();
             if (founder == null) return;
             bool sect = founder.Realm >= CultivationRealm.GoldenCore;
             int needed = sect ? Settings.SectFollowers : Settings.GateFollowers;
-            var followers = parent.Elders.Where(e => e != strongest && e != founder && e.Realm >= CultivationRealm.Foundation)
+            var followers = parent.Elders.Where(e => e != strongest && e != founder && e.RenegadeId == null && e.Realm >= CultivationRealm.Foundation)
                 .OrderByDescending(e => e.Realm).Take(needed).ToList();
             if (followers.Count < needed) return; // a gate is not founded as easily as a clan (the user's rule)
             string name = FreeName(sect ? ctx.Content.Names.SectNames : ctx.Content.Names.GateNames);

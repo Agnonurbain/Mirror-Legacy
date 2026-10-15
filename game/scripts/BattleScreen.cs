@@ -139,7 +139,8 @@ namespace MirrorChronicles.Game
                 decline.Text = "Laisser faire le sort";
                 accept.Disabled = false;
                 decline.Disabled = false;
-                summons.Text = $"Guerre ! {war.Enemy} marche sur le clan : son chef, de rang {war.LeaderRank}"
+                summons.Text = $"Guerre ! {war.Enemy} marche sur le clan : son chef, "
+                    + (war.Renegade != null ? $"{war.Renegade}, renégat du clan, " : "") + $"de rang {war.LeaderRank}"
                     + (war.Soldiers > 0 ? $", et {war.Soldiers} soldat(s) de rang {war.SoldierRank}" : ", seul")
                     + (war.AlliesCame > 0 ? $" ({war.AlliesCame} allié(s) venu(s) retiennent des soldats)" : "") + ". "
                     + $"Choisissez jusqu'à {war.MaxFighters} combattant(s), ou laissez le sort décider."

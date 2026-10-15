@@ -146,6 +146,7 @@ namespace MirrorChronicles.Session
             Ambushes.Alchemy = Alchemy;       // the ambushed draw on the same pills (G6)
             HuntBattles.Alchemy = Alchemy;    // and the strikers
             WarBattles.Alchemy = Alchemy;     // and the war's fighters
+            WarBattles.Buddhism = Buddhism;   // a renegade monk beaten at the head of its temple's army may come back (L7)
             HuntBattles.OtherBattle = () => Challenges.Pending != null || Challenges.Current != null || Ambushes.Pending != null || Ambushes.Current != null
                 || WarBattles.Pending != null || WarBattles.Current != null; // one battle at a time
             PowerSchemes = new PowerSchemeSystem(Context, Factions, Politics);

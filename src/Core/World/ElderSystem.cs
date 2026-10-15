@@ -147,7 +147,7 @@ namespace MirrorChronicles.World
                         if (!TurnToATemple(power, elder, year)) Die(power, elder, demon: false);
                     }
                     else if (elder.Realm < CultivationRealm.PurpleMansion) Rise(power, elder, year);
-                    else if (elder.Realm == CultivationRealm.PurpleMansion) TryTheGoldenCore(power, elder, year);
+                    else if (elder.Realm == CultivationRealm.PurpleMansion && elder.RenegadeId == null) TryTheGoldenCore(power, elder, year); // a renegade monk never forges a core (L7)
                 }
                 EnterTheYoung(power, year);
                 RefinePills(power);
@@ -221,7 +221,7 @@ namespace MirrorChronicles.World
         /// </summary>
         public bool Dare(FactionData power, FactionElder elder, double bar)
         {
-            if (elder.Realm != CultivationRealm.PurpleMansion || !elder.Perfected || elder.GoldenCoreOdds < bar) return false;
+            if (elder.Realm != CultivationRealm.PurpleMansion || !elder.Perfected || elder.GoldenCoreOdds < bar || elder.RenegadeId != null) return false;
             if (ctx.Rng.NextDouble() < elder.GoldenCoreOdds) Advance(power, elder, CultivationRealm.GoldenCore, ctx.Clock.Year);
             else Die(power, elder, demon: true);
             ElderSystem.Sync(power);

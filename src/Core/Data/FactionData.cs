@@ -103,6 +103,7 @@ namespace MirrorChronicles.Data
         public bool ImperialCore { get; set; }           // its Golden Core forged by governing its kingdom: no Realization asked
         public bool Reborn { get; set; }                 // a True Monarch come back from rebirth: it bends lesser minds (audit §1.8)
         public int HumanPillsTaken { get; set; }         // human pills swallowed in its last years (audit §2.10, parity)
+        public string RenegadeId { get; set; }           // a member of the clan converted by its temple as a captive: the clan's record of it (L7, 2.56)
         public bool ThrallOfClan { get; set; }           // its mind bent by the clan's returned ancestor: the clan's eyes inside (audit §1.8)
 
         public int Age(int year) => year - BornYear;

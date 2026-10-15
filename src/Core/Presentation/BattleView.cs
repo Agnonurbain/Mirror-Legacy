@@ -35,7 +35,7 @@ namespace MirrorChronicles.Presentation
     /// who came, who may fight and how many, and how many other battles still wait after this one.
     /// </summary>
     public sealed record PendingWarView(string Enemy, string LeaderRank, string SoldierRank, int Soldiers, int AlliesCame, int MaxFighters,
-        IReadOnlyList<ChallengeCandidate> Candidates, int StillWaiting);
+        IReadOnlyList<ChallengeCandidate> Candidates, int StillWaiting, string Renegade = null);
 
     /// <summary>The battle screen (G6): the grid, the fighters, the actions of the clan's fighter whose turn it is, the outcome.</summary>
     public static class BattleView
@@ -146,9 +146,11 @@ namespace MirrorChronicles.Presentation
                 .ThenByDescending(m => m.RealmStage).ThenBy(m => m.FullName, StringComparer.Ordinal)
                 .Select(m => new ChallengeCandidate(m.ID, m.FullName, RankCatalog.DisplayName(m), wars.FighterRefusal(m)))
                 .ToList();
-            return new PendingWarView(battle.Enemy, RankCatalog.RealmName(battle.LeaderRealm), RankCatalog.RealmName(battle.SoldierRealm),
+            var leader = wars.Army(battle)[0]; // a temple's renegade, once of the clan, leads at its own realm (L7)
+            string renegade = leader.ID.StartsWith(BuddhismSystem.RenegadePrefix, StringComparison.Ordinal) ? leader.FullName : null;
+            return new PendingWarView(battle.Enemy, RankCatalog.RealmName(leader.Realm), RankCatalog.RealmName(battle.SoldierRealm),
                 Math.Max(0, battle.Soldiers - battle.AlliesCame), battle.AlliesCame, session.Context.Content.Balance.Wars.WarMaxFighters,
-                candidates, wars.Queue.Count - 1);
+                candidates, wars.Queue.Count - 1, renegade);
         }
 
         private static BattleAction Line(Battle battle, string id, string label, ICombatAction action)

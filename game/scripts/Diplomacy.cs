@@ -173,7 +173,7 @@ namespace MirrorChronicles.Game
             Add(powers, "Débats du Dao (perdre coûte la face, et peut convertir, blesser ou briser le débatteur) :");
             foreach (var target in targets)
             {
-                Add(powers, $"  {target.Temple} ({target.School}){(target.Refusal != null ? $" — {target.Refusal}" : "")}");
+                Add(powers, $"  {target.Temple} ({target.School}){(target.Renegade != null ? $" — son champion {target.Renegade}, renégat du clan, connaît les siens" : "")}{(target.Refusal != null ? $" — {target.Refusal}" : "")}");
                 var row = new HBoxContainer { SizeFlagsHorizontal = SizeFlags.ShrinkBegin };
                 var debater = new OptionButton();
                 foreach (var d in target.Debaters) debater.AddItem($"{d.Name} — {d.Odds} %");

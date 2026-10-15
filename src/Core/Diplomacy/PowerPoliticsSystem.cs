@@ -127,7 +127,7 @@ namespace MirrorChronicles.Diplomacy
 
         /// <summary>An elder of the power not already wed to another power; the youngest first (the longest union).</summary>
         private FactionElder FreeElder(FactionData power) =>
-            power.Elders.Where(e => !marriages.Any(m => m.ElderA == e.Id || m.ElderB == e.Id))
+            power.Elders.Where(e => e.RenegadeId == null && !marriages.Any(m => m.ElderA == e.Id || m.ElderB == e.Id)) // a renegade monk is not wed (L7)
                 .OrderByDescending(e => e.BornYear).ThenBy(e => e.Id, StringComparer.Ordinal).FirstOrDefault();
 
         /// <summary>A marriage ends with either spouse, or either power.</summary>

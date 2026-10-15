@@ -34,7 +34,7 @@ namespace MirrorChronicles.Presentation
     public sealed record DebaterLine(string MemberId, string Name, string Rank, int Odds);
 
     /// <summary>A temple the clan may debate: its debaters and their odds, or why not now.</summary>
-    public sealed record DebateTarget(string Temple, string School, string Refusal, IReadOnlyList<DebaterLine> Debaters);
+    public sealed record DebateTarget(string Temple, string School, string Refusal, IReadOnlyList<DebaterLine> Debaters, string Renegade = null);
 
     /// <summary>A member who may bind itself to a Profundity (R15), and the great partners it may borrow from.</summary>
     public sealed record AttendantLine(string MemberId, string Name, string Rank, IReadOnlyList<PatronChoice> Lenders);
@@ -238,7 +238,7 @@ namespace MirrorChronicles.Presentation
                 var debaters = Debaters(session, t.Name);
                 string refusal = debaters.Count == 0 ? "le clan n'a personne pour débattre"
                     : session.Debates.ChallengeRefusal(session.Clan.FindById(debaters[0].MemberId), t.Name);
-                return new DebateTarget(t.Name, SchoolLabel(t.School.Value), refusal, debaters);
+                return new DebateTarget(t.Name, SchoolLabel(t.School.Value), refusal, debaters, BuddhismSystem.RenegadeOf(t)?.Name);
             }).ToList();
 
         /// <summary>« école ancienne » or « école moderne ».</summary>

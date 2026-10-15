@@ -617,8 +617,9 @@
   },
   "conversions": {
 	"middleWoundChance": 0.5, "captiveConversionChance": 0.2, "inductionChance": 0.5, "elderConversionChance": 0.3, "qiFormBlood": 9,
+	"renegadeDebateEdge": 15, "renegadeTakeBackChance": 0.5,
 	"provenance": "Interpretation",
-	"source": "LORE.md §3.8 ; wiki « Cultivation System » (changer de Dao : circonstanciel, plus sûr seulement aux royaumes très bas ou très hauts) ; « Buddhist Dao » (débat perdu : conversion forcée entre Aspects, induction de l'ancien au moderne ou l'inverse) ; Li Chengpan (captif converti sous la contrainte) ; Tang Shedu (bloqué, passe au Nord) ; Zhang Tianyuan (disciples changés en diables par le Manuel du Dharma de Sang) ; Li Wushao (bête devenue Dieu d'Édit) ; choix de l'utilisateur 2026-10-14"
+	"source": "LORE.md §3.8 ; wiki « Cultivation System » (changer de Dao : circonstanciel, plus sûr seulement aux royaumes très bas ou très hauts) ; « Buddhist Dao » (débat perdu : conversion forcée entre Aspects, induction de l'ancien au moderne ou l'inverse) ; Li Chengpan (captif converti sous la contrainte) ; Tang Shedu (bloqué, passe au Nord) ; Zhang Tianyuan (disciples changés en diables par le Manuel du Dharma de Sang) ; Li Wushao (bête devenue Dieu d'Édit) ; choix de l'utilisateur 2026-10-14 ; le captif converti devient aîné de son temple, champion aux débats et chef de son armée, repris s'il est battu (choix de l'utilisateur 2026-10-15)"
   },
   "demonicDao": {
 	"absorptionSpeed": 0.5, "lifespanFactor": 2.0, "minBoundAge": 40, "maxBoundAge": 120, "minRoot": 20, "maxRoot": 60,

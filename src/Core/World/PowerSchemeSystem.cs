@@ -98,7 +98,7 @@ namespace MirrorChronicles.World
         /// <summary>An ambush on an elder below the Golden Core the thief can master; false when none is within reach.</summary>
         public bool Ambush(FactionData thief, FactionData victim)
         {
-            var prey = victim.Elders.Where(e => e.Realm < CultivationRealm.GoldenCore && e.Realm <= thief.HighestRealm).ToList();
+            var prey = victim.Elders.Where(e => e.Realm < CultivationRealm.GoldenCore && e.Realm <= thief.HighestRealm && e.RenegadeId == null).ToList(); // the clan's renegade is the clan's to meet (L7)
             if (prey.Count == 0) return false;
             var elder = prey[ctx.Rng.Next(prey.Count)];
             victim.Elders.Remove(elder);

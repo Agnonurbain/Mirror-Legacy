@@ -139,6 +139,7 @@ namespace MirrorChronicles.Presentation
             bus.OnMonkRose += m => Add($"{m.FullName} s'élève : {RankCatalog.DisplayName(m)}.");
             bus.OnBeastBound += b => Add($"{b.FullName} est lié(e) au clan : une bête du Dao Démoniaque, qui garde et chasse pour lui.");
             bus.OnLineageAwakened += b => Add($"la lignée de {b.FullName} s'éveille : {RankCatalog.DisplayName(b)}.");
+            bus.OnRenegadeTakenBack += (m, temple) => Add($"{m.FullName}, renégat devenu moine du {temple}, est battu à la tête de son armée : le clan le reprend, et le ramène à lui.");
             bus.OnHauntingBegan += h => Add($"{h.Name} s'est imprimé si profondément dans le monde que sa mémoire hante le clan : l'honorer ou l'exorciser.");
             bus.OnHauntingMadness += (h, m) => Add($"la hantise de {h.Name} égare l'esprit de {m.FullName} : son Dao est blessé.");
             bus.OnHauntingCalamity += (h, stones) => Add($"la hantise de {h.Name} attire une calamité sur le domaine : {stones} pierres perdues.");
@@ -187,6 +188,11 @@ namespace MirrorChronicles.Presentation
             bus.OnKingdomFounded += power => Add($"{power.Name} fonde un royaume.");
             bus.OnElderDied += (power, elder, demon) =>
             {
+                if (elder.RenegadeId != null)
+                {
+                    Add($"{elder.Name}, renégat du clan devenu moine du {power.Name}, meurt.");
+                    return;
+                }
                 if (elder.Realm >= CultivationRealm.PurpleMansion)
                     Add(demon ? $"{elder.Name}, de {power.Name}, échoue au Noyau d'Or : un démon d'essence métallique naît."
                               : $"{elder.Name}, de {power.Name}, meurt au terme de sa vie.");

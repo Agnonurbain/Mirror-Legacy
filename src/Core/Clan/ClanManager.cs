@@ -58,6 +58,16 @@ namespace MirrorChronicles.Clan
             return true;
         }
 
+        /// <summary>A member who had left comes back to the clan alive (a renegade monk taken back, L7).</summary>
+        public bool Rejoin(CharacterData member)
+        {
+            if (member == null || !member.IsAlive || !member.Departed) return false;
+            member.Departed = false;
+            if (!living.Contains(member)) living.Add(member);
+            ctx.Log.Info($"[ClanManager] {member.FullName} comes back to the clan.");
+            return true;
+        }
+
         /// <summary>Returns false when the character was already dead.</summary>
         public bool Kill(CharacterData character, DeathCause cause)
         {
@@ -176,7 +186,7 @@ namespace MirrorChronicles.Clan
             foreach (var record in records)
             {
                 Registry.Register(record);
-                if (record.IsAlive) living.Add(record);
+                if (record.IsAlive && !record.Departed) living.Add(record); // one who left stays gone // one who left stays gone
             }
 
             PatriarchID = patriarchId;

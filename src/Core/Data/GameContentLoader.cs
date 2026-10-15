@@ -325,8 +325,9 @@ namespace MirrorChronicles.Data
                 BalanceFile, "buddhism needs positive years and speeds, Golden Core stages between 1 and 4, odds between 0 and 1, vows, and debate bounds within 0-100.");
             var conversions = balance.Conversions;
             Require(conversions != null && IsProbability(conversions.MiddleWoundChance) && IsProbability(conversions.CaptiveConversionChance)
-                && IsProbability(conversions.InductionChance) && IsProbability(conversions.ElderConversionChance) && conversions.QiFormBlood >= 0,
-                BalanceFile, "conversions needs odds between 0 and 1 and a blood cost never negative.");
+                && IsProbability(conversions.InductionChance) && IsProbability(conversions.ElderConversionChance) && conversions.QiFormBlood >= 0
+                && conversions.RenegadeDebateEdge >= 0 && IsProbability(conversions.RenegadeTakeBackChance),
+                BalanceFile, "conversions needs odds between 0 and 1, a blood cost and a renegade's edge never negative.");
             var demonic = balance.DemonicDao;
             Require(demonic != null && demonic.AbsorptionSpeed > 0 && demonic.LifespanFactor >= 1 && demonic.MinBoundAge >= 0
                 && demonic.MaxBoundAge >= demonic.MinBoundAge && demonic.MinRoot >= 0 && demonic.MaxRoot >= demonic.MinRoot
