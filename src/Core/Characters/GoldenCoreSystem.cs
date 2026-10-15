@@ -176,6 +176,7 @@ namespace MirrorChronicles.Characters
             if (route == PositionRoute.None) return "ses capacités ne mènent à aucune position de cette lignée";
             if (IsOpen(route, member.FruitionId)) return null;
             var state = fruitions.State(member.FruitionId);
+            if (state?.Status == FruitionStatus.Free && route == PositionRoute.Surplus) return "un Surplus sert une Réalisation tenue : cette lignée n'a pas de maître";
             return state?.Status == FruitionStatus.Occupied && route != PositionRoute.Realization
                 ? $"la lignée est tenue : il faut la permission de {state.Holder}" : "la position visée est fermée";
         }
@@ -456,7 +457,7 @@ namespace MirrorChronicles.Characters
         {
             var state = fruitions.State(fruitionId);
             if (state == null) return false;
-            if (state.Status == FruitionStatus.Free) return true;
+            if (state.Status == FruitionStatus.Free) return route != PositionRoute.Surplus; // a Surplus serves a held Realization (audit §8.5)
             if (state.Status != FruitionStatus.Occupied || route == PositionRoute.Realization) return false;
 
             bool heldByTheClan = clan.LivingMembers.Any(m => m.GoldenCore == GoldenCoreState.Realization && m.FruitionId == fruitionId);

@@ -84,7 +84,7 @@ namespace MirrorChronicles.Presentation
                         $"{m.FullName} : condenser un Trésor de Dharma ({s.Context.Content.Balance.Dharma.CondenseOres} minerais)", s.Dharma.CondenseRefusal(m)));
                 if (m.HasDharmaTreasure)
                     options.Add(new GoldenCoreOption(GoldenCoreAction.Designation, m.ID, null,
-                        $"{m.FullName} : hypothéquer son trésor sur sa Fruition (Désignation de Rang)", null));
+                        $"{m.FullName} : hypothéquer son trésor sur sa Fruition (Désignation de Rang)", s.Dharma.DesignationRefusal(m)));
             }
             foreach (var d in s.Dharma.Designations.Where(d => s.Dharma.MasterOf(d) == null))
                 options.Add(new GoldenCoreOption(GoldenCoreAction.Unseal, null, d.Id, $"Desceller la Désignation de {d.MasterName}, sans maître : elle retourne à sa Fruition", null));
