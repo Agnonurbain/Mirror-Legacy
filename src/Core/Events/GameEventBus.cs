@@ -108,6 +108,12 @@ namespace MirrorChronicles.Events
         public event Action<CharacterData> OnMonkRose;                  // a monk rises to its next rank (R13-R14)
         public event Action<CharacterData> OnBeastBound;      // a captured beast bound to the clan (R16)
         public event Action<CharacterData> OnLineageAwakened; // a bound beast's lineage awakens its next realm (R16)
+        public event Action<Haunting> OnHauntingBegan;                      // a dead Divine Attendant haunts the clan (L7)
+        public event Action<Haunting, CharacterData> OnHauntingMadness;     // the haunting drives a member mad (a Dao wound)
+        public event Action<Haunting, int> OnHauntingCalamity;              // the haunting brings a calamity: stones lost
+        public event Action<Haunting> OnHauntingHonoured;                   // the clan honours it
+        public event Action<Haunting> OnHauntingExorcised;                  // the clan exorcises it
+        public event Action<Haunting> OnHauntingFaded;                      // its years are over
         public event Action<CharacterData> OnDemonicCore;     // a bound beast awakens a demonic Golden Core (L7)
         public event Action<CharacterData> OnDragonBloodRevealed; // a bound serpent's hidden dragon blood awakens (L7)
         public event Action<CharacterData> OnDragonReclaimed; // the Eastern Sea's dragons take back a dragon of the clan (L7)
@@ -226,6 +232,12 @@ namespace MirrorChronicles.Events
         public void TriggerMonkRose(CharacterData member) => OnMonkRose?.Invoke(member);
         public void TriggerBeastBound(CharacterData beast) => OnBeastBound?.Invoke(beast);
         public void TriggerLineageAwakened(CharacterData beast) => OnLineageAwakened?.Invoke(beast);
+        public void TriggerHauntingBegan(Haunting h) => OnHauntingBegan?.Invoke(h);
+        public void TriggerHauntingMadness(Haunting h, CharacterData victim) => OnHauntingMadness?.Invoke(h, victim);
+        public void TriggerHauntingCalamity(Haunting h, int stones) => OnHauntingCalamity?.Invoke(h, stones);
+        public void TriggerHauntingHonoured(Haunting h) => OnHauntingHonoured?.Invoke(h);
+        public void TriggerHauntingExorcised(Haunting h) => OnHauntingExorcised?.Invoke(h);
+        public void TriggerHauntingFaded(Haunting h) => OnHauntingFaded?.Invoke(h);
         public void TriggerDemonicCore(CharacterData beast) => OnDemonicCore?.Invoke(beast);
         public void TriggerDragonBloodRevealed(CharacterData beast) => OnDragonBloodRevealed?.Invoke(beast);
         public void TriggerDragonReclaimed(CharacterData dragon) => OnDragonReclaimed?.Invoke(dragon);

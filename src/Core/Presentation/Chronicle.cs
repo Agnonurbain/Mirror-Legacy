@@ -139,6 +139,12 @@ namespace MirrorChronicles.Presentation
             bus.OnMonkRose += m => Add($"{m.FullName} s'élève : {RankCatalog.DisplayName(m)}.");
             bus.OnBeastBound += b => Add($"{b.FullName} est lié(e) au clan : une bête du Dao Démoniaque, qui garde et chasse pour lui.");
             bus.OnLineageAwakened += b => Add($"la lignée de {b.FullName} s'éveille : {RankCatalog.DisplayName(b)}.");
+            bus.OnHauntingBegan += h => Add($"{h.Name} s'est imprimé si profondément dans le monde que sa mémoire hante le clan : l'honorer ou l'exorciser.");
+            bus.OnHauntingMadness += (h, m) => Add($"la hantise de {h.Name} égare l'esprit de {m.FullName} : son Dao est blessé.");
+            bus.OnHauntingCalamity += (h, stones) => Add($"la hantise de {h.Name} attire une calamité sur le domaine : {stones} pierres perdues.");
+            bus.OnHauntingHonoured += h => Add($"le clan honore la mémoire de {h.Name} : son culte lui vaut du prestige, et des dangers.");
+            bus.OnHauntingExorcised += h => Add($"la hantise de {h.Name} est exorcisée.");
+            bus.OnHauntingFaded += h => Add($"la hantise de {h.Name} s'efface enfin.");
             bus.OnDemonicCore += b => Add($"la lignée de {b.FullName} s'éveille jusqu'au bout : un Noyau d'Or démoniaque.");
             bus.OnDragonBloodRevealed += b => Add($"le sang du Vrai Serpent-Dragon céleste s'éveille en {b.FullName} : il suit désormais le Dao du Serpent-Dragon.");
             bus.OnDragonReclaimed += d => Add($"les dragons de la Mer Orientale viennent reprendre {d.FullName}, de leur sang : il quitte le clan.");

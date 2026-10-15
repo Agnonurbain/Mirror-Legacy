@@ -302,8 +302,12 @@ namespace MirrorChronicles.Data
                 BalanceFile, "shamanism needs a gate Fruition, a positive pace, a sacrifice never slower, costs never negative and a core chance between 0 and 1.");
             var divine = balance.DivineDao;
             Require(divine != null && divine.BorrowLeap >= 0 && divine.Speed > 0 && divine.OwnPrestigePerYear >= 0 && divine.CorePrestige >= 0
-                && IsProbability(divine.CoreChance),
-                BalanceFile, "divineDao needs a leap and costs never negative, a positive pace, and a core chance between 0 and 1.");
+                && IsProbability(divine.CoreChance) && divine.HauntYearsPerStrength >= 1 && divine.HonourRiskFactor >= 1
+                && IsProbability(divine.MadnessChancePerStrength * HauntingSystem.MaxStrength * divine.HonourRiskFactor)
+                && IsProbability(divine.CalamityChancePerStrength * HauntingSystem.MaxStrength * divine.HonourRiskFactor)
+                && IsProbability(divine.CalamityStoneShare) && divine.HonourPrestigePerStrength >= 0 && divine.ExorcismStonesPerStrength >= 0
+                && IsProbability(divine.MonkExorcismFactor),
+                BalanceFile, "divineDao needs a leap and costs never negative, a positive pace, a core chance between 0 and 1, a haunting of a year at least whose odds stay between 0 and 1 even honoured at its strongest, and commemoration never safer than neglect.");
             var devil = balance.DevilDao;
             Require(devil != null && devil.FormBlood >= 0 && devil.FurnaceBlood >= 0 && devil.MansionBlood >= 0 && devil.Speed > 0
                 && IsProbability(devil.AscentChance) && devil.BloodByRealm != null && devil.BloodPerKill >= 0

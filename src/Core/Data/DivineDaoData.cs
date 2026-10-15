@@ -21,5 +21,36 @@ namespace MirrorChronicles.Data
         /// <summary>The prestige and the chance to condense a Divine Core at the Purple Mansion's Grand Perfection.</summary>
         public int CorePrestige { get; init; }
         public double CoreChance { get; init; }
+
+        /// <summary>
+        /// The haunting (L7; the user's choice of 2026-10-15): the years a dead Attendant haunts the clan for each degree of its
+        /// hold on a Profundity (borrowing or uniting 1, owning 2, a Divine Core 3), and the yearly odds, by degree, that it
+        /// drives a member mad or brings a calamity costing a share of the clan's stones.
+        /// </summary>
+        public int HauntYearsPerStrength { get; init; }
+        public double MadnessChancePerStrength { get; init; }
+        public double CalamityChancePerStrength { get; init; }
+        public double CalamityStoneShare { get; init; }
+
+        /// <summary>Honoured, it lends prestige each year by degree, and commemoration multiplies its dangers.</summary>
+        public int HonourPrestigePerStrength { get; init; }
+        public double HonourRiskFactor { get; init; }
+
+        /// <summary>The stones of an exorcism by degree, and their share when a monk of the clan performs it.</summary>
+        public int ExorcismStonesPerStrength { get; init; }
+        public double MonkExorcismFactor { get; init; }
+    }
+
+    /// <summary>
+    /// A dead Divine Attendant haunting the clan (L7): its strength (its hold on a Profundity), the years left, and whether the
+    /// clan honours it. Saved (2.55).
+    /// </summary>
+    public sealed class Haunting
+    {
+        public string Id { get; set; }          // the dead Attendant's ID
+        public string Name { get; set; }
+        public int Strength { get; set; }
+        public int YearsLeft { get; set; }
+        public bool Honoured { get; set; }
     }
 }

@@ -75,6 +75,7 @@ namespace MirrorChronicles.Session
                     Debates.ProcessYear();             // a temple may challenge the clan to a Dao debate (R13-14b)
                     Shamans.ProcessYear();             // the shamans cultivate; the Sacrifice burns blood (R17)
                     Divine.ProcessYear();              // the Divine Attendants: a borrower falls with its pact, the others cultivate (R15)
+                    Haunting.ProcessYear();            // the dead Attendants' hauntings: honoured, prestige; madness, calamity; they wane (L7)
                     Devils.ProcessYear();              // the Heavenly Embryo devils cultivate, thirst, and may be found out (R12)
                     DemonicDao.ProcessYear();          // the bound beasts absorb the year's Qi, their lineage awakens (R16)
                     Ancestors.ProcessYear();           // the clan's reborn ancestors regain their realms, or are harvested (R9)

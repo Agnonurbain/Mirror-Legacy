@@ -45,6 +45,9 @@ namespace MirrorChronicles.Presentation
     /// <summary>A Divine Attendant who owns a Profundity: the button's text and why it cannot condense its core now.</summary>
     public sealed record DivineCoreLine(string MemberId, string Label, string Refusal);
 
+    /// <summary>A dead Divine Attendant's haunting: its text, whether the clan honours it, and the stones of its exorcism.</summary>
+    public sealed record HauntingLine(string Id, string Label, bool Honoured, int ExorcismCost);
+
     /// <summary>A great partner: what it gives, its tribute, why it would not hear the clan now, and — once bound — a sign of its favour.</summary>
     public sealed record PatronLine(string Id, string Name, string Kind, string Boon, int Tribute, string Refusal, bool Bound, string Favor,
         string EndWarning = null);
@@ -158,6 +161,11 @@ namespace MirrorChronicles.Presentation
                 .Select(m => new DivineCoreLine(m.ID, $"{m.FullName} ({RankCatalog.DisplayName(m)}) : rite de sang du Noyau d'Or chamanique ({s.CoreBlood} essences, {(int)Math.Round(s.CoreChance * 100)} %)",
                     session.Shamans.CoreRefusal(m))).ToList();
         }
+
+        /// <summary>The hauntings of the clan's dead Divine Attendants, to honour or exorcise (L7).</summary>
+        public static IReadOnlyList<HauntingLine> Hauntings(GameSession session) =>
+            session.Haunting.Hauntings.Select(h => new HauntingLine(h.Id,
+                $"{h.Name} (force {h.Strength}, encore {h.YearsLeft} an(s)){(h.Honoured ? " — honoré" : "")}", h.Honoured, session.Haunting.ExorcismCost(h))).ToList();
 
         /// <summary>The clan's bound beasts at their apogee, and the offering that feeds the awakening of their core (L7).</summary>
         public static IReadOnlyList<DivineCoreLine> DemonicCores(GameSession session)

@@ -59,6 +59,7 @@ namespace MirrorChronicles.Tests
         public DebateSystem Debates { get; }
         public DevilDaoSystem Devils { get; }
         public DivineDaoSystem Divine { get; private set; }
+        public HauntingSystem Haunting { get; private set; }
         public ShamanismSystem Shamans { get; }
         public ShardSystem Shards { get; }
         public SectSystem Sect { get; }
@@ -174,6 +175,7 @@ namespace MirrorChronicles.Tests
             Intrigues = new IntrigueSystem(Ctx, Clan, Resources, Factions, Suspicion, Techniques, Mirror, Captives, Treaties, Plots, Secrets, Wars, Sect);
             Patrons = new PatronSystem(Ctx, Clan, Resources);
             Divine = new DivineDaoSystem(Ctx, Clan, Resources, Patrons, Wounds);
+            Haunting = new HauntingSystem(Ctx, Clan, Resources, Wounds);
             DesignEffects = new PatronDesignEffects(Ctx, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
             Rivals = new AscentRivals(Ctx, Clan, Factions, Suspicion, Sponsorships, Treaties, Buildings, Resources);
             Paths = new AscentPaths(Ctx, Clan, Factions, Techniques, Suspicion, Shards, Wounds);
