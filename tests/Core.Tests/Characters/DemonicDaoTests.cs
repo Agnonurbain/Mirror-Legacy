@@ -485,6 +485,31 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void AMonkAtTheGoldenCore_IsNoTrueMonarch_ToTheDragons()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var master = w.Join(Fixtures.Cultivator(age: 300, realm: CultivationRealm.GoldenCore, stage: 1));
+            master.Path = CultivationPath.Buddhist;
+            master.SubPath = CultivationSubPath.AncientBuddhism;
+            master.GoldenCore = GoldenCoreState.DharmaMaster;
+            var dragon = w.DemonicDao.Bind(Captured(w, CultivationRealm.Foundation, 1));
+            dragon.SubPath = CultivationSubPath.TrueSerpentDragon;
+            dragon.Species = Species.Dragon;
+            w.DemonicDao.ProcessYear();
+            CollectionAssert.DoesNotContain(w.Clan.LivingMembers, dragon);
+        }
+
+        [Test]
+        public void ASealedBeast_ReceivesNoOffering()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var bound = AtTheApogee(w);
+            bound.ProgressionSealed = true;
+            w.Resources.SetSpiritStones(Settings.OfferingStones);
+            Assert.IsNotNull(w.DemonicDao.CoreRefusal(bound));
+        }
+
+        [Test]
         public void ADragonWithItsOwnCore_ChoosesItsClan()
         {
             var w = new TestWorld(new FixedRandom(0.0));
