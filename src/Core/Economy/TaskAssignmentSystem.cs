@@ -49,6 +49,9 @@ namespace MirrorChronicles.Economy
         private readonly Mirror.ShardSystem shards;
         private readonly SectSystem sect;
 
+        /// <summary>The Qi of the places (set by the session): a lineage's state sways the harvest (audit §7.9).</summary>
+        public World.RegionalQi Place { get; set; }
+
         public TaskAssignmentSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation,
             ResourceManager resources, MentalStabilitySystem stability, FactionManager factions,
             DeductionEngine deduction, EspionageSystem espionage, BuildingSystem buildings, TechniqueLibrary techniques,
@@ -155,7 +158,8 @@ namespace MirrorChronicles.Economy
                 return 0;
             }
 
-            int portions = resources.AddHarvestWork(qi.Id, qi.YearsPerPortion);
+            double sway = Place?.LineageFactor(qi) ?? 1.0; // a free lineage's Qi is slower to harvest, a broken one's faster (audit §7.9)
+            int portions = resources.AddHarvestWork(qi.Id, qi.YearsPerPortion, sway);
             if (portions > 0) ctx.Log.Info($"[Tasks] {harvester.FullName} condenses {portions} portion(s) of {qi.Name}.");
             return portions;
         }

@@ -40,6 +40,15 @@ namespace MirrorChronicles.Tests.Data
             AssertRefused(GameContentLoader.FruitionsFile, fruitions.Replace("\"id\": \"peril-refuge\",", "\"id\": \"peril-refuge\", \"substitute\": true,"));
         }
 
+        [TestCase("\"brokenDeviationChance\": 0.15", "\"brokenDeviationChance\": 1.5")]
+        [TestCase("\"Free\": 0.6,", "\"Free\": 0,")]
+        public void Load_RefusesALineagesSway_OutOfRange(string shipped, string wrong)
+        {
+            string balance = Fixtures.ReadDataFile(GameContentLoader.BalanceFile);
+            StringAssert.Contains(shipped, balance);
+            AssertRefused(GameContentLoader.BalanceFile, balance.Replace(shipped, wrong));
+        }
+
         [Test]
         public void Load_NamesTheFileAtFault_WhenItIsMissing()
         {

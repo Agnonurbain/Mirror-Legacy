@@ -157,6 +157,7 @@ namespace MirrorChronicles.Session
 
         /// <summary>The hauntings of the dead Divine Attendants (L7).</summary>
         public HauntingSystem Haunting { get; private set; }
+        public TraumaSystem Traumas { get; private set; }
 
         /// <summary>The Shamanic Talisman Dao (R17).</summary>
         public ShamanismSystem Shamans { get; private set; }

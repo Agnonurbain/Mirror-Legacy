@@ -129,6 +129,7 @@ namespace MirrorChronicles.Combat
             if (Current == null) return "aucune bataille en cours";
             if (!Current.IsOver) return "la bataille n'est pas finie";
             ctx.Events.TriggerClanBattleEnded(Current.Allies.Select(u => u.BaseData).ToList(), Current.Enemies.Count(u => u.IsDown)); // a devil's blood (R12)
+            var downed = Current.State == CombatState.Defeat ? Current.Allies.Where(u => u.IsDown).Select(u => u.BaseData).ToList() : null; // told once the fallen are settled (audit §7.14)
             var plan = fought.Plan;
             var beast = hunts.Target(plan);
             bool lost = Current.State == CombatState.Defeat;
@@ -152,6 +153,7 @@ namespace MirrorChronicles.Combat
                     hunts.Escaped(plan, beast, fallen);
                 }
             }
+            if (downed != null) ctx.Events.TriggerClanBattleLost(downed);
             Current = null;
             fought = null;
             return null;

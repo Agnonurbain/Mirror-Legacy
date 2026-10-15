@@ -139,6 +139,7 @@ namespace MirrorChronicles.Combat
             if (Current == null) return "aucune bataille en cours";
             if (!Current.IsOver) return "la bataille n'est pas finie";
             ctx.Events.TriggerClanBattleEnded(Current.Allies.Select(u => u.BaseData).ToList(), Current.Enemies.Count(u => u.IsDown)); // a devil's blood (R12)
+            var downed = Current.State == CombatState.Defeat ? Current.Allies.Where(u => u.IsDown).Select(u => u.BaseData).ToList() : null; // told once the fallen are settled (audit §7.14)
             Current.ResolveAftermath(clan, wounds, fallenDies: () => false); // the agents want a hostage, not a corpse
             var outcome = Current.State switch
             {
@@ -155,6 +156,7 @@ namespace MirrorChronicles.Combat
             else if (outcome == AmbushOutcome.Taken) captives.Take(target, fought.Faction);
             else ctx.Log.Info($"[Ambush] The clan's members escape {fought.Faction}'s agents.");
             ctx.Events.TriggerAmbushSettled(fought.Faction, outcome);
+            if (downed != null) ctx.Events.TriggerClanBattleLost(downed);
             Current = null;
             fought = null;
             return null;

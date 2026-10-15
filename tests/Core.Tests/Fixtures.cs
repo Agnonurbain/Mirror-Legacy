@@ -60,6 +60,7 @@ namespace MirrorChronicles.Tests
         public DevilDaoSystem Devils { get; }
         public DivineDaoSystem Divine { get; private set; }
         public HauntingSystem Haunting { get; private set; }
+        public TraumaSystem Traumas { get; private set; }
         public ShamanismSystem Shamans { get; }
         public ShardSystem Shards { get; }
         public SectSystem Sect { get; }
@@ -176,6 +177,10 @@ namespace MirrorChronicles.Tests
             Patrons = new PatronSystem(Ctx, Clan, Resources);
             Divine = new DivineDaoSystem(Ctx, Clan, Resources, Patrons, Wounds);
             Haunting = new HauntingSystem(Ctx, Clan, Resources, Wounds);
+            Traumas = new TraumaSystem(Ctx, Clan);
+            Breakthroughs.Place = Place;
+            Breakthroughs.Wounds = Wounds;
+            Tasks.Place = Place;
             DesignEffects = new PatronDesignEffects(Ctx, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
             Rivals = new AscentRivals(Ctx, Clan, Factions, Suspicion, Sponsorships, Treaties, Buildings, Resources);
             Paths = new AscentPaths(Ctx, Clan, Factions, Techniques, Suspicion, Shards, Wounds);
@@ -195,6 +200,13 @@ namespace MirrorChronicles.Tests
         {
             Clan.AddMember(member);
             return member;
+        }
+
+        /// <summary>Every lineage held, its Qi as it is (audit §7.9: a free lineage's Qi is rare, a broken one's abundant).</summary>
+        public TestWorld RuleEveryLineage()
+        {
+            Fruitions.Restore(System.Linq.Enumerable.ToDictionary(Ctx.Content.Fruitions,f => f.Id, _ => new FruitionState(FruitionStatus.Occupied, null)), new System.Random(1));
+            return this;
         }
     }
 

@@ -259,6 +259,8 @@ namespace MirrorChronicles.Data
                 && IsProbability(oathCosts.DeviationChanceOnInterrupt) && IsProbability(oathCosts.PurificationChance)
                 && oathCosts.HeartDemonSpeed > 0 && oathCosts.HeartDemonStabilityLoss >= 0 && oathCosts.PurificationHerbs >= 0 && oathCosts.MirrorVeilCost >= 0,
                 BalanceFile, "oaths needs three interruption chances and Heart Demon years (severity 1-3), and its costs.");
+            Require(oathCosts.TraumaChances != null && Enum.GetValues(typeof(Trauma)).Cast<Trauma>().All(t => oathCosts.TraumaChances.TryGetValue(t, out var p) && IsProbability(p))
+                && oathCosts.TraumaHeartDemonYears > 0, BalanceFile, "oaths needs a chance for each trauma and the years its Heart Demon haunts (audit §7.14).");
             Require(balance.Diplomacy != null && balance.Diplomacy.NeighbourIntensity >= 1 && IsProbability(balance.Diplomacy.StealManualChance)
                 && balance.Diplomacy.MortalEnvoyRelation >= 0 && balance.Diplomacy.EnvoyRelationByRealm is { Length: > 0 }
                 && balance.Diplomacy.EnvoyRelationByRealm.All(v => v >= 0),
@@ -430,7 +432,8 @@ namespace MirrorChronicles.Data
             var place = balance.RegionalQi;
             Require(place != null && place.KindElements != null && place.KindDensity != null && place.LineageStatusFactors != null
                 && Enum.GetValues(typeof(RegionKind)).Cast<RegionKind>().All(k => place.KindElements.ContainsKey(k) && place.KindDensity.TryGetValue(k, out var d) && d > 0)
-                && Enum.GetValues(typeof(FruitionStatus)).Cast<FruitionStatus>().All(s => place.LineageStatusFactors.TryGetValue(s, out var f) && f >= 0)
+                && Enum.GetValues(typeof(FruitionStatus)).Cast<FruitionStatus>().All(s => place.LineageStatusFactors.TryGetValue(s, out var f) && f > 0)
+                && IsProbability(place.BrokenDeviationChance)
                 && place.EverywhereFamilies != null && place.AbsentQiFactor >= 0,
                 BalanceFile, "regionalQi needs the elements and a positive density of every kind of place, and a factor for every lineage state.");
             var hunt = balance.Hunt;

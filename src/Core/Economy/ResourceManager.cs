@@ -142,16 +142,20 @@ namespace MirrorChronicles.Economy
             return true;
         }
 
+        /// <summary>The harvest under way is counted in hundredths of a year (save 2.57), so a lineage's sway is not rounded.</summary>
+        public const int HarvestUnitsPerYear = 100;
+
         /// <summary>
         /// One year of harvest work on a Qi: wisps accumulate and condense into a portion every
-        /// <paramref name="yearsPerPortion"/> years. Returns the portions condensed this year.
+        /// <paramref name="yearsPerPortion"/> years, the year's work swayed by the Qi's lineage (audit §7.9). Returns the
+        /// portions condensed this year.
         /// </summary>
-        public int AddHarvestWork(string qiId, int yearsPerPortion)
+        public int AddHarvestWork(string qiId, int yearsPerPortion, double sway = 1.0)
         {
-            int years = Math.Max(1, yearsPerPortion);
-            int progress = (qiHarvestProgress.TryGetValue(qiId, out int p) ? p : 0) + 1;
-            qiHarvestProgress[qiId] = progress % years;
-            int portions = progress / years;
+            int cost = Math.Max(1, yearsPerPortion) * HarvestUnitsPerYear;
+            int progress = (qiHarvestProgress.TryGetValue(qiId, out int p) ? p : 0) + (int)Math.Round(Math.Max(0, sway) * HarvestUnitsPerYear);
+            qiHarvestProgress[qiId] = progress % cost;
+            int portions = progress / cost;
             AddQi(qiId, portions);
             return portions;
         }

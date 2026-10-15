@@ -31,7 +31,10 @@ namespace MirrorChronicles.Data
         GoldenImmortal // appended last for save compatibility; never rename members (StringEnumConverter saves names)
     }
 
-    public enum TaskType 
+    /// <summary>What may breed a Heart Demon besides a broken oath (AUDIT_LORE.md §7.14).</summary>
+    public enum Trauma { Mourning, Captivity, Defeat, WoundedTrial, Betrayal }
+
+    public enum TaskType
     { 
         None, 
         Cultivation, 

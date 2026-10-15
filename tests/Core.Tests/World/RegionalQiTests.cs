@@ -57,7 +57,7 @@ namespace MirrorChronicles.Tests.World
         }
 
         [Test]
-        public void AQi_IsAbundantWhereItsLineageRules_AndPoorWhereItIsBroken()
+        public void AQi_IsRareWhereItsLineageIsFree_AndAbundantWhereItIsBroken()
         {
             var w = new TestWorld();
             var spring = Fixtures.Content.Qi.Single(q => q.Id == "clear-spring-qi"); // Orthodox Water
@@ -69,8 +69,8 @@ namespace MirrorChronicles.Tests.World
             Lineage(w, "orthodox-water", FruitionStatus.Broken);
             double broken = Place(w).Abundance(Lake, spring);
 
-            Assert.Greater(ruled, free);
-            Assert.Greater(free, broken);
+            Assert.Greater(ruled, free); // the lore (audit §7.9): free, rare
+            Assert.Greater(broken, ruled); // broken, more abundant (and perilous)
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace MirrorChronicles.Tests.World
         [Test]
         public void AMemberWhoseQiIsFarAway_CultivatesSlower()
         {
-            var w = new TestWorld();
+            var w = new TestWorld().RuleEveryLineage(); // the Clear Spring as it is (audit §7.9)
             var spring = w.Join(Fixtures.Cultivator());
             var ember = w.Join(Fixtures.Cultivator());
             w.Techniques.Learn("ember-phoenix-stride");
@@ -107,7 +107,7 @@ namespace MirrorChronicles.Tests.World
             Lineage(w, "orthodox-water", FruitionStatus.Broken);
             double broken = w.Cultivation.SpeedOf(member);
 
-            Assert.Greater(ruled, broken);
+            Assert.Greater(broken, ruled); // a broken lineage's Qi is more abundant, and perilous (audit §7.9)
         }
 
         // ---- Atmospheres (§5.8) ----

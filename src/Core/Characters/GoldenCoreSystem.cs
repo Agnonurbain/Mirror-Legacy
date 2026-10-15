@@ -368,6 +368,7 @@ namespace MirrorChronicles.Characters
                 member.DaoWounds++;
                 member.MaxLifespan = System.Math.Max(member.Age + 1, PowerLadder.WoundedLifespan(member.MaxLifespan, 1));
                 ctx.Log.Info($"[Golden Core] {member.FullName}'s {move} fails ({chance}%): their Dao is wounded.");
+                ctx.Events.TriggerTrialWoundedDao(member); // a trauma (audit §7.14)
                 return true;
             }
 

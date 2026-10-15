@@ -273,8 +273,10 @@ namespace MirrorChronicles.World
             if (member == null || !member.IsAlive) return "membre introuvable.";
             if (!mirror.ConsumePower(Settings.UnmaskMirrorCost)) return null; // null: the mirror lacks the power
             if (member.SpyFor == null) return $"{member.FullName} n'espionne pour personne.";
+            bool first = !member.SpyUnmasked;
             member.SpyUnmasked = true;
             ctx.Events.TriggerSpyUnmasked(member.SpyFor);
+            if (first) ctx.Events.TriggerMemberUnmasked(member); // its spouse betrayed, once (audit §7.14)
             clan.HandOver(member); // an unmasked spy never leads the clan
             return $"{member.FullName} espionne pour {member.SpyFor}.";
         }

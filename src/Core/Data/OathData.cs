@@ -76,6 +76,10 @@ namespace MirrorChronicles.Data
 
         /// <summary>Mirror power to veil the next breach of a sworn member.</summary>
         public int MirrorVeilCost { get; init; }
+
+        /// <summary>Chance each trauma breeds a Heart Demon, and the years it haunts (audit §7.14).</summary>
+        public Dictionary<Trauma, double> TraumaChances { get; init; }
+        public int TraumaHeartDemonYears { get; init; }
     }
 
     /// <summary>A pact between two cultivators, each sworn on their path (saved).</summary>

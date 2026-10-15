@@ -40,5 +40,8 @@ namespace MirrorChronicles.Data
         public Dictionary<RegionKind, double> KindDensity { get; init; }
         public Dictionary<FruitionStatus, double> LineageStatusFactors { get; init; }
         public double AbsentQiFactor { get; init; } = 1;
+
+        /// <summary>Chance a breakthrough on a broken lineage's Qi or foundation deviates, wounding the Dao (audit §7.9).</summary>
+        public double BrokenDeviationChance { get; init; }
     }
 }

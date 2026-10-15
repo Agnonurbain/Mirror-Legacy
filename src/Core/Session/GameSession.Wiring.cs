@@ -88,6 +88,10 @@ namespace MirrorChronicles.Session
             Patrons = new PatronSystem(Context, Clan, Resources);
             Divine = new DivineDaoSystem(Context, Clan, Resources, Patrons, Wounds);
             Haunting = new HauntingSystem(Context, Clan, Resources, Wounds);
+            Traumas = new TraumaSystem(Context, Clan); // Heart Demons born of trauma (audit §7.14)
+            Breakthroughs.Place = Place; // a broken lineage's breakthroughs deviate (audit §7.9)
+            Breakthroughs.Wounds = Wounds;
+            Tasks.Place = Place; // and its harvest follows its state
             Shamans = new ShamanismSystem(Context, Clan, Resources, Wounds);
             GoldenCore.Refuge = Shamans.Refuge; // a failed core may escape the Emissaries of Death (R17)
             DesignEffects = new PatronDesignEffects(Context, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
