@@ -203,10 +203,15 @@ namespace MirrorChronicles.Session
                 session.Techniques.AssignMethod(member, method.ID); // the cultivators of its Qi take it up
         }
 
-        /// <summary>A method of the Qi Cultivation that holds the ascent's secret and whose Qi can still be gathered.</summary>
+        /// <summary>A method of the Qi Cultivation that holds the ascent's secret and whose Qi can still be gathered at home.</summary>
         private static bool LeadsToTheAscent(GameSession session, TechniqueData method) =>
             method.Kind == TechniqueKind.Cultivation && method.RequiredQiId != null && TechniqueRules.HasPurpleMansionSecret(method)
-            && session.Techniques.FindQi(method.RequiredQiId) is { Vanished: false, Ubiquitous: false };
+            && HarvestableAtHome(session, method.RequiredQiId);
+
+        /// <summary>A Qi the clan's harvesters can gather: neither vanished nor everywhere, and offered at home (audit §7.8).</summary>
+        internal static bool HarvestableAtHome(GameSession session, string qiId) =>
+            session.Techniques.FindQi(qiId) is { Vanished: false, Ubiquitous: false } qi
+            && session.Place.Abundance(session.Context.Content.Clan.HomeRegion, qi) > 0;
 
         private static TechniqueData AscentMethod(GameSession session) =>
             session.Techniques.Known.Where(t => LeadsToTheAscent(session, t)).OrderByDescending(t => t.Grade).FirstOrDefault();
@@ -219,7 +224,7 @@ namespace MirrorChronicles.Session
         private static void GatherTheQiOfTheAscent(GameSession session, bool huntOpen)
         {
             var method = AscentMethod(session) ?? session.Techniques.Known
-                .Where(t => t.Kind == TechniqueKind.Cultivation && t.RequiredQiId != null && session.Techniques.FindQi(t.RequiredQiId) is { Vanished: false, Ubiquitous: false })
+                .Where(t => t.Kind == TechniqueKind.Cultivation && t.RequiredQiId != null && HarvestableAtHome(session, t.RequiredQiId))
                 .OrderByDescending(t => t.Grade).FirstOrDefault();
             if (method == null || session.Resources.QiPortions(method.RequiredQiId) >= AscentQiReserve) return;
             var harvesters = session.Clan.LivingMembers
@@ -573,7 +578,9 @@ namespace MirrorChronicles.Session
             {
                 member.HarvestQiId = null; // sent anew each year
                 var trial = PowerLadder.Next(member.Realm, member.RealmStage).Trial;
-                bool lacksQi = trial == TrialKind.FoundationWall && !session.Cultivation.HasTrialQi(member, trial);
+                bool lacksQi = trial == TrialKind.FoundationWall && !session.Cultivation.HasTrialQi(member, trial)
+                    && HarvestableAtHome(session, member.QiId); // a Qi foreign to home comes otherwise (audit §7.8)
+                if (lacksQi) member.HarvestQiId = member.QiId; // its own Qi, not another of home
                 TaskType wanted = lacksQi && TaskRules.IsAllowed(member, TaskType.GatherQi, huntOpen) ? TaskType.GatherQi
                     : member.CurrentTask == TaskType.GatherQi || member.CurrentTask == TaskType.None
                       || (member.CurrentTask == TaskType.Mine && SpiritualOrificeRules.CanCultivate(member) && member.SpiritualRoot >= LowTalentRoot)

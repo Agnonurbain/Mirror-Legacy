@@ -445,8 +445,7 @@ namespace MirrorChronicles.Session
                 && m.PursuedAbility != null).ToList())
             {
                 var qi = AlignedMethods(session, mansion.PursuedAbility).Where(t => session.Techniques.Knows(t.ID))
-                    .Select(t => session.Techniques.FindQi(t.RequiredQiId)).FirstOrDefault(q => q is { Vanished: false, Ubiquitous: false }
-                        && session.Place.Abundance(session.Context.Content.Clan.HomeRegion, q) > 0); // only a Qi of home is harvested (audit §7.8)
+                    .Select(t => session.Techniques.FindQi(t.RequiredQiId)).FirstOrDefault(q => q != null && HarvestableAtHome(session, q.Id)); // only a Qi of home (audit §7.8)
                 if (qi == null || session.Resources.QiPortions(qi.Id) >= portions) continue;
                 if (session.Clan.LivingMembers.Any(m => m.HarvestQiId == qi.Id && m.CurrentTask == TaskType.GatherQi)) continue;
                 var harvester = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.ID != session.Clan.PatriarchID
