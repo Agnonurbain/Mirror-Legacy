@@ -74,7 +74,9 @@
 	"heartDemonStabilityLoss": 20,
 	"purificationHerbs": 100,
 	"purificationChance": 0.5,
-	"mirrorVeilCost": 30
+	"mirrorVeilCost": 30,
+	"traumaChances": { "Mourning": 0.15, "Captivity": 0.3, "Defeat": 0.2, "WoundedTrial": 0.3, "Betrayal": 0.2 },
+	"traumaHeartDemonYears": 3
   },
   "diplomacy": {
 	"neighbourIntensity": 2,
@@ -440,8 +442,9 @@
 	},
 	"everywhereFamilies": [ "TwelveEssences" ],
 	"kindDensity": { "State": 1.0, "Sea": 1.0, "Prefecture": 0.9, "Mountain": 1.1, "Lake": 1.1, "River": 1.0, "Plain": 0.9, "Wilds": 1.2, "Desert": 0.7, "Island": 1.1 },
-	"lineageStatusFactors": { "Unspecified": 1.0, "Occupied": 1.25, "Free": 1.0, "Broken": 0.6, "Hidden": 1.0, "Suspected": 1.0 },
-	"absentQiFactor": 0.8
+	"lineageStatusFactors": { "Unspecified": 1.0, "Occupied": 1.0, "Free": 0.6, "Broken": 1.4, "Hidden": 1.0, "Suspected": 1.0 },
+	"absentQiFactor": 0.8,
+	"brokenDeviationChance": 0.15
   },
   "hunt": {
 	"approachBase": 55,

@@ -39,6 +39,17 @@ namespace MirrorChronicles.Presentation
         private static string RegionName(GameSession session, string regionId) =>
             session.Context.Content.Regions.FirstOrDefault(r => r.Id == regionId)?.Name ?? regionId;
 
+        /// <summary>What bred a Heart Demon (audit §7.14), for « né … ».</summary>
+        public static string TraumaLabel(Trauma trauma) => trauma switch
+        {
+            Trauma.Mourning => "du deuil",
+            Trauma.Captivity => "de la captivité",
+            Trauma.Defeat => "d'une défaite où il est tombé",
+            Trauma.WoundedTrial => "d'une percée ratée qui a blessé son Dao",
+            Trauma.Betrayal => "d'une trahison",
+            _ => "d'un traumatisme"
+        };
+
         public Chronicle(GameSession session, int capacity = DefaultCapacity)
         {
             this.session = session;
@@ -141,6 +152,7 @@ namespace MirrorChronicles.Presentation
             bus.OnLineageAwakened += b => Add($"la lignée de {b.FullName} s'éveille : {RankCatalog.DisplayName(b)}.");
             bus.OnRenegadeTakenBack += (m, temple) => Add($"{m.FullName}, renégat devenu moine du {temple}, est battu à la tête de son armée : le clan le reprend, et le ramène à lui.");
             bus.OnHauntingBegan += h => Add($"{h.Name} s'est imprimé si profondément dans le monde que sa mémoire hante le clan : l'honorer ou l'exorciser.");
+            bus.OnTraumaHeartDemon += (m, trauma) => Add($"{m.FullName} porte un Démon du Cœur, né {TraumaLabel(trauma)}.");
             bus.OnHauntingMadness += (h, m) => Add($"la hantise de {h.Name} égare l'esprit de {m.FullName} : son Dao est blessé.");
             bus.OnHauntingCalamity += (h, stones) => Add($"la hantise de {h.Name} attire une calamité sur le domaine : {stones} pierres perdues.");
             bus.OnHauntingHonoured += h => Add($"le clan honore la mémoire de {h.Name} : son culte lui vaut du prestige, et des dangers.");

@@ -12,6 +12,7 @@ namespace MirrorChronicles.Tests.Economy
     {
         private static CharacterData Working(TestWorld w, TaskType task, CharacterData member = null)
         {
+            w.RuleEveryLineage(); // each Qi harvested at its own pace (audit §7.9)
             member = w.Join(member ?? Fixtures.Cultivator());
             member.CurrentTask = task;
             return member;

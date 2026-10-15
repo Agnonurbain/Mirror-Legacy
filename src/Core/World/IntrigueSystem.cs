@@ -275,6 +275,7 @@ namespace MirrorChronicles.World
             if (member.SpyFor == null) return $"{member.FullName} n'espionne pour personne.";
             member.SpyUnmasked = true;
             ctx.Events.TriggerSpyUnmasked(member.SpyFor);
+            ctx.Events.TriggerMemberUnmasked(member); // its spouse betrayed (audit §7.14)
             clan.HandOver(member); // an unmasked spy never leads the clan
             return $"{member.FullName} espionne pour {member.SpyFor}.";
         }

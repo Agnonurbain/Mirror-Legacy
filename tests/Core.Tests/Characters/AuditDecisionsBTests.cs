@@ -188,8 +188,8 @@ namespace MirrorChronicles.Tests.Characters
         public void AnAllysBetrayal_MayBreedAHeartDemon_InThePatriarch()
         {
             var w = Fated(true);
-            w.Join(Fixtures.Cultivator());
-            var patriarch = w.Clan.GetPatriarch();
+            var patriarch = Fixtures.Cultivator();
+            w.Clan.Restore(new[] { patriarch }, patriarch.ID);
             w.Ctx.Events.TriggerTreatyBetrayed("Famille Zang");
             Assert.Greater(patriarch.HeartDemonYearsLeft, 0);
         }

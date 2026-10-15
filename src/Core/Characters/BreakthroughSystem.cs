@@ -24,6 +24,10 @@ namespace MirrorChronicles.Characters
         /// <summary>The clan's alchemy (set by the session): the Foundation wall takes an Essence Gathering Pill (audit §2.6).</summary>
         public AlchemySystem Alchemy { get; set; }
 
+        /// <summary>The Qi of the places and the wounds (set by the session): a broken lineage's breakthroughs deviate (audit §7.9).</summary>
+        public World.RegionalQi Place { get; set; }
+        public WoundSystem Wounds { get; set; }
+
         public BreakthroughSystem(GameContext ctx, ClanManager clan, CultivationSystem cultivation)
         {
             this.ctx = ctx;
@@ -111,12 +115,15 @@ namespace MirrorChronicles.Characters
             int required = PowerLadder.XpForNextStage(character.Realm);
 
             ctx.Log.Info($"[Breakthrough] {character.FullName} attempts the {step.Trial} trial ({successRate}%, roll {roll}): {outcome}.");
+            bool deviates = Place != null && Wounds != null && Place.LineageStatusOf(character) == FruitionStatus.Broken
+                && ctx.Rng.Chance(ctx.Content.Balance.RegionalQi.BrokenDeviationChance); // a broken lineage's Qi unsettles each breakthrough (audit §7.9)
 
             switch (outcome)
             {
                 case BreakthroughOutcome.Success:
                     character.CultivationXP = Math.Max(0, character.CultivationXP - required);
                     cultivation.ApplyStep(character, step);
+                    if (deviates) Deviate(character);
                     ctx.Events.TriggerBreakthroughSuccess(character, character.Realm);
                     return outcome;
                 case BreakthroughOutcome.MinorFailure:
@@ -133,8 +140,15 @@ namespace MirrorChronicles.Characters
                     return outcome;
             }
 
+            if (deviates) Deviate(character);
             ctx.Events.TriggerBreakthroughFailed(character);
             return outcome;
+        }
+
+        private void Deviate(CharacterData character)
+        {
+            ctx.Log.Warning($"[Breakthrough] {character.FullName}'s Qi deviates on a broken lineage.");
+            Wounds.ApplyDaoWound(character);
         }
     }
 }

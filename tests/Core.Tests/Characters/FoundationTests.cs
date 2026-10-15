@@ -90,7 +90,7 @@ namespace MirrorChronicles.Tests.Characters
         [Test]
         public void Cultivation_AtTheFoundation_FollowsTheHeartAlignment()
         {
-            var w = new TestWorld();
+            var w = new TestWorld().RuleEveryLineage(); // the Qi as it is (audit §7.9)
             var aligned = w.Join(AtTheFoundation("orthodox-water:boundless-sea", temperament: Temperament.Cunning));
             var hindered = w.Join(AtTheFoundation("orthodox-water:boundless-sea", temperament: Temperament.Dominant));
             aligned.SpiritualRoot = hindered.SpiritualRoot = 40;

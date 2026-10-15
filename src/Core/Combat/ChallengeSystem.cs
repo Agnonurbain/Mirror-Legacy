@@ -152,6 +152,7 @@ namespace MirrorChronicles.Combat
             if (Current == null) return "aucune bataille en cours";
             if (!Current.IsOver) return "la bataille n'est pas finie";
             ctx.Events.TriggerClanBattleEnded(Current.Allies.Select(u => u.BaseData).ToList(), Current.Enemies.Count(u => u.IsDown)); // a devil's blood (R12)
+            if (Current.State == CombatState.Defeat) ctx.Events.TriggerClanBattleLost(Current.Allies.Where(u => u.IsDown).Select(u => u.BaseData).ToList()); // audit §7.14
             Current.ResolveAftermath(clan, wounds, fought.ToTheDeath ? null : () => ctx.Rng.Chance(Settings.DeathChance)); // by the rules, the fallen yield
             var outcome = Current.State switch
             {

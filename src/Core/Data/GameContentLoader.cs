@@ -259,6 +259,8 @@ namespace MirrorChronicles.Data
                 && IsProbability(oathCosts.DeviationChanceOnInterrupt) && IsProbability(oathCosts.PurificationChance)
                 && oathCosts.HeartDemonSpeed > 0 && oathCosts.HeartDemonStabilityLoss >= 0 && oathCosts.PurificationHerbs >= 0 && oathCosts.MirrorVeilCost >= 0,
                 BalanceFile, "oaths needs three interruption chances and Heart Demon years (severity 1-3), and its costs.");
+            Require(oathCosts.TraumaChances != null && Enum.GetValues(typeof(Trauma)).Cast<Trauma>().All(t => oathCosts.TraumaChances.TryGetValue(t, out var p) && IsProbability(p))
+                && oathCosts.TraumaHeartDemonYears > 0, BalanceFile, "oaths needs a chance for each trauma and the years its Heart Demon haunts (audit §7.14).");
             Require(balance.Diplomacy != null && balance.Diplomacy.NeighbourIntensity >= 1 && IsProbability(balance.Diplomacy.StealManualChance)
                 && balance.Diplomacy.MortalEnvoyRelation >= 0 && balance.Diplomacy.EnvoyRelationByRealm is { Length: > 0 }
                 && balance.Diplomacy.EnvoyRelationByRealm.All(v => v >= 0),

@@ -72,10 +72,19 @@ namespace MirrorChronicles.World
             var region = Region(regionId);
             if (qi == null || region == null || !Offers(region, qi)) return 0;
             if (qi.Ubiquitous) return Density(regionId);
-            var lineage = FoundationRef.Parse(qi.Foundation).FruitionId;
-            var status = lineage == null ? FruitionStatus.Unspecified : fruitions.State(lineage)?.Status ?? FruitionStatus.Unspecified;
-            return Density(regionId) * (Settings.LineageStatusFactors.TryGetValue(status, out var f) ? f : 1.0);
+            return Density(regionId) * LineageFactor(qi);
         }
+
+        /// <summary>How a Qi's lineage sways it (audit §7.9): rare when free, abundant when broken, as it is when occupied.</summary>
+        public double LineageFactor(QiDefinition qi) =>
+            qi == null || qi.Ubiquitous ? 1.0 : Settings.LineageStatusFactors.TryGetValue(StatusOf(FoundationRef.Parse(qi.Foundation).FruitionId), out var f) ? f : 1.0;
+
+        /// <summary>The state of the lineage a member stands on (their foundation's, else their method's Qi's).</summary>
+        public FruitionStatus LineageStatusOf(CharacterData member) =>
+            StatusOf(Affinity(member, techniques.FindQi(techniques.MethodOf(member)?.RequiredQiId)).Lineage);
+
+        private FruitionStatus StatusOf(string lineage) =>
+            lineage == null ? FruitionStatus.Unspecified : fruitions.State(lineage)?.Status ?? FruitionStatus.Unspecified;
 
         public AtmosphereDefinition AtmosphereOf(string regionId)
         {
