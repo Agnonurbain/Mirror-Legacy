@@ -12,6 +12,11 @@ namespace MirrorChronicles.Presentation
         string Qi, int QiInStore, IReadOnlyList<string> Practitioners)
     {
         public string Mark { get; init; } // the power whose style a stolen art still bears (null: none)
+
+        /// <summary>An art's masters, its students (« name (years/needed an(s)) ») and who may study it; null for a method (audit §7.11).</summary>
+        public IReadOnlyList<string> Masters { get; init; }
+        public IReadOnlyList<string> Students { get; init; }
+        public IReadOnlyList<(string Id, string Name)> MayStudy { get; init; }
     }
 
     /// <summary>An art a power would sell: its price, and why not now (null when it would).</summary>
@@ -33,9 +38,18 @@ namespace MirrorChronicles.Presentation
                     var practitioners = living.Where(m => m.CultivationMethodId == t.ID).Select(m => m.FullName).ToList();
                     return new TechniqueLine(t.ID, t.Name, KindLabel(t.Kind), t.Grade, CategoryLabel(t.Category),
                         WorldMapView.ElementLabel(t.DominantElement), RankCatalog.RealmName(t.RequiredRealm), qi?.Name, inStore, practitioners)
-                        { Mark = session.Marks.MarkOf(t.ID) };
+                        { Mark = session.Marks.MarkOf(t.ID) } with
+                        {
+                            Masters = isArt(t) ? living.Where(m => m.KnownTechniqueIDs.Contains(t.ID)).Select(m => m.FullName).ToList() : null,
+                            Students = isArt(t) ? living.Where(m => m.StudyArtId == t.ID)
+                                .Select(m => $"{m.FullName} ({m.StudyArtYears}/{t.Grade * session.Context.Content.Balance.Techniques.ArtStudyYearsPerGrade} an(s))").ToList() : null,
+                            MayStudy = isArt(t) ? living.Where(m => m.StudyArtId != t.ID && session.Tasks.ArtStudyRefusal(m, t.ID) == null)
+                                .Select(m => (m.ID, m.FullName)).ToList() : null
+                        };
                 })
                 .ToList();
+
+            static bool isArt(TechniqueData t) => t.Kind != TechniqueKind.Cultivation;
         }
 
         /// <summary>What every power would sell, the cheapest first, with why it will not sell now.</summary>

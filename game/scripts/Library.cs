@@ -412,6 +412,7 @@ namespace MirrorChronicles.Game
                 string who = art.Practitioners.Count == 0 ? "" : $" · pratiquée par {string.Join(", ", art.Practitioners)}";
                 string mark = art.Mark == null ? "" : $" · porte encore la marque de {art.Mark}";
                 Add(arts, $"{art.Name} — grade {(art.Grade >= MirrorChronicles.Characters.TechniqueRules.MaxGrade ? "7+" : art.Grade.ToString())}, {art.Category}, {art.Element}, dès {art.FirstRealm}{qi}{who}{mark}");
+                if (art.MayStudy != null) ShowStudy(art); // an art is studied, then wielded in battle (audit §7.11)
                 if (art.Mark != null)
                 {
                     int cost = root.Session.Context.Content.Balance.TechniqueMarks.CleanseCost;
@@ -421,6 +422,31 @@ namespace MirrorChronicles.Game
                     arts.AddChild(cleanse);
                 }
             }
+        }
+
+        /// <summary>Who masters an art, who studies it, and a member to set to its study.</summary>
+        private void ShowStudy(TechniqueLine art)
+        {
+            if (art.Masters.Count > 0) Add(arts, $"    maîtrisé par {string.Join(", ", art.Masters)}");
+            if (art.Students.Count > 0) Add(arts, $"    étudié par {string.Join(", ", art.Students)}");
+            if (art.MayStudy.Count == 0) return;
+            var row = new HBoxContainer();
+            var who = new OptionButton();
+            foreach (var (_, name) in art.MayStudy) who.AddItem(name);
+            var study = new Button { Text = "Faire étudier cet art" };
+            string artId = art.Id, artName = art.Name;
+            var candidates = art.MayStudy;
+            study.Pressed += () =>
+            {
+                var (memberId, memberName) = candidates[System.Math.Max(0, who.Selected)];
+                var member = root.Session.Clan.FindById(memberId);
+                status.Text = root.Session.Tasks.AssignArtStudy(member, artId) is { } why
+                    ? $"Refusé : {why}." : $"{memberName} étudie désormais « {artName} ».";
+                Refresh();
+            };
+            row.AddChild(who);
+            row.AddChild(study);
+            arts.AddChild(row);
         }
 
         private void ShowMarket()
