@@ -584,6 +584,11 @@ namespace MirrorChronicles.Data
         /// <summary>Base chance (%) of the Ascent; failing it kills.</summary>
         public int AscentBaseChance { get; init; }
 
+        /// <summary>Percent of the Ascent per grade of the founding method above the reference, and per art mastered up to a cap (audit §7.13).</summary>
+        public int AscentPerGrade { get; init; }
+        public int AscentPerArt { get; init; }
+        public int AscentArtCap { get; init; }
+
         /// <summary>Years of the Manifestation retreat (« about six years »).</summary>
         public int ManifestationYears { get; init; }
 

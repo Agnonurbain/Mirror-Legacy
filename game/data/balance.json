@@ -12,6 +12,9 @@
   "temperamentInheritanceChance": 0.8,
   "purpleMansion": {
 	"ascentBaseChance": 60,
+	"ascentPerGrade": 5,
+	"ascentPerArt": 3,
+	"ascentArtCap": 3,
 	"transformedLineageBonus": 20,
 	"manifestationYears": 6,
 	"manifestationBaseChance": 45,
