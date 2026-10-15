@@ -313,6 +313,19 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void ClaimPosition_ASurplus_OnlyBeneathAHeldRealization()
+        {
+            // the wiki: a Surplus serves the Realization — a free lineage has none to serve (audit §8.5)
+            var w = new TestWorld(new FixedRandom(Pass));
+            w.Fruitions.Restore(new System.Collections.Generic.Dictionary<string, FruitionState> { [MutableWater] = new FruitionState(FruitionStatus.Free, null) }, new System.Random(1));
+            var c = Forged(w, MutableWater, MutableWithSubstitute);
+
+            Assert.IsFalse(w.GoldenCore.ClaimPosition(c));
+            StringAssert.Contains("Réalisation", w.GoldenCore.ClaimRefusal(c));
+            Assert.AreEqual(GoldenCoreState.MetallicEssenceOnly, c.GoldenCore);
+        }
+
+        [Test]
         public void ClaimPosition_AnIntercalaryOfAFreeLineage_NeedsNoPermission()
         {
             var w = new TestWorld(new FixedRandom(Pass));

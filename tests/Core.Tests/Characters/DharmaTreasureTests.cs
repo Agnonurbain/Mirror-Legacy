@@ -117,8 +117,17 @@ namespace MirrorChronicles.Tests.Characters
             unloved.Dharma.MakeDesignation(b);
 
             Assert.AreEqual(loved.Dharma.DomainStrength / 2, unloved.Dharma.DomainStrength, 1e-9, "Tan Qing, unloved, wields his only briefly");
-            Assert.Greater(loved.Dharma.DomainGuardChance, unloved.Dharma.DomainGuardChance);
+            Assert.AreEqual(0, unloved.Dharma.DomainGuardChance, 1e-9, "a brief wielding in battle guards no domain (audit §8.6)");
+            Assert.Greater(loved.Dharma.DomainGuardChance, 0);
             Assert.Greater(loved.Dharma.DomainStrength, 0);
+        }
+
+        [Test]
+        public void OnlyARealization_MakesARankDesignation()
+        {
+            var s = Session();
+            var m = WithTreasure(s, GoldenCoreState.Surplus);
+            StringAssert.Contains("Réalisation", s.Dharma.MakeDesignation(m)); // the wiki: the Realization alone (audit §8.6)
         }
 
         [Test]
@@ -155,7 +164,8 @@ namespace MirrorChronicles.Tests.Characters
             var s = Session(With(d => d with { MasterlessStrikeChance = 1.0 }));
             var m = WithTreasure(s);
             s.Dharma.MakeDesignation(m);
-            var heir = Monarch(s, GoldenCoreState.Surplus);
+            var surplus = Monarch(s, GoldenCoreState.Surplus);
+            var heir = Monarch(s, GoldenCoreState.Realization); // only the Realization masters it (audit §8.6)
             s.Clan.Kill(m, DeathCause.OldAge);
             int living = s.Clan.LivingMembers.Count;
             Years(s, 1);
