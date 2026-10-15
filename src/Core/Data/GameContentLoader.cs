@@ -432,7 +432,8 @@ namespace MirrorChronicles.Data
             var place = balance.RegionalQi;
             Require(place != null && place.KindElements != null && place.KindDensity != null && place.LineageStatusFactors != null
                 && Enum.GetValues(typeof(RegionKind)).Cast<RegionKind>().All(k => place.KindElements.ContainsKey(k) && place.KindDensity.TryGetValue(k, out var d) && d > 0)
-                && Enum.GetValues(typeof(FruitionStatus)).Cast<FruitionStatus>().All(s => place.LineageStatusFactors.TryGetValue(s, out var f) && f >= 0)
+                && Enum.GetValues(typeof(FruitionStatus)).Cast<FruitionStatus>().All(s => place.LineageStatusFactors.TryGetValue(s, out var f) && f > 0)
+                && IsProbability(place.BrokenDeviationChance)
                 && place.EverywhereFamilies != null && place.AbsentQiFactor >= 0,
                 BalanceFile, "regionalQi needs the elements and a positive density of every kind of place, and a factor for every lineage state.");
             var hunt = balance.Hunt;

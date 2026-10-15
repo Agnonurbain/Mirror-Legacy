@@ -85,7 +85,10 @@ namespace MirrorChronicles.Session
             session.Techniques.Restore(
                 data.Knowledge != null ? null : data.KnownTechniqueIds ?? content.Clan.StartingTechniques, // saves made before the knowledge module
                 (data.Techniques ?? new List<TechniqueData>()).Select(t => t.Clone()));
-            session.Resources.RestoreQi(data.SpiritualQi ?? content.Clan.StartingQi, data.QiHarvestProgress);
+            var harvests = data.QiHarvestProgress;
+            if (harvests != null && SavedBefore(data, "2.57")) // counted in years before, in hundredths since (audit §7.9)
+                harvests = harvests.ToDictionary(kv => kv.Key, kv => kv.Value * ResourceManager.HarvestUnitsPerYear);
+            session.Resources.RestoreQi(data.SpiritualQi ?? content.Clan.StartingQi, harvests);
             foreach (var record in records)
             {
                 session.Techniques.NormalizeMember(record);                  // a Qi cultivator practises a method

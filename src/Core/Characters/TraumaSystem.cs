@@ -26,7 +26,7 @@ namespace MirrorChronicles.Characters
             this.clan = clan;
             ctx.Events.OnCharacterDied += (dead, _) => { foreach (var kin in Kin(dead)) Suffer(kin, Trauma.Mourning); };
             ctx.Events.OnMemberCaptured += (captive, _) => Suffer(captive, Trauma.Captivity);
-            ctx.Events.OnClanBattleLost += downed => { foreach (var m in downed) Suffer(m, Trauma.Defeat); };
+            ctx.Events.OnClanBattleLost += downed => { foreach (var m in downed.Where(m => m.CaptorFaction == null)) Suffer(m, Trauma.Defeat); }; // a captive suffers its captivity
             ctx.Events.OnTrialWoundedDao += m => Suffer(m, Trauma.WoundedTrial);
             ctx.Events.OnTreatyBetrayed += _ => Suffer(clan.GetPatriarch(), Trauma.Betrayal);
             ctx.Events.OnMemberUnmasked += spy => Suffer(SpouseOf(spy), Trauma.Betrayal);
@@ -43,7 +43,7 @@ namespace MirrorChronicles.Characters
         /// <summary>The trauma may breed a Heart Demon in a living member who cultivates.</summary>
         private void Suffer(CharacterData member, Trauma trauma)
         {
-            if (member == null || !member.IsAlive || !SpiritualOrificeRules.Cultivates(member)) return;
+            if (member == null || !member.IsAlive || !clan.LivingMembers.Contains(member) || !SpiritualOrificeRules.Cultivates(member)) return;
             double chance = Settings.TraumaChances != null && Settings.TraumaChances.TryGetValue(trauma, out var c) ? c : 0;
             if (!ctx.Rng.Chance(chance)) return;
 

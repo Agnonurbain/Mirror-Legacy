@@ -159,8 +159,7 @@ namespace MirrorChronicles.Economy
             }
 
             double sway = Place?.LineageFactor(qi) ?? 1.0; // a free lineage's Qi is slower to harvest, a broken one's faster (audit §7.9)
-            if (sway <= 0) return 0;
-            int portions = resources.AddHarvestWork(qi.Id, Math.Max(1, (int)Math.Round(qi.YearsPerPortion / sway)));
+            int portions = resources.AddHarvestWork(qi.Id, qi.YearsPerPortion, sway);
             if (portions > 0) ctx.Log.Info($"[Tasks] {harvester.FullName} condenses {portions} portion(s) of {qi.Name}.");
             return portions;
         }
