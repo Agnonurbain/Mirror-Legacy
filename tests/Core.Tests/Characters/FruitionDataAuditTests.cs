@@ -31,6 +31,15 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void TheOriginalAndItsCopy_CountOnce()
+        {
+            // four distinct abilities are no five (audit §8.7, review)
+            var three = Lineage("grand-shaman").Abilities.Where(FoundationRules.IsOfTheCentre).Take(3).Select(a => $"grand-shaman:{a.Id}");
+            var held = three.Append("grand-shaman:fools-summit-race-substitute").Append("orthodox-earth:fools-summit-race").ToList();
+            Assert.AreEqual(PositionRoute.None, GoldenCoreRules.RouteTo(held, "grand-shaman", Content.Fruitions));
+        }
+
+        [Test]
         public void ACopiedSubstitution_NamesItsOriginal()
         {
             Assert.AreEqual("orthodox-earth:fools-summit-race", Ability("grand-shaman", "fools-summit-race-substitute").Original);
