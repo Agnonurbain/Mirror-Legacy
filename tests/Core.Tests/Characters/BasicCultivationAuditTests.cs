@@ -359,5 +359,52 @@ namespace MirrorChronicles.Tests.Characters
             Assert.IsNotNull(FighterRules.Refusal(Breathing(age: 20, chakra: 0)));
             Assert.IsNull(FighterRules.Refusal(Breathing(age: 20, chakra: 1)));
         }
+
+        // ---- Review of the decisions (batch A) ----
+
+        [Test]
+        public void APeripheralAbility_HasNoDaoPartner()
+        {
+            CollectionAssert.IsEmpty(FoundationRules.DaoPartners(Lineage("orthodox-water"), "peril-refuge"));
+        }
+
+        [Test]
+        public void APeripheralFoundation_ConsumesNoPartnerOfTheCentre()
+        {
+            var w = World();
+            var consumer = w.Join(Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation, stage: 2));
+            consumer.FoundationId = "orthodox-water:peril-refuge";
+            var donor = w.Join(Fixtures.Cultivator(age: 60, realm: CultivationRealm.Foundation, stage: 2));
+            donor.FoundationId = "orthodox-water:boundless-sea";
+            w.Knowledge.Reveal(MirrorChronicles.World.FactKind.DaoPartners, consumer.FoundationId, MirrorChronicles.World.KnowledgeSource.Mirror);
+            Assert.IsFalse(w.Foundations.ConsumeDaoPartner(consumer, donor));
+        }
+
+        [Test]
+        public void FiveAbilitiesOutsideTheCentre_ForgeNoRealization()
+        {
+            var five = new[] { "boundless-sea", "ford-watcher", "storm-sky", "dike-guard", "peril-refuge" }.Select(a => $"orthodox-water:{a}");
+            Assert.AreNotEqual(PositionRoute.Realization, GoldenCoreRules.RouteTo(five, "orthodox-water", Fixtures.Content.Fruitions));
+        }
+
+        [Test]
+        public void TheMirror_DeducesTheMinors_OnlyFromTheFiveOfTheCentre()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            foreach (var a in new[] { "boundless-sea", "ford-watcher", "storm-sky", "peril-refuge", "black-water-serpent-king" })
+                s.Knowledge.Reveal(MirrorChronicles.World.FactKind.Ability, $"orthodox-water:{a}", MirrorChronicles.World.KnowledgeSource.Mirror);
+            StringAssert.Contains("cinq capacités orthodoxes", s.Minors.DeduceRefusal("orthodox-water"));
+        }
+
+        [Test]
+        public void ARealizationsChild_SavedWithoutAnOrifice_GetsOneBack()
+        {
+            var w = World();
+            var heir = Fixtures.Mortal(isMale: true);
+            heir.TransformedLineage = true;
+            heir.HasSpiritualOrifice = false; // a save made before audit §7.12
+            w.Clan.Restore(new[] { heir }, heir.ID);
+            Assert.IsTrue(heir.HasSpiritualOrifice);
+        }
     }
 }

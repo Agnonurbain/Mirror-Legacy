@@ -70,6 +70,17 @@ namespace MirrorChronicles.Tests.Diplomacy
             StringAssert.Contains("ne suffit pas", w.Accords.Refusal(Holder, Ascent, new[] { new AccordTerm(AccordCurrency.Stones, null, 1_000_000) }));
         }
 
+        [TestCase("bronze-rampart-method")] // a common manual of grade 4
+        [TestCase("path-watcher")]          // a secret technique of grade 2
+        public void Stones_BuyOnlyACommonManualOfGradeThreeOrLess_EvenInAnAccord(string method)
+        {
+            var w = World();
+            w.Factions.GetFactionByName(Holder).Techniques.Add(method);
+            w.Resources.AddSpiritStones(1_000_000);
+            Assert.IsNotNull(w.Accords.Conclude(Holder, method, new[] { new AccordTerm(AccordCurrency.Stones, null, 1_000_000) }), "audit §7.10");
+            Assert.IsFalse(w.Techniques.Knows(method));
+        }
+
         [Test]
         public void Stones_StillPayForAnOrdinaryMethod()
         {
