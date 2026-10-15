@@ -88,7 +88,7 @@ namespace MirrorChronicles.Economy
                 return false;
             }
 
-            if (task != TaskType.Study) { character.StudyArtId = null; character.StudyArtYears = 0; } // leaving the study abandons it
+            character.StudyArtId = null; character.StudyArtYears = 0; // a task, even a plain study, leaves an art's study (AssignArtStudy sets it anew)
             character.CurrentTask = task;
             return true;
         }
@@ -102,6 +102,8 @@ namespace MirrorChronicles.Economy
             if (member == null || !member.IsAlive || member.CaptorFaction != null) return "ce membre n'est pas au domaine";
             if (!SpiritualOrificeRules.Cultivates(member)) return "seul un cultivateur étudie un art";
             if (member.Realm < art.RequiredRealm) return $"cet art se manie dès {RankCatalog.RealmName(art.RequiredRealm)}";
+            if (!TaskRules.IsAllowed(member, TaskType.Study, talismans.HuntWindowOpen, shards.LakeSearchOpen))
+                return "ce membre ne peut pas prendre la tâche d'étude (son âge, son royaume, une retraite ou un départ)";
             if (member.KnownTechniqueIDs.Contains(art.ID)) return "ce membre maîtrise déjà cet art";
             return null;
         }
@@ -110,9 +112,10 @@ namespace MirrorChronicles.Economy
         public string AssignArtStudy(CharacterData member, string artId)
         {
             if (ArtStudyRefusal(member, artId) is { } why) return why;
+            int given = member.CurrentTask == TaskType.Study && member.StudyArtId == artId ? member.StudyArtYears : 0; // the same art resumed
             if (!AssignTask(member, TaskType.Study)) return "ce membre ne peut pas étudier cette année";
-            if (member.StudyArtId != artId) member.StudyArtYears = 0;
             member.StudyArtId = artId;
+            member.StudyArtYears = given;
             return null;
         }
 
@@ -135,6 +138,11 @@ namespace MirrorChronicles.Economy
         public YearlyTaskReport ProcessYearlyTasks()
         {
             var members = clan.LivingMembers.ToList(); // tasks may kill or add members
+            foreach (var broken in members.Where(m => m.StudyArtId != null && m.CurrentTask != TaskType.Study))
+            {
+                broken.StudyArtId = null; // an art's study broken off (captive, disciple, retreat…) is forgotten (audit §7.11)
+                broken.StudyArtYears = 0;
+            }
             var minersYield = new List<int>();
             int patrols = 0;
             int qiGathered = 0;

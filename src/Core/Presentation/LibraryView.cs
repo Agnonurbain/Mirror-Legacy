@@ -41,9 +41,9 @@ namespace MirrorChronicles.Presentation
                         { Mark = session.Marks.MarkOf(t.ID) } with
                         {
                             Masters = isArt(t) ? living.Where(m => m.KnownTechniqueIDs.Contains(t.ID)).Select(m => m.FullName).ToList() : null,
-                            Students = isArt(t) ? living.Where(m => m.StudyArtId == t.ID)
+                            Students = isArt(t) ? living.Where(m => m.StudyArtId == t.ID && m.CurrentTask == TaskType.Study)
                                 .Select(m => $"{m.FullName} ({m.StudyArtYears}/{t.Grade * session.Context.Content.Balance.Techniques.ArtStudyYearsPerGrade} an(s))").ToList() : null,
-                            MayStudy = isArt(t) ? living.Where(m => m.StudyArtId != t.ID && session.Tasks.ArtStudyRefusal(m, t.ID) == null)
+                            MayStudy = isArt(t) ? living.Where(m => !(m.StudyArtId == t.ID && m.CurrentTask == TaskType.Study) && session.Tasks.ArtStudyRefusal(m, t.ID) == null)
                                 .Select(m => (m.ID, m.FullName)).ToList() : null
                         };
                 })
