@@ -57,7 +57,7 @@ namespace MirrorChronicles.Tests.World
         }
 
         [Test]
-        public void AQi_IsAbundantWhereItsLineageRules_AndPoorWhereItIsBroken()
+        public void AQi_IsRareWhereItsLineageIsFree_AndAbundantWhereItIsBroken()
         {
             var w = new TestWorld();
             var spring = Fixtures.Content.Qi.Single(q => q.Id == "clear-spring-qi"); // Orthodox Water
@@ -69,8 +69,8 @@ namespace MirrorChronicles.Tests.World
             Lineage(w, "orthodox-water", FruitionStatus.Broken);
             double broken = Place(w).Abundance(Lake, spring);
 
-            Assert.Greater(ruled, free);
-            Assert.Greater(free, broken);
+            Assert.Greater(ruled, free); // the lore (audit §7.9): free, rare
+            Assert.Greater(broken, ruled); // broken, more abundant (and perilous)
         }
 
         [Test]

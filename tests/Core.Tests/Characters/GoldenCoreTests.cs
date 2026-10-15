@@ -555,6 +555,19 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void AFailedTransfer_TellsItsWoundToTheDao()
+        {
+            var w = new TestWorld(new FixedRandom(Fail));
+            var c = Holder(w, GoldenCoreState.Surplus);
+            CharacterData wounded = null;
+            w.Ctx.Events.OnTrialWoundedDao += m => wounded = m; // a trauma (audit §7.14)
+
+            w.GoldenCore.Transfer(c);
+
+            Assert.AreSame(c, wounded);
+        }
+
+        [Test]
         public void Transfer_TellsTheWorld_TheSurplusRoseToTheRealization()
         {
             var w = new TestWorld(new FixedRandom(Pass));
