@@ -23,14 +23,17 @@ namespace MirrorChronicles.Diplomacy
         private readonly FactionManager factions;
         private readonly MentalStabilitySystem stability;
         private readonly ResourceManager resources;
+        private readonly TechniqueLibrary techniques;
 
-        public MarriageSystem(GameContext ctx, ClanManager clan, FactionManager factions, MentalStabilitySystem stability, ResourceManager resources)
+        public MarriageSystem(GameContext ctx, ClanManager clan, FactionManager factions, MentalStabilitySystem stability, ResourceManager resources,
+            TechniqueLibrary techniques)
         {
             this.ctx = ctx;
             this.clan = clan;
             this.factions = factions;
             this.stability = stability;
             this.resources = resources;
+            this.techniques = techniques;
         }
 
         private LineageSettings Lineage => ctx.Content.Balance.Lineage;
@@ -94,6 +97,7 @@ namespace MirrorChronicles.Diplomacy
             spouse.HasSpiritualOrifice = true; // the one sought was examined
             spouse.OrificeKnown = true;
             spouse.MaxLifespan = PowerLadder.MaxLifespan(spouse.Realm, spouse.RealmStage);
+            techniques.Equip(spouse, null); // a wanderer practises what the clan teaches (AUDIT_LORE.md §7.5)
             Wed(member, spouse);
             stability.ApplyModifier(member, WillingStability);
             ctx.Log.Info($"[Marriage] A wandering cultivator weds {member.FullName}.");
@@ -155,6 +159,7 @@ namespace MirrorChronicles.Diplomacy
             spouse.OrificeKnown = true;
             spouse.MaxLifespan = PowerLadder.MaxLifespan(spouse.Realm, spouse.RealmStage);
             spouse.FromFaction = faction.Name;
+            techniques.Equip(spouse, faction.Techniques); // it comes practising its power's method, on its Qi (AUDIT_LORE.md §7.5)
             if (ctx.Rng.Chance(World.IntrigueRules.SpyChance(faction, ctx.Content.Balance.Intrigues)))
                 spouse.SpyFor = faction.Name; // its eyes inside the clan (hidden, 2026-09-27)
 

@@ -120,6 +120,26 @@ namespace MirrorChronicles.Clan
         }
 
         /// <summary>
+        /// Equips a newcomer at the Qi Cultivation or beyond (a spouse, a joiner) with the best method it was offered that covers
+        /// its realm, and that method's Qi — its own power's arts (AUDIT_LORE.md §7.5-7.6); else the clan's, as an older save's.
+        /// </summary>
+        public void Equip(CharacterData member, IEnumerable<string> offered)
+        {
+            if (member.Realm < CultivationRealm.QiRefinement) return;
+            var method = (offered ?? Enumerable.Empty<string>()).Select(Find)
+                .Where(t => t != null && t.RequiredQiId != null && TechniqueRules.Covers(t, member.Realm))
+                .OrderByDescending(t => t.Grade).ThenBy(t => t.Name, StringComparer.Ordinal).FirstOrDefault();
+            if (method == null)
+            {
+                NormalizeMember(member);
+                return;
+            }
+            member.CultivationMethodId = method.ID;
+            member.QiId = method.RequiredQiId;
+            if (!member.KnownTechniqueIDs.Contains(method.ID)) member.KnownTechniqueIDs.Add(method.ID);
+        }
+
+        /// <summary>
         /// Brings a record from an older save up to date: a Qi cultivator or beyond practises a method
         /// covering their realm (their own, else the best the clan knows on their Qi) and holds its Qi.
         /// </summary>

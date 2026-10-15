@@ -49,7 +49,7 @@ namespace MirrorChronicles.Characters
         public void ProcessYearlyCultivation(CharacterData character, double share)
         {
             if (!character.IsAlive || (character.CurrentTask != TaskType.Cultivation && character.CurrentTask != TaskType.ArtPractice)) return;
-            if (!SpiritualOrificeRules.CanCultivate(character)) return; // a mortal gathers no Qi
+            if (!SpiritualOrificeRules.Cultivates(character)) return; // a mortal gathers no Qi
             if (character.Path != CultivationPath.Immortal) return;     // a monk or a bound beast rises its own way (R13-R16)
             if (character.ProgressionSealed) return;                     // a consumed Dao Partner: no further, even cultivating
 
@@ -88,7 +88,7 @@ namespace MirrorChronicles.Characters
         /// <summary>Adds XP from any source (cultivation, study, teaching, buildings) and climbs free sub-levels.</summary>
         public void GrantXp(CharacterData character, int amount)
         {
-            if (amount <= 0 || !SpiritualOrificeRules.CanCultivate(character) || character.ProgressionSealed) return;
+            if (amount <= 0 || !SpiritualOrificeRules.Cultivates(character) || character.ProgressionSealed) return;
             character.CultivationXP += amount;
             AdvanceSubLevels(character);
         }
@@ -99,7 +99,7 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public void AdvanceSubLevels(CharacterData character)
         {
-            if (!SpiritualOrificeRules.CanCultivate(character) || character.ProgressionSealed) return;
+            if (!SpiritualOrificeRules.Cultivates(character) || character.ProgressionSealed) return;
             if (character.Path != CultivationPath.Immortal) return; // its XP waits for its own climb (R13-R16)
 
             while (true)
@@ -130,7 +130,7 @@ namespace MirrorChronicles.Characters
             return character.IsAlive
                 && character.Path == CultivationPath.Immortal // a monk or a bound beast rises with no trial (R13-R16)
                 && character.CaptorFaction == null // no trial in a cell (L6a)
-                && SpiritualOrificeRules.CanCultivate(character)
+                && SpiritualOrificeRules.Cultivates(character)
                 && step.IsAvailable
                 && step.Trial != TrialKind.None
                 && !character.ProgressionSealed

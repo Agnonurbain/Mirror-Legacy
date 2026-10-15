@@ -48,7 +48,8 @@ namespace MirrorChronicles.Tests.Presentation
         {
             var s = NewGame();
             var embryonic = ClanDomainView.Roster(s).First(r => r.Rank.StartsWith("Respiration Embryonnaire"));
-            CollectionAssert.AreEquivalent(new[] { TaskType.None, TaskType.Cultivation, TaskType.Rest }, embryonic.AllowedTasks);
+            CollectionAssert.AreEquivalent(new[] { TaskType.None, TaskType.Cultivation, TaskType.Mine, TaskType.Patrol, TaskType.Diplomacy, TaskType.Rest },
+                embryonic.AllowedTasks, "a breathing adult does what a mortal does (AUDIT_LORE.md §7.4)");
         }
 
         // ---- Techniques and Qi (LORE.md §2) ----

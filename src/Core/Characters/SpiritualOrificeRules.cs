@@ -62,10 +62,21 @@ namespace MirrorChronicles.Characters
             return character.HasSpiritualOrifice || character.HasTalismanSeed || character.Species != Species.Human;
         }
 
-        /// <summary>Only a confirmed cultivator — Summit Eye chakra or beyond — can see another's orifice.</summary>
+        /// <summary>
+        /// Cultivates in practice: an orifice someone examined, a Talisman Seed, or a non-human (AUDIT_LORE.md §7.1) — an orifice
+        /// nobody examined gathers nothing, and its tasks do not betray it.
+        /// </summary>
+        public static bool Cultivates(CharacterData character) =>
+            CanCultivate(character) && (character.OrificeKnown || character.HasTalismanSeed || character.Species != Species.Human);
+
+        /// <summary>
+        /// Only a confirmed cultivator — Summit Eye chakra or beyond — can see another's orifice, and only at the domain: not a
+        /// captive, a disciple sent away, nor one at a task far from home (AUDIT_LORE.md §7.2).
+        /// </summary>
         public static bool CanDetectOrifice(CharacterData examiner)
         {
-            if (!examiner.IsAlive || !CanCultivate(examiner)) return false;
+            if (!examiner.IsAlive || !Cultivates(examiner)) return false;
+            if (examiner.CaptorFaction != null || examiner.DiscipleOf != null || TaskRules.IsAway(examiner.CurrentTask)) return false;
             return examiner.Realm > CultivationRealm.Embryonic || examiner.RealmStage >= DetectionChakraStage;
         }
 
