@@ -52,6 +52,17 @@ namespace MirrorChronicles.Tests.Presentation
                 embryonic.AllowedTasks, "a breathing adult does what a mortal does (AUDIT_LORE.md §7.4)");
         }
 
+        [Test]
+        public void Roster_DoesNotBetrayAnOrificeNobodyExamined()
+        {
+            var s = NewGame();
+            var child = new CharacterData { ID = "unexamined", FirstName = "Ying", LastName = "Mo", Age = 8, HasSpiritualOrifice = true, OrificeKnown = false, MaxLifespan = 70 };
+            s.Clan.AddMember(child);
+            var row = ClanDomainView.Roster(s).Single(r => r.Id == child.ID);
+            Assert.AreEqual("—", row.Method, "AUDIT_LORE.md §7.1: as a mortal's");
+            Assert.IsEmpty(row.Methods);
+        }
+
         // ---- Techniques and Qi (LORE.md §2) ----
 
         [Test]

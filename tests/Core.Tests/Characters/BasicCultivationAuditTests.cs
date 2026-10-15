@@ -80,6 +80,72 @@ namespace MirrorChronicles.Tests.Characters
             Assert.IsFalse(newborn.OrificeKnown);
         }
 
+        [Test]
+        public void AnExaminerInRetreat_ExaminesNobody()
+        {
+            var (w, examiner, newborn) = Examination();
+            examiner.Retreat = Retreat.Manifestation;
+            Assert.AreEqual(0, w.Clan.ExamineOrifices());
+            Assert.IsFalse(newborn.OrificeKnown);
+        }
+
+        // ---- 7.1 Nothing else betrays an orifice nobody examined (review) ----
+
+        private static CharacterData Unexamined(TestWorld w)
+        {
+            var hidden = w.Join(Breathing(age: 20, chakra: 0));
+            hidden.OrificeKnown = false;
+            return hidden;
+        }
+
+        [Test]
+        public void AnUnexaminedOrifice_CostsWhatAMortalCosts()
+        {
+            var w = World();
+            Assert.AreEqual(w.Upkeep.UpkeepOf(w.Join(Fixtures.Mortal())), w.Upkeep.UpkeepOf(Unexamined(w)));
+        }
+
+        [Test]
+        public void AnUnexaminedOrifice_TakesUpNoMethod()
+        {
+            var w = World();
+            var breathing = Fixtures.Content.Techniques.First(t => t.Kind == TechniqueKind.Cultivation && TechniqueRules.Covers(t, CultivationRealm.Embryonic));
+            Assert.IsFalse(TechniqueRules.CanPractise(Unexamined(w), breathing));
+        }
+
+        [Test]
+        public void AnUnexaminedEnvoy_IsReceivedAsAMortal()
+        {
+            var w = World();
+            w.Factions.InitializeFactions();
+            var family = w.Factions.Factions.First(f => f.Kind == FactionKind.Family);
+            var mortal = w.Join(Fixtures.Mortal());
+            var hidden = Unexamined(w);
+            foreach (var envoy in new[] { mortal, hidden }) { envoy.CurrentTask = TaskType.Diplomacy; envoy.DiplomacyTarget = family.Name; }
+            int before = family.RelationWithPlayer;
+            mortal.CurrentTask = TaskType.None;
+            w.Tasks.ProcessYearlyTasks();
+            int byTheHidden = family.RelationWithPlayer - before;
+            hidden.CurrentTask = TaskType.None;
+            mortal.CurrentTask = TaskType.Diplomacy;
+            before = family.RelationWithPlayer;
+            w.Tasks.ProcessYearlyTasks();
+            Assert.AreEqual(family.RelationWithPlayer - before, byTheHidden);
+        }
+
+        // ---- 7.5-7.6 Equip (review) ----
+
+        [Test]
+        public void ANewcomer_NeverPractisesAMethodOfAVanishedQi()
+        {
+            var w = World();
+            var member = Fixtures.Cultivator(age: 30);
+            member.CultivationMethodId = null;
+            member.QiId = null;
+            w.Techniques.Equip(member, new[] { "elder-knocking-sutra" });
+            Assert.AreNotEqual("elder-knocking-sutra", member.CultivationMethodId);
+        }
+
         // ---- 7.4 The breathing cultivator's tasks ----
 
         [Test]
