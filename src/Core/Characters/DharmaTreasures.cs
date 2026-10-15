@@ -96,8 +96,12 @@ namespace MirrorChronicles.Characters
         {
             var first = clan.FindById(d.MasterId);
             if (Free(first)) return first;
-            return clan.LivingMembers.FirstOrDefault(m => Free(m) && m.FruitionId == d.Lineage && m.GoldenCore == GoldenCoreState.Realization);
+            return clan.LivingMembers.Where(m => Free(m) && m.FruitionId == d.Lineage && Holds(m))
+                .OrderBy(m => m.GoldenCore == GoldenCoreState.Realization ? 0 : 1).FirstOrDefault(); // its Realization first, else another position
         }
+
+        private static bool Holds(CharacterData m) =>
+            m.GoldenCore == GoldenCoreState.Realization || m.GoldenCore == GoldenCoreState.Surplus || m.GoldenCore == GoldenCoreState.Intercalary;
 
         private bool Loved(CharacterData master, string lineage)
         {

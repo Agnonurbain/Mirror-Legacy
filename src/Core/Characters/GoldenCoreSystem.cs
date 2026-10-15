@@ -56,7 +56,7 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public bool Forge(CharacterData member, string fruitionId)
         {
-            if (ForgeRoute(member, fruitionId) == PositionRoute.None
+            if (ForgeRoute(member, fruitionId) == PositionRoute.None || ForgeRefusal(member, fruitionId) != null
                 || member.SubPath == CultivationSubPath.SpiritualNature && member.FruitionId != fruitionId) // an elect rises only to its destiny (R10b)
             {
                 ctx.Log.Warning($"[Golden Core] {member?.FullName} cannot forge a metal essence toward \"{fruitionId}\".");
@@ -164,6 +164,17 @@ namespace MirrorChronicles.Characters
                 .Where(x => x.Route != PositionRoute.None)
                 .Select(x => (x.Id, x.Route, knowledge.Knows(FactKind.GoldSeeking, x.Route == PositionRoute.IntercalaryThreeTwo ? GoldenCoreRules.SpecialisedMethod(x.Id) : x.Id)))
                 .ToList();
+        }
+
+        /// <summary>
+        /// Why a forge toward this lineage would lead nowhere (French), or null: a Surplus of a free lineage has no Realization
+        /// to serve, and its essence would wait for ever (audit §8.5).
+        /// </summary>
+        public string ForgeRefusal(CharacterData member, string fruitionId)
+        {
+            var route = GoldenCoreRules.RouteTo(member?.DivineAbilities, fruitionId, ctx.Content, Corrupted);
+            return route == PositionRoute.Surplus && fruitions.State(fruitionId)?.Status == FruitionStatus.Free
+                ? "un Surplus sert une Réalisation tenue : cette lignée n'a pas de maître" : null;
         }
 
         /// <summary>Why this essence cannot ask for its position now (French), or null.</summary>

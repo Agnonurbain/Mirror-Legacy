@@ -47,7 +47,8 @@ namespace MirrorChronicles.Presentation
                         continue;
                     }
                     options.Add(new GoldenCoreOption(GoldenCoreAction.Forge, m.ID, target,
-                        $"{m.FullName} : forger l'essence métallique vers {RouteLabel(route)} de {Lineage(s, target)} — {s.GoldenCore.ForgeOdds(m)} %", null));
+                        $"{m.FullName} : forger l'essence métallique vers {RouteLabel(route)} de {Lineage(s, target)} — {s.GoldenCore.ForgeOdds(m)} %",
+                        s.GoldenCore.ForgeRefusal(m, target)));
                 }
                 if (m.GoldenCore == GoldenCoreState.MetallicEssenceOnly && m.FruitionId != null)
                 {
