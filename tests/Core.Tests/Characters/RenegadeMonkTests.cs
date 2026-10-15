@@ -5,6 +5,7 @@ using MirrorChronicles.Characters;
 using MirrorChronicles.Data;
 using MirrorChronicles.Presentation;
 using MirrorChronicles.Session;
+using MirrorChronicles.World;
 
 namespace MirrorChronicles.Tests.Characters
 {
@@ -146,7 +147,86 @@ namespace MirrorChronicles.Tests.Characters
             Assert.IsTrue(Temple(w).Elders.Any(e => e.RenegadeId == captive.ID));
         }
 
+        // ---- Reconciled with the clan's records (review) ----
+
+        [Test]
+        public void TheRenegade_GoneFromItsTemple_IsDeadInTheClansRecords()
+        {
+            var w = World(0.0);
+            var (captive, renegade) = Renegade(w);
+            Temple(w).Elders.Remove(renegade); // dead of age, struck, taken, its temple absorbed: gone
+            w.Buddhism.ProcessYear();
+            Assert.IsFalse(captive.IsAlive);
+        }
+
+        [Test]
+        public void TheRenegade_StillInItsTemple_LivesOn()
+        {
+            var w = World(0.0);
+            var (captive, _) = Renegade(w);
+            w.Buddhism.ProcessYear();
+            Assert.IsTrue(captive.IsAlive);
+        }
+
+        [Test]
+        public void TheRenegade_NeverDaresTheGoldenCore()
+        {
+            var w = World(0.0);
+            var (_, renegade) = Renegade(w);
+            renegade.Realm = CultivationRealm.PurpleMansion;
+            renegade.Perfected = true;
+            renegade.GoldenCoreOdds = 1.0;
+            Assert.IsFalse(new ElderSystem(w.Ctx, w.Factions).Dare(Temple(w), renegade, 0.0));
+            Assert.AreEqual(CultivationRealm.PurpleMansion, renegade.Realm);
+        }
+
+        [Test]
+        public void TheRenegade_TakenBack_ComesBackFreeOfItsOldState()
+        {
+            var w = World(0.0);
+            var (captive, renegade) = Renegade(w);
+            captive.CurrentTask = TaskType.Diplomacy;
+            captive.Retreat = Retreat.Manifestation;
+            captive.CultivationXP = 999;
+            Assert.AreSame(captive, w.Buddhism.TakeBack(Temple(w), renegade));
+            Assert.AreEqual(TaskType.None, captive.CurrentTask);
+            Assert.AreEqual(Retreat.None, captive.Retreat);
+            Assert.AreEqual(0, captive.CultivationXP);
+            Assert.IsFalse(captive.Renegade);
+        }
+
+        [Test]
+        public void ARenegadeWhoseRecordIsGone_IsNotTakenBack_AndStaysAnElder()
+        {
+            var w = World(0.0);
+            var (captive, renegade) = Renegade(w);
+            captive.IsAlive = false;
+            Assert.IsNull(w.Buddhism.TakeBack(Temple(w), renegade));
+            CollectionAssert.Contains(Temple(w).Elders, renegade);
+        }
+
+        [Test]
+        public void TheRenegadeLeader_IsOfItsOwnSex()
+        {
+            var w = World(0.0);
+            var (captive, _) = Renegade(w);
+            w.Clan.AppointPatriarch(w.Join(Fixtures.Cultivator(realm: CultivationRealm.QiRefinement, stage: 5)));
+            AtWar(w);
+            Assert.AreEqual(captive.IsMale, w.WarBattles.Army(w.WarBattles.Pending)[0].IsMale);
+        }
+
         // ---- Kept ----
+
+        [Test]
+        public void AMemberWhoLeftTheClan_StaysGone_AcrossASave()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var gone = s.Clan.LivingMembers.First(m => m.ID != s.Clan.PatriarchID);
+            s.Clan.Depart(gone);
+            var loaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), new GameSetup { Content = Fixtures.QuietContent });
+            Assert.IsFalse(loaded.Clan.LivingMembers.Any(m => m.ID == gone.ID));
+            Assert.IsNotNull(loaded.Clan.FindById(gone.ID), "its record is kept");
+        }
 
         [Test]
         public void TheRenegade_IsKept_AcrossASave()
