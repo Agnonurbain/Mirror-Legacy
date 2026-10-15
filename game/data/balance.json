@@ -52,6 +52,7 @@
 	"axiomPenalty": 30,
 	"permissionWorth": 5000,
 	"permissionChance": 0.3,
+	"permissionPerRelation": 0.003,
 	"goldSeekingMirrorCost": 40,
 	"specialisedMirrorCost": 70,
 	"trueLeftHandChance": 55,

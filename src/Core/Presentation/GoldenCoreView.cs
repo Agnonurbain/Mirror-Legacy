@@ -58,7 +58,7 @@ namespace MirrorChronicles.Presentation
                     {
                         var tribute = Tribute(s, m.FruitionId);
                         options.Add(new GoldenCoreOption(GoldenCoreAction.Permission, m.ID, m.FruitionId,
-                            $"{m.FullName} : offrir un tribut à {state.Holder} pour sa permission ({(int)(gc.PermissionChance * 100)} %)"
+                            $"{m.FullName} : offrir un tribut à {state.Holder} pour sa permission ({(int)System.Math.Round(s.GoldenCore.PermissionOdds(m.FruitionId) * 100)} %)"
                             + (tribute == null ? "" : $" : {string.Join(", ", tribute.Select(t => t.Label))}"),
                             tribute == null ? "le clan n'a rien qui vaille un tel tribut (les pierres n'y comptent pas)" : null));
                     }

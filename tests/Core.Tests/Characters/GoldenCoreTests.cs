@@ -368,6 +368,16 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void ThePermissionOdds_FollowTheRelation()
+        {
+            var friend = new TestWorld();
+            HeldByAPower(friend, 100);
+            var foe = new TestWorld();
+            HeldByAPower(foe, -50);
+            Assert.Greater(friend.GoldenCore.PermissionOdds(MutableWater), foe.GoldenCore.PermissionOdds(MutableWater));
+        }
+
+        [Test]
         public void APermission_IsRefused_ByAHostileHolder()
         {
             var w = new TestWorld(new FixedRandom(0.2)); // within the bare chance

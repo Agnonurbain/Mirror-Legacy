@@ -83,7 +83,8 @@ namespace MirrorChronicles.World
         public FruitionStatus LineageStatusOf(CharacterData member) =>
             StatusOf(Affinity(member, techniques.FindQi(techniques.MethodOf(member)?.RequiredQiId)).Lineage);
 
-        private FruitionStatus StatusOf(string lineage) =>
+        /// <summary>The state of a lineage (Unspecified when unknown).</summary>
+        public FruitionStatus StatusOf(string lineage) =>
             lineage == null ? FruitionStatus.Unspecified : fruitions.State(lineage)?.Status ?? FruitionStatus.Unspecified;
 
         public AtmosphereDefinition AtmosphereOf(string regionId)

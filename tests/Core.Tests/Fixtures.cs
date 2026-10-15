@@ -180,6 +180,8 @@ namespace MirrorChronicles.Tests
             Traumas = new TraumaSystem(Ctx, Clan);
             Breakthroughs.Place = Place;
             Breakthroughs.Wounds = Wounds;
+            Abilities.Place = Place;
+            Abilities.Wounds = Wounds;
             Tasks.Place = Place;
             DesignEffects = new PatronDesignEffects(Ctx, Clan, Factions, Treaties, Wars, Suspicion, Wounds, Accords, Resources, Lore, Patrons);
             Rivals = new AscentRivals(Ctx, Clan, Factions, Suspicion, Sponsorships, Treaties, Buildings, Resources);

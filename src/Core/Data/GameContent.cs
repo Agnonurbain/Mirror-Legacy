@@ -536,6 +536,7 @@ namespace MirrorChronicles.Data
         /// <summary>The tribute offered to a holder for a Surplus or an Intercalary of their lineage, and its chance.</summary>
         public int PermissionWorth { get; init; } // a holder's leave, paid in kind: never in stones (2026-10-03)
         public double PermissionChance { get; init; }
+        public double PermissionPerRelation { get; init; } // per point of relation with the holder's power (audit §8.10)
 
         /// <summary>Mirror power to decipher a lineage's gold-seeking method, and its specialised Intercalary method.</summary>
         public int GoldSeekingMirrorCost { get; init; }
