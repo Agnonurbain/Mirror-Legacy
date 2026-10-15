@@ -187,6 +187,44 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(1, w.Haunting.Hauntings.Count);
         }
 
+        [Test]
+        public void AMemberWhoLeftTheClan_HauntsItNoMore()
+        {
+            var w = World(0.99);
+            var attendant = Attendant(w);
+            attendant.Departed = true;
+            w.Clan.Kill(attendant, DeathCause.Combat);
+            Assert.IsEmpty(w.Haunting.Hauntings);
+        }
+
+        [Test]
+        public void OnlyADivineCore_HauntsAtTheStrongest()
+        {
+            var w = World(0.99);
+            var leapt = Attendant(w, CultivationSubPath.BorrowedProfundity, CultivationRealm.GoldenCore);
+            leapt.GoldenCore = GoldenCoreState.None;
+            Assert.AreEqual(1, HauntingSystem.StrengthOf(leapt));
+        }
+
+        [Test]
+        public void ACorruptSave_IsMendedOnRestore()
+        {
+            var w = World(0.99);
+            w.Haunting.Restore(new[]
+            {
+                new Haunting { Id = "a", Name = null, Strength = 9, YearsLeft = 999 },
+                new Haunting { Id = "a", Name = "doublon", Strength = 1, YearsLeft = 5 },
+                new Haunting { Id = null, Name = "sans id", Strength = 1, YearsLeft = 5 },
+                new Haunting { Id = "b", Name = "faible", Strength = -2, YearsLeft = 5, Honoured = true },
+            });
+            Assert.AreEqual(2, w.Haunting.Hauntings.Count);
+            var a = w.Haunting.Hauntings.Single(h => h.Id == "a");
+            Assert.AreEqual(HauntingSystem.MaxStrength, a.Strength);
+            Assert.AreEqual(HauntingSystem.MaxStrength * Settings.HauntYearsPerStrength, a.YearsLeft);
+            Assert.IsNotEmpty(a.Name);
+            Assert.AreEqual(1, w.Haunting.Hauntings.Single(h => h.Id == "b").Strength);
+        }
+
         // ---- Kept and shown ----
 
         [Test]
