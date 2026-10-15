@@ -341,6 +341,41 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void Forge_TowardABrokenLineage_IsNotTried_AndSaysWhy()
+        {
+            // no position is asked of a broken lineage: the essence would wait for ever (audit §8.10)
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Master(w, "nourishing-fire:ember-pheasant", "nourishing-fire:heavenly-blaze",
+                "nourishing-fire:hearth-god", "nourishing-fire:unrevealed-4", "nourishing-fire:unrevealed-5");
+            KnowGoldSeeking(w, "nourishing-fire");
+            StringAssert.Contains("brisée", w.GoldenCore.ForgeRefusal(c, "nourishing-fire"));
+            Assert.IsFalse(w.GoldenCore.Forge(c, "nourishing-fire"));
+            Assert.AreEqual(Xp, c.CultivationXP);
+        }
+
+        private static void HeldByAPower(TestWorld w, int relation)
+        {
+            w.Factions.AddFaction(new FactionData { Name = "Famille Tan", Kind = FactionKind.Family, RegionId = "linxi", RelationWithPlayer = relation,
+                Elders = { new FactionElder { Id = "tan-qing", Name = "Tan Qing", Realm = CultivationRealm.GoldenCore, FruitionId = MutableWater } } });
+        }
+
+        [Test]
+        public void APermission_IsReadilerGranted_ByAFriendlyHolder()
+        {
+            var w = new TestWorld(new FixedRandom(0.5)); // above the bare chance
+            HeldByAPower(w, 100);
+            Assert.IsTrue(w.GoldenCore.RequestPermission(MutableWater, w.Tribute()), "audit §8.10: the holder's leave follows the relation");
+        }
+
+        [Test]
+        public void APermission_IsRefused_ByAHostileHolder()
+        {
+            var w = new TestWorld(new FixedRandom(0.2)); // within the bare chance
+            HeldByAPower(w, -100);
+            Assert.IsFalse(w.GoldenCore.RequestPermission(MutableWater, w.Tribute()));
+        }
+
+        [Test]
         public void ClaimPosition_AnIntercalaryOfAFreeLineage_NeedsNoPermission()
         {
             var w = new TestWorld(new FixedRandom(Pass));
