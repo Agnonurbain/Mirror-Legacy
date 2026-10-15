@@ -33,6 +33,28 @@ namespace MirrorChronicles.Tests.Presentation
         }
 
         [Test]
+        public void Library_ShowsAnArtsMasters_ItsStudents_AndWhoMayStudyIt()
+        {
+            var s = NewGame();
+            var art = new TechniqueData { ID = "art-view", Name = "Paume de la Marée", Kind = TechniqueKind.Spell, Effect = TechniqueEffect.Strike, Grade = 2,
+                Category = TechniqueCategory.Secret, RequiredRealm = CultivationRealm.Embryonic };
+            s.Techniques.AddDeduced(art);
+            var cultivators = s.Clan.LivingMembers.Where(m => s.Tasks.ArtStudyRefusal(m, art.ID) == null).ToList();
+            var master = cultivators[0];
+            master.KnownTechniqueIDs.Add(art.ID);
+            var student = cultivators[1];
+            s.Tasks.AssignArtStudy(student, art.ID);
+
+            var line = LibraryView.Library(s).Single(t => t.Id == art.ID);
+
+            CollectionAssert.AreEqual(new[] { master.FullName }, line.Masters);
+            CollectionAssert.AreEqual(new[] { $"{student.FullName} (0/2 an(s))" }, line.Students);
+            CollectionAssert.DoesNotContain(line.MayStudy.Select(c => c.Id), master.ID, "it masters it");
+            CollectionAssert.DoesNotContain(line.MayStudy.Select(c => c.Id), student.ID, "it studies it");
+            Assert.IsNull(LibraryView.Library(s).Single(t => t.Id == "clear-spring-sutra").MayStudy, "a method is practised, not studied");
+        }
+
+        [Test]
         public void Library_PutsTheMethodsFirst_TheHighestGradeFirst()
         {
             var library = LibraryView.Library(NewGame());

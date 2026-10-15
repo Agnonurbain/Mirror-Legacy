@@ -649,7 +649,7 @@ namespace MirrorChronicles.Session
             var rules = session.Context.Content.Balance.Techniques;
             bool needed = AscentMethod(session) == null
                 && session.Deduction.Fragments.Count(f => f.Quality >= rules.AscentDeductionQuality) < rules.AscentDeductionFragments;
-            var scholars = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.CurrentTask == TaskType.Study).ToList();
+            var scholars = session.Clan.LivingMembers.Where(m => m.CaptorFaction == null && m.CurrentTask == TaskType.Study && m.StudyArtId == null).ToList(); // an art's student is no seeker of fragments
             if (!needed)
             {
                 foreach (var scholar in scholars) session.Tasks.AssignTask(scholar, TaskType.Cultivation);

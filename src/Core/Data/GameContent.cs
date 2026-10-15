@@ -469,6 +469,9 @@ namespace MirrorChronicles.Data
         public int DeductionCompleteFragments { get; init; }
         public int DeductionMaxGrade { get; init; }
 
+        /// <summary>Years of study per grade before a member masters an art of the library (audit §7.11).</summary>
+        public int ArtStudyYearsPerGrade { get; init; }
+
         /// <summary>The mirror deduces an ascent method of its own will (LORE.md §11.10; 🔎): shards restored, good fragments, their quality, its power.</summary>
         public int AscentDeductionShards { get; init; }
         public int AscentDeductionFragments { get; init; }
@@ -580,6 +583,11 @@ namespace MirrorChronicles.Data
 
         /// <summary>Base chance (%) of the Ascent; failing it kills.</summary>
         public int AscentBaseChance { get; init; }
+
+        /// <summary>Percent of the Ascent per grade of the founding method above the reference, and per art mastered up to a cap (audit §7.13).</summary>
+        public int AscentPerGrade { get; init; }
+        public int AscentPerArt { get; init; }
+        public int AscentArtCap { get; init; }
 
         /// <summary>Years of the Manifestation retreat (« about six years »).</summary>
         public int ManifestationYears { get; init; }

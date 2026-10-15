@@ -59,6 +59,47 @@ namespace MirrorChronicles.Tests.Characters
 
         // ---- The four trials ----
 
+        // ---- What the Ascent weighs (audit §7.13; the user's choice of 2026-10-15): the founding method's grade, the arts mastered ----
+
+        private static PurpleMansionSettings Mansion => Fixtures.Content.Balance.PurpleMansion;
+        private static TrialModifiers Modifiers => Fixtures.Content.Balance.TrialModifiers;
+        private static TechniqueData Method(int grade) => new TechniqueData { ID = $"m{grade}", Kind = TechniqueKind.Cultivation, Grade = grade };
+
+        [Test]
+        public void TheAscent_IsSaferOnABetterMethod()
+        {
+            var c = Fixtures.Cultivator(age: 120, realm: CultivationRealm.Foundation, stage: 4);
+            c.SpiritualRoot = 30; // far from the bounds
+            Assert.AreEqual(2 * Mansion.AscentPerGrade,
+                PurpleMansionRules.AscentChance(c, Method(5), 0, Mansion, Modifiers) - PurpleMansionRules.AscentChance(c, Method(3), 0, Mansion, Modifiers));
+        }
+
+        [Test]
+        public void TheAscent_IsSaferWithTheArtsMastered_UpToACap()
+        {
+            var c = Fixtures.Cultivator(age: 120, realm: CultivationRealm.Foundation, stage: 4);
+            c.SpiritualRoot = 30;
+            int none = PurpleMansionRules.AscentChance(c, Method(3), 0, Mansion, Modifiers);
+            Assert.AreEqual(2 * Mansion.AscentPerArt, PurpleMansionRules.AscentChance(c, Method(3), 2, Mansion, Modifiers) - none);
+            Assert.AreEqual(PurpleMansionRules.AscentChance(c, Method(3), Mansion.AscentArtCap, Mansion, Modifiers),
+                PurpleMansionRules.AscentChance(c, Method(3), Mansion.AscentArtCap + 3, Mansion, Modifiers));
+        }
+
+        [Test]
+        public void TheAscent_CountsTheArtsMastered_NotTheMethodsKnown()
+        {
+            var w = new TestWorld();
+            var c = AtTheApogee(w);
+            c.SpiritualRoot = 30;
+            int before = w.PurpleMansion.AscentChanceOf(c);
+            c.KnownTechniqueIDs.Add(Fixtures.ClanMethod); // a method known is no art
+            Assert.AreEqual(before, w.PurpleMansion.AscentChanceOf(c));
+            var art = new TechniqueData { ID = "art-ascent", Name = "Pas du Héron", Kind = TechniqueKind.Movement, Grade = 1, MovementSteps = 1 };
+            w.Techniques.AddDeduced(art);
+            c.KnownTechniqueIDs.Add(art.ID);
+            Assert.AreEqual(before + Mansion.AscentPerArt, w.PurpleMansion.AscentChanceOf(c));
+        }
+
         [Test]
         public void Ascent_Succeeds_IntoTheManifestationRetreat()
         {

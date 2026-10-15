@@ -251,7 +251,8 @@ namespace MirrorChronicles.Data
             Require(mansion != null && mansion.ManifestationYears > 0 && mansion.VoidBands != null
                 && mansion.VoidBands.All(b => IsProbability(b.Chance) && b.MinYears >= 0 && b.MinYears <= b.MaxYears)
                 && mansion.VoidBands.Sum(b => b.Chance) <= 1.0 + 1e-9
-                && mansion.ManifestationPerGrade >= 0 && mansion.ManifestationPerTechnique >= 0 && mansion.ManifestationTechniqueCap >= 0,
+                && mansion.ManifestationPerGrade >= 0 && mansion.ManifestationPerTechnique >= 0 && mansion.ManifestationTechniqueCap >= 0
+                && mansion.AscentPerGrade >= 0 && mansion.AscentPerArt >= 0 && mansion.AscentArtCap >= 0,
                 BalanceFile, "purpleMansion needs positive manifestation years and void bands whose chances sum to at most 1 (the rest: for life).");
             var oathCosts = balance.Oaths;
             Require(oathCosts != null && oathCosts.InterruptChanceBySeverity?.Count == 3 && oathCosts.InterruptChanceBySeverity.All(IsProbability)
@@ -502,7 +503,8 @@ namespace MirrorChronicles.Data
                 && rules.AlignedQiPortions >= 0 && rules.LowestGradeChosenForAMember >= TechniqueRules.MinGrade
                 && rules.ArtRequiredRealmByGrade?.Count == TechniqueRules.MaxGrade
                 && rules.MovementArtStepsByGrade?.Count == TechniqueRules.MaxGrade && rules.MovementArtStepsByGrade.All(s => s >= 0)
-                && rules.DeductionCompleteFragments >= 2 && rules.DeductionMaxGrade >= TechniqueRules.MinGrade && rules.DeductionMaxGrade <= TechniqueRules.MaxGrade,
+                && rules.DeductionCompleteFragments >= 2 && rules.DeductionMaxGrade >= TechniqueRules.MinGrade && rules.DeductionMaxGrade <= TechniqueRules.MaxGrade
+                && rules.ArtStudyYearsPerGrade > 0,
                 BalanceFile, "techniques needs its rules: positive speed, portions, a grade per list entry (7), deduction bounds.");
         }
 

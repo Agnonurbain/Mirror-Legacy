@@ -11,10 +11,18 @@ namespace MirrorChronicles.Characters
     public static class PurpleMansionRules
     {
 
-        /// <summary>The Ascent to the Shenyang Mansion: talent carries it, a troubled mind betrays it.</summary>
-        public static int AscentChance(CharacterData c, PurpleMansionSettings s, TrialModifiers m)
+        /// <summary>The Ascent to the Shenyang Mansion with a method of the reference grade and no art mastered.</summary>
+        public static int AscentChance(CharacterData c, PurpleMansionSettings s, TrialModifiers m) => AscentChance(c, null, 0, s, m);
+
+        /// <summary>
+        /// The Ascent to the Shenyang Mansion: talent carries it, a troubled mind betrays it; the founding method's grade and
+        /// the arts one masters (the Taoist mastery, up to a cap) make it safer (audit §7.13, the user's choice of 2026-10-15).
+        /// </summary>
+        public static int AscentChance(CharacterData c, TechniqueData method, int artsMastered, PurpleMansionSettings s, TrialModifiers m)
         {
-            int chance = s.AscentBaseChance + (c.SpiritualRoot - m.AverageRoot) / m.RootPointsPerPercent + Lineage(c, s);
+            int grade = method?.Grade ?? m.ReferenceGrade;
+            int chance = s.AscentBaseChance + (c.SpiritualRoot - m.AverageRoot) / m.RootPointsPerPercent + Lineage(c, s)
+                + (grade - m.ReferenceGrade) * s.AscentPerGrade + Math.Min(s.AscentArtCap, Math.Max(0, artsMastered)) * s.AscentPerArt;
             if (c.MentalStability < m.LowStabilityThreshold) chance -= m.LowStabilityPenalty;
             return Clamp(chance);
         }
@@ -101,7 +109,12 @@ namespace MirrorChronicles.Characters
         /// <summary>The ascent's chance: the rules', plus what a favouring atmosphere at home gives (L5b).</summary>
         public int AscentChanceOf(CharacterData member) =>
             member.TransformedLineage ? 100 // a Realization's descendant reaches the Purple Mansion (audit §7.12, 2026-10-15)
-                : Math.Min(99, PurpleMansionRules.AscentChance(member, Settings, ctx.Content.Balance.TrialModifiers) + cultivation.PlaceBreakthroughBonus(member));
+                : Math.Min(99, PurpleMansionRules.AscentChance(member, techniques.MethodOf(member), ArtsMastered(member), Settings, ctx.Content.Balance.TrialModifiers)
+                    + cultivation.PlaceBreakthroughBonus(member));
+
+        /// <summary>The arts a member masters (spells, movements, weapons), not the methods it knows (audit §7.11-7.13).</summary>
+        private int ArtsMastered(CharacterData member) =>
+            (member.KnownTechniqueIDs ?? new List<string>()).Select(techniques.Find).Count(t => t != null && t.Kind != TechniqueKind.Cultivation);
 
         private void Ascend(CharacterData member)
         {
