@@ -40,6 +40,7 @@ namespace MirrorChronicles.Data
         public ShamanMethod ShamanMethod { get; set; }        // a shaman's method (R17); None for others
         public string ProfundityOf { get; set; }              // a Divine Attendant's great partner it borrows from (R15); null for others
         public int BorrowedLeap { get; set; }                 // the realms it weighs above its own while the pact holds
+        public bool DragonBlood { get; set; }                 // a bound serpent carrying the True Serpent-Dragon's blood, hidden until an awakening (L7, 2.54)
         public MonkSoul RebornMonk { get; set; }              // a monk reborn in this child, until it regains its rank (R13-14c)
         public BuddhistVow Vow { get; set; }                  // a monk's vow (R13-14b); None for others
         public string Temple { get; set; }                    // a Buddhist convert's temple (R13-R14): the modern one holds its soul; null for others

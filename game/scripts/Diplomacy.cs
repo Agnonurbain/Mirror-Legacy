@@ -63,6 +63,7 @@ namespace MirrorChronicles.Game
             ShowPatrons(session);
             ShowDivineDao(session);
             ShowShamanism(session);
+            ShowDemonicCores(session);
             ShowWars(session);
             foreach (var line in DiplomacyView.Powers(session))
             {
@@ -264,6 +265,27 @@ namespace MirrorChronicles.Game
                 };
                 var column = Column();
                 column.AddChild(rite);
+                powers.AddChild(column);
+            }
+        }
+
+        /// <summary>The Demonic Dao (L7): the bound beasts at their apogee, whose core the clan's offering may awaken.</summary>
+        private void ShowDemonicCores(Session.GameSession session)
+        {
+            var cores = DiplomacyView.DemonicCores(session);
+            if (cores.Count == 0) return;
+            Add(powers, "Dao Démoniaque (à l'apogée du Manoir Pourpre, la lignée d'une bête liée peut s'éveiller d'elle-même, rarement, en un Noyau d'Or démoniaque ; une offrande du clan la presse) :");
+            foreach (var core in cores)
+            {
+                var offer = new Button { Text = core.Label, Disabled = core.Refusal != null, TooltipText = core.Refusal ?? "" };
+                offer.Pressed += () =>
+                {
+                    var member = session.Clan.FindById(core.MemberId);
+                    string refusal = session.DemonicDao.Offer(member);
+                    Report(refusal, member?.GoldenCore == GoldenCoreState.DemonicEquivalent ? $"La lignée de {member.FullName} s'éveille : un Noyau d'Or démoniaque." : "L'éveil se dérobe : son Dao est blessé.");
+                };
+                var column = Column();
+                column.AddChild(offer);
                 powers.AddChild(column);
             }
         }

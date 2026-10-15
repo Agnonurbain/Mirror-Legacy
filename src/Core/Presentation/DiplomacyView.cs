@@ -159,6 +159,17 @@ namespace MirrorChronicles.Presentation
                     session.Shamans.CoreRefusal(m))).ToList();
         }
 
+        /// <summary>The clan's bound beasts at their apogee, and the offering that feeds the awakening of their core (L7).</summary>
+        public static IReadOnlyList<DivineCoreLine> DemonicCores(GameSession session)
+        {
+            var s = session.Context.Content.Balance.DemonicDao;
+            return session.Clan.LivingMembers.Where(m => DemonicDaoSystem.IsDemonic(m) && m.Realm == CultivationRealm.PurpleMansion
+                    && m.RealmStage >= PowerLadder.StageCount(CultivationRealm.PurpleMansion))
+                .OrderBy(m => m.FullName, StringComparer.Ordinal)
+                .Select(m => new DivineCoreLine(m.ID, $"{m.FullName} ({RankCatalog.DisplayName(m)}) : nourrir l'éveil de son noyau ({s.OfferingStones} pierres, {(int)Math.Round((s.OfferingCoreChance + (DemonicDaoSystem.IsDragon(m) ? s.DragonCoreBonus : 0)) * 100)} % ; l'échec blesse son Dao)",
+                    session.DemonicDao.CoreRefusal(m))).ToList();
+        }
+
         /// <summary>The clan's cultivators who may become Divine Attendants, and the great partners bound by a pact (R15).</summary>
         public static IReadOnlyList<AttendantLine> Attendants(GameSession session)
         {

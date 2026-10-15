@@ -620,8 +620,10 @@
   },
   "demonicDao": {
 	"absorptionSpeed": 0.5, "lifespanFactor": 2.0, "minBoundAge": 40, "maxBoundAge": 120, "minRoot": 20, "maxRoot": 60,
+	"naturalCoreChance": 0.02, "offeringStones": 400, "offeringCoreChance": 0.3,
+	"dragonBloodSpecies": [ "jade-serpent", "reef-eel" ], "dragonBloodChance": 0.15, "dragonSpeed": 1.5, "dragonCoreBonus": 0.1, "dragonReclaimChance": 0.05,
 	"provenance": "Interpretation",
-	"source": "LORE.md §3.4 (absorption continue, longévité, éveil de la lignée) ; une bête capturée liée au clan, garde et chasse, plafond au Manoir Pourpre (décision de l'utilisateur, 2026-10-12)"
+	"source": "LORE.md §3.4 (absorption continue, longévité, éveil de la lignée ; Véritable Dao du Serpent-Dragon réservé aux descendants du Vrai Serpent-Dragon céleste), §12.1 (le clan des dragons de la Mer Orientale) ; une bête capturée liée au clan, garde et chasse (décision de l'utilisateur, 2026-10-12) ; noyau démoniaque à l'apogée du Manoir Pourpre, par l'éveil seul ou nourri d'une offrande, sang dragon caché chez les serpents et anguilles, réclamé par les dragons (décisions de l'utilisateur, 2026-10-15)"
   },
   "powerIntrigues": {
 	"blackmailChance": 0.02, "personalityFactor": { "Merchant": 2.0, "Manipulative": 2.0, "Isolationist": 0.5 },

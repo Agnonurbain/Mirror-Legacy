@@ -139,6 +139,10 @@ namespace MirrorChronicles.Presentation
             bus.OnMonkRose += m => Add($"{m.FullName} s'élève : {RankCatalog.DisplayName(m)}.");
             bus.OnBeastBound += b => Add($"{b.FullName} est lié(e) au clan : une bête du Dao Démoniaque, qui garde et chasse pour lui.");
             bus.OnLineageAwakened += b => Add($"la lignée de {b.FullName} s'éveille : {RankCatalog.DisplayName(b)}.");
+            bus.OnDemonicCore += b => Add($"la lignée de {b.FullName} s'éveille jusqu'au bout : un Noyau d'Or démoniaque.");
+            bus.OnDragonBloodRevealed += b => Add($"le sang du Vrai Serpent-Dragon céleste s'éveille en {b.FullName} : il suit désormais le Dao du Serpent-Dragon.");
+            bus.OnDragonReclaimed += d => Add($"les dragons de la Mer Orientale viennent reprendre {d.FullName}, de leur sang : il quitte le clan.");
+            bus.OnDragonsRepelled += d => Add($"les dragons de la Mer Orientale réclament {d.FullName} ; devant un Vrai Monarque du clan, ils repartent.");
             bus.OnSpiritualNatureElected += (member, fruitionId) =>
             {
                 string name = session.Context.Content.Fruitions.FirstOrDefault(f => f.Id == fruitionId)?.Name ?? fruitionId;

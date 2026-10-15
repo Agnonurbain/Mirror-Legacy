@@ -44,8 +44,11 @@ namespace MirrorChronicles.Characters
                     if (character.Realm == CultivationRealm.QiRefinement) return "Manoir Divers";
                     if (character.Realm == CultivationRealm.Foundation) return "Fournaise Unifiée";
                     break;
-                case CultivationPath.Demonic: // a bound beast (R16): its realm, awakened by its lineage
-                    return $"Bête démoniaque — {RealmName(character.Realm)}, stade {character.RealmStage}";
+                case CultivationPath.Demonic: // a bound beast (R16): its realm, awakened by its lineage; a dragon of the True Serpent-Dragon (L7)
+                    string kind = character.SubPath == CultivationSubPath.TrueSerpentDragon ? "Serpent-Dragon" : "Bête démoniaque";
+                    return character.GoldenCore == GoldenCoreState.DemonicEquivalent
+                        ? $"{kind} — Noyau d'Or démoniaque"
+                        : $"{kind} — {RealmName(character.Realm)}, stade {character.RealmStage}";
                 case CultivationPath.Divine:
                     if (character.Realm >= CultivationRealm.QiRefinement && character.Realm <= CultivationRealm.PurpleMansion) return "Serviteur Divin";
                     if (character.Realm == CultivationRealm.GoldenCore) return "Noyau Divin";
