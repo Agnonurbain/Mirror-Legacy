@@ -158,8 +158,7 @@ namespace MirrorChronicles.Economy
                 return 0;
             }
 
-            double sway = Place?.LineageFactor(qi) ?? 1.0; // a free lineage's Qi is slower to harvest, a broken one's faster (audit §7.9)
-            int portions = resources.AddHarvestWork(qi.Id, qi.YearsPerPortion, sway);
+            int portions = resources.AddHarvestWork(qi.Id, qi.YearsPerPortion, AbundanceAtHome(qi)); // as it abounds at home (audit §7.8-7.9)
             if (portions > 0) ctx.Log.Info($"[Tasks] {harvester.FullName} condenses {portions} portion(s) of {qi.Name}.");
             return portions;
         }
@@ -171,8 +170,11 @@ namespace MirrorChronicles.Economy
         private QiDefinition Harvestable(TechniqueData method)
         {
             var qi = techniques.FindQi(method?.RequiredQiId);
-            return qi != null && !qi.Vanished && !qi.Ubiquitous ? qi : null;
+            return qi != null && !qi.Vanished && !qi.Ubiquitous && AbundanceAtHome(qi) > 0 ? qi : null; // a Qi absent from home is not harvested there (audit §7.8)
         }
+
+        /// <summary>How a Qi abounds at the clan's home: the place's density times its lineage's sway; 0 where the place does not offer it.</summary>
+        private double AbundanceAtHome(QiDefinition qi) => Place?.Abundance(ctx.Content.Clan.HomeRegion, qi) ?? 1.0;
 
         /// <summary>The miners who work the veins fully: a few, more with each level of the Mine building.</summary>
         public int VeinSlots
