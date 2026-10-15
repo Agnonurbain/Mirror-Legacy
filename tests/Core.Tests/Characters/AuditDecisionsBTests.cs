@@ -208,6 +208,61 @@ namespace MirrorChronicles.Tests.Characters
             Assert.Greater(betrayed.HeartDemonYearsLeft, 0);
         }
 
+        // ---- Review of batch B ----
+
+        private static int Harvested(FruitionStatus status, int years)
+        {
+            var w = new TestWorld();
+            Lineage(w, status);
+            Harvester(w);
+            for (int y = 0; y < years; y++) w.Tasks.ProcessYearlyTasks();
+            return w.Resources.QiPortions(Fixtures.ClanQi);
+        }
+
+        [Test]
+        public void TheHarvest_FollowsTheLineagesSway_WithoutRounding()
+        {
+            Assert.AreEqual(3, Harvested(FruitionStatus.Free, 5), "six tenths of a portion a year");
+            Assert.AreEqual(7, Harvested(FruitionStatus.Broken, 5), "seven fifths of a portion a year");
+        }
+
+        [Test]
+        public void AnOlderSave_KeepsItsHarvestUnderWay()
+        {
+            var s = MirrorChronicles.Session.GameSession.NewGame(new MirrorChronicles.Session.GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var data = s.ToSaveData();
+            data.SaveVersion = "2.56";
+            data.QiHarvestProgress = new Dictionary<string, int> { ["upstream-brook-qi"] = 1 }; // a year of a Qi of several
+            var loaded = MirrorChronicles.Session.GameSession.FromSaveData(data, new MirrorChronicles.Session.GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            Assert.AreEqual(MirrorChronicles.Economy.ResourceManager.HarvestUnitsPerYear, loaded.Resources.QiHarvestProgress["upstream-brook-qi"]);
+        }
+
+        [Test]
+        public void AFallenCapturedAfterALostBattle_SuffersOnlyItsCaptivity()
+        {
+            var w = Fated(true);
+            var taken = w.Join(Fixtures.Cultivator());
+            taken.CaptorFaction = "Famille Zang";
+            w.Ctx.Events.TriggerClanBattleLost(new[] { taken });
+            Assert.AreEqual(0, taken.HeartDemonYearsLeft);
+        }
+
+        [Test]
+        public void ASpyUnmaskedTwice_BetraysItsSpouseOnce()
+        {
+            var w = Fated(true);
+            var betrayed = w.Join(Fixtures.Cultivator());
+            var spy = w.Join(Fixtures.Cultivator(isMale: false));
+            spy.SpyFor = "Famille Zang";
+            spy.SpouseID = betrayed.ID;
+            w.Mirror.AddPower(100);
+            int told = 0;
+            w.Ctx.Events.OnMemberUnmasked += _ => told++;
+            w.Intrigues.Unmask(spy.ID);
+            w.Intrigues.Unmask(spy.ID);
+            Assert.AreEqual(1, told);
+        }
+
         [Test]
         public void ATrauma_IsTold()
         {
