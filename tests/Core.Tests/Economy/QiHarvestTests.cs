@@ -50,6 +50,38 @@ namespace MirrorChronicles.Tests.Economy
             Assert.Greater(w.Resources.QiPortions(Fixtures.ClanQi), 0);
         }
 
+        // ---- The pilot sends no harvester for a Qi absent from home ----
+
+        private static MirrorChronicles.Session.GameSession Session()
+        {
+            var s = MirrorChronicles.Session.GameSession.NewGame(new MirrorChronicles.Session.GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            s.Techniques.Learn("ember-phoenix-stride");
+            return s;
+        }
+
+        [Test]
+        public void ThePilot_AtTheWall_DoesNotHarvestItsOwnQi_WhenHomeLacksIt()
+        {
+            var s = Session();
+            var walled = Fixtures.Cultivator(age: 30, realm: CultivationRealm.QiRefinement, stage: 9);
+            walled.CultivationMethodId = "ember-phoenix-stride";
+            walled.QiId = Ember;
+            s.Clan.AddMember(walled);
+            MirrorChronicles.Session.BalanceRun.SetTheIdleToWork(s);
+            Assert.AreNotEqual(TaskType.GatherQi, walled.CurrentTask);
+        }
+
+        [Test]
+        public void ThePilot_GathersTheQiOfItsBestMethod_OnlyAmongTheQiOfHome()
+        {
+            var s = Session(); // its best method's Qi is foreign; the Clear Spring's is home's, and the clan holds enough of it
+            s.Resources.AddQi(Fixtures.ClanQi, 10);
+            var youth = Fixtures.Cultivator(age: 16, realm: CultivationRealm.Embryonic, stage: 5);
+            s.Clan.AddMember(youth);
+            MirrorChronicles.Session.BalanceRun.SetTheIdleToWork(s);
+            Assert.IsFalse(s.Clan.LivingMembers.Any(m => m.CurrentTask == TaskType.GatherQi));
+        }
+
         [Test]
         public void TheHarvest_FollowsTheQisAbundanceAtHome()
         {
