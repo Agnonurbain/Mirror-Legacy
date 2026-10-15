@@ -384,6 +384,8 @@ Royaume de la culture et du raffinement des **pouvoirs divins** (dans l'Antiquit
 4. **Les illusions** : après l'obscurité, d'innombrables illusions porteuses de pouvoir divin, d'un instant chacune. **Échouer = perdre toute sa cultivation**. Réussir = sortir de retraite au Manoir Pourpre.
 - Autrefois s'y ajoutaient les **trois tribulations** : le Palais du Tonnerre envoyait foudre et nuages pour terrasser le mal, effaçant méfaits et karma. Depuis le départ de l'Immortel du Tonnerre et l'avènement de deux Vrais Monarques de la Vertu Terrestre, le Palais a disparu ; après le cataclysme (§12), le principe céleste est brisé : plus d'invocation du ciel, ce qui **favorise la compréhension taoïste** et explique la disparition des tribulations.
 
+- ✅ Décision de l'utilisateur (2026-10-15, AUDIT_LORE §7.13) : l'**Ascension** pèse, outre le talent et un esprit stable, le **grade de la méthode** qui a fondé et les **arts maîtrisés** (la maîtrise taoïste) ; un art déduit s'**étudie** puis se manie au combat (§7.11).
+
 #### 5.4.2 Voies de contournement
 - **Lien à un trésor** : lier son essence et son destin à un **trésor spirituel du Manoir Pourpre**, voire à une **Grotte Céleste**, pour atteindre divers niveaux de maîtrise — en sacrifiant la progression future ou en soumettant son destin à l'objet. Exemple : *Lan Guyu*, grâce à sa fonction innée (Bénédiction Divine), à la capacité divine *Attente du Rare Présage* d'un parent et à des ressources compatibles, obtient les pouvoirs d'un Maître à **double capacité divine sans en posséder aucune**.
 - **Emprunt de lumière** : emprunter la lumière d'une Fruition par l'intermédiaire d'un Vrai Monarque ou équivalent, pour devenir un cultivateur du Manoir Pourpre comparable à un « Miséricordieux ».
