@@ -89,6 +89,8 @@ namespace MirrorChronicles.Data
             CheckFruitions(fruitions);
             Require(fruitions.Fruitions.Any(f => f.Id == balance.Shamanism.GateFruition), BalanceFile,
                 $"shamanism.gateFruition \"{balance.Shamanism.GateFruition}\" is not a Fruition of {FruitionsFile}.");
+            foreach (string dragon in balance.DemonicDao?.DragonBloodSpecies ?? new List<string>())
+                Require(beasts.Any(b => b.Id == dragon), BalanceFile, $"demonicDao.dragonBloodSpecies \"{dragon}\" is not a species of {BeastsFile}.");
             CheckOaths(oaths);
             CheckRegions(regions);
             CheckAtmospheres(atmospheres, fruitions.Fruitions);
@@ -323,8 +325,11 @@ namespace MirrorChronicles.Data
                 BalanceFile, "conversions needs odds between 0 and 1 and a blood cost never negative.");
             var demonic = balance.DemonicDao;
             Require(demonic != null && demonic.AbsorptionSpeed > 0 && demonic.LifespanFactor >= 1 && demonic.MinBoundAge >= 0
-                && demonic.MaxBoundAge >= demonic.MinBoundAge && demonic.MinRoot >= 0 && demonic.MaxRoot >= demonic.MinRoot,
-                BalanceFile, "demonicDao needs a positive absorption, a lifespan at least a human's, and ordered bounds for age and root.");
+                && demonic.MaxBoundAge >= demonic.MinBoundAge && demonic.MinRoot >= 0 && demonic.MaxRoot >= demonic.MinRoot
+                && IsProbability(demonic.NaturalCoreChance) && demonic.OfferingStones >= 0 && IsProbability(demonic.OfferingCoreChance)
+                && demonic.NaturalCoreChance <= demonic.OfferingCoreChance && IsProbability(demonic.DragonBloodChance) && demonic.DragonSpeed >= 1
+                && IsProbability(demonic.DragonCoreBonus) && IsProbability(demonic.DragonReclaimChance) && demonic.DragonBloodSpecies != null,
+                BalanceFile, "demonicDao needs a positive absorption, a lifespan at least a human's, ordered bounds for age and root, odds between 0 and 1 (the offering never below the natural awakening), a costless or costly offering and a dragon never slower.");
             var powerIntrigues = balance.PowerIntrigues;
             Require(powerIntrigues != null && IsProbability(powerIntrigues.BlackmailChance) && IsProbability(powerIntrigues.BlackmailWealthShare)
                 && powerIntrigues.QuietYears >= 1 && powerIntrigues.RefuseStrengthRatio > 0 && powerIntrigues.RefusalDistrust >= 0

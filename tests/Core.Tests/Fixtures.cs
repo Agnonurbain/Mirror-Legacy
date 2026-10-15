@@ -136,8 +136,8 @@ namespace MirrorChronicles.Tests
             Oaths = new OathSystem(Ctx, Clan, Resources, Mirror, Knowledge);
             GoldenCore = new GoldenCoreSystem(Ctx, Clan, Fruitions, Mirror, Knowledge, Resources);
             Talismans = new TalismanSystem(Ctx, Clan, Resources, Factions, Mirror, Sect);
-            DemonicDao = new DemonicDaoSystem(Ctx, Clan, Resources, Talismans);
             Wounds = new WoundSystem(Ctx, Stability);
+            DemonicDao = new DemonicDaoSystem(Ctx, Clan, Resources, Talismans, Wounds);
             Suspicion = new SuspicionLedger();
             Buddhism = new BuddhismSystem(Ctx, Clan, Resources, Factions, Wounds, Suspicion);
             Debates = new DebateSystem(Ctx, Clan, Resources, Factions, Buddhism, Wounds);

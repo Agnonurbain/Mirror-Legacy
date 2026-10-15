@@ -189,6 +189,8 @@ Ils absorbent **continuellement** l'énergie spirituelle environnante et nourris
 | **Myriade de races** | Démons, plantes et animaux ordinaires ayant acquis la conscience par hasard ou par la culture du Qi pur. |
 | **Véritable Dao du Serpent-Dragon** | Réservé aux bêtes démoniaques dragonnes, descendantes du **Vrai Serpent-Dragon céleste** (§12). |
 
+🎮 ✅ L7 (2026-10-15, décisions de l'utilisateur, `balance.json` « demonicDao ») : à l'apogée du Manoir Pourpre, la lignée d'une bête liée s'éveille en **Noyau d'Or démoniaque**, d'elle-même (rarement) ou pressée par une offrande du clan (l'échec blesse le Dao). 🔎 Les serpents et anguilles liés peuvent porter un **sang dragon caché**, révélé à un éveil : ils passent au Véritable Dao du Serpent-Dragon (plus rapides, plus près du noyau), et **les dragons de la Mer Orientale** (§12.1) viennent les reprendre, sauf devant un Vrai Monarque du clan ou un dragon qui tient déjà son noyau.
+
 ### 3.5 Dao du Sceau Chamanique — invoquer des puissances supérieures par rituels et talismans
 Trois méthodes : **Transformation, Dissimulation, Sacrifice**. Ce Dao vient de la vénération des **trois Fruitions chamaniques de la Fusion Ancestrale** : la *Chouette des Seuils*, le *Jade Premier* et le *Grand Chaman*, chacune liée à une méthode. Les pratiquants invoquent la puissance d'entités supérieures par rituels ou chants.
 

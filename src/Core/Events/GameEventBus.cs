@@ -108,6 +108,10 @@ namespace MirrorChronicles.Events
         public event Action<CharacterData> OnMonkRose;                  // a monk rises to its next rank (R13-R14)
         public event Action<CharacterData> OnBeastBound;      // a captured beast bound to the clan (R16)
         public event Action<CharacterData> OnLineageAwakened; // a bound beast's lineage awakens its next realm (R16)
+        public event Action<CharacterData> OnDemonicCore;     // a bound beast awakens a demonic Golden Core (L7)
+        public event Action<CharacterData> OnDragonBloodRevealed; // a bound serpent's hidden dragon blood awakens (L7)
+        public event Action<CharacterData> OnDragonReclaimed; // the Eastern Sea's dragons take back a dragon of the clan (L7)
+        public event Action<CharacterData> OnDragonsRepelled; // they came for it, and a True Monarch of the clan kept them away (L7)
         public event Action<CharacterData, string> OnSpiritualNatureElected; // a child elected by the Spiritual Nature, and its Fruition (R10)
         public event Action<string, string> OnPowerMarriage;                // two powers wed an elder each (L6)
         public event Action OnUnderworldProvoked;                           // the clan kept an essence against the custom
@@ -222,6 +226,10 @@ namespace MirrorChronicles.Events
         public void TriggerMonkRose(CharacterData member) => OnMonkRose?.Invoke(member);
         public void TriggerBeastBound(CharacterData beast) => OnBeastBound?.Invoke(beast);
         public void TriggerLineageAwakened(CharacterData beast) => OnLineageAwakened?.Invoke(beast);
+        public void TriggerDemonicCore(CharacterData beast) => OnDemonicCore?.Invoke(beast);
+        public void TriggerDragonBloodRevealed(CharacterData beast) => OnDragonBloodRevealed?.Invoke(beast);
+        public void TriggerDragonReclaimed(CharacterData dragon) => OnDragonReclaimed?.Invoke(dragon);
+        public void TriggerDragonsRepelled(CharacterData dragon) => OnDragonsRepelled?.Invoke(dragon);
         public void TriggerSpiritualNatureElected(CharacterData member, string fruitionId) => OnSpiritualNatureElected?.Invoke(member, fruitionId);
         public void TriggerUnderworldProvoked() => OnUnderworldProvoked?.Invoke();
         public void TriggerClanWarWon(string enemy) => OnClanWarWon?.Invoke(enemy);

@@ -103,8 +103,8 @@
   },
   {
     "id": "other-daos", "name": "Les Autres Daos",
-    "narrative": "Un membre du clan a gravi jusqu'au sommet un autre Dao que celui des siens : Vénérable bouddhiste, Noyau Divin, ou Dao du Diable accompli. Le clan n'a pas une seule voie, il les a toutes.",
+    "narrative": "Un membre du clan a gravi jusqu'au sommet un autre Dao que celui des siens : Vénérable bouddhiste, Noyau Divin, Noyau d'Or chamanique ou démoniaque. Le clan n'a pas une seule voie, il les a toutes.",
     "conditions": [ { "kind": "OtherDaoPeak" } ],
-        "source": "LORE.md §3.3-3.7, §5.9 B ; pour l'instant le seul Vénérable bouddhiste (R13, 2026-10-12)", "provenance": "Interpretation", "interpretedFields": ["Conditions"]
+        "source": "LORE.md §3.3-3.7, §5.9 B ; Vénérable bouddhiste (R13), Noyau Divin (R15), noyau chamanique (R17), noyau démoniaque (L7, 2026-10-15)", "provenance": "Interpretation", "interpretedFields": ["Conditions"]
   }
 ]

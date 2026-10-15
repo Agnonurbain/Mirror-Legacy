@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using MirrorChronicles.Characters;
 using MirrorChronicles.Clan;
 using MirrorChronicles.Data;
+using MirrorChronicles.Presentation;
 using MirrorChronicles.Session;
 
 namespace MirrorChronicles.Tests.Characters
@@ -18,9 +20,9 @@ namespace MirrorChronicles.Tests.Characters
     {
         private static DemonicDaoSettings Settings => Fixtures.Content.Balance.DemonicDao;
 
-        private static CapturedBeast Captured(TestWorld w, CultivationRealm realm = CultivationRealm.QiRefinement, int stage = 3, string owner = null)
+        private static CapturedBeast Captured(TestWorld w, CultivationRealm realm = CultivationRealm.QiRefinement, int stage = 3, string owner = null, string species = "mist-wolf")
         {
-            var beast = new CapturedBeast("mist-wolf-region-1", realm, stage, owner);
+            var beast = new CapturedBeast($"{species}-region-1", realm, stage, owner);
             w.Resources.AddBeast(beast);
             return beast;
         }
@@ -255,6 +257,291 @@ namespace MirrorChronicles.Tests.Characters
             var w = new TestWorld(new FixedRandom(0.5));
             var bound = w.DemonicDao.Bind(Captured(w, CultivationRealm.Foundation, 2));
             StringAssert.Contains("démoniaque", RankCatalog.DisplayName(bound).ToLowerInvariant());
+        }
+            // ---- The demonic Golden Core (L7; the user's choice of 2026-10-15: awakening and offering) ----
+
+        private static int Apogee => PowerLadder.StageCount(CultivationRealm.PurpleMansion);
+
+        private static CharacterData AtTheApogee(TestWorld w, string species = "mist-wolf")
+        {
+            var beast = new CapturedBeast($"{species}-region-1", CultivationRealm.PurpleMansion, Apogee);
+            w.Resources.AddBeast(beast);
+            return w.DemonicDao.Bind(beast);
+        }
+
+        [Test]
+        public void ItsLineage_MayAwakenADemonicCore_OnItsOwn_AtTheApogee()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var bound = AtTheApogee(w);
+            w.DemonicDao.ProcessYear();
+            Assert.AreEqual(CultivationRealm.GoldenCore, bound.Realm);
+            Assert.AreEqual(GoldenCoreState.DemonicEquivalent, bound.GoldenCore);
+            Assert.AreEqual((int)(PowerLadder.MaxLifespan(CultivationRealm.GoldenCore, 1) * Settings.LifespanFactor), bound.MaxLifespan);
+        }
+
+        [Test]
+        public void ANaturalAwakening_ThatDoesNotCome_WoundsNothing()
+        {
+            var w = new TestWorld(new FixedRandom(0.99));
+            var bound = AtTheApogee(w);
+            w.DemonicDao.ProcessYear();
+            Assert.AreEqual(CultivationRealm.PurpleMansion, bound.Realm);
+            Assert.AreEqual(0, bound.DaoWounds);
+        }
+
+        [Test]
+        public void ItsLineage_IsRarelyAwakened_OnItsOwn()
+        {
+            var w = new TestWorld(new FixedRandom(Settings.NaturalCoreChance + 0.001));
+            var bound = AtTheApogee(w);
+            w.DemonicDao.ProcessYear();
+            Assert.AreEqual(CultivationRealm.PurpleMansion, bound.Realm);
+            Assert.Less(Settings.NaturalCoreChance, Settings.OfferingCoreChance);
+        }
+
+        [Test]
+        public void BelowTheApogee_NoCoreAwakens()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var bound = w.DemonicDao.Bind(Captured(w, CultivationRealm.PurpleMansion, 1));
+            w.DemonicDao.ProcessYear();
+            Assert.AreEqual(CultivationRealm.PurpleMansion, bound.Realm);
+            Assert.IsNotNull(w.DemonicDao.CoreRefusal(bound));
+        }
+
+        [Test]
+        public void TheClansOffering_CostsStones_AndTriesTheAwakening()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var bound = AtTheApogee(w);
+            w.Resources.SetSpiritStones(Settings.OfferingStones);
+            Assert.IsNull(w.DemonicDao.Offer(bound));
+            Assert.AreEqual(0, w.Resources.SpiritStones);
+            Assert.AreEqual(GoldenCoreState.DemonicEquivalent, bound.GoldenCore);
+        }
+
+        [Test]
+        public void AFailedOffering_WoundsItsDao()
+        {
+            var w = new TestWorld(new FixedRandom(0.99));
+            var bound = AtTheApogee(w);
+            w.Resources.SetSpiritStones(Settings.OfferingStones);
+            Assert.IsNull(w.DemonicDao.Offer(bound));
+            Assert.AreEqual(CultivationRealm.PurpleMansion, bound.Realm);
+            Assert.AreEqual(1, bound.DaoWounds);
+        }
+
+        [Test]
+        public void TheOffering_WaitsForTheStones()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var bound = AtTheApogee(w);
+            w.Resources.SetSpiritStones(Settings.OfferingStones - 1);
+            Assert.IsNotNull(w.DemonicDao.Offer(bound));
+            Assert.AreEqual(CultivationRealm.PurpleMansion, bound.Realm);
+            Assert.AreEqual(Settings.OfferingStones - 1, w.Resources.SpiritStones);
+        }
+
+        [Test]
+        public void TheOffering_IsForABoundBeast_Only()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var human = w.Join(Fixtures.Cultivator(realm: CultivationRealm.PurpleMansion, stage: Apogee));
+            w.Resources.SetSpiritStones(Settings.OfferingStones);
+            Assert.IsNotNull(w.DemonicDao.CoreRefusal(human));
+        }
+
+        [Test]
+        public void ACapturedBeast_ReceivesNoOffering()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var bound = AtTheApogee(w);
+            bound.CaptorFaction = "Secte du Pic des Nuées";
+            w.Resources.SetSpiritStones(Settings.OfferingStones);
+            Assert.IsNotNull(w.DemonicDao.CoreRefusal(bound));
+        }
+
+        [Test]
+        public void ADemonicCore_IsShownAsSuch()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var bound = AtTheApogee(w);
+            w.DemonicDao.ProcessYear();
+            StringAssert.Contains("noyau", RankCatalog.DisplayName(bound).ToLowerInvariant());
+        }
+
+        [Test]
+        public void ADemonicCore_ReachesTheEndingOfTheOtherDaos()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var reached = new List<string>();
+            s.Events.OnEndingReached += (ending, subject) => reached.Add(ending.Id);
+            var beast = Fixtures.Cultivator(age: 300, realm: CultivationRealm.GoldenCore, stage: 1);
+            beast.Species = Species.SpiritBeast;
+            beast.Path = CultivationPath.Demonic;
+            beast.SubPath = CultivationSubPath.MyriadRaces;
+            beast.GoldenCore = GoldenCoreState.DemonicEquivalent;
+            s.Clan.AddMember(beast);
+            s.Events.TriggerYearStarted(s.Clock.Year);
+            CollectionAssert.Contains(reached, "other-daos");
+        }
+
+        [Test]
+        public void TheDiplomacyScreen_ListsTheBeastsAtTheirApogee_AndTheirOffering()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var beast = new CapturedBeast("mist-wolf-region-1", CultivationRealm.PurpleMansion, Apogee);
+            s.Resources.AddBeast(beast);
+            var bound = s.DemonicDao.Bind(beast);
+            var line = DiplomacyView.DemonicCores(s).Single(l => l.MemberId == bound.ID);
+            StringAssert.Contains(Settings.OfferingStones.ToString(), line.Label);
+        }
+
+        // ---- The True Serpent-Dragon Dao (the user's choice of 2026-10-15: a hidden dragon blood) ----
+
+        [Test]
+        public void ASerpentOfTheDragonsBlood_MayCarryItHidden()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var serpent = w.DemonicDao.Bind(Captured(w, species: "jade-serpent"));
+            Assert.IsTrue(serpent.DragonBlood);
+            Assert.AreEqual(CultivationSubPath.MyriadRaces, serpent.SubPath, "hidden until an awakening");
+            Assert.AreEqual(Species.SpiritBeast, serpent.Species);
+        }
+
+        [Test]
+        public void ABeastOfAnotherKind_NeverCarriesTheDragonsBlood()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            Assert.IsFalse(w.DemonicDao.Bind(Captured(w)).DragonBlood);
+            CollectionAssert.DoesNotContain(Settings.DragonBloodSpecies, "mist-wolf");
+        }
+
+        [Test]
+        public void TheDragonsBlood_IsRevealed_AtTheNextAwakening()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var serpent = w.DemonicDao.Bind(Captured(w, CultivationRealm.Foundation, 4, species: "jade-serpent"));
+            serpent.CultivationXP = PowerLadder.XpForNextStage(CultivationRealm.Foundation);
+            w.DemonicDao.ProcessYear();
+            Assert.AreEqual(CultivationRealm.PurpleMansion, serpent.Realm);
+            Assert.AreEqual(CultivationSubPath.TrueSerpentDragon, serpent.SubPath);
+            Assert.AreEqual(Species.Dragon, serpent.Species);
+            StringAssert.Contains("serpent-dragon", RankCatalog.DisplayName(serpent).ToLowerInvariant());
+        }
+
+        [Test]
+        public void ARevealedDragon_AbsorbsFaster()
+        {
+            var w = new TestWorld(new FixedRandom(0.99));
+            var dragon = w.DemonicDao.Bind(Captured(w, CultivationRealm.Foundation, 1));
+            dragon.SubPath = CultivationSubPath.TrueSerpentDragon;
+            dragon.Species = Species.Dragon;
+            dragon.CultivationXP = 0;
+            w.DemonicDao.ProcessYear();
+            int expected = (int)System.Math.Round((CultivationSystem.BaseYearlyXp + dragon.SpiritualRoot / 2) * Settings.AbsorptionSpeed * Settings.DragonSpeed);
+            Assert.AreEqual(expected, dragon.CultivationXP);
+        }
+
+        [Test]
+        public void ARevealedDragon_AwakensItsCore_MoreEasily()
+        {
+            var w = new TestWorld(new FixedRandom(Settings.NaturalCoreChance + Settings.DragonCoreBonus / 2));
+            var dragon = AtTheApogee(w);
+            dragon.SubPath = CultivationSubPath.TrueSerpentDragon;
+            dragon.Species = Species.Dragon;
+            w.DemonicDao.ProcessYear();
+            Assert.AreEqual(GoldenCoreState.DemonicEquivalent, dragon.GoldenCore);
+        }
+
+        [Test]
+        public void TheDragonsOfTheEasternSea_ReclaimTheirBlood_FromAClanWithoutATrueMonarch()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var dragon = w.DemonicDao.Bind(Captured(w, CultivationRealm.Foundation, 1));
+            dragon.SubPath = CultivationSubPath.TrueSerpentDragon;
+            dragon.Species = Species.Dragon;
+            CharacterData taken = null;
+            w.Ctx.Events.OnDragonReclaimed += d => taken = d;
+            w.DemonicDao.ProcessYear();
+            Assert.AreSame(dragon, taken);
+            CollectionAssert.DoesNotContain(w.Clan.LivingMembers, dragon);
+        }
+
+        [Test]
+        public void ATrueMonarchOfTheClan_KeepsTheDragonsAway()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            w.Join(Fixtures.Cultivator(age: 300, realm: CultivationRealm.GoldenCore, stage: 1));
+            var dragon = w.DemonicDao.Bind(Captured(w, CultivationRealm.Foundation, 1));
+            dragon.SubPath = CultivationSubPath.TrueSerpentDragon;
+            dragon.Species = Species.Dragon;
+            bool repelled = false;
+            w.Ctx.Events.OnDragonsRepelled += d => repelled = true;
+            w.DemonicDao.ProcessYear();
+            CollectionAssert.Contains(w.Clan.LivingMembers, dragon);
+            Assert.IsTrue(repelled);
+        }
+
+        [Test]
+        public void AMonkAtTheGoldenCore_IsNoTrueMonarch_ToTheDragons()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var master = w.Join(Fixtures.Cultivator(age: 300, realm: CultivationRealm.GoldenCore, stage: 1));
+            master.Path = CultivationPath.Buddhist;
+            master.SubPath = CultivationSubPath.AncientBuddhism;
+            master.GoldenCore = GoldenCoreState.DharmaMaster;
+            var dragon = w.DemonicDao.Bind(Captured(w, CultivationRealm.Foundation, 1));
+            dragon.SubPath = CultivationSubPath.TrueSerpentDragon;
+            dragon.Species = Species.Dragon;
+            w.DemonicDao.ProcessYear();
+            CollectionAssert.DoesNotContain(w.Clan.LivingMembers, dragon);
+        }
+
+        [Test]
+        public void ASealedBeast_ReceivesNoOffering()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var bound = AtTheApogee(w);
+            bound.ProgressionSealed = true;
+            w.Resources.SetSpiritStones(Settings.OfferingStones);
+            Assert.IsNotNull(w.DemonicDao.CoreRefusal(bound));
+        }
+
+        [Test]
+        public void ADragonWithItsOwnCore_ChoosesItsClan()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var dragon = AtTheApogee(w);
+            dragon.SubPath = CultivationSubPath.TrueSerpentDragon;
+            dragon.Species = Species.Dragon;
+            dragon.Realm = CultivationRealm.GoldenCore;
+            dragon.RealmStage = 1;
+            dragon.GoldenCore = GoldenCoreState.DemonicEquivalent;
+            w.DemonicDao.ProcessYear();
+            CollectionAssert.Contains(w.Clan.LivingMembers, dragon);
+        }
+
+        [Test]
+        public void AHiddenBlood_IsNotYetReclaimed()
+        {
+            var w = new TestWorld(new FixedRandom(0.0));
+            var serpent = w.DemonicDao.Bind(Captured(w, CultivationRealm.Foundation, 1, species: "jade-serpent"));
+            w.DemonicDao.ProcessYear();
+            CollectionAssert.Contains(w.Clan.LivingMembers, serpent);
+        }
+
+        [Test]
+        public void TheHiddenBlood_IsKept_AcrossASave()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var beast = new CapturedBeast("jade-serpent-region-1", CultivationRealm.QiRefinement, 2);
+            s.Resources.AddBeast(beast);
+            var serpent = s.DemonicDao.Bind(beast);
+            serpent.DragonBlood = true;
+            var loaded = GameSession.FromSaveData(SaveSerializer.Deserialize(SaveSerializer.Serialize(s.ToSaveData())), new GameSetup { Content = Fixtures.QuietContent });
+            Assert.IsTrue(loaded.Clan.FindById(serpent.ID).DragonBlood);
         }
     }
 }
