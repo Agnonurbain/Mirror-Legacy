@@ -172,7 +172,10 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public string ForgeRefusal(CharacterData member, string fruitionId)
         {
-            var route = GoldenCoreRules.RouteTo(member?.DivineAbilities, fruitionId, ctx.Content, Corrupted);
+            if (member == null) return null;
+            if (member.SubPath == CultivationSubPath.SpiritualNature && member.FruitionId == fruitionId) return null; // an elect's essence waits for its destiny
+            if ((GovernanceBonus?.Invoke(member) ?? 0) > 0) return null; // the imperial way asks Heaven for no position
+            var route = GoldenCoreRules.RouteTo(member.DivineAbilities, fruitionId, ctx.Content, Corrupted);
             var status = fruitions.State(fruitionId)?.Status;
             if (route != PositionRoute.None && status is FruitionStatus.Broken or FruitionStatus.Hidden or FruitionStatus.Suspected)
                 return status == FruitionStatus.Broken ? "la lignée est brisée : aucune position ne s'y demande"
@@ -218,11 +221,6 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>
-        /// Offers a tribute in kind to a lineage's holder for leave to take a Surplus or an Intercalary there — never stones,
-        /// a True Monarch's leave has no price in stones (the user's rule, 2026-10-03); the tribute is spent even if refused.
-        /// False when refused, when the tribute does not suffice, or when there is no holder to ask.
-        /// </summary>
-        /// <summary>
         /// The chance a holder grants its leave: the bare chance, swayed by the clan's relation with its power (audit §8.10);
         /// a lone holder, without a power, keeps the bare chance.
         /// </summary>
@@ -232,6 +230,11 @@ namespace MirrorChronicles.Characters
             return Math.Clamp(Settings.PermissionChance + relation * Settings.PermissionPerRelation, 0.0, 0.95);
         }
 
+        /// <summary>
+        /// Offers a tribute in kind to a lineage's holder for leave to take a Surplus or an Intercalary there — never stones,
+        /// a True Monarch's leave has no price in stones (the user's rule, 2026-10-03); the tribute is spent even if refused.
+        /// False when refused, when the tribute does not suffice, or when there is no holder to ask.
+        /// </summary>
         public bool RequestPermission(string fruitionId, IReadOnlyList<Diplomacy.AccordTerm> terms)
         {
             var state = fruitions.State(fruitionId);
