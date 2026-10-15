@@ -119,6 +119,55 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void AStudyBrokenOff_IsNotResumedByAPlainStudy()
+        {
+            var w = new TestWorld();
+            var art = Art(w, grade: 2);
+            var scholar = w.Join(Fixtures.Cultivator());
+            w.Tasks.AssignArtStudy(scholar, art.ID);
+            scholar.CurrentTask = TaskType.None; // taken captive, sent away… the task changed without AssignTask
+            w.Tasks.AssignTask(scholar, TaskType.Study);
+            Assert.IsNull(scholar.StudyArtId, "a plain study looks for fragments, as ever");
+        }
+
+        [Test]
+        public void AStudyBrokenOff_IsForgottenAtTheYearsTasks()
+        {
+            var w = new TestWorld();
+            var art = Art(w, grade: 2);
+            var scholar = w.Join(Fixtures.Cultivator());
+            w.Tasks.AssignArtStudy(scholar, art.ID);
+            scholar.CurrentTask = TaskType.Mine;
+            Years(w, 1);
+            Assert.IsNull(scholar.StudyArtId);
+            Assert.AreEqual(0, scholar.StudyArtYears);
+        }
+
+        [Test]
+        public void ResumingTheSameArt_KeepsTheYearsGiven()
+        {
+            var w = new TestWorld();
+            var art = Art(w, grade: 3);
+            var scholar = w.Join(Fixtures.Cultivator());
+            w.Tasks.AssignArtStudy(scholar, art.ID);
+            Years(w, 1);
+            Assert.IsNull(w.Tasks.AssignArtStudy(scholar, art.ID));
+            Assert.AreEqual(1, scholar.StudyArtYears);
+        }
+
+        [Test]
+        public void OneWhoMayNotStudy_StudiesNoArt()
+        {
+            var w = new TestWorld();
+            var art = Art(w, grade: 1); // wielded from the Embryonic Breathing
+            var breathing = w.Join(Fixtures.Cultivator(age: 20, realm: CultivationRealm.Embryonic, stage: 5));
+            Assert.IsNotNull(w.Tasks.ArtStudyRefusal(breathing, art.ID), "the Breathing does not take the Study task");
+            var retreating = w.Join(Fixtures.Cultivator());
+            retreating.Retreat = Retreat.Manifestation;
+            Assert.IsNotNull(w.Tasks.ArtStudyRefusal(retreating, art.ID));
+        }
+
+        [Test]
         public void AStudyUnderWay_IsKeptAcrossASave()
         {
             var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
