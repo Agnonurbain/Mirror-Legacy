@@ -88,8 +88,48 @@ namespace MirrorChronicles.Economy
                 return false;
             }
 
+            if (task != TaskType.Study) { character.StudyArtId = null; character.StudyArtYears = 0; } // leaving the study abandons it
             character.CurrentTask = task;
             return true;
+        }
+
+        /// <summary>Why the member cannot study this art of the library (French), or null (audit §7.11).</summary>
+        public string ArtStudyRefusal(CharacterData member, string artId)
+        {
+            var art = techniques.Knows(artId) ? techniques.Find(artId) : null;
+            if (art == null) return "le clan ne connaît pas cet art";
+            if (art.Kind == TechniqueKind.Cultivation) return "une méthode de cultivation se pratique, elle ne s'étudie pas";
+            if (member == null || !member.IsAlive || member.CaptorFaction != null) return "ce membre n'est pas au domaine";
+            if (!SpiritualOrificeRules.Cultivates(member)) return "seul un cultivateur étudie un art";
+            if (member.Realm < art.RequiredRealm) return $"cet art se manie dès {RankCatalog.RealmName(art.RequiredRealm)}";
+            if (member.KnownTechniqueIDs.Contains(art.ID)) return "ce membre maîtrise déjà cet art";
+            return null;
+        }
+
+        /// <summary>Sets the member to study an art of the library (the Study task). Null when done, else why not (French).</summary>
+        public string AssignArtStudy(CharacterData member, string artId)
+        {
+            if (ArtStudyRefusal(member, artId) is { } why) return why;
+            if (!AssignTask(member, TaskType.Study)) return "ce membre ne peut pas étudier cette année";
+            if (member.StudyArtId != artId) member.StudyArtYears = 0;
+            member.StudyArtId = artId;
+            return null;
+        }
+
+        /// <summary>A year given to an art: mastered after its grade in years, then back to cultivation (audit §7.11).</summary>
+        private void StudyArt(CharacterData scholar)
+        {
+            var art = techniques.Find(scholar.StudyArtId);
+            if (art == null || ArtStudyRefusal(scholar, art.ID) != null) { scholar.StudyArtId = null; scholar.StudyArtYears = 0; return; }
+            scholar.StudyArtYears++;
+            if (scholar.StudyArtYears < art.Grade * ctx.Content.Balance.Techniques.ArtStudyYearsPerGrade) return;
+
+            scholar.KnownTechniqueIDs.Add(art.ID);
+            scholar.StudyArtId = null;
+            scholar.StudyArtYears = 0;
+            ctx.Log.Info($"[Tasks] {scholar.FullName} masters the art « {art.Name} ».");
+            ctx.Events.TriggerArtMastered(scholar, art);
+            AssignTask(scholar, TaskType.Cultivation);
         }
 
         public YearlyTaskReport ProcessYearlyTasks()
@@ -115,7 +155,7 @@ namespace MirrorChronicles.Economy
                     case TaskType.Mine: minersYield.Add(MineYield(member)); break;
                     case TaskType.Patrol: patrols++; break;
                     case TaskType.Rest: stability.ApplyModifier(member, RestStability); break;
-                    case TaskType.Study: Study(member); break;
+                    case TaskType.Study: if (member.StudyArtId != null) StudyArt(member); else Study(member); break;
                     case TaskType.Diplomacy: Diplomacy(member); break;
                     case TaskType.Espionage: espionage.AttemptEspionage(member, factions.RandomFaction()); break;
                     case TaskType.GatherQi: qiGathered += GatherQi(member); break;

@@ -502,7 +502,8 @@ namespace MirrorChronicles.Data
                 && rules.AlignedQiPortions >= 0 && rules.LowestGradeChosenForAMember >= TechniqueRules.MinGrade
                 && rules.ArtRequiredRealmByGrade?.Count == TechniqueRules.MaxGrade
                 && rules.MovementArtStepsByGrade?.Count == TechniqueRules.MaxGrade && rules.MovementArtStepsByGrade.All(s => s >= 0)
-                && rules.DeductionCompleteFragments >= 2 && rules.DeductionMaxGrade >= TechniqueRules.MinGrade && rules.DeductionMaxGrade <= TechniqueRules.MaxGrade,
+                && rules.DeductionCompleteFragments >= 2 && rules.DeductionMaxGrade >= TechniqueRules.MinGrade && rules.DeductionMaxGrade <= TechniqueRules.MaxGrade
+                && rules.ArtStudyYearsPerGrade > 0,
                 BalanceFile, "techniques needs its rules: positive speed, portions, a grade per list entry (7), deduction bounds.");
         }
 

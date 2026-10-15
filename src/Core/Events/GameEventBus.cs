@@ -96,6 +96,7 @@ namespace MirrorChronicles.Events
         public event Action<CharacterData> OnTrialWoundedDao;             // a failed breakthrough wounds the Dao (audit §7.14)
         public event Action<CharacterData> OnMemberUnmasked;              // the mirror unmasks a member as a spy (audit §7.14)
         public event Action<CharacterData, Trauma> OnTraumaHeartDemon;    // a trauma breeds a Heart Demon (audit §7.14)
+        public event Action<CharacterData, TechniqueData> OnArtMastered;  // a member masters an art of the library (audit §7.11)
         public event Action<CharacterData> OnDiverseMansionFormed;       // a member forms a Diverse Mansion: the Heavenly Embryo Devil Dao (R12)
         public event Action<CharacterData> OnDevilFoundOut;              // a devil of the clan found out by the orthodox powers (R12)
         public event Action<IReadOnlyList<CharacterData>> OnClanFought;  // the clan's fighters on the grid (G6): a non-violent vow breaks (R13-14b)
@@ -225,6 +226,7 @@ namespace MirrorChronicles.Events
         public void TriggerTrialWoundedDao(CharacterData member) => OnTrialWoundedDao?.Invoke(member);
         public void TriggerMemberUnmasked(CharacterData spy) => OnMemberUnmasked?.Invoke(spy);
         public void TriggerTraumaHeartDemon(CharacterData member, Trauma trauma) => OnTraumaHeartDemon?.Invoke(member, trauma);
+        public void TriggerArtMastered(CharacterData member, TechniqueData art) => OnArtMastered?.Invoke(member, art);
         public void TriggerDiverseMansionFormed(CharacterData member) => OnDiverseMansionFormed?.Invoke(member);
         public void TriggerDevilFoundOut(CharacterData member) => OnDevilFoundOut?.Invoke(member);
         public void TriggerClanFought(IReadOnlyList<CharacterData> fighters) => OnClanFought?.Invoke(fighters);

@@ -115,6 +115,10 @@ namespace MirrorChronicles.Data
         // Oaths of the Dao (L4d): years a Heart Demon still haunts an oath-breaker
         public int HeartDemonYearsLeft { get; set; }
 
+        // An art of the library the member studies (audit §7.11), and the years already given to it
+        public string StudyArtId { get; set; }
+        public int StudyArtYears { get; set; }
+
         // Family Links (Stored as IDs for easy serialization without circular references)
         public string FatherID { get; set; }
         public string MotherID { get; set; }

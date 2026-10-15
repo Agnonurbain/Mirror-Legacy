@@ -469,6 +469,9 @@ namespace MirrorChronicles.Data
         public int DeductionCompleteFragments { get; init; }
         public int DeductionMaxGrade { get; init; }
 
+        /// <summary>Years of study per grade before a member masters an art of the library (audit §7.11).</summary>
+        public int ArtStudyYearsPerGrade { get; init; }
+
         /// <summary>The mirror deduces an ascent method of its own will (LORE.md §11.10; 🔎): shards restored, good fragments, their quality, its power.</summary>
         public int AscentDeductionShards { get; init; }
         public int AscentDeductionFragments { get; init; }

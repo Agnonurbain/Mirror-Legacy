@@ -871,6 +871,7 @@
 	"movementArtStepsByGrade": [ 1, 1, 1, 1, 2, 2, 2 ],
 	"deductionCompleteFragments": 4,
 	"deductionMaxGrade": 6,
+	"artStudyYearsPerGrade": 1,
 	"ascentDeductionShards": 3,
 	"ascentDeductionFragments": 4,
 	"ascentDeductionQuality": 3,
