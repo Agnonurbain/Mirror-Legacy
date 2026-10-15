@@ -353,6 +353,34 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(Xp, c.CultivationXP);
         }
 
+        private static readonly string[] FiveNourishingFire =
+        {
+            "nourishing-fire:ember-pheasant", "nourishing-fire:heavenly-blaze", "nourishing-fire:hearth-god",
+            "nourishing-fire:unrevealed-4", "nourishing-fire:unrevealed-5"
+        };
+
+        [Test]
+        public void AnElect_StillForgesTowardItsDestiny_ThoughItsLineageIsBroken()
+        {
+            // its essence waits, as it ever did; it is never kept from the Golden Core (audit §8.10, review)
+            var w = new TestWorld(new FixedRandom(Pass));
+            var c = Master(w, FiveNourishingFire);
+            c.SubPath = CultivationSubPath.SpiritualNature;
+            c.FruitionId = "nourishing-fire";
+            KnowGoldSeeking(w, "nourishing-fire");
+            Assert.IsNull(w.GoldenCore.ForgeRefusal(c, "nourishing-fire"));
+        }
+
+        [Test]
+        public void AGoverningSovereign_StillForgesTowardABrokenLineage()
+        {
+            // the imperial way asks Heaven for no position: a False Golden Core, as the late emperors'
+            var w = new TestWorld(new FixedRandom(Pass));
+            w.GoldenCore.GovernanceBonus = _ => 10;
+            var c = Master(w, FiveNourishingFire);
+            Assert.IsNull(w.GoldenCore.ForgeRefusal(c, "nourishing-fire"));
+        }
+
         private static void HeldByAPower(TestWorld w, int relation)
         {
             w.Factions.AddFaction(new FactionData { Name = "Famille Tan", Kind = FactionKind.Family, RegionId = "linxi", RelationWithPlayer = relation,
