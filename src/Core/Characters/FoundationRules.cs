@@ -23,11 +23,14 @@ namespace MirrorChronicles.Characters
         }
 
         /// <summary>
-        /// The Dao Partners of a foundation: the lineage's other foundations (§5.3.3: the four others of the
-        /// same Fruition, and any the lore adds). Knowing them before entering the Dao is vital.
+        /// The Dao Partners of a foundation (§5.3.3): the others of its lineage's centre of five — neither a substitute nor an
+        /// ability beyond the centre (AUDIT_LORE.md §7.7). Knowing them before entering the Dao is vital.
         /// </summary>
         public static IReadOnlyList<DivineAbilityDefinition> DaoPartners(FruitionDefinition fruition, string abilityId) =>
-            fruition?.Abilities.Where(a => a.Id != abilityId).ToList() ?? (IReadOnlyList<DivineAbilityDefinition>)Array.Empty<DivineAbilityDefinition>();
+            fruition?.Abilities.Where(a => a.Id != abilityId && IsOfTheCentre(a)).ToList() ?? (IReadOnlyList<DivineAbilityDefinition>)Array.Empty<DivineAbilityDefinition>();
+
+        /// <summary>One of the lineage's orthodox five.</summary>
+        public static bool IsOfTheCentre(DivineAbilityDefinition ability) => !ability.Substitute && !ability.Peripheral;
 
         /// <summary>
         /// Cultivation speed from the Dao Heart (§5.3.2): faster when the temper matches what the lineage
@@ -50,7 +53,7 @@ namespace MirrorChronicles.Characters
             if (member.Realm != CultivationRealm.Foundation || member.RealmStage < PowerLadder.StageCount(CultivationRealm.Foundation)) return false;
             var (_, abilityId) = FoundationRef.Parse(member.FoundationId);
             var lineage = FruitionOf(member.FoundationId, content.Fruitions);
-            return lineage != null && lineage.Abilities.Any(a => a.Id != abilityId && !a.Substitute && a.Name != null);
+            return lineage != null && DaoPartners(lineage, abilityId).Any(a => a.Name != null);
         }
 
         /// <summary>

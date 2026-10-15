@@ -54,6 +54,8 @@ namespace MirrorChronicles.Characters
             var (consumerLineage, consumerFoundation) = FoundationRef.Parse(consumer.FoundationId);
             var (donorLineage, donorFoundation) = FoundationRef.Parse(donor.FoundationId);
             return consumerLineage != null && consumerLineage == donorLineage && consumerFoundation != donorFoundation
+                && FoundationRules.DaoPartners(FoundationRules.FruitionOf(consumer.FoundationId, ctx.Content.Fruitions), consumerFoundation)
+                    .Any(a => a.Id == donorFoundation) // a partner of the centre (audit §7.7)
                 && techniques.Knowledge.Knows(FactKind.DaoPartners, consumer.FoundationId); // §5.3.3: know one's partners first
         }
 

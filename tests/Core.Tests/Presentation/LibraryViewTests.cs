@@ -55,11 +55,13 @@ namespace MirrorChronicles.Tests.Presentation
             var s = NewGame();
             var trade = Fixtures.VeteranContent.Balance.KnowledgeTrade;
 
-            var method = LibraryView.Market(s).Single(m => m.Power == Peak && m.TechniqueId == "measured-rain-method");
+            var method = LibraryView.Market(s).Single(m => m.Power == "Famille Lü" && m.TechniqueId == "clear-edge-method");
+            var gradeFour = LibraryView.Market(s).Single(m => m.Power == Peak && m.TechniqueId == "measured-rain-method");
             var canon = LibraryView.Market(s).Single(m => m.Power == Peak && m.TechniqueId == "night-frost-canon");
 
             Assert.AreEqual(trade.StonesPerGrade[method.Grade - 1], method.Price);
-            StringAssert.Contains("relation", method.Refusal, "the Peak is not yet friendly enough");
+            StringAssert.Contains("relation", method.Refusal, "the Lü are not friendly enough");
+            StringAssert.Contains("grade 3 ou moins", gradeFour.Refusal, "stones buy only a common manual of grade 3 or less (audit §7.10)");
             StringAssert.Contains("ne s'achète pas", canon.Refusal, "an ascent method is never sold (LORE.md §11.10)");
             Assert.IsFalse(LibraryView.Market(s).Any(m => m.TechniqueId == "clear-spring-sutra"), "nothing the clan knows");
         }
@@ -78,12 +80,11 @@ namespace MirrorChronicles.Tests.Presentation
         public void Market_AgreesWithThePurchase()
         {
             var s = NewGame();
-            s.Factions.ChangeRelation(s.Factions.GetFactionByName(Peak).ID, 50);
+            s.Factions.ChangeRelation(s.Factions.GetFactionByName("Famille Ruan").ID, 50);
             s.Resources.AddSpiritStones(100000);
-            var offer = LibraryView.Market(s).First(m => m.Power == Peak);
+            var offer = LibraryView.Market(s).First(m => m.Power == "Famille Ruan" && m.Refusal == null);
 
-            Assert.IsNull(offer.Refusal);
-            Assert.IsTrue(s.Exchange.BuyTechnique(Peak, offer.TechniqueId));
+            Assert.IsTrue(s.Exchange.BuyTechnique("Famille Ruan", offer.TechniqueId));
             Assert.IsTrue(LibraryView.Library(s).Any(t => t.Id == offer.TechniqueId));
         }
     }

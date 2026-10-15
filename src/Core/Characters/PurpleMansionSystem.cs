@@ -100,7 +100,8 @@ namespace MirrorChronicles.Characters
 
         /// <summary>The ascent's chance: the rules', plus what a favouring atmosphere at home gives (L5b).</summary>
         public int AscentChanceOf(CharacterData member) =>
-            Math.Min(99, PurpleMansionRules.AscentChance(member, Settings, ctx.Content.Balance.TrialModifiers) + cultivation.PlaceBreakthroughBonus(member));
+            member.TransformedLineage ? 100 // a Realization's descendant reaches the Purple Mansion (audit §7.12, 2026-10-15)
+                : Math.Min(99, PurpleMansionRules.AscentChance(member, Settings, ctx.Content.Balance.TrialModifiers) + cultivation.PlaceBreakthroughBonus(member));
 
         private void Ascend(CharacterData member)
         {

@@ -87,6 +87,8 @@ namespace MirrorChronicles.Data
             CheckTechniques(catalog, qi);
             CheckClanKnowledge(clan, catalog.Techniques, qi);
             CheckFruitions(fruitions);
+            foreach (var f in fruitions.Fruitions.Where(f => f.Abilities.Count(a => !a.Substitute && !a.Peripheral) != 5))
+                Require(false, FruitionsFile, $"the lineage {f.Id} needs a centre of five orthodox abilities (mark the others peripheral, audit §7.7).");
             Require(fruitions.Fruitions.Any(f => f.Id == balance.Shamanism.GateFruition), BalanceFile,
                 $"shamanism.gateFruition \"{balance.Shamanism.GateFruition}\" is not a Fruition of {FruitionsFile}.");
             foreach (string dragon in balance.DemonicDao?.DragonBloodSpecies ?? new List<string>())

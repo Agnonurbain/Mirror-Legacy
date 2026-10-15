@@ -45,6 +45,13 @@ namespace MirrorChronicles.Combat
         /// <summary>Cells it may move per turn: one per ten agility, at least one.</summary>
         public int MovementRange => Math.Max(1, Agility / 10);
 
+        /// <summary>
+        /// Mana comes with the first chakra (AUDIT_LORE.md §7.3): a mortal, an orifice nobody examined or a breathing cultivator
+        /// before its first chakra fights with its body alone.
+        /// </summary>
+        public static bool HasMana(CharacterData data) =>
+            Characters.SpiritualOrificeRules.Cultivates(data) && (data.Realm > CultivationRealm.Embryonic || data.RealmStage >= 1);
+
         public CombatUnit(CharacterData data, bool isAlly, AIStrategyType strategy = AIStrategyType.Aggressive)
         {
             BaseData = data;
@@ -53,7 +60,7 @@ namespace MirrorChronicles.Combat
 
             int realm = (int)Characters.PowerLadder.EffectiveRealm(data); // a pseudo-Golden Core fights as one (R10b)
             MaxVitality = (int)Math.Round(BaseConstitution * 10 * (1 + realm * 0.5));
-            MaxQi = data.SpiritualRoot * (realm + 1);
+            MaxQi = HasMana(data) ? data.SpiritualRoot * (realm + 1) : 0; // the mana comes with the first chakra (audit §7.3)
             Agility = 10 + realm * 5;
             Strength = 10 + realm * 5;
             Defense = 5 + realm * 3;

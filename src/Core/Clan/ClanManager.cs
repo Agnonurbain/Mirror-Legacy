@@ -121,6 +121,7 @@ namespace MirrorChronicles.Clan
             child.Temperament = FoundationRules.InheritTemperament(father, mother, rng, ctx.Content.Balance.TemperamentInheritanceChance);
             child.TransformedLineage = new[] { father, mother }.Any(p => p != null
                 && (p.TransformedLineage || p.GoldenCore == GoldenCoreState.Realization)); // a Realization's descendants (§5.5.2)
+            if (child.TransformedLineage) child.HasSpiritualOrifice = true; // always born to cultivate (audit §7.12, the user's choice of 2026-10-15)
             var bodied = new[] { father, mother }.FirstOrDefault(p => p?.BodyTrait != null); // an inhuman body passes on (§11.6)
             if (bodied != null && rng.Chance(ctx.Content.Balance.BodyTraitInheritanceChance)) child.BodyTrait = bodied.BodyTrait;
             child.SpiritualRoot = System.Math.Min(GeneticSystem.MaxSpiritualRoot, child.SpiritualRoot + OffspringTalent(father, mother)); // a talisman Qi (§11.5)
