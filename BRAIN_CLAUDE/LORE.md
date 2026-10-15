@@ -205,6 +205,7 @@ Dao des **dieux, des fantômes et des esprits**, fondé sur l'acte de **saisir u
 | **Posséder une Profondeur** (« harnacher la Profondeur intérieure ») | Garder le plein contrôle de son mandat et intégrer la Profondeur par raffinage rituel | La plus rare et la plus exigeante ; mène vers une vraie divinité |
 - **Royaumes connus** : **Serviteur Divin** (dieu mineur, esprit ou fonctionnaire fantôme ; puissance allant de la Culture du Qi au Manoir Pourpre) → **Noyau Divin** (autorité divine stable, analogue au Noyau d'Or) → royaumes supérieurs inconnus.
 - Les pratiquants **abandonnent ou transforment leur corps** (formes de vie spirituelles) ; ils excellent à **hanter** : imprimer leur existence si profondément que l'imitation ou la commémoration peut déclencher corruption, folie ou calamité longtemps après leur mort.
+  - 🎮 ✅ L7 (2026-10-15, décision de l'utilisateur, `balance.json` « divineDao ») : un Serviteur Divin du clan qui meurt le hante des années selon son emprise sur une Profondeur ; négligée, la hantise égare des esprits (blessures du Dao) et attire des calamités ; honorée, elle donne du prestige mais la commémoration double le danger ; exorcisée (moitié prix par un moine du clan), elle prend fin.
 - Né d'Au-delà des Profondeurs, adopté par **Douxuan**, il a engendré la **Voie Impériale** (gouverner pour cultiver), perfectionnée par un détenteur du Yang Lumineux.
 - Fruitions prédisposées : **Sentinelle de la Cité, Régent Céleste, Magnétisme Primordial, Élixir Parfait, Tonnerre Profond, Corps de Kui**.
 
