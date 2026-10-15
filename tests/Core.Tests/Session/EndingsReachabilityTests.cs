@@ -20,7 +20,7 @@ namespace MirrorChronicles.Tests.Session
     {
         private const int Seeds = 60;
         private const string OrthodoxWater = "orthodox-water";
-        private const string Celadon = "celadon-proclamation"; // a free lineage with a substitute: room for a Surplus
+        private const string Celadon = "celadon-proclamation"; // a lineage with a substitute: room for a Surplus beneath its Realization
 
         /// <summary>Five of the Orthodox Water, the Ford Watcher (of Life) condensed last.</summary>
         private static readonly string[] FiveOrthodoxWater =
@@ -84,12 +84,20 @@ namespace MirrorChronicles.Tests.Session
         {
             int reached = Reached("river-bed", s =>
             {
+                // a Surplus serves a held Realization (audit §8.5): an elder of the clan holds the Celadon, then passes
+                var elder = Fixtures.Cultivator(age: 400, realm: CultivationRealm.GoldenCore);
+                elder.GoldenCore = GoldenCoreState.Realization;
+                elder.FruitionId = Celadon;
+                s.Clan.AddMember(elder);
+                s.Fruitions.Claim(Celadon, elder.FullName);
                 var master = Master(s, CeladonWithSubstitute);
                 if (!s.GoldenCore.Forge(master, Celadon) || !master.IsAlive) return;
                 s.GoldenCore.ClaimPosition(master);
+                s.Clan.Kill(elder, DeathCause.OldAge);
+                s.Fruitions.Vacate(Celadon);
                 if (master.IsAlive && master.GoldenCore == GoldenCoreState.Surplus) s.GoldenCore.Transfer(master);
             });
-            Assert.That(reached, Is.GreaterThan(0), "a Surplus may rise to its free lineage's Realization");
+            Assert.That(reached, Is.GreaterThan(0), "a Surplus may rise to its lineage's Realization once freed");
         }
 
         [Test]

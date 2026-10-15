@@ -131,6 +131,16 @@ namespace MirrorChronicles.Tests.Characters
         }
 
         [Test]
+        public void TheGoldenCoreScreen_TellsASurplusWhyItMakesNoDesignation()
+        {
+            var s = Session();
+            var m = WithTreasure(s, GoldenCoreState.Surplus);
+            var option = MirrorChronicles.Presentation.GoldenCoreView.Actions(s)
+                .Single(o => o.Kind == MirrorChronicles.Presentation.GoldenCoreAction.Designation && o.MemberId == m.ID);
+            StringAssert.Contains("Réalisation", option.Refusal);
+        }
+
+        [Test]
         public void ARankDesignation_StillGuards_AfterItsMastersDeath()
         {
             var s = Session();
