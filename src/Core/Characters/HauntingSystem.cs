@@ -40,21 +40,31 @@ namespace MirrorChronicles.Characters
         /// <summary>The hauntings under way, the oldest first.</summary>
         public IReadOnlyList<Haunting> Hauntings => hauntings;
 
+        /// <summary>Restores the saved hauntings, mended: one an Attendant, its strength and years within bounds, a name.</summary>
         public void Restore(IEnumerable<Haunting> saved)
         {
             hauntings.Clear();
-            if (saved != null) hauntings.AddRange(saved.Where(h => h != null && h.YearsLeft > 0));
+            foreach (var h in saved ?? Enumerable.Empty<Haunting>())
+            {
+                if (h?.Id == null || h.YearsLeft <= 0 || hauntings.Any(k => k.Id == h.Id)) continue;
+                int strength = Math.Clamp(h.Strength, 1, MaxStrength);
+                hauntings.Add(new Haunting
+                {
+                    Id = h.Id, Name = string.IsNullOrWhiteSpace(h.Name) ? "un Serviteur Divin oublié" : h.Name, Strength = strength,
+                    YearsLeft = Math.Min(h.YearsLeft, strength * Settings.HauntYearsPerStrength), Honoured = h.Honoured
+                });
+            }
         }
 
         /// <summary>A Divine Attendant's degree of hold on a Profundity: a Divine Core 3, an owner 2, the others 1.</summary>
         public static int StrengthOf(CharacterData member) =>
-            member.GoldenCore == GoldenCoreState.DivineCore || member.Realm >= CultivationRealm.GoldenCore ? MaxStrength
+            member.GoldenCore == GoldenCoreState.DivineCore ? MaxStrength
             : member.SubPath == CultivationSubPath.OwnedProfundity ? 2
             : 1;
 
         private void Departed(CharacterData dead, DeathCause cause)
         {
-            if (dead?.Path != CultivationPath.Divine || hauntings.Any(h => h.Id == dead.ID)) return;
+            if (dead?.Path != CultivationPath.Divine || dead.Departed || hauntings.Any(h => h.Id == dead.ID)) return; // a member gone haunts another house
             int strength = StrengthOf(dead);
             var haunting = new Haunting { Id = dead.ID, Name = dead.FullName, Strength = strength, YearsLeft = strength * Settings.HauntYearsPerStrength };
             hauntings.Add(haunting);

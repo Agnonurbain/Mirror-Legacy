@@ -305,7 +305,7 @@ namespace MirrorChronicles.Data
                 && IsProbability(divine.CoreChance) && divine.HauntYearsPerStrength >= 1 && divine.HonourRiskFactor >= 1
                 && IsProbability(divine.MadnessChancePerStrength * HauntingSystem.MaxStrength * divine.HonourRiskFactor)
                 && IsProbability(divine.CalamityChancePerStrength * HauntingSystem.MaxStrength * divine.HonourRiskFactor)
-                && IsProbability(divine.CalamityStoneShare) && divine.HonourPrestigePerStrength >= 0 && divine.ExorcismStonesPerStrength >= 0
+                && IsProbability(divine.CalamityStoneShare) && divine.HonourPrestigePerStrength >= 0 && divine.ExorcismStonesPerStrength >= 1
                 && IsProbability(divine.MonkExorcismFactor),
                 BalanceFile, "divineDao needs a leap and costs never negative, a positive pace, a core chance between 0 and 1, a haunting of a year at least whose odds stay between 0 and 1 even honoured at its strongest, and commemoration never safer than neglect.");
             var devil = balance.DevilDao;
