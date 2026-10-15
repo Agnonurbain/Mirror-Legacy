@@ -62,6 +62,7 @@ namespace MirrorChronicles.Game
             ShowDebateTargets(session);
             ShowPatrons(session);
             ShowDivineDao(session);
+            ShowHauntings(session);
             ShowShamanism(session);
             ShowDemonicCores(session);
             ShowWars(session);
@@ -265,6 +266,30 @@ namespace MirrorChronicles.Game
                 };
                 var column = Column();
                 column.AddChild(rite);
+                powers.AddChild(column);
+            }
+        }
+
+        /// <summary>The hauntings of the dead Divine Attendants (L7): honour them for prestige, at a doubled danger, or exorcise them.</summary>
+        private void ShowHauntings(Session.GameSession session)
+        {
+            var hauntings = DiplomacyView.Hauntings(session);
+            if (hauntings.Count == 0) return;
+            Add(powers, $"Hantises (un Serviteur Divin mort hante le clan : folie et calamités ; honoré, il donne du prestige mais la commémoration double le danger ; un moine du clan exorcise à moitié prix) — pierres : {session.Resources.SpiritStones} :");
+            foreach (var line in hauntings)
+            {
+                Add(powers, $"  {line.Label} :");
+                var column = Column();
+                if (!line.Honoured)
+                {
+                    var honour = new Button { Text = "Honorer sa mémoire", TooltipText = "Du prestige chaque année, mais deux fois plus de folie et de calamités." };
+                    honour.Pressed += () => Report(session.Haunting.Honour(line.Id), "Le clan honore sa mémoire.");
+                    column.AddChild(honour);
+                }
+                var exorcise = new Button { Text = $"L'exorciser ({line.ExorcismCost} pierres)", Disabled = session.Resources.SpiritStones < line.ExorcismCost,
+                    TooltipText = session.Resources.SpiritStones < line.ExorcismCost ? $"il faut {line.ExorcismCost} pierres spirituelles" : "La hantise prend fin." };
+                exorcise.Pressed += () => Report(session.Haunting.Exorcise(line.Id), "La hantise est exorcisée.");
+                column.AddChild(exorcise);
                 powers.AddChild(column);
             }
         }

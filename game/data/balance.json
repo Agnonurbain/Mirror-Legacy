@@ -588,8 +588,10 @@
   },
   "divineDao": {
 	"borrowLeap": 1, "speed": 0.6, "ownPrestigePerYear": 5, "corePrestige": 300, "coreChance": 0.3,
+	"hauntYearsPerStrength": 15, "madnessChancePerStrength": 0.04, "calamityChancePerStrength": 0.02, "calamityStoneShare": 0.1,
+	"honourPrestigePerStrength": 3, "honourRiskFactor": 2.0, "exorcismStonesPerStrength": 200, "monkExorcismFactor": 0.5,
 	"provenance": "Interpretation",
-	"source": "LORE.md §3.6 ; wiki « Divine Dao » (emprunter, s'unir, posséder une Profondeur ; Serviteur Divin ≈ Qi-Manoir Pourpre ; Noyau Divin ≈ Noyau d'Or) ; choix de l'utilisateur 2026-10-13"
+	"source": "LORE.md §3.6 ; wiki « Divine Dao » (emprunter, s'unir, posséder une Profondeur ; Serviteur Divin ≈ Qi-Manoir Pourpre ; Noyau Divin ≈ Noyau d'Or ; ils excellent à hanter : l'imitation ou la commémoration déclenche corruption, folie ou calamité) ; choix de l'utilisateur 2026-10-13 ; hantise à la mort, honorée ou exorcisée (choix de l'utilisateur 2026-10-15)"
   },
   "devilDao": {
 	"formBlood": 3, "furnaceBlood": 6, "mansionBlood": 15, "speed": 1.0, "ascentChance": 0.5,

@@ -15,7 +15,7 @@ namespace MirrorChronicles.Data
     [Serializable]
     public class GameData
     {
-        public const string CurrentVersion = "2.54"; // 2.48: CharacterData.Temple (R13-R14); 2.49: Vow, the pending debate and the temples' last debates (R13-14b); 2.50: RebornMonk, the monks' souls awaiting rebirth (R13-14c); 2.51: BloodEssence (R12); 2.52: ProfundityOf, BorrowedLeap (R15); 2.53: ShamanMethod (R17); 2.54: DragonBlood (L7)
+        public const string CurrentVersion = "2.55"; // 2.48: CharacterData.Temple (R13-R14); 2.49: Vow, the pending debate and the temples' last debates (R13-14b); 2.50: RebornMonk, the monks' souls awaiting rebirth (R13-14c); 2.51: BloodEssence (R12); 2.52: ProfundityOf, BorrowedLeap (R15); 2.53: ShamanMethod (R17); 2.54: DragonBlood (L7); 2.55: Hauntings (L7)
 
         public string SaveVersion { get; set; } = CurrentVersion;
         public int Seed { get; set; }
@@ -115,6 +115,7 @@ namespace MirrorChronicles.Data
         public List<PatronPact> PatronPacts { get; set; }            // 2.16: pacts with a great beast or a lone figure
         public List<War> Wars { get; set; }                          // 2.17: wars between powers
         public List<ClanWar> ClanWars { get; set; }                  // 2.17: the clan's own wars
+        public List<Haunting> Hauntings { get; set; }                // 2.55: the dead Divine Attendants haunting the clan (L7)
         public List<MonkSoul> PendingMonkSouls { get; set; }        // 2.50: monks' souls awaiting a child of the clan (R13-14c)
         public Debate PendingDebate { get; set; }                     // 2.49: a temple's Dao debate awaiting the clan's champion
         public Dictionary<string, int> LastDebates { get; set; }       // 2.49: the year each temple last debated the clan
