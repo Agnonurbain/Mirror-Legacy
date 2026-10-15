@@ -29,6 +29,7 @@ namespace MirrorChronicles.Characters
 
             var definitions = held.Select(a => CopyIn(target, a) ?? Definition(a, fruitions)).ToList(); // an original counts as its copy (audit §8.7)
             if (definitions.Any(d => d.Ability == null)) return PositionRoute.None;
+            if (definitions.Select(d => (d.Lineage, d.Ability.Id)).Distinct().Count() != AbilitiesToForge) return PositionRoute.None; // the original and its copy count once
 
             int inTarget = definitions.Count(d => d.Lineage == fruitionId);
             if (inTarget == AbilitiesToForge)
