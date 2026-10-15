@@ -17,8 +17,6 @@ namespace MirrorChronicles.Characters
     /// </summary>
     public sealed class DharmaTreasures
     {
-        private static readonly GoldenCoreState[] Positions = { GoldenCoreState.Realization, GoldenCoreState.Surplus, GoldenCoreState.Intercalary };
-
         private readonly GameContext ctx;
         private readonly ClanManager clan;
         private readonly ResourceManager resources;
@@ -62,11 +60,19 @@ namespace MirrorChronicles.Characters
             return null;
         }
 
+        /// <summary>Why this member cannot mortgage its treasure on its Fruition (French), or null: the Realization alone (audit §8.6).</summary>
+        public string DesignationRefusal(CharacterData member)
+        {
+            if (!Free(member) || !member.HasDharmaTreasure) return "il lui faut d'abord un Trésor de Dharma";
+            if (member.GoldenCore != GoldenCoreState.Realization || member.FruitionId == null)
+                return "seul le détenteur d'une position de Réalisation peut l'hypothéquer sur sa Fruition";
+            return null;
+        }
+
         /// <summary>A position's holder mortgages its treasure on its Fruition. Null when done, else why not (French).</summary>
         public string MakeDesignation(CharacterData member)
         {
-            if (!Free(member) || !member.HasDharmaTreasure) return "il lui faut d'abord un Trésor de Dharma";
-            if (!Positions.Contains(member.GoldenCore) || member.FruitionId == null) return "seul le détenteur d'une position peut l'hypothéquer sur sa Fruition";
+            if (DesignationRefusal(member) is { } why) return why;
             member.HasDharmaTreasure = false;
             var designation = new RankDesignation(ctx.Rng.NextId(), member.FruitionId, member.ID, member.FullName, ctx.Clock.Year);
             designations.Add(designation);
@@ -90,8 +96,12 @@ namespace MirrorChronicles.Characters
         {
             var first = clan.FindById(d.MasterId);
             if (Free(first)) return first;
-            return clan.LivingMembers.FirstOrDefault(m => Free(m) && m.FruitionId == d.Lineage && Positions.Contains(m.GoldenCore));
+            return clan.LivingMembers.Where(m => Free(m) && m.FruitionId == d.Lineage && Holds(m))
+                .OrderBy(m => m.GoldenCore == GoldenCoreState.Realization ? 0 : 1).FirstOrDefault(); // its Realization first, else another position
         }
+
+        private static bool Holds(CharacterData m) =>
+            m.GoldenCore == GoldenCoreState.Realization || m.GoldenCore == GoldenCoreState.Surplus || m.GoldenCore == GoldenCoreState.Intercalary;
 
         private bool Loved(CharacterData master, string lineage)
         {
@@ -112,9 +122,18 @@ namespace MirrorChronicles.Characters
                 .Concat(designations.Select(d => Wield(d) * Settings.DesignationStrength)),
             ctx.Content.Balance.Wars.ClanStrengthPerMember);
 
-        /// <summary>The chance the Designations foil an ambush on any member of the clan.</summary>
+        /// <summary>
+        /// The chance the Designations foil an ambush on any member of the clan: a loved master's fully, a masterless one's by
+        /// half (Wen Xiang's still guards a Celestial Cave); an unloved master wields it only briefly, in battle — no guard (audit §8.6).
+        /// </summary>
         public double DomainGuardChance =>
-            1 - designations.Aggregate(1.0, (miss, d) => miss * (1 - Wield(d) * Settings.DesignationGuardChance));
+            1 - designations.Aggregate(1.0, (miss, d) => miss * (1 - Guard(d) * Settings.DesignationGuardChance));
+
+        private double Guard(RankDesignation d)
+        {
+            var master = MasterOf(d);
+            return master == null ? 0.5 : Loved(master, d.Lineage) ? 1.0 : 0;
+        }
 
         /// <summary>The chance this member's own treasure foils an ambush on it.</summary>
         public double GuardChance(CharacterData member) => Free(member) && member.HasDharmaTreasure ? Settings.TreasureGuardChance : 0;

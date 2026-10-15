@@ -56,7 +56,7 @@ namespace MirrorChronicles.Characters
         /// </summary>
         public bool Forge(CharacterData member, string fruitionId)
         {
-            if (ForgeRoute(member, fruitionId) == PositionRoute.None
+            if (ForgeRoute(member, fruitionId) == PositionRoute.None || ForgeRefusal(member, fruitionId) != null
                 || member.SubPath == CultivationSubPath.SpiritualNature && member.FruitionId != fruitionId) // an elect rises only to its destiny (R10b)
             {
                 ctx.Log.Warning($"[Golden Core] {member?.FullName} cannot forge a metal essence toward \"{fruitionId}\".");
@@ -166,6 +166,17 @@ namespace MirrorChronicles.Characters
                 .ToList();
         }
 
+        /// <summary>
+        /// Why a forge toward this lineage would lead nowhere (French), or null: a Surplus of a free lineage has no Realization
+        /// to serve, and its essence would wait for ever (audit §8.5).
+        /// </summary>
+        public string ForgeRefusal(CharacterData member, string fruitionId)
+        {
+            var route = GoldenCoreRules.RouteTo(member?.DivineAbilities, fruitionId, ctx.Content, Corrupted);
+            return route == PositionRoute.Surplus && fruitions.State(fruitionId)?.Status == FruitionStatus.Free
+                ? "un Surplus sert une Réalisation tenue : cette lignée n'a pas de maître" : null;
+        }
+
         /// <summary>Why this essence cannot ask for its position now (French), or null.</summary>
         public string ClaimRefusal(CharacterData member)
         {
@@ -176,6 +187,7 @@ namespace MirrorChronicles.Characters
             if (route == PositionRoute.None) return "ses capacités ne mènent à aucune position de cette lignée";
             if (IsOpen(route, member.FruitionId)) return null;
             var state = fruitions.State(member.FruitionId);
+            if (state?.Status == FruitionStatus.Free && route == PositionRoute.Surplus) return "un Surplus sert une Réalisation tenue : cette lignée n'a pas de maître";
             return state?.Status == FruitionStatus.Occupied && route != PositionRoute.Realization
                 ? $"la lignée est tenue : il faut la permission de {state.Holder}" : "la position visée est fermée";
         }
@@ -456,7 +468,7 @@ namespace MirrorChronicles.Characters
         {
             var state = fruitions.State(fruitionId);
             if (state == null) return false;
-            if (state.Status == FruitionStatus.Free) return true;
+            if (state.Status == FruitionStatus.Free) return route != PositionRoute.Surplus; // a Surplus serves a held Realization (audit §8.5)
             if (state.Status != FruitionStatus.Occupied || route == PositionRoute.Realization) return false;
 
             bool heldByTheClan = clan.LivingMembers.Any(m => m.GoldenCore == GoldenCoreState.Realization && m.FruitionId == fruitionId);

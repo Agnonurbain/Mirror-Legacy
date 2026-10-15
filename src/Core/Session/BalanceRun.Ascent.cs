@@ -410,7 +410,7 @@ namespace MirrorChronicles.Session
             string own = FoundationRef.Parse(FoundationOf(master)).FruitionId;
             var target = content.Fruitions.OrderBy(f => f.Id == own ? 0 : 1)
                 .Select(f => (f.Id, Route: GoldenCoreRules.RouteTo(master.DivineAbilities, f.Id, content, session.Bridges.Corrupted)))
-                .FirstOrDefault(x => x.Route != PositionRoute.None);
+                .FirstOrDefault(x => x.Route != PositionRoute.None && session.GoldenCore.ForgeRefusal(master, x.Id) == null); // never toward a dead end (audit §8.5)
             if (target.Id == null || (session.GoldenCore.ForgeOdds(master) < RiseOdds * 100 && !NothingToLose(master))) return;
             bool specialised = target.Route == PositionRoute.IntercalaryThreeTwo;
             string method = specialised ? GoldenCoreRules.SpecialisedMethod(target.Id) : target.Id;
