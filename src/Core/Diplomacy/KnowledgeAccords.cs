@@ -118,7 +118,7 @@ namespace MirrorChronicles.Diplomacy
                 case AccordCurrency.Disciple:
                     var member = clan.FindById(term.Ref);
                     return power == null || member == null || !member.IsAlive || member.CaptorFaction != null || member.ID == clan.PatriarchID
-                        || !SpiritualOrificeRules.CanCultivate(member) ? "ce membre ne peut partir comme disciple" : null;
+                        || !SpiritualOrificeRules.Cultivates(member) ? "ce membre ne peut partir comme disciple" : null;
                 default:
                     return null; // a debt: the clan's word
             }

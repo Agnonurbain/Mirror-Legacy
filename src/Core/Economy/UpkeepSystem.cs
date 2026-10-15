@@ -50,7 +50,7 @@ namespace MirrorChronicles.Economy
         }
 
         public int UpkeepOf(CharacterData member) =>
-            SpiritualOrificeRules.CanCultivate(member)
+            SpiritualOrificeRules.Cultivates(member)
                 ? Settings.CultivatorStones + (int)member.Realm * Settings.StonesPerRealm
                 : Settings.MortalStones;
 

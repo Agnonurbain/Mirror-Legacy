@@ -82,9 +82,12 @@ namespace MirrorChronicles.Characters
         /// </summary>
         private static TaskType[] BreathingTasks(CharacterData character)
         {
-            var tasks = (character.Age < WorkingAge ? EmbryonicChildTasks : EmbryonicTasks).ToList();
-            if (character.Age >= WorkingAge && character.RealmStage >= EspionageChakra) tasks.Insert(tasks.Count - 1, TaskType.Espionage);
-            if (character.RealmStage >= QiPerceptionChakra) tasks.Insert(tasks.Count - 1, TaskType.GatherQi);
+            bool adult = character.Age >= WorkingAge;
+            var tasks = new List<TaskType>(adult ? EmbryonicTasks : EmbryonicChildTasks);
+            tasks.Remove(TaskType.Rest); // rest stays last
+            if (adult && character.RealmStage >= EspionageChakra) tasks.Add(TaskType.Espionage);
+            if (character.RealmStage >= QiPerceptionChakra) tasks.Add(TaskType.GatherQi);
+            tasks.Add(TaskType.Rest);
             return tasks.ToArray();
         }
 

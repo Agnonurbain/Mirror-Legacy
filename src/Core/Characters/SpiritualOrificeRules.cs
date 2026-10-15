@@ -71,14 +71,15 @@ namespace MirrorChronicles.Characters
 
         /// <summary>
         /// Only a confirmed cultivator — Summit Eye chakra or beyond — can see another's orifice, and only at the domain: not a
-        /// captive, a disciple sent away, nor one at a task far from home (AUDIT_LORE.md §7.2).
+        /// captive, a disciple sent away, one in retreat, nor one at a task far from home (AUDIT_LORE.md §7.2).
         /// </summary>
-        public static bool CanDetectOrifice(CharacterData examiner)
-        {
-            if (!examiner.IsAlive || !Cultivates(examiner)) return false;
-            if (examiner.CaptorFaction != null || examiner.DiscipleOf != null || TaskRules.IsAway(examiner.CurrentTask)) return false;
-            return examiner.Realm > CultivationRealm.Embryonic || examiner.RealmStage >= DetectionChakraStage;
-        }
+        public static bool CanDetectOrifice(CharacterData examiner) =>
+            CanSeeOrifices(examiner) && examiner.CaptorFaction == null && examiner.DiscipleOf == null && examiner.Retreat == Retreat.None
+            && !TaskRules.IsAway(examiner.CurrentTask);
+
+        /// <summary>Sees orifices wherever it is: a living, confirmed cultivator at the Summit Eye chakra or beyond.</summary>
+        public static bool CanSeeOrifices(CharacterData examiner) =>
+            examiner.IsAlive && Cultivates(examiner) && (examiner.Realm > CultivationRealm.Embryonic || examiner.RealmStage >= DetectionChakraStage);
 
         /// <param name="roll">Uniform draw in [0, 1]; 1 (possible with Unity's Random.value) is clamped to the maximum.</param>
         public static int MortalLifespan(double roll)

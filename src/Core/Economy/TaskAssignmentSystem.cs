@@ -234,7 +234,7 @@ namespace MirrorChronicles.Economy
             var target = factions.GetFactionByName(diplomat.DiplomacyTarget) ?? factions.RandomFaction();
             if (target == null) return;
             var s = ctx.Content.Balance.Diplomacy;
-            bool mortal = !SpiritualOrificeRules.CanCultivate(diplomat);
+            bool mortal = !SpiritualOrificeRules.Cultivates(diplomat);
             bool great = target.Kind == FactionKind.Sect || target.Kind == FactionKind.Gate;
             if (great && (mortal || diplomat.Realm < s.GreatPowersReceive)) return; // not received
             int byRealm = s.EnvoyRelationByRealm[Math.Min((int)diplomat.Realm, s.EnvoyRelationByRealm.Length - 1)];

@@ -40,7 +40,7 @@ namespace MirrorChronicles.Presentation
             foreach (var (qi, portions) in resources.SpiritualQi.Where(q => q.Value > 0))
                 terms.Add(($"{portions} portion(s) de {techniques.FindQi(qi)?.Name ?? qi}", new AccordTerm(AccordCurrency.Qi, qi, portions)));
             terms.Add(("une dette : la puissance la réclamera un jour", new AccordTerm(AccordCurrency.Debt, null, 1)));
-            foreach (var member in clan.LivingMembers.Where(m => m.ID != clan.PatriarchID && m.CaptorFaction == null && SpiritualOrificeRules.CanCultivate(m)))
+            foreach (var member in clan.LivingMembers.Where(m => m.ID != clan.PatriarchID && m.CaptorFaction == null && SpiritualOrificeRules.Cultivates(m)))
                 terms.Add(($"{member.FullName} part comme disciple ({RankCatalog.RealmName(member.Realm)})", new AccordTerm(AccordCurrency.Disciple, member.ID, 1)));
 
             return terms.Where(t => accords.TermRefusal(power, t.Term) == null)
@@ -68,7 +68,7 @@ namespace MirrorChronicles.Presentation
             foreach (var artifact in armoury?.Armoury.Where(a => a.LentBy == null) ?? Enumerable.Empty<ArtifactInstance>())
                 terms.Add(($"l'artefact {artifact.Name}", new AccordTerm(AccordCurrency.Artifact, artifact.Id, 1)));
             terms.Add(("une dette : elle la réclamera un jour", new AccordTerm(AccordCurrency.Debt, null, 1)));
-            foreach (var member in clan.LivingMembers.Where(m => m.ID != clan.PatriarchID && m.CaptorFaction == null && SpiritualOrificeRules.CanCultivate(m)))
+            foreach (var member in clan.LivingMembers.Where(m => m.ID != clan.PatriarchID && m.CaptorFaction == null && SpiritualOrificeRules.Cultivates(m)))
                 terms.Add(($"{member.FullName} part comme disciple ({RankCatalog.RealmName(member.Realm)})", new AccordTerm(AccordCurrency.Disciple, member.ID, 1)));
             return terms.Where(t => accords.BarterRefusal(recipient, 0, precious, new[] { t.Term }) == null)
                 .Select(t => new AccordCandidate(t.Label, t.Term, accords.BarterWorth(t.Term, price, precious)))
