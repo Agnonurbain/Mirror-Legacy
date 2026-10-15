@@ -87,8 +87,6 @@ namespace MirrorChronicles.Data
             CheckTechniques(catalog, qi);
             CheckClanKnowledge(clan, catalog.Techniques, qi);
             CheckFruitions(fruitions);
-            foreach (var f in fruitions.Fruitions.Where(f => f.Abilities.Count(a => !a.Substitute && !a.Peripheral) != 5))
-                Require(false, FruitionsFile, $"the lineage {f.Id} needs a centre of five orthodox abilities (mark the others peripheral, audit §7.7).");
             Require(fruitions.Fruitions.Any(f => f.Id == balance.Shamanism.GateFruition), BalanceFile,
                 $"shamanism.gateFruition \"{balance.Shamanism.GateFruition}\" is not a Fruition of {FruitionsFile}.");
             foreach (string dragon in balance.DemonicDao?.DragonBloodSpecies ?? new List<string>())
@@ -632,8 +630,9 @@ namespace MirrorChronicles.Data
                 var abilities = f.Abilities ?? Array.Empty<DivineAbilityDefinition>();
                 Require(abilities.All(a => !string.IsNullOrWhiteSpace(a.Id)) && abilities.Select(a => a.Id).Distinct().Count() == abilities.Count,
                     FruitionsFile, $"{f.Id}: every ability needs its own id.");
-                Require(abilities.Count(a => !a.Substitute) >= OrthodoxAbilities, FruitionsFile,
-                    $"{f.Id}: a lineage has five orthodox abilities (name them null while the world has not revealed them).");
+                Require(abilities.Count(a => !a.Substitute && !a.Peripheral) == OrthodoxAbilities, FruitionsFile,
+                    $"{f.Id}: a lineage has a centre of five orthodox abilities — mark the others peripheral (audit §7.7), name them null while the world has not revealed them.");
+                Require(abilities.All(a => !(a.Substitute && a.Peripheral)), FruitionsFile, $"{f.Id}: an ability is a substitute or peripheral, not both.");
 
                 bool held = f.Status == FruitionStatus.Occupied || f.Status == FruitionStatus.Suspected;
                 bool empty = f.Status == FruitionStatus.Free || f.Status == FruitionStatus.Broken || f.Status == FruitionStatus.Unspecified;

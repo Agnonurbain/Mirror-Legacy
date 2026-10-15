@@ -124,8 +124,9 @@ namespace MirrorChronicles.Diplomacy
             }
         }
 
-        /// <summary>What a term is worth to the power (🔎): stones buy no high technique.</summary>
-        private int Worth(FactionData power, TechniqueData method, AccordTerm term) => TermWorth(term, PriceOf(method), IsPrecious(method));
+        /// <summary>What a term is worth to the power (🔎): stones buy only a common manual of grade 3 or less (audit §7.10).</summary>
+        private int Worth(FactionData power, TechniqueData method, AccordTerm term) =>
+            TermWorth(term, PriceOf(method), !KnowledgeExchange.SoldForStones(method));
 
         /// <summary>What a term is worth for a thing of this price — nothing in stones when the thing is precious.</summary>
         private int TermWorth(AccordTerm term, int price, bool precious)

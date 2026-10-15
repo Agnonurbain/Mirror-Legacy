@@ -29,7 +29,7 @@ namespace MirrorChronicles.Presentation
             if (method == null) return new List<AccordCandidate>();
             var terms = new List<(string Label, AccordTerm Term)>();
 
-            if (!(method.Kind == TechniqueKind.Cultivation && TechniqueRules.HasPurpleMansionSecret(method)))
+            if (KnowledgeExchange.SoldForStones(method)) // audit §7.10
                 terms.Add(($"{accords.PriceOf(method)} pierres spirituelles", new AccordTerm(AccordCurrency.Stones, null, accords.PriceOf(method))));
             foreach (var art in techniques.Known.OrderByDescending(t => t.Grade))
                 terms.Add(($"l'art « {art.Name} » (grade {art.Grade})", new AccordTerm(AccordCurrency.Technique, art.ID, 1)));
