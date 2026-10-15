@@ -135,6 +135,7 @@ namespace MirrorChronicles.Characters
             if (member == null || !member.IsAlive || !IsDemonic(member) || !clan.LivingMembers.Contains(member)) return "seule une bête liée au clan s'éveille ainsi";
             if (!AtTheApogee(member)) return "il faut la Grande Perfection du Manoir Pourpre";
             if (member.CaptorFaction != null) return "captive ailleurs";
+            if (member.ProgressionSealed) return "sa progression est scellée";
             if (resources.SpiritStones < Settings.OfferingStones) return $"il faut {Settings.OfferingStones} pierres spirituelles";
             return null;
         }
@@ -185,7 +186,7 @@ namespace MirrorChronicles.Characters
         private bool ReclaimedByItsKin(CharacterData dragon)
         {
             if (dragon.Realm >= CultivationRealm.GoldenCore || !ctx.Rng.Chance(Settings.DragonReclaimChance)) return false;
-            if (clan.LivingMembers.Any(m => m != dragon && m.CaptorFaction == null && m.Realm >= CultivationRealm.GoldenCore))
+            if (clan.LivingMembers.Any(m => m != dragon && m.CaptorFaction == null && PowerLadder.IsTrueMonarch(m)))
             {
                 ctx.Log.Info($"[DemonicDao] The Eastern Sea's dragons come for {dragon.FullName}; a True Monarch of the clan keeps them away.");
                 ctx.Events.TriggerDragonsRepelled(dragon);
