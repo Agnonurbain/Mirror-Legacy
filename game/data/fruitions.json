@@ -761,6 +761,7 @@
 		},
 		{
 		  "id": "drowned-moon-substitute",
+		  "original": "supreme-yin:drowned-moon",
 		  "name": "Lune Noyée",
 		  "mandate": [ "Mourning" ],
 		  "types": [],
@@ -1080,6 +1081,7 @@
 	  ],
 	  "status": "Broken",
 	  "holder": null,
+	  "formerHoldersReturn": false,
 	  "formerHolders": [
         "le Maître de Douxuan"
 	  ],
@@ -1879,8 +1881,8 @@
 		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
-	  "status": "Unspecified",
-	  "holder": null,
+	  "status": "Occupied",
+	  "holder": "le Vrai Monarque des Lian",
 	  "formerHolders": [],
 	  "surplus": [],
 	  "intercalary": [],
@@ -2274,6 +2276,7 @@
 		},
 		{
 		  "id": "unity-refuge",
+		  "substitute": true,
 		  "name": "Refuge de l'Unicité",
 		  "types": [
             "Life"
@@ -2281,7 +2284,6 @@
 		},
 		{
 		  "id": "back-to-noon",
-		  "peripheral": true,
 		  "name": "Dos au Midi",
 		  "mandate": [ "Peril" ],
 		  "types": []
@@ -2301,8 +2303,8 @@
 		  "interpretedFields": [ "Name", "Substitute" ]
 		}
 	  ],
-	  "status": "Unspecified",
-	  "holder": null,
+	  "status": "Occupied",
+	  "holder": "le Vrai Monarque des Huyan",
 	  "formerHolders": [],
 	  "surplus": [],
 	  "intercalary": [],
@@ -2373,6 +2375,7 @@
 	  ],
 	  "status": "Free",
 	  "holder": null,
+	  "formerHoldersReturn": false,
 	  "formerHolders": [
         "deux Monarques Diables du Bois Rassemblé"
 	  ],
@@ -3976,6 +3979,7 @@
 		},
 		{
 		  "id": "fools-summit-race-substitute",
+		  "original": "orthodox-earth:fools-summit-race",
 		  "name": "Course du Fou vers la Cime",
 		  "mandate": [ "Peril" ],
 		  "types": [],

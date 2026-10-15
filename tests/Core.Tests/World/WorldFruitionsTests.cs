@@ -137,6 +137,7 @@ namespace MirrorChronicles.Tests.World
         {
             var s = Session(With(w => w with { RaceOdds = 0.4 }));
             var gate = s.Factions.GetFactionByName("Porte du Roc Obscur");
+            foreach (var other in s.Factions.Factions.SelectMany(f => f.Elders)) other.Perfected = false; // the only one in the race: no rival closes it first
             var contender = Perfected(s, gate, odds: 0.5); // below the patient 60%: outside a race it would wait
             s.Fruitions.Vacate(Mutable);
             s.WorldFruitions.OpenRace(Mutable);

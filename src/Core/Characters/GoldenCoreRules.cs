@@ -27,7 +27,7 @@ namespace MirrorChronicles.Characters
             var target = fruitions?.FirstOrDefault(f => f.Id == fruitionId);
             if (held == null || held.Count != AbilitiesToForge || target == null) return PositionRoute.None;
 
-            var definitions = held.Select(a => Definition(a, fruitions)).ToList();
+            var definitions = held.Select(a => CopyIn(target, a) ?? Definition(a, fruitions)).ToList(); // an original counts as its copy (audit §8.7)
             if (definitions.Any(d => d.Ability == null)) return PositionRoute.None;
 
             int inTarget = definitions.Count(d => d.Lineage == fruitionId);
@@ -156,6 +156,10 @@ namespace MirrorChronicles.Characters
         }
 
         private static int Clamp(int chance) => Math.Max(1, Math.Min(99, chance));
+
+        /// <summary>The target's substitution that copies this held ability, as if held in the target; null when none.</summary>
+        private static (string Lineage, DivineAbilityDefinition Ability)? CopyIn(FruitionDefinition target, string held) =>
+            target.Abilities.FirstOrDefault(a => a.Original == held) is { } copy ? (target.Id, copy) : null;
 
         private static (string Lineage, DivineAbilityDefinition Ability) Definition(string ability, IReadOnlyList<FruitionDefinition> fruitions)
         {

@@ -58,6 +58,9 @@ namespace MirrorChronicles.Data
         /// </summary>
         public bool Peripheral { get; init; }
 
+        /// <summary>The ability of another lineage this substitution copies (« lineage:ability »), or null (audit §8.7).</summary>
+        public string Original { get; init; }
+
         /// <summary>
         /// The ability's image (LORE.md §5.4.3): a cultivator whose temper embodies it condenses it faster (None: not known).
         /// </summary>
@@ -98,6 +101,9 @@ namespace MirrorChronicles.Data
         public FruitionStatus Status { get; init; }
         public string Holder { get; init; }
         public IReadOnlyList<string> FormerHolders { get; init; } = Array.Empty<string>();
+
+        /// <summary>Whether its former master may come back by the Reprise: not a group, nor an Immortal Lord (audit §8.9).</summary>
+        public bool FormerHoldersReturn { get; init; } = true;
         public IReadOnlyList<string> Surplus { get; init; } = Array.Empty<string>();
         public IReadOnlyList<string> Intercalary { get; init; } = Array.Empty<string>();
         public string Star { get; init; }

@@ -510,7 +510,7 @@ namespace MirrorChronicles.Characters
         private void StruggleOfTheFiveFaces(CharacterData holder)
         {
             var lineage = ctx.Content.Fruitions.FirstOrDefault(f => f.Id == holder.FruitionId);
-            if (lineage == null || lineage.FormerHolders.Count == 0) return;
+            if (lineage == null || lineage.FormerHolders.Count == 0 || !lineage.FormerHoldersReturn) return; // a group, an Immortal Lord comes back to no body (audit §8.9)
             if (!ctx.Rng.Chance(GoldenCoreRules.ReclaimChance(holder, ctx.Content))) return;
 
             string master = lineage.FormerHolders[0];
