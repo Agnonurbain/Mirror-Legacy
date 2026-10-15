@@ -215,6 +215,23 @@ namespace MirrorChronicles.Tests.Characters
             Assert.AreEqual(captive.IsMale, w.WarBattles.Army(w.WarBattles.Pending)[0].IsMale);
         }
 
+        [Test]
+        public void TheWarPanel_NamesTheRenegade_AtItsOwnRealm()
+        {
+            var s = GameSession.NewGame(new GameSetup { Seed = 1, Content = Fixtures.QuietContent });
+            var temple = s.Factions.GetFactionByName(Modern);
+            temple.Elders.Add(new FactionElder { Id = "renegade-x", Name = "Mo Lin", Realm = CultivationRealm.QiRefinement, Stage = 1, BornYear = -30, MaxLifespan = 200, RenegadeId = "x" });
+            temple.HighestRealm = CultivationRealm.PurpleMansion;
+            temple.PowerLevel = 150;
+            var fighter = s.Clan.LivingMembers.First();
+            fighter.HasSpiritualOrifice = true; fighter.OrificeKnown = true; fighter.Realm = CultivationRealm.Foundation; fighter.RealmStage = 2;
+            s.Wars.DeclareOn(Modern);
+            Assert.IsTrue(s.WarBattles.Spring(s.Wars.War(Modern), temple, 0));
+            var view = BattleView.War(s);
+            StringAssert.Contains("Mo Lin", view.LeaderRank);
+            StringAssert.Contains(RankCatalog.RealmName(CultivationRealm.QiRefinement), view.LeaderRank);
+        }
+
         // ---- Kept ----
 
         [Test]
